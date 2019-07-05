@@ -1,0 +1,13 @@
+node_modules/
+package-lock.json
+yarn.lock
+.vs/
+.idea/
+dist/
+test/*.js
+test/*.js.map
+test/*.tsbuildinfo
+
+scripts/*.js
+scripts/*.js.map
+scripts/*.tsbuildinfo

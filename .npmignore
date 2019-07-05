@@ -1,0 +1,30 @@
+# Packages
+node_modules/
+package-json.lock
+yarn.lock
+
+# Log files
+logs/
+*.log
+
+# Miscellaneous
+.tmp/
+docs/
+
+# NPM ignore
+.github/
+.vs/
+.vscode/
+.idea/
+examples/
+scripts/
+test/
+static/
+.eslintrc.json
+.gitattributes
+.gitignore
+azure-pipelines.yml
+tsconfig.json
+
+# Source Code, only the dist is shipped
+src/
