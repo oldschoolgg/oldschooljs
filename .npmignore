@@ -7,23 +7,17 @@ yarn.lock
 logs/
 *.log
 
-# Miscellaneous
-.tmp/
-docs/
+# Build files
+*.tsbuildinfo
+*.tgz
 
 # NPM ignore
-.github/
-.vs/
-.vscode/
-.idea/
-examples/
 scripts/
 test/
-static/
-.eslintrc.json
+.prettierrc.js
+.eslintrc.js
 .gitattributes
 .gitignore
-azure-pipelines.yml
 tsconfig.json
 
 # Source Code, only the dist is shipped
