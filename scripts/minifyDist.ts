@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { minify } from 'terser';
 
-async function walk(dir: string, fileList: string[] = []) {
+async function walk(dir: string, fileList: string[] = []): string[] {
 	const files = await fs.readdir(dir);
 	for (const file of files) {
 		const stat = await fs.stat(path.join(dir, file));
@@ -12,11 +12,11 @@ async function walk(dir: string, fileList: string[] = []) {
 	return fileList;
 }
 
-export default async function minifyDist() {
+export default async function minifyDist(): Promise<void> {
 	const arrayOfPaths = await walk('./dist');
 	for (const path of arrayOfPaths) {
 		if (path.endsWith('.js')) {
-			const codeAsString = await fs.readFile(path).then(file => file.toString());
+			const codeAsString = await fs.readFile(path).then((file): string => file.toString());
 			const { code, error } = minify(codeAsString);
 			if (error || !code) {
 				console.error(error);
@@ -26,7 +26,7 @@ export default async function minifyDist() {
 		}
 
 		if (path.endsWith('.json')) {
-			const jsonString = await fs.readFile(path).then(file => file.toString());
+			const jsonString = await fs.readFile(path).then((file): string => file.toString());
 			const minifiedJson = JSON.stringify(JSON.parse(jsonString));
 			await fs.writeFile(path, minifiedJson);
 		}
