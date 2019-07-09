@@ -1,10 +1,8 @@
 # OldSchoolJS
 
-> Note: Old School JS is currently in early development. According to [SemVer](https://semver.org/), anything may change at any time. The public API should not be considered stable until version 1.0.0.
+> Note: Old School JS is currently in early development. According to [SemVer](https://semver.org/), anything may change at any time. The public API should not be considered stable until version
 
-## Feature RoadMap
-
-Planned features
+## Planned features
 
 ### Worlds
 
