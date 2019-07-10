@@ -11,9 +11,9 @@ const newsArchive = _newsArchive as NewsItem[];
 const BASE_URL = `https://secure.runescape.com/m=news/archive?oldschool=1`;
 
 class News extends Collection<string, NewsItem> {
-	private async getDom(link: string): Promise<JSDOM> {
+	private async getDom(link: string): Promise<Document> {
 		const html: string = await fetch(link).then((res): Promise<string> => res.text());
-		return new JSDOM(html.replace(/\s+/g, ' ').trim());
+		return new JSDOM(html.replace(/\s+/g, ' ').trim()).window.document;
 	}
 
 	public async fetchRecent(): Promise<NewsItem[]> {
@@ -24,7 +24,7 @@ class News extends Collection<string, NewsItem> {
 	public async fetchPageContent(link: string): Promise<PageContent> {
 		const dom = await this.getDom(link);
 
-		const contentEl = dom.window.document.getElementsByClassName('news-article-content')[0];
+		const contentEl = dom.getElementsByClassName('news-article-content')[0];
 		if (!contentEl || !contentEl.textContent) {
 			// TODO
 			throw new Error('News page missing content element. Most likely being ratelimited.');
@@ -32,7 +32,7 @@ class News extends Collection<string, NewsItem> {
 
 		const content: string = contentEl.textContent.trim();
 
-		const description: string = (dom.window.document.querySelector(
+		const description: string = (dom.querySelector(
 			'head meta'
 		) as HTMLMetaElement).content.trim();
 
@@ -51,9 +51,7 @@ class News extends Collection<string, NewsItem> {
 
 		const dom = await this.getDom(this.generateNewsURL(year, month, pageNumber));
 
-		const newsArticles = Array.from(
-			dom.window.document.querySelectorAll('#newsSection .news-list-article')
-		);
+		const newsArticles = Array.from(dom.querySelectorAll('#newsSection .news-list-article'));
 
 		for (const article of newsArticles) {
 			const titleEl: HTMLAnchorElement = article.getElementsByClassName(
@@ -94,7 +92,7 @@ class News extends Collection<string, NewsItem> {
 		}
 
 		// Recursively fetch extra pages, if present.
-		if (Array.from(dom.window.document.querySelectorAll('#nextNews')).length > 0) {
+		if (Array.from(dom.querySelectorAll('#nextNews')).length > 0) {
 			const nextPage = await this.fetchMonth(year, month, pageNumber + 1);
 			newsArticlesCollection = [...newsArticlesCollection, ...nextPage];
 		}
