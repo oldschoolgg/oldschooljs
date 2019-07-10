@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import * as path from 'path';
 import { minify } from 'terser';
 
-async function walk(dir: string, fileList: string[] = []): string[] {
+async function walk(dir: string, fileList: string[] = []): Promise<string[]> {
 	const files = await fs.readdir(dir);
 	for (const file of files) {
 		const stat = await fs.stat(path.join(dir, file));

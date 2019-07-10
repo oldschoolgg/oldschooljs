@@ -6,7 +6,8 @@
 		"declaration": true,
 		"removeComments": false,
 		"outDir": "./dist",
-		"types": ["node"]
+		"types": ["node"],
+		"target": "ES6"
 	},
 	"include": ["./src/**/*"]
 }
