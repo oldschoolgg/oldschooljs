@@ -8749,5 +8749,27 @@
 		"month": 7,
 		"day": 5,
 		"timestamp": 1562284800000
+	},
+	{
+		"title": "Small Game Improvements",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-07-09/votenail.png",
+		"date": "2019-07-09",
+		"category": "Game Updates",
+		"link": "small-game-improvements",
+		"year": 2019,
+		"month": 7,
+		"day": 9,
+		"timestamp": 1562630400000
+	},
+	{
+		"title": "Golden Gnome Awards Announcement",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2018/newsposts/2018-09-26/rfthumb.png",
+		"date": "2019-07-09",
+		"category": "Community",
+		"link": "golden-gnome-awards-announcement",
+		"year": 2019,
+		"month": 7,
+		"day": 9,
+		"timestamp": 1562630400000
 	}
 ]
