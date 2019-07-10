@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Utility, API Wrapper library for Old School RuneScape (OSRS)",
 	"main": "dist/index.js",
 	"types": "dist/meta/index.d.ts",
