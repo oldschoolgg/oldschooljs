@@ -140,3 +140,12 @@ export interface DateYearMonth {
 	year: number;
 	month: number;
 }
+
+export interface WikiPage {
+	image?: string;
+	lastRevisionID: number;
+	url: string;
+	pageID: number;
+	title: string;
+	extract?: string;
+}
