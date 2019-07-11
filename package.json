@@ -1,9 +1,9 @@
 {
 	"name": "oldschooljs",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
-	"types": "dist/meta/types.d.ts",
+	"types": "dist/index.d.ts",
 	"scripts": {
 		"prepublishOnly": "npm run prepare && npm run build",
 		"test": "npm run build && npm run test:build && npm run test:run",
