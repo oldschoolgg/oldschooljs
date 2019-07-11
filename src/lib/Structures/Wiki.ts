@@ -4,6 +4,25 @@ import { WikiPage } from '../../meta/types';
 const WIKI_URL = 'https://oldschool.runescape.wiki/api.php';
 
 class Wiki {
+	public async fetchPage(pageID: number): Promise<WikiPage | undefined> {
+		const results = await this.fetchAPI({
+			action: 'query',
+			format: 'json',
+			prop: ['extracts', 'pageimages', 'info'].join('|'),
+			iwurl: '1',
+			formatversion: '2',
+			exsentences: '5',
+			exintro: '1',
+			explaintext: '1',
+			piprop: 'original',
+			inprop: 'url',
+			pageids: pageID
+		});
+
+		if (!results || !results.query) return undefined;
+		return this.parseRawPage(results.query.pages[0]);
+	}
+
 	public async random(): Promise<WikiPage[]> {
 		const results = await this.fetchAPI({
 			action: 'query',
@@ -58,10 +77,9 @@ class Wiki {
 		};
 	}
 
-	private fetchAPI(query: any): Promise<any> {
+	public fetchAPI(query: any): Promise<any> {
 		const apiURL = new URL(WIKI_URL);
 		apiURL.search = new URLSearchParams(query).toString();
-
 		return fetch(apiURL.toString()).then((res): Promise<any> => res.json());
 	}
 }

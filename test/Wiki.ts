@@ -16,9 +16,15 @@ test('Searching', async t => {
 test('Random', async t => {
 	t.plan(1);
 
-	const randomPages = await Wiki.random().catch(err => {
-		console.log(123, err);
-	});
-	if (!randomPages) return;
+	const randomPages = await Wiki.random();
+	if (!randomPages) return t.fail('Failed to fetch page');
 	t.equal(randomPages.length, 10, 'Expected to have 10 random articles');
+});
+
+test('Fetching by ID', async t => {
+	t.plan(1);
+
+	const twistedBowPage = await Wiki.fetchPage(82098);
+	if (!twistedBowPage) return t.fail('Failed to fetch page');
+	t.equal(twistedBowPage.title, 'Twisted bow', 'Expected to fetch twisted bow article by ID');
 });
