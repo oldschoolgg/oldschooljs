@@ -5,8 +5,6 @@ import { getDate } from '../dist/lib/Util/util';
 
 const currentNews = JSON.parse(readFileSync('./src/data/news/news_archive.json').toString());
 
-const lastArticle = News.last();
-
 function decrementDate({ year, month }: DateYearMonth): DateYearMonth {
 	if (month === 1) {
 		return {
@@ -25,10 +23,10 @@ export async function fetchNewArticles({
 	year,
 	month
 }: DateYearMonth): Promise<NewsItem[] | undefined> {
-	if (!lastArticle) throw new Error('Missing last article.');
-
 	let articles = await News.fetchMonth(year, month);
-	if (articles[0].title === lastArticle.title) {
+
+	// If every article in the last month of news is already in News, return.
+	if (articles.every(article => News.some(_article => _article.link === article.link))) {
 		return undefined;
 	}
 
@@ -36,18 +34,20 @@ export async function fetchNewArticles({
 
 	let newArticles: NewsItem[] = [];
 
-	while (!articles.some((article): boolean => article.title === lastArticle.title)) {
+	// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
+	while (
+		!articles.some((article): boolean => News.some(_article => article.link === _article.link))
+	) {
 		const newDate = decrementDate({ year, month });
+		console.log('Fetching month of articles...');
 		const nextMonth = await News.fetchMonth(newDate.year, newDate.month);
 		if (!nextMonth) throw new Error('Unexpected error');
 		articles = [...articles, ...nextMonth];
 	}
 
+	// Return the new articles from the fetched articles.
 	for (const article of articles) {
-		if (article.title === lastArticle.title) return newArticles;
-		article.link = article.link
-			.replace('https://secure.runescape.com/m=news/', '')
-			.replace('?oldschool=1', '');
+		if (News.some(_article => _article.link === article.link)) continue;
 
 		newArticles.push(article);
 	}

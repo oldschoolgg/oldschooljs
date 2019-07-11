@@ -108,11 +108,7 @@ class News extends Collection<string, NewsItem> {
 const news = new News();
 
 for (const article of newsArchive) {
-	const newArticle = {
-		...article,
-		link: `https://secure.runescape.com/m=news/${article.link}?oldschool=1`
-	};
-	news.set(article.title, newArticle);
+	news.set(article.link, article);
 }
 
 export default news;
