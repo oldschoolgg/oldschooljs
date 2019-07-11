@@ -149,3 +149,13 @@ export interface WikiPage {
 	title: string;
 	extract?: string;
 }
+
+export type WorldLocation = 'Australia' | 'United Kingdom' | 'Germany' | 'United States';
+
+export interface World {
+	number: number;
+	players: number;
+	location: WorldLocation;
+	members: boolean;
+	activity: string;
+}

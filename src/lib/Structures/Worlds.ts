@@ -2,16 +2,7 @@ import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
 
 import Collection from './Collection';
-
-export type WorldLocation = 'Australia' | 'United Kingdom' | 'Germany' | 'United States';
-
-export interface World {
-	number: number;
-	players: number;
-	location: WorldLocation;
-	members: boolean;
-	activity: string;
-}
+import { World, WorldLocation } from '../../meta/types';
 
 class Worlds extends Collection<number, World> {
 	public async fetch(number?: number): Promise<World | undefined | void> {
@@ -28,7 +19,6 @@ class Worlds extends Collection<number, World> {
 		for (const WorldRow of CollectionOfElements) {
 			const columns = Array.from(WorldRow.children);
 
-			// TODO
 			if (
 				!columns[0].textContent ||
 				!columns[1].textContent ||
