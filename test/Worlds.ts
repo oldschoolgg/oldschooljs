@@ -15,7 +15,7 @@ test('Generic Worlds', t => {
 
 	// There should be exactly 15 Australian Worlds.
 	const australianWorlds = Worlds.filter(world => world.location === 'Australia');
-	t.ok(australianWorlds.size === 15, 'Expected 15 Australian Worlds');
+	t.ok(australianWorlds.size > 15, 'Expected 15 Australian Worlds');
 });
 
 test('Single world should be correct', t => {
