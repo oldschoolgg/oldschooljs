@@ -27,7 +27,7 @@ export const SKILLS = [
 	'construction'
 ];
 
-export const MINIGAMES = ['bounterHunter', 'bounterHunterRogue', 'LMS'];
+export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 

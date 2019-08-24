@@ -48,7 +48,7 @@ export interface SkillsScore {
 
 export interface MinigamesScore {
 	bountyHunter: MinigameScore;
-	BountyHunterRogue: MinigameScore;
+	bountyHunterRogue: MinigameScore;
 	LMS: MinigameScore;
 }
 
