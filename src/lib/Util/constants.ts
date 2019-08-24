@@ -27,18 +27,9 @@ export const SKILLS = [
 	'construction'
 ];
 
-export const MINIGAMES = [
-	'Bounty_Hunter',
-	'Bounty_Hunter_Rogues',
-	'LMS',
-	'Clue_Scrolls_All',
-	'Clue_Scrolls_Beginner',
-	'Clue_Scrolls_Easy',
-	'Clue_Scrolls_Medium',
-	'Clue_Scrolls_Hard',
-	'Clue_Scrolls_Elite',
-	'Clue_Scrolls_Master'
-];
+export const MINIGAMES = ['bounterHunter', 'bounterHunterRogue', 'LMS'];
+
+export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 
 // Hiscores
 

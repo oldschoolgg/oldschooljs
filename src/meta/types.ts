@@ -16,6 +16,7 @@ export interface Player {
 	type: AccountType;
 	skills: SkillsScore;
 	minigames: MinigamesScore;
+	clues: CluesScore;
 }
 
 export interface SkillsScore {
@@ -46,16 +47,19 @@ export interface SkillsScore {
 }
 
 export interface MinigamesScore {
-	Bounty_Hunter: MinigameScore;
-	Bounty_Hunter_Rogues: MinigameScore;
+	bountyHunter: MinigameScore;
+	BountyHunterRogue: MinigameScore;
 	LMS: MinigameScore;
-	Clue_Scrolls_All: MinigameScore;
-	Clue_Scrolls_Beginner: MinigameScore;
-	Clue_Scrolls_Easy: MinigameScore;
-	Clue_Scrolls_Medium: MinigameScore;
-	Clue_Scrolls_Hard: MinigameScore;
-	Clue_Scrolls_Elite: MinigameScore;
-	Clue_Scrolls_Master: MinigameScore;
+}
+
+export interface CluesScore {
+	all: MinigameScore;
+	beginner: MinigameScore;
+	easy: MinigameScore;
+	medium: MinigameScore;
+	hard: MinigameScore;
+	elite: MinigameScore;
+	master: MinigameScore;
 }
 
 export interface MinigameScore {

@@ -1,16 +1,24 @@
-import { Player as PlayerType, SkillsScore, MinigamesScore, AccountType } from '../../meta/types';
+import {
+	Player as PlayerType,
+	SkillsScore,
+	MinigamesScore,
+	AccountType,
+	CluesScore
+} from '../../meta/types';
 
 class Player {
 	public username: string;
 	public skills: SkillsScore;
 	public minigames: MinigamesScore;
 	public type: AccountType;
+	public clues: CluesScore;
 
 	public constructor(player: PlayerType) {
 		this.username = player.username;
 		this.skills = player.skills;
 		this.minigames = player.minigames;
 		this.type = player.type;
+		this.clues = player.clues;
 	}
 
 	public get combatLevel(): number {

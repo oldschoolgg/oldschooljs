@@ -1,4 +1,4 @@
-import { SKILLS, MINIGAMES } from './constants';
+import { SKILLS, MINIGAMES, CLUES } from './constants';
 import { Player } from '../..';
 import { DateYearMonth } from '../../meta/types';
 
@@ -14,7 +14,8 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 	const data: string[][] = csvData.split('\n').map((str): string[] => str.split(','));
 	const resolvedPlayer: any = {
 		skills: {},
-		minigames: {}
+		minigames: {},
+		clues: {}
 	};
 	for (let i = 0; i < SKILLS.length; i++) {
 		resolvedPlayer.skills[SKILLS[i]] = {
@@ -27,6 +28,12 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + SKILLS.length][0]),
 			score: Number(data[i + SKILLS.length][1])
+		};
+	}
+	for (let i = 0; i < CLUES.length; i++) {
+		resolvedPlayer.clues[CLUES[i]] = {
+			rank: Number(data[i + SKILLS.length + MINIGAMES.length][0]),
+			score: Number(data[i + SKILLS.length + MINIGAMES.length][1])
 		};
 	}
 	return resolvedPlayer;

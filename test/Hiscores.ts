@@ -3,13 +3,19 @@ import { Hiscores } from '../dist/';
 import * as test from 'tape';
 
 test('Hiscores Should Return Correct Results', async t => {
-	t.plan(4);
+	t.plan(5);
 
 	const LynxTitan = await Hiscores.fetch('Lynx Titan');
 	t.equal(LynxTitan.username, 'Lynx Titan', 'Expected name to equal Lynx Titan.');
 	t.equal(LynxTitan.combatLevel, 126, 'Expected combat level to equal 126');
 	t.equal(LynxTitan.skills.overall.level, 2277, 'Expected total level to equal 2277');
 	t.equal(LynxTitan.skills.overall.xp, 4600000000, 'Expected total xp to equal 4600000000');
+	t.equal(LynxTitan.clues.all.score >= 22, true, 'Expected correct clue scores');
+	t.equal(
+		typeof LynxTitan.minigames.bountyHunter.rank,
+		'number',
+		'Expected correct minigame scores'
+	);
 });
 
 test('Hiscores Handling Invalid Usernames', async assert => {

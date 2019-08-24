@@ -35,7 +35,8 @@ class Hiscores {
 			username,
 			type: options.type,
 			skills: data.skills,
-			minigames: data.minigames
+			minigames: data.minigames,
+			clues: data.clues
 		});
 	}
 }
