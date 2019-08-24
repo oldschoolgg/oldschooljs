@@ -80,14 +80,14 @@ class News extends Collection<string, NewsItem> {
 			const newsItem: NewsItem = {
 				title,
 				image,
-				date,
 				category,
 				link,
 				year,
 				month,
 				day: parseInt(date.split('-')[2]),
-				timestamp: Date.parse(date)
+				date: Date.parse(date)
 			};
+
 			newsArticlesCollection.push(newsItem);
 		}
 

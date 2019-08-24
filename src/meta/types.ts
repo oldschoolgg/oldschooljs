@@ -122,13 +122,12 @@ export interface Item {
 export interface NewsItem {
 	title: string;
 	link: string;
-	date: string;
 	image?: string;
 	category: string;
 	month: number;
 	year: number;
 	day: number;
-	timestamp: number;
+	date: number;
 }
 
 export interface PageContent {

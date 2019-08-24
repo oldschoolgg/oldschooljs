@@ -58,18 +58,11 @@ export async function fetchNewArticles({
 export default async function prepareNews(): Promise<void> {
 	const { year, month } = getDate();
 	const newArticles = await fetchNewArticles({ year, month });
-
 	if (newArticles) {
 		console.log(`Found ${newArticles.length} news articles to be added.`);
 		writeFileSync(
 			'./src/data/news/_news_archive.json',
-			JSON.stringify(
-				[...currentNews, ...newArticles]
-					.map(
-						(article): NewsItem => ({ ...article, timestamp: Date.parse(article.date) })
-					)
-					.sort((a, b): number => a.timestamp - b.timestamp)
-			)
+			JSON.stringify([...currentNews, ...newArticles])
 		);
 	}
 }
