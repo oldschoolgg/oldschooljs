@@ -3,7 +3,7 @@ import { Hiscores } from '../dist/';
 import * as test from 'tape';
 
 test('Hiscores Should Return Correct Results', async t => {
-	t.plan(5);
+	t.plan(6);
 
 	const LynxTitan = await Hiscores.fetch('Lynx Titan');
 	t.equal(LynxTitan.username, 'Lynx Titan', 'Expected name to equal Lynx Titan.');
