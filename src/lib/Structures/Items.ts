@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 import { cleanString } from '../Util/util.js';
 import { OSRS_BOX_BASE_URL } from '../Util/constants';
-import { ItemID, Item } from '../../meta/types';
+import { ItemID, Item, PartialItem } from '../../meta/types';
 import Collection from './Collection.js';
 
 import * as _items from '../../data/items/item_data.json';
@@ -15,14 +15,14 @@ interface ItemCollection {
 	[index: string]: Item;
 }
 
-class Items extends Collection<number, Item> {
+class Items extends Collection<number, Item | PartialItem> {
 	public async fetchAll(): Promise<void> {
 		const allItems: ItemCollection = await fetch(
 			`${OSRS_BOX_BASE_URL}/items-complete.json`
 		).then((res): Promise<any> => res.json());
 
 		for (const item of Object.values(allItems).filter(
-			(item): boolean => !item.placeholder && !item.noted
+			(item): boolean => !item.placeholder && !item.noted && !item.duplicate
 		)) {
 			this.set(item.id, item);
 		}
@@ -30,6 +30,7 @@ class Items extends Collection<number, Item> {
 
 	public async fetch(input: ItemResolvable): Promise<Item> {
 		const id = this.resolveID(input);
+
 		const item: Item = await fetch(`${OSRS_BOX_BASE_URL}/items-json/${id}.json`).then(
 			(res): Promise<any> => res.json()
 		);
@@ -38,7 +39,7 @@ class Items extends Collection<number, Item> {
 		return item;
 	}
 
-	public get(item: ItemResolvable): Item | undefined {
+	public get(item: ItemResolvable): Item | PartialItem | undefined {
 		const id = this.resolveID(item);
 		if (!id) return undefined;
 		return super.get(id);
@@ -51,9 +52,7 @@ class Items extends Collection<number, Item> {
 
 		if (typeof input === 'string') {
 			const cleanName = cleanString(input);
-			const itemID = itemNameMap.get(cleanName);
-
-			return itemID;
+			return itemNameMap.get(cleanName);
 		}
 
 		return undefined;

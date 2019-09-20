@@ -7,7 +7,8 @@
 		"removeComments": false,
 		"outDir": "./dist",
 		"types": ["node"],
-		"target": "ES6"
+		"target": "ES6",
+		"resolveJsonModule": true
 	},
 	"include": ["./src/**/*"]
 }

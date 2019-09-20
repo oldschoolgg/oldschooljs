@@ -74,53 +74,137 @@ export interface SkillScore {
 }
 
 export type ItemID = number;
+/**
+ * The equipment bonuses of equipable armour/weapons.
+ */
+export type ItemEquipment = {
+	[k: string]: any;
+} | null;
+/**
+ * The information about weapon properties.
+ */
+export type ItemWeapon = {
+	[k: string]: any;
+} | null;
 
+/**
+ * A representation of an Old School RuneScape (OSRS) item.
+ */
 export interface Item {
+	/**
+	 * Unique OSRS item ID number.
+	 */
 	id: number;
+	/**
+	 * Name of the item.
+	 */
 	name: string;
-	members?: boolean;
-	tradeable?: boolean;
-	tradeable_on_ge?: boolean;
-	stackable?: boolean;
-	noted?: boolean;
-	noteable?: boolean;
-	linked_id?: number;
-	placeholder?: boolean;
-	equipable?: boolean;
-	equipable_by_player?: boolean;
-	cost?: number;
-	lowalch?: number;
-	highalch?: number;
-	weight?: number;
-	buy_limit?: number;
-	quest_item?: boolean;
-	release_date?: string;
-	examine?: string;
-	url?: string;
-	equipment?: {
-		attack_stab: number;
-		attack_slash: number;
-		attack_crush: number;
-		attack_magi: number;
-		attack_ranged: number;
-		defence_stab: number;
-		defence_slash: number;
-		defence_crush: number;
-		defence_magic: number;
-		defence_ranged: number;
-		melee_strength: number;
-		ranged_strength: number;
-		magic_damage: number;
-		prayer: number;
-		slot: string;
-		requirements?: any;
-	};
+	/**
+	 * If the item is a members-only.
+	 */
+	members: boolean;
+	/**
+	 * If the item is tradeable (between players and on the GE).
+	 */
+	tradeable: boolean;
+	/**
+	 * If the item is tradeable (only on GE).
+	 */
+	tradeable_on_ge: boolean;
+	/**
+	 * If the item is stackable (in inventory).
+	 */
+	stackable: boolean;
+	/**
+	 * If the item is noted.
+	 */
+	noted: boolean;
+	/**
+	 * If the item is noteable.
+	 */
+	noteable: boolean;
+	/**
+	 * The linked ID of the actual item (if noted/placeholder).
+	 */
+	linked_id_item: number | null;
+	/**
+	 * The linked ID of an item in noted form.
+	 */
+	linked_id_noted: number | null;
+	/**
+	 * The linked ID of an item in placeholder form.
+	 */
+	linked_id_placeholder: number | null;
+	/**
+	 * If the item is a placeholder.
+	 */
+	placeholder: boolean;
+	/**
+	 * If the item is equipable (based on right-click menu entry).
+	 */
+	equipable: boolean;
+	/**
+	 * If the item is equipable by a player and is equipable in-game.
+	 */
+	equipable_by_player: boolean;
+	/**
+	 * The store price of an item.
+	 */
+	cost: number;
+	/**
+	 * The low alchemy value of the item (cost * 0.4).
+	 */
+	lowalch: number;
+	/**
+	 * The high alchemy value of the item (cost * 0.6).
+	 */
+	highalch: number;
+	/**
+	 * The weight (in kilograms) of the item.
+	 */
+	weight: number | null;
+	/**
+	 * The GE buy limit of the item.
+	 */
+	buy_limit: number | null;
+	/**
+	 * If the item is associated with a quest.
+	 */
+	quest_item: boolean;
+	/**
+	 * Date the item was released (in ISO8601 format).
+	 */
+	release_date: string | null;
+	/**
+	 * If the item is a duplicate.
+	 */
+	duplicate?: boolean;
+	/**
+	 * The examine text for the item.
+	 */
+	examine: string | null;
+	/**
+	 * The OSRS Wiki name for the item.
+	 */
+	wiki_name: string | null;
+	/**
+	 * The OSRS Wiki URL (possibly including anchor link).
+	 */
+	wiki_url: string | null;
+	equipment: ItemEquipment;
+	weapon?: ItemWeapon;
+	[k: string]: any;
+}
 
-	weapon?: {
-		attack_speed: number;
-		weapon_type: string;
-		stances: any[];
-	};
+export interface PartialItem {
+	/**
+	 * Unique OSRS item ID number.
+	 */
+	id: number;
+	/**
+	 * Name of the item.
+	 */
+	name: string;
 }
 
 export interface NewsItem {
@@ -151,6 +235,10 @@ export interface WikiPage {
 	pageID: number;
 	title: string;
 	extract?: string;
+	categories: {
+		title: string;
+		ns: number;
+	}[];
 }
 
 export type WorldLocation = 'Australia' | 'United Kingdom' | 'Germany' | 'United States';

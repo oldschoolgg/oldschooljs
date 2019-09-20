@@ -1,21 +1,26 @@
 import fetch from 'node-fetch';
+
 import { WikiPage } from '../../meta/types';
 
-const WIKI_URL = 'https://oldschool.runescape.wiki/api.php';
-
 class Wiki {
+	private URL = 'https://oldschool.runescape.wiki/api.php';
+	private ignoredCategories = ['Slang dictionary', 'Disambiguation'].map(i => `Category:${i}`);
+	private commonPageAPIOptions = {
+		action: 'query',
+		format: 'json',
+		prop: ['extracts', 'pageimages', 'info', 'categories'].join('|'),
+		formatversion: '2',
+		piprop: 'original',
+		inprop: 'url',
+		exsentences: '5',
+		exintro: '1',
+		explaintext: '1',
+		cllimit: 'max'
+	};
+
 	public async fetchPage(pageID: number): Promise<WikiPage | undefined> {
 		const results = await this.fetchAPI({
-			action: 'query',
-			format: 'json',
-			prop: ['extracts', 'pageimages', 'info'].join('|'),
 			iwurl: '1',
-			formatversion: '2',
-			exsentences: '5',
-			exintro: '1',
-			explaintext: '1',
-			piprop: 'original',
-			inprop: 'url',
 			pageids: pageID
 		});
 
@@ -23,47 +28,39 @@ class Wiki {
 		return this.parseRawPage(results.query.pages[0]);
 	}
 
-	public async random(): Promise<WikiPage[]> {
+	public async random(amount: number = 20): Promise<WikiPage[]> {
 		const results = await this.fetchAPI({
-			action: 'query',
-			format: 'json',
-			prop: ['extracts', 'pageimages', 'info'].join('|'),
 			generator: 'random',
-			formatversion: '2',
-			exsentences: '5',
-			exintro: '1',
-			explaintext: '1',
-			piprop: 'original',
-			inprop: 'url',
 			grnnamespace: '0',
-			grnlimit: '10'
+			grnlimit: amount
 		});
 
 		if (!results || !results.query) return [];
-		return results.query.pages.map(this.parseRawPage);
+		return results.query.pages.filter(this.filterUselessCategories).map(this.parseRawPage);
 	}
+
+	private filterUselessCategories = (page: WikiPage) => {
+		if (!page.categories || page.categories.length === 0) {
+			return true;
+		}
+
+		return page.categories.every(category => {
+			return !this.ignoredCategories.includes(category.title);
+		});
+	};
 
 	public async search(query: string): Promise<WikiPage[]> {
 		const results = await this.fetchAPI({
-			action: 'query',
-			format: 'json',
-			prop: ['extracts', 'pageimages', 'info'].join('|'),
 			iwurl: '1',
 			generator: 'search',
-			formatversion: '2',
-			exsentences: '5',
-			exintro: '1',
-			explaintext: '1',
-			piprop: 'original',
-			inprop: 'url',
 			gsrsearch: encodeURIComponent(query),
-			gsrlimit: '1'
+			gsrlimit: '20'
 		});
 
 		const pages: WikiPage[] = [];
 
 		if (!results || !results.query) return pages;
-		return results.query.pages.map(this.parseRawPage);
+		return results.query.pages.filter(this.filterUselessCategories).map(this.parseRawPage);
 	}
 
 	private parseRawPage(rawPage: any): WikiPage {
@@ -73,13 +70,14 @@ class Wiki {
 			image: rawPage.original && rawPage.original.source,
 			url: rawPage.fullurl,
 			lastRevisionID: rawPage.lastrevid,
-			pageID: rawPage.pageid
+			pageID: rawPage.pageid,
+			categories: rawPage.categories
 		};
 	}
 
 	public fetchAPI(query: any): Promise<any> {
-		const apiURL = new URL(WIKI_URL);
-		apiURL.search = new URLSearchParams(query).toString();
+		const apiURL = new URL(this.URL);
+		apiURL.search = new URLSearchParams({ ...this.commonPageAPIOptions, ...query }).toString();
 		return fetch(apiURL.toString()).then((res): Promise<any> => res.json());
 	}
 }

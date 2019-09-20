@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
 
-import { NewsItem, PageContent } from '../../meta/types';
+import { NewsItem, PageContent, DateYearMonth } from '../../meta/types';
 import { getDate } from '../Util/util';
 import * as _newsArchive from '../../data/news/news_archive.json';
 import Collection from './Collection';
@@ -17,8 +17,7 @@ class News extends Collection<string, NewsItem> {
 	}
 
 	public async fetchRecent(): Promise<NewsItem[]> {
-		const { month, year } = getDate();
-		return this.fetchMonth(month, year);
+		return this.fetchMonth(getDate());
 	}
 
 	public async fetchPageContent(link: string): Promise<PageContent> {
@@ -42,9 +41,60 @@ class News extends Collection<string, NewsItem> {
 		};
 	}
 
+	private decrementDate({ year, month }: DateYearMonth): DateYearMonth {
+		if (month === 1) {
+			return {
+				year: year - 1,
+				month: 12
+			};
+		} else {
+			return {
+				year,
+				month: month - 1
+			};
+		}
+	}
+
+	public async fetchNewArticles(
+		date: DateYearMonth = getDate()
+	): Promise<NewsItem[] | undefined> {
+		let articles = await this.fetchMonth(date, false);
+
+		// If every article in the last month of news is already in News, return.
+		if (articles.every(article => this.some(_article => _article.link === article.link))) {
+			return undefined;
+		}
+
+		let newArticles: NewsItem[] = [];
+
+		// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
+		while (
+			!articles.some((article): boolean =>
+				this.some(_article => article.link === _article.link)
+			)
+		) {
+			const newDate = this.decrementDate(date);
+			const nextMonth = await this.fetchMonth(
+				{ year: newDate.year, month: newDate.month },
+				true
+			);
+			if (!nextMonth) throw new Error('Unexpected error');
+			articles = [...articles, ...nextMonth];
+		}
+
+		// Return the new articles from the fetched articles.
+		for (const article of articles) {
+			if (this.some(_article => _article.link === article.link)) continue;
+			this.set(article.link, article);
+			newArticles.push(article);
+		}
+
+		return newArticles;
+	}
+
 	public async fetchMonth(
-		year: number,
-		month: number,
+		{ year, month }: DateYearMonth,
+		cache: boolean = true,
 		pageNumber: number = 1
 	): Promise<NewsItem[]> {
 		let newsArticlesCollection: NewsItem[] = [];
@@ -88,12 +138,16 @@ class News extends Collection<string, NewsItem> {
 				date: Date.parse(date)
 			};
 
+			if (cache) {
+				this.set(link, newsItem);
+			}
+
 			newsArticlesCollection.push(newsItem);
 		}
 
 		// Recursively fetch extra pages, if present.
 		if (Array.from(dom.querySelectorAll('#nextNews')).length > 0) {
-			const nextPage = await this.fetchMonth(year, month, pageNumber + 1);
+			const nextPage = await this.fetchMonth({ year, month }, true, pageNumber + 1);
 			newsArticlesCollection = [...newsArticlesCollection, ...nextPage];
 		}
 

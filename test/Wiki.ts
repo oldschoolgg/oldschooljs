@@ -13,14 +13,6 @@ test('Searching', async t => {
 	t.equal(twistedBow.title, 'Twisted bow', 'Expected Twisted bow name to be correct');
 });
 
-test('Random', async t => {
-	t.plan(1);
-
-	const randomPages = await Wiki.random();
-	if (!randomPages) return t.fail('Failed to fetch page');
-	t.equal(randomPages.length, 10, 'Expected to have 10 random articles');
-});
-
 test('Fetching by ID', async t => {
 	t.plan(1);
 

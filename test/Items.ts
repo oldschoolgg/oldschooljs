@@ -7,19 +7,19 @@ test('Setup', async t => {
 	t.end();
 });
 
-test('Fetching Item by ID', async t => {
+test('Fetching Item by ID', t => {
 	t.plan(2);
 
-	const twistedBow = await Items.get(20997);
+	const twistedBow = Items.get(20997);
 	if (!twistedBow) return t.fail('Missing item.');
 	t.equal(twistedBow.id, 20997, 'Expected Twisted bow id to be 20997');
 	t.equal(twistedBow.name, 'Twisted bow', 'Expected Twisted bow name to be correct');
 });
 
-test('Fetching Item by Name', async t => {
+test('Fetching Item by Name', t => {
 	t.plan(2);
 
-	const dragonDagger = await Items.get('dragon dagger(p++)');
+	const dragonDagger = Items.get('dragon dagger(p++)');
 	if (!dragonDagger) return t.fail('Missing item.');
 	t.equal(dragonDagger.id, 5699, 'Expected Dragon dagger(p++) to return 5699');
 	t.equal(
@@ -29,7 +29,7 @@ test('Fetching Item by Name', async t => {
 	);
 });
 
-test('Fetching Item by .find', async t => {
+test('Fetching Item by .find', t => {
 	t.plan(2);
 
 	const twistedBow = Items.find(item => item.name.includes('Twisted bow'));
