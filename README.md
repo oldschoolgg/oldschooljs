@@ -203,6 +203,8 @@ console.log(twistedBowPage);
 
 ## Planned features
 
--   Ability to ping worlds
+-   Ability to ping worlds?
 -   Polls (questions, vote counts, etc)
 -   CrystalMathLabs
+-   Simulating: killing monsters, opening clue scrolls, pets (like in osbot)
+-   Quests (e.g. containing all wiki data on quests)
