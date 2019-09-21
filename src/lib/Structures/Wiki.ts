@@ -4,7 +4,9 @@ import { WikiPage } from '../../meta/types';
 
 class Wiki {
 	private URL = 'https://oldschool.runescape.wiki/api.php';
-	private ignoredCategories = ['Slang dictionary', 'Disambiguation'].map(i => `Category:${i}`);
+	private searchOptions: { [index: string]: string } = {
+		'-incategory': ['Slang_dictionary', 'Disambiguation'].join('|')
+	};
 	private commonPageAPIOptions = {
 		action: 'query',
 		format: 'json',
@@ -36,31 +38,23 @@ class Wiki {
 		});
 
 		if (!results || !results.query) return [];
-		return results.query.pages.filter(this.filterUselessCategories).map(this.parseRawPage);
+		return results.query.pages.map(this.parseRawPage);
 	}
 
-	private filterUselessCategories = (page: WikiPage) => {
-		if (!page.categories || page.categories.length === 0) {
-			return true;
-		}
-
-		return page.categories.every(category => {
-			return !this.ignoredCategories.includes(category.title);
-		});
-	};
-
 	public async search(query: string): Promise<WikiPage[]> {
+		const parsedSearchOptions = Object.keys(this.searchOptions)
+			.map(prop => `${prop}:${this.searchOptions[prop]}`)
+			.join(' ');
+
 		const results = await this.fetchAPI({
 			iwurl: '1',
 			generator: 'search',
-			gsrsearch: encodeURIComponent(query),
-			gsrlimit: '20'
+			gsrlimit: '20',
+			gsrsearch: `${encodeURIComponent(query)} ${parsedSearchOptions}`
 		});
 
-		const pages: WikiPage[] = [];
-
-		if (!results || !results.query) return pages;
-		return results.query.pages.filter(this.filterUselessCategories).map(this.parseRawPage);
+		if (!results || !results.query) return [];
+		return results.query.pages.map(this.parseRawPage);
 	}
 
 	private parseRawPage(rawPage: any): WikiPage {
