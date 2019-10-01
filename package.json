@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "0.3.1",
+	"version": "0.4.0",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -28,8 +28,8 @@
 	},
 	"devDependencies": {
 		"@types/jsdom": "^12.2.4",
-		"@types/node": "^12.6.2",
-		"@types/node-fetch": "^2.3.7",
+		"@types/node": "^12.7.8",
+		"@types/node-fetch": "^2.5.2",
 		"@types/tape": "^4.2.33",
 		"@typescript-eslint/eslint-plugin": "^1.11.0",
 		"@typescript-eslint/parser": "^1.11.0",
@@ -41,7 +41,7 @@
 		"prettier": "^1.18.2",
 		"pretty-quick": "^1.11.1",
 		"tape": "^4.11.0",
-		"terser": "^4.1.2",
+		"terser": "^4.3.4",
 		"typescript": "^3.5.3"
 	},
 	"husky": {

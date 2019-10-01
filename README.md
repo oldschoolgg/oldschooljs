@@ -9,6 +9,7 @@ A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, ne
 -   [News](#News)
 -   [Worlds](#Worlds)
 -   [Wiki](#Wiki)
+-   [Polls](#Polls)
 
 ## Hiscores
 
@@ -50,7 +51,7 @@ await Items.fetchAll();
 
 #### Fetch a particular item
 
-This will _fetch_ the latest version of a particular item. It's probably a better idea to just use `Items.fetchAll()` and then use `Items.get()`.
+This will _fetch_ the latest version of a particular item.
 
 ```js
 const twistedBow = await Items.fetch(20997);
@@ -77,7 +78,7 @@ if (dragonDagger) console.log(dragonDagger);
 #### Find items by any properties
 
 ```js
-const dragonItems = Items.filter(item => item.name.includes('Dragon));
+const dragonItems = Items.filter(item => item.name.includes('Dragon'));
 
 console.log(`Found ${dragonItems.size} Dragon Items!`);
 
@@ -201,10 +202,30 @@ const twistedBowPage = await Wiki.fetchPage(82098);
 console.log(twistedBowPage);
 ```
 
+## Polls
+
+```js
+import { Polls } from 'oldschooljs';
+```
+
+#### Iterating over worlds
+
+```js
+for (const poll of Polls.values()) {
+	console.log(poll.title);
+}
+```
+
+#### Getting all polls in a year
+
+```js
+const pollsFrom2013 = Polls.filter(poll => new Date(poll.datePosted).getFullYear() === 2013);
+console.log(pollsFrom2013.size);
+```
+
 ## Planned features
 
 -   Ability to ping worlds?
--   Polls (questions, vote counts, etc)
 -   CrystalMathLabs
 -   Simulating: killing monsters, opening clue scrolls, pets (like in osbot)
 -   Quests (e.g. containing all wiki data on quests)
