@@ -208,3 +208,4 @@ console.log(twistedBowPage);
 -   CrystalMathLabs
 -   Simulating: killing monsters, opening clue scrolls, pets (like in osbot)
 -   Quests (e.g. containing all wiki data on quests)
+-   fetch wiki page by item ID?
