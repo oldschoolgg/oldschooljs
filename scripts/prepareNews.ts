@@ -8,7 +8,7 @@ export default async function prepareNews(): Promise<void> {
 	console.log(`Found ${newArticles ? newArticles.length : 0} news articles to be added.`);
 	if (newArticles) {
 		writeFileSync(
-			'./src/data/news/_news_archive.json',
+			'./src/data/news/news_archive.json',
 			JSON.stringify(
 				[...currentNews, ...newArticles.sort((a, b) => a.date - b.date)],
 				null,

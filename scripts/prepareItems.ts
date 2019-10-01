@@ -15,6 +15,6 @@ export default async function prepareItems() {
 		itemNameMap[item.id] = item.name;
 	}
 
-	writeFileSync('./src/data/items/_item_data.json', JSON.stringify(itemNameMap, null, 4));
+	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
 	console.log('Prepared items.');
 }
