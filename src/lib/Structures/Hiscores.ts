@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import Error from './OldSchoolJSError';
+import OSError from './OldSchoolJSError';
 import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../Util/constants';
 import { isValidUsername, resolvePlayerFromHiscores } from '../Util/util';
 import Player from './Player';
@@ -15,20 +15,20 @@ class Hiscores {
 		username: string,
 		options: GetOptions = { type: 'normal' }
 	): Promise<Player> {
-		if (!isValidUsername(username)) throw new Error(Errors.INVALID_USERNAME);
-		if (!ACCOUNT_TYPES.includes(options.type)) throw new Error(Errors.INVALID_ACCOUNT_TYPE);
+		if (!isValidUsername(username)) throw new OSError(Errors.INVALID_USERNAME);
+		if (!ACCOUNT_TYPES.includes(options.type)) throw new OSError(Errors.INVALID_ACCOUNT_TYPE);
 
 		const data: Player = await fetch(hiscoreURLs[options.type] + username)
 			.then(
 				(res): Promise<string> => {
-					if (res.status === 404) throw new Error(Errors.ACCOUNT_NOT_FOUND);
-					if (!res.ok) throw new Error(Errors.FAILED_REQUEST);
+					if (res.status === 404) throw new OSError(Errors.ACCOUNT_NOT_FOUND);
+					if (!res.ok) throw new OSError(Errors.FAILED_REQUEST);
 					return res.text();
 				}
 			)
 			.then(resolvePlayerFromHiscores)
 			.catch((err): never => {
-				throw new Error(err);
+				throw new OSError(err);
 			});
 
 		return new Player({

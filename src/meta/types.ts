@@ -218,11 +218,6 @@ export interface NewsItem {
 	date: number;
 }
 
-export interface PageContent {
-	content: string;
-	description: string;
-}
-
 export interface DateYearMonth {
 	year: number;
 	month: number;
@@ -249,4 +244,25 @@ export interface World {
 	location: WorldLocation;
 	members: boolean;
 	activity: string;
+}
+
+export interface Poll {
+	title: string;
+	description: string;
+	datePosted: number;
+	totalVotes: number;
+	year: number;
+	questions: PollQuestion[];
+	url: string;
+}
+
+export interface PollQuestion {
+	question: string;
+	results: PollResult[];
+}
+
+export interface PollResult {
+	voteOption: string;
+	percentOfTotal: number;
+	voteCount: number;
 }

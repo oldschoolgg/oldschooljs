@@ -7,6 +7,14 @@ test('Setup', async t => {
 	t.end();
 });
 
+test('Correctness', t => {
+	t.plan(1);
+
+	const twistedBow = Items.filter(item => item.name === 'Twisted bow');
+	if (!twistedBow) return t.fail('Expected 1 Twisted bow item.');
+	t.equal(twistedBow.size, 1, 'Expected 1 Twisted bow item.');
+});
+
 test('Fetching Item by ID', t => {
 	t.plan(2);
 
@@ -21,7 +29,7 @@ test('Fetching Item by Name', t => {
 
 	const dragonDagger = Items.get('dragon dagger(p++)');
 	if (!dragonDagger) return t.fail('Missing item.');
-	t.equal(dragonDagger.id, 5699, 'Expected Dragon dagger(p++) to return 5699');
+	t.equal(dragonDagger.id, 5698, 'Expected Dragon dagger(p++) to return 5699');
 	t.equal(
 		dragonDagger.name,
 		'Dragon dagger(p++)',

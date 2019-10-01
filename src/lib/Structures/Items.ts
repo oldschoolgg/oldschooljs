@@ -11,7 +11,7 @@ const items = _items as Record<string, string>;
 export const itemNameMap: Map<string, number> = new Map();
 
 type ItemResolvable = number | string;
-interface ItemCollection {
+export interface ItemCollection {
 	[index: string]: Item;
 }
 

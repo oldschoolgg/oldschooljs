@@ -1,8 +1,5 @@
-import { JSDOM } from 'jsdom';
-import fetch from 'node-fetch';
-
-import { NewsItem, PageContent, DateYearMonth } from '../../meta/types';
-import { getDate } from '../Util/util';
+import { NewsItem, DateYearMonth } from '../../meta/types';
+import { getDate, getDom } from '../Util/util';
 import * as _newsArchive from '../../data/news/news_archive.json';
 import Collection from './Collection';
 
@@ -10,18 +7,18 @@ const newsArchive = _newsArchive as NewsItem[];
 
 const BASE_URL = `https://secure.runescape.com/m=news/archive?oldschool=1`;
 
-class News extends Collection<string, NewsItem> {
-	private async getDom(link: string): Promise<Document> {
-		const html: string = await fetch(link).then((res): Promise<string> => res.text());
-		return new JSDOM(html.replace(/\s+/g, ' ').trim()).window.document;
-	}
+interface NewsPageContent {
+	content: string;
+	description: string;
+}
 
+class News extends Collection<string, NewsItem> {
 	public async fetchRecent(): Promise<NewsItem[]> {
 		return this.fetchMonth(getDate());
 	}
 
-	public async fetchPageContent(link: string): Promise<PageContent> {
-		const dom = await this.getDom(link);
+	public async fetchPageContent(link: string): Promise<NewsPageContent> {
+		const { document: dom } = await getDom(link);
 
 		const contentEl = dom.getElementsByClassName('news-article-content')[0];
 		if (!contentEl || !contentEl.textContent) {
@@ -99,7 +96,7 @@ class News extends Collection<string, NewsItem> {
 	): Promise<NewsItem[]> {
 		let newsArticlesCollection: NewsItem[] = [];
 
-		const dom = await this.getDom(this.generateNewsURL(year, month, pageNumber));
+		const { document: dom } = await getDom(this.generateNewsURL(year, month, pageNumber));
 
 		const newsArticles = Array.from(dom.querySelectorAll('#newsSection .news-list-article'));
 

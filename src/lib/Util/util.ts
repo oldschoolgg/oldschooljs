@@ -1,3 +1,6 @@
+import { JSDOM, DOMWindow } from 'jsdom';
+import fetch from 'node-fetch';
+
 import { SKILLS, MINIGAMES, CLUES } from './constants';
 import { Player } from '../..';
 import { DateYearMonth } from '../../meta/types';
@@ -64,4 +67,13 @@ export function getDate(): DateYearMonth {
 		month: currentTime.getMonth() + 1,
 		year: currentTime.getFullYear()
 	};
+}
+
+/**
+ * Gets a DOM for a page.
+ * @param link The page to fetch a DOM for.
+ */
+export async function getDom(link: string): Promise<DOMWindow> {
+	const html: string = await fetch(link).then((res): Promise<string> => res.text());
+	return new JSDOM(html).window;
 }
