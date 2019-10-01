@@ -55,9 +55,12 @@ class News extends Collection<string, NewsItem> {
 	public async fetchNewArticles(
 		date: DateYearMonth = getDate()
 	): Promise<NewsItem[] | undefined> {
-		let articles = await this.fetchMonth(date, false);
+		let articles = [
+			...(await this.fetchMonth(date, false)),
+			...(await this.fetchMonth(this.decrementDate(date), false))
+		];
 
-		// If every article in the last month of news is already in News, return.
+		// If every article in the last 2 months of news is already in News, return.
 		if (articles.every(article => this.some(_article => _article.link === article.link))) {
 			return undefined;
 		}
@@ -70,10 +73,11 @@ class News extends Collection<string, NewsItem> {
 				this.some(_article => article.link === _article.link)
 			)
 		) {
+			// Decrement the date by 1 month, and then fetch the previous month.
 			const newDate = this.decrementDate(date);
 			const nextMonth = await this.fetchMonth(
 				{ year: newDate.year, month: newDate.month },
-				true
+				false
 			);
 			if (!nextMonth) throw new Error('Unexpected error');
 			articles = [...articles, ...nextMonth];

@@ -8930,10 +8930,10 @@
 		"date": 1566432000000
 	},
 	{
-		"title": "The Fremennik Exiles",
+		"title": "Poll Blog: The Fremennik Exiles",
 		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-08-27/thumbnail.jpg",
 		"category": "Future Updates",
-		"link": "https://secure.runescape.com/m=news/the-fremennik-exiles?oldschool=1",
+		"link": "https://secure.runescape.com/m=news/poll-blog-the-fremennik-exiles?oldschool=1",
 		"year": 2019,
 		"month": 8,
 		"day": 27,
@@ -9038,5 +9038,35 @@
 		"month": 9,
 		"day": 19,
 		"date": 1568851200000
+	},
+	{
+		"title": "Polling PvP Updates",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2018/newsposts/2018-12-10/summary_2.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/polling-pvp-updates?oldschool=1",
+		"year": 2019,
+		"month": 9,
+		"day": 20,
+		"date": 1568937600000
+	},
+	{
+		"title": "A Message About Unofficial Clients",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-09-30/PostiePeteThumb.png",
+		"category": "Website",
+		"link": "https://secure.runescape.com/m=news/a-message-about-unofficial-clients?oldschool=1",
+		"year": 2019,
+		"month": 9,
+		"day": 30,
+		"date": 1569801600000
+	},
+	{
+		"title": "The Fremennik Exiles",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-09-23/summary.png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/the-fremennik-exiles?oldschool=1",
+		"year": 2019,
+		"month": 9,
+		"day": 26,
+		"date": 1569456000000
 	}
 ]
