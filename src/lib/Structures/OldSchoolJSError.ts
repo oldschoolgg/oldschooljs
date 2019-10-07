@@ -8,7 +8,7 @@ export default class OldSchoolJSError extends Error {
 		super(code);
 		this.name = this.constructor.name;
 		this.code = code;
-		this.description = ErrorDescriptions[code];
+		this.message = ErrorDescriptions[code];
 		if (Error.captureStackTrace) Error.captureStackTrace(this, this.constructor);
 	}
 }
