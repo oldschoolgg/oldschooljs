@@ -28,7 +28,7 @@ class Hiscores {
 			)
 			.then(resolvePlayerFromHiscores)
 			.catch((err): never => {
-				throw new OSError(err);
+				throw err;
 			});
 
 		return new Player({
