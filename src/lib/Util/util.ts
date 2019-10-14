@@ -77,3 +77,27 @@ export async function getDom(link: string): Promise<DOMWindow> {
 	const html: string = await fetch(link).then((res): Promise<string> => res.text());
 	return new JSDOM(html).window;
 }
+
+export function convertLVLtoXP(lvl: number) {
+	let points = 0;
+
+	for (let i = 1; i < lvl; i++) {
+		points += Math.floor(i + 300 * Math.pow(2, i / 7));
+	}
+
+	return Math.floor(points / 4);
+}
+
+export function convertXPtoLVL(xp: number, cap: number = 99) {
+	let points = 0;
+
+	for (let lvl = 1; lvl <= cap; lvl++) {
+		points += Math.floor(lvl + 300 * Math.pow(2, lvl / 7));
+
+		if (Math.floor(points / 4) >= xp + 1) {
+			return lvl;
+		}
+	}
+
+	return cap;
+}

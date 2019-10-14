@@ -18,6 +18,18 @@ test('Hiscores Should Return Correct Results', async t => {
 	);
 });
 
+test('Hiscores Virtual Stats', async t => {
+	t.plan(4);
+
+	const LynxTitan = await Hiscores.fetch('Lynx Titan', { virtualLevels: true });
+	t.equal(LynxTitan.skills.overall.level, 2898, 'Expected total level to equal 2898');
+
+	const Mgby = await Hiscores.fetch('Mgby', { virtualLevels: true });
+	t.equal(Mgby.skills.firemaking.level, 106, 'Expected fm level to equal 106');
+	t.equal(Mgby.skills.cooking.level, 100, 'Expected fm level to equal 106');
+	t.equal(Mgby.skills.fletching.level, 99, 'Expected fm level to equal 106');
+});
+
 test('Hiscores Handling Invalid Usernames', async assert => {
 	const invalidUsernames: any = [
 		'Username thats toooooo Long',
