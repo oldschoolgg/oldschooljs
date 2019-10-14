@@ -41773,5 +41773,365 @@
 		],
 		"year": 2019,
 		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1574"
+	},
+	{
+		"title": "Bounty Hunter Rework rewards",
+		"description": "With the Bounty Hunter Rework underway, we'd like to offer some rewards for the updated shop, to go along with the existing items that will remain available there. The design for the Ancient Warriors' weapons has changed significantly from the original pitch, based on player ideas, so please make sure you've seen the latest version of the blog.",
+		"datePosted": 1569557715000,
+		"totalVotes": 39121,
+		"questions": [
+			{
+				"question": "Should players be able to own more than one rune pouch? If this question passes, each one would link to the same store of runes.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 71.9,
+						"voteCount": 28122
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 24.4,
+						"voteCount": 9531
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.8,
+						"voteCount": 1468
+					}
+				]
+			},
+			{
+				"question": "Should players be able to own more than one looting bag? If this question passes, each one would link to the same store of items.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 71.3,
+						"voteCount": 27889
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 25.5,
+						"voteCount": 9959
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.3,
+						"voteCount": 1273
+					}
+				]
+			},
+			{
+				"question": "Should the drop rate of the looting bag scale to the combat level of Wilderness NPCs? Looting bags will not become rarer drops as a result of this change.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 70.5,
+						"voteCount": 27542
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 23.5,
+						"voteCount": 9174
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 6.2,
+						"voteCount": 2405
+					}
+				]
+			},
+			{
+				"question": "Should Elemental runes be included in the Bounty Hunter shop as part of the rework? These tradeable runes can each act as Air, Water, Earth or Fire runes and can be used anywhere in the Wilderness. They would cost 1 Bounty point for 100 runes.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 56.4,
+						"voteCount": 22045
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 30.9,
+						"voteCount": 12067
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 12.9,
+						"voteCount": 5009
+					}
+				]
+			},
+			{
+				"question": "Should Dagon'hai robes be added as a rare reward from opening the Larran's chest in deep Wilderness? Each piece would have a 1/256 chance to be received. The full set would require 70 Magic and 40 Defence to equip, and offer 48 Magic attack, 40 Magic defence and 6 Prayer bonus in total.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 75.4,
+						"voteCount": 29461
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 16.8,
+						"voteCount": 6563
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8,
+						"voteCount": 3097
+					}
+				]
+			},
+			{
+				"question": "Should four permanent unlocks be added to the Bounty Hunter store? Each one would change the colour of a godsword's special attack animation swipe to gold. They would cost 100 points each and could be toggled on/off once bought.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 73,
+						"voteCount": 28549
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 18.5,
+						"voteCount": 7227
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8.6,
+						"voteCount": 3345
+					}
+				]
+			},
+			{
+				"question": "Should an upgrade item for the Saradomin sword be added as a very rare reward from Bounty crates? This would give it a new special attack that costs 60% energy and deals 50%-150% of the user's maximum hit as Magic damage (rolling the user's Slash bonus against the opponent's Magic Defence), much like the original Korasi sword. This upgrade item could be applied to both the normal and blessed versions of the sword.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 59.4,
+						"voteCount": 23231
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 29.9,
+						"voteCount": 11689
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 10.8,
+						"voteCount": 4201
+					}
+				]
+			},
+			{
+				"question": "Should an upgrade item for the abyssal dagger be added as a very rare reward from Bounty crates? This would reduce its special attack energy cost to 25% and increase its accuracy by 20%.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 67.5,
+						"voteCount": 26401
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 24.8,
+						"voteCount": 9686
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7.8,
+						"voteCount": 3034
+					}
+				]
+			},
+			{
+				"question": "Should Statius's Warhammer be added as an extremely rare reward from bounty crates in the upcoming Bounty Hunter rework? It would come with 250 charges with one depleting on each hit. On PvP death, it would drop as an uncharged version alongside the remaining charges in the form of Ancient Warrior Fragments. This uncharged version would have the option to be disassembled into 500 Ancient Warrior Fragments for charging any other of the Ancient Warrior weapons. It will only be usable against other players by default unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 52.3,
+						"voteCount": 20458
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 34.5,
+						"voteCount": 13471
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.3,
+						"voteCount": 5192
+					}
+				]
+			},
+			{
+				"question": "Should Vesta's Spear be added as an extremely rare reward from bounty crates in the upcoming Bounty Hunter rework? It would come with 250 charges with one depleting on each hit. On PvP death, it would drop as an uncharged version alongside the remaining charges in the form of Ancient Warrior Fragments. This uncharged version would have the option to be disassembled into 500 Ancient Warrior Fragments for charging any other of the Ancient Warrior weapons. It will only be usable against other players by default unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 51.6,
+						"voteCount": 20184
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 35.2,
+						"voteCount": 13739
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.3,
+						"voteCount": 5198
+					}
+				]
+			},
+			{
+				"question": "Should Vesta's Longsword be added as an extremely rare reward from bounty crates in the upcoming Bounty Hunter rework? It would come with 250 charges with one depleting on each hit. On PvP death, it would drop as an uncharged version alongside the remaining charges in the form of Ancient Warrior Fragments. This uncharged version would have the option to be disassembled into 500 Ancient Warrior Fragments for charging any other of the Ancient Warrior weapons. It will only be usable against other players by default unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 51.9,
+						"voteCount": 20301
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 34.9,
+						"voteCount": 13626
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.3,
+						"voteCount": 5194
+					}
+				]
+			},
+			{
+				"question": "Should Zuriel's Staff be added as an extremely rare reward from bounty crates in the upcoming Bounty Hunter rework? It would come with 250 charges with one depleting on each hit. On PvP death, it would drop as an uncharged version alongside the remaining charges in the form of Ancient Warrior Fragments. This uncharged version would have the option to be disassembled into 500 Ancient Warrior Fragments for charging any other of the Ancient Warrior weapons. It will only be usable against other players by default unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 52.3,
+						"voteCount": 20434
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 34.5,
+						"voteCount": 13476
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.4,
+						"voteCount": 5211
+					}
+				]
+			},
+			{
+				"question": "Should Morrigan's throwing axes be added as an extremely rare reward from bounty crates in the rework design? They would always be lost after being thrown. They would convert to a small number of Ancient Warrior Fragments on PvP death. They will only be usable against other players unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 51.9,
+						"voteCount": 20270
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 34.9,
+						"voteCount": 13649
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.3,
+						"voteCount": 5202
+					}
+				]
+			},
+			{
+				"question": "Should Morrigan's javelins be added as an extremely rare reward from bounty crates in the rework design? They would always be lost after being thrown. They would convert to a small number of Ancient Warrior Fragments on PvP death. They will only be usable against other players unless questions 15 or 16 pass.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 51.6,
+						"voteCount": 20158
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 35.1,
+						"voteCount": 13716
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.5,
+						"voteCount": 5247
+					}
+				]
+			},
+			{
+				"question": "If any Ancient Warriors' weapons are added to the game, should they be usable in all of the Wilderness, including against NPCs?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 59,
+						"voteCount": 23061
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 32.5,
+						"voteCount": 12690
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8.7,
+						"voteCount": 3370
+					}
+				]
+			},
+			{
+				"question": "If any Ancient Warriors' weapons are added to the game and question #15 passes, should they also be usable outside of the Wilderness?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 45.7,
+						"voteCount": 17869
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 46.4,
+						"voteCount": 18137
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8,
+						"voteCount": 3115
+					}
+				]
+			},
+			{
+				"question": "This question is to gauge player opinion and won't affect the outcome of the content above. For the rewards you voted No to, what was the main reason? If you voted Yes to the rewards, please skip this question.",
+				"results": [
+					{
+						"voteOption": "i don't think they belong in old school",
+						"percentOfTotal": 28.7,
+						"voteCount": 11196
+					},
+					{
+						"voteOption": "i would prefer they come from elsewhere",
+						"percentOfTotal": 11.1,
+						"voteCount": 4324
+					},
+					{
+						"voteOption": "i don't like pvp",
+						"percentOfTotal": 12.7,
+						"voteCount": 4948
+					},
+					{
+						"voteOption": "other",
+						"percentOfTotal": 11.7,
+						"voteCount": 4550
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 36.1,
+						"voteCount": 14103
+					}
+				]
+			}
+		],
+		"year": 2019,
+		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1575"
 	}
 ]

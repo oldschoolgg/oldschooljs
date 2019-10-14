@@ -9068,5 +9068,65 @@
 		"month": 9,
 		"day": 26,
 		"date": 1569456000000
+	},
+	{
+		"title": "The Fremennik Exiles Feedback Changes",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-10-03/summary.png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/the-fremennik-exiles-feedback-changes?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 2,
+		"date": 1569974400000
+	},
+	{
+		"title": "Old School RuneScape Twisted League",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-09-23/summary.jpg",
+		"category": "Future Updates",
+		"link": "https://secure.runescape.com/m=news/old-school-runescape-twisted-league?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 2,
+		"date": 1569974400000
+	},
+	{
+		"title": "RuneFest 2019: Prepare Your Day",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-10-03/summary_2.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/runefest-2019-prepare-your-day?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 2,
+		"date": 1569974400000
+	},
+	{
+		"title": "Golden Gnome Awards 2019 Winners!",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-10-03/summary_2.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/golden-gnome-awards-2019-winners?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 4,
+		"date": 1570147200000
+	},
+	{
+		"title": "OSRS Reveals: Morytania Expansion",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-10-05/thumbnail.jpg",
+		"category": "Future Updates",
+		"link": "https://secure.runescape.com/m=news/osrs-reveals-morytania-expansion?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 5,
+		"date": 1570233600000
+	},
+	{
+		"title": "OSRS Reveals - Morytania Expansion, Clans, and Group Ironman",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-10-05/reveals_thumbnail_2.png",
+		"category": "Future Updates",
+		"link": "https://secure.runescape.com/m=news/osrs-reveals---morytania-expansion-clans-and-group-ironman?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 5,
+		"date": 1570233600000
 	}
 ]
