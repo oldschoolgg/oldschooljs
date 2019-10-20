@@ -9128,5 +9128,25 @@
 		"month": 10,
 		"day": 5,
 		"date": 1570233600000
+	},
+	{
+		"title": "Bounty Hunter Rework Beta",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-07-17/summary.png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/bounty-hunter-rework-beta?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 17,
+		"date": 1571270400000
+	},
+	{
+		"title": "Bounty Hunter Rework Beta: Day 1 Feedback",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2019/newsposts/2019-09-10/osrsthumbnail.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/bounty-hunter-rework-beta-day-1-feedback?oldschool=1",
+		"year": 2019,
+		"month": 10,
+		"day": 18,
+		"date": 1571356800000
 	}
 ]
