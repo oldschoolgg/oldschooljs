@@ -102,22 +102,20 @@ export function convertXPtoLVL(xp: number, cap: number = 99) {
 	return cap;
 }
 
-function round(number: number): number {
-	return Math.round(number * 100) / 100;
+function round(number: number): string {
+	return (Math.round(number * 100) / 100).toString();
 }
 
 export function toKMB(number: number): string {
-	let newNum;
 	if (number > 999999999) {
-		newNum = round(number / 1000000000) + 'b';
+		return round(number / 1000000000) + 'b';
 	} else if (number > 999999) {
-		newNum = round(number / 1000000) + 'm';
+		return round(number / 1000000) + 'm';
 	} else if (number > 999) {
-		newNum = round(number / 1000) + 'k';
+		return round(number / 1000) + 'k';
 	} else {
-		newNum = round(number) + '';
+		return round(number);
 	}
-	return newNum;
 }
 
 export function fromKMB(number: string): number {
@@ -126,11 +124,11 @@ export function fromKMB(number: string): number {
 
 	let newNum = numberBefore;
 	if (number.includes('b')) {
-		newNum += numberAfter + '000000000'.slice(numberAfter.length);
+		newNum += numberAfter + '0'.repeat(9).slice(numberAfter.length);
 	} else if (number.includes('m')) {
-		newNum += numberAfter + '000000'.slice(numberAfter.length);
+		newNum += numberAfter + '0'.repeat(6).slice(numberAfter.length);
 	} else if (number.includes('k')) {
-		newNum += numberAfter + '000'.slice(numberAfter.length);
+		newNum += numberAfter + '0'.repeat(3).slice(numberAfter.length);
 	}
 
 	return parseInt(newNum);
