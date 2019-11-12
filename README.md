@@ -10,6 +10,7 @@ A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, ne
 -   [Worlds](#Worlds)
 -   [Wiki](#Wiki)
 -   [Polls](#Polls)
+-   [Utilies](#Utilies)
 
 ## Hiscores
 
@@ -221,6 +222,36 @@ for (const poll of Polls.values()) {
 ```js
 const pollsFrom2013 = Polls.filter(poll => new Date(poll.datePosted).getFullYear() === 2013);
 console.log(pollsFrom2013.size);
+```
+
+## Utilities
+
+```js
+import { Util } from 'oldschooljs';
+```
+
+#### Checking if a username is valid
+
+```js
+console.log(Util.isValidUsername(username)); // true
+```
+
+#### Converting numbers to and from KMB syntax
+
+KMB Syntax is how numbers are often formatted in runescape, for example: 5k, 1.5m, 5m, 1b, etc.
+
+```js
+Util.toKMB(5); // '5'
+Util.toKMB(1000); // '1k'
+Util.toKMB(1000000); // '1m'
+Util.toKMB(1200000000); // '1.2b'
+```
+
+```js
+Util.fromKMB('5'); // 5
+Util.fromKMB('1k'); // 1000
+Util.fromKMB('1m'); // 1000000
+Util.fromKMB('1.2b'); // 1200000000
 ```
 
 ## Planned features
