@@ -2,7 +2,7 @@ import { JSDOM } from 'jsdom';
 import fetch from 'node-fetch';
 
 import Collection from './Collection';
-import { World, WorldLocation } from '../../meta/types';
+import { World, WorldLocation } from '../meta/types';
 
 class Worlds extends Collection<number, World> {
 	public async fetch(number?: number): Promise<World | undefined | void> {

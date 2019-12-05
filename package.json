@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -15,7 +15,7 @@
 		"test:run": "node test/suite",
 		"test:lint": "eslint --ext ts src",
 		"test:build": "tsc -p test",
-		"lint": "eslint --ext ts src scripts --fix",
+		"lint": "eslint --ext ts src --fix",
 		"build": "tsc -p .",
 		"dev": "npm run prepareData && tsc --watch -p .",
 		"prepareData": "npm run build && npm run prepareData:build && npm run prepareData:run",

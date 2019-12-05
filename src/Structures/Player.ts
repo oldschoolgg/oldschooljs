@@ -3,13 +3,15 @@ import {
 	SkillsScore,
 	MinigamesScore,
 	AccountType,
-	CluesScore
-} from '../../meta/types';
+	CluesScore,
+	BossRecords
+} from '../meta/types';
 
 class Player {
 	public username: string;
 	public skills: SkillsScore;
 	public minigames: MinigamesScore;
+	public bossRecords: BossRecords;
 	public type: AccountType;
 	public clues: CluesScore;
 
@@ -17,6 +19,7 @@ class Player {
 		this.username = player.username;
 		this.skills = player.skills;
 		this.minigames = player.minigames;
+		this.bossRecords = player.bossRecords;
 		this.type = player.type;
 		this.clues = player.clues;
 	}

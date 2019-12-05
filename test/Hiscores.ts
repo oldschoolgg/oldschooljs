@@ -18,6 +18,24 @@ test('Hiscores Should Return Correct Results', async t => {
 	);
 });
 
+test('Boss Hiscores', async t => {
+	t.plan(8);
+
+	const mgby = await Hiscores.fetch('Mgby');
+
+	t.equal(mgby.bossRecords.giantMole.rank > 1, true);
+	t.equal(mgby.bossRecords.giantMole.score, 10636);
+
+	t.equal(mgby.bossRecords.commanderZilyana.rank > 1, true);
+	t.equal(mgby.bossRecords.commanderZilyana.score, 1);
+
+	t.equal(mgby.bossRecords.zulrah.rank > 1, true);
+	t.equal(mgby.bossRecords.zulrah.score, 244);
+
+	t.equal(mgby.bossRecords.chambersofXeric.rank > 1, true);
+	t.equal(mgby.bossRecords.chambersofXeric.score, 3);
+});
+
 test('Hiscores Virtual Stats', async t => {
 	t.plan(4);
 

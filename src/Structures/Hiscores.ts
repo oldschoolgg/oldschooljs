@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 
 import OSError from './OldSchoolJSError';
-import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../Util/constants';
-import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../Util/util';
+import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../constants';
+import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../util';
 import Player from './Player';
-import { AccountType, SkillsScore } from '../../meta/types';
+import { AccountType, SkillsScore } from '../meta/types';
 
 export interface GetOptions {
 	type?: AccountType;
@@ -23,8 +23,9 @@ class Hiscores {
 	): Promise<Player> {
 		const mergedOptions = { ...defaultGetOptions, ...options };
 		if (!isValidUsername(username)) throw new OSError(Errors.INVALID_USERNAME);
-		if (!ACCOUNT_TYPES.includes(mergedOptions.type))
+		if (!ACCOUNT_TYPES.includes(mergedOptions.type)) {
 			throw new OSError(Errors.INVALID_ACCOUNT_TYPE);
+		}
 
 		const data: Player = await fetch(hiscoreURLs[mergedOptions.type] + username)
 			.then(
@@ -55,7 +56,8 @@ class Hiscores {
 			type: options.type,
 			skills: data.skills,
 			minigames: data.minigames,
-			clues: data.clues
+			clues: data.clues,
+			bossRecords: data.bossRecords
 		});
 	}
 }

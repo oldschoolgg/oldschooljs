@@ -12,6 +12,7 @@ export interface SimpleLootItem {
 export type AccountType = 'normal' | 'ironman' | 'ultimate' | 'hardcore' | 'deadman' | 'seasonal';
 
 export interface Player {
+	bossRecords: BossRecords;
 	username: string;
 	type: AccountType;
 	skills: SkillsScore;
@@ -44,6 +45,51 @@ export interface SkillsScore {
 	runecrafting: SkillScore;
 	hunter: SkillScore;
 	construction: SkillScore;
+}
+
+export interface BossRecords {
+	abyssalSire: MinigameScore;
+	alchemicalHydra: MinigameScore;
+	barrowsChests: MinigameScore;
+	bryophyta: MinigameScore;
+	callisto: MinigameScore;
+	cerberus: MinigameScore;
+	chambersofXeric: MinigameScore;
+	chambersofXericChallengeMode: MinigameScore;
+	chaosElemental: MinigameScore;
+	chaosFanatic: MinigameScore;
+	commanderZilyana: MinigameScore;
+	corporealBeast: MinigameScore;
+	crazyArchaeologist: MinigameScore;
+	dagannothPrime: MinigameScore;
+	dagannothRex: MinigameScore;
+	dagannothSupreme: MinigameScore;
+	derangedArchaeologist: MinigameScore;
+	generalGraardor: MinigameScore;
+	giantMole: MinigameScore;
+	grotesqueGuardians: MinigameScore;
+	hespori: MinigameScore;
+	kalphiteQueen: MinigameScore;
+	kingBlackDragon: MinigameScore;
+	kraken: MinigameScore;
+	kreeArra: MinigameScore;
+	krilTsutsaroth: MinigameScore;
+	mimic: MinigameScore;
+	sarachnis: MinigameScore;
+	scorpia: MinigameScore;
+	skotizo: MinigameScore;
+	theGauntlet: MinigameScore;
+	theCorruptedGauntlet: MinigameScore;
+	theatreofBlood: MinigameScore;
+	thermonuclearSmokeDevil: MinigameScore;
+	tzKalZuk: MinigameScore;
+	tzTokJad: MinigameScore;
+	venenatis: MinigameScore;
+	vetion: MinigameScore;
+	vorkath: MinigameScore;
+	wintertodt: MinigameScore;
+	zalcano: MinigameScore;
+	zulrah: MinigameScore;
 }
 
 export interface MinigamesScore {

@@ -1,7 +1,7 @@
-import { Poll } from '../../meta/types';
-import { getDom, getDate } from '../Util/util';
+import { Poll } from '../meta/types';
+import { getDom, getDate } from '../util';
 import Collection from './Collection';
-import * as _pollArchive from '../../data/polls/poll_archive.json';
+import * as _pollArchive from '../data/polls/poll_archive.json';
 
 const pollArchive = _pollArchive as Poll[];
 

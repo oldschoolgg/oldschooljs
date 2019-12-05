@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
 
-import { cleanString } from '../Util/util.js';
-import { OSRS_BOX_BASE_URL } from '../Util/constants';
-import { ItemID, Item, PartialItem } from '../../meta/types';
+import { cleanString } from '../util.js';
+import { OSRS_BOX_BASE_URL } from '../constants';
+import { ItemID, Item, PartialItem } from '../meta/types';
 import Collection from './Collection.js';
 
-import * as _items from '../../data/items/item_data.json';
+import * as _items from '../data/items/item_data.json';
 const items = _items as Record<string, string>;
 
 export const itemNameMap: Map<string, number> = new Map();

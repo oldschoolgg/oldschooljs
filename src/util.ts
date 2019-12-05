@@ -1,9 +1,9 @@
 import { JSDOM, DOMWindow } from 'jsdom';
 import fetch from 'node-fetch';
 
-import { SKILLS, MINIGAMES, CLUES } from './constants';
-import { Player } from '../..';
-import { DateYearMonth } from '../../meta/types';
+import { SKILLS, MINIGAMES, CLUES, mappedBossNames } from './constants';
+import { Player } from '.';
+import { DateYearMonth } from './meta/types';
 
 /**
  * Rolls a 1 in X chance, returning a boolean on successfull rolls.
@@ -18,8 +18,10 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 	const resolvedPlayer: any = {
 		skills: {},
 		minigames: {},
-		clues: {}
+		clues: {},
+		bossRecords: {}
 	};
+
 	for (let i = 0; i < SKILLS.length; i++) {
 		resolvedPlayer.skills[SKILLS[i]] = {
 			rank: Number(data[i][0]),
@@ -27,18 +29,28 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 			xp: Number(data[i][2])
 		};
 	}
+
 	for (let i = 0; i < MINIGAMES.length; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + SKILLS.length][0]),
 			score: Number(data[i + SKILLS.length][1])
 		};
 	}
+
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
 			rank: Number(data[i + SKILLS.length + MINIGAMES.length][0]),
 			score: Number(data[i + SKILLS.length + MINIGAMES.length][1])
 		};
 	}
+
+	for (let i = 0; i < mappedBossNames.length; i++) {
+		resolvedPlayer.bossRecords[mappedBossNames[i][0]] = {
+			rank: Number(data[i + SKILLS.length + MINIGAMES.length + CLUES.length][0]),
+			score: Number(data[i + SKILLS.length + MINIGAMES.length + CLUES.length][1])
+		};
+	}
+
 	return resolvedPlayer;
 }
 

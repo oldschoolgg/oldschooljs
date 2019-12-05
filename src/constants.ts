@@ -31,6 +31,54 @@ export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 
+export const mappedBossNames = [
+	['abyssalSire', 'Abyssal Sire'],
+	['alchemicalHydra', 'Alchemical Hydra'],
+	['barrowsChests', 'Barrows Chests'],
+	['bryophyta', 'Bryophyta'],
+	//['callisto', 'Callisto'],
+	['cerberus', 'Cerberus'],
+	['chambersofXeric', 'Chambers of Xeric'],
+	['chambersofXericChallengeMode', 'Chambers of Xeric: Challenge Mode'],
+	['chaosElemental', 'Chaos Elemental'],
+	['chaosFanatic', 'Chaos Fanatic'],
+	['commanderZilyana', 'Commander Zilyana'],
+	['corporealBeast', 'Corporeal Beast'],
+	['crazyArchaeologist', 'Crazy Archaeologist'],
+	['dagannothPrime', 'Dagannoth Prime'],
+	['dagannothRex', 'Dagannoth Rex'],
+	['dagannothSupreme', 'Dagannoth Supreme'],
+	['derangedArchaeologist', 'Deranged Archaeologist'],
+	['generalGraardor', 'General Graardor'],
+	['giantMole', 'Giant Mole'],
+	['grotesqueGuardians', 'Grotesque Guardians'],
+	['hespori', 'Hespori'],
+	['kalphiteQueen', 'Kalphite Queen'],
+	['kingBlackDragon', 'King Black Dragon'],
+	['kraken', 'Kraken'],
+	['kreeArra', "Kree'Arra"],
+	['krilTsutsaroth', "K'ril Tsutsaroth"],
+	['mimic', 'Mimic'],
+	['obor', 'Obor'],
+	['sarachnis', 'Sarachnis'],
+	['scorpia', 'Scorpia'],
+	['skotizo', 'Skotizo'],
+	['theGauntlet', 'The Gauntlet'],
+	['theCorruptedGauntlet', 'The Corrupted Gauntlet'],
+	['theatreofBlood', 'Theatre of Blood'],
+	['thermonuclearSmokeDevil', 'Thermonuclear Smoke Devil'],
+	['tzKalZuk', 'TzKal-Zuk'],
+	['tzTokJad', 'TzTok-Jad'],
+	['venenatis', 'Venenatis'],
+	['vetion', "Vet'ion"],
+	['vorkath', 'Vorkath'],
+	['wintertodt', 'Wintertodt'],
+	['zalcano', 'Zalcano'],
+	['zulrah', 'Zulrah']
+];
+
+export const bossNameMap: Map<string, string> = new Map(mappedBossNames as [string, string][]);
+
 // Hiscores
 
 function hiscoreURL(type: string): string {
