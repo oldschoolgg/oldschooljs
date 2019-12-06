@@ -78,3 +78,14 @@ test('Hiscores Handling Invalid Account Type', async assert => {
 	}
 	assert.end();
 });
+
+test('Leagues Hiscores', async t => {
+	t.plan(2);
+
+	const LeaguesMgby = await Hiscores.fetch('Mgby', {
+		type: 'seasonal'
+	});
+
+	t.equal(LeaguesMgby.username, 'Mgby');
+	t.equal(LeaguesMgby.skills.overall.level > 1, true);
+});

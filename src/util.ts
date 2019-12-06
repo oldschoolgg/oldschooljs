@@ -22,6 +22,8 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 		bossRecords: {}
 	};
 
+	let accumulativeIndex = 0;
+
 	for (let i = 0; i < SKILLS.length; i++) {
 		resolvedPlayer.skills[SKILLS[i]] = {
 			rank: Number(data[i][0]),
@@ -30,24 +32,32 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 		};
 	}
 
+	accumulativeIndex += SKILLS.length;
+
 	for (let i = 0; i < MINIGAMES.length; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
-			rank: Number(data[i + SKILLS.length][0]),
-			score: Number(data[i + SKILLS.length][1])
+			rank: Number(data[i + accumulativeIndex][0]),
+			score: Number(data[i + accumulativeIndex][1])
 		};
 	}
+
+	accumulativeIndex += MINIGAMES.length;
 
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
-			rank: Number(data[i + SKILLS.length + MINIGAMES.length][0]),
-			score: Number(data[i + SKILLS.length + MINIGAMES.length][1])
+			rank: Number(data[i + accumulativeIndex][0]),
+			score: Number(data[i + accumulativeIndex][1])
 		};
 	}
 
+	accumulativeIndex += CLUES.length;
+
 	for (let i = 0; i < mappedBossNames.length; i++) {
+		// If theres no boss hiscores, break.
+		if (!data[i + accumulativeIndex]) break;
 		resolvedPlayer.bossRecords[mappedBossNames[i][0]] = {
-			rank: Number(data[i + SKILLS.length + MINIGAMES.length + CLUES.length][0]),
-			score: Number(data[i + SKILLS.length + MINIGAMES.length + CLUES.length][1])
+			rank: Number(data[i + accumulativeIndex][0]),
+			score: Number(data[i + accumulativeIndex][1])
 		};
 	}
 
