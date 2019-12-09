@@ -1,5 +1,6 @@
 import { Poll } from '../meta/types';
-import { getDom, getDate } from '../util';
+import { getDate } from '../util';
+import getDom from '../util/getDom';
 import Collection from './Collection';
 import * as _pollArchive from '../data/polls/poll_archive.json';
 

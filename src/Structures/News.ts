@@ -1,5 +1,6 @@
 import { NewsItem, DateYearMonth } from '../meta/types';
-import { getDate, getDom } from '../util';
+import { getDate } from '../util';
+import getDom from '../util/getDom';
 import * as _newsArchive from '../data/news/news_archive.json';
 import Collection from './Collection';
 
