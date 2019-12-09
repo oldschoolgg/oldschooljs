@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { ItemCollection } from '../dist/lib/Structures/Items';
+import { ItemCollection } from '../dist/lib/structures/Items';
 import { writeFileSync } from 'fs';
 
 const itemNameMap: { [key: string]: string } = {};

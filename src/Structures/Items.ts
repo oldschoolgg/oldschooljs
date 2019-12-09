@@ -15,6 +15,8 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
+const USELESS_ITEMS = [617];
+
 class Items extends Collection<number, Item | PartialItem> {
 	public async fetchAll(): Promise<void> {
 		const allItems: ItemCollection = await fetch(
@@ -63,8 +65,12 @@ const itemsExport = new Items();
 
 for (const [id, name] of Object.entries(items)) {
 	const numID = parseInt(id);
+	const cleanName = cleanString(name);
+
+	if (itemNameMap.has(cleanName)) continue;
+	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, { name, id: numID });
-	itemNameMap.set(cleanString(name), numID);
+	itemNameMap.set(cleanName, numID);
 }
 
 export default itemsExport;
