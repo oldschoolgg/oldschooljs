@@ -1,11 +1,12 @@
-import Player from './Structures/Player';
-import Hiscores from './Structures/Hiscores';
-import Items from './Structures/Items';
-import Worlds from './Structures/Worlds';
-import News from './Structures/News';
-import Wiki from './Structures/Wiki';
-import Polls from './Structures/Polls';
+import Player from './structures/Player';
+import Hiscores from './structures/Hiscores';
+import Items from './structures/Items';
+import Worlds from './structures/Worlds';
+import News from './structures/News';
+import Wiki from './structures/Wiki';
+import Polls from './structures/Polls';
+import * as Clues from './structures/Clues';
 import * as Util from './util';
 import * as constants from './constants';
 
-export { Items, Hiscores, Player, Util, Worlds, News, Wiki, Polls, constants };
+export { Items, Hiscores, Player, Util, Worlds, News, Wiki, Polls, Clues, constants };

@@ -13,6 +13,15 @@ export function roll(upperLimit: number): boolean {
 	return Math.floor(Math.random() * upperLimit + 1) === 1;
 }
 
+/**
+ * Rolls a random number inclusively between a min and max.
+ * @param min The lower limit of the roll.
+ * @param max The upper limit of the roll.
+ */
+export function rand(min: number, max: number): number {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 export function resolvePlayerFromHiscores(csvData: string): Player {
 	const data: string[][] = csvData.split('\n').map((str): string[] => str.split(','));
 	const resolvedPlayer: any = {
@@ -73,11 +82,11 @@ export function isValidUsername(username: string): boolean {
 }
 
 /**
- * Removes all whitespace and punctuation from a string, and uppercases it. Used for comparisons.
+ * Removes all whitespace, and uppercases it. Used for comparisons.
  * @param str The string to clean.
  */
 export function cleanString(str: string): string {
-	return str.replace(/\W/g, '').toUpperCase();
+	return str.replace(/\s/g, '').toUpperCase();
 }
 
 /**
@@ -100,7 +109,7 @@ export async function getDom(link: string): Promise<DOMWindow> {
 	return new JSDOM(html).window;
 }
 
-export function convertLVLtoXP(lvl: number) {
+export function convertLVLtoXP(lvl: number): number {
 	let points = 0;
 
 	for (let i = 1; i < lvl; i++) {
@@ -110,7 +119,7 @@ export function convertLVLtoXP(lvl: number) {
 	return Math.floor(points / 4);
 }
 
-export function convertXPtoLVL(xp: number, cap: number = 99) {
+export function convertXPtoLVL(xp: number, cap: number = 99): number {
 	let points = 0;
 
 	for (let lvl = 1; lvl <= cap; lvl++) {
