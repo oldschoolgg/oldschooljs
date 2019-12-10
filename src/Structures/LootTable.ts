@@ -1,5 +1,5 @@
 import { rand } from '../util';
-import { Items } from '..';
+import Items from './Items';
 
 export default class LootTable {
 	public length: number;
