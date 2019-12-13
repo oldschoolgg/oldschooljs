@@ -9,7 +9,7 @@ import {
 	TeleportScrollTable,
 	BlessingTable
 } from './General';
-import { rand } from '../../util';
+import { rand, roll } from '../../util';
 
 export const MasterGodSwordOrnTable = new LootTable()
 	.addItem('Armadyl godsword ornament kit')
@@ -176,9 +176,11 @@ class MasterCasket extends Clue {
 		for (let i = 0; i < numberOfRolls; i++) {
 			loot.push(MasterClueTable.roll());
 		}
-		if (new LootTable(1000).roll()) {
+
+		if (roll(1000)) {
 			loot.push({ item: Items.get('Bloodhound').id, quantity: 1 });
 		}
+
 		return loot;
 	}
 
