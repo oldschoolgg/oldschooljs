@@ -45,11 +45,11 @@ export const FirelighterTable = new LootTable()
 	.addItem('Blue firelighter', [4, 10])
 	.addItem('Purple firelighter', [4, 10])
 	.addItem('White firelighter', [4, 10]);
-	
+
 export const SubTeleportScrollTable = new LootTable()
 	.addItem('Nardah teleport', [5, 15])
-	.addItem('Mos le\'harmless teleport', [5, 15])
-	.addItem('Mort\'ton teleport', [5, 15])
+	.addItem("Mos le'harmless teleport", [5, 15])
+	.addItem("Mort'ton teleport", [5, 15])
 	.addItem('Feldip hills teleport', [5, 15])
 	.addItem('Lunar isle teleport', [5, 15])
 	.addItem('Digsite teleport', [5, 15])
@@ -59,23 +59,21 @@ export const SubTeleportScrollTable = new LootTable()
 	.addItem('Lumberyard teleport', [5, 15])
 	.addItem('Charge dragonstone jewellery scroll', [5, 15])
 	.addItem('Iorwerth camp teleport', [5, 15]);
-	
+
 export const TeleportScrollTable = new LootTable()
-	.addItem('Book of Scrolls')
+	.addItem('Master scroll book')
 	.add(SubTeleportScrollTable, undefined, 21);
 
-
-
 export const GiveHalfKeyTable = new LootTable()
-	.addItem('Loop half key')
-	.addItem('Teeth half key');
+	.addItem('Loop half of key')
+	.addItem('Tooth half of key');
 
 export const BlessingTable = new LootTable()
-	.addItem('Saradomin Blessing')
-	.addItem('Zamorak Blessing')
-	.addItem('Guthix Blessing')
-	.addItem('Ancient Blessing')
-	.addItem('Bandos Blessing')
-	.addItem('Armadyl Blessing')
+	.addItem('Holy blessing')
+	.addItem('Unholy blessing')
+	.addItem('Peaceful blessing')
+	.addItem('Honourable blessing')
+	.addItem('War blessing')
+	.addItem('Ancient blessing')
 	.addItem('Coins', [10000, 15000], 7)
 	.addItem('Purple sweets', [8, 12], 7);

@@ -1,41 +1,38 @@
 import LootTable from '../LootTable';
 import Clue from '../Clue';
-import {PrayerPageTable, FirelighterTable, TeleportScrollTable, BlessingTable} from './General';
+import { PrayerPageTable, FirelighterTable, TeleportScrollTable, BlessingTable } from './General';
 import { rand } from '../../util';
 
-export const EasyChefTable = new LootTable()
-	.addItem("Golden apron")
-	.addItem("Golden chef\'s hat");
-	
+export const EasyChefTable = new LootTable().addItem('Golden apron').addItem("Golden chef's hat");
+
 export const EasySubMonkTable = new LootTable()
 	.addItem("Monk's robe top (g)")
 	.addItem("Monk's robe (g)");
-	
-export const EasyMonkTable = new LootTable()	// I think I did something wrong here.
-	.addItem("Coins", [3400, 6200], 4)
-	.add(EasySubMonkTable);
-	
-export const EasyCapeTable = new LootTable()
-	.addItem("Team cape zero")
-	.addItem("Team cape i")
-	.addItem("Team cape x")
-	.addItem("Cape of skulls");
 
-	// 1 in 12 chance of hitting unique table, otherwise standard table 11 in 12
+export const EasyMonkTable = new LootTable()
+	.addItem('Coins', [3400, 6200], 4)
+	.add(EasySubMonkTable);
+
+export const EasyCapeTable = new LootTable()
+	.addItem('Team cape zero')
+	.addItem('Team cape i')
+	.addItem('Team cape x')
+	.addItem('Cape of skulls');
+
 export const EasyElegantTable = new LootTable()
-	.addItem("Red elegant shirt")
-	.addItem("Red elegant legs")
-	.addItem("Red elegant blouse")
-	.addItem("Red elegant skirt")
-	.addItem("Green elegant shirt")
-	.addItem("Green elegant legs")
-	.addItem("Green elegant blouse")
-	.addItem("Green elegant skirt")
-	.addItem("Blue elegant shirt")
-	.addItem("Blue elegant legs")
-	.addItem("Blue elegant blouse")
-	.addItem("Blue elegant skirt");
-	
+	.addItem('Red elegant shirt')
+	.addItem('Red elegant legs')
+	.addItem('Red elegant blouse')
+	.addItem('Red elegant skirt')
+	.addItem('Green elegant shirt')
+	.addItem('Green elegant legs')
+	.addItem('Green elegant blouse')
+	.addItem('Green elegant skirt')
+	.addItem('Blue elegant shirt')
+	.addItem('Blue elegant legs')
+	.addItem('Blue elegant blouse')
+	.addItem('Blue elegant skirt');
+
 export const EasyRareTable = new LootTable()
 	.addItem('Highwayman mask')
 	.addItem('Blue beret')
@@ -53,12 +50,12 @@ export const EasyRareTable = new LootTable()
 	.addItem('Rain bow')
 	.addItem('Ham joint')
 	.addItem('Staff of bob the cat')
-	.addItem('Bob\'s red shirt')		// BOB SHIRTS
-	.addItem('Bob\'s blue shirt')
-	.addItem('Bob\'s green shirt')
-	.addItem('Bob\'s black shirt')
-	.addItem('Bob\'s purple shirt')
-	.addItem('Black platebody (t)')		//TRIMMED
+	.addItem("Bob's red shirt")
+	.addItem("Bob's blue shirt")
+	.addItem("Bob's green shirt")
+	.addItem("Bob's black shirt")
+	.addItem("Bob's purple shirt")
+	.addItem('Black platebody (t)')
 	.addItem('Black platelegs (t)')
 	.addItem('Black plateskirt (t)')
 	.addItem('Black Full Helm (t)')
@@ -87,7 +84,7 @@ export const EasyRareTable = new LootTable()
 	.addItem('Steel plateskirt (t)')
 	.addItem('Steel kiteshield (t)')
 	.addItem('Amulet of power (t)')
-	.addItem('Black Platebody (g)')		//GOLD
+	.addItem('Black Platebody (g)')
 	.addItem('Black platelegs (g)')
 	.addItem('Black plateskirt (g)')
 	.addItem('Black full Helm (g)')
@@ -118,7 +115,7 @@ export const EasyRareTable = new LootTable()
 	.addItem('Steel kiteshield (g)')
 	.addItem('Leather body (g)')
 	.addItem('Leather chaps (g)')
-	.addItem('Black shield (h1)')	//HERALDIC
+	.addItem('Black shield (h1)')
 	.addItem('Black shield (h2)')
 	.addItem('Black shield (h3)')
 	.addItem('Black shield (h4)')
@@ -133,7 +130,7 @@ export const EasyRareTable = new LootTable()
 	.addItem('Black platebody (h3)')
 	.addItem('Black platebody (h4)')
 	.addItem('Black platebody (h5)')
-	.addItem('Saradomin robe top')		// ROBES
+	.addItem('Saradomin robe top')
 	.addItem('Saradomin robe legs')
 	.addItem('Guthix robe top')
 	.addItem('Guthix robe legs')
@@ -149,21 +146,21 @@ export const EasyRareTable = new LootTable()
 	.add(EasyMonkTable)
 	.add(EasyCapeTable)
 	.add(EasyElegantTable, undefined, 6);
-	
+
 export const EasyAmuletTable = new LootTable()
-	.addItem("Amulet of magic (t)")
-	.addItem("Amulet of magic", undefined, 9);
+	.addItem('Amulet of magic (t)')
+	.addItem('Amulet of magic', undefined, 9);
 
 export const EasyBlessingsTable = new LootTable()
 	.add(BlessingTable)
-	.addItem("Coins", [3000, 7000], 2);
+	.addItem('Coins', [3000, 7000], 2);
 
 export const EasyBowTable = new LootTable()
-	.addItem("Willow comp bow")
-	.addItem("Willow longbow", undefined, 9);
-	
+	.addItem('Willow comp bow')
+	.addItem('Willow longbow', undefined, 9);
+
 export const EasyStandardTable = new LootTable()
-	.addItem('Coins', [50,200])
+	.addItem('Coins', [50, 200])
 	.addItem('Trout', [6, 10])
 	.addItem('Salmon', [6, 10])
 	.addItem('Air rune', [30, 50])
@@ -193,11 +190,9 @@ export const EasyStandardTable = new LootTable()
 	.add(EasyAmuletTable)
 	.add(EasyBlessingsTable)
 	.add(EasyBowTable)
-	.add(PrayerPageTable)			
-	.add(FirelighterTable)			
-	.add(TeleportScrollTable);		
-	
-
+	.add(PrayerPageTable)
+	.add(FirelighterTable)
+	.add(TeleportScrollTable);
 
 export const EasyClueTable = new LootTable()
 	.add(EasyStandardTable, undefined, 11)

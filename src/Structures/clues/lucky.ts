@@ -1,11 +1,10 @@
 import LootTable from '../LootTable';
 import Clue from '../Clue';
-import {} from './General';
-import {EasyStandardTable, EasyRareTable} from './Easy';
-import {MediumStandardTable, MediumRareTable} from './Medium';
-import {HardStandardTable, HardRareTable} from './Hard';
-import {EliteStandardTable, EliteRareTable} from './Elite';
-import {MasterStandardTable, MasterRareTable} from './Master';
+import { EasyStandardTable, EasyRareTable } from './Easy';
+import { MediumStandardTable, MediumRareTable } from './Medium';
+import { HardStandardTable, HardRareTable } from './Hard';
+import { EliteStandardTable, EliteRareTable } from './Elite';
+import { MasterStandardTable, MasterRareTable } from './Master';
 
 export const LuckyImplingTable = new LootTable()
 	.add(EasyStandardTable, undefined, 11)

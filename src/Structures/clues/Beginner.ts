@@ -2,10 +2,6 @@ import LootTable from '../LootTable';
 import Clue from '../Clue';
 import { rand } from '../../util';
 
-//const NUM_OF_ROLLS = [1, 3];
-
-// 1 in 12 chance of hitting unique table, otherwise standard table (11/12)
-
 export const RareTable = new LootTable()
 	.addItem('Black 2h sword')
 	.addItem('Black platebody')

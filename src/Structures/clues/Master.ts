@@ -1,7 +1,14 @@
 import LootTable from '../LootTable';
 import Clue from '../Clue';
 import Items from '../Items';
-import {PrayerPageTable, GiveHalfKeyTable, GildedTable, FirelighterTable, TeleportScrollTable, BlessingTable} from './General'
+import {
+	PrayerPageTable,
+	GiveHalfKeyTable,
+	GildedTable,
+	FirelighterTable,
+	TeleportScrollTable,
+	BlessingTable
+} from './General';
 import { rand } from '../../util';
 
 export const MasterGodSwordOrnTable = new LootTable()
@@ -13,31 +20,31 @@ export const MasterGodSwordOrnTable = new LootTable()
 export const MasterSubAnkouOutfitTable = new LootTable()
 	.addItem('Ankou mask')
 	.addItem('Ankou top')
-	.addItem('Ankou\'s leggings')
+	.addItem("Ankou's leggings")
 	.addItem('Ankou gloves')
-	.addItem('Ankou socks');	
-	
+	.addItem('Ankou socks');
+
 export const MasterAnkouOutfitTable = new LootTable()
-	.addItem('Coins', [15000,30000], 2)
+	.addItem('Coins', [15000, 30000], 2)
 	.add(MasterSubAnkouOutfitTable);
 
 export const MasterSubMummyOutfitTable = new LootTable()
-	.addItem('Mummy\'s head')
-	.addItem('Mummy\'s body')
-	.addItem('Mummy\'s legs')
-	.addItem('Mummy\'s hands')
-	.addItem('Mummy\'s feet');
-	
+	.addItem("Mummy's head")
+	.addItem("Mummy's body")
+	.addItem("Mummy's legs")
+	.addItem("Mummy's hands")
+	.addItem("Mummy's feet");
+
 export const MasterMummyOutfitTable = new LootTable()
-	.addItem('Coins', [15000,30000], 2)
+	.addItem('Coins', [15000, 30000], 2)
 	.add(MasterSubMummyOutfitTable);
-	
+
 export const MasterSubDragonOrnTable = new LootTable()
 	.addItem('Dragon kiteshield ornament kit')
 	.addItem('Dragon platebody ornament kit', undefined, 2);
-	
+
 export const MasterDragonOrnTable = new LootTable()
-	.addItem('Coins', [15000,30000], 9)
+	.addItem('Coins', [15000, 30000], 9)
 	.add(MasterSubDragonOrnTable);
 
 export const Master3rdageTable = new LootTable()
@@ -64,7 +71,7 @@ export const Master3rdageTable = new LootTable()
 	.addItem('3rd age druidic robe bottoms')
 	.addItem('3rd age pickaxe')
 	.addItem('3rd age axe');
-	
+
 export const MasterMegaRareTable = new LootTable()
 	.addItem('Gilded scimitar')
 	.addItem('Bucket helm (g)')
@@ -74,14 +81,14 @@ export const MasterMegaRareTable = new LootTable()
 	.addItem('Anti-venom+(4)', 15)
 	.addItem('Torstol', 50)
 	.addItem('Gilded coif')
-	.addItem('Gilded d\'hide vambs')
-	.addItem('Gilded d\'hide body')
-	.addItem('Gilded d\'hide chaps')
+	.addItem("Gilded d'hide vambs")
+	.addItem("Gilded d'hide body")
+	.addItem("Gilded d'hide chaps")
 	.addItem('Gilded Pickaxe')
 	.addItem('Gilded Axe')
 	.addItem('Gilded spade')
 	.add(Master3rdageTable)
-	.add(GildedTable);		
+	.add(GildedTable);
 
 export const MasterRareTable = new LootTable()
 	.addItem('Left eye patch')
@@ -121,11 +128,11 @@ export const MasterRareTable = new LootTable()
 	.add(MasterAnkouOutfitTable)
 	.add(MasterMummyOutfitTable)
 	.add(MasterDragonOrnTable);
-	
-export const MasterSeedTable = new LootTable()	
-	.addItem('Magic seed',[1,2])
-	.addItem('Yew seed',[1,2])
-	.addItem('Palm tree seed',[1,2]);
+
+export const MasterSeedTable = new LootTable()
+	.addItem('Magic seed', [1, 2])
+	.addItem('Yew seed', [1, 2])
+	.addItem('Palm tree seed', [1, 2]);
 
 export const MasterStandardTable = new LootTable()
 	.addItem('Coins', [20000, 35000])
@@ -153,10 +160,10 @@ export const MasterStandardTable = new LootTable()
 	.add(PrayerPageTable)
 	.add(FirelighterTable)
 	.add(TeleportScrollTable)
-	.add(MasterSeedTable)		
+	.add(MasterSeedTable)
 	.add(GiveHalfKeyTable)
 	.add(BlessingTable);
-	
+
 export const MasterClueTable = new LootTable()
 	.add(MasterStandardTable, undefined, 22)
 	.add(MasterRareTable, undefined, 1);
@@ -170,14 +177,14 @@ class MasterCasket extends Clue {
 			loot.push(MasterClueTable.roll());
 		}
 		if (new LootTable(1000).roll()) {
-		  loot.push({item: Items.get('Bloodhound').id, quantity: 1});
+			loot.push({ item: Items.get('Bloodhound').id, quantity: 1 });
 		}
 		return loot;
 	}
 
 	public open(quantity: number = 1) {
 		const loot: any[] = [];
-		
+
 		for (let i = 0; i < quantity; i++) {
 			loot.push(this.openCasket());
 		}

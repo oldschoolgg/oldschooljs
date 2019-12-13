@@ -1,11 +1,15 @@
 import LootTable from '../LootTable';
 import Clue from '../Clue';
-import {GildedTable, PrayerPageTable, FirelighterTable, GiveHalfKeyTable, BlessingTable, TeleportScrollTable} from './General';
+import {
+	GildedTable,
+	PrayerPageTable,
+	FirelighterTable,
+	GiveHalfKeyTable,
+	BlessingTable,
+	TeleportScrollTable
+} from './General';
 import { rand } from '../../util';
 
-//const NUM_OF_ROLLS = [4, 6];
-
-// 1 in 25 chance of hitting unique table, otherwise standard table 24 in 25
 export const Elite3rdageTable = new LootTable()
 	.addItem('3rd age range coif')
 	.addItem('3rd age range top')
@@ -23,8 +27,8 @@ export const Elite3rdageTable = new LootTable()
 	.addItem('3rd age longsword')
 	.addItem('3rd age druidic cloak')
 	.addItem('3rd age wand')
-	.addItem('3rd age bow')
-	
+	.addItem('3rd age bow');
+
 export const EliteMegaRareTable = new LootTable()
 	.addItem('Gilded scimitar')
 	.addItem('Gilded boots')
@@ -37,15 +41,15 @@ export const EliteMegaRareTable = new LootTable()
 	.addItem('Ring of nature')
 	.addItem('Extended antifire(4)', 30)
 	.addItem('Gilded coif')
-	.addItem('Gilded d\'hide vambs')
-	.addItem('Gilded d\'hide body')
-	.addItem('Gilded d\'hide chaps')
+	.addItem("Gilded d'hide vambs")
+	.addItem("Gilded d'hide body")
+	.addItem("Gilded d'hide chaps")
 	.addItem('Gilded pickaxe')
 	.addItem('Gilded axe')
 	.addItem('Gilded Spade')
 	.add(GildedTable, undefined, 5)
 	.add(Elite3rdageTable);
-	
+
 export const EliteTuxedoTable = new LootTable()
 	.addItem('Dark tuxedo jacket')
 	.addItem('Dark tuxedo cuffs')
@@ -57,7 +61,7 @@ export const EliteTuxedoTable = new LootTable()
 	.addItem('Light trousers')
 	.addItem('Light tuxedo shoes')
 	.addItem('Light bow tie');
-	
+
 export const EliteRareTable = new LootTable()
 	.addItem('Dragon Cane')
 	.addItem('Briefcase')
@@ -82,15 +86,15 @@ export const EliteRareTable = new LootTable()
 	.addItem('Top hat & monocle')
 	.addItem('Light infinity colour kit')
 	.addItem('Dark infinity colour kit')
-	.addItem('Black d\'hide chaps (t)')
-	.addItem('Black d\'hide chaps (g)')
-	.addItem('Black d\'hide body (t)')
-	.addItem('Black d\'hide body (g)')
+	.addItem("Black d'hide chaps (t)")
+	.addItem("Black d'hide chaps (g)")
+	.addItem("Black d'hide body (t)")
+	.addItem("Black d'hide body (g)")
 	.addItem('Musketeer hat')
 	.addItem('Musketeer tabard')
 	.addItem('Musketeer pants')
 	.addItem('Deerstalker')
-	.addItem('Blacksmith\'s helm')
+	.addItem("Blacksmith's helm")
 	.addItem('Arceuus scarf')
 	.addItem('Hosidius scarf')
 	.addItem('Lovakengj scarf')
@@ -103,18 +107,18 @@ export const EliteRareTable = new LootTable()
 	.addItem('Fremennik kilt')
 	.addItem('Adamant dragon mask')
 	.addItem('Rune dragon mask')
-	.addItem('Rangers\' tights')
-	.addItem('Uri\'s hat')
+	.addItem("Rangers' tights")
+	.addItem("Uri's hat")
 	.addItem('Giant boot')
-	.addItem('Rangers\' tunic')
+	.addItem("Rangers' tunic")
 	.add(EliteMegaRareTable)
 	.add(EliteTuxedoTable);
-	
+
 export const EliteSeedTable = new LootTable()
 	.addItem('Magic seed')
 	.addItem('Yew seed')
 	.addItem('Palm tree seed');
-	
+
 export const EliteStandardTable = new LootTable()
 	.addItem('Coins', [20000, 30000])
 	.addItem('Tuna potato', [15, 20])
@@ -141,13 +145,11 @@ export const EliteStandardTable = new LootTable()
 	.addItem('Dragon mace')
 	.addItem('Rune crossbow')
 	.add(EliteSeedTable)
-	.add(PrayerPageTable)		
-	.add(FirelighterTable)		
-	.add(GiveHalfKeyTable)		
-	.add(TeleportScrollTable, undefined, 2)		
-	.add(BlessingTable);		
-
-
+	.add(PrayerPageTable)
+	.add(FirelighterTable)
+	.add(GiveHalfKeyTable)
+	.add(TeleportScrollTable, undefined, 2)
+	.add(BlessingTable);
 
 export const EliteClueTable = new LootTable()
 	.add(EliteStandardTable, undefined, 24)
