@@ -10,6 +10,8 @@ A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, ne
 -   [Worlds](#Worlds)
 -   [Wiki](#Wiki)
 -   [Polls](#Polls)
+-   [Clues (Clue Scroll Simulating)](#Clues)
+-   [Monsters (Monster killing simulating)](#Monsters)
 -   [Utilies](#Utilies)
 
 ## Hiscores
@@ -252,6 +254,32 @@ Util.fromKMB('5'); // 5
 Util.fromKMB('1k'); // 1000
 Util.fromKMB('1m'); // 1000000
 Util.fromKMB('1.2b'); // 1200000000
+```
+
+## Clues
+
+Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.
+
+```js
+import { Clues } from 'oldschooljs';
+```
+
+```js
+console.log(Clues.Beginner.open(1));
+console.log(Clues.Master.open(5));
+console.log(Clues.Elite.open());
+```
+
+## Monsters
+
+Allows you to simulate killing monsters. The loot is returned in a format containing the item ID and the quantity.
+
+```js
+import { Monsters } from 'oldschooljs';
+```
+
+```js
+console.log(Monsters.LuckyImp.roll());
 ```
 
 ## Planned features
