@@ -21,7 +21,6 @@ test('Beginner Clues', t => {
 	t.equal(BeginnerUnique.length, 2);
 
 	t.equal(BeginnerSuccessfulUnique.length, 15);
-
 	t.notOk(
 		beginnerCasketOpened.length > 3,
 		"Asserted beginner casket doesn't have more than 3 items"
