@@ -126,11 +126,11 @@ function round(number: number): string {
 }
 
 export function toKMB(number: number): string {
-	if (number > 999999999) {
+	if (number > 999999999 || number < -999999999) {
 		return round(number / 1000000000) + 'b';
-	} else if (number > 999999) {
+	} else if (number > 999999 || number < -999999) {
 		return round(number / 1000000) + 'm';
-	} else if (number > 999) {
+	} else if (number > 999 || number < -999) {
 		return round(number / 1000) + 'k';
 	} else {
 		return round(number);

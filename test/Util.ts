@@ -20,6 +20,24 @@ test('toKMB checks', async t => {
 	t.equal(Util.toKMB(50000000000), '50b');
 });
 
+test('negative toKMB checks', async t => {
+	t.plan(10);
+
+	t.equal(Util.toKMB(-5), '-5');
+
+	t.equal(Util.toKMB(-1000), '-1k');
+	t.equal(Util.toKMB(-1500), '-1.5k');
+
+	t.equal(Util.toKMB(-1000000), '-1m');
+	t.equal(Util.toKMB(-1500000), '-1.5m');
+	t.equal(Util.toKMB(-15000000), '-15m');
+	t.equal(Util.toKMB(-150000000), '-150m');
+
+	t.equal(Util.toKMB(-1000000000), '-1b');
+	t.equal(Util.toKMB(-1200000000), '-1.2b');
+	t.equal(Util.toKMB(-50000000000), '-50b');
+});
+
 test('KMB checks', async t => {
 	t.plan(10);
 
