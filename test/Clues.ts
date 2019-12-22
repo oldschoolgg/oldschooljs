@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Clues } from '../dist';
 import {
 	StandardTable as BeginnerStandard,
@@ -9,8 +10,9 @@ import {
 import * as test from 'tape';
 
 test('Beginner Clues', t => {
-	t.plan(8);
-	const beginnerCasketOpened = Clues.Beginner.openCasket();
+	t.plan(7);
+	const beginnerCasketsOpened = Clues.Beginner.open(500);
+	let beginnerCluesItemRangeIsInvalid = false;
 
 	t.equal(BeginnerStandard.length, 41);
 	t.equal(BeginnerStandard.totalWeight, 41);
@@ -21,52 +23,99 @@ test('Beginner Clues', t => {
 	t.equal(BeginnerUnique.length, 2);
 
 	t.equal(BeginnerSuccessfulUnique.length, 15);
+
+	for (let i = 0; i < beginnerCasketsOpened.length; i++) {
+		if (beginnerCasketsOpened[i].length > 3 || beginnerCasketsOpened[i].length < 1) {
+			beginnerCluesItemRangeIsInvalid = true;
+		}
+	}
 	t.notOk(
-		beginnerCasketOpened.length > 3,
-		"Asserted beginner casket doesn't have more than 3 items"
-	);
-	t.notOk(
-		beginnerCasketOpened.length < 1,
-		"Asserted beginner casket doesn't have less than 1 items"
+		beginnerCluesItemRangeIsInvalid,
+		`Asserted ${beginnerCasketsOpened.length} beginner caskets dont have below 1 or above 3 items each.`
 	);
 });
 
 test('Easy Clues', t => {
-	t.plan(2);
-	const easyCasketOpened = Clues.Easy.openCasket();
+	t.plan(1);
+	const easyCasketsOpened = Clues.Easy.open(500);
+	let easyCluesItemRangeIsInvalid = false;
 
-	t.notOk(easyCasketOpened.length > 4, "Asserted easy casket doesn't have more than 4 items");
-	t.notOk(easyCasketOpened.length < 2, "Asserted easy casket doesn't have less than 2 items");
+	for (let i = 0; i < easyCasketsOpened.length; i++) {
+		if (easyCasketsOpened[i].length > 4 || easyCasketsOpened[i].length < 2) {
+			easyCluesItemRangeIsInvalid = true;
+		}
+	}
+
+	t.notOk(
+		easyCluesItemRangeIsInvalid,
+		`Asserted ${easyCasketsOpened.length} easy caskets dont have below 2 or above 4 items each.`
+	);
 });
 
 test('Medium Clues', t => {
-	t.plan(2);
-	const mediumCasketOpened = Clues.Medium.openCasket();
+	t.plan(1);
+	const mediumCasketsOpened = Clues.Medium.open(500);
+	let mediumCluesItemRangeIsInvalid = false;
 
-	t.notOk(mediumCasketOpened.length > 5, "Asserted medium casket doesn't have more than 5 items");
-	t.notOk(mediumCasketOpened.length < 3, "Asserted medium casket doesn't have less than 3 items");
+	for (let i = 0; i < mediumCasketsOpened.length; i++) {
+		if (mediumCasketsOpened[i].length > 5 || mediumCasketsOpened[i].length < 3) {
+			mediumCluesItemRangeIsInvalid = true;
+		}
+	}
+
+	t.notOk(
+		mediumCluesItemRangeIsInvalid,
+		`Asserted ${mediumCasketsOpened.length} medium caskets dont have below 3 or above 5 items each.`
+	);
 });
 
 test('Hard Clues', t => {
-	t.plan(2);
-	const hardCasketOpened = Clues.Hard.openCasket();
+	t.plan(1);
+	const hardCasketsOpened = Clues.Hard.open(500);
+	let hardCluesItemRangeIsInvalid = false;
 
-	t.notOk(hardCasketOpened.length > 8, "Asserted hard casket doesn't have more than 8 items");
-	t.notOk(hardCasketOpened.length < 4, "Asserted hard casket doesn't have less than 4 items");
+	for (let i = 0; i < hardCasketsOpened.length; i++) {
+		if (hardCasketsOpened[i].length > 8 || hardCasketsOpened[i].length < 4) {
+			hardCluesItemRangeIsInvalid = true;
+		}
+	}
+
+	t.notOk(
+		hardCluesItemRangeIsInvalid,
+		`Asserted ${hardCasketsOpened.length} hard caskets dont have below 4 or above 8 items each.`
+	);
 });
 
 test('Elite Clues', t => {
-	t.plan(2);
-	const eliteCasketOpened = Clues.Elite.openCasket();
+	t.plan(1);
+	const eliteCasketsOpened = Clues.Elite.open(500);
+	let eliteCluesItemRangeIsInvalid = false;
 
-	t.notOk(eliteCasketOpened.length > 6, "Asserted elite casket doesn't have more than 6 items");
-	t.notOk(eliteCasketOpened.length < 4, "Asserted elite casket doesn't have less than 4 items");
+	for (let i = 0; i < eliteCasketsOpened.length; i++) {
+		if (eliteCasketsOpened[i].length > 6 || eliteCasketsOpened[i].length < 4) {
+			eliteCluesItemRangeIsInvalid = true;
+		}
+	}
+
+	t.notOk(
+		eliteCluesItemRangeIsInvalid,
+		`Asserted ${eliteCasketsOpened.length} elite caskets dont have below 4 or above 6 items each.`
+	);
 });
 
 test('Master Clues', t => {
-	t.plan(2);
-	const masterCasketOpened = Clues.Master.openCasket();
+	t.plan(1);
+	const masterCasketsOpened = Clues.Master.open(500);
+	let masterCluesItemRangeIsInvalid = false;
 
-	t.notOk(masterCasketOpened.length > 7, "Asserted master casket doesn't have more than 7 items");
-	t.notOk(masterCasketOpened.length < 5, "Asserted master casket doesn't have less than 5 items");
+	for (let i = 0; i < masterCasketsOpened.length; i++) {
+		if (masterCasketsOpened[i].length > 7 || masterCasketsOpened[i].length < 5) {
+			masterCluesItemRangeIsInvalid = true;
+		}
+	}
+
+	t.notOk(
+		masterCluesItemRangeIsInvalid,
+		`Asserted ${masterCasketsOpened.length} master caskets dont have below 5 or above 7 items each.`
+	);
 });
