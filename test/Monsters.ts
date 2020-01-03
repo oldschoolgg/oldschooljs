@@ -21,7 +21,7 @@ function checkThreshold(
 	numberDone: number
 ): void {
 	for (const [id, qty] of Object.entries(result)) {
-		if (parseInt(id) === NaN) {
+		if (isNaN(parseInt(id))) {
 			return test.fail(`${id} isnt a number?`);
 		}
 
