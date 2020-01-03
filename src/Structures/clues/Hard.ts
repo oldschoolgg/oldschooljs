@@ -7,12 +7,9 @@ import {
 	BlessingTable,
 	GildedTable
 } from './General';
-import { rand } from '../../util';
-
-export const HardPotionTable = new LootTable() // TODO: this should roll 3 items at once (super pot set)
-	.addItem('Super attack(4)', 5)
-	.addItem('Super defence(4)', 5)
-	.addItem('Super strength(4)', 5);
+import { rand, roll } from '../../util';
+import Loot from '../Loot';
+import { ItemBank } from '../../meta/types';
 
 export const Hard3rdageTable = new LootTable()
 	.addItem('3rd age range coif')
@@ -33,7 +30,7 @@ export const HardMegaRareTable = new LootTable()
 	.addItem('Super energy(4)', 15)
 	.addItem('Super restore(4)', 15)
 	.addItem('Antifire potion(4)', 15)
-	.add(HardPotionTable)
+	.addItem([['Super attack(4)', 5], ['Super strength(4)', 5], ['Super defence(4)', 5]])
 	.add(Hard3rdageTable)
 	.add(GildedTable, undefined, 5);
 
@@ -216,23 +213,20 @@ export const HardClueTable = new LootTable()
 	.add(HardRareTable, undefined, 1);
 
 class HardCasket extends Clue {
-	public openCasket() {
-		const loot = [];
-		const numberOfRolls = rand(4, 6);
+	public open(quantity: number = 1): ItemBank {
+		const loot = new Loot();
 
-		for (let i = 0; i < numberOfRolls; i++) {
-			loot.push(HardClueTable.roll());
-		}
-
-		return loot;
-	}
-
-	public open(quantity: number = 1) {
-		const loot: any[] = [];
 		for (let i = 0; i < quantity; i++) {
-			loot.push(this.openCasket());
+			const numberOfRolls = rand(4, 6);
+
+			if (roll(15)) loot.add('Clue scroll (master)');
+
+			for (let i = 0; i < numberOfRolls; i++) {
+				loot.add(HardClueTable.roll());
+			}
 		}
-		return loot;
+
+		return loot.values();
 	}
 }
 
