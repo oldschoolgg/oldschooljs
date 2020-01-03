@@ -21,8 +21,12 @@ function checkThreshold(
 	numberDone: number
 ): void {
 	for (const [id, qty] of Object.entries(result)) {
+		if (parseInt(id) === NaN) {
+			return test.fail(`${id} isnt a number?`);
+		}
+
 		const item = Items.get(parseInt(id));
-		if (!item) throw `Missing item: ${item}`;
+		if (!item) return test.fail(`Missing item: ${item}`);
 
 		const expectedRate = expectedRates[id];
 		if (!expectedRate) continue;
@@ -56,7 +60,7 @@ test('Giant Mole', async (test): Promise<void> => {
 		[i('Mithril battleaxe')]: 128
 	};
 
-	const number = 500_000;
+	const number = 2_000_000;
 	const loot = Monsters.GiantMole.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -112,7 +116,7 @@ test('Easy Clues', async (test): Promise<void> => {
 		[i('Clue scroll (master)')]: 50
 	};
 
-	const number = 500_000;
+	const number = 1_000_000;
 	const loot = Clues.Easy.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -146,12 +150,14 @@ test('Hard Clues', async (test): Promise<void> => {
 	const expectedRates: { [key: string]: number } = {
 		[i('Clue scroll (master)')]: 15,
 		[i('Ancient page 2')]: 650 / 5,
+		[i('Lobster')]: 27.1 / 5 / 13.5,
 		[i('Holy blessing')]: 541.7 / 5,
 		[i('Magic shortbow')]: 27.1 / 5,
 		[i('Magic comp bow')]: 270.8 / 5,
 		[i("Armadyl d'hide shield")]: 9750 / 5,
 		[i('Rune platebody (h1)')]: 8125 / 5,
 		[i('Dual sai')]: 1625 / 5,
+		[i('Master scroll book (empty)')]: 595.8 / 5,
 		[i('Cyclops head')]: 1625 / 5,
 		[i('Ancient coif')]: 1625 / 5,
 		[i('Robin hood hat')]: 1625 / 5,
@@ -168,8 +174,66 @@ test('Hard Clues', async (test): Promise<void> => {
 		[i('3rd age robe')]: 211250 / 5
 	};
 
-	const number = 25_000_000;
+	const number = 20_000_000;
 	const loot = Clues.Hard.open(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Elite Clues', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		[i('Clue scroll (master)')]: 5,
+		[i('Dragon full helm ornament kit')]: 1250 / 5,
+		[i('Royal crown')]: 1250 / 5,
+		[i('Top hat')]: 1250 / 5,
+		[i('Fremennik kilt')]: 1250 / 5,
+		[i('Afro')]: 1250 / 5,
+		[i("Rangers' tunic")]: 1250 / 5,
+		[i('Ring of nature')]: 28750 / 5,
+		[i('Crystal key')]: 28750 / 5,
+		[i('Gilded scimitar')]: 28750 / 5,
+		[i('Gilded sq shield')]: 63250 / 5,
+		[i('3rd age full helmet')]: 488750 / 5,
+		[i('3rd age vambraces')]: 488750 / 5,
+		[i('3rd age wand')]: 488750 / 5,
+		[i('Ranging potion(4)')]: 28750 / 5 / 30
+	};
+
+	const number = 25_000_000;
+	const loot = Clues.Elite.open(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Master Clues', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		[i('Occult ornament kit')]: 851 / 6,
+		[i('Arceuus hood')]: 851 / 6,
+		[i('Half moon spectacles')]: 851 / 6,
+		[i('Armadyl godsword ornament kit')]: 3404 / 6,
+		[i('Dragon platebody ornament kit')]: 12765 / 6,
+		[i('Ankou socks')]: 12765 / 6,
+		[i("Mummy's hands")]: 12765 / 6,
+		[i('Dragon kiteshield ornament kit')]: 25530 / 6,
+		[i('Bucket helm (g)')]: 13616 / 6,
+		[i('Ring of coins')]: 13616 / 6,
+		[i('Cabbage')]: 13616 / 6 / 3,
+		[i('Anti-venom+(4)')]: 13616 / 6 / 15,
+		[i('Torstol')]: 13616 / 6 / 50,
+		[i("Gilded d'hide vambs")]: 13616 / 6,
+		[i('Gilded spade')]: 13616 / 6,
+		[i('Gilded full helm')]: 149776 / 6,
+		[i('Gilded 2h sword')]: 149776 / 6,
+		[i('3rd age full helmet')]: 313168 / 6,
+		[i('3rd age druidic robe top')]: 313168 / 6,
+		[i('3rd age axe')]: 313168 / 6,
+		[i('Dragon scimitar')]: 30.3 / 6,
+		[i('Grimy snapdragon')]: 30.3 / 6 / 7.5,
+		[i('Bloodhound')]: 1000
+	};
+
+	const number = 25_000_000;
+	const loot = Clues.Master.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });

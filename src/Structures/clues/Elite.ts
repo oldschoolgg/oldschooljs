@@ -8,7 +8,9 @@ import {
 	BlessingTable,
 	TeleportScrollTable
 } from './General';
-import { rand } from '../../util';
+import { rand, roll } from '../../util';
+import { ItemBank } from '../../meta/types';
+import Loot from '../Loot';
 
 export const Elite3rdageTable = new LootTable()
 	.addItem('3rd age range coif')
@@ -156,23 +158,20 @@ export const EliteClueTable = new LootTable()
 	.add(EliteRareTable, undefined, 1);
 
 class EliteCasket extends Clue {
-	public openCasket() {
-		const loot = [];
-		const numberOfRolls = rand(4, 6);
+	public open(quantity: number = 1): ItemBank {
+		const loot = new Loot();
 
-		for (let i = 0; i < numberOfRolls; i++) {
-			loot.push(EliteClueTable.roll());
-		}
-
-		return loot;
-	}
-
-	public open(quantity: number = 1) {
-		const loot: any[] = [];
 		for (let i = 0; i < quantity; i++) {
-			loot.push(this.openCasket());
+			const numberOfRolls = rand(4, 6);
+
+			if (roll(5)) loot.add('Clue scroll (master)');
+
+			for (let i = 0; i < numberOfRolls; i++) {
+				loot.add(EliteClueTable.roll());
+			}
 		}
-		return loot;
+
+		return loot.values();
 	}
 }
 

@@ -17,7 +17,7 @@ class Polls extends Collection<string, Poll> {
 		return newPolls;
 	}
 
-	public async fetchYear(year: number = getDate().year, cache: boolean = true) {
+	public async fetchYear(year: number = getDate().year, cache: boolean = true): Promise<Poll[]> {
 		const { document } = await getDom(
 			`http://services.runescape.com/m=poll/oldschool/archive.ws?year=${year}`
 		);
@@ -26,7 +26,7 @@ class Polls extends Collection<string, Poll> {
 
 		const links = (Array.from(
 			document.querySelectorAll('.td80percent > a')
-		) as HTMLAnchorElement[]).map((link: HTMLAnchorElement) => link.href);
+		) as HTMLAnchorElement[]).map((link: HTMLAnchorElement): string => link.href);
 
 		for (const link of links) {
 			const poll = await this.fetchPageContent(
@@ -47,8 +47,8 @@ class Polls extends Collection<string, Poll> {
 
 		const description = Array.from(document.querySelector('.widescroll-content').childNodes)
 			.slice(0, 15)
-			.map(node => node.textContent.trim())
-			.filter(str => str.trim().length > 0)
+			.map((node): string => node.textContent.trim())
+			.filter((str): boolean => str.trim().length > 0)
 			.slice(1, -1)
 			.join(' ');
 

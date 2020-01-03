@@ -43,7 +43,7 @@ class Wiki {
 
 	public async search(query: string): Promise<WikiPage[]> {
 		const parsedSearchOptions = Object.keys(this.searchOptions)
-			.map(prop => `${prop}:${this.searchOptions[prop]}`)
+			.map((prop): string => `${prop}:${this.searchOptions[prop]}`)
 			.join(' ');
 
 		const results = await this.fetchAPI({

@@ -62,7 +62,11 @@ class News extends Collection<string, NewsItem> {
 		];
 
 		// If every article in the last 2 months of news is already in News, return.
-		if (articles.every(article => this.some(_article => _article.link === article.link))) {
+		if (
+			articles.every((article): boolean =>
+				this.some((_article): boolean => _article.link === article.link)
+			)
+		) {
 			return undefined;
 		}
 
@@ -71,7 +75,7 @@ class News extends Collection<string, NewsItem> {
 		// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
 		while (
 			!articles.some((article): boolean =>
-				this.some(_article => article.link === _article.link)
+				this.some((_article): boolean => article.link === _article.link)
 			)
 		) {
 			// Decrement the date by 1 month, and then fetch the previous month.
@@ -86,7 +90,7 @@ class News extends Collection<string, NewsItem> {
 
 		// Return the new articles from the fetched articles.
 		for (const article of articles) {
-			if (this.some(_article => _article.link === article.link)) continue;
+			if (this.some((_article): boolean => _article.link === article.link)) continue;
 			this.set(article.link, article);
 			newArticles.push(article);
 		}

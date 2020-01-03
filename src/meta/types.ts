@@ -331,3 +331,5 @@ export interface LootTableItem {
 export interface OneInItems extends LootTableItem {
 	chance: number;
 }
+
+export type TupleLootItem = [number, number];

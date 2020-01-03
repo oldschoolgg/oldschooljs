@@ -25,9 +25,7 @@ export default class LootTable {
 		weight: number = 1
 	): this {
 		if (Array.isArray(item)) {
-			for (const itemToAdd of item) {
-				this.addLootItem(...itemToAdd);
-			}
+			this.addLootItem(item);
 		} else {
 			this.addLootItem(item, quantity, weight);
 		}
@@ -57,17 +55,19 @@ export default class LootTable {
 	}
 
 	public addItem(
-		item: string | [string | number, number?, number?][],
+		item: string | [string | number, number?][],
 		quantity: number[] | number = 1,
 		weight: number = 1
 	): this {
 		if (Array.isArray(item)) {
+			const newItems = [];
 			for (let itemToAdd of item) {
 				itemToAdd[0] = Items.get(itemToAdd[0]).id;
-				this.addLootItem(...itemToAdd);
+				newItems.push(itemToAdd);
 			}
+			this.addLootItem(newItems);
 		} else {
-			this.addLootItem(item, quantity, weight);
+			this.addLootItem(Items.get(item).id, quantity, weight);
 		}
 
 		return this;
@@ -119,6 +119,19 @@ export default class LootTable {
 		if (item.item instanceof LootTable) {
 			const rolledItems = item.item.roll();
 			if (rolledItems) return rolledItems;
+		}
+
+		if (Array.isArray(item.item)) {
+			const items = [];
+			for (const singleItem of item.item as [number, number][]) {
+				items.push(
+					this.generateResultItem({
+						item: singleItem[0],
+						quantity: singleItem[1]
+					})[0]
+				);
+			}
+			return items;
 		}
 
 		return [
