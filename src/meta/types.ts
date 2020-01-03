@@ -312,3 +312,22 @@ export interface PollResult {
 	percentOfTotal: number;
 	voteCount: number;
 }
+
+export interface ItemBank {
+	[key: number]: number;
+}
+
+export interface ReturnedLootItem {
+	item: any;
+	quantity: number;
+}
+
+export interface LootTableItem {
+	item: any;
+	weight?: number;
+	quantity: number | number[];
+}
+
+export interface OneInItems extends LootTableItem {
+	chance: number;
+}

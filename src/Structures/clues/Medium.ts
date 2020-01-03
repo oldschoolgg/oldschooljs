@@ -1,7 +1,9 @@
 import LootTable from '../LootTable';
 import Clue from '../Clue';
 import { PrayerPageTable, TeleportScrollTable, BlessingTable } from './General';
-import { rand } from '../../util';
+import { rand, roll } from '../../util';
+import { ItemBank } from '../../meta/types';
+import Loot from '../Loot';
 
 export const MediumUnicornTable = new LootTable()
 	.addItem('White unicorn mask')
@@ -181,23 +183,20 @@ export const MediumClueTable = new LootTable()
 	.add(MediumRareTable, undefined, 1);
 
 class MediumCasket extends Clue {
-	public openCasket() {
-		const loot = [];
-		const numberOfRolls = rand(3, 5);
+	public open(quantity: number = 1): ItemBank {
+		const loot = new Loot();
 
-		for (let i = 0; i < numberOfRolls; i++) {
-			loot.push(MediumClueTable.roll());
-		}
-
-		return loot;
-	}
-
-	public open(quantity: number = 1) {
-		const loot: any[] = [];
 		for (let i = 0; i < quantity; i++) {
-			loot.push(this.openCasket());
+			const numberOfRolls = rand(3, 5);
+
+			if (roll(30)) loot.add('Clue scroll (master)');
+
+			for (let i = 0; i < numberOfRolls; i++) {
+				loot.add(MediumClueTable.roll());
+			}
 		}
-		return loot;
+
+		return loot.values();
 	}
 }
 
