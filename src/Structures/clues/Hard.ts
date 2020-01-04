@@ -30,7 +30,11 @@ export const HardMegaRareTable = new LootTable()
 	.addItem('Super energy(4)', 15)
 	.addItem('Super restore(4)', 15)
 	.addItem('Antifire potion(4)', 15)
-	.addItem([['Super attack(4)', 5], ['Super strength(4)', 5], ['Super defence(4)', 5]])
+	.addItem([
+		['Super attack(4)', 5],
+		['Super strength(4)', 5],
+		['Super defence(4)', 5]
+	])
 	.add(Hard3rdageTable)
 	.add(GildedTable, undefined, 5);
 
@@ -213,7 +217,7 @@ export const HardClueTable = new LootTable()
 	.add(HardRareTable, undefined, 1);
 
 class HardCasket extends Clue {
-	public open(quantity: number = 1): ItemBank {
+	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

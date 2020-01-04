@@ -1,9 +1,9 @@
 import { Monsters, Items, Clues } from '../dist';
 
-import * as test from 'tape';
+import test from 'tape';
 import { ItemBank } from '../dist/meta/types';
 
-function withinThreshold(source: number, target: number, epsilon: number = 5): boolean {
+function withinThreshold(source: number, target: number, epsilon = 5): boolean {
 	if (source === target) return true;
 	return Math.abs(source - target) < (epsilon / 100) * target;
 }

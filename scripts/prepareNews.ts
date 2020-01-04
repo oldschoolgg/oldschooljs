@@ -1,4 +1,4 @@
-import { News } from '../dist/';
+import { News } from '../dist';
 import { readFileSync, writeFileSync } from 'fs';
 
 const currentNews = JSON.parse(readFileSync('./src/data/news/news_archive.json').toString());

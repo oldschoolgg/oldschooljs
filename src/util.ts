@@ -107,7 +107,7 @@ export function convertLVLtoXP(lvl: number): number {
 	return Math.floor(points / 4);
 }
 
-export function convertXPtoLVL(xp: number, cap: number = 99): number {
+export function convertXPtoLVL(xp: number, cap = 99): number {
 	let points = 0;
 
 	for (let lvl = 1; lvl <= cap; lvl++) {

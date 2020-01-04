@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
-import { ItemCollection } from '../dist/lib/structures/Items';
+import { ItemCollection } from '../dist/structures/Items';
 import { writeFileSync } from 'fs';
 
 const itemNameMap: { [key: string]: string } = {};
 
-export default async function prepareItems() {
+export default async function prepareItems(): Promise<void> {
 	const allItems: ItemCollection = await fetch(
 		`https://github.com/osrsbox/osrsbox-db/blob/master/docs/items-complete.json?raw=true`
 	).then((res): Promise<any> => res.json());

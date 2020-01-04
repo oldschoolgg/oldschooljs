@@ -30,7 +30,7 @@ class Wiki {
 		return this.parseRawPage(results.query.pages[0]);
 	}
 
-	public async random(amount: number = 20): Promise<WikiPage[]> {
+	public async random(amount = 20): Promise<WikiPage[]> {
 		const results = await this.fetchAPI({
 			generator: 'random',
 			grnnamespace: '0',
