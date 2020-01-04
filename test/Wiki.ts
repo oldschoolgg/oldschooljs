@@ -1,6 +1,6 @@
 import { Wiki } from '../dist';
 
-import * as test from 'tape';
+import test from 'tape';
 
 test('Searching', async t => {
 	t.plan(2);

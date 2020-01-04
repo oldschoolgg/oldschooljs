@@ -2,7 +2,7 @@ import { Poll } from '../meta/types';
 import { getDate } from '../util';
 import getDom from '../util/getDom';
 import Collection from './Collection';
-import * as _pollArchive from '../data/polls/poll_archive.json';
+import _pollArchive from '../data/polls/poll_archive.json';
 
 const pollArchive = _pollArchive as Poll[];
 
@@ -17,7 +17,7 @@ class Polls extends Collection<string, Poll> {
 		return newPolls;
 	}
 
-	public async fetchYear(year: number = getDate().year, cache: boolean = true): Promise<Poll[]> {
+	public async fetchYear(year: number = getDate().year, cache = true): Promise<Poll[]> {
 		const { document } = await getDom(
 			`http://services.runescape.com/m=poll/oldschool/archive.ws?year=${year}`
 		);

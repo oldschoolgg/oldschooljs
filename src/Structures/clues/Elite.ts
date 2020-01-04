@@ -158,7 +158,7 @@ export const EliteClueTable = new LootTable()
 	.add(EliteRareTable, undefined, 1);
 
 class EliteCasket extends Clue {
-	public open(quantity: number = 1): ItemBank {
+	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

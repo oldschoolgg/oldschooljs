@@ -1,6 +1,6 @@
-import { Hiscores } from '../dist/';
+import { Hiscores } from '../dist';
 
-import * as test from 'tape';
+import test from 'tape';
 
 test('Hiscores Should Return Correct Results', async t => {
 	t.plan(6);
@@ -70,6 +70,7 @@ test('Hiscores Handling Invalid Usernames', async assert => {
 
 test('Hiscores Handling Invalid Account Type', async assert => {
 	try {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		await Hiscores.fetch('Lynx Titan', { type: '....' });
 		assert.fail('Invalid account type was not rejected.');

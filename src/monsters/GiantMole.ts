@@ -48,7 +48,7 @@ export class GiantMoleClass extends Monster {
 	public combatLevel = 230;
 	public hitpoints = 200;
 
-	public kill(quantity: number = 1): ItemBank {
+	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

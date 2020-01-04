@@ -4,11 +4,13 @@
 		"strictNullChecks": false,
 		"sourceMap": true,
 		"declaration": true,
+		"declarationMap": true,
 		"removeComments": false,
 		"outDir": "./dist",
 		"types": ["node"],
 		"target": "ES6",
-		"resolveJsonModule": true
+		"resolveJsonModule": true,
+		"esModuleInterop": true
 	},
 	"include": ["./src/**/*"]
 }

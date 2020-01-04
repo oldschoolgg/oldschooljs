@@ -1,7 +1,7 @@
 import { NewsItem, DateYearMonth } from '../meta/types';
 import { getDate } from '../util';
 import getDom from '../util/getDom';
-import * as _newsArchive from '../data/news/news_archive.json';
+import _newsArchive from '../data/news/news_archive.json';
 import Collection from './Collection';
 
 const newsArchive = _newsArchive as NewsItem[];
@@ -70,7 +70,7 @@ class News extends Collection<string, NewsItem> {
 			return undefined;
 		}
 
-		let newArticles: NewsItem[] = [];
+		const newArticles: NewsItem[] = [];
 
 		// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
 		while (
@@ -100,8 +100,8 @@ class News extends Collection<string, NewsItem> {
 
 	public async fetchMonth(
 		{ year, month }: DateYearMonth,
-		cache: boolean = true,
-		pageNumber: number = 1
+		cache = true,
+		pageNumber = 1
 	): Promise<NewsItem[]> {
 		let newsArticlesCollection: NewsItem[] = [];
 
@@ -160,7 +160,7 @@ class News extends Collection<string, NewsItem> {
 		return newsArticlesCollection;
 	}
 
-	public generateNewsURL(year: number, month: number, page: number = 1): string {
+	public generateNewsURL(year: number, month: number, page = 1): string {
 		return `${BASE_URL}&year=${year}&month=${month}&page=${page}`;
 	}
 }

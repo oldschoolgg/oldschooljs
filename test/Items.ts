@@ -1,6 +1,6 @@
 import { Items } from '../dist';
 
-import * as test from 'tape';
+import test from 'tape';
 
 test('Setup', async t => {
 	await Items.fetchAll();

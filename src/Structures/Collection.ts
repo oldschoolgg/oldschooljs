@@ -252,6 +252,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example collection.filter(user => user.username === 'Bob');
 	 */
 	public filter(fn: (value: V, key: K, collection: this) => boolean): Collection<K, V> {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		const results = new this.constructor[Symbol.species]();
 		for (const [key, val] of this) {
@@ -288,6 +289,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example collection.mapValues(user => user.tag);
 	 */
 	public mapValues<T>(fn: (value: V, key: K, collection: this) => T): Collection<K, T> {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		const coll = new this.constructor[Symbol.species]();
 		for (const [key, val] of this) coll.set(key, fn(val, key, this));
@@ -402,6 +404,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example const newColl = someColl.clone();
 	 */
 	public clone(): Collection<K, V> {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		return new this.constructor[Symbol.species](this);
 	}

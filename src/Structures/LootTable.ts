@@ -22,7 +22,7 @@ export default class LootTable {
 	public add<T>(
 		item: T | [T, number?, number?][],
 		quantity: number[] | number = 1,
-		weight: number = 1
+		weight = 1
 	): this {
 		if (Array.isArray(item)) {
 			this.addLootItem(item);
@@ -43,7 +43,7 @@ export default class LootTable {
 		return this;
 	}
 
-	private addLootItem(item: any, quantity: number[] | number = 1, weight: number = 1): void {
+	private addLootItem(item: any, quantity: number[] | number = 1, weight = 1): void {
 		this.length += 1;
 		this.totalWeight += weight;
 
@@ -57,11 +57,11 @@ export default class LootTable {
 	public addItem(
 		item: string | [string | number, number?][],
 		quantity: number[] | number = 1,
-		weight: number = 1
+		weight = 1
 	): this {
 		if (Array.isArray(item)) {
 			const newItems = [];
-			for (let itemToAdd of item) {
+			for (const itemToAdd of item) {
 				itemToAdd[0] = Items.get(itemToAdd[0]).id;
 				newItems.push(itemToAdd);
 			}
@@ -96,7 +96,7 @@ export default class LootTable {
 			}
 		}
 
-		let chosenItem = this.table[result];
+		const chosenItem = this.table[result];
 
 		if (chosenItem.item === undefined) return [];
 

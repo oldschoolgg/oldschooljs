@@ -170,7 +170,7 @@ export const MasterClueTable = new LootTable()
 	.add(MasterRareTable, undefined, 1);
 
 class MasterCasket extends Clue {
-	public open(quantity: number = 1): ItemBank {
+	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

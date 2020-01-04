@@ -9,7 +9,14 @@ export interface SimpleLootItem {
 	dropRate: number;
 }
 
-export type AccountType = 'normal' | 'ironman' | 'ultimate' | 'hardcore' | 'deadman' | 'seasonal';
+export type AccountType =
+	| 'normal'
+	| 'ironman'
+	| 'ultimate'
+	| 'hardcore'
+	| 'deadman'
+	| 'seasonal'
+	| undefined;
 
 export interface Player {
 	bossRecords: BossRecords;
