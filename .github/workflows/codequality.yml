@@ -24,17 +24,6 @@ jobs:
                   key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
             - name: Install Dependencies
               run: yarn
-            - name: Logging galore
-              run: |
-                  echo "logging current dir"
-                  pwd
-                  echo ""
-                  echo "logging current dir files"
-                  ls -al
-                  echo ""
-                  echo "logging src files"
-                  ls -al src/
-                  echo ""
             - name: Run ESLint
               uses: icrawl/action-eslint@v1
               env:
@@ -59,6 +48,17 @@ jobs:
                   key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
             - name: Install Dependencies
               run: yarn
+            - name: Logging galore
+              run: |
+                  echo "logging current dir"
+                  pwd
+                  echo ""
+                  echo "logging current dir files"
+                  ls -al
+                  echo ""
+                  echo "logging src files"
+                  ls -al src/
+                  echo ""
             - name: Run TSC
               uses: icrawl/action-tsc@v1
               env:
