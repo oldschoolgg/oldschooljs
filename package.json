@@ -55,7 +55,6 @@
 		"oldschoolrs"
 	],
 	"files": [
-		"dist/*",
-		"!dist/tsconfig.tsbuildinfo"
+		"dist/*"
 	]
 }
