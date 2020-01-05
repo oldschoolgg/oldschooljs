@@ -20,7 +20,11 @@ export function rand(min: number, max: number): number {
 }
 
 export function resolvePlayerFromHiscores(csvData: string): Player {
-	const data: string[][] = csvData.split('\n').map((str): string[] => str.split(','));
+	const data: string[][] = csvData
+		.trim()
+		.split('\n')
+		.map((str): string[] => str.split(','));
+
 	const resolvedPlayer: any = {
 		skills: {},
 		minigames: {},
@@ -38,16 +42,16 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 		};
 	}
 
-	accumulativeIndex += SKILLS.length;
+	accumulativeIndex += SKILLS.length + 1;
 
-	for (let i = 0; i < MINIGAMES.length; i++) {
+	for (let i = 0; i < 2; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
 	}
 
-	accumulativeIndex += MINIGAMES.length;
+	accumulativeIndex += 2;
 
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
@@ -58,9 +62,16 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 
 	accumulativeIndex += CLUES.length;
 
+	resolvedPlayer.minigames[MINIGAMES[2]] = {
+		rank: Number(data[accumulativeIndex][0]),
+		score: Number(data[accumulativeIndex][1])
+	};
+
+	accumulativeIndex += 1;
+
 	for (let i = 0; i < mappedBossNames.length; i++) {
-		// If theres no boss hiscores, break.
-		if (!data[i + accumulativeIndex]) break;
+		if (!data[i + accumulativeIndex]) continue;
+
 		resolvedPlayer.bossRecords[mappedBossNames[i][0]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])

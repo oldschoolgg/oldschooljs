@@ -1,12 +1,13 @@
-export interface MonsterOptions {
-	id: string;
-	name: string;
-	aliases: string[];
-}
-
 export interface SimpleLootItem {
 	id: string;
 	dropRate: number;
+}
+
+export interface MonsterOptions {
+	id: number;
+	name: string;
+	combatLevel?: number;
+	hitpoints?: number;
 }
 
 export type AccountType =

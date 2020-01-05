@@ -60,7 +60,7 @@ test('Giant Mole', async (test): Promise<void> => {
 		[i('Mithril battleaxe')]: 128
 	};
 
-	const number = 2_000_000;
+	const number = 3_000_000;
 	const loot = Monsters.GiantMole.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();

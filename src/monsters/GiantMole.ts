@@ -1,15 +1,11 @@
 import LootTable from '../structures/LootTable';
-import Monster from '../structures/Monster';
-import Loot from '../structures/Loot';
-import { ItemBank } from '../meta/types';
 import RareDropTable, { GemTable } from './RareDropTable';
+import SimpleMonster from '../structures/SimpleMonster';
 
 export const GiantMoleTable = new LootTable()
-
 	.every('Big bones')
 	.every('Mole claw', 1)
 	.every('Mole skin', [1, 3])
-	.oneIn(74, 'Brimstone key')
 	.oneIn(400, 'Long bone')
 	.oneIn(500, 'Clue scroll (elite)')
 	.oneIn(3000, 'Baby mole')
@@ -42,23 +38,4 @@ export const GiantMoleTable = new LootTable()
 	.add(RareDropTable)
 	.add(GemTable);
 
-export class GiantMoleClass extends Monster {
-	public id = 5779;
-	public name = 'Giant Mole';
-	public combatLevel = 230;
-	public hitpoints = 200;
-
-	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
-
-		for (let i = 0; i < quantity; i++) {
-			const result = GiantMoleTable.roll();
-			loot.add(result);
-		}
-
-		return loot.values();
-	}
-}
-
-const GiantMole = new GiantMoleClass();
-export default GiantMole;
+export default new SimpleMonster({ id: 5779, name: 'Giant Mole', table: GiantMoleTable });

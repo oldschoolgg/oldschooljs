@@ -1,7 +1,6 @@
 import { Hiscores } from '../dist';
 
 import test from 'tape';
-
 test('Hiscores Should Return Correct Results', async t => {
 	t.plan(6);
 
@@ -19,21 +18,50 @@ test('Hiscores Should Return Correct Results', async t => {
 });
 
 test('Boss Hiscores', async t => {
-	t.plan(8);
+	t.plan(25);
+
+	const zulu = await Hiscores.fetch('Zulu');
+
+	t.equal(zulu.bossRecords.giantMole.rank > 1, true);
+	t.equal(zulu.bossRecords.giantMole.score, 1222);
+
+	t.equal(zulu.bossRecords.commanderZilyana.rank > 1, true);
+	t.equal(zulu.bossRecords.commanderZilyana.score, 1082);
+
+	t.equal(zulu.bossRecords.chambersofXeric.rank > 1, true);
+	t.equal(zulu.bossRecords.chambersofXeric.score, 872);
+
+	t.equal(zulu.bossRecords.zulrah.rank > 1, true);
+	t.equal(zulu.bossRecords.zulrah.score, 2475);
+
+	t.equal(zulu.minigames.bountyHunter.rank > 1, true);
+	t.equal(zulu.minigames.bountyHunter.score, 4);
+
+	t.equal(zulu.minigames.bountyHunterRogue.rank > 1, true);
+	t.equal(zulu.minigames.bountyHunterRogue.score, 3);
+
+	t.equal(zulu.minigames.LMS.score, 500);
 
 	const mgby = await Hiscores.fetch('Mgby');
 
-	t.equal(mgby.bossRecords.giantMole.rank > 1, true);
-	t.equal(mgby.bossRecords.giantMole.score, 10636);
+	t.equal(mgby.clues.all.score, 137);
 
-	t.equal(mgby.bossRecords.commanderZilyana.rank > 1, true);
-	t.equal(mgby.bossRecords.commanderZilyana.score, 1);
+	t.equal(mgby.clues.beginner.score, 5);
+	t.equal(mgby.clues.easy.score, 12);
 
-	t.equal(mgby.bossRecords.zulrah.rank > 1, true);
-	t.equal(mgby.bossRecords.zulrah.score, 244);
+	t.equal(mgby.clues.medium.score, 56);
+	t.equal(mgby.clues.hard.score, 44);
 
-	t.equal(mgby.bossRecords.chambersofXeric.rank > 1, true);
-	t.equal(mgby.bossRecords.chambersofXeric.score, 3);
+	t.equal(mgby.clues.elite.score, 13);
+	t.equal(mgby.clues.master.score, 7);
+
+	t.equal(mgby.minigames.bountyHunter.rank, -1);
+	t.equal(mgby.minigames.bountyHunter.score, -1);
+
+	t.equal(mgby.minigames.bountyHunterRogue.rank > 1, true);
+	t.equal(mgby.minigames.bountyHunterRogue.score, 2);
+
+	t.equal(mgby.minigames.LMS.score, -1);
 });
 
 test('Hiscores Virtual Stats', async t => {
