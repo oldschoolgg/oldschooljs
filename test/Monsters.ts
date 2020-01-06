@@ -237,3 +237,29 @@ test('Master Clues', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Zulrah', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		[i('Pet snakeling')]: 4000,
+		[i('Jar of swamp')]: 3000,
+		[i('Tanzanite fang')]: 512,
+		[i('Magic fang')]: 512,
+		[i('Serpentine visage')]: 512,
+		[i('Uncut onyx')]: 512,
+		[i('Tanzanite mutagen')]: 6580,
+		[i('Magma mutagen')]: 6580,
+		[i('Snakeskin')]: 22.55 / 35 / 2,
+		[i('Mahogany logs')]: 31 / 50 / 2,
+		[i('Zul-andra teleport')]: 16.53 / 4 / 2,
+		[i('Dragon bones')]: 31 / 12 / 2,
+		[i('Battlestaff')]: 24.8 / 10 / 2,
+		[i('Dragon halberd')]: 124 / 2,
+		[i('Death rune')]: 20.67 / 300 / 2,
+		[i("Zulrah's scales")]: 1 / (199 + 500 / (49.6 / 2))
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Zulrah.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
