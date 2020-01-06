@@ -18,7 +18,7 @@ test('Hiscores Should Return Correct Results', async t => {
 });
 
 test('Boss Hiscores', async t => {
-	t.plan(25);
+	t.plan(29);
 
 	const zulu = await Hiscores.fetch('Zulu');
 
@@ -33,6 +33,12 @@ test('Boss Hiscores', async t => {
 
 	t.equal(zulu.bossRecords.zulrah.rank > 1, true);
 	t.equal(zulu.bossRecords.zulrah.score, 2475);
+
+	t.equal(zulu.bossRecords.callisto.rank > 1, true);
+	t.equal(zulu.bossRecords.callisto.score, 327);
+
+	t.equal(zulu.bossRecords.cerberus.rank > 1, true);
+	t.equal(zulu.bossRecords.cerberus.score, 7073);
 
 	t.equal(zulu.minigames.bountyHunter.rank > 1, true);
 	t.equal(zulu.minigames.bountyHunter.score, 4);
