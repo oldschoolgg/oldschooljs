@@ -84,4 +84,4 @@ export class Zulrah extends SimpleMonster {
 	}
 }
 
-export default new Zulrah({ id: 5779, name: 'Giant Mole', table: ZulrahTable });
+export default new Zulrah({ id: 2042, name: 'Zulrah', table: ZulrahTable });
