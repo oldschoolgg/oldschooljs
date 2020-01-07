@@ -5,4 +5,5 @@ import './News';
 import './Wiki';
 import './Polls';
 import './Util';
-// import './Monsters';
+import './Monsters';
+import './Clues';
