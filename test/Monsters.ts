@@ -50,3 +50,31 @@ test('Zulrah', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Cerberus', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		Hellpuppy: 3000,
+		'Jar of souls': 2000,
+		'Primordial crystal': 512,
+		'Pegasian crystal': 512,
+		'Eternal crystal': 512,
+		'Smouldering stone': 512,
+		'Rune platebody': 25.6,
+		'Rune chainbody': 32,
+		'Rune axe': 42.67,
+		'Rune halberd': 64,
+		'Fire rune': 21.33 / 300,
+		'Pure essence': 25.6 / 300,
+		'Blood rune': 32 / 60,
+		Coal: 21.33 / 120,
+		'Dragon bones': 25.6 / 20,
+		'Fire orb': 32 / 20,
+		'Runite ore': 42.67 / 5,
+		'Key master teleport': 64 / 3
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Cerberus.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
