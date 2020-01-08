@@ -36,7 +36,7 @@ export const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail"
-].map(item => BarrowsTable.addItem(item, 1, 7));
+].map(item => BarrowsTable.addItem(item));
 
 export const OtherTable = new LootTable()
 	.addItem('Coins', [1, 5306], 380)
