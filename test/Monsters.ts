@@ -3,6 +3,47 @@ import test from 'tape';
 import { Monsters } from '../dist';
 import { checkThreshold } from './testUtil';
 
+test('Barrows', async (test): Promise<void> => {
+	const NUM_BROTHERS = 6;
+	const NUM_BARR_ITEMS = NUM_BROTHERS * 4;
+
+	const chanceOfSpecificBarrowsItem = (102 / NUM_BROTHERS) * NUM_BARR_ITEMS;
+
+	const expectedRates = {
+		"Ahrim's hood": chanceOfSpecificBarrowsItem,
+		"Ahrim's robetop": chanceOfSpecificBarrowsItem,
+		"Ahrim's robeskirt": chanceOfSpecificBarrowsItem,
+		"Ahrim's staff": chanceOfSpecificBarrowsItem,
+		"Dharok's helm": chanceOfSpecificBarrowsItem,
+		"Dharok's platebody": chanceOfSpecificBarrowsItem,
+		"Dharok's platelegs": chanceOfSpecificBarrowsItem,
+		"Dharok's greataxe": chanceOfSpecificBarrowsItem,
+		"Guthan's helm": chanceOfSpecificBarrowsItem,
+		"Guthan's platebody": chanceOfSpecificBarrowsItem,
+		"Guthan's chainskirt": chanceOfSpecificBarrowsItem,
+		"Guthan's warspear": chanceOfSpecificBarrowsItem,
+		"Karil's coif": chanceOfSpecificBarrowsItem,
+		"Karil's leathertop": chanceOfSpecificBarrowsItem,
+		"Karil's leatherskirt": chanceOfSpecificBarrowsItem,
+		"Karil's crossbow": chanceOfSpecificBarrowsItem,
+		"Torag's helm": chanceOfSpecificBarrowsItem,
+		"Torag's platebody": chanceOfSpecificBarrowsItem,
+		"Torag's platelegs": chanceOfSpecificBarrowsItem,
+		"Torag's hammers": chanceOfSpecificBarrowsItem,
+		"Verac's helm": chanceOfSpecificBarrowsItem,
+		"Verac's brassard": chanceOfSpecificBarrowsItem,
+		"Verac's plateskirt": chanceOfSpecificBarrowsItem,
+		"Verac's flail": chanceOfSpecificBarrowsItem
+	};
+
+	const Barrows = Monsters.Barrows;
+	const number = 10_000_000;
+	checkThreshold(test, expectedRates, Barrows.kill(number), number);
+	test.end();
+});
+
+/*
+
 test('Giant Mole', async (test): Promise<void> => {
 	const expectedRates = {
 		'Big bones': 1,
@@ -178,4 +219,4 @@ test('Dagannoth Supreme', async (test): Promise<void> => {
 	const loot = Monsters.DagannothSupreme.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
-});
+});*/

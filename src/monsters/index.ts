@@ -5,6 +5,7 @@ import Cerberus from './Cerberus';
 import LuckyImplingTable from './LuckyImp';
 import GiantMole from './GiantMole';
 import Zulrah from './Zulrah';
+import Barrows from './Barrows';
 
 export default {
 	DagannothPrime,
@@ -13,5 +14,8 @@ export default {
 	Cerberus,
 	LuckyImp: LuckyImplingTable,
 	GiantMole,
-	Zulrah
+	Zulrah,
+	Barrows
 };
+
+console.log(Barrows.kill(1000));
