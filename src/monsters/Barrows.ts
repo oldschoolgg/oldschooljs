@@ -39,12 +39,12 @@ export const BarrowsTable = new LootTable();
 ].map(item => BarrowsTable.addItem(item));
 
 export const OtherTable = new LootTable()
-	.addItem('Coins', [1, 5306], 380)
-	.addItem('Mind rune', [1, 2889], 125)
-	.addItem('Chaos rune', [1, 885], 125)
-	.addItem('Death rune', [1, 578], 125)
-	.addItem('Bolt rack', [1, 191], 125)
-	.addItem('Blood rune', [1, 236], 125)
+	.addItem('Coins', [2, 760], 380)
+	.addItem('Mind rune', [381, 504], 125)
+	.addItem('Chaos rune', [168, 210], 125)
+	.addItem('Death rune', [105, 124], 125)
+	.addItem('Bolt rack', [35, 40], 125)
+	.addItem('Blood rune', [55, 66], 125)
 	.add(new LootTable().addItem('Loop half of key').addItem('Tooth half of key'), 1, 6)
 	.addItem('Dragon med helm');
 
