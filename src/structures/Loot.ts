@@ -24,14 +24,6 @@ export default class Loot {
 		else this.loot[id] += item.quantity;
 	}
 
-	public has(item: number | ReturnedLootItem): boolean {
-		if (typeof item === 'number') {
-			return !!this.loot[item];
-		} else {
-			return !!this.loot[item.item];
-		}
-	}
-
 	public values(): ItemBank {
 		return this.loot;
 	}
