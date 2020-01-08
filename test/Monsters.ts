@@ -78,6 +78,9 @@ test('Cerberus', async (test): Promise<void> => {
 		'Key master teleport': 64 / 3
 	};
 
+	const Cerberus = Monsters.Cerberus;
+	test.equals(Cerberus.table.totalWeight, 128, 'Cerberus table weight should be 128');
+
 	const number = 10_000_000;
 	const loot = Monsters.Cerberus.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
