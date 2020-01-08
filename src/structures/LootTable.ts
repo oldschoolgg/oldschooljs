@@ -8,11 +8,13 @@ export default class LootTable {
 	public totalWeight: number;
 	public limit: number;
 	public oneInItems: OneInItems[];
+	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
 
 	public constructor(limit?: number) {
 		this.table = [];
 		this.oneInItems = [];
+		this.tertiaryItems = [];
 		this.everyItems = [];
 		this.length = 0;
 		this.totalWeight = 0;
@@ -35,6 +37,11 @@ export default class LootTable {
 
 	public oneIn(chance: number, item: any, quantity: number | number[] = 1): this {
 		this.oneInItems.push({ item, chance, quantity });
+		return this;
+	}
+
+	public tertiary(chance: number, item: any, quantity: number | number[] = 1): this {
+		this.tertiaryItems.push({ item, chance, quantity });
 		return this;
 	}
 
@@ -101,15 +108,22 @@ export default class LootTable {
 		if (chosenItem.item === undefined) return [];
 
 		// The items that are rolled.
-		let items: ReturnedLootItem[] = this.generateResultItem(chosenItem);
-
-		for (const { chance, item, quantity } of this.oneInItems) {
-			if (roll(chance)) items = items.concat(this.generateResultItem({ item, quantity }));
-		}
-
+		let items: ReturnedLootItem[] = [];
 		for (const item of this.everyItems) {
 			items = items.concat(this.generateResultItem(item));
 		}
+
+		for (const { chance, item, quantity } of this.tertiaryItems) {
+			if (roll(chance)) items = items.concat(this.generateResultItem({ item, quantity }));
+		}
+
+		for (const { chance, item, quantity } of this.oneInItems) {
+			if (roll(chance)) {
+				items = items.concat(this.generateResultItem({ item, quantity }));
+				return items;
+			}
+		}
+		items = items.concat(this.generateResultItem(chosenItem));
 
 		return items;
 	}
