@@ -17,5 +17,3 @@ export default {
 	Zulrah,
 	Barrows
 };
-
-console.log(Barrows.kill(1000));
