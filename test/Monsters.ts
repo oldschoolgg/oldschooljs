@@ -47,6 +47,9 @@ test('Zulrah', async (test): Promise<void> => {
 		"Zulrah's scales": 1 / (199 + 500 / (49.6 / 2))
 	};
 
+	const Zulrah = Monsters.Zulrah;
+	test.equals(Zulrah.table.totalWeight, 256, 'Zulrah table weight should be 256');
+
 	const number = 10_000_000;
 	const loot = Monsters.Zulrah.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
@@ -74,6 +77,9 @@ test('Cerberus', async (test): Promise<void> => {
 		'Runite ore': 42.67 / 5,
 		'Key master teleport': 64 / 3
 	};
+
+	const Cerberus = Monsters.Cerberus;
+	test.equals(Cerberus.table.totalWeight, 128, 'Cerberus table weight should be 128');
 
 	const number = 10_000_000;
 	const loot = Monsters.Cerberus.kill(number);

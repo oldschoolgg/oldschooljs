@@ -10,10 +10,10 @@ const CerberusUniqueTable = new LootTable()
 
 export const CerberusTable = new LootTable()
 	.every('Ashes')
-	.oneIn(128, CerberusUniqueTable)
-	.oneIn(100, 'Clue scroll (elite)')
-	.oneIn(2000, 'Jar of souls')
-	.oneIn(3000, 'Hellpuppy')
+	.add(CerberusUniqueTable)
+	.tertiary(100, 'Clue scroll (elite)')
+	.tertiary(2000, 'Jar of souls')
+	.tertiary(3000, 'Hellpuppy')
 
 	/* Weapons and armour */
 	.addItem('Rune platebody', 1, 5)
