@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "0.7.4",
+	"version": "0.7.5",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -12,7 +12,7 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"test": "npm run test:run",
-		"test:run": "ts-node test/suite",
+		"test:run": "yarn build && ts-node test/suite",
 		"test:lint": "eslint --ext ts src",
 		"lint": "eslint --ext ts src --fix",
 		"build": "tsc -p .",
