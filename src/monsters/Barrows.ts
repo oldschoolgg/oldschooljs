@@ -60,7 +60,7 @@ export class Barrows extends Monster {
 
 			const barrowsItemsThisKill = new Set();
 			// You get 1 initial roll, then +6 for 6 brothers killed.
-			for (let x = 0; x < NUMBER_OF_BROTHERS; x++) {
+			for (let x = 0; x < NUMBER_OF_BROTHERS + 1; x++) {
 				// 1 in (450 - (58 * Number of Brothers Killed))
 				if (roll(450 - 58 * NUMBER_OF_BROTHERS)) {
 					let barrowsItem = BarrowsTable.roll()[0];

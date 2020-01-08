@@ -7,7 +7,7 @@ test('Barrows', async (test): Promise<void> => {
 	const NUM_BROTHERS = 6;
 	const NUM_BARR_ITEMS = NUM_BROTHERS * 4;
 
-	const chanceOfSpecificBarrowsItem = (102 / NUM_BROTHERS) * NUM_BARR_ITEMS;
+	const chanceOfSpecificBarrowsItem = (102 / (NUM_BROTHERS + 1)) * NUM_BARR_ITEMS;
 
 	const expectedRates = {
 		"Ahrim's hood": chanceOfSpecificBarrowsItem,
@@ -41,8 +41,6 @@ test('Barrows', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, Barrows.kill(number), number);
 	test.end();
 });
-
-/*
 
 test('Giant Mole', async (test): Promise<void> => {
 	const expectedRates = {
@@ -219,4 +217,4 @@ test('Dagannoth Supreme', async (test): Promise<void> => {
 	const loot = Monsters.DagannothSupreme.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
-});*/
+});
