@@ -35,7 +35,7 @@ export const GiantMoleTable = new LootTable()
 	.addItem('Oyster pearls')
 
 	/* Subtables */
-	.add(RareDropTable)
-	.add(GemTable);
+	.add(RareDropTable, 1, 4)
+	.add(GemTable, 1, 5);
 
 export default new SimpleMonster({ id: 5779, name: 'Giant Mole', table: GiantMoleTable });

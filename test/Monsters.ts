@@ -19,9 +19,11 @@ test('Giant Mole', async (test): Promise<void> => {
 		'Mithril battleaxe': 128
 	};
 
+	const Mole = Monsters.GiantMole;
+	test.equals(Mole.table.totalWeight, 127, 'Mole table weight should be 127');
+
 	const number = 3_000_000;
-	const loot = Monsters.GiantMole.kill(number);
-	checkThreshold(test, expectedRates, loot, number);
+	checkThreshold(test, expectedRates, Mole.kill(number), number);
 	test.end();
 });
 
