@@ -86,3 +86,96 @@ test('Cerberus', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Dagannoth Prime', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		'Pet dagannoth prime': 5000,
+		'Dragon axe': 128,
+		'Seers ring': 128,
+		'Earth battlestaff': 12.8,
+		'Water battlestaff': 25.6,
+		'Air battlestaff': 32,
+		'Air rune': 21.33 / 150,
+		'Earth rune': 25.6 / 75,
+		'Death rune': 64 / 55,
+		Shark: 12.8 / 5,
+		'Oyster pearls': 25.6,
+		'Pure essence': 25.6 / 150,
+		'Grimy ranarr weed': 25.6
+	};
+
+	const DagannothPrime = Monsters.DagannothPrime;
+	test.equals(
+		DagannothPrime.table.totalWeight,
+		128,
+		'Dagannoth Prime table weight should be 128'
+	);
+
+	const number = 10_000_000;
+	const loot = Monsters.DagannothPrime.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Dagannoth Rex', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		'Pet dagannoth rex': 5000,
+		'Dragon axe': 128,
+		'Berserker ring': 128,
+		'Warrior ring': 128,
+		'Steel kiteshield': 7.529,
+		'Mithril warhammer': 11.64,
+		'Adamant axe': 18.29,
+		'Steel platebody': 32,
+		'Mithril pickaxe': 42.67,
+		'Fremennik blade': 64,
+		'Super attack(2)': 128,
+		'Mithril ore': 12.8 / 25,
+		'Adamantite bar': 42.67,
+		Coal: 64 / 100,
+		'Iron ore': 128 / 150,
+		Shark: 128 / 5,
+		Swordfish: 32 / 5,
+		Bass: 18.29 / 5,
+		'Grimy ranarr weed': 18.29
+	};
+
+	const DagannothRex = Monsters.DagannothRex;
+	test.equals(DagannothRex.table.totalWeight, 128, 'Dagannoth Rex table weight should be 128');
+
+	const number = 10_000_000;
+	const loot = Monsters.DagannothRex.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Dagannoth Supreme', async (test): Promise<void> => {
+	const expectedRates: { [key: string]: number } = {
+		'Pet dagannoth supreme': 5000,
+		'Dragon axe': 128,
+		'Archers ring': 128,
+		'Mithril knife': 12.8 / (75 / 2),
+		"Red d'hide vamb": 18.29,
+		'Iron knife': 25.6 / 350,
+		'Steel knife': 25.6 / 100,
+		Seercull: 128,
+		'Steel arrow': 25.6 / 150,
+		'Iron arrow': 32 / 450,
+		'Oyster pearls': 21.33,
+		'Opal bolt tips': 25.6 / 20,
+		Shark: 25.6 / 5,
+		Feather: 128 / 375
+	};
+
+	const DagannothSupreme = Monsters.DagannothSupreme;
+	test.equals(
+		DagannothSupreme.table.totalWeight,
+		128,
+		'Dagannoth Supreme table weight should be 128'
+	);
+
+	const number = 10_000_000;
+	const loot = Monsters.DagannothSupreme.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
