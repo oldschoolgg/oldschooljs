@@ -28,7 +28,7 @@ test('Giant Mole', async (test): Promise<void> => {
 });
 
 test('Zulrah', async (test): Promise<void> => {
-	const expectedRates: { [key: string]: number } = {
+	const expectedRates = {
 		'Pet snakeling': 4000,
 		'Jar of swamp': 3000,
 		'Tanzanite fang': 512,
@@ -57,7 +57,7 @@ test('Zulrah', async (test): Promise<void> => {
 });
 
 test('Cerberus', async (test): Promise<void> => {
-	const expectedRates: { [key: string]: number } = {
+	const expectedRates = {
 		Hellpuppy: 3000,
 		'Jar of souls': 2000,
 		'Primordial crystal': 512,
@@ -88,7 +88,7 @@ test('Cerberus', async (test): Promise<void> => {
 });
 
 test('Dagannoth Prime', async (test): Promise<void> => {
-	const expectedRates: { [key: string]: number } = {
+	const expectedRates = {
 		'Pet dagannoth prime': 5000,
 		'Dragon axe': 128,
 		'Seers ring': 128,
@@ -118,7 +118,7 @@ test('Dagannoth Prime', async (test): Promise<void> => {
 });
 
 test('Dagannoth Rex', async (test): Promise<void> => {
-	const expectedRates: { [key: string]: number } = {
+	const expectedRates = {
 		'Pet dagannoth rex': 5000,
 		'Dragon axe': 128,
 		'Berserker ring': 128,
@@ -150,7 +150,7 @@ test('Dagannoth Rex', async (test): Promise<void> => {
 });
 
 test('Dagannoth Supreme', async (test): Promise<void> => {
-	const expectedRates: { [key: string]: number } = {
+	const expectedRates = {
 		'Pet dagannoth supreme': 5000,
 		'Dragon axe': 128,
 		'Archers ring': 128,
