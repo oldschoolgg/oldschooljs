@@ -14,7 +14,7 @@ const ZulrahUniqueTable = new LootTable()
 const ZulrahMutagenTable = new LootTable().add('Tanzanite mutagen').add('Magma mutagen');
 
 export const ZulrahTable = new LootTable()
-	.add(RareDropTable, undefined, 18)
+	.add(RareDropTable, undefined, 9)
 	.oneIn(256, ZulrahUniqueTable)
 	.oneIn(6580, ZulrahMutagenTable)
 
