@@ -218,3 +218,35 @@ test('Dagannoth Supreme', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Vorkath', async (test): Promise<void> => {
+	const expectedRates = {
+		Vorki: 3000,
+		'Jar of decay': 3000,
+		'Draconic visage': 5000,
+		'Skeletal visage': 5000,
+		"Vorkath's head": 50,
+		'Clue scroll (elite)': 65,
+		Battlestaff: 37.5 / 10 / 2,
+		'Dragon battleaxe': 75 / 2,
+		'Dragon platelegs': 75 / 2,
+		'Death rune': 25 / 400 / 2,
+		'Green dragonhide': 21.43 / ((25 + 30) / 2) / 2,
+		'Black dragonhide': 21.43 / 20 / 2,
+		'Dragon bolts (unf)': 18.75 / 75 / 2,
+		'Dragon dart tip': 25 / 30 / 2,
+		'Dragon arrowtips': 50 / ((25 + 50) / 2) / 2,
+		'Adamantite ore': 21.73 / 20 / 2,
+		'Magic logs': 30 / 50 / 2,
+		Diamond: 37.5 / 15 / 2,
+		'Wrath talisman': 50 / 2
+	};
+
+	const Vorkath = Monsters.Vorkath;
+	test.equals(Vorkath.table.totalWeight, 148, 'Vorkath table weight should be 148');
+
+	const number = 10_000_000;
+	const loot = Monsters.Vorkath.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
