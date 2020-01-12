@@ -11,12 +11,14 @@ const ZulrahUniqueTable = new LootTable()
 	.add('Serpentine visage')
 	.add('Uncut onyx');
 
-const ZulrahMutagenTable = new LootTable().add('Tanzanite mutagen').add('Magma mutagen');
+const ZulrahFlaxMutagenTable = new LootTable()
+	.add('Tanzanite mutagen', 1, 10)
+	.add('Magma mutagen', 1, 10)
+	.add('Flax', 1000, 5244);
 
 export const ZulrahTable = new LootTable()
 	.add(RareDropTable, undefined, 9)
 	.oneIn(256, ZulrahUniqueTable)
-	.oneIn(6580, ZulrahMutagenTable)
 
 	/* Weapons and armour */
 	.addItem('Dragon med helm', 1, 2)
@@ -49,7 +51,7 @@ export const ZulrahTable = new LootTable()
 	.addItem('Snakeskin', 35, 11)
 	.addItem('Runite ore', 2, 11)
 	.addItem('Pure essence', 1500, 10)
-	.addItem('Flax', 1000, 10)
+	.add(ZulrahFlaxMutagenTable, undefined, 10)
 	.addItem('Yew logs', 35, 10)
 	.addItem('Adamantite bar', 20, 8)
 	.addItem('Coal', 200, 8)
