@@ -4,6 +4,7 @@ import DagannothSupreme from './DagannothSupreme';
 import Cerberus from './Cerberus';
 import LuckyImplingTable from './LuckyImp';
 import GiantMole from './GiantMole';
+import Vorkath from './Vorkath';
 import Zulrah from './Zulrah';
 import Barrows from './Barrows';
 
@@ -14,6 +15,7 @@ export default {
 	Cerberus,
 	LuckyImp: LuckyImplingTable,
 	GiantMole,
+	Vorkath,
 	Zulrah,
 	Barrows
 };
