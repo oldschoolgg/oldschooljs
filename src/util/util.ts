@@ -149,7 +149,7 @@ export function toKMB(number: number): string {
 }
 
 export function fromKMB(number: string): number {
-	number = number.toLowerCase();
+	number = number.toLowerCase().replace(/,/g, '');
 	const [numberBefore, numberAfter] = number.split(/[.kmb]/g);
 
 	let newNum = numberBefore;
