@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 
-import { cleanString } from '../util';
+import { cleanString } from '../util/util';
 import { OSRS_BOX_BASE_URL } from '../constants';
 import { ItemID, Item, PartialItem } from '../meta/types';
 import Collection from './Collection';

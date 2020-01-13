@@ -1,4 +1,4 @@
-import { itemID } from '../util';
+import { itemID } from '../util/util';
 import { ItemBank, ReturnedLootItem } from '../meta/types';
 
 export default class Loot {

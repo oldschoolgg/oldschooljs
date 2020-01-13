@@ -1,8 +1,8 @@
-import LootTable from '../LootTable';
-import Clue from '../Clue';
-import { rand } from '../../util';
-import { ItemBank } from '../../meta/types';
-import Loot from '../Loot';
+import LootTable from '../structures/LootTable';
+import Clue from '../structures/Clue';
+import { ItemBank } from '../meta/types';
+import Loot from '../structures/Loot';
+import { rand } from '../util/util';
 
 export const RareTable = new LootTable()
 	.addItem('Black 2h sword')

@@ -3,7 +3,7 @@ import RareDropTable from './RareDropTable';
 import SimpleMonster from '../structures/SimpleMonster';
 import { ItemBank } from '../meta/types';
 import Loot from '../structures/Loot';
-import { roll, rand } from '../util';
+import { roll, rand } from '../util/util';
 
 const ZulrahUniqueTable = new LootTable()
 	.add('Tanzanite fang')

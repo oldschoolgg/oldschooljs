@@ -1,4 +1,4 @@
-import { rand, roll } from '../util';
+import { rand, roll } from '../util/util';
 import Items from './Items';
 import { LootTableItem, OneInItems, ReturnedLootItem } from '../meta/types';
 

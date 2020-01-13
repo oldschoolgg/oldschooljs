@@ -1,6 +1,6 @@
-import { SKILLS, MINIGAMES, CLUES, mappedBossNames } from './constants';
-import { Player, Items } from '.';
-import { DateYearMonth } from './meta/types';
+import { SKILLS, MINIGAMES, CLUES, mappedBossNames } from '../constants';
+import { Player, Items } from '..';
+import { DateYearMonth } from '../meta/types';
 
 /**
  * Rolls a 1 in X chance, returning a boolean on successfull rolls.

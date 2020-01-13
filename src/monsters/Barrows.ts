@@ -1,7 +1,7 @@
 import LootTable from '../structures/LootTable';
 import Loot from '../structures/Loot';
 import { ItemBank } from '../meta/types';
-import { roll } from '../util';
+import { roll } from '../util/util';
 import Monster from '../structures/Monster';
 
 export const BarrowsTable = new LootTable();

@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 import OSError from './OldSchoolJSError';
 import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../constants';
-import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../util';
+import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../util/util';
 import Player from './Player';
 import { AccountType, SkillsScore } from '../meta/types';
 
