@@ -4,7 +4,7 @@ import TreeHerbSeedTable from './TreeHerbSeedTable';
 import SimpleMonster from '../structures/SimpleMonster';
 import { ItemBank } from '../meta/types';
 import Loot from '../structures/Loot';
-import { roll } from '../util';
+import { roll } from '../util/util';
 
 const VorkathBoltTipTable = new LootTable()
 	.add('Diamond bolt tips', [25, 30], 10)
