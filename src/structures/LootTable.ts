@@ -87,8 +87,6 @@ export default class LootTable {
 		// Random number between 1 and the total weighting
 		const randomWeight = rand(1, this.limit || this.totalWeight);
 
-		if (randomWeight > this.totalWeight) return [];
-
 		// The index of the item that will be used.
 		let result;
 		let weight = 0;
@@ -104,8 +102,6 @@ export default class LootTable {
 		}
 
 		const chosenItem = this.table[result];
-
-		if (chosenItem.item === undefined) return [];
 
 		// The items that are rolled.
 		let items: ReturnedLootItem[] = [];
@@ -123,9 +119,7 @@ export default class LootTable {
 				return items;
 			}
 		}
-		items = items.concat(this.generateResultItem(chosenItem));
-
-		return items;
+		return chosenItem == undefined ? items : items.concat(this.generateResultItem(chosenItem));
 	}
 
 	private generateResultItem(item: LootTableItem): ReturnedLootItem[] {
