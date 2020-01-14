@@ -55,6 +55,8 @@ export class Barrows extends Monster {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
+			if (roll(34)) loot.add('Clue scroll (elite)');
+
 			const barrowsItemsThisKill = new Set();
 			// You get 1 initial roll, then +6 for 6 brothers killed.
 			for (let x = 0; x < NUMBER_OF_BROTHERS + 1; x++) {
