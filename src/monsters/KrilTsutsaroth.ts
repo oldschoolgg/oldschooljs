@@ -2,16 +2,6 @@ import LootTable from '../structures/LootTable';
 import GWRareDropTable, { GWGemTable, ShardTable } from './GWRareDropTable';
 import SimpleMonster from '../structures/SimpleMonster';
 
-const AttStrTable = new LootTable().addItem([
-	['Super attack(3)', 3],
-	['Super strength(3)', 3]
-]);
-
-const RestoreBrewTable = new LootTable().addItem([
-	['Super restore(3)', 3],
-	['Zamorak brew(3)', 3]
-]);
-
 const UniqueTable = new LootTable()
 	.addItem('Steam battlestaff', 1, 4)
 	.addItem('Zamorakian spear', 1, 4)
@@ -33,8 +23,22 @@ export const KrilTsutsarothTable = new LootTable()
 	.addItem('Dragon dagger(p++)', 1, 2)
 
 	/* Potions */
-	.add(AttStrTable, undefined, 8)
-	.add(RestoreBrewTable, undefined, 8)
+	.addItem(
+		[
+			['Super attack(3)', 3],
+			['Super strength(3)', 3]
+		],
+		1,
+		8
+	)
+	.addItem(
+		[
+			['Super restore(3)', 3],
+			['Zamorak brew(3)', 3]
+		],
+		1,
+		8
+	)
 
 	/* Other */
 	.addItem('Coins', [19500, 20000], 33)

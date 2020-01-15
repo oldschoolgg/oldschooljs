@@ -2,16 +2,6 @@ import LootTable from '../structures/LootTable';
 import GWRareDropTable, { GWGemTable, ShardTable } from './GWRareDropTable';
 import SimpleMonster from '../structures/SimpleMonster';
 
-const BrewRestoreTable = new LootTable().addItem([
-	['Saradomin brew(3)', 3],
-	['Super restore(4)', 3]
-]);
-
-const DefMagicTable = new LootTable().addItem([
-	['Super defence(3)', 3],
-	['Magic potion(3)', 3]
-]);
-
 const UniqueTable = new LootTable()
 	.addItem('Saradomin sword', 1, 4)
 	.addItem("Saradomin's light", 1, 2)
@@ -34,8 +24,22 @@ export const CommanderZilyanaTable = new LootTable()
 
 	/* Potions */
 	.addItem('Prayer potion(4)', 3, 8)
-	.add(DefMagicTable, undefined, 8)
-	.add(BrewRestoreTable, undefined, 6)
+	.addItem(
+		[
+			['Super defence(3)', 3],
+			['Magic potion(3)', 3]
+		],
+		1,
+		8
+	)
+	.addItem(
+		[
+			['Saradomin brew(3)', 3],
+			['Super restore(4)', 3]
+		],
+		1,
+		6
+	)
 
 	/* Other */
 	.addItem('Coins', [19500, 20000], 27)

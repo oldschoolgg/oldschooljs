@@ -72,7 +72,7 @@ export default class LootTable {
 				itemToAdd[0] = Items.get(itemToAdd[0]).id;
 				newItems.push(itemToAdd);
 			}
-			this.addLootItem(newItems);
+			this.addLootItem(newItems, quantity, weight);
 		} else {
 			this.addLootItem(Items.get(item).id, quantity, weight);
 		}
