@@ -12,6 +12,8 @@ import GeneralGraardor from './GeneralGraardor';
 import CommanderZilyana from './CommanderZilyana';
 import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
+import Man from './Man';
+import Woman from './Woman';
 
 export default {
 	DagannothPrime,
@@ -27,5 +29,7 @@ export default {
 	GeneralGraardor,
 	CommanderZilyana,
 	Kreearra,
-	KrilTsutsaroth
+	KrilTsutsaroth,
+	Man,
+	Woman
 };
