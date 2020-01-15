@@ -8,6 +8,8 @@ import Goblins from './Goblins';
 import Vorkath from './Vorkath';
 import Zulrah from './Zulrah';
 import Barrows from './Barrows';
+import Man from './Man';
+import Woman from './Woman';
 
 export default {
 	DagannothPrime,
@@ -19,5 +21,7 @@ export default {
 	Goblins,
 	Vorkath,
 	Zulrah,
-	Barrows
+	Barrows,
+	Man,
+	Woman
 };

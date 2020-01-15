@@ -278,3 +278,19 @@ test('Goblins', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Men', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Clue scroll (beginner)': 90,
+		'Clue scroll (easy)': 128,
+		Cabbage: 128,
+		'Iron dagger': 128
+	};
+
+	const number = 3_000_000;
+	const loot = Monsters.Man.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
