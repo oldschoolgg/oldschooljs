@@ -253,3 +253,28 @@ test('Vorkath', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Goblins', async (test): Promise<void> => {
+	const expectedRates = {
+		'Ensouled goblin head': 35,
+		'Clue scroll (beginner)': 60,
+		'Clue scroll (easy)': 128,
+		'Goblin champion scroll': 5000,
+		'Bronze spear': 32,
+		'Bronze sq shield': 42.67,
+		'Water rune': 21.33 / 6,
+		'Body rune': 25.6 / 7,
+		'Earth rune': 42.67 / 4,
+		'Bronze bolts': 42.67 / 8,
+		Hammer: 8.533,
+		'Goblin mail': 25.6,
+		Beer: 64,
+		'Air talisman': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Goblins.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
