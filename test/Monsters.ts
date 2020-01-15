@@ -51,7 +51,7 @@ test('Giant Mole', async (test): Promise<void> => {
 		'Mithril bar': 42.67,
 		'Oyster pearls': 128,
 		'Baby mole': 3000,
-		'Curved bone': 5013,
+		'Curved bone': 5000,
 		'Clue scroll (elite)': 500,
 		'Long bone': 400,
 		'Rune med helm': 128,
@@ -61,7 +61,7 @@ test('Giant Mole', async (test): Promise<void> => {
 	const Mole = Monsters.GiantMole;
 	test.equals(Mole.table.totalWeight, 127, 'Mole table weight should be 127');
 
-	const number = 3_000_000;
+	const number = 10_000_000;
 	checkThreshold(test, expectedRates, Mole.kill(number), number);
 	test.end();
 });
