@@ -5,6 +5,7 @@ import Cerberus from './Cerberus';
 import LuckyImplingTable from './LuckyImp';
 import GiantMole from './GiantMole';
 import Goblins from './Goblins';
+import Guard from './Guard';
 import Vorkath from './Vorkath';
 import Zulrah from './Zulrah';
 import Barrows from './Barrows';
@@ -17,6 +18,7 @@ export default {
 	LuckyImp: LuckyImplingTable,
 	GiantMole,
 	Goblins,
+	Guard,
 	Vorkath,
 	Zulrah,
 	Barrows

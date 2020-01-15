@@ -278,3 +278,25 @@ test('Goblins', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Guard', async (test): Promise<void> => {
+	const expectedRates = {
+		'Clue scroll (medium)': 106,
+		'Iron bolts': 12.8 / 7,
+		'Bronze arrow': 42.67,
+		'Air rune': 64 / 6,
+		'Earth rune': 64 / 3,
+		'Fire rune': 64 / 2,
+		'Blood rune': 128,
+		'Iron dagger': 21.33,
+		'Body talisman': 32,
+		Grain: 128,
+		'Iron ore': 128
+	};
+
+	const number = 5_000_000;
+	const loot = Monsters.Guard.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
