@@ -274,7 +274,145 @@ test('Goblins', async (test): Promise<void> => {
 
 	const number = 10_000_000;
 	const loot = Monsters.Goblins.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
 
+test('General Graardor', async (test): Promise<void> => {
+	const expectedRates = {
+		'Pet general graardor': 5000,
+		'Curved bone': 5012.5,
+		'Long bone': 400,
+		'Clue scroll(elite)': 250,
+		'Bandos chestplate': 381,
+		'Bandos tassets': 381,
+		'Bandos boots': 381,
+		'Bandos hilt': 508,
+		'Godsword shard 1': 762,
+		'Godsword shard 2': 762,
+		'Godsword shard 3': 762,
+		'Rune longsword': 15.88,
+		'Rune 2h sword': 15.88,
+		'Rune platebody': 15.88,
+		'Rune pickaxe': 21.17,
+		'Grimy snapdragon': 15.88 / 3,
+		'Snapdragon seed': 15.88,
+		'Super restore(4)': 15.88 / 3
+	};
+
+	const GeneralGraardor = Monsters.GeneralGraardor;
+	test.equals(
+		GeneralGraardor.table.totalWeight,
+		127,
+		'General Graardor table weight should be 127'
+	);
+
+	const number = 10_000_000;
+	const loot = Monsters.GeneralGraardor.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Commander Zilyana', async (test): Promise<void> => {
+	const expectedRates = {
+		'Pet zilyana': 5000,
+		'Clue scroll(elite)': 250,
+		'Saradomin sword': 127,
+		'Armadyl crossbow': 508,
+		'Saradomin hilt': 508,
+		'Godsword shard 1': 762,
+		'Godsword shard 2': 762,
+		'Godsword shard 3': 762,
+		'Adamant platebody': 15.88,
+		'Rune kiteshield': 15.88,
+		'Rune plateskirt': 15.88,
+		'Prayer potion(4)': 15.88 / 3,
+		'Super defence(3)': 15.88 / 3,
+		'Magic potion(3)': 15.88 / 3,
+		'Saradomin brew(3)': 21.17 / 3,
+		'Super restore(4)': 21.17 / 3,
+		Diamond: 15.88 / 6,
+		'Grimy ranarr weed': 15.88 / 5,
+		'Ranarr seed': 15.88 / 2,
+		'Magic seed': 127
+	};
+
+	const CommanderZilyana = Monsters.CommanderZilyana;
+	test.equals(
+		CommanderZilyana.table.totalWeight,
+		127,
+		'Commander Zilyana table weight should be 127'
+	);
+
+	const number = 10_000_000;
+	const loot = Monsters.CommanderZilyana.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test("Kree'arra", async (test): Promise<void> => {
+	const expectedRates = {
+		"Pet kree'arra": 5000,
+		'Curved bone': 5013,
+		'Long bone': 400,
+		'Clue scroll(elite)': 250,
+		'Armadyl helmet': 381,
+		'Armadyl chestplate': 381,
+		'Armadyl chainskirt': 381,
+		'Godsword shard 1': 762,
+		'Godsword shard 2': 762,
+		'Godsword shard 3': 762,
+		'Armadyl hilt': 508,
+		"Black d'hide body": 15.88,
+		'Rune crossbow': 15.88,
+		'Ranging potion(3)': 15.88 / 3,
+		'Super defence(3)': 15.88 / 3,
+		'Dwarf weed seed': 15.88 / 3,
+		'Crystal key': 127,
+		'Yew seed': 127
+	};
+
+	const Kreearra = Monsters.Kreearra;
+	test.equals(Kreearra.table.totalWeight, 127, "Kree'arra table weight should be 127");
+
+	const number = 10_000_000;
+	const loot = Monsters.Kreearra.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test("K'ril Tsutsaroth", async (test): Promise<void> => {
+	const expectedRates = {
+		"Pet k'ril tsutsaroth": 5000,
+		'Clue scroll(elite)': 250,
+		'Steam battlestaff': 127,
+		'Zamorakian spear': 127,
+		'Staff of the dead': 508,
+		'Godsword shard 1': 762,
+		'Godsword shard 2': 762,
+		'Godsword shard 3': 762,
+		'Zamorak hilt': 508,
+		'Rune scimitar': 15.88,
+		'Adamant platebody': 15.88,
+		'Rune platelegs': 18.14,
+		'Dragon dagger(p++)': 63.5,
+		'Super attack(3)': 15.88 / 3,
+		'Super strength(3)': 15.88 / 3,
+		'Super restore(3)': 15.88 / 3,
+		'Zamorak brew(3)': 15.88 / 3,
+		'Grimy lantadyme': 15.88 / 10,
+		'Lantadyme seed': 15.88 / 3
+	};
+
+	const KrilTsutsaroth = Monsters.KrilTsutsaroth;
+	test.equals(
+		KrilTsutsaroth.table.totalWeight,
+		127,
+		"K'ril Tsutsaroth table weight should be 127"
+	);
+
+	const number = 10_000_000;
+	const loot = Monsters.KrilTsutsaroth.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });

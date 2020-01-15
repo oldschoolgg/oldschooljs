@@ -8,6 +8,10 @@ import Goblins from './Goblins';
 import Vorkath from './Vorkath';
 import Zulrah from './Zulrah';
 import Barrows from './Barrows';
+import GeneralGraardor from './GeneralGraardor';
+import CommanderZilyana from './CommanderZilyana';
+import Kreearra from './Kreearra';
+import KrilTsutsaroth from './KrilTsutsaroth';
 
 export default {
 	DagannothPrime,
@@ -19,5 +23,9 @@ export default {
 	Goblins,
 	Vorkath,
 	Zulrah,
-	Barrows
+	Barrows,
+	GeneralGraardor,
+	CommanderZilyana,
+	Kreearra,
+	KrilTsutsaroth
 };
