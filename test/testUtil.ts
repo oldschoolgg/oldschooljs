@@ -18,6 +18,7 @@ export function checkThreshold(
 		const item = Items.get(name);
 		if (!item) return test.fail(`Missing item: ${name}`);
 
+		if (!result[item.id]) return test.fail(`Was no ${item.name} in result, should have been.`);
 		expectedRates[item.id.toString()] = qty;
 	}
 

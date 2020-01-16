@@ -61,7 +61,7 @@ export const SubTeleportScrollTable = new LootTable()
 	.addItem('Iorwerth camp teleport', [5, 15]);
 
 export const TeleportScrollTable = new LootTable()
-	.addItem('Master scroll book')
+	.addItem('Master scroll book (empty)')
 	.add(SubTeleportScrollTable, undefined, 21);
 
 export const GiveHalfKeyTable = new LootTable()

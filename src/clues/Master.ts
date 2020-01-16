@@ -10,7 +10,7 @@ import LootTable from '../structures/LootTable';
 import Clue from '../structures/Clue';
 import { ItemBank } from '../meta/types';
 import Loot from '../structures/Loot';
-import { rand } from '../util/util';
+import { rand, roll } from '../util/util';
 
 export const MasterGodSwordOrnTable = new LootTable()
 	.addItem('Armadyl godsword ornament kit')
@@ -160,7 +160,7 @@ export const MasterStandardTable = new LootTable()
 	.addItem('Dragon mace')
 	.add(PrayerPageTable)
 	.add(FirelighterTable)
-	.add(TeleportScrollTable)
+	.add(TeleportScrollTable, 1, 2)
 	.add(MasterSeedTable)
 	.add(GiveHalfKeyTable)
 	.add(BlessingTable);
@@ -174,6 +174,8 @@ class MasterCasket extends Clue {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
+			if (roll(1000)) loot.add('Bloodhound');
+
 			const numberOfRolls = rand(5, 7);
 
 			for (let i = 0; i < numberOfRolls; i++) {

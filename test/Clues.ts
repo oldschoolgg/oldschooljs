@@ -133,7 +133,8 @@ test('Elite Clues', async (test): Promise<void> => {
 		'3rd age full helmet': 488750 / 5,
 		'3rd age vambraces': 488750 / 5,
 		'3rd age wand': 488750 / 5,
-		'Ranging potion(4)': 28750 / 5 / 30
+		'Ranging potion(4)': 28750 / 5 / 30,
+		'Master scroll book (empty)': 355.2 / 5
 	};
 
 	const number = 25_000_000;
@@ -166,7 +167,8 @@ test('Master Clues', async (test): Promise<void> => {
 		'3rd age axe': 313168 / 6,
 		'Dragon scimitar': 30.3 / 6,
 		'Grimy snapdragon': 30.3 / 6 / 7.5,
-		Bloodhound: 1000
+		Bloodhound: 1000,
+		'Master scroll book (empty)': 333.5 / 6
 	};
 
 	const number = 25_000_000;
