@@ -51,7 +51,7 @@ test('Giant Mole', async (test): Promise<void> => {
 		'Mithril bar': 42.67,
 		'Oyster pearls': 128,
 		'Baby mole': 3000,
-		'Curved bone': 5013,
+		'Curved bone': 5000,
 		'Clue scroll (elite)': 500,
 		'Long bone': 400,
 		'Rune med helm': 128,
@@ -61,7 +61,7 @@ test('Giant Mole', async (test): Promise<void> => {
 	const Mole = Monsters.GiantMole;
 	test.equals(Mole.table.totalWeight, 127, 'Mole table weight should be 127');
 
-	const number = 3_000_000;
+	const number = 10_000_000;
 	checkThreshold(test, expectedRates, Mole.kill(number), number);
 	test.end();
 });
@@ -413,6 +413,28 @@ test("K'ril Tsutsaroth", async (test): Promise<void> => {
 
 	const number = 10_000_000;
 	const loot = Monsters.KrilTsutsaroth.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Guard', async (test): Promise<void> => {
+	const expectedRates = {
+		'Clue scroll (medium)': 106,
+		'Iron bolts': 12.8 / 7,
+		'Bronze arrow': 42.67,
+		'Air rune': 64 / 6,
+		'Earth rune': 64 / 3,
+		'Fire rune': 64 / 2,
+		'Blood rune': 128,
+		'Iron dagger': 21.33,
+		'Body talisman': 32,
+		Grain: 128,
+		'Iron ore': 128
+	};
+
+	const number = 5_000_000;
+	const loot = Monsters.Guard.kill(number);
+
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
