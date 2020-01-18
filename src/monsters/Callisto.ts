@@ -15,15 +15,15 @@ export const CallistoTable = new LootTable()
 	.oneIn(512, 'Tyrannical ring')
 
 	/* Weapons and armour */
-	.addItem('Rune pickaxe', 1, 12)
-	.addItem('Rune 2h sword', 1, 3)
+	.addItem('Rune pickaxe', 1, 48)
+	.addItem('Rune 2h sword', 1, 12)
 
 	/* Runes and ammunition */
-	.addItem('Blood rune', 200, 7)
-	.addItem('Chaos rune', 400, 7)
-	.addItem('Death rune', 300, 7)
-	.addItem('Soul rune', 250, 5)
-	.addItem('Cannonball', 250, 4)
+	.addItem('Blood rune', 200, 28)
+	.addItem('Chaos rune', 400, 28)
+	.addItem('Death rune', 300, 28)
+	.addItem('Soul rune', 250, 20)
+	.addItem('Cannonball', 250, 16)
 
 	/* Materials */
 	.addItem(
@@ -32,35 +32,35 @@ export const CallistoTable = new LootTable()
 			['Uncut diamond', 10]
 		],
 		1,
-		7
+		28
 	)
-	.addItem('Mahogany logs', 400, 6)
-	.addItem('Limpwurt root', 25, 5)
-	.addItem('Magic logs', 100, 5)
-	.addItem('Red dragonhide', 75, 3)
-	.addItem('Coconut', 60, 2)
-	.addItem('Uncut dragonstone', 1, 2)
-	.addItem('Grimy toadflax', 100, 1)
+	.addItem('Mahogany logs', 400, 24)
+	.addItem('Limpwurt root', 25, 20)
+	.addItem('Magic logs', 100, 20)
+	.addItem('Red dragonhide', 75, 12)
+	.addItem('Coconut', 60, 8)
+	.addItem('Uncut dragonstone', 1, 8)
+	.addItem('Grimy toadflax', 100, 4)
 
 	/* Seeds */
-	.addItem('Ranarr seed', 5, 5)
-	.addItem('Snapdragon seed', 3, 5)
-	.addItem('Magic seed', 1, 1)
-	.addItem('Palm tree seed', 1, 1)
-	.addItem('Yew seed', 1, 1)
+	.addItem('Ranarr seed', 5, 20)
+	.addItem('Snapdragon seed', 3, 20)
+	.addItem('Magic seed', 1, 4)
+	.addItem('Palm tree seed', 1, 4)
+	.addItem('Yew seed', 1, 4)
 
 	/* Other */
-	.addItem('Coins', [15000, 19999], 19)
+	.addItem('Coins', [15000, 19999], 76)
 	.addItem(
 		[
 			['Dark crab', 8],
 			['Super restore(4)', 3]
 		],
 		1,
-		10
+		40
 	)
-	.addItem('Supercompost', 100, 4.75)
-	.addItem('Dragon bones', 30, 3)
-	.addItem('Dark fishing bait', 375, 1);
+	.addItem('Supercompost', 100, 19)
+	.addItem('Dragon bones', 30, 12)
+	.addItem('Dark fishing bait', 375, 4);
 
 export default new SimpleMonster({ id: 6503, name: 'Callisto', table: CallistoTable });
