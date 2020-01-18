@@ -11,7 +11,7 @@ export const CallistoTable = new LootTable()
 	.tertiary(256, 'Dragon 2h sword')
 
     /* Pre-roll */
-    .tertiary(512, 'Tyrannical ring')
+    .oneIn(512, 'Tyrannical ring')
 
 	/* Weapons and armour */
 	.addItem('Rune pickaxe', 1, 12)
