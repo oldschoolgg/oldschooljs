@@ -2,7 +2,7 @@ import test from 'tape';
 
 import { Monsters } from '../dist';
 import { checkThreshold } from './testUtil';
-/*
+
 test('Barrows', async (test): Promise<void> => {
 	const NUM_BROTHERS = 6;
 	const NUM_BARR_ITEMS = NUM_BROTHERS * 4;
@@ -454,7 +454,7 @@ test('Men', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
-*/
+
 test('Callisto', async (test): Promise<void> => {
 	const expectedRates = {
 		'Tyrannical ring': 512,
@@ -482,7 +482,7 @@ test('Callisto', async (test): Promise<void> => {
 		'Curved bone': 5013
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.Callisto.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -514,7 +514,7 @@ test('Chaos Elemental', async (test): Promise<void> => {
 		'Pet chaos elemental': 300
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.ChaosElemental.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -550,7 +550,7 @@ test('Chaos Fanatic', async (test): Promise<void> => {
 		'Pet chaos elemental': 1000
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.ChaosFanatic.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -584,7 +584,7 @@ test('Crazy Archaeologist ', async (test): Promise<void> => {
 		Fedora: 128
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.CrazyArchaeologist.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -618,7 +618,7 @@ test('King Black Dragon', async (test): Promise<void> => {
 		'Draconic visage': 5000
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.KingBlackDragon.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -653,7 +653,7 @@ test('Scorpia', async (test): Promise<void> => {
 		"Scorpia's offspring": 2016
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.Scorpia.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -695,7 +695,7 @@ test('Venenatis', async (test): Promise<void> => {
 		'Curved bone': 5013
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.Venenatis.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -737,7 +737,7 @@ test("Vet'ion", async (test): Promise<void> => {
 		'Curved bone': 5013
 	};
 
-	const number = 1_000_000;
+	const number = 10_000_000;
 	const loot = Monsters.Vetion.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
