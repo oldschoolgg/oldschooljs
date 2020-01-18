@@ -47,8 +47,8 @@ export const ChaosFanaticTable = new LootTable()
     .addItem('Wine of zamorak', 10, 6)
     .addItem(
 		[
-			['Uncut emerald', 1],
-			['Uncut sapphire', 1]
+			['Uncut emerald', 6],
+			['Uncut sapphire', 4]
 		],
 		1,
 		5
