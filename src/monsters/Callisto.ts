@@ -6,7 +6,7 @@ export const CallistoTable = new LootTable()
 	.tertiary(400, 'Long bone')
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, 'Callisto cub')
-	.tertiary(5000, 'Curved bone')
+	.tertiary(5013, 'Curved bone')
 	.tertiary(171, 'Dragon pickaxe')
 	.tertiary(256, 'Dragon 2h sword')
 
