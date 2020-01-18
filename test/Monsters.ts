@@ -679,7 +679,7 @@ test('Venenatis', async (test): Promise<void> => {
 		'Limpwurt root': 25.6 / 25,
 		"Red spiders' eggs": 42.67 / 500,
 		'Unicorn horn': 64 / 100,
-		'Uncut dragonstone': 61,
+		'Uncut dragonstone': 64,
 		'Grimy snapdragon': 128 / 100,
 		'Dark crab': 12.8 / 8,
 		'Super restore(4)': 12.8 / 3,
