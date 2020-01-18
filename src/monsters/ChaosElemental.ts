@@ -6,7 +6,7 @@ import HerbDropTable from './HerbDropTable';
 export const ChaosElementalTable = new LootTable()
 	.tertiary(200, 'Clue scroll (elite)')
     .tertiary(300, 'Pet chaos elemental')
-    .tertiary(256, 'Dragon pickaxe')
+    .oneIn(256, 'Dragon pickaxe')
 
 	/* Weapons and armour */
 	.addItem('Dragon dagger', 1, 11)
