@@ -4,7 +4,7 @@ import SimpleMonster from '../structures/SimpleMonster';
 
 export const VetionTable = new LootTable()
     .every('Big bones')
-	.tertiary(512, 'Ring of the gods')
+	.oneIn(512, 'Ring of the gods')
 	.tertiary(100, 'Clue scroll (elite)')
     .tertiary(2000, "Vet'ion jr.")
     .tertiary(400, 'Long bone')
