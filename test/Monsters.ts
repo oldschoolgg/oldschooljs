@@ -597,7 +597,7 @@ test('King Black Dragon', async (test): Promise<void> => {
 		'Dragon pickaxe': 1500,
 		'Rune longsword': 12.8,
 		'Adamant platebody': 14.22,
-		'Adamant kiteshield': 42.66,
+		'Adamant kiteshield': 42.67,
 		'Dragon med helm': 128,
 		'Air rune': 12.8 / 300,
 		'Iron arrow': 12.8 / 690,
