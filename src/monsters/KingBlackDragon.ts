@@ -9,7 +9,7 @@ export const KingBlackDragonTable = new LootTable()
 	.tertiary(129, 'Kbd heads')
 	.tertiary(3000, 'Prince black dragon')
     .tertiary(5000, 'Draconic visage')
-    .tertiary(1500, 'Dragon pickaxe')
+    .oneIn(1500, 'Dragon pickaxe')
 
 	/* Weapons and armour */
     .addItem('Rune longsword', 1, 10)
