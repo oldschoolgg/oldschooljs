@@ -3,7 +3,20 @@ import RareDropTable, { GemTable } from './RareDropTable';
 import SimpleMonster from '../structures/SimpleMonster';
 import HerbDropTable from './HerbDropTable';
 
+const ChaosElementalMinorTable = new LootTable()
+	.add('Anchovy pizza', 3)
+	.add('Babydragon bones', 2)
+	.add('Bat bones', 5)
+	.add('Big bones', 3)
+	.add('Bones', 4)
+	.add('Dragon bones')
+	.add('Super attack(4)')
+	.add('Super defence(4)')
+	.add('Super strength(4)')
+	.add('Tuna', 5);
+
 export const ChaosElementalTable = new LootTable()
+	.every(ChaosElementalMinorTable, 1)
 	.tertiary(200, 'Clue scroll (elite)')
 	.tertiary(300, 'Pet chaos elemental')
 	.oneIn(256, 'Dragon pickaxe')
