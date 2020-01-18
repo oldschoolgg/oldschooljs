@@ -541,7 +541,7 @@ test('Chaos Fanatic', async (test): Promise<void> => {
 		'Prayer potion(4)': 16,
 		'Anchovy pizza': 32 / 8,
 		'Grimy lantadyme': 16 / 4,
-		'Ring of life': 18.28,
+		'Ring of life': 18.29,
 		'Chaos talisman': 21.33,
 		'Wine of zamorak': 21.33,
 		'Sinister key': 32,
