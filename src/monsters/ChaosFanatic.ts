@@ -44,7 +44,7 @@ export const ChaosFanaticTable = new LootTable()
     .addItem('Grimy lantadyme', 4, 8)
     .addItem('Ring of life', 1, 7)
     .addItem('Chaos talisman', 1, 6)
-    .addItem('Wine of zamorak', 1, 6)
+    .addItem('Wine of zamorak', 10, 6)
     .addItem(
 		[
 			['Uncut emerald', 1],
