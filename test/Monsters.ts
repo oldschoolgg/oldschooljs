@@ -541,7 +541,7 @@ test('Chaos Fanatic', async (test): Promise<void> => {
 		'Prayer potion(4)': 16,
 		'Anchovy pizza': 32 / 8,
 		'Grimy lantadyme': 16 / 4,
-		'Ring of life': 18.29,
+		'Ring of life': 18.28,
 		'Chaos talisman': 21.33,
 		'Wine of zamorak': 21.33,
 		'Sinister key': 32,
@@ -597,7 +597,7 @@ test('King Black Dragon', async (test): Promise<void> => {
 		'Dragon pickaxe': 1500,
 		'Rune longsword': 12.8,
 		'Adamant platebody': 14.22,
-		'Adamant kiteshield': 42.67,
+		'Adamant kiteshield': 42.66,
 		'Dragon med helm': 128,
 		'Air rune': 12.8 / 300,
 		'Iron arrow': 12.8 / 690,
@@ -608,7 +608,7 @@ test('King Black Dragon', async (test): Promise<void> => {
 		'Adamantite bar': 25.6 / 3,
 		'Runite bar': 42.67,
 		'Gold ore': 64 / 100,
-		'Amulet of power': 18.29,
+		'Amulet of power': 18.28,
 		'Dragon javelin heads': 25.6 / 15,
 		'Runite limbs': 32,
 		'Shark': 32 / 4,
@@ -679,7 +679,7 @@ test('Venenatis', async (test): Promise<void> => {
 		'Limpwurt root': 25.6 / 25,
 		"Red spiders' eggs": 42.67 / 500,
 		'Unicorn horn': 64 / 100,
-		'Uncut dragonstone': 64,
+		'Uncut dragonstone': 61,
 		'Grimy snapdragon': 128 / 100,
 		'Dark crab': 12.8 / 8,
 		'Super restore(4)': 12.8 / 3,
@@ -746,3 +746,4 @@ test("Vet'ion", async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
