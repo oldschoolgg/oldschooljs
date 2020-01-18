@@ -9,7 +9,7 @@ const ScorpiaUniqueTable = new LootTable()
 export const ScorpiaTable = new LootTable()
 	.tertiary(18, 'Ensouled scorpion head')
 	.tertiary(100, 'Clue scroll (hard)')
-	.tertiary(2015, "Scorpia's offspring")
+	.tertiary(2016, "Scorpia's offspring")
     .add(ScorpiaUniqueTable, undefined, 1)
     
 	/* Weapons and armour */
