@@ -7,7 +7,7 @@ export const VenenatisTable = new LootTable()
 	.tertiary(2000, 'Venenatis spiderling')
 	.tertiary(400, 'Long bone')
     .tertiary(5000, 'Curved bone')
-    .tertiary(515, 'Treasonous ring')
+    .oneIn(512, 'Treasonous ring')
 
 	/* Weapons and armour */
     .addItem('Rune pickaxe', 1, 48)
