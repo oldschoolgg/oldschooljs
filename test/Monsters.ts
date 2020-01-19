@@ -317,12 +317,12 @@ test('Commander Zilyana', async (test): Promise<void> => {
 	const expectedRates = {
 		'Pet zilyana': 5000,
 		'Clue scroll(elite)': 250,
-		'Saradomin sword': 127,
+		'Saradomin sword': 1 / (1 / 127 + 9 / 16_129),
 		'Armadyl crossbow': 508,
 		'Saradomin hilt': 508,
-		'Godsword shard 1': 762,
-		'Godsword shard 2': 762,
-		'Godsword shard 3': 762,
+		'Godsword shard 1': 1 / (1 / 762 + 3 / 1_524),
+		'Godsword shard 2': 1 / (1 / 762 + 3 / 1_524),
+		'Godsword shard 3': 1 / (1 / 762 + 3 / 1_524),
 		'Adamant platebody': 15.88,
 		'Rune kiteshield': 15.88,
 		'Rune plateskirt': 15.88,
@@ -332,7 +332,7 @@ test('Commander Zilyana', async (test): Promise<void> => {
 		'Saradomin brew(3)': 21.17 / 3,
 		'Super restore(4)': 21.17 / 3,
 		Diamond: 15.88 / 6,
-		'Grimy ranarr weed': 15.88 / 5,
+		'Grimy ranarr weed': 1 / (1 / (15.88 / 5) + 3 / 15.88),
 		'Ranarr seed': 15.88 / 2,
 		'Magic seed': 127
 	};
