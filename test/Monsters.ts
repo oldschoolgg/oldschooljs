@@ -467,7 +467,7 @@ test('Callisto', async (test): Promise<void> => {
 		Cannonball: 32 / 250,
 		'Uncut ruby': 18.28 / 20,
 		'Uncut diamond': 18.28 / 10,
-		'Mahogany logs': 21.34 / 400,
+		'Mahogany logs': 21.33 / 400,
 		'Limpwurt root': 25.6 / 25,
 		'Magic logs': 25.6 / 100,
 		'Red dragonhide': 42.67 / 75,
