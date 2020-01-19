@@ -23,7 +23,6 @@ import Scorpia from './Scorpia';
 import Venenatis from './Venenatis';
 import Vetion from './Vetion';
 import CrazyArchaeologist from './CrazyArchaeologist';
-import CorporealBeast from './CorporealBeast';
 
 export default {
 	DagannothPrime,
@@ -50,6 +49,5 @@ export default {
 	Scorpia,
 	Venenatis,
 	Vetion,
-	CrazyArchaeologist,
-	CorporealBeast
+	CrazyArchaeologist
 };
