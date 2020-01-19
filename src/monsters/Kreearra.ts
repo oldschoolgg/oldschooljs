@@ -7,6 +7,27 @@ const KreearraArmorTable = new LootTable()
 	.add('Armadyl chestplate')
 	.add('Armadyl chainskirt');
 
+const MinionUniqueTable = new LootTable()
+	.add('Coins', [1_000, 1_100], 124)
+	.add(KreearraArmorTable, 1, 3);
+
+const MinionShardTable = new LootTable().add('Coins', [1_000, 1_100], 9).add(ShardTable, 1, 3);
+
+const MinionTable = new LootTable()
+	.every('Bones')
+	.every('Feather', [1, 11])
+	.add(MinionUniqueTable, 1, 1)
+	.add(MinionShardTable, 1, 1)
+	.addItem('Steel dart', [91, 101], 8)
+	.addItem('Smoke rune', [10, 15], 8)
+	.addItem('Manta ray', 2, 8)
+	.addItem('Mushroom potato', 3, 8)
+	.addItem('Steel arrow', [91, 101], 7)
+	.addItem('Coins', [1_000, 1_100], 70)
+	.addItem('Crushed nest', 2, 8)
+	.addItem('Grimy kwuarm', 1, 8)
+	.tertiary(128, 'Clue scroll (hard)');
+
 const UniqueTable = new LootTable()
 	.add(KreearraArmorTable, undefined, 4)
 	.add(ShardTable, undefined, 2)
@@ -15,6 +36,9 @@ const UniqueTable = new LootTable()
 
 export const KreearraTable = new LootTable()
 	.every('Big bones')
+	.every(MinionTable)
+	.every(MinionTable)
+	.every(MinionTable)
 	.every('Feather', [1, 16])
 	.add(UniqueTable, undefined, 3)
 	.tertiary(250, 'Clue scroll (elite)')
