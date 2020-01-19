@@ -33,9 +33,15 @@ export const KreearraTable = new LootTable()
 	.addItem('Dragonstone bolts (e)', [5, 10], 8)
 
 	/* Other */
-	.addItem('Coins', [19500, 20000], 32)
-	.addItem('Ranging potion(3)', 3, 8)
-	.addItem('Super defence(3)', 3, 8)
+	.addItem('Coins', [19500, 20000], 40)
+	.addItem(
+		[
+			['Ranging potion(3)', 3],
+			['Super defence(3)', 3]
+		],
+		1,
+		8
+	)
 	.addItem('Grimy dwarf weed', [8, 13], 8)
 	.addItem('Dwarf weed seed', 3, 8)
 	.addItem('Crystal key', 1, 1)
