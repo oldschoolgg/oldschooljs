@@ -163,11 +163,3 @@ export function fromKMB(number: string): number {
 
 	return parseInt(newNum);
 }
-
-export function itemID(name: string): number {
-	const item = Items.get(name);
-	if (!item) {
-		throw console.error(`ERROR: ${JSON.stringify(name)} doesnt exist.`);
-	}
-	return item.id;
-}
