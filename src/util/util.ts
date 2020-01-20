@@ -1,5 +1,5 @@
 import { SKILLS, MINIGAMES, CLUES, mappedBossNames } from '../constants';
-import { Player, Items } from '..';
+import Player from '../structures/Player';
 import { DateYearMonth } from '../meta/types';
 
 /**
