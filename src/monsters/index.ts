@@ -15,6 +15,14 @@ import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
 import Man from './Man';
 import Woman from './Woman';
+import Callisto from './Callisto';
+import ChaosElemental from './ChaosElemental';
+import ChaosFanatic from './ChaosFanatic';
+import KingBlackDragon from './KingBlackDragon';
+import Scorpia from './Scorpia';
+import Venenatis from './Venenatis';
+import Vetion from './Vetion';
+import CrazyArchaeologist from './CrazyArchaeologist';
 
 export default {
 	DagannothPrime,
@@ -33,5 +41,13 @@ export default {
 	Kreearra,
 	KrilTsutsaroth,
 	Man,
-	Woman
+	Woman,
+	Callisto,
+	ChaosElemental,
+	ChaosFanatic,
+	KingBlackDragon,
+	Scorpia,
+	Venenatis,
+	Vetion,
+	CrazyArchaeologist
 };

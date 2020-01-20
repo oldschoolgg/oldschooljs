@@ -454,3 +454,292 @@ test('Men', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Callisto', async (test): Promise<void> => {
+	const expectedRates = {
+		'Tyrannical ring': 512,
+		'Rune pickaxe': 10.67,
+		'Rune 2h sword': 42.67,
+		'Blood rune': 18.28 / 200,
+		'Chaos rune': 18.28 / 400,
+		'Death rune': 18.28 / 300,
+		'Soul rune': 25.6 / 250,
+		Cannonball: 32 / 250,
+		'Uncut ruby': 18.28 / 20,
+		'Uncut diamond': 18.28 / 10,
+		'Mahogany logs': 21.33 / 400,
+		'Limpwurt root': 25.6 / 25,
+		'Magic logs': 25.6 / 100,
+		'Red dragonhide': 42.67 / 75,
+		Coconut: 64 / 60,
+		'Uncut dragonstone': 64,
+		'Grimy toadflax': 128 / 100,
+		'Dragon pickaxe': 170.67,
+		'Dragon 2h sword': 256,
+		'Clue scroll (elite)': 100,
+		'Long bone': 400,
+		'Callisto cub': 2000,
+		'Curved bone': 5013
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Callisto.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Chaos Elemental', async (test): Promise<void> => {
+	const expectedRates = {
+		'Anchovy pizza': 10 / 3,
+		'Babydragon bones': 10 / 2,
+		'Bat bones': 10 / 5,
+		'Big bones': 10 / 3,
+		Bones: 10 / 4,
+		'Dragon bones': 10,
+		'Super attack(4)': 10,
+		'Super defence(4)': 10,
+		'Super strength(4)': 10,
+		Tuna: 10 / 5,
+		'Dragon pickaxe': 256,
+		'Dragon dagger': 11.63,
+		'Dragon 2h sword': 128,
+		'Air rune': 12.8 / 500,
+		'Blood rune': 12.8 / 75,
+		'Chaos rune': 12.8 / 250,
+		'Death rune': 12.8 / 125,
+		'Mithril dart': 12.8 / 300,
+		'Rune arrow': 12.8 / 150,
+		'Clue scroll (elite)': 200,
+		'Pet chaos elemental': 300
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.ChaosElemental.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Chaos Fanatic', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Odium shard 1': 256,
+		'Malediction shard 1': 256,
+		Battlestaff: 25.6 / 5,
+		'Splitbark body': 25.6,
+		'Splitbark legs': 25.6,
+		'Zamorak monk top': 32,
+		'Zamorak monk bottom': 32,
+		'Ancient staff': 128,
+		'Fire rune': 32 / 250,
+		'Smoke rune': 32 / 30,
+		'Chaos rune': 32 / 175,
+		'Blood rune': 32 / 50,
+		Monkfish: 16 / 3,
+		Shark: 16,
+		'Prayer potion(4)': 16,
+		'Anchovy pizza': 32 / 8,
+		'Grimy lantadyme': 16 / 4,
+		'Ring of life': 18.29,
+		'Chaos talisman': 21.33,
+		'Wine of zamorak': 21.33 / 10,
+		'Sinister key': 32,
+		'Pure essence': 64 / 250,
+		'Clue scroll (hard)': 128,
+		'Pet chaos elemental': 1000
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.ChaosFanatic.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Crazy Archaeologist ', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Odium shard 2': 256,
+		'Malediction shard 2': 256,
+		'Amulet of power': 18.29,
+		'Rune crossbow': 25.6 / 2,
+		"Red d'hide body": 32,
+		'Rune knife': 32 / 10,
+		'Mud rune': 32 / 30,
+		Cannonball: 32 / 150,
+		'Dragon arrow': 128 / 75,
+		Shark: 16,
+		'Potato with cheese': 16 / 3,
+		'Prayer potion(4)': 16,
+		'Anchovy pizza': 32 / 8,
+		'Grimy dwarf weed': 16 / 4,
+		'White berries': 21.33 / 10,
+		'Silver ore': 21.33 / 40,
+		'Red dragonhide': 25.6 / 10,
+		'Rusty sword': 32,
+		'Muddy key': 32,
+		'Onyx bolt tips': 32 / 12,
+		'Long bone': 64,
+		Fedora: 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.CrazyArchaeologist.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('King Black Dragon', async (test): Promise<void> => {
+	const expectedRates = {
+		'Dragon bones': 1,
+		'Dragon pickaxe': 1500,
+		'Rune longsword': 12.8,
+		'Adamant platebody': 14.22,
+		'Adamant kiteshield': 42.67,
+		'Dragon med helm': 128,
+		'Air rune': 12.8 / 300,
+		'Iron arrow': 12.8 / 690,
+		'Fire rune': 25.6 / 300,
+		'Law rune': 25.6 / 30,
+		'Blood rune': 25.6 / 30,
+		'Yew logs': 12.8 / 150,
+		'Adamantite bar': 25.6 / 3,
+		'Runite bar': 42.67,
+		'Gold ore': 64 / 100,
+		'Amulet of power': 18.29,
+		'Dragon javelin heads': 25.6 / 15,
+		'Runite limbs': 32,
+		Shark: 32 / 4,
+		'Kbd heads': 128,
+		'Clue scroll (elite)': 450,
+		'Prince black dragon': 3000,
+		'Draconic visage': 5000
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.KingBlackDragon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Scorpia', async (test): Promise<void> => {
+	const expectedRates = {
+		'Odium shard 3': 256,
+		'Malediction shard 3': 256,
+		'Rune 2h sword': 25.6,
+		'Rune pickaxe': 25.6,
+		'Rune spear': 25.6,
+		'Rune chainbody': 32,
+		'Rune scimitar': 32,
+		'Rune sword': 32,
+		'Rune warhammer': 32,
+		'Dragon scimitar': 128,
+		'Grimy kwuarm': 16 / 4,
+		'Bucket of sand': 21.33 / 25,
+		'Cactus spine': 21.33 / 10,
+		'Admiral pie': 16 / 3,
+		'Prayer potion(4)': 16,
+		Shark: 16,
+		'Anchovy pizza': 32 / 8,
+		'Superantipoison(4)': 64,
+		'Phoenix necklace': 18.29,
+		'Dust rune': 32 / 30,
+		'Weapon poison(++)': 32,
+		'Ensouled scorpion head': 18,
+		'Clue scroll (hard)': 100,
+		"Scorpia's offspring": 2016
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Scorpia.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Venenatis', async (test): Promise<void> => {
+	const expectedRates = {
+		'Treasonous ring': 512,
+		'Rune pickaxe': 10.67,
+		'Rune knife': 25.6 / 60,
+		'Rune 2h sword': 42.67,
+		'Dragon pickaxe': 170.7,
+		'Dragon 2h sword': 256,
+		'Chaos rune': 18.29 / 400,
+		'Death rune': 18.29 / 300,
+		'Blood rune': 18.29 / 200,
+		'Diamond bolts (e)': 25.6 / 100,
+		Cannonball: 32 / 250,
+		'Gold ore': 21.33 / 300,
+		'Onyx bolt tips': 25.6 / 60,
+		'Magic logs': 25.6 / 100,
+		'Limpwurt root': 25.6 / 25,
+		"Red spiders' eggs": 42.67 / 500,
+		'Unicorn horn': 64 / 100,
+		'Uncut dragonstone': 64,
+		'Grimy snapdragon': 128 / 100,
+		'Dark crab': 12.8 / 8,
+		'Super restore(4)': 12.8 / 3,
+		Supercompost: 26.95 / 100,
+		'Antidote++(4)': 42.67 / 10,
+		'Dark fishing bait': 128 / 375,
+		'Yew seed': 128,
+		'Magic seed': 128,
+		'Palm tree seed': 128,
+		'Clue scroll (elite)': 100,
+		'Long bone': 400,
+		'Venenatis spiderling': 2000,
+		'Curved bone': 5013
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Venenatis.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test("Vet'ion", async (test): Promise<void> => {
+	const expectedRates = {
+		'Big bones': 1,
+		'Ring of the gods': 512,
+		'Rune pickaxe': 10.67,
+		'Rune 2h sword': 42.67,
+		'Ancient staff': 42.67,
+		'Dragon pickaxe': 170.7,
+		'Dragon 2h sword': 256,
+		'Chaos rune': 18.29 / 400,
+		'Death rune': 18.29 / 300,
+		'Blood rune': 18.29 / 200,
+		Cannonball: 32 / 250,
+		'Gold ore': 21.33 / 300,
+		'Limpwurt root': 25.6 / 25,
+		'Magic logs': 25.6 / 100,
+		'Oak plank': 25.6 / 300,
+		'Dragon bones': 42.67 / 100,
+		'Uncut dragonstone': 64,
+		'Mort myre fungus': 64 / 200,
+		'Grimy ranarr weed': 128 / 100,
+		'Sanfew serum(4)': 25.6 / 10,
+		'Ogre coffin key': 25.6 / 10,
+		Supercompost: 26.95 / 100,
+		'Dark fishing bait': 128 / 375,
+		'Palm tree seed': 128,
+		'Yew seed': 128,
+		'Magic seed': 128,
+		'Clue scroll (elite)': 100,
+		'Long bone': 400,
+		"Vet'ion jr.": 2000,
+		'Skeleton champion scroll': 5000,
+		'Curved bone': 5013
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Vetion.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
