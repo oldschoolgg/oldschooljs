@@ -1,28 +1,28 @@
-import DagannothPrime from './DagannothPrime';
-import DagannothRex from './DagannothRex';
-import DagannothSupreme from './DagannothSupreme';
-import Cerberus from './Cerberus';
-import LuckyImplingTable from './LuckyImp';
-import GiantMole from './GiantMole';
-import Goblins from './Goblins';
-import Guard from './Guard';
-import Vorkath from './Vorkath';
-import Zulrah from './Zulrah';
-import Barrows from './Barrows';
-import GeneralGraardor from './GeneralGraardor';
-import CommanderZilyana from './CommanderZilyana';
-import Kreearra from './Kreearra';
-import KrilTsutsaroth from './KrilTsutsaroth';
-import Man from './Man';
-import Woman from './Woman';
-import Callisto from './Callisto';
-import ChaosElemental from './ChaosElemental';
-import ChaosFanatic from './ChaosFanatic';
-import KingBlackDragon from './KingBlackDragon';
-import Scorpia from './Scorpia';
-import Venenatis from './Venenatis';
-import Vetion from './Vetion';
-import CrazyArchaeologist from './CrazyArchaeologist';
+import DagannothPrime from './bosses/DagannothPrime';
+import DagannothRex from './bosses/DagannothRex';
+import DagannothSupreme from './bosses/DagannothSupreme';
+import Cerberus from './slayer/Cerberus';
+import LuckyImplingTable from './special/LuckyImp';
+import GiantMole from './bosses/GiantMole';
+import Goblin from './low/Goblin';
+import Guard from './low/Guard';
+import Vorkath from './bosses/Vorkath';
+import Zulrah from './bosses/Zulrah';
+import Barrows from './special/Barrows';
+import GeneralGraardor from './gwd/GeneralGraardor';
+import CommanderZilyana from './gwd/CommanderZilyana';
+import Kreearra from './gwd/Kreearra';
+import KrilTsutsaroth from './gwd/KrilTsutsaroth';
+import Man from './low/Man';
+import Woman from './low/Woman';
+import Callisto from './wildy/Callisto';
+import ChaosElemental from './wildy/ChaosElemental';
+import ChaosFanatic from './wildy/ChaosFanatic';
+import KingBlackDragon from './wildy/KingBlackDragon';
+import Scorpia from './wildy/Scorpia';
+import Venenatis from './wildy/Venenatis';
+import Vetion from './wildy/Vetion';
+import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 
 export default {
 	DagannothPrime,
@@ -31,7 +31,7 @@ export default {
 	Cerberus,
 	LuckyImp: LuckyImplingTable,
 	GiantMole,
-	Goblins,
+	Goblin,
 	Guard,
 	Vorkath,
 	Zulrah,
