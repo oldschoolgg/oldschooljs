@@ -273,7 +273,7 @@ test('Goblins', async (test): Promise<void> => {
 	};
 
 	const number = 10_000_000;
-	const loot = Monsters.Goblins.kill(number);
+	const loot = Monsters.Goblin.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
