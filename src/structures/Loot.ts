@@ -1,5 +1,13 @@
-import { itemID } from '../util/util';
 import { ItemBank, ReturnedLootItem } from '../meta/types';
+import Items from '../structures/Items';
+
+function itemID(name: string): number {
+	const item = Items.get(name);
+	if (!item) {
+		throw console.error(`ERROR: ${JSON.stringify(name)} doesnt exist.`);
+	}
+	return item.id;
+}
 
 export default class Loot {
 	public loot: ItemBank = {};
