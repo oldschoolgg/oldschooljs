@@ -4,7 +4,6 @@ import RareDropTable from '../subtables/RareDropTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 
-
 export const MossGiantTable = new LootTable(128)
 	.every('Big bones')
 	.tertiary(24, 'Ensouled giant head')
