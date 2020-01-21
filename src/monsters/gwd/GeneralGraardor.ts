@@ -73,5 +73,6 @@ export const GeneralGraardorTable = new LootTable()
 export default new SimpleMonster({
 	id: 2215,
 	name: 'General Graardor',
-	table: GeneralGraardorTable
+	table: GeneralGraardorTable,
+	aliases: ['graardor', 'bandos', 'general graardor']
 });

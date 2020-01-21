@@ -34,4 +34,9 @@ export const GuardTable = new LootTable(128)
 	.addItem('Grain', 1, 1)
 	.addItem('Iron ore', 1, 1);
 
-export default new SimpleMonster({ id: 995, name: 'Guard', table: GuardTable });
+export default new SimpleMonster({
+	id: 995,
+	name: 'Guard',
+	table: GuardTable,
+	aliases: ['guard']
+});

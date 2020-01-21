@@ -52,4 +52,9 @@ export const DagannothPrimeTable = new LootTable()
 	.add(GemTable, undefined, 10)
 	.add(RareSeedTable, undefined, 7);
 
-export default new SimpleMonster({ id: 2266, name: 'Dagannoth Prime', table: DagannothPrimeTable });
+export default new SimpleMonster({
+	id: 2266,
+	name: 'Dagannoth Prime',
+	table: DagannothPrimeTable,
+	aliases: ['prime', 'dagannoth prime']
+});

@@ -8,6 +8,7 @@ export interface MonsterOptions {
 	name: string;
 	combatLevel?: number;
 	hitpoints?: number;
+	aliases?: string[];
 }
 
 export type AccountType =
