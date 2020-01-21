@@ -9,7 +9,7 @@ const CommonSeedDropTable = new LootTable()
 	.addItem('Wildblood seed', 1, 83)
 	.addItem('Watermelon seed', 1, 63)
 	.addItem('Harralander seed', 1, 56)
-	.addItem('Snape grass seed', 1, 40)	
+	.addItem('Snape grass seed', 1, 40)
 	.addItem('Ranarr seed', 1, 39)
 	.addItem('Whiteberry seed', 1, 34)
 	.addItem('Mushroom spore', 1, 29)
@@ -25,6 +25,6 @@ const CommonSeedDropTable = new LootTable()
 	.addItem('Cadantine seed', 1, 4)
 	.addItem('Lantadyme seed', 1, 3)
 	.addItem('Dwarf weed seed', 1, 2)
-	.addItem('Torstol seed', 1, 1)
+	.addItem('Torstol seed', 1, 1);
 
 export default CommonSeedDropTable;
