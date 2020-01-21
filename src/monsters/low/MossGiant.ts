@@ -2,7 +2,6 @@ import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import RareDropTable from '../subtables/RareDropTable';
 import HerbDropTable from '../subtables/HerbDropTable';
-import FixedAllotmentSeedTable from '../subtables/FixedAllotmentSeedTable';
 import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 
 export const MossGiantTable = new LootTable(128)
