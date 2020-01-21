@@ -135,7 +135,7 @@ export default class LootTable {
 				items.push(
 					this.generateResultItem({
 						item: singleItem[0],
-						quantity: singleItem[1]
+						quantity: singleItem[1] || 1
 					})[0]
 				);
 			}
