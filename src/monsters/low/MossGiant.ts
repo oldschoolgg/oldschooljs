@@ -3,6 +3,7 @@ import SimpleMonster from '../../structures/SimpleMonster';
 import RareDropTable from '../subtables/RareDropTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 import FixedAllotmentSeedTable from '../subtables/FixedAllotmentSeedTable';
+import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 
 export const MossGiantTable = new LootTable(128)
 	.every('Big bones')
@@ -46,7 +47,7 @@ export const MossGiantTable = new LootTable(128)
     
     /*Special Tables */
     .add(RareDropTable, undefined, 4)
-    .add(FixedAllotmentSeedTable, undefined, 35)
+    .add(CommonSeedDropTable, undefined, 35)
     .add(HerbDropTable, undefined, 5)
    
 
