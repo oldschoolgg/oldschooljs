@@ -81,4 +81,9 @@ export class Vorkath extends SimpleMonster {
 	}
 }
 
-export default new Vorkath({ id: 8026, name: 'Vorkath', table: VorkathTable });
+export default new Vorkath({
+	id: 8026,
+	name: 'Vorkath',
+	table: VorkathTable,
+	aliases: ['vorkath', 'vorki', 'vork']
+});

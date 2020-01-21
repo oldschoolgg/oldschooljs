@@ -57,4 +57,9 @@ export const ChaosFanaticTable = new LootTable()
 	.add(RareDropTable, 1, 4)
 	.add(GemTable, 1, 4);
 
-export default new SimpleMonster({ id: 6619, name: 'Chaos Fanatic', table: ChaosFanaticTable });
+export default new SimpleMonster({
+	id: 6619,
+	name: 'Chaos Fanatic',
+	table: ChaosFanaticTable,
+	aliases: ['chaos fanatic', 'fanatic']
+});

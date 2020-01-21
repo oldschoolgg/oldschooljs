@@ -82,5 +82,6 @@ export const KrilTsutsarothTable = new LootTable()
 export default new SimpleMonster({
 	id: 3129,
 	name: `K'ril Tsutsaroth`,
-	table: KrilTsutsarothTable
+	table: KrilTsutsarothTable,
+	aliases: ['kril', 'zammy', 'zamorak', "k'ril tsutsaroth"]
 });

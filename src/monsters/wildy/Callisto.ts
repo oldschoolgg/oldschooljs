@@ -63,4 +63,9 @@ export const CallistoTable = new LootTable()
 	.addItem('Dragon bones', 30, 12)
 	.addItem('Dark fishing bait', 375, 4);
 
-export default new SimpleMonster({ id: 6503, name: 'Callisto', table: CallistoTable });
+export default new SimpleMonster({
+	id: 6503,
+	name: 'Callisto',
+	table: CallistoTable,
+	aliases: ['callisto', 'bear']
+});

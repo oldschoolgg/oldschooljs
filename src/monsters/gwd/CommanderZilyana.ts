@@ -79,5 +79,6 @@ export const CommanderZilyanaTable = new LootTable()
 export default new SimpleMonster({
 	id: 2205,
 	name: 'Commander Zilyana',
-	table: CommanderZilyanaTable
+	table: CommanderZilyanaTable,
+	aliases: ['sara', 'zily', 'saradomin', 'zilyana', 'commander zilyana']
 });

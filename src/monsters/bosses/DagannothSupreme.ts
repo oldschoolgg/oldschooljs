@@ -52,5 +52,6 @@ export const DagannothSupremeTable = new LootTable()
 export default new SimpleMonster({
 	id: 2265,
 	name: 'Dagannoth Supreme',
-	table: DagannothSupremeTable
+	table: DagannothSupremeTable,
+	aliases: ['supreme', 'dagannoth supreme']
 });

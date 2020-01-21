@@ -6,4 +6,3 @@ import './News';
 import './Wiki';
 import './Polls';
 import './Util';
-// import './Clues';

@@ -56,4 +56,9 @@ export const DagannothRexTable = new LootTable()
 	.add(GemTable, undefined, 10)
 	.add(TalismanTable);
 
-export default new SimpleMonster({ id: 2267, name: 'Dagannoth Rex', table: DagannothRexTable });
+export default new SimpleMonster({
+	id: 2267,
+	name: 'Dagannoth Rex',
+	table: DagannothRexTable,
+	aliases: ['rex', 'dagannoth rex']
+});

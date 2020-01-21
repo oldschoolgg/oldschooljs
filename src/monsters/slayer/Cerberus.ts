@@ -54,4 +54,9 @@ export const CerberusTable = new LootTable()
 
 	.add(RareDropTable, undefined, 3);
 
-export default new SimpleMonster({ id: 5862, name: 'Cerberus', table: CerberusTable });
+export default new SimpleMonster({
+	id: 5862,
+	name: 'Cerberus',
+	table: CerberusTable,
+	aliases: ['cerb', 'cerberus']
+});

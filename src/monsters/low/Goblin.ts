@@ -34,4 +34,9 @@ export const GoblinTable = new LootTable(128)
 	.addItem('Brass necklace', 1, 1)
 	.addItem('Air talisman', 1, 1);
 
-export default new SimpleMonster({ id: 655, name: 'Goblin', table: GoblinTable });
+export default new SimpleMonster({
+	id: 655,
+	name: 'Goblin',
+	table: GoblinTable,
+	aliases: ['goblin']
+});

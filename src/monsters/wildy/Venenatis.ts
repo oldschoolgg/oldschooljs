@@ -58,4 +58,9 @@ export const VenenatisTable = new LootTable()
 	.addItem('Magic seed', 1, 4)
 	.addItem('Palm tree seed', 1, 4);
 
-export default new SimpleMonster({ id: 6610, name: 'Venenatis', table: VenenatisTable });
+export default new SimpleMonster({
+	id: 6610,
+	name: 'Venenatis',
+	table: VenenatisTable,
+	aliases: ['ven', 'venny', 'venenatis']
+});

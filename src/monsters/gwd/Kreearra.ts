@@ -74,4 +74,9 @@ export const KreearraTable = new LootTable()
 	.add(GWRareDropTable, undefined, 8)
 	.add(GWGemTable, undefined, 2);
 
-export default new SimpleMonster({ id: 3162, name: `Kree'arra`, table: KreearraTable });
+export default new SimpleMonster({
+	id: 3162,
+	name: `Kree'arra`,
+	table: KreearraTable,
+	aliases: ['arma', 'armadyl', 'kree', "kree'arra"]
+});

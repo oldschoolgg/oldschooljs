@@ -38,4 +38,9 @@ export const GiantMoleTable = new LootTable()
 	.add(RareDropTable, 1, 4)
 	.add(GemTable, 1, 5);
 
-export default new SimpleMonster({ id: 5779, name: 'Giant Mole', table: GiantMoleTable });
+export default new SimpleMonster({
+	id: 5779,
+	name: 'Giant Mole',
+	table: GiantMoleTable,
+	aliases: ['mole', 'giant mole']
+});

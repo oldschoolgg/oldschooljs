@@ -81,9 +81,6 @@ export default class LootTable {
 	}
 
 	public roll(): ReturnedLootItem[] {
-		// If this loot table has no items, return null;
-		if (this.length === 0) return [];
-
 		// Random number between 1 and the total weighting
 		const randomWeight = rand(1, this.limit || this.totalWeight);
 
@@ -135,7 +132,7 @@ export default class LootTable {
 				items.push(
 					this.generateResultItem({
 						item: singleItem[0],
-						quantity: singleItem[1]
+						quantity: singleItem[1] || 1
 					})[0]
 				);
 			}
