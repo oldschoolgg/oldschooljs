@@ -4,6 +4,7 @@ import RareDropTable from '../subtables/RareDropTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 import FixedAllotmentSeedTable from '../subtables/FixedAllotmentSeedTable';
 
+
 export const HillGiantTable = new LootTable(128)
 	.every('Big bones')
 	.tertiary(25, 'Ensouled giant head')

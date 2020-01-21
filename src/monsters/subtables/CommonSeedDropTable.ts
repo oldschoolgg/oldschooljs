@@ -1,5 +1,6 @@
 import LootTable from '../../structures/LootTable';
 
+
 const CommonSeedDropTable = new LootTable()
 	.addItem('Limpwurt seed', 1, 137)
 	.addItem('Strawberry seed', 1, 137)
