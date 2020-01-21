@@ -59,4 +59,9 @@ export const VetionTable = new LootTable()
 	.addItem('Yew seed', 1, 4)
 	.addItem('Magic seed', 1, 4);
 
-export default new SimpleMonster({ id: 6611, name: 'Vetion', table: VetionTable });
+export default new SimpleMonster({
+	id: 6611,
+	name: 'Vetion',
+	table: VetionTable,
+	aliases: ['vetion', "vet'ion"]
+});

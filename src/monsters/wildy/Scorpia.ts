@@ -50,4 +50,9 @@ export const ScorpiaTable = new LootTable()
 	.add(RareDropTable, 1, 4)
 	.add(GemTable, 1, 4);
 
-export default new SimpleMonster({ id: 6615, name: 'Scorpia', table: ScorpiaTable });
+export default new SimpleMonster({
+	id: 6615,
+	name: 'Scorpia',
+	table: ScorpiaTable,
+	aliases: ['scorpia', 'scorpion']
+});

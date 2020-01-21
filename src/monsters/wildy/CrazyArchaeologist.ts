@@ -56,5 +56,6 @@ export const CrazyArchaeologistTable = new LootTable()
 export default new SimpleMonster({
 	id: 6618,
 	name: 'Crazy Archaeologist',
-	table: CrazyArchaeologistTable
+	table: CrazyArchaeologistTable,
+	aliases: ['crazy arch', 'crazy archaeologist']
 });

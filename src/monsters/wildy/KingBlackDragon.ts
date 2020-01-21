@@ -46,5 +46,6 @@ export const KingBlackDragonTable = new LootTable()
 export default new SimpleMonster({
 	id: 6502,
 	name: 'King Black Dragon',
-	table: KingBlackDragonTable
+	table: KingBlackDragonTable,
+	aliases: ['kbd', 'king black dragon']
 });
