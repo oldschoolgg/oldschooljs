@@ -50,7 +50,7 @@ export const MossGiantTable = new LootTable(128)
 	.add(HerbDropTable, undefined, 5);
 
 export default new SimpleMonster({
-	id: 891,
+	id: 2090,
 	name: 'Moss Giant',
 	table: MossGiantTable,
 	aliases: ['moss']
