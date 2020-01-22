@@ -12,7 +12,7 @@ const RareSeedTable = new LootTable()
 	.addItem('Snapdragon seed', 1, 10)
 	.addItem('Cadantine seed', 1, 7)
 	.addItem('Lantadyme seed', 1, 5)
-	.addItem('Snape grass seed', 1, 4)
+	.addItem('Snape grass seed', 3, 4)
 	.addItem('Dwarf weed seed', 1, 3)
 	.addItem('Torstol seed', 1, 2);
 

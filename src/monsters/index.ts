@@ -23,6 +23,22 @@ import Scorpia from './Scorpia';
 import Venenatis from './Venenatis';
 import Vetion from './Vetion';
 import CrazyArchaeologist from './CrazyArchaeologist';
+import AberrantSpectre from './AberrantSpectre';
+import AbyssalDemon from './AbyssalDemon';
+import AdamantDragon from './AdamantDragon';
+import Ankou from './Ankou';
+import Aviansie from './Aviansie';
+import Basilisk from './Basilisk';
+import BlackDemon from './BlackDemon';
+import BlackDragon from './BlackDragon';
+import Bloodveld from './Bloodveld';
+import BlueDragon from './BlueDragon';
+import BrineRat from './BrineRat';
+import CaveHorror from './CaveHorror';
+import CaveKraken from './CaveKraken';
+import Dagannoth from './Dagannoth';
+import DarkBeast from './DarkBeast';
+import Drake from './Drake';
 
 export default {
 	DagannothPrime,
@@ -49,5 +65,21 @@ export default {
 	Scorpia,
 	Venenatis,
 	Vetion,
-	CrazyArchaeologist
+	CrazyArchaeologist,
+	AberrantSpectre,
+	AbyssalDemon,
+	AdamantDragon,
+	Ankou,
+	Aviansie,
+	Basilisk,
+	BlackDemon,
+	BlackDragon,
+	Bloodveld,
+	BlueDragon,
+	BrineRat,
+	CaveHorror,
+	CaveKraken,
+	Dagannoth,
+	DarkBeast,
+	Drake
 };

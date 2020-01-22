@@ -125,7 +125,6 @@ test('Cerberus', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
-
 test('Dagannoth Prime', async (test): Promise<void> => {
 	const expectedRates = {
 		'Pet dagannoth prime': 5000,
@@ -739,6 +738,445 @@ test("Vet'ion", async (test): Promise<void> => {
 
 	const number = 10_000_000;
 	const loot = Monsters.Vetion.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Aberrant Spectre', async (test): Promise<void> => {
+	const expectedRates = {
+		'Grimy guam leaf': 6.26,
+		'Grimy marrentill': 8.34,
+		'Grimy tarromin': 11.1,
+		'Grimy harralander': 14.23,
+		'Grimy ranarr weed': 18.11,
+		'Grimy irit leaf': 24.94,
+		'Grimy avantoe': 33.2,
+		'Grimy kwuarm': 68.29,
+		'Grimy cadantine': 49.8,
+		'Grimy lantadyme': 66.4,
+		'Grimy dwarf weed': 66.4
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.AberrantSpectre.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Abyssal Demon', async (test): Promise<void> => {
+	const expectedRates = {
+		Ashes: 1,
+		'Black sword': 32,
+		'Steel battleaxe': 42.67,
+		'Black axe': 64,
+		'Mithril kiteshield': 128,
+		'Rune chainbody': 128,
+		'Rune med helm': 128,
+		'Abyssal whip': 512,
+		'Abyssal dagger': 32768,
+		'Air rune': 16 / 50,
+		'Chaos rune': 21.33 / 10,
+		'Blood rune': 32 / 7,
+		'Law rune': 128 / 3,
+		Coins: 2.2 / 130,
+		Lobster: 64,
+		'Cosmic talisman': 128,
+		'Chaos talisman': 128,
+		'Defence potion(3)': 128,
+		'Ensouled abyssal head': 25,
+		'Clue scroll (hard)': 128,
+		'Clue scroll (elite)': 1200,
+		'Abyssal head': 6000,
+		'Ancient shard': 233,
+		'Dark totem base': 350,
+		'Dark totem middle': 350,
+		'Dark totem top': 350
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.AbyssalDemon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Adamant Dragon', async (test): Promise<void> => {
+	const expectedRates = {
+		'Dragon bones': 1,
+		'Adamantite bar': 1 / 2,
+		'Adamant platebody': 12.22,
+		'Rune mace': 15.71,
+		'Rune scimitar': 15.71,
+		'Dragon med helm': 110,
+		'Dragon platelegs': 110,
+		'Dragon plateskirt': 110,
+		'Grimy avantoe': 44,
+		'Grimy ranarr weed': 55,
+		'Grimy snapdragon': 55,
+		'Grimy torstol': 73.33,
+		'Wrath talisman': 110,
+		'Clue scroll (elite)': 320,
+		'Dragon limbs': 1000,
+		'Dragon metal slice': 5000,
+		'Draconic visage': 9000
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.AdamantDragon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Ankou', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Black knife': 100,
+		'Black robe': 100,
+		'Death rune': 10 / 10,
+		'Blood rune': 16.67 / 13.5,
+		'Law rune': 16.67 / 2,
+		'Pure essence': 20 / 15,
+		'Rune essence': 20 / 15,
+		Bass: 50,
+		'Weapon poison': 50,
+		'Fried mushrooms': 50,
+		'Clue scroll (hard)': 512,
+		'Ancient shard': 293,
+		'Dark totem base': 440,
+		'Dark totem middle': 440,
+		'Dark totem top': 440
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Ankou.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Aviansie', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Air rune': 7.111 / 15,
+		'Water rune': 9.846 / 30,
+		'Law rune': 32 / 2,
+		'Nature rune': 32 / 9,
+		'Chaos rune': 32 / 16,
+		'Body rune': 64 / 12,
+		'Blood rune': 64 / 11,
+		'Mind rune': 128 / 5,
+		'Adamantite bar': 4.267 / 4,
+		'Silver ore': 12.8,
+		'Runite limbs': 128,
+		'Rune dagger(p+)': 11.64,
+		'Antipoison(3)': 25.6 / 5,
+		Swordfish: 64 / 5,
+		'Clue scroll (hard)': 128,
+		'Ensouled aviansie head': 35
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Aviansie.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Basilisk', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Mithril axe': 42.67,
+		'Steel battleaxe': 42.67,
+		'Mithril spear': 64,
+		'Adamant full helm': 128,
+		'Mithril kiteshield': 128,
+		'Rune dagger': 128,
+		'Mystic hat (light)': 512,
+		'Water rune': 16 / 75,
+		'Nature rune': 21.33 / 52,
+		'Law rune': 42.67,
+		'Adamantite ore': 42.67,
+		'Basilisk head': 2000
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Basilisk.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Black Demon', async (test): Promise<void> => {
+	const expectedRates = {
+		Ashes: 1,
+		'Black sword': 32,
+		'Steel battleaxe': 42.67,
+		'Black axe': 64,
+		'Mithril kiteshield': 128,
+		'Rune med helm': 128,
+		'Rune chainbody': 128,
+		'Air rune': 16 / 50,
+		'Chaos rune': 18.29 / 10,
+		'Blood rune': 32 / 7,
+		'Fire rune': 128 / 37,
+		'Law rune': 128 / 3,
+		Lobster: 42.67,
+		'Adamantite bar': 64,
+		'Defence potion(3)': 128,
+		'Ensouled demon head': 35,
+		'Clue scroll (hard)': 128,
+		'Ancient shard': 226,
+		'Dark totem base': 340,
+		'Dark totem middle': 340,
+		'Dark totem top': 340
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.BlackDemon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Black Dragon', async (test): Promise<void> => {
+	const expectedRates = {
+		'Dragon bones': 1,
+		'Black dragonhide': 1,
+		'Mithril 2h sword': 32,
+		'Mithril axe': 42.67,
+		'Mithril battleaxe': 64,
+		'Mithril kiteshield': 128,
+		'Adamant platebody': 128,
+		'Rune longsword': 128,
+		'Adamant javelin': 16 / 50,
+		'Fire rune': 18.29 / 10,
+		'Blood rune': 32 / 7,
+		'Air rune': 128 / 37,
+		'Dragon javelin heads': 128 / 3,
+		'Adamantite bar': 42.67,
+		'Chocolate cake': 64,
+		'Clue scroll (hard)': 128,
+		'Clue scroll (elite)': 35,
+		'Draconic visage': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.BlackDragon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Bloodveld', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Steel axe': 32,
+		'Steel full helm': 32,
+		'Steel scimitar': 64,
+		'Black boots': 128,
+		'Mithril sq shield': 128,
+		'Mithril chainbody': 128,
+		'Rune med helm': 128,
+		'Fire rune': 16 / 60,
+		'Meat pizza': 42.67,
+		'Gold ore': 64,
+		'Ensouled bloodveld head': 35,
+		'Clue scroll(hard)': 256
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Bloodveld.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Blue Dragon', async (test): Promise<void> => {
+	const expectedRates = {
+		'Blue dragonhide': 1,
+		'Dragon bones': 1,
+		'Steel platelegs': 32,
+		'Mithril axe': 42.67,
+		'Steel battleaxe': 42.67,
+		'Mithril spear': 64,
+		'Adamant full helm': 128,
+		'Mithril kiteshield': 128,
+		'Rune dagger': 128,
+		'Water rune': 16 / 75,
+		'Nature rune': 25.6 / 15,
+		'Law rune': 42.67 / 3,
+		'Fire rune': 128 / 37,
+		'Adamantite ore': 42.67,
+		Bass: 42.67,
+		'Ensouled dragon head': 50,
+		'Clue scroll (hard)': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.BlueDragon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Brine Rat', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Raw rat meat': 0.78,
+		'Brine sabre': 512,
+		'Death rune': 7.111 / 7,
+		'Earth rune': 10.67 / 64,
+		'Water rune': 25.6 / 28,
+		'Air rune': 64 / 18,
+		'Blood rune': 64 / 4,
+		'Raw lobster': 21.33 / 10,
+		'Raw shark': 14.22 / 12,
+		'Raw pike': 64 / 18,
+		'Raw swordfish': 64 / 9,
+		'Water talisman': 42.67,
+		'Clue scroll (medium)': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.BrineRat.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Cave Horror', async (test): Promise<void> => {
+	const expectedRates = {
+		'Big bones': 1,
+		'Mithril axe': 42.67,
+		'Rune dagger': 128,
+		'Adamant full helm': 128,
+		'Mithril kiteshield': 128,
+		'Black mask (10)': 512,
+		'Nature rune': 10.66 / 13,
+		Coins: 3.12 / 616,
+		'Limpwurt root': 18.29,
+		'Teak logs': 18.29 / 4,
+		'Mahogany logs': 42.67 / 2,
+		'Ensouled horror head': 30,
+		'Clue scroll (hard)': 128,
+		'Long bone': 400,
+		'Curved bone': 5013
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.CaveHorror.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+/*
+test('Cave Kraken', async (test): Promise<void> => {
+	const expectedRates = {
+		'Staff of water': ,
+		'Rune med helm': ,
+		'Adamant spear': ,
+		'Rune warhammer': ,
+		'Battlestaff': ,
+		'Water battlestaff': ,
+		'Mystic water staff': ,
+		'Uncharged trident': 200,
+		'Steam rune': / 7,
+		'Water rune': / 40,
+		'Fire rune': / 40,
+		'Death rune': / 90,
+		'Chaos rune': / 40,
+		'Blood rune': / 10,
+		'Kraken tentacle': 1200,
+		'Clue scroll (hard)': 100,
+		'Clue scroll (elite)': 1200,
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.CaveKraken.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+*/
+test('Dagannoth', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Iron spear': 21.33,
+		'Bronze spear': 25.6,
+		'Mithril spear': 128,
+		'Water rune': 32 / 15,
+		'Steel arrow': 64 / 15,
+		'Mithril javelin': 128 / 3,
+		'Opal bolt tips': 64 / 12,
+		Casket: 128,
+		'Ensouled dagannoth head': 40,
+		'Clue scroll (medium)': 128,
+		'Ancient shard': 286,
+		'Dark totem base': 430,
+		'Dark totem middle': 430,
+		'Dark totem top': 430
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Dagannoth.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Dark Beast', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Big bones': 1,
+		'Black battleaxe': 42.67,
+		'Adamant sq shield': 128,
+		'Rune chainbody': 128,
+		'Rune med helm': 128,
+		'Rune full helm': 128,
+		'Rune 2h sword': 128,
+		'Rune battleaxe': 128,
+		'Dark bow': 512,
+		'Death rune': 16 / 20,
+		'Chaos rune': 18.29 / 30,
+		'Blood rune': 32 / 15,
+		Shark: 32 / 3,
+		'Adamantite bar': 64 / 3,
+		'Adamantite ore': 128 / 5,
+		'Death talisman': 128,
+		'Runite ore': 128,
+		'Clue scroll (hard)': 128,
+		'Long bone': 400,
+		'Clue scroll (elite)': 1200,
+		'Curved bone': 5013
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.DarkBeast.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Drake', async (test): Promise<void> => {
+	const expectedRates = {
+		'Drake bones': 1,
+		"Drake's tooth": 512,
+		"Drake's claw": 512,
+		'Dragon thrownaxe': 2000,
+		'Dragon knife': 2000,
+		'Rune full helm': 28.33,
+		"Red d'hide body": 42.5,
+		"Black d'hide vamb": 85,
+		'Mystic earth staff': 85,
+		'Dragon mace': 85,
+		'Clue scroll (hard)': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Drake.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
