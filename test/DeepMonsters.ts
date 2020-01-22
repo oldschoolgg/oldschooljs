@@ -42,6 +42,63 @@ test('Barrows', async (test): Promise<void> => {
 	test.end();
 });
 
+test('Hill Giant', async (test): Promise<void> => {
+	const expectedRates = {
+		'Big bones': 1,
+		'Iron full helm': 25.6,
+		'Iron kiteshield': 42.66,
+		'Curved bone': 5012.5,
+		'Clue scroll (beginner)': 50,
+		'Long bone': 400,
+		'Giant champion scroll': 5000
+	};
+
+	const HillGiant = Monsters.HillGiant;
+	test.equals(HillGiant.table.totalWeight, 128, 'Hill Giant table weight should be 128');
+
+	const number = 10_000_000;
+	checkThreshold(test, expectedRates, HillGiant.kill(number), number);
+	test.end();
+});
+
+test('Moss Giant', async (test): Promise<void> => {
+	const expectedRates = {
+		'Big bones': 1,
+		'Black sq shield': 25.6,
+		'Steel kiteshield': 128,
+		'Law rune': 32,
+		'Iron arrow': 64,
+		'Steel bar': 21.33,
+		'Mossy key': 150,
+		'Curved bone': 5012.5,
+		'Giant champion scroll': 5000
+	};
+
+	const MossGiant = Monsters.MossGiant;
+	test.equals(MossGiant.table.totalWeight, 128, 'Moss Giant table weight should be 128');
+
+	const number = 10_000_000;
+	checkThreshold(test, expectedRates, MossGiant.kill(number), number);
+	test.end();
+});
+
+test('Jogre', async (test): Promise<void> => {
+	const expectedRates = {
+		'Jogre bones': 1,
+		'Black sq shield': 4.3,
+		'Trading sticks': 4.77,
+		'Clue scroll (medium)': 129,
+		'Jogre champion scroll': 5000
+	};
+
+	const Jogre = Monsters.Jogre;
+	test.equals(Jogre.table.totalWeight, 128, 'Jogre Giant table weight should be 128');
+
+	const number = 10_000_000;
+	checkThreshold(test, expectedRates, Jogre.kill(number), number);
+	test.end();
+});
+
 test('Giant Mole', async (test): Promise<void> => {
 	const expectedRates = {
 		'Big bones': 1,
