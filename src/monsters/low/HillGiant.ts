@@ -1,6 +1,6 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
-import RareDropTable from '../subtables/RareDropTable';
+import GemTable from '../subtables/GemTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 import FixedAllotmentSeedTable from '../subtables/FixedAllotmentSeedTable';
 
@@ -44,7 +44,7 @@ export const HillGiantTable = new LootTable(128)
 	.addItem('Giant key', 1, 1)
 
 	/*Special Tables */
-	.add(RareDropTable, undefined, 3)
+	.add(GemTable, undefined, 3)
 	.add(FixedAllotmentSeedTable, undefined, 18)
 	.add(HerbDropTable, undefined, 7);
 

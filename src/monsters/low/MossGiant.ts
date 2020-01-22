@@ -1,6 +1,6 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
-import RareDropTable from '../subtables/RareDropTable';
+import GemTable from '../subtables/GemTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 
@@ -35,7 +35,7 @@ export const MossGiantTable = new LootTable(128)
 
 	/* Coins */
 	.addItem('Coins', 37, 19)
-	.addItem('Coins', 2, 11)
+	.addItem('Coins', 2, 8)
 	.addItem('Coins', 119, 10)
 	.addItem('Coins', 300, 2)
 
@@ -45,7 +45,7 @@ export const MossGiantTable = new LootTable(128)
 	.addItem('Spinach roll', 1, 1)
 
 	/*Special Tables */
-	.add(RareDropTable, undefined, 4)
+	.add(GemTable, undefined, 4)
 	.add(CommonSeedDropTable, undefined, 35)
 	.add(HerbDropTable, undefined, 5);
 
