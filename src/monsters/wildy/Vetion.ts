@@ -42,7 +42,7 @@ export const VetionTable = new LootTable()
 	.addItem('Grimy ranarr weed', 100, 4)
 
 	/* Other */
-	.addItem('Coins', [150000, 19999], 76)
+	.addItem('Coins', [15000, 19999], 76)
 	.addItem(
 		[
 			['Dark crab', 8],
