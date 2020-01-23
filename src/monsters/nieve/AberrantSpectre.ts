@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import RareSeedTable from './RareSeedTable';
-import RareDropTable from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import RareSeedTable from '../subtables/RareSeedTable';
+import RareDropTable from '../subtables/RareDropTable';
 
 const AberrantSpectreHerbTable1 = new LootTable()
 	.add('Grimy guam leaf', 1, 1515)
