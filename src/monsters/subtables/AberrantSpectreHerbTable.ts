@@ -1,4 +1,4 @@
-import LootTable from '../structures/LootTable';
+import LootTable from '../../structures/LootTable';
 
 export default new LootTable()
 	.addItem('Grimy guam leaf', 1, 7)

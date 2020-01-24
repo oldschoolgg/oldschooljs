@@ -25,6 +25,27 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
+import AbyssalDemon from './nieve/AbyssalDemon';
+import AdamantDragon from './nieve/AdamantDragon';
+import Ankou from './nieve/Ankou';
+import Aviansie from './nieve/Aviansie';
+import Basilisk from './nieve/Basilisk';
+import BlackDemon from './nieve/BlackDemon';
+import BlackDragon from './nieve/BlackDragon';
+import Bloodveld from './nieve/Bloodveld';
+import BlueDragon from './nieve/BlueDragon';
+import BrineRat from './nieve/BrineRat';
+import CaveHorror from './nieve/CaveHorror';
+import Dagannoth from './nieve/Dagannoth';
+import DarkBeast from './nieve/DarkBeast';
+import Drake from './nieve/Drake';
+import DustDevil from './nieve/DustDevil';
+import ElfWarrior from './nieve/ElfWarrior';
+import FireGiant from './nieve/FireGiant';
+import FossilIslandWyvernAncient from './nieve/FossiIslandWyvernAncient';
+import FossilIslandWyvernLongTailed from './nieve/FossiIslandWyvernLongTailed';
+import FossilIslandWyvernSpitting from './nieve/FossiIslandWyvernSpitting';
+import FossilIslandWyvernTaloned from './nieve/FossiIslandWyvernTaloned';
 
 const monstersObject = {
 	DagannothPrime,
@@ -51,7 +72,28 @@ const monstersObject = {
 	Scorpia,
 	Venenatis,
 	Vetion,
-	CrazyArchaeologist
+	CrazyArchaeologist,
+	AbyssalDemon,
+	AdamantDragon,
+	Ankou,
+	Aviansie,
+	Basilisk,
+	BlackDemon,
+	BlackDragon,
+	Bloodveld,
+	BlueDragon,
+	BrineRat,
+	CaveHorror,
+	Dagannoth,
+	DarkBeast,
+	Drake,
+	DustDevil,
+	ElfWarrior,
+	FireGiant,
+	FossilIslandWyvernAncient,
+	FossilIslandWyvernLongTailed,
+	FossilIslandWyvernSpitting,
+	FossilIslandWyvernTaloned
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [

@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const AviansieTable = new LootTable()
 	.every('Bones')
@@ -23,7 +23,7 @@ export const AviansieTable = new LootTable()
 
 	/* Materials */
 	.addItem('Adamantite bar', 4, 30)
-	.addItem('Silver ore', 1, 13)
+	.addItem('Silver ore', 1, 10)
 	.addItem('Runite limbs', 1, 1)
 
 	/* Other */

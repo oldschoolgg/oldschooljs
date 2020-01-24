@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import RareDropTable from './RareDropTable';
-import HerbDropTable from './HerbDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import RareDropTable, { GemTable } from '../subtables/RareDropTable';
+import HerbDropTable from '../subtables/HerbDropTable';
 
 export const AbyssalDemonTable = new LootTable()
 	.every('Ashes')
@@ -20,7 +20,7 @@ export const AbyssalDemonTable = new LootTable()
 	.addItem('Air rune', 50, 8)
 	.addItem('Chaos rune', 10, 6)
 	.addItem('Blood rune', 7, 4)
-	.oneIn(128, 'Law rune', 3)
+	.addItem('Law rune', 3, 1)
 	/* Seeds */
 	.add(HerbDropTable, undefined, 19)
 
@@ -29,7 +29,11 @@ export const AbyssalDemonTable = new LootTable()
 	.addItem('Adamantite bar', 1, 2)
 
 	/* Coins */
-	.add('Coins', 130, 58)
+	.add('Coins', 132, 35)
+	.add('Coins', 220, 9)
+	.add('Coins', 30, 7)
+	.add('Coins', 44, 6)
+	.add('Coins', 460, 1)
 
 	/* Other */
 	.add('Lobster', 1, 2)
@@ -38,6 +42,7 @@ export const AbyssalDemonTable = new LootTable()
 	.addItem('Defence potion(3)', 1, 1)
 
 	.add(RareDropTable, undefined, 2)
+	.add(GemTable, undefined, 5)
 
 	/* Tertiary */
 	.tertiary(25, 'Ensouled abyssal head')

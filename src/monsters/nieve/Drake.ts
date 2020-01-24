@@ -1,8 +1,8 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import RareSeedTable from './RareSeedTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import RareSeedTable from '../subtables/RareSeedTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 const DrakeHerbDropTable = new LootTable()
 	.add(HerbDropTable, 1, 10)
