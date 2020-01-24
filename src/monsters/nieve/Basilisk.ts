@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const BasiliskTable = new LootTable()
 	.every('Bones')

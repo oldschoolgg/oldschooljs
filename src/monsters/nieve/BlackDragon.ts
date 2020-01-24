@@ -1,6 +1,6 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import RareDropTable, { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 
 export const BlackDragonTable = new LootTable()
 	.every('Dragon bones')

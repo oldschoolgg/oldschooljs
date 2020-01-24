@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import RareSeedTable from './RareSeedTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import RareSeedTable from '../subtables/RareSeedTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const DagannothTable = new LootTable()
 	.every('Bones')

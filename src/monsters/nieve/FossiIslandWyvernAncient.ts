@@ -3,7 +3,7 @@ import SimpleMonster from '../../structures/SimpleMonster';
 import TreeHerbSeedTable from '../subtables/TreeHerbSeedTable';
 import RareDropTable from '../subtables/RareDropTable';
 
-export const AncientTable = new LootTable()
+export const AncientWyvernTable = new LootTable()
 	.every('Wyvern bones')
 	.oneIn(600, 'Granite longsword')
 	.oneIn(600, 'Granite boots')

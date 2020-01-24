@@ -1,7 +1,7 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import RareDropTable, { GemTable } from './RareDropTable';
-import HerbDropTable from './HerbDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const BlueDragonTable = new LootTable()
 	.every('Dragon bones')
@@ -11,16 +11,16 @@ export const BlueDragonTable = new LootTable()
 	.addItem('Steel platelegs', 1, 4)
 	.addItem('Mithril axe', 1, 3)
 	.addItem('Steel battleaxe', 1, 3)
-	.addItem('Mithril spear', 2, 3)
+	.addItem('Mithril spear', 1, 1)
 	.addItem('Adamant full helm', 1, 1)
 	.addItem('Mithril kiteshield', 1, 1)
 	.addItem('Rune dagger', 1, 1)
 
 	/* Runes*/
-	.addItem('Water rune', 30, 20)
-	.addItem('Nature rune', 50, 8)
-	.addItem('Law rune', 15, 3)
-	.addItem('Fire rune', 75, 1)
+	.addItem('Water rune', 75, 8)
+	.addItem('Nature rune', 15, 5)
+	.addItem('Law rune', 3, 3)
+	.addItem('Fire rune', 37, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, undefined, 15)
@@ -37,8 +37,7 @@ export const BlueDragonTable = new LootTable()
 	.add('Bass', 1, 3)
 
 	/* Rdt */
-	.add(RareDropTable, undefined, 2)
-	.add(GemTable, undefined, 3)
+	.add(GemTable, undefined, 5)
 
 	/* Tertiary */
 	.tertiary(50, 'Ensouled dragon head')

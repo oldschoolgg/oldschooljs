@@ -1,9 +1,9 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import RareSeedTable from './RareSeedTable';
-import VariableAllotmentSeedTable from './VariableAllotmentSeedTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import RareSeedTable from '../subtables/RareSeedTable';
+import VariableAllotmentSeedTable from '../subtables/VariableAllotmentSeedTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const CaveHorrorTable = new LootTable()
 	.every('Big bones')
@@ -41,6 +41,7 @@ export const CaveHorrorTable = new LootTable()
 	.add(GemTable, undefined, 5)
 
 	/* Tertiary */
+	.tertiary(30, 'Ensouled horror head')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(400, 'Long bone')
 	.tertiary(5013, 'Curved bone');

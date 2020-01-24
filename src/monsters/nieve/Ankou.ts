@@ -1,8 +1,8 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import CommonSeedDropTable from './CommonSeedDropTable';
-import { GemTable } from './RareDropTable';
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const AnkouTable = new LootTable()
 	.every('Bones')
@@ -36,9 +36,11 @@ export const AnkouTable = new LootTable()
 	.add('Coins', 5, 1)
 
 	/* Other */
+	.add('Dark fishing bait', 60, 33)
+	.add('Fishing bait', 60, 33)
 	.add('Bass', 1, 2)
 	.add('Weapon poison', 1, 2)
-	.oneIn(50, 'Fried mushrooms')
+	.add('Fried mushrooms', 1, 1)
 
 	/* Rdt */
 	.add(GemTable, undefined, 2)

@@ -1,6 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import HerbDropTable from '../subtables/HerbDropTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 export const ElfWarriorTable = new LootTable()
 	.every('Bones')
@@ -8,9 +9,9 @@ export const ElfWarriorTable = new LootTable()
 	/*Weapons and armour */
 	.addItem("Green d'hide body", 1, 4)
 	.addItem("Green d'hide chaps", 1, 3)
-	.addItem('Mithril spear', 1, 1)
+	.addItem('Mithril spear', 1, 2)
 	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Mithril kiteshield', 1, 1)
+	.addItem('Adamant full helm', 1, 1)
 	.addItem('Rune dagger', 1, 1)
 
 	/* Runes and ammunition */
@@ -40,4 +41,4 @@ export const ElfWarriorTable = new LootTable()
 	.tertiary(40, 'Ensouled elf head')
 	.tertiary(128, 'Clue scroll (hard)');
 
-export default new SimpleMonster({ id: 3428, name: 'Elf Warrior', ElfWarriortable: Table });
+export default new SimpleMonster({ id: 3428, name: 'Elf Warrior', table: ElfWarriorTable });

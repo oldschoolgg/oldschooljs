@@ -1,13 +1,8 @@
-import LootTable from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import HerbDropTable from './HerbDropTable';
-import RareSeedTable from './RareSeedTable';
-import { GemTable } from './RareDropTable';
-
-const DrakeHerbDropTable = new LootTable()
-	.add(HerbDropTable, 1, 10)
-	.add(HerbDropTable, 2, 1)
-	.add(HerbDropTable, 3, 1);
+import LootTable from '../../structures/LootTable';
+import SimpleMonster from '../../structures/SimpleMonster';
+import HerbDropTable from '../subtables/HerbDropTable';
+import RareSeedTable from '../subtables/RareSeedTable';
+import { GemTable } from '../subtables/RareDropTable';
 
 const NotedHerbTable = new LootTable()
 	.add('Grimy avantoe', [1, 3], 10)
@@ -42,7 +37,7 @@ export const AnkouTable = new LootTable()
 	.addItem('Rune arrow', [35, 65], 10)
 
 	/* Herbs */
-	.add(DrakeHerbDropTable, undefined, 5)
+	.add(HerbDropTable, [1, 3], 1)
 	.add(NotedHerbTable, undefined, 6)
 
 	/* Seeds */
