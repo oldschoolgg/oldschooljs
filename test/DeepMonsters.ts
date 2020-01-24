@@ -744,6 +744,25 @@ test("Vet'ion", async (test): Promise<void> => {
 	test.end();
 });
 
+test('Aberrant Spectre', async (test): Promise<void> => {
+	const expectedRates = {
+		'Steel axe': 42.67,
+		'Mithril kiteshield': 128,
+		'Lava battlestaff': 128,
+		'Adamant platelegs': 128,
+		'Rune full helm': 128,
+		'Mystic robe bottom (dark)': 512,
+		Coins: 128 / 460,
+		'Clue scroll (hard)': 128
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.AberrantSpectre.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
 test('Abyssal Demon', async (test): Promise<void> => {
 	const expectedRates = {
 		Ashes: 1,
@@ -773,7 +792,7 @@ test('Abyssal Demon', async (test): Promise<void> => {
 		'Dark totem top': 350
 	};
 
-	const number = 10_000_000;
+	const number = 20_000_000;
 	const loot = Monsters.AbyssalDemon.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
@@ -802,7 +821,7 @@ test('Adamant Dragon', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
-/*
+
 test('Ankou', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
@@ -811,9 +830,6 @@ test('Ankou', async (test): Promise<void> => {
 		'Death rune': 10 / 10,
 		'Law rune': 16.67 / 2,
 		'Pure essence': 20 / 15,
-		'Rune essence': 20 / 15,
-		'Dark fishing bait': 3.03 / 60,
-		'Fishing bait': 3.03 / 60,
 		Bass: 50,
 		'Weapon poison': 50,
 		'Fried mushrooms': 100,
@@ -830,7 +846,7 @@ test('Ankou', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
-*/
+
 test('Aviansie', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
@@ -965,28 +981,6 @@ test('Bloodveld', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Bloodveld', async (test): Promise<void> => {
-	const expectedRates = {
-		'Steel axe': 32,
-		'Steel full helm': 32,
-		'Steel scimitar': 64,
-		'Black boots': 128,
-		'Mithril sq shield': 128,
-		'Mithril chainbody': 128,
-		'Rune med helm': 128,
-		'Meat pizza': 42.67,
-		'Gold ore': 64,
-		'Ensouled bloodveld head': 35,
-		'Clue scroll (hard)': 256
-	};
-
-	const number = 10_000_000;
-	const loot = Monsters.Bloodveld.kill(number);
-
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
-});
-
 test('Blue Dragon', async (test): Promise<void> => {
 	const expectedRates = {
 		'Blue dragonhide': 1,
@@ -1044,6 +1038,28 @@ test('Cave Horror', async (test): Promise<void> => {
 
 	const number = 10_000_000;
 	const loot = Monsters.CaveHorror.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Cave Kraken', async (test): Promise<void> => {
+	const expectedRates = {
+		'Staff of water': 16,
+		'Rune med helm': 16,
+		'Adamant spear': 32,
+		'Rune warhammer': 32,
+		Battlestaff: 32,
+		'Water battlestaff': 32,
+		'Mystic water staff': 32,
+		'Uncharged trident': 200,
+		'Kraken tentacle': 1200,
+		'Clue scroll (hard)': 100,
+		'Clue scroll (elite)': 1200
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.CaveKraken.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();

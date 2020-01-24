@@ -47,11 +47,11 @@ export const AncientWyvernTable = new LootTable()
 	.addItem('Mahogany logs', [25, 50], 3)
 
 	/* Fossils */
-	.oneIn(2, 'Numulite', [5, 30])
-	.oneIn(29, 'Unidentified small fossil')
-	.oneIn(58, 'Unidentified medium fossil')
-	.oneIn(73, 'Unidentified large fossil')
-	.oneIn(292, 'Unidentified rare fossil')
+	.tertiary(2, 'Numulite', [5, 30])
+	.tertiary(29, 'Unidentified small fossil')
+	.tertiary(58, 'Unidentified medium fossil')
+	.tertiary(73, 'Unidentified large fossil')
+	.tertiary(292, 'Unidentified rare fossil')
 
 	/* Other 20/128 */
 	.addItem('Shark', 5, 6)

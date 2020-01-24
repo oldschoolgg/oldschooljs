@@ -25,6 +25,7 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
+import AberrantSpectre from './nieve/AberrantSpectre';
 import AbyssalDemon from './nieve/AbyssalDemon';
 import AdamantDragon from './nieve/AdamantDragon';
 import Ankou from './nieve/Ankou';
@@ -36,6 +37,7 @@ import Bloodveld from './nieve/Bloodveld';
 import BlueDragon from './nieve/BlueDragon';
 import BrineRat from './nieve/BrineRat';
 import CaveHorror from './nieve/CaveHorror';
+import CaveKraken from './nieve/CaveKraken';
 import Dagannoth from './nieve/Dagannoth';
 import DarkBeast from './nieve/DarkBeast';
 import Drake from './nieve/Drake';
@@ -73,6 +75,7 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
+	AberrantSpectre,
 	AbyssalDemon,
 	AdamantDragon,
 	Ankou,
@@ -84,6 +87,7 @@ const monstersObject = {
 	BlueDragon,
 	BrineRat,
 	CaveHorror,
+	CaveKraken,
 	Dagannoth,
 	DarkBeast,
 	Drake,
