@@ -1,65 +1,63 @@
-/*
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import HerbDropTable from '../subtables/HerbDropTable';
 import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 import { GemTable } from '../subtables/RareDropTable';
 
-export const CaveKrakenTable = new LootTable()
-	/*Weapons and armour
-.addItem('Staff of water', 1, 1)
-.addItem('Rune med helm', 1, 1)
-.addItem('Adamant spear', 1, 1)
-.addItem('Rune warhammer', 1, 1)
-.addItem('Battlestaff', 1, 1)
-.addItem('Water battlestaff', 1, 1)
-.addItem('Mystic water staff', 1, 1)
-.oneIn(200, 'Uncharged trident')
+export const CaveKrakenTable = new LootTable(128)
 
-/* Runes and ammunition
-.addItem('Steam rune', 1, 1)
-.add(
-	new LootTable()
-		.add('Water rune', 75)
-		.add('Water rune', 30)
-		.add('Water rune', 15),
-	1
-)
-.add(new LootTable().add('Fire rune', 50).add('Fire rune', 30), 1)
-.addItem('Death rune', [30, 150], 1)
-.add(new LootTable().add('Chaos rune', 50).add('Chaos rune', 30), 1)
-.add(new LootTable().add('Blood rune', 15).add('Blood rune', 5), 1)
+	/*Weapons and armour 36/128 */
+	.addItem('Staff of water', 1, 8)
+	.addItem('Rune med helm', 1, 8)
+	.addItem('Adamant spear', 1, 4)
+	.addItem('Rune warhammer', 1, 4)
+	.addItem('Battlestaff', 1, 4)
+	.addItem('Water battlestaff', 1, 4)
+	.addItem('Mystic water staff', 1, 4)
+	.oneIn(200, 'Uncharged trident')
 
-/* Herbs
-.add(HerbDropTable, undefined, 1)
+	/* Runes and ammunition 44/128 */
+	.addItem('Steam rune', 7, 8)
+	.add(
+		new LootTable()
+			.add('Water rune', 75)
+			.add('Water rune', 30)
+			.add('Water rune', 15),
+		8
+	)
+	.add(new LootTable().add('Fire rune', 50).add('Fire rune', 30), 8)
+	.addItem('Death rune', [30, 150], 8)
+	.add(new LootTable().add('Chaos rune', 50).add('Chaos rune', 30), 8)
+	.add(new LootTable().add('Blood rune', 15).add('Blood rune', 5), 4)
 
-/* Seeds
-.add(CommonSeedDropTable, undefined, 1)
+	/* Herbs */
+	.add(HerbDropTable, undefined, 12)
 
-/* Other
-.addItem('Old boot', 1, 1)
-.add(new LootTable().add('Swamp tar', 60).add('Swamp tar', 30), 1)
-.addItem('Seaweed', 30, 1)
-.addItem('Coins', [122, 19770], 1)
-.addItem('Bucket', 1, 1)
-.addItem('Raw lobster', 3, 1)
-.addItem('Water orb', 2, 1)
-.addItem('Oyster', 1, 1)
-.addItem('Swordfish', 2, 1)
-.add(new LootTable().add('Shark', 5).add('Shark', 1), 1)
-.addItem('Antidote++(4)', 1, 1)
-.addItem('Vial of water', 50, 1)
-.addItem('Rusty sword', 1, 1)
-.addItem('Water talisman', 1, 1)
-.oneIn(1200, 'Kraken tentacle')
+	/* Seeds */
+	.add(CommonSeedDropTable, undefined, 6)
 
-/* Rdt
-.add(GemTable, undefined, 2)
+	/* Other 28/128 */
+	.addItem('Old boot', 1, 6)
+	.add(new LootTable().add('Swamp tar', 60).add('Swamp tar', 30), 5)
+	.addItem('Seaweed', 30, 5)
+	.addItem('Coins', [122, 19770], 2)
+	.addItem('Bucket', 1, 1)
+	.addItem('Raw lobster', 3, 1)
+	.addItem('Water orb', 2, 1)
+	.addItem('Oyster', 1, 1)
+	.addItem('Swordfish', 2, 1)
+	.add(new LootTable().add('Shark', 5).add('Shark', 1), 1)
+	.addItem('Antidote++(4)', 1, 1)
+	.addItem('Vial of water', 50, 1)
+	.addItem('Rusty sword', 1, 1)
+	.addItem('Water talisman', 1, 1)
+	.oneIn(1200, 'Kraken tentacle')
 
-/* Tertiary
-.addItem('Clue scroll (hard)', 1, 100)
-.addItem('Clue scroll (elite)', 1, 1200);
+	/* Rdt */
+	.add(GemTable, undefined, 2)
+
+	/* Tertiary */
+	.tertiary(100, 'Clue scroll (hard)')
+	.tertiary(1200, 'Clue scroll (elite)');
 
 export default new SimpleMonster({ id: 492, name: 'CaveKraken', table: CaveKrakenTable });
-
-*/

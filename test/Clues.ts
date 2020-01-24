@@ -136,7 +136,6 @@ test('Elite Clues', async (test): Promise<void> => {
 		'Ranging potion(4)': 28750 / 5 / 30,
 		'Master scroll book (empty)': 355.2 / 5
 	};
-
 	const number = 25_000_000;
 	const loot = Clues.Elite.open(number);
 	checkThreshold(test, expectedRates, loot, number);
