@@ -55,6 +55,7 @@ export const AbyssalDemonTable = new LootTable()
 	.tertiary(350, 'Dark totem base')
 	.tertiary(350, 'Dark totem middle')
 	.tertiary(350, 'Dark totem top');
+
 export default new SimpleMonster({
 	id: 415,
 	name: 'Abyssal Demon',
