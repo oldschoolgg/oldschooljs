@@ -1343,3 +1343,111 @@ test('Taloned Wyvern', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Gargoyle', async (test): Promise<void> => {
+	const expectedRates = {
+		'Granite maul': 256,
+		'Mystic robe top (dark)': 512,
+		'Adamant platelegs': 32,
+		'Rune full helm': 42.67,
+		'Rune 2h sword': 64,
+		'Adamant boots': 128,
+		'Rune battleaxe': 128,
+		'Rune platelegs': 128,
+		'Chaos rune': 16 / 30,
+		'Death rune': 25.6 / 15,
+		'Pure essence': 21.33 / 150,
+		'Steel bar': 21.33 / 15,
+		'Mithril bar': 64 / 15,
+		'Runite ore': 64,
+		'Clue scroll (hard)': 128,
+		'Brittle key': 150
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Gargoyle.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Greater Demon', async (test): Promise<void> => {
+	const expectedRates = {
+		Ashes: 1,
+		'Steel 2h sword': 32,
+		'Steel axe': 42.67,
+		'Steel battleaxe': 42.67,
+		'Mithril kiteshield': 128,
+		'Adamant platelegs': 128,
+		'Rune full helm': 128,
+		Tuna: 42.67,
+		'Gold bar': 64,
+		Thread: 128 / 10,
+		'Ensouled demon head': 40,
+		'Clue scroll (hard)': 128,
+		'Ancient shard': 246,
+		'Dark totem base': 370,
+		'Dark totem middle': 370,
+		'Dark totem top': 370
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.GreaterDemon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Hellhound', async (test): Promise<void> => {
+	const expectedRates = {
+		Bones: 1,
+		'Smouldering stone': 32768,
+		'Clue scroll (hard)': 128,
+		'Ancient shard': 246,
+		'Dark totem base': 370,
+		'Dark totem middle': 370,
+		'Dark totem top': 370
+	};
+
+	const number = 20_000_000;
+	const loot = Monsters.Hellhound.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Iron Dragon', async (test): Promise<void> => {
+	const expectedRates = {
+		'Dragon bones': 1,
+		'Iron bar': 1 / 5,
+		'Dragon plateskirt': 1024,
+		'Dragon platelegs': 1024,
+		'Rune dart(p)': 18.29 / 9,
+		'Adamant 2h sword': 32,
+		'Adamant axe': 42.67,
+		'Adamant battleaxe': 42.67,
+		'Rune knife': 42.67 / 5,
+		'Adamant sq shield': 128,
+		'Rune med helm': 128,
+		'Rune battleaxe': 128,
+		'Rune javelin': 6.4 / 4,
+		'Blood rune': 6.737 / 15,
+		'Soul rune': 25.6 / 3,
+		'Super strength(1)': 16,
+		'Runite limbs': 25.6,
+		'Adamantite bar': 42.67 / 2,
+		Curry: 42.67,
+		'Clue scroll (hard)': 128,
+		'Draconic visage': 10000,
+		'Ancient shard': 203,
+		'Dark totem base': 305,
+		'Dark totem middle': 305,
+		'Dark totem top': 305
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.IronDragon.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
