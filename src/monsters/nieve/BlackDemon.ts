@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import HerbDropTable from '../subtables/HerbDropTable';
-import RareDropTable from '../subtables/RareDropTable';
+import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 
 export const BlackDemonTable = new LootTable()
 	.every('Ashes')
@@ -18,7 +18,7 @@ export const BlackDemonTable = new LootTable()
 	.addItem('Air rune', 50, 8)
 	.addItem('Chaos rune', 10, 7)
 	.addItem('Blood rune', 7, 4)
-	.addItem('Firerune', 37, 1)
+	.addItem('Fire rune', 37, 1)
 	.addItem('Law rune', 3, 1)
 
 	/* Herbs */
@@ -38,6 +38,7 @@ export const BlackDemonTable = new LootTable()
 
 	/* Rdt */
 	.add(RareDropTable, undefined, 1)
+	.add(GemTable, undefined, 5)
 
 	/* Tertiary */
 	.tertiary(35, 'Ensouled demon head')

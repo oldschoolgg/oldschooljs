@@ -11,6 +11,7 @@ export const FireGiantTable = new LootTable()
 	.addItem('Mithril sq shield', 1, 2)
 	.addItem('Fire battlestaff', 1, 1)
 	.addItem('Rune scimitar', 1, 1)
+
 	/* Runes and ammunition */
 	.addItem('Fire rune', 150, 10)
 	.addItem('Chaos rune', 5, 7)

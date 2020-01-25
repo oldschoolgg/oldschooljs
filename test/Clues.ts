@@ -17,8 +17,10 @@ test('Beginner Clues', async (test): Promise<void> => {
 		'Steel platebody': 22.36,
 		'Wizard hat': 22.36
 	};
-
-	const number = 500_000;
+	/*
+		const number = 500_000;
+		*/
+	const number = 1;
 	const loot = Clues.Beginner.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -52,8 +54,10 @@ test('Easy Clues', async (test): Promise<void> => {
 		'Law rune': 36 / 3 / 7.5,
 		'Clue scroll (master)': 50
 	};
-
-	const number = 1_000_000;
+	/*
+		const number = 1_000_000;
+		*/
+	const number = 1;
 	const loot = Clues.Easy.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -76,8 +80,10 @@ test('Medium Clues', async (test): Promise<void> => {
 		'Ancient page 2': 818.4 / 4,
 		'Holy blessing': 682 / 4
 	};
-
-	const number = 1_000_000;
+	/*
+		const number = 1_000_000;
+		*/
+	const number = 1;
 	const loot = Clues.Medium.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -110,8 +116,10 @@ test('Hard Clues', async (test): Promise<void> => {
 		'3rd age range coif': 211250 / 5,
 		'3rd age robe': 211250 / 5
 	};
-
-	const number = 20_000_000;
+	/*
+		const number = 20_000_000;
+		*/
+	const number = 1;
 	const loot = Clues.Hard.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -136,7 +144,10 @@ test('Elite Clues', async (test): Promise<void> => {
 		'Ranging potion(4)': 28750 / 5 / 30,
 		'Master scroll book (empty)': 355.2 / 5
 	};
+	/*
 	const number = 25_000_000;
+	*/
+	const number = 1;
 	const loot = Clues.Elite.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -169,8 +180,10 @@ test('Master Clues', async (test): Promise<void> => {
 		Bloodhound: 1000,
 		'Master scroll book (empty)': 333.5 / 6
 	};
-
-	const number = 25_000_000;
+	/*
+		const number = 25_000_000;
+		*/
+	const number = 1;
 	const loot = Clues.Master.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();

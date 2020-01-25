@@ -42,7 +42,7 @@ export const ElfWarriorTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 3428,
+	id: 5293,
 	name: 'Elf Warrior',
 	table: ElfWarriorTable,
 	aliases: ['elf', 'elf warrior']

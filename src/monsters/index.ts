@@ -38,6 +38,7 @@ import BlueDragon from './nieve/BlueDragon';
 import BrineRat from './nieve/BrineRat';
 import CaveHorror from './nieve/CaveHorror';
 import CaveKraken from './nieve/CaveKraken';
+import Kraken from './nieve/Kraken';
 import Dagannoth from './nieve/Dagannoth';
 import DarkBeast from './nieve/DarkBeast';
 import Drake from './nieve/Drake';
@@ -92,6 +93,7 @@ const monstersObject = {
 	BrineRat,
 	CaveHorror,
 	CaveKraken,
+	Kraken,
 	Dagannoth,
 	DarkBeast,
 	Drake,

@@ -1064,6 +1064,38 @@ test('Cave Kraken', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+test('Kraken', async (test): Promise<void> => {
+	const expectedRates = {
+		'Mystic water staff': 42.67,
+		'Rune warhammer': 64,
+		'Rune longsword': 64,
+		'Mystic robe top': 128,
+		'Mystic robe bottom': 128,
+		'Trident of the seas (full)': 512,
+		'Water rune': 12.8 / 400,
+		'Chaos rune': 12.8 / 250,
+		'Death rune': 12.8 / 150,
+		'Blood rune': 12.8 / 60,
+		'Soul rune': 18.29 / 50,
+		'Mist rune': 32 / 100,
+		'Watermelon seed': 42.67 / 24,
+		'Torstol seed': 128 / 2,
+		'Magic seed': 128,
+		Battlestaff: 32 / 10,
+		'Grimy snapdragon': 64 / 6,
+		'Runite bar': 128 / 2,
+		'Kraken tentacle': 400,
+		'Clue scroll (elite)': 500,
+		'Jar of dirt': 1000,
+		'Pet kraken': 3000
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.Kraken.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
 
 test('Dagannoth', async (test): Promise<void> => {
 	const expectedRates = {
@@ -1402,11 +1434,11 @@ test('Hellhound', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
 		'Smouldering stone': 32768,
-		'Clue scroll (hard)': 128,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Clue scroll (hard)': 64,
+		'Ancient shard': 256,
+		'Dark totem base': 384,
+		'Dark totem middle': 384,
+		'Dark totem top': 384
 	};
 
 	const number = 20_000_000;

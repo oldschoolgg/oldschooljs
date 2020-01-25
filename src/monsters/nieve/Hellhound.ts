@@ -8,10 +8,10 @@ export const HellhoundTable = new LootTable()
 	.oneIn(32768, 'Smouldering stone')
 
 	/* Tertiary */
-	.tertiary(128, 'Clue scroll (hard)')
+	.tertiary(64, 'Clue scroll (hard)')
 
 	/* Catacombs tertiary */
-	.tertiary(246, 'Ancient shard')
+	.tertiary(256, 'Ancient shard')
 	.tertiary(370, 'Dark totem base')
 	.tertiary(370, 'Dark totem middle')
 	.tertiary(370, 'Dark totem top');

@@ -4,7 +4,7 @@ import HerbDropTable from '../subtables/HerbDropTable';
 import { GemTable } from '../subtables/RareDropTable';
 import CommonSeedDropTable from '../subtables/CommonSeedDropTable';
 
-export const AnkouTable = new LootTable()
+export const AnkouTable = new LootTable(100)
 	.every('Bones')
 
 	/* Weapons and armor */
@@ -12,10 +12,10 @@ export const AnkouTable = new LootTable()
 	.addItem('Black robe', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Adamant arrow', [5, 14], 4)
-	.addItem('Blood rune', 11, 6)
 	.addItem('Death rune', 10, 10)
+	.addItem('Blood rune', 11, 6)
 	.addItem('Law rune', 2, 6)
+	.addItem('Adamant arrow', [5, 14], 4)
 	.addItem('Blood rune', 5, 3)
 
 	/* Herbs */
@@ -31,7 +31,8 @@ export const AnkouTable = new LootTable()
 	/* Coins */
 	.addItem('Coins', 8, 33)
 	.addItem('Coins', [5, 204], 10)
-	.addItem('Coins', 10, 10)
+	.addItem('Coins', 10, 3)
+	.addItem('Coins', 5, 1)
 
 	/* Other */
 	.addItem('Bass', 1, 2)

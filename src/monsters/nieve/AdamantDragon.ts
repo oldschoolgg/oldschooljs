@@ -1,6 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import RareDropTable from '../subtables/RareDropTable';
+import UsefulHerbTable from '../subtables/UsefulHerbTable';
 
 export const AdamantDragonTable = new LootTable()
 	.every('Dragon bones')
@@ -20,11 +21,8 @@ export const AdamantDragonTable = new LootTable()
 	.addItem('Chaos rune', [60, 120], 14)
 	.addItem('Death rune', [30, 60], 14)
 
-	/* Seeds */
-	.addItem('Grimy avantoe', 1, 5)
-	.addItem('Grimy ranarr weed', 1, 4)
-	.addItem('Grimy snapdragon', 1, 4)
-	.addItem('Grimy torstol', 1, 3)
+	/* Herbs */
+	.add(UsefulHerbTable, undefined, 16)
 
 	/* Materials */
 	.addItem('Adamant bolts(unf)', [20, 40], 22)
@@ -47,9 +45,8 @@ export const AdamantDragonTable = new LootTable()
 	.tertiary(5000, 'Dragon metal slice')
 	.tertiary(9000, 'Draconic visage');
 
-/* Need to add adamant dragon id */
 export default new SimpleMonster({
-	id: 124,
+	id: 8030,
 	name: 'Adamant Dragon',
 	table: AdamantDragonTable,
 	aliases: ['adamanant dragon', 'addy dragon']
