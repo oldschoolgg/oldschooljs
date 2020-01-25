@@ -5,7 +5,7 @@ export const HellhoundTable = new LootTable()
 	.every('Bones')
 
 	/* Other */
-	.oneIn(32768, 'Smouldering stone')
+	.oneIn(32_768, 'Smouldering stone')
 
 	/* Tertiary */
 	.tertiary(64, 'Clue scroll (hard)')

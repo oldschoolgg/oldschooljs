@@ -19,7 +19,7 @@ const NotedHerbTable = new LootTable()
 	.add('Grimy lantadyme', [1, 3], 6)
 	.add('Grimy torstol', [1, 3], 6);
 
-export const AnkouTable = new LootTable()
+export const DrakeTable = new LootTable()
 	.every('Drake bones')
 
 	/* Pre-roll */
@@ -64,6 +64,6 @@ export const AnkouTable = new LootTable()
 export default new SimpleMonster({
 	id: 8612,
 	name: 'Drake',
-	table: AnkouTable,
+	table: DrakeTable,
 	aliases: ['drake']
 });
