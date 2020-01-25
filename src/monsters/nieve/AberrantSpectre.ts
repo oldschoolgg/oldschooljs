@@ -16,36 +16,10 @@ const AberrantSpectreHerbTable1 = new LootTable()
 	.add('Grimy lantadyme', 1, 143)
 	.add('Grimy dwarf weed', 1, 143);
 
-const AberrantSpectreHerbTable2 = new LootTable()
-	.add('Grimy guam leaf', 2, 1515)
-	.add('Grimy marrentill', 2, 1136)
-	.add('Grimy tarromin', 2, 854)
-	.add('Grimy harralander', 2, 667)
-	.add('Grimy ranarr weed', 2, 523)
-	.add('Grimy irit leaf', 2, 380)
-	.add('Grimy avantoe', 2, 285)
-	.add('Grimy kwuarm', 2, 238)
-	.add('Grimy cadantine', 2, 190)
-	.add('Grimy lantadyme', 2, 143)
-	.add('Grimy dwarf weed', 2, 143);
-
-const AberrantSpectreHerbTable3 = new LootTable()
-	.add('Grimy guam leaf', 3, 1515)
-	.add('Grimy marrentill', 3, 1136)
-	.add('Grimy tarromin', 3, 854)
-	.add('Grimy harralander', 3, 667)
-	.add('Grimy ranarr weed', 3, 523)
-	.add('Grimy irit leaf', 3, 380)
-	.add('Grimy avantoe', 3, 285)
-	.add('Grimy kwuarm', 3, 238)
-	.add('Grimy cadantine', 3, 190)
-	.add('Grimy lantadyme', 3, 143)
-	.add('Grimy dwarf weed', 3, 143);
-
 const AberrantSpectreHerbTable = new LootTable()
-	.add(AberrantSpectreHerbTable1, undefined, 11)
-	.add(AberrantSpectreHerbTable2, undefined, 11)
-	.add(AberrantSpectreHerbTable3, undefined, 4);
+	.add(AberrantSpectreHerbTable1, 1, 11)
+	.add(AberrantSpectreHerbTable1, 2, 11)
+	.add(AberrantSpectreHerbTable1, 3, 4);
 
 export const AberrantSpectreTable = new LootTable(128)
 
