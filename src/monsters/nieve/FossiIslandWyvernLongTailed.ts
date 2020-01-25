@@ -65,5 +65,6 @@ export const LongTailedWyvernTable = new LootTable()
 export default new SimpleMonster({
 	id: 123,
 	name: 'Long-tailed Wyvern',
-	table: LongTailedWyvernTable
+	table: LongTailedWyvernTable,
+	aliases: ['longtailed', 'longtailed wyvern', 'long-tailed wyvern']
 });

@@ -16,4 +16,9 @@ export const HellhoundTable = new LootTable()
 	.tertiary(370, 'Dark totem middle')
 	.tertiary(370, 'Dark totem top');
 
-export default new SimpleMonster({ id: 104, name: 'Hellhound', table: HellhoundTable });
+export default new SimpleMonster({
+	id: 104,
+	name: 'Hellhound',
+	table: HellhoundTable,
+	aliases: ['hellhound', 'hellh']
+});

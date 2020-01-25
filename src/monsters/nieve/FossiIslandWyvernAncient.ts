@@ -69,4 +69,9 @@ export const AncientWyvernTable = new LootTable()
 	.tertiary(10000, 'Wyvern visage');
 
 /* add id */
-export default new SimpleMonster({ id: 123, name: 'Ancient Wyvern', table: AncientWyvernTable });
+export default new SimpleMonster({
+	id: 123,
+	name: 'Ancient Wyvern',
+	table: AncientWyvernTable,
+	aliases: ['ancient wyvern', 'ancient']
+});

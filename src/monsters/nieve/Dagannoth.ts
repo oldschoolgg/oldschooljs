@@ -55,4 +55,9 @@ export const DagannothTable = new LootTable()
 	.tertiary(430, 'Dark totem middle')
 	.tertiary(430, 'Dark totem top');
 
-export default new SimpleMonster({ id: 140, name: 'Dagannoth', table: DagannothTable });
+export default new SimpleMonster({
+	id: 140,
+	name: 'Dagannoth',
+	table: DagannothTable,
+	aliases: ['dagannoth']
+});

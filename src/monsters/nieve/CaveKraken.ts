@@ -60,4 +60,9 @@ export const CaveKrakenTable = new LootTable(128)
 	.tertiary(100, 'Clue scroll (hard)')
 	.tertiary(1200, 'Clue scroll (elite)');
 
-export default new SimpleMonster({ id: 492, name: 'CaveKraken', table: CaveKrakenTable });
+export default new SimpleMonster({
+	id: 492,
+	name: 'CaveKraken',
+	table: CaveKrakenTable,
+	aliases: ['cave kraken', 'cave k']
+});

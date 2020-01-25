@@ -50,4 +50,9 @@ export const AnkouTable = new LootTable()
 	.tertiary(440, 'Dark totem middle')
 	.tertiary(440, 'Dark totem top');
 
-export default new SimpleMonster({ id: 2514, name: 'Ankou', table: AnkouTable });
+export default new SimpleMonster({
+	id: 2514,
+	name: 'Ankou',
+	table: AnkouTable,
+	aliases: ['ankou', 'ank']
+});

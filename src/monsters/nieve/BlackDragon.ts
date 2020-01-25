@@ -41,4 +41,9 @@ export const BlackDragonTable = new LootTable()
 	.tertiary(500, 'Clue scroll (elite)')
 	.tertiary(10000, 'Draconic visage');
 
-export default new SimpleMonster({ id: 252, name: 'Black Dragon', table: BlackDragonTable });
+export default new SimpleMonster({
+	id: 252,
+	name: 'Black Dragon',
+	table: BlackDragonTable,
+	aliases: ['black dragon']
+});

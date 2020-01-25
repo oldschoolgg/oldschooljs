@@ -46,4 +46,9 @@ export const CaveHorrorTable = new LootTable()
 	.tertiary(400, 'Long bone')
 	.tertiary(5013, 'Curved bone');
 
-export default new SimpleMonster({ id: 3209, name: 'Cave Horror', table: CaveHorrorTable });
+export default new SimpleMonster({
+	id: 3209,
+	name: 'Cave Horror',
+	table: CaveHorrorTable,
+	aliases: ['cave horror', 'cave h']
+});

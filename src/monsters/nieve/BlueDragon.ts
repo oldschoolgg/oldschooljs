@@ -43,4 +43,9 @@ export const BlueDragonTable = new LootTable()
 	.tertiary(50, 'Ensouled dragon head')
 	.tertiary(128, 'Clue scroll (hard)');
 
-export default new SimpleMonster({ id: 265, name: 'Blue Dragon', table: BlueDragonTable });
+export default new SimpleMonster({
+	id: 265,
+	name: 'Blue Dragon',
+	table: BlueDragonTable,
+	aliases: ['blue dragon']
+});

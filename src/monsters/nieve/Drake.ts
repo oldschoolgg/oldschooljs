@@ -56,4 +56,9 @@ export const AnkouTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 /* Drake's id needs updated */
-export default new SimpleMonster({ id: 2004, name: 'Drake', table: AnkouTable });
+export default new SimpleMonster({
+	id: 2004,
+	name: 'Drake',
+	table: AnkouTable,
+	aliases: ['drake']
+});

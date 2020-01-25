@@ -40,4 +40,9 @@ export const BasiliskTable = new LootTable()
 	/* Tertiary */
 	.tertiary(2000, 'Basilisk head');
 
-export default new SimpleMonster({ id: 417, name: 'Basilisk', table: BasiliskTable });
+export default new SimpleMonster({
+	id: 417,
+	name: 'Basilisk',
+	table: BasiliskTable,
+	aliases: ['basilisk', 'basi']
+});

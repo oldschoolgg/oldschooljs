@@ -49,4 +49,9 @@ export const BlackDemonTable = new LootTable()
 	.tertiary(340, 'Dark totem middle')
 	.tertiary(340, 'Dark totem top');
 
-export default new SimpleMonster({ id: 240, name: 'Black Demon', table: BlackDemonTable });
+export default new SimpleMonster({
+	id: 240,
+	name: 'Black Demon',
+	table: BlackDemonTable,
+	aliases: ['black demon']
+});

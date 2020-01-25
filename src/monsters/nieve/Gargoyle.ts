@@ -41,4 +41,9 @@ export const GargoyleTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(150, 'Brittle key');
 
-export default new SimpleMonster({ id: 412, name: 'Gargoyle', table: GargoyleTable });
+export default new SimpleMonster({
+	id: 412,
+	name: 'Gargoyle',
+	table: GargoyleTable,
+	aliases: ['gargoyle', 'garg']
+});
