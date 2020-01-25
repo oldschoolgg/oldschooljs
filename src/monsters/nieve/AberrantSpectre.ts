@@ -72,4 +72,9 @@ export const AberrantSpectreTable = new LootTable(128)
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');
 
-export default new SimpleMonster({ id: 2, name: 'Aberrant Spectre', table: AberrantSpectreTable });
+export default new SimpleMonster({
+	id: 2,
+	name: 'Aberrant Spectre',
+	table: AberrantSpectreTable,
+	aliases: ['aberrant spectre', 'spectres']
+});

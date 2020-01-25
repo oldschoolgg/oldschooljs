@@ -45,4 +45,9 @@ export const BloodveldTable = new LootTable()
 	.tertiary(256, 'Clue scroll (hard)')
 	.tertiary(35, 'Ensouled bloodveld head');
 
-export default new SimpleMonster({ id: 484, name: 'Bloodveld', table: BloodveldTable });
+export default new SimpleMonster({
+	id: 484,
+	name: 'Bloodveld',
+	table: BloodveldTable,
+	aliases: ['bloodveld']
+});

@@ -47,4 +47,9 @@ export const DustDevilTable = new LootTable()
 	.tertiary(370, 'Dark totem middle')
 	.tertiary(370, 'Dark totem top');
 
-export default new SimpleMonster({ id: 423, name: 'Dust Devil', table: DustDevilTable });
+export default new SimpleMonster({
+	id: 423,
+	name: 'Dust Devil',
+	table: DustDevilTable,
+	aliases: ['dust devil']
+});

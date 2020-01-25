@@ -50,4 +50,9 @@ export const FireGiantTable = new LootTable()
 	.tertiary(370, 'Dark totem middle')
 	.tertiary(370, 'Dark totem top');
 
-export default new SimpleMonster({ id: 2075, name: 'Fire Giant', table: FireGiantTable });
+export default new SimpleMonster({
+	id: 2075,
+	name: 'Fire Giant',
+	table: FireGiantTable,
+	aliases: ['fire giant', 'fire g']
+});

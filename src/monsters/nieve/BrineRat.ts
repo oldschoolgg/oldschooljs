@@ -39,4 +39,9 @@ export const BrineRatTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (medium)');
 
-export default new SimpleMonster({ id: 4501, name: 'Brine Rat', table: BrineRatTable });
+export default new SimpleMonster({
+	id: 4501,
+	name: 'Brine Rat',
+	table: BrineRatTable,
+	aliases: ['brine rat', 'brine']
+});

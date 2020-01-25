@@ -48,4 +48,9 @@ export const AdamantDragonTable = new LootTable()
 	.tertiary(9000, 'Draconic visage');
 
 /* Need to add adamant dragon id */
-export default new SimpleMonster({ id: 124, name: 'Adamant Dragon', table: AdamantDragonTable });
+export default new SimpleMonster({
+	id: 124,
+	name: 'Adamant Dragon',
+	table: AdamantDragonTable,
+	aliases: ['adamanant dragon', 'addy dragon']
+});

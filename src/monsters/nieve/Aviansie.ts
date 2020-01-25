@@ -38,4 +38,9 @@ export const AviansieTable = new LootTable()
 	.tertiary(35, 'Ensouled aviansie head')
 	.tertiary(128, 'Clue scroll (hard)');
 
-export default new SimpleMonster({ id: 3619, name: 'Aviansie', table: AviansieTable });
+export default new SimpleMonster({
+	id: 3619,
+	name: 'Aviansie',
+	table: AviansieTable,
+	aliases: ['aviansie', 'avi']
+});

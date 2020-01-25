@@ -54,4 +54,9 @@ export const DarkBeastTable = new LootTable()
 	.tertiary(1200, 'Clue scroll (elite)')
 	.tertiary(5013, 'Curved bone');
 
-export default new SimpleMonster({ id: 7250, name: 'Dark Beast', table: DarkBeastTable });
+export default new SimpleMonster({
+	id: 7250,
+	name: 'Dark Beast',
+	table: DarkBeastTable,
+	aliases: ['dark beast', 'dark b']
+});
