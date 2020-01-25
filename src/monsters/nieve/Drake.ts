@@ -22,6 +22,7 @@ export const AnkouTable = new LootTable()
 	.oneIn(512, "Drake's claw")
 	.oneIn(2000, 'Dragon thrownaxe', [100, 200])
 	.oneIn(2000, 'Dragon knife', [100, 200])
+
 	/*Weapons and armour */
 	.addItem('Rune full helm', 1, 3)
 	.addItem("Red d'hide body", 1, 2)
@@ -55,9 +56,8 @@ export const AnkouTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');
 
-/* Drake's id needs updated */
 export default new SimpleMonster({
-	id: 2004,
+	id: 8612,
 	name: 'Drake',
 	table: AnkouTable,
 	aliases: ['drake']

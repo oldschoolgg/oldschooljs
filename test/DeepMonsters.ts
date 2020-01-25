@@ -826,11 +826,11 @@ test('Hellhound', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
 		'Smouldering stone': 32768,
-		'Clue scroll (hard)': 128,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Clue scroll (hard)': 64,
+		'Ancient shard': 256,
+		'Dark totem base': 384,
+		'Dark totem middle': 384,
+		'Dark totem top': 384
 	};
 
 	const number = 20_000_000;

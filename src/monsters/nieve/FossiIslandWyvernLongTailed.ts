@@ -53,7 +53,7 @@ export const LongTailedWyvernTable = new LootTable()
 	.addItem('Volcanic ash', [20, 60], 2)
 
 	/* Tertiary */
-	.tertiary(1.9, 'Numulite', [4, 25])
+	.tertiary(2, 'Numulite', [4, 25])
 	.tertiary(35, 'Unidentified small fossil')
 	.tertiary(70, 'Unidentified medium fossil')
 	.tertiary(87.5, 'Unidentified large fossil')
@@ -61,9 +61,8 @@ export const LongTailedWyvernTable = new LootTable()
 	.tertiary(350, 'Unidentified rare fossil')
 	.tertiary(12000, 'Wyvern visage');
 
-/* add id */
 export default new SimpleMonster({
-	id: 123,
+	id: 7792,
 	name: 'Long-tailed Wyvern',
 	table: LongTailedWyvernTable,
 	aliases: ['longtailed', 'longtailed wyvern', 'long-tailed wyvern']

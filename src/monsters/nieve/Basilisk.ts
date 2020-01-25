@@ -37,6 +37,7 @@ export const BasiliskTable = new LootTable()
 
 	/* Rdt */
 	.add(GemTable, undefined, 5)
+
 	/* Tertiary */
 	.tertiary(2000, 'Basilisk head');
 
