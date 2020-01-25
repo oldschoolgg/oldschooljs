@@ -63,5 +63,5 @@ export default new SimpleMonster({
 	id: 6611,
 	name: 'Vetion',
 	table: VetionTable,
-	aliases: ['vetion', "vet'ion"]
+	aliases: ['vetion', "vet'ion", 'vet']
 });
