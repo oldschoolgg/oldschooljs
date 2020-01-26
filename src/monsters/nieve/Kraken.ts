@@ -2,7 +2,7 @@ import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import { GemTable } from '../subtables/RareDropTable';
 
-export const CaveKrakenTable = new LootTable(128)
+export const KrakenTable = new LootTable(128)
 
 	/*Weapons and armour */
 	.addItem('Mystic water staff', 1, 3)
@@ -60,7 +60,7 @@ export const CaveKrakenTable = new LootTable(128)
 
 export default new SimpleMonster({
 	id: 494,
-	name: 'CaveKraken',
-	table: CaveKrakenTable,
+	name: 'Kraken',
+	table: KrakenTable,
 	aliases: ['kraken']
 });
