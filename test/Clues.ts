@@ -17,7 +17,9 @@ test('Beginner Clues', async (test): Promise<void> => {
 		'Steel platebody': 22.36,
 		'Wizard hat': 22.36
 	};
+
 	const number = 500_000;
+
 	const loot = Clues.Beginner.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -53,6 +55,7 @@ test('Easy Clues', async (test): Promise<void> => {
 	};
 
 	const number = 1_000_000;
+
 	const loot = Clues.Easy.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();

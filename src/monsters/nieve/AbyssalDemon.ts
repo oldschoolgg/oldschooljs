@@ -21,6 +21,7 @@ export const AbyssalDemonTable = new LootTable()
 	.addItem('Chaos rune', 10, 6)
 	.addItem('Blood rune', 7, 4)
 	.addItem('Law rune', 3, 1)
+
 	/* Seeds */
 	.add(HerbDropTable, undefined, 19)
 
@@ -57,7 +58,7 @@ export const AbyssalDemonTable = new LootTable()
 	.tertiary(350, 'Dark totem top');
 
 export default new SimpleMonster({
-	id: 415,
+	id: 124,
 	name: 'Abyssal Demon',
 	table: AbyssalDemonTable,
 	aliases: ['abby demon', 'abby demons', 'abyssal demons']
