@@ -25,6 +25,7 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
+import AberrantSpectre from './nieve/AberrantSpectre';
 import AbyssalDemon from './nieve/AbyssalDemon';
 import AdamantDragon from './nieve/AdamantDragon';
 import Ankou from './nieve/Ankou';
@@ -79,6 +80,7 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
+	AberrantSpectre,
 	AbyssalDemon,
 	AdamantDragon,
 	Ankou,
