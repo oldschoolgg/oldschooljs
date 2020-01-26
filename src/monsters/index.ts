@@ -25,7 +25,6 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
-import AberrantSpectre from './nieve/AberrantSpectre';
 import AbyssalDemon from './nieve/AbyssalDemon';
 import AdamantDragon from './nieve/AdamantDragon';
 import Ankou from './nieve/Ankou';
@@ -45,10 +44,10 @@ import Drake from './nieve/Drake';
 import DustDevil from './nieve/DustDevil';
 import ElfWarrior from './nieve/ElfWarrior';
 import FireGiant from './nieve/FireGiant';
-import FossilIslandWyvernAncient from './nieve/FossiIslandWyvernAncient';
-import FossilIslandWyvernLongTailed from './nieve/FossiIslandWyvernLongTailed';
-import FossilIslandWyvernSpitting from './nieve/FossiIslandWyvernSpitting';
-import FossilIslandWyvernTaloned from './nieve/FossiIslandWyvernTaloned';
+import FossilIslandWyvernAncient from './nieve/FossilIslandWyvernAncient';
+import FossilIslandWyvernLongTailed from './nieve/FossilIslandWyvernLongTailed';
+import FossilIslandWyvernSpitting from './nieve/FossilIslandWyvernSpitting';
+import FossilIslandWyvernTaloned from './nieve/FossilIslandWyvernTaloned';
 import Gargoyle from './nieve/Gargoyle';
 import GreaterDemon from './nieve/GreaterDemon';
 import Hellhound from './nieve/Hellhound';
@@ -80,7 +79,6 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
-	AberrantSpectre,
 	AbyssalDemon,
 	AdamantDragon,
 	Ankou,

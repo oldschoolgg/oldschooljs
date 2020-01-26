@@ -744,25 +744,6 @@ test("Vet'ion", async (test): Promise<void> => {
 	test.end();
 });
 
-test('Aberrant Spectre', async (test): Promise<void> => {
-	const expectedRates = {
-		'Steel axe': 42.67,
-		'Mithril kiteshield': 128,
-		'Lava battlestaff': 128,
-		'Adamant platelegs': 128,
-		'Rune full helm': 128,
-		'Mystic robe bottom (dark)': 512,
-		Coins: 128 / 460,
-		'Clue scroll (hard)': 128
-	};
-
-	const number = 10_000_000;
-	const loot = Monsters.AberrantSpectre.kill(number);
-
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
-});
-
 test('Abyssal Demon', async (test): Promise<void> => {
 	const expectedRates = {
 		Ashes: 1,
