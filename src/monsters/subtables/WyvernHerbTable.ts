@@ -1,11 +1,11 @@
 import LootTable from '../../structures/LootTable';
 
 const WyvernHerbTable = new LootTable()
-	.addItem('Grimy kwuarm', 2, 298)
-	.addItem('Grimy cadantine', 2, 187)
-	.addItem('Grimy dwarf weed', 2, 187)
-	.addItem('Grimy ranarr weed', 1, 166)
-	.addItem('Grimy torstol', 1, 166)
-	.addItem('Grimy lantadyme', 2, 71);
+	.addItem('Grimy kwuarm', 2, 260)
+	.addItem('Grimy cadantine', 2, 208)
+	.addItem('Grimy dwarf weed', 2, 208)
+	.addItem('Grimy ranarr weed', 1, 185)
+	.addItem('Grimy torstol', 1, 185)
+	.addItem('Grimy lantadyme', 2, 155);
 
 export default WyvernHerbTable;

@@ -25,7 +25,7 @@ export const AdamantDragonTable = new LootTable()
 	.add(UsefulHerbTable, undefined, 8)
 
 	/* Materials */
-	.addItem('Adamant bolts(unf)', [20, 40], 1)
+	.addItem('Adamant bolts(unf)', [20, 40], 11)
 	.addItem('Adamant javelin heads', [40, 50], 8)
 	.addItem('Diamond', [1, 3], 7)
 	.addItem('Dragon javelin heads', [20, 30], 7)
