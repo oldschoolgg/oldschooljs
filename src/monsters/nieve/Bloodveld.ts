@@ -32,15 +32,6 @@ export const BloodveldTable = new LootTable()
 	.add('Coins', 450, 1)
 
 	/* Other */
-
-	.addItem(
-		[
-			['Bones', 1],
-			['Big bones', 1]
-		],
-		1,
-		10
-	)
 	.addItem(
 		[
 			['Big bones', 1],
