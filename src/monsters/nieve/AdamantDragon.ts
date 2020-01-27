@@ -8,36 +8,36 @@ export const AdamantDragonTable = new LootTable()
 	.every('Adamantite bar', 2)
 
 	/*Weapons and armour */
-	.addItem('Adamant platebody', 1, 18)
-	.addItem('Rune mace', 1, 14)
-	.addItem('Rune scimitar', 1, 14)
-	.addItem('Dragon med helm', 1, 2)
-	.addItem('Dragon platelegs', 1, 2)
-	.addItem('Dragon plateskirt', 1, 2)
+	.addItem('Adamant platebody', 1, 9)
+	.addItem('Rune mace', 1, 7)
+	.addItem('Rune scimitar', 1, 7)
+	.addItem('Dragon med helm', 1, 1)
+	.addItem('Dragon platelegs', 1, 1)
+	.addItem('Dragon plateskirt', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Adamant arrow', [30, 40], 16)
-	.addItem('Wrath rune', [10, 30], 16)
-	.addItem('Chaos rune', [60, 120], 14)
-	.addItem('Death rune', [30, 60], 14)
+	.addItem('Adamant arrow', [30, 40], 8)
+	.addItem('Wrath rune', [10, 30], 8)
+	.addItem('Chaos rune', [60, 120], 7)
+	.addItem('Death rune', [30, 60], 7)
 
 	/* Herbs */
-	.add(UsefulHerbTable, undefined, 16)
+	.add(UsefulHerbTable, undefined, 8)
 
 	/* Materials */
-	.addItem('Adamant bolts(unf)', [20, 40], 22)
-	.addItem('Adamant javelin heads', [40, 50], 16)
-	.addItem('Diamond', [1, 3], 14)
-	.addItem('Dragon javelin heads', [20, 30], 14)
-	.addItem('Adamantite ore', [8, 20], 12)
-	.addItem('Adamantite bar', [5, 35], 8)
-	.addItem('Dragon bolts (unf)', [15, 20], 2)
+	.addItem('Adamant bolts(unf)', [20, 40], 1)
+	.addItem('Adamant javelin heads', [40, 50], 8)
+	.addItem('Diamond', [1, 3], 7)
+	.addItem('Dragon javelin heads', [20, 30], 7)
+	.addItem('Adamantite ore', [8, 20], 6)
+	.addItem('Adamantite bar', [5, 35], 4)
+	.addItem('Dragon bolts (unf)', [15, 20], 1)
 
 	/* Other */
-	.add('Wrath talisman', 1, 2)
+	.add('Wrath talisman', 1, 1)
 
 	/* Rdt */
-	.add(RareDropTable, undefined, 2)
+	.add(RareDropTable, undefined, 1)
 
 	/* Tertiary */
 	.tertiary(320, 'Clue scroll (elite)')

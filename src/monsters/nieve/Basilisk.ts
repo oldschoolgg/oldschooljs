@@ -25,7 +25,6 @@ export const BasiliskTable = new LootTable()
 	.add(HerbDropTable, undefined, 35)
 
 	/* Materials */
-
 	.addItem('Adamantite ore', 1, 3)
 
 	/* Coins */
@@ -42,7 +41,7 @@ export const BasiliskTable = new LootTable()
 	.tertiary(2000, 'Basilisk head');
 
 export default new SimpleMonster({
-	id: 417,
+	id: 122,
 	name: 'Basilisk',
 	table: BasiliskTable,
 	aliases: ['basilisk', 'basi']

@@ -4,7 +4,9 @@ import HerbDropTable from '../subtables/HerbDropTable';
 import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 import RareSeedTable from '../subtables/RareSeedTable';
 
-const DBHerbDropTable = new LootTable().add(HerbDropTable, 1, 4).add(HerbDropTable, 2, 1);
+const DBHerbTable = new LootTable()
+	.add(HerbDropTable, 1, 4)
+	.add([[HerbDropTable], [HerbDropTable]], 1, 1);
 
 export const DarkBeastTable = new LootTable()
 	.every('Big bones')
@@ -25,7 +27,7 @@ export const DarkBeastTable = new LootTable()
 	.addItem('Blood rune', 15, 4)
 
 	/* Herbs */
-	.add(DBHerbDropTable, undefined, 24)
+	.add(DBHerbTable, undefined, 24)
 
 	/* Seeds */
 	.add(RareSeedTable, undefined, 4)
@@ -55,7 +57,7 @@ export const DarkBeastTable = new LootTable()
 	.tertiary(5013, 'Curved bone');
 
 export default new SimpleMonster({
-	id: 7250,
+	id: 4005,
 	name: 'Dark Beast',
 	table: DarkBeastTable,
 	aliases: ['dark beast', 'dark b']

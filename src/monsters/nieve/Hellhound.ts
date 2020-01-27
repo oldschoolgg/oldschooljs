@@ -12,9 +12,9 @@ export const HellhoundTable = new LootTable()
 
 	/* Catacombs tertiary */
 	.tertiary(256, 'Ancient shard')
-	.tertiary(370, 'Dark totem base')
-	.tertiary(370, 'Dark totem middle')
-	.tertiary(370, 'Dark totem top');
+	.tertiary(384, 'Dark totem base')
+	.tertiary(384, 'Dark totem middle')
+	.tertiary(384, 'Dark totem top');
 
 export default new SimpleMonster({
 	id: 104,

@@ -784,8 +784,7 @@ test('Gargoyle', async (test): Promise<void> => {
 		'Steel bar': 21.33 / 15,
 		'Mithril bar': 64 / 15,
 		'Runite ore': 64,
-		'Clue scroll (hard)': 128,
-		'Brittle key': 150
+		'Clue scroll (hard)': 128
 	};
 
 	const number = 10_000_000;

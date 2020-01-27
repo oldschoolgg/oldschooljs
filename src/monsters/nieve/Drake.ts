@@ -57,7 +57,7 @@ export const DrakeTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 8612,
+	id: 2004,
 	name: 'Drake',
 	table: DrakeTable,
 	aliases: ['drake']

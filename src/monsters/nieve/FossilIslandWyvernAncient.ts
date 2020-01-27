@@ -9,7 +9,7 @@ export const AncientWyvernTable = new LootTable()
 	.oneIn(600, 'Granite boots')
 
 	/*Weapons and armour 15/128 */
-	.addItem('Air battlestaff', 1, 4)
+	.addItem('Air battlestaff', 2, 4)
 	.addItem('Mystic air staff', 1, 3)
 	.addItem('Rune pickaxe', 1, 3)
 	.addItem('Rune battleaxe', 1, 2)
