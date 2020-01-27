@@ -31,8 +31,6 @@ export const AnkouTable = new LootTable(100)
 	/* Coins */
 	.addItem('Coins', 8, 33)
 	.addItem('Coins', [5, 204], 10)
-	.addItem('Coins', 10, 3)
-	.addItem('Coins', 5, 1)
 
 	/* Other */
 	.addItem('Bass', 1, 2)

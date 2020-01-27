@@ -1318,7 +1318,7 @@ test('Spitting Wyvern', async (test): Promise<void> => {
 	const expectedRates = {
 		'Air battlestaff': 30.75,
 		'Adamant battleaxe': 61.5,
-		'Adamant full helm': 61,
+		'Adamant full helm': 61.5,
 		'Rune pickaxe': 61.5,
 		'Adamant platebody': 61.5,
 		'Granite longsword': 512,
@@ -1392,8 +1392,7 @@ test('Gargoyle', async (test): Promise<void> => {
 		'Steel bar': 21.33 / 15,
 		'Mithril bar': 64 / 15,
 		'Runite ore': 64,
-		'Clue scroll (hard)': 128,
-		'Brittle key': 150
+		'Clue scroll (hard)': 128
 	};
 
 	const number = 10_000_000;

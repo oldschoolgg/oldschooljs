@@ -32,9 +32,31 @@ export const BloodveldTable = new LootTable()
 	.add('Coins', 450, 1)
 
 	/* Other */
-	.add('Bones', 1, 10)
-	.add('Big bones', 1, 7)
-	.add('Big bones', 3, 3)
+
+	.addItem(
+		[
+			['Bones', 1],
+			['Big bones', 1]
+		],
+		1,
+		10
+	)
+	.addItem(
+		[
+			['Big bones', 1],
+			['Bones', 1]
+		],
+		1,
+		7
+	)
+	.addItem(
+		[
+			['Big bones', 3],
+			['Bones', 1]
+		],
+		1,
+		3
+	)
 	.add('Meat pizza', 1, 3)
 	.add('Gold ore', 1, 2)
 

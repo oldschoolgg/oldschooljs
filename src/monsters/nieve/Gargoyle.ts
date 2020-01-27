@@ -3,9 +3,8 @@ import SimpleMonster from '../../structures/SimpleMonster';
 import { GemTable } from '../subtables/RareDropTable';
 
 export const GargoyleTable = new LootTable()
-
-	.tertiary(256, 'Granite maul')
-	.tertiary(512, 'Mystic robe top (dark)')
+	.oneIn(256, 'Granite maul')
+	.oneIn(512, 'Mystic robe top (dark)')
 
 	/* Weapons and armor */
 	.addItem('Adamant platelegs', 1, 4)
@@ -16,7 +15,7 @@ export const GargoyleTable = new LootTable()
 	.addItem('Rune platelegs', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Fire rune', 756, 10)
+	.addItem('Fire rune', 75, 10)
 	.addItem('Chaos rune', 30, 8)
 	.addItem('Fire rune', 150, 6)
 	.addItem('Death rune', 15, 5)
@@ -30,7 +29,7 @@ export const GargoyleTable = new LootTable()
 	.addItem('Runite ore', 1, 2)
 
 	/* Coins */
-	.addItem('Coins', 400, 28)
+	.addItem('Coins', [400, 800], 28)
 	.addItem('Coins', [500, 1000], 20)
 	.addItem('Coins', 10000, 5)
 
@@ -38,8 +37,7 @@ export const GargoyleTable = new LootTable()
 	.add(GemTable, undefined, 5)
 
 	/* Tertiary */
-	.tertiary(128, 'Clue scroll (hard)')
-	.tertiary(150, 'Brittle key');
+	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
 	id: 412,

@@ -52,7 +52,7 @@ export const IronDragonTable = new LootTable()
 	.tertiary(305, 'Dark totem top');
 
 export default new SimpleMonster({
-	id: 8080,
+	id: 272,
 	name: 'Iron Dragon',
 	table: IronDragonTable,
 	aliases: ['iron dragon', 'iron d']

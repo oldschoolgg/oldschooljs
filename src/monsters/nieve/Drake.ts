@@ -4,10 +4,10 @@ import HerbDropTable from '../subtables/HerbDropTable';
 import RareSeedTable from '../subtables/RareSeedTable';
 import { GemTable } from '../subtables/RareDropTable';
 
-const DrakeHerbDropTable = new LootTable()
-	.add(HerbDropTable, 1, 10)
-	.add(HerbDropTable, 2, 1)
-	.add(HerbDropTable, 3, 1);
+const DrakeHerbTable = new LootTable()
+	.add(HerbDropTable, 1, 1)
+	.add([[HerbDropTable], [HerbDropTable]], 1, 1)
+	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 1);
 
 const NotedHerbTable = new LootTable()
 	.add('Grimy avantoe', [1, 3], 10)
@@ -43,7 +43,7 @@ export const DrakeTable = new LootTable()
 	.addItem('Rune arrow', [35, 65], 10)
 
 	/* Herbs */
-	.add(DrakeHerbDropTable, undefined, 5)
+	.add(DrakeHerbTable, undefined, 5)
 	.add(NotedHerbTable, undefined, 6)
 
 	/* Seeds */
@@ -62,7 +62,7 @@ export const DrakeTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 8612,
+	id: 2004,
 	name: 'Drake',
 	table: DrakeTable,
 	aliases: ['drake']
