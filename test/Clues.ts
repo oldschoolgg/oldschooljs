@@ -19,7 +19,6 @@ test('Beginner Clues', async (test): Promise<void> => {
 	};
 
 	const number = 500_000;
-
 	const loot = Clues.Beginner.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -55,7 +54,6 @@ test('Easy Clues', async (test): Promise<void> => {
 	};
 
 	const number = 1_000_000;
-
 	const loot = Clues.Easy.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -80,7 +78,6 @@ test('Medium Clues', async (test): Promise<void> => {
 	};
 
 	const number = 1_000_000;
-
 	const loot = Clues.Medium.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -115,7 +112,6 @@ test('Hard Clues', async (test): Promise<void> => {
 	};
 
 	const number = 20_000_000;
-
 	const loot = Clues.Hard.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -142,7 +138,6 @@ test('Elite Clues', async (test): Promise<void> => {
 	};
 
 	const number = 25_000_000;
-
 	const loot = Clues.Elite.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
@@ -177,7 +172,6 @@ test('Master Clues', async (test): Promise<void> => {
 	};
 
 	const number = 25_000_000;
-
 	const loot = Clues.Master.open(number);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
