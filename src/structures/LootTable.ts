@@ -21,20 +21,6 @@ export default class LootTable {
 		this.limit = limit;
 	}
 
-	public add<T>(
-		item: T | [T, number?, number?][],
-		quantity: number[] | number = 1,
-		weight = 1
-	): this {
-		if (Array.isArray(item)) {
-			this.addLootItem(item);
-		} else {
-			this.addLootItem(item, quantity, weight);
-		}
-
-		return this;
-	}
-
 	public oneIn(chance: number, item: any, quantity: number | number[] = 1): this {
 		this.oneInItems.push({ item, chance, quantity });
 		return this;
@@ -50,7 +36,7 @@ export default class LootTable {
 		return this;
 	}
 
-	private addLootItem(item: any, quantity: number[] | number = 1, weight = 1): void {
+	public add(item: any, quantity: number[] | number = 1, weight = 1): this {
 		this.length += 1;
 		this.totalWeight += weight;
 
@@ -59,6 +45,8 @@ export default class LootTable {
 			weight,
 			quantity
 		});
+
+		return this;
 	}
 
 	public addItem(
@@ -72,9 +60,9 @@ export default class LootTable {
 				itemToAdd[0] = Items.get(itemToAdd[0]).id;
 				newItems.push(itemToAdd);
 			}
-			this.addLootItem(newItems, quantity, weight);
+			this.add(newItems, quantity, weight);
 		} else {
-			this.addLootItem(Items.get(item).id, quantity, weight);
+			this.add(Items.get(item).id, quantity, weight);
 		}
 
 		return this;
