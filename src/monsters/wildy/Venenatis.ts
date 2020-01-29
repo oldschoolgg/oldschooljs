@@ -62,5 +62,5 @@ export default new SimpleMonster({
 	id: 6610,
 	name: 'Venenatis',
 	table: VenenatisTable,
-	aliases: ['ven', 'venny', 'venenatis']
+	aliases: ['ven', 'venny', 'venenatis', 'vene']
 });
