@@ -21,23 +21,6 @@ export default class LootTable {
 		this.limit = limit;
 	}
 
-<<<<<<< HEAD
-=======
-	public add<T>(
-		item: T | [T, number?, number?][],
-		quantity: number[] | number = 1,
-		weight = 1
-	): this {
-		if (Array.isArray(item)) {
-			this.addLootItem(item, quantity, weight);
-		} else {
-			this.addLootItem(item, quantity, weight);
-		}
-
-		return this;
-	}
-
->>>>>>> added spectres + loot table change
 	public oneIn(chance: number, item: any, quantity: number | number[] = 1): this {
 		this.oneInItems.push({ item, chance, quantity });
 		return this;
