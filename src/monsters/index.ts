@@ -25,34 +25,6 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
-import AberrantSpectre from './nieve/AberrantSpectre';
-import AbyssalDemon from './nieve/AbyssalDemon';
-import AdamantDragon from './nieve/AdamantDragon';
-import Ankou from './nieve/Ankou';
-import Aviansie from './nieve/Aviansie';
-import Basilisk from './nieve/Basilisk';
-import BlackDemon from './nieve/BlackDemon';
-import BlackDragon from './nieve/BlackDragon';
-import Bloodveld from './nieve/Bloodveld';
-import BlueDragon from './nieve/BlueDragon';
-import BrineRat from './nieve/BrineRat';
-import CaveHorror from './nieve/CaveHorror';
-import CaveKraken from './nieve/CaveKraken';
-import Kraken from './nieve/Kraken';
-import Dagannoth from './nieve/Dagannoth';
-import DarkBeast from './nieve/DarkBeast';
-import Drake from './nieve/Drake';
-import DustDevil from './nieve/DustDevil';
-import ElfWarrior from './nieve/ElfWarrior';
-import FireGiant from './nieve/FireGiant';
-import FossilIslandWyvernAncient from './nieve/FossilIslandWyvernAncient';
-import FossilIslandWyvernLongTailed from './nieve/FossilIslandWyvernLongTailed';
-import FossilIslandWyvernSpitting from './nieve/FossilIslandWyvernSpitting';
-import FossilIslandWyvernTaloned from './nieve/FossilIslandWyvernTaloned';
-import Gargoyle from './nieve/Gargoyle';
-import GreaterDemon from './nieve/GreaterDemon';
-import Hellhound from './nieve/Hellhound';
-import IronDragon from './nieve/IronDragon';
 import KalphiteWorker from './nieve/KalphiteWorker';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Kurask from './nieve/Kurask';
@@ -100,34 +72,6 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
-	AberrantSpectre,
-	AbyssalDemon,
-	AdamantDragon,
-	Ankou,
-	Aviansie,
-	Basilisk,
-	BlackDemon,
-	BlackDragon,
-	Bloodveld,
-	BlueDragon,
-	BrineRat,
-	CaveHorror,
-	CaveKraken,
-	Kraken,
-	Dagannoth,
-	DarkBeast,
-	Drake,
-	DustDevil,
-	ElfWarrior,
-	FireGiant,
-	FossilIslandWyvernAncient,
-	FossilIslandWyvernLongTailed,
-	FossilIslandWyvernSpitting,
-	FossilIslandWyvernTaloned,
-	Gargoyle,
-	GreaterDemon,
-	Hellhound,
-	IronDragon,
 	KalphiteWorker,
 	KalphiteQueen,
 	Kurask,
