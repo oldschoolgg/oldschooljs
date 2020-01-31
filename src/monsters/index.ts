@@ -53,6 +53,26 @@ import Gargoyle from './nieve/Gargoyle';
 import GreaterDemon from './nieve/GreaterDemon';
 import Hellhound from './nieve/Hellhound';
 import IronDragon from './nieve/IronDragon';
+import KalphiteWorker from './nieve/KalphiteWorker';
+import KalphiteQueen from './bosses/KalphiteQueen';
+import Kurask from './nieve/Kurask';
+import Lizardman from './nieve/Lizardman';
+import LizardmanShaman from './nieve/LizardmanShaman';
+import LocustRider from './nieve/LocustRider';
+import MithrilDragon from './nieve/MithrilDragon';
+import MutatedZygomite from './nieve/MutatedZygomite';
+import Nechryael from './nieve/Nechryael';
+import RedDragon from './nieve/RedDragon';
+import RuneDragon from './nieve/RuneDragon';
+import SkeletalWyvern from './nieve/SkeletalWyvern';
+import SmokeDevil from './nieve/SmokeDevil';
+import ThermonuclearSmokeDevil from './nieve/ThermonuclearSmokeDevil';
+import SpiritualMage from './nieve/SpiritualMage';
+import SteelDragon from './nieve/SteelDragon';
+import Suqah from './nieve/Suqah';
+import MountainTroll from './nieve/MountainTroll';
+import Turoth from './nieve/Turoth';
+import Wyrm from './nieve/Wyrm';
 
 const monstersObject = {
 	DagannothPrime,
@@ -107,7 +127,27 @@ const monstersObject = {
 	Gargoyle,
 	GreaterDemon,
 	Hellhound,
-	IronDragon
+	IronDragon,
+	KalphiteWorker,
+	KalphiteQueen,
+	Kurask,
+	Lizardman,
+	LizardmanShaman,
+	LocustRider,
+	MithrilDragon,
+	MutatedZygomite,
+	Nechryael,
+	RedDragon,
+	RuneDragon,
+	SkeletalWyvern,
+	SmokeDevil,
+	ThermonuclearSmokeDevil,
+	SpiritualMage,
+	SteelDragon,
+	Suqah,
+	MountainTroll,
+	Turoth,
+	Wyrm
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
