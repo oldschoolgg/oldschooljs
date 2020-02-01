@@ -39,7 +39,7 @@ export const DustDevilTable = new LootTable()
 	.addItem('Adamantite bar', 4, 1)
 
 	/* Rdt */
-	.add(GemTable, undefined, 8)
+	.add(GemTable, undefined, 8);
 
 export default new SimpleMonster({
 	id: 423,
