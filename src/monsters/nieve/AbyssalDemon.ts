@@ -51,12 +51,6 @@ export const AbyssalDemonTable = new LootTable()
 	.tertiary(1200, 'Clue scroll (elite)')
 	.tertiary(6000, 'Abyssal head')
 
-	/* Catacombs tertiary */
-	.tertiary(233, 'Ancient shard')
-	.tertiary(350, 'Dark totem base')
-	.tertiary(350, 'Dark totem middle')
-	.tertiary(350, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 124,
 	name: 'Abyssal Demon',
