@@ -45,12 +45,6 @@ export const FireGiantTable = new LootTable()
 	.tertiary(5000, 'Giant champion scroll')
 	.tertiary(5013, 'Curved bone')
 
-	/* Catacombs tertiary */
-	.tertiary(246, 'Ancient shard')
-	.tertiary(370, 'Dark totem base')
-	.tertiary(370, 'Dark totem middle')
-	.tertiary(370, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 2075,
 	name: 'Fire Giant',
