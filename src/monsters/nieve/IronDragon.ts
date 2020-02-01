@@ -4,13 +4,13 @@ import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 
 export const IronDragonTable = new LootTable()
 	.every('Dragon bones')
-	.every('iron bar', 5)
+	.every('Iron bar', 5)
 
 	/* Pre-roll */
 	.oneIn(1024, 'Dragon plateskirt')
 	.oneIn(1024, 'Dragon platelegs')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.addItem('Rune dart(p)', 9, 7)
 	.addItem('Adamant 2h sword', 1, 4)
 	.addItem('Adamant axe', 1, 3)
@@ -43,13 +43,8 @@ export const IronDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')
-	.tertiary(10000, 'Draconic visage')
+	.tertiary(10000, 'Draconic visage');
 
-	/* Catacombs tertiary */
-	.tertiary(203, 'Ancient shard')
-	.tertiary(305, 'Dark totem base')
-	.tertiary(305, 'Dark totem middle')
-	.tertiary(305, 'Dark totem top');
 
 export default new SimpleMonster({
 	id: 272,
