@@ -43,7 +43,7 @@ export const FireGiantTable = new LootTable()
 	.tertiary(20, 'Ensouled giant head')
 	.tertiary(400, 'Long bone')
 	.tertiary(5000, 'Giant champion scroll')
-	.tertiary(5013, 'Curved bone')
+	.tertiary(5013, 'Curved bone');
 
 export default new SimpleMonster({
 	id: 2075,
