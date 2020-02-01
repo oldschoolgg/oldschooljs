@@ -41,12 +41,6 @@ export const DustDevilTable = new LootTable()
 	/* Rdt */
 	.add(GemTable, undefined, 8)
 
-	/* Catacombs tertiary */
-	.tertiary(246, 'Ancient shard')
-	.tertiary(370, 'Dark totem base')
-	.tertiary(370, 'Dark totem middle')
-	.tertiary(370, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 423,
 	name: 'Dust Devil',
