@@ -49,12 +49,6 @@ export const DagannothTable = new LootTable()
 	.tertiary(40, 'Ensouled dagannoth head')
 	.tertiary(128, 'Clue scroll (medium)')
 
-	/* Catacombs tertiary */
-	.tertiary(286, 'Ancient shard')
-	.tertiary(430, 'Dark totem base')
-	.tertiary(430, 'Dark totem middle')
-	.tertiary(430, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 140,
 	name: 'Dagannoth',
