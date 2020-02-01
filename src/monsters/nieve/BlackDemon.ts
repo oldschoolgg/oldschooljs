@@ -44,12 +44,6 @@ export const BlackDemonTable = new LootTable()
 	.tertiary(35, 'Ensouled demon head')
 	.tertiary(128, 'Clue scroll (hard)')
 
-	/* Catacombs tertiary */
-	.tertiary(226, 'Ancient shard')
-	.tertiary(340, 'Dark totem base')
-	.tertiary(340, 'Dark totem middle')
-	.tertiary(340, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 240,
 	name: 'Black Demon',
