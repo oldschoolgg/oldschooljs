@@ -7,8 +7,7 @@ const SigilTable = new LootTable()
 	.add('Arcane sigil', 1, 3)
 	.add('Elysian sigil', 1, 1);
 
-const CorpGemTable = new LootTable()
-	.add(GemTable, 1, 1);
+const CorpGemTable = new LootTable().add(GemTable, 1, 1);
 
 export const CorporealBeastTable = new LootTable()
 
