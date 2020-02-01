@@ -49,7 +49,7 @@ export const AbyssalDemonTable = new LootTable()
 	.tertiary(25, 'Ensouled abyssal head')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(1200, 'Clue scroll (elite)')
-	.tertiary(6000, 'Abyssal head')
+	.tertiary(6000, 'Abyssal head');
 
 export default new SimpleMonster({
 	id: 124,
