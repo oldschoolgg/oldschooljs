@@ -43,12 +43,6 @@ export const AnkouTable = new LootTable(100)
 	/* Tertiary */
 	.tertiary(512, 'Clue scroll (hard)')
 
-	/* Catacombs tertiary */
-	.tertiary(293, 'Ancient shard')
-	.tertiary(440, 'Dark totem base')
-	.tertiary(440, 'Dark totem middle')
-	.tertiary(440, 'Dark totem top');
-
 export default new SimpleMonster({
 	id: 2514,
 	name: 'Ankou',
