@@ -36,13 +36,7 @@ export const GreaterDemonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(40, 'Ensouled demon head')
-	.tertiary(128, 'Clue scroll (hard)')
-
-	/* Catacombs tertiary */
-	.tertiary(246, 'Ancient shard')
-	.tertiary(370, 'Dark totem base')
-	.tertiary(370, 'Dark totem middle')
-	.tertiary(370, 'Dark totem top');
+	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
 	id: 2025,
