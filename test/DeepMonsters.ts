@@ -1097,6 +1097,31 @@ test('Spiritual Mage', async (test): Promise<void> => {
 	test.end();
 });
 
+test('Spiritual Ranger', async (test): Promise<void> => {
+	const expectedRates = {
+		'Clue scroll (hard)': 128
+	};
+
+	const number = 100_000;
+	const loot = Monsters.SpiritualRanger.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Spiritual Warrior', async (test): Promise<void> => {
+	const expectedRates = {
+		'Rune kiteshield': 127,
+		'Clue scroll (hard)': 128
+	};
+
+	const number = 100_000;
+	const loot = Monsters.SpiritualWarrior.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
 test('Steel Dragon', async (test): Promise<void> => {
 	const expectedRates = {
 		'Dragon bones': 1,

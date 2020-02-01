@@ -42,7 +42,6 @@ export const RedDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(40, 'Ensouled dragon head')
-	.tertiary(50, 'Grubby key')
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({

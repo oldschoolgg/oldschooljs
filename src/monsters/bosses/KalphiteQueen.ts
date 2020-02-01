@@ -13,7 +13,7 @@ export const KqConsumablesTable = new LootTable()
 	.addItem('Ranging potion(3)', 1, 1)
 	.addItem('Superantipoison(2)', 1, 1);
 
-export const KalphiteQueenTable = new LootTable(128)
+export const KalphiteQueenTable = new LootTable(256)
 
 	/* Consumables */
 	.every(KqConsumablesTable)

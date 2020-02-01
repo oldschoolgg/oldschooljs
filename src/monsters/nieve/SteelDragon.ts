@@ -2,7 +2,7 @@ import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 
-export const SteelDragonTable = new LootTable()
+export const SteelDragonTable = new LootTable(128)
 	.every('Dragon bones')
 	.every('Steel bar', 5)
 
@@ -24,6 +24,7 @@ export const SteelDragonTable = new LootTable()
 
 	/* Coins */
 	.addItem('Coins', 470, 17)
+	.addItem('Coins', 650, 5)
 
 	/* Other */
 	.addItem('Super attack(3)', 1, 13)

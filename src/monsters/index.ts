@@ -31,6 +31,7 @@ import Kurask from './nieve/Kurask';
 import Lizardman from './nieve/Lizardman';
 import LizardmanShaman from './nieve/LizardmanShaman';
 import LocustRider from './nieve/LocustRider';
+import ScarabMage from './nieve/ScarabMage';
 import MithrilDragon from './nieve/MithrilDragon';
 import MutatedZygomite from './nieve/MutatedZygomite';
 import Nechryael from './nieve/Nechryael';
@@ -40,6 +41,8 @@ import SkeletalWyvern from './nieve/SkeletalWyvern';
 import SmokeDevil from './nieve/SmokeDevil';
 import ThermonuclearSmokeDevil from './nieve/ThermonuclearSmokeDevil';
 import SpiritualMage from './nieve/SpiritualMage';
+import SpiritualRanger from './nieve/SpiritualRanger';
+import SpiritualWarrior from './nieve/SpiritualWarrior';
 import SteelDragon from './nieve/SteelDragon';
 import Suqah from './nieve/Suqah';
 import MountainTroll from './nieve/MountainTroll';
@@ -78,6 +81,7 @@ const monstersObject = {
 	Lizardman,
 	LizardmanShaman,
 	LocustRider,
+	ScarabMage,
 	MithrilDragon,
 	MutatedZygomite,
 	Nechryael,
@@ -87,6 +91,8 @@ const monstersObject = {
 	SmokeDevil,
 	ThermonuclearSmokeDevil,
 	SpiritualMage,
+	SpiritualRanger,
+	SpiritualWarrior,
 	SteelDragon,
 	Suqah,
 	MountainTroll,
