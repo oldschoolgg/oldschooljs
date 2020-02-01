@@ -47,7 +47,7 @@ export const DagannothTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(40, 'Ensouled dagannoth head')
-	.tertiary(128, 'Clue scroll (medium)')
+	.tertiary(128, 'Clue scroll (medium)');
 
 export default new SimpleMonster({
 	id: 140,
