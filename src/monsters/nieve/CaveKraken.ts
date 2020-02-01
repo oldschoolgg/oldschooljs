@@ -6,7 +6,7 @@ import { GemTable } from '../subtables/RareDropTable';
 
 export const CaveKrakenTable = new LootTable(128)
 
-	/*Weapons and armour 36/128 */
+	/* Weapons and armour 36/128 */
 	.addItem('Staff of water', 1, 8)
 	.addItem('Rune med helm', 1, 8)
 	.addItem('Adamant spear', 1, 4)
