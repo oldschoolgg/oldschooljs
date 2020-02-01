@@ -41,7 +41,7 @@ export const AnkouTable = new LootTable(100)
 	.add(GemTable, undefined, 2)
 
 	/* Tertiary */
-	.tertiary(512, 'Clue scroll (hard)')
+	.tertiary(512, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
 	id: 2514,
