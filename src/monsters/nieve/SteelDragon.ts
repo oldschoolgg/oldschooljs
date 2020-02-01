@@ -41,13 +41,7 @@ export const SteelDragonTable = new LootTable(128)
 	/* Tertiary */
 	.tertiary(64, 'Clue scroll (hard)')
 	.tertiary(500, 'Clue scroll (elite)')
-	.tertiary(10000, 'Draconic visage')
-
-	/* Catacombs tertiary*/
-	.tertiary(166, 'Ancient shard')
-	.tertiary(250, 'Dark totem base')
-	.tertiary(250, 'Dark totem middle')
-	.tertiary(250, 'Dark totem top');
+	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
 	id: 139,

@@ -21,7 +21,7 @@ export const SmokeDevilTable = new LootTable(128)
 	.addItem('Rune chainbody', 1, 2)
 	.addItem('Rune chainbody', 1, 1)
 	.oneIn(512, 'Occult necklace')
-	.oneIn(32768, 'Dragon chainbody')
+	.oneIn(32_768, 'Dragon chainbody')
 
 	/* Runes and ammunition */
 	.addItem('Smoke rune', 15, 11)

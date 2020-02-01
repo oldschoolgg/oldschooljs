@@ -77,5 +77,5 @@ export default new SimpleMonster({
 	id: 128,
 	name: 'Kalphite Queen',
 	table: KalphiteQueenTable,
-	aliases: ['kalphite queen', 'kq', 'Kq', 'KQ']
+	aliases: ['kalphite queen', 'kq']
 });
