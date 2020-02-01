@@ -1202,3 +1202,94 @@ test('Wyrm', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Basilisk Knight', async (test): Promise<void> => {
+	const expectedRates = {
+		'Big bones': 1,
+		'Rune axe': 26,
+		'Adamant platelegs': 52,
+		'Clue scroll (hard)': 192,
+		'Mystic hat (light)': 256,
+		'Long bone': 400,
+		'Basilisk head': 1000,
+		'Basilisk jaw': 1000,
+		'Curved bone': 5013
+	};
+
+	const number = 3_000_000;
+	const loot = Monsters.BasiliskKnight.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Abyssal Sire', async (test): Promise<void> => {
+	const expectedRates = {
+		Ashes: 1,
+		Battlestaff: 23.17 / 10,
+		'Rune full helm': 34.75 / 3,
+		'Rune kiteshield': 46.33 / 2,
+		'Mystic air staff': 69.5 / 2,
+		'Law rune': 27.8 / 250,
+		Cannonball: 34.75 / 300,
+		'Runite ore': 34.75 / 6,
+		'Onyx bolt tips': 46.33 / 10,
+		'Runite bar': 69.4 / 5,
+		Unsired: 100,
+		'Clue scroll (elite)': 180
+	};
+
+	const number = 3_000_000;
+	const loot = Monsters.AbyssalSire.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Demonic Gorilla', async (test): Promise<void> => {
+	const expectedRates = {
+		Ashes: 1,
+		'Zenyte shard': 300,
+		'Ballista limbs': 500,
+		'Ballista spring': 500,
+		'Light frame': 750,
+		'Heavy frame': 1500,
+		'Monkey tail': 1500,
+		'Rune plateskirt': 14.29,
+		'Rune chainbody': 25,
+		'Dragon scimitar': 50,
+		'Clue scroll (hard)': 100,
+		'Clue scroll (elite)': 500
+	};
+
+	const number = 10_000_000;
+	const loot = Monsters.DemonicGorilla.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('Grotesque Guardians', async (test): Promise<void> => {
+	const expectedRates = {
+		'Granite maul': 125,
+		'Granite gloves': 250,
+		'Granite ring': 250,
+		'Granite hammer': 375,
+		'Black tourmaline core': 500,
+		'Rune pickaxe': 22.83 / 2,
+		'Rune full helm': 27.4 / 2,
+		'Rune 2h sword': 34.25 / 2,
+		'Rune battleaxe': 45.67 / 2,
+		'Dragon med helm': 137 / 2,
+		'Crystal key': 27.4 / 2,
+		'Clue scroll (elite)': 230,
+		Noon: 3000,
+		'Jar of stone': 5000
+	};
+
+	const number = 5_000_000;
+	const loot = Monsters.GrotesqueGuardians.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});

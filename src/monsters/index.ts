@@ -48,6 +48,12 @@ import Suqah from './nieve/Suqah';
 import MountainTroll from './nieve/MountainTroll';
 import Turoth from './nieve/Turoth';
 import Wyrm from './nieve/Wyrm';
+import BasiliskKnight from './nieve/BasiliskKnight';
+import AbyssalSire from './bosses/AbyssalSire';
+import DemonicGorilla from './nieve/DemonicGorilla';
+import GrotesqueGuardians from './bosses/GrotesqueGuardians';
+import TzTokJad from './special/TzTokJad';
+import TzKalZuk from './special/TzKalZuk';
 
 const monstersObject = {
 	DagannothPrime,
@@ -97,7 +103,13 @@ const monstersObject = {
 	Suqah,
 	MountainTroll,
 	Turoth,
-	Wyrm
+	Wyrm,
+	BasiliskKnight,
+	AbyssalSire,
+	DemonicGorilla,
+	GrotesqueGuardians,
+	TzTokJad,
+	TzKalZuk
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
