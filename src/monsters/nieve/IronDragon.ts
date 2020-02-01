@@ -45,7 +45,6 @@ export const IronDragonTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(10000, 'Draconic visage');
 
-
 export default new SimpleMonster({
 	id: 272,
 	name: 'Iron Dragon',
