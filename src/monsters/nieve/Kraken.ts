@@ -4,7 +4,7 @@ import { GemTable } from '../subtables/RareDropTable';
 
 export const KrakenTable = new LootTable(128)
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.addItem('Mystic water staff', 1, 3)
 	.addItem('Rune warhammer', 1, 2)
 	.addItem('Rune longsword', 1, 2)
