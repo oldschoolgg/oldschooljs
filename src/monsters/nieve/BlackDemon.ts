@@ -42,7 +42,7 @@ export const BlackDemonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(35, 'Ensouled demon head')
-	.tertiary(128, 'Clue scroll (hard)')
+	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
 	id: 240,
