@@ -31,7 +31,7 @@ export const WyrmTable = new LootTable(76)
 	.addItem('Blood rune', [25, 30], 5)
 
 	/* Herbs */
-	.add([HerbDropTable, HerbDropTable], 2, 4)
+	.add([HerbDropTable, HerbDropTable], 1, 4)
 
 	/* Seeds */
 	.add(RareSeedTable, 3)
