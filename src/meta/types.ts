@@ -329,12 +329,12 @@ export interface ItemBank {
 }
 
 export interface ReturnedLootItem {
-	item: any;
+	item: number;
 	quantity: number;
 }
 
 export interface LootTableItem {
-	item: number | LootTable;
+	item: number | LootTable | LootTableItem[];
 	weight?: number;
 	quantity: number | number[];
 }

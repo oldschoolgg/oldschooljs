@@ -1,12 +1,6 @@
 import { rand, roll } from '../util/util';
-import Items from './Items';
 import { LootTableItem, OneInItems, ReturnedLootItem } from '../meta/types';
-
-function itemID(name: string): number {
-	const item = Items.get(name);
-	if (!item) throw `Missing item!`;
-	return item.id;
-}
+import itemID from '../util/itemID';
 
 export default class LootTable {
 	public length: number;
@@ -60,7 +54,15 @@ export default class LootTable {
 		return this;
 	}
 
-	public add(item: any, quantity: number[] | number = 1, weight = 1): this {
+	public add(
+		item: LootTable | number | string | LootTableItem[],
+		quantity: number[] | number = 1,
+		weight = 1
+	): this {
+		if (typeof item === 'string') {
+			return this.addItem(item, quantity, weight);
+		}
+
 		this.length += 1;
 		this.totalWeight += weight;
 
@@ -74,19 +76,21 @@ export default class LootTable {
 	}
 
 	public addItem(
-		item: string | [string | number, number?][],
+		item: string | [string, (number | number[])?][],
 		quantity: number[] | number = 1,
 		weight = 1
 	): this {
 		if (Array.isArray(item)) {
 			const newItems = [];
 			for (const itemToAdd of item) {
-				itemToAdd[0] = Items.get(itemToAdd[0]).id;
-				newItems.push(itemToAdd);
+				newItems.push({
+					item: itemID(itemToAdd[0]),
+					quantity: this.determineQuantity(itemToAdd[1]) || 1
+				});
 			}
 			this.add(newItems, quantity, weight);
 		} else {
-			this.add(Items.get(item).id, quantity, weight);
+			this.add(itemID(item), quantity, weight);
 		}
 
 		return this;
@@ -128,6 +132,7 @@ export default class LootTable {
 				return items;
 			}
 		}
+
 		return chosenItem == undefined ? items : items.concat(this.generateResultItem(chosenItem));
 	}
 
@@ -151,13 +156,8 @@ export default class LootTable {
 
 		if (Array.isArray(item.item)) {
 			const items = [];
-			for (const singleItem of item.item as [number, number][]) {
-				items.push(
-					this.generateResultItem({
-						item: singleItem[0],
-						quantity: singleItem[1] || 1
-					})[0]
-				);
+			for (const singleItem of item.item) {
+				items.push(this.generateResultItem(singleItem)[0]);
 			}
 			return items;
 		}
