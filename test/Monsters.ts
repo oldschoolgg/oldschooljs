@@ -36,12 +36,23 @@ class TestMonsterClass extends Monster {
 
 		for (let i = 0; i < quantity; i++) {
 			const roll = this.table.roll();
-			if ((roll[2353] && !roll[2351]) || (roll[2351] && !roll[2353])) {
+			const barDrop = roll.find(item => item.item === 2353);
+			const otherBarDrop = roll.find(item => item.item === 2351);
+
+			const dragonClaws = roll.find(item => item.item === 13652);
+
+			if (otherBarDrop && otherBarDrop.quantity !== barDrop?.quantity) {
 				throw new Error('Should drop array items at once');
 			}
 
-			if (roll[2353] !== roll[2351]) {
-				throw new Error('array of items should be same amount');
+			if (
+				dragonClaws &&
+				roll
+					.filter(i => i.item === 13652)
+					.map(item => item.quantity)
+					.reduce((a, b) => a + b, 0) !== 100
+			) {
+				throw new Error('should always drop 100 at a time');
 			}
 
 			loot.add(roll);
