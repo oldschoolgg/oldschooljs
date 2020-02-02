@@ -7,7 +7,7 @@ export const VetionTable = new LootTable()
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, "Vet'ion jr.")
 	.tertiary(400, 'Long bone')
-	.tertiary(5000, 'Skeleton champion scroll')
+	.tertiary(1000, 'Skeleton champion scroll')
 	.tertiary(5000, 'Curved bone')
 
 	/* Weapons and armour */
