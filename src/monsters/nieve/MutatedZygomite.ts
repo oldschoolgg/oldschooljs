@@ -35,7 +35,7 @@ export const MutatedZygomiteTable = new LootTable()
 	.add(RareDropTable, 1);
 
 export default new SimpleMonster({
-	id: 473,
+	id: 537,
 	name: 'Mutated Zygomite',
 	table: MutatedZygomiteTable,
 	aliases: ['mutated zygomite', 'zygomite']

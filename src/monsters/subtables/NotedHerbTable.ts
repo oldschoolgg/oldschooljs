@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 
 export default new LootTable()
-	.addItem('Grimy kwuarm', [2, 3], 5)
-	.addItem('Grimy cadantine', [2, 3], 4)
-	.addItem('Grimy dwarf weed', [2, 3], 4)
-	.addItem('Grimy lantadyme', [2, 3], 3);
+	.addItem('Grimy kwuarm', 1, 5)
+	.addItem('Grimy cadantine', 1, 4)
+	.addItem('Grimy dwarf weed', 1, 4)
+	.addItem('Grimy lantadyme', 1, 3);

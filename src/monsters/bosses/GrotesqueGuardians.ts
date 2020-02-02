@@ -27,9 +27,15 @@ export const GrotesqueGuardiansTable = new LootTable()
 	/* Food and potions */
 	.addItem('Mushroom potato', [4, 6], 10)
 	.addItem('Saradomin brew(4)', 2, 8)
-	.addItem('Magic potion(2)', 1, 6)
-	.addItem('Ranging potion(2)', 1, 6)
-	.addItem('Super combat potion(2)', 1, 6)
+	.addItem(
+		[
+			['Magic potion(2)', 1],
+			['Ranging potion(2)', 1],
+			['Super combat potion(2)', 1]
+		],
+		1,
+		6
+	)
 	.addItem('Prayer potion(4)', [1, 2], 4)
 
 	/* Resources */
@@ -73,5 +79,5 @@ export default new SimpleMonster({
 	id: 7850,
 	name: 'Grotesque Guardians',
 	table: GrotesqueGuardiansTable,
-	aliases: ['grotesque guardians']
+	aliases: ['grotesque guardians', 'grotesque', 'ggs']
 });

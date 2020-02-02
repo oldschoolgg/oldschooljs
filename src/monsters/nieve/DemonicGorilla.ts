@@ -55,5 +55,5 @@ export default new SimpleMonster({
 	id: 7144,
 	name: 'Demonic Gorilla',
 	table: DemonicGorillaTable,
-	aliases: ['demonic gorilla']
+	aliases: ['demonic gorilla', 'demonic']
 });

@@ -35,7 +35,7 @@ export const AbyssalSireTable = new LootTable(139)
 	.add(SireHerbTable, 5)
 
 	/* Seeds */
-	.add(TreeHerbSeedTable, 5)
+	.add(TreeHerbSeedTable, 2, 5)
 
 	/* Materials */
 	.addItem('Coal', [380, 420], 6)
@@ -60,7 +60,7 @@ export const AbyssalSireTable = new LootTable(139)
 	.oneIn(100, 'Unsired')
 
 	/* Rdt */
-	.add(RareDropTable, 3)
+	.add(RareDropTable, 2, 3)
 
 	/* Tertiary */
 	.tertiary(180, 'Clue scroll (elite)');

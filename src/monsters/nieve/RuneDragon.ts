@@ -28,7 +28,7 @@ export const RuneDragonTable = new LootTable()
 	.add(UsefulHerbTable, 8)
 
 	/* Other */
-	.addItem('Rune javelin heads', [20, 30], 15)
+	.addItem('Rune javelin heads', [20, 30], 10)
 	.addItem('Runite bolts (unf)', [20, 30], 11)
 	.addItem('Dragonstone', 1, 7)
 	.addItem('Runite ore', [2, 5], 6)

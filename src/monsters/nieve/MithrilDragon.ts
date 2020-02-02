@@ -25,7 +25,7 @@ export const MithrilDragonTable = new LootTable()
 	/* Consumables */
 	.addItem('Shark', 1, 6)
 	.addItem('Prayer mix(2)', 1, 2)
-	.addItem('Prayer mix(2)', 6, 2)
+	.addItem('Shark', 6, 2)
 	.addItem('Superattack mix(2)', 1, 2)
 	.addItem('Super def. mix(2)', 1, 2)
 	.addItem('Super str. mix(2)', 1, 2)

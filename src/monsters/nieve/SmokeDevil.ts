@@ -19,7 +19,7 @@ export const SmokeDevilTable = new LootTable(128)
 	.addItem('Mithril plateskirt', 1, 2)
 	.addItem('Rune full helm', 1, 2)
 	.addItem('Rune chainbody', 1, 2)
-	.addItem('Rune chainbody', 1, 1)
+	.addItem("Red d'hide body", 1, 1)
 	.oneIn(512, 'Occult necklace')
 	.oneIn(32_768, 'Dragon chainbody')
 
@@ -59,7 +59,7 @@ export const SmokeDevilTable = new LootTable(128)
 	.tertiary(750, 'Clue scroll (elite)');
 
 export default new SimpleMonster({
-	id: 425,
+	id: 498,
 	name: 'Smoke Devil',
 	table: SmokeDevilTable,
 	aliases: ['smoke devil']

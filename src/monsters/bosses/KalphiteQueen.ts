@@ -30,8 +30,8 @@ export const KalphiteQueenTable = new LootTable(256)
 	/* Runes and ammunition */
 	.addItem('Death rune', 150, 12)
 	.addItem('Blood rune', 100, 12)
-	.addItem('Mithril arrow', 500, 5)
-	.addItem('Rune arrow', 250, 3)
+	.addItem('Mithril arrow', 500, 10)
+	.addItem('Rune arrow', 250, 6)
 
 	/* Herbs */
 	.addItem('Grimy toadflax', 25, 4)

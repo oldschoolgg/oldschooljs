@@ -7,5 +7,5 @@ export default new SimpleMonster({
 	id: 3127,
 	name: 'TzTokJad',
 	table: TzTokJadTable,
-	aliases: ['tztokjad', 'jad']
+	aliases: ['tztokjad', 'jad', 'fight cave', 'fight caves']
 });

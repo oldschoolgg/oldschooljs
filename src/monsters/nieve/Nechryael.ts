@@ -21,7 +21,8 @@ export const NechryaelTable = new LootTable(116)
 	.addItem('Blood rune', [15, 20], 4)
 
 	/* Seeds */
-	.add(RareSeedTable, 18)
+	.addItem('Limpwurt seed', 1, 6)
+	.add(RareSeedTable, 2, 18)
 
 	/* Coins */
 	.addItem('Coins', [1000, 1499], 13)

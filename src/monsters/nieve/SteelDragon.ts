@@ -24,11 +24,11 @@ export const SteelDragonTable = new LootTable(128)
 
 	/* Coins */
 	.addItem('Coins', 470, 17)
-	.addItem('Coins', 650, 5)
 
 	/* Other */
 	.addItem('Super attack(3)', 1, 13)
 	.addItem('Runite limbs', 1, 8)
+	.addItem('Dragon javelin heads', 12, 5)
 	.addItem('Runite bar', 1, 3)
 	.addItem('Super defence(2)', 1, 3)
 	.addItem('Curry', 1, 1)

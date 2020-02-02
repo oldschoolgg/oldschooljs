@@ -14,7 +14,7 @@ export const TurothTable = new LootTable(128)
 
 	/* Weapons and armour */
 	.addItem('Steel platelegs', 1, 7)
-	.addItem('Steel platelegs', 1, 3)
+	.addItem('Mithril axe', 1, 3)
 	.addItem('Mithril kiteshield', 1, 1)
 	.addItem('Adamant full helm', 1, 1)
 	.addItem('Rune dagger', 1, 1)

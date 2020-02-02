@@ -29,13 +29,13 @@ export const LizardmanShamanTable = new LootTable(500)
 	.addItem('Runite ore', [3, 5], 8)
 
 	/* Herbs */
-	.add(NotedHerbTable, 45)
+	.add(NotedHerbTable, [2, 3], 45)
 
 	/* Seeds */
 	.add(TreeHerbSeedTable, 10)
 
 	/* Other */
-	.addItem('Coins', [100, 600], 70)
+	.addItem('Coins', [100, 6_000], 70)
 	.addItem('Lizardman fang', [10, 14], 38)
 	.addItem('Chilli potato', 2, 30)
 	.addItem("Xeric's talisman(inert)", 1, 4)

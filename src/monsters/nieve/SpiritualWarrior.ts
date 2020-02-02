@@ -17,7 +17,7 @@ export const SpiritualWarriorTable = new LootTable(127)
 	.addItem('Adamant battleaxe', 1, 2)
 	.addItem('Adamant 2h sword', 1, 1)
 	.addItem('Rune longsword', 1, 1)
-	.addItem('Rune longsword', 1, 1)
+	.addItem('Rune halberd', 1, 1)
 
 	/* Armor */
 	.addItem('Steel chainbody', 1, 18)
