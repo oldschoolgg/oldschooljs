@@ -7,6 +7,7 @@ import Loot from '../dist/structures/Loot';
 import { ItemBank } from '../dist/meta/types';
 
 const subSubTable = new LootTable().add('Coal');
+const quantityTable = new LootTable().add('Dragon claws');
 
 const subTable = new LootTable()
 	.add('Needle')
@@ -25,7 +26,8 @@ class TestMonsterClass extends Monster {
 		.add('Bandos page 2')
 		.add('Bandos page 3')
 		.add('Bandos page 4')
-		.add(subTable);
+		.add(subTable)
+		.add(quantityTable, 100);
 
 	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
@@ -35,6 +37,11 @@ class TestMonsterClass extends Monster {
 			if ((roll[2353] && !roll[2351]) || (roll[2351] && !roll[2353])) {
 				throw new Error('Should drop array items at once');
 			}
+
+			if (roll[2353] !== roll[2351]) {
+				throw new Error('array of items should be same amount');
+			}
+
 			loot.add(roll);
 		}
 
@@ -61,9 +68,10 @@ test('Test Monster', async (test): Promise<void> => {
 		Needle: TesterMonster.table.length * subTable.length,
 		Coal: (TesterMonster.table.length * subTable.length) / subSubTable.length,
 		'Iron bar': TesterMonster.table.length * subTable.length,
-		'Steel bar': TesterMonster.table.length * subTable.length
+		'Steel bar': TesterMonster.table.length * subTable.length,
+		'Dragon claws': TesterMonster.table.length / 100
 	};
-
-	checkThreshold(test, expectedRates, TesterMonster.kill(number), number);
+	const loot = TesterMonster.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
