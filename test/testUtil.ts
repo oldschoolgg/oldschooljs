@@ -22,9 +22,9 @@ export function checkThreshold(
 		expectedRates[item.id.toString()] = qty;
 	}
 
-	for (const [name, qty] of Object.entries(result)) {
-		const item = Items.get(parseInt(name));
-		if (!item) return test.fail(`Missing item: ${name}`);
+	for (const [itemID, qty] of Object.entries(result)) {
+		const item = Items.get(parseInt(itemID));
+		if (!item) return test.fail(`Missing item with ID: ${itemID}`);
 
 		const id = item.id;
 		const expectedRate = expectedRates[id];
