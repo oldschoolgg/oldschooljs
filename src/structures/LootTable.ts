@@ -110,8 +110,19 @@ export default class LootTable {
 	private generateResultItem(item: LootTableItem): ReturnedLootItem[] {
 		// If the chosen item is a loot table, the result is a roll of that table.
 		if (item.item instanceof LootTable) {
-			const rolledItems = item.item.roll();
-			if (rolledItems) return rolledItems;
+			const quantity = this.determineQuantity(item.quantity);
+			let items: ReturnedLootItem[] = [];
+
+			for (let i = 0; i < quantity; i++) {
+				items = items.concat(
+					item.item
+						.roll()
+						.map(this.generateResultItem)
+						.flat()
+				);
+			}
+
+			return items;
 		}
 
 		if (Array.isArray(item.item)) {
@@ -130,10 +141,16 @@ export default class LootTable {
 		return [
 			{
 				item: item.item,
-				quantity: Array.isArray(item.quantity)
-					? rand(item.quantity[0], item.quantity[1])
-					: item.quantity
+				quantity: this.determineQuantity(item.quantity)
 			}
 		];
+	}
+
+	private determineQuantity(quantity: number | number[]) {
+		if (Array.isArray(quantity)) {
+			return rand(quantity[0], quantity[1]);
+		} else {
+			return quantity;
+		}
 	}
 }
