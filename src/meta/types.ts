@@ -1,3 +1,5 @@
+import LootTable from '../structures/LootTable';
+
 export interface SimpleLootItem {
 	id: string;
 	dropRate: number;
@@ -332,7 +334,7 @@ export interface ReturnedLootItem {
 }
 
 export interface LootTableItem {
-	item: any;
+	item: number | LootTable;
 	weight?: number;
 	quantity: number | number[];
 }

@@ -2,6 +2,12 @@ import { rand, roll } from '../util/util';
 import Items from './Items';
 import { LootTableItem, OneInItems, ReturnedLootItem } from '../meta/types';
 
+function itemID(name: string): number {
+	const item = Items.get(name);
+	if (!item) throw `Missing item!`;
+	return item.id;
+}
+
 export default class LootTable {
 	public length: number;
 	public table: LootTableItem[];
@@ -21,18 +27,36 @@ export default class LootTable {
 		this.limit = limit;
 	}
 
-	public oneIn(chance: number, item: any, quantity: number | number[] = 1): this {
-		this.oneInItems.push({ item, chance, quantity });
+	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
+		this.oneInItems.push({
+			item: typeof item === 'string' ? itemID(item) : item,
+			chance,
+			quantity
+		});
+
 		return this;
 	}
 
-	public tertiary(chance: number, item: any, quantity: number | number[] = 1): this {
-		this.tertiaryItems.push({ item, chance, quantity });
+	public tertiary(
+		chance: number,
+		item: string | LootTable,
+		quantity: number | number[] = 1
+	): this {
+		this.tertiaryItems.push({
+			item: typeof item === 'string' ? itemID(item) : item,
+			chance,
+			quantity
+		});
+
 		return this;
 	}
 
-	public every(item: any, quantity: number | number[] = 1): this {
-		this.everyItems.push({ item, quantity });
+	public every(item: string | LootTable, quantity: number | number[] = 1): this {
+		this.everyItems.push({
+			item: typeof item === 'string' ? itemID(item) : item,
+			quantity
+		});
+
 		return this;
 	}
 
