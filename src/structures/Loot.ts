@@ -4,7 +4,7 @@ import itemID from '../util/itemID';
 export default class Loot {
 	public loot: ItemBank = {};
 
-	public add(item: string | ReturnedLootItem | ReturnedLootItem[] | string, quantity = 1): void {
+	public add(item: string | ReturnedLootItem | ReturnedLootItem[], quantity = 1): void {
 		if (Array.isArray(item)) {
 			for (const _item of item) this.add(_item);
 			return;
