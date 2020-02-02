@@ -8,6 +8,7 @@ import { ItemBank } from '../dist/meta/types';
 
 const subSubTable = new LootTable().add('Coal');
 const quantityTable = new LootTable().add('Dragon claws');
+const emptyTable = new LootTable(100).add('Rune crossbow');
 
 const subTable = new LootTable()
 	.add('Needle')
@@ -27,7 +28,8 @@ class TestMonsterClass extends Monster {
 		.add('Bandos page 3')
 		.add('Bandos page 4')
 		.add(subTable)
-		.add(quantityTable, 100);
+		.add(quantityTable, 100)
+		.add(emptyTable);
 
 	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
@@ -69,7 +71,8 @@ test('Test Monster', async (test): Promise<void> => {
 		Coal: (TesterMonster.table.length * subTable.length) / subSubTable.length,
 		'Iron bar': TesterMonster.table.length * subTable.length,
 		'Steel bar': TesterMonster.table.length * subTable.length,
-		'Dragon claws': TesterMonster.table.length / 100
+		'Dragon claws': TesterMonster.table.length / 100,
+		'Rune crossbow': TesterMonster.table.length * 100
 	};
 	const loot = TesterMonster.kill(number);
 	checkThreshold(test, expectedRates, loot, number);
