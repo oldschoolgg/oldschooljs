@@ -117,7 +117,7 @@ export default class LootTable {
 				items = items.concat(
 					item.item
 						.roll()
-						.map(this.generateResultItem)
+						.map(item => this.generateResultItem(item))
 						.flat()
 				);
 			}
@@ -146,7 +146,7 @@ export default class LootTable {
 		];
 	}
 
-	private determineQuantity(quantity: number | number[]) {
+	private determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
 			return rand(quantity[0], quantity[1]);
 		} else {
