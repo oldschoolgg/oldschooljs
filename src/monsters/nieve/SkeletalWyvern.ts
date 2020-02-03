@@ -31,7 +31,7 @@ export const SkeletalWyvernTable = new LootTable()
 	.addItem('Soul rune', 20, 1)
 
 	/* Herbs */
-	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 7)
+	.add(HerbDropTable, 3, 7)
 
 	/* Resources */
 	.addItem('Pure essence', 250, 8)

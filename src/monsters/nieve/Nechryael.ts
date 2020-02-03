@@ -22,7 +22,7 @@ export const NechryaelTable = new LootTable(116)
 
 	/* Seeds */
 	.addItem('Limpwurt seed', 1, 6)
-	.add([[RareSeedTable], [RareSeedTable]], 1, 18)
+	.add(RareSeedTable, 2, 18)
 
 	/* Coins */
 	.addItem('Coins', [1000, 1499], 13)

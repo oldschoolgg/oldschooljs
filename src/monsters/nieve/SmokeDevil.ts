@@ -3,9 +3,7 @@ import SimpleMonster from '../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 import HerbDropTable from '../subtables/HerbDropTable';
 
-const SmokeDevilHerbTable = new LootTable()
-	.add(HerbDropTable, 1, 2)
-	.add([[HerbDropTable], [HerbDropTable]], 1, 1);
+const SmokeDevilHerbTable = new LootTable().add(HerbDropTable, 1, 2).add(HerbDropTable, 2, 1);
 
 export const SmokeDevilTable = new LootTable(128)
 	.every('Ashes')

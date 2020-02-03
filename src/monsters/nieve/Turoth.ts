@@ -6,8 +6,8 @@ import RareSeedTable from '../subtables/RareSeedTable';
 
 const TurothHerbTable = new LootTable()
 	.add(HerbDropTable, 1, 15)
-	.add([[HerbDropTable], [HerbDropTable]], 1, 10)
-	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 6);
+	.add(HerbDropTable, 2, 10)
+	.add(HerbDropTable, 3, 6);
 
 export const TurothTable = new LootTable(128)
 	.every('Bones')

@@ -4,6 +4,8 @@ import HerbDropTable from '../subtables/HerbDropTable';
 import { GemTable } from '../subtables/RareDropTable';
 import RareSeedTable from '../subtables/RareSeedTable';
 
+export const KuraskHerbTable = new LootTable().add(HerbDropTable);
+
 export const KuraskTable = new LootTable(124)
 	.every('Bones')
 
@@ -22,7 +24,7 @@ export const KuraskTable = new LootTable(124)
 	.addItem('Nature rune', 30, 4)
 
 	/* Herbs */
-	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 18)
+	.add(HerbDropTable, 3, 18)
 
 	/* Seeds */
 	.add(RareSeedTable, 15)
