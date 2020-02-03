@@ -4,9 +4,7 @@ import HerbDropTable from '../subtables/HerbDropTable';
 import RareDropTable, { GemTable } from '../subtables/RareDropTable';
 import RareSeedTable from '../subtables/RareSeedTable';
 
-const DBHerbTable = new LootTable()
-	.add(HerbDropTable, 1, 4)
-	.add([[HerbDropTable], [HerbDropTable]], 1, 1);
+const DBHerbTable = new LootTable().add(HerbDropTable, 1, 4).add(HerbDropTable, 2, 1);
 
 export const DarkBeastTable = new LootTable()
 	.every('Big bones')
