@@ -7,8 +7,6 @@ const SigilTable = new LootTable()
 	.add('Arcane sigil', 1, 3)
 	.add('Elysian sigil', 1, 1);
 
-const CorpGemTable = new LootTable().add(GemTable, 1, 1);
-
 export const CorporealBeastTable = new LootTable()
 
 	.addItem('Spirit shield', 8)
@@ -16,7 +14,7 @@ export const CorporealBeastTable = new LootTable()
 	.oneIn(585, SigilTable)
 
 	/* Uncuts */
-	.add(CorpGemTable, 10, 12)
+	.add(GemTable, 10, 12)
 
 	/* Weapons and armour */
 	.addItem('Mystic air staff', 1, 17)
