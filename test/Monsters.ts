@@ -7,6 +7,8 @@ import Loot from '../dist/structures/Loot';
 import { ItemBank } from '../dist/meta/types';
 
 const subSubTable = new LootTable().add('Coal');
+const quantityTable = new LootTable().add('Dragon claws');
+const emptyTable = new LootTable(100).add('Rune crossbow');
 
 const subTable = new LootTable()
 	.add('Needle')
@@ -25,16 +27,34 @@ class TestMonsterClass extends Monster {
 		.add('Bandos page 2')
 		.add('Bandos page 3')
 		.add('Bandos page 4')
-		.add(subTable);
+		.add(subTable)
+		.add(quantityTable, 100)
+		.add(emptyTable);
 
 	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
 			const roll = this.table.roll();
-			if ((roll[2353] && !roll[2351]) || (roll[2351] && !roll[2353])) {
+			const barDrop = roll.find(item => item.item === 2353);
+			const otherBarDrop = roll.find(item => item.item === 2351);
+
+			const dragonClaws = roll.find(item => item.item === 13652);
+
+			if (otherBarDrop && otherBarDrop.quantity !== barDrop?.quantity) {
 				throw new Error('Should drop array items at once');
 			}
+
+			if (
+				dragonClaws &&
+				roll
+					.filter(i => i.item === 13652)
+					.map(item => item.quantity)
+					.reduce((a, b) => a + b, 0) !== 100
+			) {
+				throw new Error('should always drop 100 at a time');
+			}
+
 			loot.add(roll);
 		}
 
@@ -61,9 +81,11 @@ test('Test Monster', async (test): Promise<void> => {
 		Needle: TesterMonster.table.length * subTable.length,
 		Coal: (TesterMonster.table.length * subTable.length) / subSubTable.length,
 		'Iron bar': TesterMonster.table.length * subTable.length,
-		'Steel bar': TesterMonster.table.length * subTable.length
+		'Steel bar': TesterMonster.table.length * subTable.length,
+		'Dragon claws': TesterMonster.table.length / 100,
+		'Rune crossbow': TesterMonster.table.length * 100
 	};
-
-	checkThreshold(test, expectedRates, TesterMonster.kill(number), number);
+	const loot = TesterMonster.kill(number);
+	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
