@@ -6,8 +6,8 @@ import HerbDropTable from '../subtables/HerbDropTable';
 
 const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 1, 11)
-	.add([[HerbDropTable], [HerbDropTable]], 1, 11)
-	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 4);
+	.add(HerbDropTable, 2, 11)
+	.add(HerbDropTable, 3, 4);
 
 export const AberrantSpectreTable = new LootTable(128)
 

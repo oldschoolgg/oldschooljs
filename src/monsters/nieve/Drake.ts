@@ -6,8 +6,8 @@ import { GemTable } from '../subtables/RareDropTable';
 
 const DrakeHerbTable = new LootTable()
 	.add(HerbDropTable, 1, 1)
-	.add([[HerbDropTable], [HerbDropTable]], 1, 1)
-	.add([[HerbDropTable], [HerbDropTable], [HerbDropTable]], 1, 1);
+	.add(HerbDropTable, 2, 1)
+	.add(HerbDropTable, 3, 1);
 
 const NotedHerbTable = new LootTable()
 	.add('Grimy avantoe', [1, 3], 10)
