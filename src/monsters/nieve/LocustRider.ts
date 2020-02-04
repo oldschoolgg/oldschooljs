@@ -46,13 +46,7 @@ export const LocustRiderTable = new LootTable(128)
 
 	/* Rdt */
 	.add(RareDropTable, 1)
-	.add(GemTable, 15)
-
-	/* Tertiary */
-	.tertiary(200, 'Clue scroll (hard)')
-	.tertiary(400, 'Long bone')
-	.tertiary(1200, 'Clue scroll (elite)')
-	.tertiary(5013, 'Curved bone');
+	.add(GemTable, 15);
 
 export default new SimpleMonster({
 	id: 795,
