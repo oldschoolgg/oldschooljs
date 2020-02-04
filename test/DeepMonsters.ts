@@ -807,11 +807,7 @@ test('Greater Demon', async (test): Promise<void> => {
 		'Gold bar': 64,
 		Thread: 128 / 10,
 		'Ensouled demon head': 40,
-		'Clue scroll (hard)': 128,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Clue scroll (hard)': 128
 	};
 
 	const number = 10_000_000;
@@ -825,11 +821,7 @@ test('Hellhound', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
 		'Smouldering stone': 32768,
-		'Clue scroll (hard)': 64,
-		'Ancient shard': 256,
-		'Dark totem base': 384,
-		'Dark totem middle': 384,
-		'Dark totem top': 384
+		'Clue scroll (hard)': 64
 	};
 
 	const number = 20_000_000;
@@ -861,11 +853,7 @@ test('Iron Dragon', async (test): Promise<void> => {
 		'Adamantite bar': 42.67 / 2,
 		Curry: 42.67,
 		'Clue scroll (hard)': 128,
-		'Draconic visage': 10000,
-		'Ancient shard': 203,
-		'Dark totem base': 305,
-		'Dark totem middle': 305,
-		'Dark totem top': 305
+		'Draconic visage': 10000
 	};
 
 	const number = 10_000_000;
