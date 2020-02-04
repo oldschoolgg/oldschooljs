@@ -785,11 +785,7 @@ test('Abyssal Demon', async (test): Promise<void> => {
 		'Ensouled abyssal head': 25,
 		'Clue scroll (hard)': 128,
 		'Clue scroll (elite)': 1200,
-		'Abyssal head': 6000,
-		'Ancient shard': 233,
-		'Dark totem base': 350,
-		'Dark totem middle': 350,
-		'Dark totem top': 350
+		'Abyssal head': 6000
 	};
 
 	const number = 20_000_000;
@@ -833,11 +829,7 @@ test('Ankou', async (test): Promise<void> => {
 		Bass: 50,
 		'Weapon poison': 50,
 		'Fried mushrooms': 100,
-		'Clue scroll (hard)': 512,
-		'Ancient shard': 293,
-		'Dark totem base': 440,
-		'Dark totem middle': 440,
-		'Dark totem top': 440
+		'Clue scroll (hard)': 512
 	};
 
 	const number = 10_000_000;
@@ -914,11 +906,7 @@ test('Black Demon', async (test): Promise<void> => {
 		'Adamantite bar': 64,
 		'Defence potion(3)': 128,
 		'Ensouled demon head': 35,
-		'Clue scroll (hard)': 128,
-		'Ancient shard': 226,
-		'Dark totem base': 340,
-		'Dark totem middle': 340,
-		'Dark totem top': 340
+		'Clue scroll (hard)': 128
 	};
 
 	const number = 10_000_000;
@@ -1109,11 +1097,7 @@ test('Dagannoth', async (test): Promise<void> => {
 		'Opal bolt tips': 64 / 12,
 		Casket: 128,
 		'Ensouled dagannoth head': 40,
-		'Clue scroll (medium)': 128,
-		'Ancient shard': 286,
-		'Dark totem base': 430,
-		'Dark totem middle': 430,
-		'Dark totem top': 430
+		'Clue scroll (medium)': 128
 	};
 
 	const number = 10_000_000;
@@ -1192,11 +1176,7 @@ test('Dust Devil', async (test): Promise<void> => {
 		'Dragon chainbody': 32768,
 		'Mithril bar': 42.67 / 10,
 		'Ugthanki kebab': 64 / 4,
-		'Adamantite bar': 128 / 4,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Adamantite bar': 128 / 4
 	};
 
 	const number = 10_000_000;
@@ -1250,11 +1230,7 @@ test('Fire Giant', async (test): Promise<void> => {
 		'Ensouled giant head': 20,
 		'Long bone': 400,
 		'Giant champion scroll': 5000,
-		'Curved bone': 5013,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Curved bone': 5013
 	};
 
 	const number = 10_000_000;
@@ -1415,11 +1391,7 @@ test('Greater Demon', async (test): Promise<void> => {
 		'Gold bar': 64,
 		Thread: 128 / 10,
 		'Ensouled demon head': 40,
-		'Clue scroll (hard)': 128,
-		'Ancient shard': 246,
-		'Dark totem base': 370,
-		'Dark totem middle': 370,
-		'Dark totem top': 370
+		'Clue scroll (hard)': 128
 	};
 
 	const number = 10_000_000;
@@ -1433,11 +1405,7 @@ test('Hellhound', async (test): Promise<void> => {
 	const expectedRates = {
 		Bones: 1,
 		'Smouldering stone': 32768,
-		'Clue scroll (hard)': 64,
-		'Ancient shard': 256,
-		'Dark totem base': 384,
-		'Dark totem middle': 384,
-		'Dark totem top': 384
+		'Clue scroll (hard)': 64
 	};
 
 	const number = 20_000_000;
@@ -1469,11 +1437,7 @@ test('Iron Dragon', async (test): Promise<void> => {
 		'Adamantite bar': 42.67 / 2,
 		Curry: 42.67,
 		'Clue scroll (hard)': 128,
-		'Draconic visage': 10000,
-		'Ancient shard': 203,
-		'Dark totem base': 305,
-		'Dark totem middle': 305,
-		'Dark totem top': 305
+		'Draconic visage': 10000
 	};
 
 	const number = 10_000_000;
