@@ -965,7 +965,6 @@ test('Red Dragon', async (test): Promise<void> => {
 		'Dragon javelin heads': 12.8 / 10,
 		'Adamantite bar': 128,
 		'Ensouled dragon head': 40,
-		'Grubby key': 50,
 		'Clue scroll (hard)': 128
 	};
 
@@ -1130,11 +1129,7 @@ test('Steel Dragon', async (test): Promise<void> => {
 		'Dragon platelegs': 512,
 		'Clue scroll (hard)': 64,
 		'Clue scroll (elite)': 500,
-		'Draconic visage': 10000,
-		'Ancient shard': 166,
-		'Dark totem base': 250,
-		'Dark totem middle': 250,
-		'Dark totem top': 250
+		'Draconic visage': 10000
 	};
 
 	const number = 3_000_000;
@@ -1287,7 +1282,7 @@ test('Grotesque Guardians', async (test): Promise<void> => {
 		'Jar of stone': 5000
 	};
 
-	const number = 5_000_000;
+	const number = 20_000_000;
 	const loot = Monsters.GrotesqueGuardians.kill(number);
 
 	checkThreshold(test, expectedRates, loot, number);

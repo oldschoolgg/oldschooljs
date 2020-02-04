@@ -1,11 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleMonster from '../../structures/SimpleMonster';
-import { ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
-import { roll } from '../../util/util';
 
-export const GrotesqueGuardiansTable = new LootTable()
-	.every('Granite dust', [50, 100])
+export const GrotesqueGuardians2Table = new LootTable()
 
 	/* Uniques */
 	.oneIn(250, 'Granite maul')
@@ -59,21 +55,12 @@ export const GrotesqueGuardiansTable = new LootTable()
 	.addItem('Onyx bolt tips', [5, 10], 2)
 	.addItem('Dragon arrowtips', [50, 150], 1);
 
-export class GrotesqueGuardians extends SimpleMonster {
-	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
-
-		for (let i = 0; i < quantity; i++) {
-			loot.add(GrotesqueGuardiansTable.roll());
-			loot.add(GrotesqueGuardiansTable.roll());
-			if (roll(3000)) loot.add('Noon');
-			if (roll(5000)) loot.add('Jar of stone');
-			if (roll(230)) loot.add('Clue scroll (elite)');
-		}
-
-		return loot.values();
-	}
-}
+export const GrotesqueGuardiansTable = new LootTable()
+	.every(GrotesqueGuardians2Table, 2)
+	.every('Granite dust', [50, 100])
+	.tertiary(3000, 'Noon')
+	.tertiary(5000, 'Jar of stone')
+	.tertiary(230, 'Clue scroll (elite)');
 
 export default new SimpleMonster({
 	id: 7850,
