@@ -26,6 +26,27 @@ import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
+import Banshee from './turael/Banshee';
+import Bat from './turael/Bat';
+import CaveBug from './turael/Cavebug';
+import Bear from './turael/Bear';
+import CaveCrawler from './turael/CaveCrawler';
+import CaveSlime from './turael/CaveSlime';
+import Cow from './turael/Cow';
+import CrawlingHand from './turael/CrawlingHand';
+import Dog from './turael/Dog';
+import Dwarf from './turael/Dwarf';
+import Ghost from './turael/Ghost';
+import KalphiteWorker from './turael/KalphiteWorker';
+import Lizard from './turael/Lizard';
+import Minotaur from './turael/Minotaur';
+import Monkey from './turael/Monkey';
+import Rat from './turael/Rat';
+import Scorpion from './turael/Scorpion';
+import Skeleton from './turael/Skeleton';
+import Spider from './turael/Spider';
+import Wolf from './turael/Wolf';
+import Zombie from './turael/Zombie';
 
 const monstersObject = {
 	DagannothPrime,
@@ -53,7 +74,28 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
-	CorporealBeast
+	CorporealBeast,
+	Banshee,
+	Bat,
+	CaveBug,
+	Bear,
+	CaveCrawler,
+	CaveSlime,
+	Cow,
+	CrawlingHand,
+	Dog,
+	Dwarf,
+	Ghost,
+	KalphiteWorker,
+	Lizard,
+	Minotaur,
+	Monkey,
+	Rat,
+	Scorpion,
+	Skeleton,
+	Spider,
+	Wolf,
+	Zombie
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
