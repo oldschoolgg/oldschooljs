@@ -744,30 +744,6 @@ test("Vet'ion", async (test): Promise<void> => {
 	test.end();
 });
 
-test('Corporeal Beast', async (test): Promise<void> => {
-	const expectedRates = {
-		'Spirit shield': 64,
-		'Holy elixir': 170.7,
-		'Spectral sigil': 1365,
-		'Arcane sigil': 1365,
-		'Elysian sigil': 4095,
-		'Mystic air staff': 30.11,
-		'Onyx bolts (e)': 25.6 / 175,
-		Cannonball: 30.11 / 2000,
-		'Watermelon seed': 34.13 / 24,
-		'White berries': 36.57 / 120,
-		'Ranarr seed': 51.2 / 10,
-		'Clue scroll (elite)': 200,
-		'Pet dark core': 5000
-	};
-
-	const number = 10_000_000;
-	const loot = Monsters.CorporealBeast.kill(number);
-
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
-});
-
 test('Gargoyle', async (test): Promise<void> => {
 	const expectedRates = {
 		'Granite maul': 256,

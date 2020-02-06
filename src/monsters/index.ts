@@ -25,7 +25,6 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
-import CorporealBeast from './bosses/CorporealBeast';
 
 const monstersObject = {
 	DagannothPrime,
@@ -52,8 +51,7 @@ const monstersObject = {
 	Scorpia,
 	Venenatis,
 	Vetion,
-	CrazyArchaeologist,
-	CorporealBeast
+	CrazyArchaeologist
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
