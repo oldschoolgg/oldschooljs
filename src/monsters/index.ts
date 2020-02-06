@@ -53,6 +53,7 @@ import Gargoyle from './nieve/Gargoyle';
 import GreaterDemon from './nieve/GreaterDemon';
 import Hellhound from './nieve/Hellhound';
 import IronDragon from './nieve/IronDragon';
+import CorporealBeast from './bosses/CorporealBeast';
 
 const monstersObject = {
 	DagannothPrime,
@@ -107,7 +108,8 @@ const monstersObject = {
 	Gargoyle,
 	GreaterDemon,
 	Hellhound,
-	IronDragon
+	IronDragon,
+	CorporealBeast
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
