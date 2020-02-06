@@ -54,6 +54,7 @@ import DemonicGorilla from './nieve/DemonicGorilla';
 import GrotesqueGuardians from './bosses/GrotesqueGuardians';
 import TzTokJad from './special/TzTokJad';
 import TzKalZuk from './special/TzKalZuk';
+import CorporealBeast from './bosses/CorporealBeast';
 
 const monstersObject = {
 	DagannothPrime,
@@ -109,7 +110,8 @@ const monstersObject = {
 	DemonicGorilla,
 	GrotesqueGuardians,
 	TzTokJad,
-	TzKalZuk
+	TzKalZuk,
+	CorporealBeast
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
