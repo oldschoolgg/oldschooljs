@@ -25,6 +25,63 @@ import Vetion from './wildy/Vetion';
 import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
+import AberrantSpectre from './nieve/AberrantSpectre';
+import AbyssalDemon from './nieve/AbyssalDemon';
+import AdamantDragon from './nieve/AdamantDragon';
+import Ankou from './nieve/Ankou';
+import Aviansie from './nieve/Aviansie';
+import Basilisk from './nieve/Basilisk';
+import BlackDemon from './nieve/BlackDemon';
+import BlackDragon from './nieve/BlackDragon';
+import Bloodveld from './nieve/Bloodveld';
+import BlueDragon from './nieve/BlueDragon';
+import BrineRat from './nieve/BrineRat';
+import CaveHorror from './nieve/CaveHorror';
+import CaveKraken from './nieve/CaveKraken';
+import Kraken from './nieve/Kraken';
+import Dagannoth from './nieve/Dagannoth';
+import DarkBeast from './nieve/DarkBeast';
+import Drake from './nieve/Drake';
+import DustDevil from './nieve/DustDevil';
+import ElfWarrior from './nieve/ElfWarrior';
+import FireGiant from './nieve/FireGiant';
+import FossilIslandWyvernAncient from './nieve/FossilIslandWyvernAncient';
+import FossilIslandWyvernLongTailed from './nieve/FossilIslandWyvernLongTailed';
+import FossilIslandWyvernSpitting from './nieve/FossilIslandWyvernSpitting';
+import FossilIslandWyvernTaloned from './nieve/FossilIslandWyvernTaloned';
+import Gargoyle from './nieve/Gargoyle';
+import GreaterDemon from './nieve/GreaterDemon';
+import Hellhound from './nieve/Hellhound';
+import IronDragon from './nieve/IronDragon';
+import KalphiteWorker from './nieve/KalphiteWorker';
+import KalphiteQueen from './bosses/KalphiteQueen';
+import Kurask from './nieve/Kurask';
+import Lizardman from './nieve/Lizardman';
+import LizardmanShaman from './nieve/LizardmanShaman';
+import LocustRider from './nieve/LocustRider';
+import ScarabMage from './nieve/ScarabMage';
+import MithrilDragon from './nieve/MithrilDragon';
+import MutatedZygomite from './nieve/MutatedZygomite';
+import Nechryael from './nieve/Nechryael';
+import RedDragon from './nieve/RedDragon';
+import RuneDragon from './nieve/RuneDragon';
+import SkeletalWyvern from './nieve/SkeletalWyvern';
+import SmokeDevil from './nieve/SmokeDevil';
+import ThermonuclearSmokeDevil from './nieve/ThermonuclearSmokeDevil';
+import SpiritualMage from './nieve/SpiritualMage';
+import SpiritualRanger from './nieve/SpiritualRanger';
+import SpiritualWarrior from './nieve/SpiritualWarrior';
+import SteelDragon from './nieve/SteelDragon';
+import Suqah from './nieve/Suqah';
+import MountainTroll from './nieve/MountainTroll';
+import Turoth from './nieve/Turoth';
+import Wyrm from './nieve/Wyrm';
+import BasiliskKnight from './nieve/BasiliskKnight';
+import AbyssalSire from './bosses/AbyssalSire';
+import DemonicGorilla from './nieve/DemonicGorilla';
+import GrotesqueGuardians from './bosses/GrotesqueGuardians';
+import TzTokJad from './special/TzTokJad';
+import TzKalZuk from './special/TzKalZuk';
 import CorporealBeast from './bosses/CorporealBeast';
 
 const monstersObject = {
@@ -53,6 +110,63 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
+	AberrantSpectre,
+	AbyssalDemon,
+	AdamantDragon,
+	Ankou,
+	Aviansie,
+	Basilisk,
+	BlackDemon,
+	BlackDragon,
+	Bloodveld,
+	BlueDragon,
+	BrineRat,
+	CaveHorror,
+	CaveKraken,
+	Kraken,
+	Dagannoth,
+	DarkBeast,
+	Drake,
+	DustDevil,
+	ElfWarrior,
+	FireGiant,
+	FossilIslandWyvernAncient,
+	FossilIslandWyvernLongTailed,
+	FossilIslandWyvernSpitting,
+	FossilIslandWyvernTaloned,
+	Gargoyle,
+	GreaterDemon,
+	Hellhound,
+	IronDragon,
+	KalphiteWorker,
+	KalphiteQueen,
+	Kurask,
+	Lizardman,
+	LizardmanShaman,
+	LocustRider,
+	ScarabMage,
+	MithrilDragon,
+	MutatedZygomite,
+	Nechryael,
+	RedDragon,
+	RuneDragon,
+	SkeletalWyvern,
+	SmokeDevil,
+	ThermonuclearSmokeDevil,
+	SpiritualMage,
+	SpiritualRanger,
+	SpiritualWarrior,
+	SteelDragon,
+	Suqah,
+	MountainTroll,
+	Turoth,
+	Wyrm,
+	BasiliskKnight,
+	AbyssalSire,
+	DemonicGorilla,
+	GrotesqueGuardians,
+	TzTokJad,
+	TzKalZuk,
 	CorporealBeast
 };
 
