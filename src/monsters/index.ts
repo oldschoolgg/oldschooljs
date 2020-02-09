@@ -75,6 +75,7 @@ import SpiritualMage from './slayer/nieve/SpiritualMage';
 import SpiritualRanger from './slayer/nieve/SpiritualRanger';
 import SpiritualWarrior from './slayer/nieve/SpiritualWarrior';
 import Turoth from './slayer/nieve/Turoth';
+import Wyrm from './slayer/nieve/Wyrm';
 
 const monstersObject = {
 	DagannothPrime,
@@ -151,7 +152,8 @@ const monstersObject = {
 	SpiritualMage,
 	SpiritualRanger,
 	SpiritualWarrior,
-	Turoth
+	Turoth,
+	Wyrm
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
