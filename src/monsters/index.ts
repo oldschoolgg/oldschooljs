@@ -31,6 +31,13 @@ import AbyssalDemon from './slayer/nieve/AbyssalDemon';
 import AdamantDragon from './slayer/nieve/AdamantDragon';
 import Ankou from './slayer/nieve/Ankou';
 import Aviansie from './slayer/nieve/Aviansie';
+import Basilisk from './slayer/nieve/Basilisk';
+import BasiliskKnight from './slayer/nieve/BasiliskKnight';
+import BlackDemon from './slayer/nieve/BlackDemon';
+import BlackDragon from './slayer/nieve/BlackDragon';
+import Bloodveld from './slayer/nieve/Bloodveld';
+import BlueDragon from './slayer/nieve/BlueDragon';
+import BrineRat from './slayer/nieve/BrineRat';
 
 const monstersObject = {
 	DagannothPrime,
@@ -63,7 +70,14 @@ const monstersObject = {
 	AbyssalDemon,
 	AdamantDragon,
 	Ankou,
-	Aviansie
+	Aviansie,
+	Basilisk,
+	BasiliskKnight,
+	BlackDemon,
+	BlackDragon,
+	Bloodveld,
+	BlueDragon,
+	BrineRat
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
