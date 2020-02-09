@@ -71,6 +71,9 @@ import SkeletalWyvern from './slayer/nieve/SkeletalWyvern';
 import SmokeDevil from './slayer/nieve/SmokeDevil';
 import SteelDragon from './slayer/nieve/SteelDragon';
 import Suqah from './slayer/nieve/Suqah';
+import SpiritualMage from './slayer/nieve/SpiritualMage';
+import SpiritualRanger from './slayer/nieve/SpiritualRanger';
+import SpiritualWarrior from './slayer/nieve/SpiritualWarrior';
 
 const monstersObject = {
 	DagannothPrime,
@@ -143,7 +146,10 @@ const monstersObject = {
 	SkeletalWyvern,
 	SmokeDevil,
 	SteelDragon,
-	Suqah
+	Suqah,
+	SpiritualMage,
+	SpiritualRanger,
+	SpiritualWarrior
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
