@@ -26,6 +26,11 @@ import CrazyArchaeologist from './wildy/CrazyArchaeologist';
 import Collection from '../structures/Collection';
 import Monster from '../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
+import AberrantSpectre from './slayer/nieve/AberrantSpectre';
+import AbyssalDemon from './slayer/nieve/AbyssalDemon';
+import AdamantDragon from './slayer/nieve/AdamantDragon';
+import Ankou from './slayer/nieve/Ankou';
+import Aviansie from './slayer/nieve/Aviansie';
 
 const monstersObject = {
 	DagannothPrime,
@@ -53,7 +58,12 @@ const monstersObject = {
 	Venenatis,
 	Vetion,
 	CrazyArchaeologist,
-	CorporealBeast
+	CorporealBeast,
+	AberrantSpectre,
+	AbyssalDemon,
+	AdamantDragon,
+	Ankou,
+	Aviansie
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
