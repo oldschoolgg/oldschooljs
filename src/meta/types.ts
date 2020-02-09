@@ -13,6 +13,11 @@ export interface MonsterOptions {
 	aliases?: string[];
 }
 
+export interface MinigameOptions {
+	name: string;
+	aliases?: string[];
+}
+
 export type AccountType =
 	| 'normal'
 	| 'ironman'
