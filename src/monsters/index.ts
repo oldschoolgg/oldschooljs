@@ -45,6 +45,8 @@ import DarkBeast from './slayer/nieve/DarkBeast';
 import DemonicGorilla from './slayer/nieve/DemonicGorilla';
 import Drake from './slayer/nieve/Drake';
 import DustDevil from './slayer/nieve/DustDevil';
+import ElfWarrior from './slayer/nieve/ElfWarrior';
+import FireGiant from './slayer/nieve/FireGiant';
 
 const monstersObject = {
 	DagannothPrime,
@@ -91,7 +93,9 @@ const monstersObject = {
 	DarkBeast,
 	DemonicGorilla,
 	Drake,
-	DustDevil
+	DustDevil,
+	ElfWarrior,
+	FireGiant
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
