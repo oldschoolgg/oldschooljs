@@ -40,6 +40,11 @@ import BlueDragon from './slayer/nieve/BlueDragon';
 import BrineRat from './slayer/nieve/BrineRat';
 import CaveHorror from './slayer/nieve/CaveHorror';
 import CaveKraken from './slayer/nieve/CaveKraken';
+import Dagannoth from './slayer/nieve/Dagannoth';
+import DarkBeast from './slayer/nieve/DarkBeast';
+import DemonicGorilla from './slayer/nieve/DemonicGorilla';
+import Drake from './slayer/nieve/Drake';
+import DustDevil from './slayer/nieve/DustDevil';
 
 const monstersObject = {
 	DagannothPrime,
@@ -81,7 +86,12 @@ const monstersObject = {
 	BlueDragon,
 	BrineRat,
 	CaveHorror,
-	CaveKraken
+	CaveKraken,
+	Dagannoth,
+	DarkBeast,
+	DemonicGorilla,
+	Drake,
+	DustDevil
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
