@@ -55,6 +55,8 @@ import Gargoyle from './slayer/nieve/Gargoyle';
 import GreaterDemon from './slayer/nieve/GreaterDemon';
 import Hellhound from './slayer/nieve/Hellhound';
 import IronDragon from './slayer/nieve/IronDragon';
+import KalphiteWorker from './slayer/nieve/KalphiteWorker';
+import Kurask from './slayer/nieve/Kurask';
 
 const monstersObject = {
 	DagannothPrime,
@@ -111,7 +113,9 @@ const monstersObject = {
 	Gargoyle,
 	GreaterDemon,
 	Hellhound,
-	IronDragon
+	IronDragon,
+	KalphiteWorker,
+	Kurask
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
