@@ -66,6 +66,11 @@ import MutatedZygomite from './slayer/nieve/MutatedZygomite';
 import Nechryael from './slayer/nieve/Nechryael';
 import RedDragon from './slayer/nieve/RedDragon';
 import RuneDragon from './slayer/nieve/RuneDragon';
+import ScarabMage from './slayer/nieve/ScarabMage';
+import SkeletalWyvern from './slayer/nieve/SkeletalWyvern';
+import SmokeDevil from './slayer/nieve/SmokeDevil';
+import SteelDragon from './slayer/nieve/SteelDragon';
+import Suqah from './slayer/nieve/Suqah';
 
 const monstersObject = {
 	DagannothPrime,
@@ -133,7 +138,12 @@ const monstersObject = {
 	MutatedZygomite,
 	Nechryael,
 	RedDragon,
-	RuneDragon
+	RuneDragon,
+	ScarabMage,
+	SkeletalWyvern,
+	SmokeDevil,
+	SteelDragon,
+	Suqah
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
