@@ -64,6 +64,8 @@ import MithrilDragon from './slayer/nieve/MithrilDragon';
 import MountainTroll from './slayer/nieve/MountainTroll';
 import MutatedZygomite from './slayer/nieve/MutatedZygomite';
 import Nechryael from './slayer/nieve/Nechryael';
+import RedDragon from './slayer/nieve/RedDragon';
+import RuneDragon from './slayer/nieve/RuneDragon';
 
 const monstersObject = {
 	DagannothPrime,
@@ -129,7 +131,9 @@ const monstersObject = {
 	MithrilDragon,
 	MountainTroll,
 	MutatedZygomite,
-	Nechryael
+	Nechryael,
+	RedDragon,
+	RuneDragon
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
