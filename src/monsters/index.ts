@@ -60,6 +60,9 @@ import Kurask from './slayer/nieve/Kurask';
 import Lizardman from './slayer/nieve/Lizardman';
 import LizardmanShaman from './slayer/nieve/LizardmanShaman';
 import LocustRider from './slayer/nieve/LocustRider';
+import MithrilDragon from './slayer/nieve/MithrilDragon';
+import MountainTroll from './slayer/nieve/MountainTroll';
+import MutatedZygomite from './slayer/nieve/MutatedZygomite';
 
 const monstersObject = {
 	DagannothPrime,
@@ -121,7 +124,10 @@ const monstersObject = {
 	Kurask,
 	Lizardman,
 	LizardmanShaman,
-	LocustRider
+	LocustRider,
+	MithrilDragon,
+	MountainTroll,
+	MutatedZygomite
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
