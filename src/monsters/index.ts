@@ -51,6 +51,8 @@ import FossilIslandWyvernAncient from './slayer/nieve/FossilIslandWyvernAncient'
 import FossilIslandWyvernLongTailed from './slayer/nieve/FossilIslandWyvernLongTailed';
 import FossilIslandWyvernSpitting from './slayer/nieve/FossilIslandWyvernSpitting';
 import FossilIslandWyvernTaloned from './slayer/nieve/FossilIslandWyvernTaloned';
+import Gargoyle from './slayer/nieve/Gargoyle';
+import GreaterDemon from './slayer/nieve/GreaterDemon';
 
 const monstersObject = {
 	DagannothPrime,
@@ -103,7 +105,9 @@ const monstersObject = {
 	FossilIslandWyvernAncient,
 	FossilIslandWyvernLongTailed,
 	FossilIslandWyvernSpitting,
-	FossilIslandWyvernTaloned
+	FossilIslandWyvernTaloned,
+	Gargoyle,
+	GreaterDemon
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
