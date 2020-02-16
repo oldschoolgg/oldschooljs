@@ -90,7 +90,7 @@ export const BeginnerClueTable = new LootTable()
 	.add(StandardTable, undefined, 11)
 	.add(UniqueTable, undefined, 1);
 
-class BeginnerCasket extends Clue {
+export class BeginnerCasket extends Clue {
 	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 		for (let i = 0; i < quantity; i++) {
