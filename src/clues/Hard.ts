@@ -216,7 +216,7 @@ export const HardClueTable = new LootTable()
 	.add(HardStandardTable, undefined, 12)
 	.add(HardRareTable, undefined, 1);
 
-class HardCasket extends Clue {
+export class HardCasket extends Clue {
 	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 

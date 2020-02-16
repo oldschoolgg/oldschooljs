@@ -182,7 +182,7 @@ export const MediumClueTable = new LootTable()
 	.add(MediumStandardTable, undefined, 10)
 	.add(MediumRareTable, undefined, 1);
 
-class MediumCasket extends Clue {
+export class MediumCasket extends Clue {
 	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 

@@ -200,7 +200,7 @@ export const EasyClueTable = new LootTable()
 	.add(EasyStandardTable, undefined, 11)
 	.add(EasyRareTable, undefined, 1);
 
-class EasyCasket extends Clue {
+export class EasyCasket extends Clue {
 	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
