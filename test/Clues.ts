@@ -176,3 +176,28 @@ test('Master Clues', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Mystery Box', async (test): Promise<void> => {
+	const expectedRates = {
+		'Old boot': 15,
+		Flier: 15,
+		'Body rune': 15,
+		Bucket: 15,
+		Cabbage: 15,
+		Onion: 15,
+		'Mithril scimitar': 15,
+		Casket: 15,
+		'Steel platebody': 15,
+		Diamond: 15,
+		'Nature rune': 15 / 20,
+		'Clue scroll (easy)': 28.6,
+		'Clue scroll (medium)': 64.6,
+		'Clue scroll (hard)': 64.6,
+		'Stale baguette': 256
+	};
+
+	const number = 500_000;
+	const loot = Clues.MysteryBox.open(number);
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
