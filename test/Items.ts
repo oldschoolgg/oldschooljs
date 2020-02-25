@@ -2,9 +2,49 @@ import { Items } from '../dist';
 import test from 'tape';
 import { Item } from '../dist/meta/types';
 
-test('Pre-fetch checks', async t => {
-	t.plan(1);
-	t.equals(Items.get('Coins')?.id, 995);
+const expectedIDTuple = [
+	['Coins', 995],
+
+	['Clue scroll (beginner)', 23182],
+	['Clue scroll (easy)', 2677],
+	['Clue scroll (medium)', 2801],
+	['Clue scroll (hard)', 2722],
+	['Clue scroll (elite)', 12073],
+	['Clue scroll (master)', 19835],
+
+	['Reward casket (beginner)', 23245],
+	['Reward casket (easy)', 20546],
+	['Reward casket (medium)', 20545],
+	['Reward casket (hard)', 20544],
+	['Reward casket (elite)', 20543],
+	['Reward casket (master)', 19836],
+
+	// Random
+	['Air rune', 556],
+	["Zulrah's scales", 12934],
+	['Bones', 526]
+];
+
+// Check that items have the ID that we expect them to have, and not some random other version of that item.
+function checkItems(): void {
+	for (const [itemName, itemID] of expectedIDTuple) {
+		const item = Items.get(itemName);
+		if (!item) {
+			console.error(`*ERROR*: ${itemName} doesnt exist?`);
+			continue;
+		}
+		if (item.id !== itemID) {
+			console.error(
+				`*ERROR*: ${itemName} has the wrong item ID! Is[${item.id}] ShouldBe[${itemID}]`
+			);
+			continue;
+		}
+		console.log(`${itemName} has the right ID!`);
+	}
+}
+
+test('Pre-fetch checks', () => {
+	checkItems();
 });
 
 test('Setup', async t => {
@@ -42,6 +82,7 @@ test('Fetching Item by ID', async t => {
 });
 
 test('Duplicate/Stacked item counts', async t => {
+	checkItems();
 	for (const itemName of ["Zulrah's scales", 'Belladonna seed']) {
 		const itemArr = Items.filter(i => i.name === itemName).array();
 		if (itemArr.length !== 1) {
