@@ -161,6 +161,10 @@ export interface Item {
 	 */
 	members: boolean;
 	/**
+	 * If the item has incomplete wiki data.
+	 */
+	incomplete: boolean;
+	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
 	tradeable: boolean;
