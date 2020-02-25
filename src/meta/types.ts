@@ -173,6 +173,10 @@ export interface Item {
 	 */
 	stackable: boolean;
 	/**
+	 * If the item is stacked, indicated by the stack count.
+	 */
+	stacked: number | null;
+	/**
 	 * If the item is noted.
 	 */
 	noted: boolean;
@@ -250,7 +254,6 @@ export interface Item {
 	wiki_url: string | null;
 	equipment: ItemEquipment;
 	weapon?: ItemWeapon;
-	[k: string]: any;
 }
 
 export interface PartialItem {

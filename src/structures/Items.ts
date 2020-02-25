@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 
 import { cleanString } from '../util/util';
+import weirdItemFilter from '../util/weirdItemFilter';
 import { OSRS_BOX_BASE_URL } from '../constants';
 import { ItemID, Item, PartialItem } from '../meta/types';
 import Collection from './Collection';
@@ -15,7 +16,7 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
-const USELESS_ITEMS = [617];
+const USELESS_ITEMS = [617, 8890, 6964];
 
 class Items extends Collection<number, Item | PartialItem> {
 	public async fetchAll(): Promise<void> {
@@ -23,9 +24,7 @@ class Items extends Collection<number, Item | PartialItem> {
 			`${OSRS_BOX_BASE_URL}/items-complete.json`
 		).then((res): Promise<any> => res.json());
 
-		for (const item of Object.values(allItems).filter(
-			(item): boolean => !item.placeholder && !item.noted && !item.duplicate
-		)) {
+		for (const item of Object.values(allItems).filter(weirdItemFilter)) {
 			this.set(item.id, item);
 		}
 	}
@@ -65,12 +64,10 @@ const itemsExport = new Items();
 
 for (const [id, name] of Object.entries(items)) {
 	const numID = parseInt(id);
-	const cleanName = cleanString(name);
 
-	if (itemNameMap.has(cleanName)) continue;
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, { name, id: numID });
-	itemNameMap.set(cleanName, numID);
+	itemNameMap.set(cleanString(name), numID);
 }
 
 export default itemsExport;
