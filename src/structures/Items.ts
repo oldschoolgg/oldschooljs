@@ -67,7 +67,8 @@ for (const [id, name] of Object.entries(items)) {
 
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, { name, id: numID });
-	itemNameMap.set(cleanString(name), numID);
+	const cleanName = cleanString(name);
+	if (!itemNameMap.has(cleanName)) itemNameMap.set(cleanName, numID);
 }
 
 export default itemsExport;
