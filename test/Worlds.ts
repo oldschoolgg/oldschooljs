@@ -11,7 +11,7 @@ test('Generic Worlds', t => {
 	t.plan(2);
 
 	// New worlds are sometimes added, so just check it has atleast the amount of normal worlds.
-	t.ok(Worlds.size >= 187, 'Expected >= 187 Worlds');
+	t.ok(Worlds.size >= 180, 'Expected >= 180 Worlds');
 
 	// There should be more than 14 Australian Worlds.
 	const australianWorlds = Worlds.filter(world => world.location === 'Australia');
