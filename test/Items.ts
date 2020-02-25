@@ -43,8 +43,9 @@ function checkItems(): void {
 	}
 }
 
-test('Pre-fetch checks', () => {
+test('Pre-fetch checks', t => {
 	checkItems();
+	t.end();
 });
 
 test('Setup', async t => {
