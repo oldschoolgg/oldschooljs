@@ -161,6 +161,10 @@ export interface Item {
 	 */
 	members: boolean;
 	/**
+	 * If the item has incomplete wiki data.
+	 */
+	incomplete: boolean;
+	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
 	tradeable: boolean;
@@ -172,6 +176,10 @@ export interface Item {
 	 * If the item is stackable (in inventory).
 	 */
 	stackable: boolean;
+	/**
+	 * If the item is stacked, indicated by the stack count.
+	 */
+	stacked: number | null;
 	/**
 	 * If the item is noted.
 	 */
@@ -250,7 +258,6 @@ export interface Item {
 	wiki_url: string | null;
 	equipment: ItemEquipment;
 	weapon?: ItemWeapon;
-	[k: string]: any;
 }
 
 export interface PartialItem {
