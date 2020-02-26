@@ -22,7 +22,30 @@ const expectedIDTuple = [
 	// Random
 	['Air rune', 556],
 	["Zulrah's scales", 12934],
-	['Bones', 526]
+	['Bones', 526],
+	['Cannonball', 2],
+	['Opal bolt tips', 45],
+	['Runite bolts', 9144],
+	['Sapphire bolt tips', 9189],
+	['Onyx bolts (e)', 9245],
+	['Runite bolts (unf)', 9381],
+	['Dragon arrow', 11212],
+	['Dragon dart tip', 11232],
+	['Dragon arrowtips', 11237],
+	['Armadyl hilt', 11810],
+	['Godsword shard 1', 11818],
+	['Elysian sigil', 12819],
+
+	// Clue
+	['Spiked manacles', 23389],
+	['Adamant platebody (h1)', 23392],
+	['Adamant platebody (h2)', 23395],
+	['Adamant platebody (h3)', 23398],
+	['Adamant platebody (h4)', 23401],
+	['Adamant platebody (h5)', 23404],
+	['Wolf mask', 23407],
+	['Wolf cloak', 23410],
+	['Climbing boots (g)', 23413]
 ];
 
 // Check that items have the ID that we expect them to have, and not some random other version of that item.
