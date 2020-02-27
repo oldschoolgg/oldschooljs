@@ -351,3 +351,20 @@ export interface OneInItems extends LootTableItem {
 }
 
 export type TupleLootItem = [number, number];
+
+export interface MonsterKillOptions {
+	onSlayerTask?: boolean;
+	barrowsPoints?: number;
+	moryHardCompleted?: boolean;
+	inCatacombs?: boolean;
+	inWilderness?: boolean;
+}
+
+export interface OpenableOptions {
+	id: number;
+	name: string;
+	aliases: string[];
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface OpenableOpenOptions {}

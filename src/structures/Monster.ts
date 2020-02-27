@@ -1,4 +1,4 @@
-import { MonsterOptions } from '../meta/types';
+import { MonsterOptions, MonsterKillOptions, ItemBank } from '../meta/types';
 
 export default abstract class Monster {
 	public id: number;
@@ -6,6 +6,7 @@ export default abstract class Monster {
 	public combatLevel?: number;
 	public hitpoints?: number;
 	public aliases: string[];
+	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
 
 	constructor(options: MonsterOptions) {
 		this.id = options.id;
