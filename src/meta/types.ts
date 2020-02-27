@@ -354,10 +354,10 @@ export type TupleLootItem = [number, number];
 
 export interface MonsterKillOptions {
 	onSlayerTask?: boolean;
-	barrowsPoints?: number;
-	moryHardCompleted?: boolean;
 	inCatacombs?: boolean;
 	inWilderness?: boolean;
+	onKonarTask?: boolean;
+	onKrystiliaTask?: boolean;
 }
 
 export interface OpenableOptions {
