@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "0.9.1",
+	"version": "0.9.2",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
