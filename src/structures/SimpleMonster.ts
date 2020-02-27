@@ -19,8 +19,7 @@ export default class SimpleMonster extends Monster {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
-			const result = this.table.roll();
-			loot.add(result);
+			loot.add(this.table.roll());
 		}
 
 		return loot.values();
