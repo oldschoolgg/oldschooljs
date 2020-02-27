@@ -137,7 +137,7 @@ export const MasterSeedTable = new LootTable()
 
 export const MasterStandardTable = new LootTable()
 	.addItem('Coins', [20000, 35000])
-	.addItem('Mantaray', [15, 25])
+	.addItem('Manta ray', [15, 25])
 	.addItem('Nature rune', [100, 200])
 	.addItem('Death rune', [100, 200])
 	.addItem('Blood rune', [100, 200])
