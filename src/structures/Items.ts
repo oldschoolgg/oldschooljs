@@ -16,7 +16,7 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
-const USELESS_ITEMS = [617, 8890, 6964];
+const USELESS_ITEMS = [617, 8890, 6964, 2513];
 
 class Items extends Collection<number, Item | PartialItem> {
 	public async fetchAll(): Promise<void> {
