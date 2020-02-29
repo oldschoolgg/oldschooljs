@@ -6,6 +6,18 @@ import LootTable from '../dist/structures/LootTable';
 import Loot from '../dist/structures/Loot';
 import { ItemBank } from '../dist/meta/types';
 
+import * as rawMonsterData from '../dist/data/monsters_data.json';
+import { Monsters } from '../dist';
+import MonsterData from '../dist/meta/monsterData';
+const monsterData = rawMonsterData as { [key: string]: MonsterData };
+
+for (const monster of Monsters.values()) {
+	if (!monsterData[monster.id] || !monster.data) {
+		console.error(`[${monster.name}][${monster.id}] has no data in the monster data cache!`);
+		process.exit();
+	}
+}
+
 const subSubTable = new LootTable().add('Coal');
 const quantityTable = new LootTable().add('Dragon claws');
 const emptyTable = new LootTable(100).add('Rune crossbow');
