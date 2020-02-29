@@ -8,7 +8,7 @@ import { ItemBank } from '../dist/meta/types';
 
 import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { Monsters } from '../dist';
-import MonsterData from '../dist/meta/monsterData';
+import { MonsterData } from '../dist/meta/monsterData';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 for (const monster of Monsters.values()) {

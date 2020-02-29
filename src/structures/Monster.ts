@@ -1,5 +1,5 @@
 import { MonsterOptions, MonsterKillOptions, ItemBank } from '../meta/types';
-import MonsterData from '../meta/monsterData';
+import { MonsterData } from '../meta/monsterData';
 import rawMonsterData from '../data/monsters_data.json';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
