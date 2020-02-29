@@ -1,26 +1,32 @@
-export type MonsterAttribute =
-	| 'demon'
-	| 'dragon'
-	| 'fiery'
-	| 'kalphite'
-	| 'leafy'
-	| 'penance'
-	| 'shade'
-	| 'undead'
-	| 'vampyre'
-	| 'xerician';
+export enum MonsterAttribute {
+	Demon = 'demon',
+	Dragon = 'dragon',
+	Fiery = 'fiery',
+	Kalphite = 'kalphite',
+	Leafy = 'leafy',
+	Penance = 'penance',
+	Shade = 'shade',
+	Undead = 'undead',
+	Vampyre = 'vampyre',
+	Xerician = 'xerician'
+}
 
-export type MonsterSlayerMaster =
-	| 'turael'
-	| 'krystilia'
-	| 'mazchna'
-	| 'vannaka'
-	| 'chaeldar'
-	| 'konar'
-	| 'nieve'
-	| 'duradel';
+export enum MonsterSlayerMaster {
+	Turael = 'turael',
+	Krystilia = 'krystilia',
+	Mazchna = 'mazchna',
+	Vannaka = 'vannaka',
+	Chaeldar = 'chaeldar',
+	Konar = 'konar',
+	Nieve = 'nieve',
+	Duradel = 'duradel'
+}
 
-export type MonsterAttackType = 'melee' | 'magic' | 'range';
+export enum MonsterAttackType {
+	Melee = 'melee',
+	Magic = 'magic',
+	Range = 'range'
+}
 
 export default interface MonsterData {
 	id: number;
