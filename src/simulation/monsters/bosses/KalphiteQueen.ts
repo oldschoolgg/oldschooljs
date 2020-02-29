@@ -74,7 +74,7 @@ export const KalphiteQueenTable = new LootTable(256)
 	.tertiary(3000, 'Kalphite princess');
 
 export default new SimpleMonster({
-	id: 128,
+	id: 963,
 	name: 'Kalphite Queen',
 	table: KalphiteQueenTable,
 	aliases: ['kalphite queen', 'kq']

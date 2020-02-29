@@ -82,7 +82,7 @@ export class Vorkath extends SimpleMonster {
 }
 
 export default new Vorkath({
-	id: 8026,
+	id: 8061,
 	name: 'Vorkath',
 	table: VorkathTable,
 	aliases: ['vorkath', 'vorki', 'vork']
