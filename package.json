@@ -20,7 +20,7 @@
 		"dev": "tsc --watch -p .",
 		"prepareData": "npm run build && npm run prepareData:run",
 		"prepareData:run": "ts-node scripts/prepare",
-		"prepMonsters": "npm run build && ts-node scripts/prepareMonsters.ts"
+		"prepmon": "npm run build && ts-node scripts/prepareMonsters.ts"
 	},
 	"dependencies": {
 		"jsdom": "^16.0.1",
