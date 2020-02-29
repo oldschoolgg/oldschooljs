@@ -1,4 +1,5 @@
 import LootTable from '../structures/LootTable';
+import { MonsterSlayerMaster } from './monsterData';
 
 export interface SimpleLootItem {
 	id: string;
@@ -353,11 +354,22 @@ export interface OneInItems extends LootTableItem {
 export type TupleLootItem = [number, number];
 
 export interface MonsterKillOptions {
-	onSlayerTask?: boolean;
+	/**
+	 * This is *true* if the monster is being killed inside the catacombs.
+	 */
 	inCatacombs?: boolean;
+	/**
+	 * This is *true* if the monster is being killed inside the wilderness.
+	 */
 	inWilderness?: boolean;
-	onKonarTask?: boolean;
-	onKrystiliaTask?: boolean;
+	/**
+	 * This is *true* if the monster being killed is on-task.
+	 */
+	onSlayerTask?: boolean;
+	/**
+	 * This is the assigner of this task, if on a task.
+	 */
+	slayerMaster?: MonsterSlayerMaster;
 }
 
 export interface OpenableOptions {
