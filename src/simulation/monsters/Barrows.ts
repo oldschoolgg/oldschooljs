@@ -1,6 +1,6 @@
 import LootTable from '../../structures/LootTable';
 import Loot from '../../structures/Loot';
-import { ItemBank, MonsterKillOptions } from '../../meta/types';
+import { ItemBank } from '../../meta/types';
 import { roll } from '../../util/util';
 import Monster from '../../structures/Monster';
 
@@ -50,12 +50,8 @@ export const OtherTable = new LootTable()
 
 const NUMBER_OF_BROTHERS = 6;
 
-interface BarrowsOptions extends MonsterKillOptions {
-	barrowsPoints?: number;
-}
-
 export class Barrows extends Monster {
-	public kill(quantity = 1, options: BarrowsOptions): ItemBank {
+	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
