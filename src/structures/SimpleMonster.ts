@@ -17,7 +17,7 @@ export default class SimpleMonster extends Monster {
 		this.table = options.table;
 	}
 
-	public kill(quantity = 1, options: MonsterKillOptions): ItemBank {
+	public kill(quantity = 1, options?: MonsterKillOptions): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
