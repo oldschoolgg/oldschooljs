@@ -163,3 +163,12 @@ export function fromKMB(number: string): number {
 
 	return parseInt(newNum);
 }
+
+export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
+	// https://twitter.com/JagexKieren/status/1083781544135847936
+	if (combatLevel < 100) {
+		return Math.round(0.2 * (combatLevel - 100) ** 2 + 100);
+	} else {
+		return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
+	}
+}

@@ -55,3 +55,14 @@ test('KMB checks', async t => {
 	t.equal(Util.fromKMB('1.2b'), 1200000000);
 	t.equal(Util.fromKMB('50b'), 50000000000);
 });
+
+test('Brimestone chance calc', async t => {
+	t.plan(6);
+
+	t.equal(Util.getBrimKeyChanceFromCBLevel(725), 50);
+	t.equal(Util.getBrimKeyChanceFromCBLevel(321), 56);
+	t.equal(Util.getBrimKeyChanceFromCBLevel(303), 59);
+	t.equal(Util.getBrimKeyChanceFromCBLevel(123), 95);
+	t.equal(Util.getBrimKeyChanceFromCBLevel(28), 1137);
+	t.equal(Util.getBrimKeyChanceFromCBLevel(2), 2021);
+});

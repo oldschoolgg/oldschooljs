@@ -3,7 +3,7 @@ import { Hiscores } from '../dist';
 import test from 'tape';
 
 test('Hiscores', async t => {
-	t.plan(40);
+	t.plan(38);
 
 	const [lynxTitan, zulu, mgby, leaguesMgby, virtualMgby] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
@@ -31,9 +31,6 @@ test('Hiscores', async t => {
 
 	t.equal(zulu.bossRecords.commanderZilyana.rank > 1, true);
 	t.equal(zulu.bossRecords.commanderZilyana.score, 1082);
-
-	t.equal(zulu.bossRecords.chambersofXeric.rank > 1, true);
-	t.equal(zulu.bossRecords.chambersofXeric.score, 872);
 
 	t.equal(zulu.bossRecords.zulrah.rank > 1, true);
 	t.equal(zulu.bossRecords.zulrah.score, 2475);
