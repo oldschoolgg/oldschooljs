@@ -54,6 +54,19 @@ export default class LootTable {
 		return this;
 	}
 
+	public addAny(item: any, quantity: number[] | number = 1, weight = 1): this {
+		this.length += 1;
+		this.totalWeight += weight;
+
+		this.table.push({
+			item,
+			weight,
+			quantity
+		});
+
+		return this;
+	}
+
 	public add(
 		item: LootTable | number | string | LootTableItem[],
 		quantity: number[] | number = 1,
