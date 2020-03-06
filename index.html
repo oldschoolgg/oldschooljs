@@ -1,0 +1,1004 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>oldschooljs</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">oldschooljs</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>oldschooljs</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#oldschooljs" id="oldschooljs" style="color: inherit; text-decoration: none;">
+					<h1>OldSchoolJS</h1>
+				</a>
+				<p>A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, and more.</p>
+				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
+					<h2>Examples</h2>
+				</a>
+				<ul>
+					<li><a href="#Hiscores">Hiscores</a></li>
+					<li><a href="#Items">Items</a></li>
+					<li><a href="#News">News</a></li>
+					<li><a href="#Worlds">Worlds</a></li>
+					<li><a href="#Wiki">Wiki</a></li>
+					<li><a href="#Polls">Polls</a></li>
+					<li><a href="#Clues">Clues (Clue Scroll Simulating)</a></li>
+					<li><a href="#Monsters">Monsters (Monster killing simulating)</a></li>
+					<li><a href="#Utilies">Utilies</a></li>
+				</ul>
+				<a href="#hiscores" id="hiscores" style="color: inherit; text-decoration: none;">
+					<h2>Hiscores</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#getting-any-player-from-the-hiscores" id="getting-any-player-from-the-hiscores" style="color: inherit; text-decoration: none;">
+					<h4>Getting any player from the hiscores</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Lynx Titan'</span>).catch(<span class="hljs-built_in">console</span>.error);
+
+<span class="hljs-built_in">console</span>.log(lynxTitan);</code></pre>
+				<a href="#getting-an-ironman-from-the-hiscores" id="getting-an-ironman-from-the-hiscores" style="color: inherit; text-decoration: none;">
+					<h4>Getting an Ironman from the hiscores</h4>
+				</a>
+				<p>Possible account types: &#39;normal&#39; | &#39;ironman&#39; | &#39;ultimate&#39; | &#39;hardcore&#39; | &#39;deadman&#39; | &#39;seasonal&#39;</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Iron Hyger'</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">'ironman'</span> }).catch(<span class="hljs-built_in">console</span>.error);
+
+<span class="hljs-built_in">console</span>.log(ironHyger);</code></pre>
+				<a href="#items" id="items" style="color: inherit; text-decoration: none;">
+					<h2>Items</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#fetch-and-cache-all-items" id="fetch-and-cache-all-items" style="color: inherit; text-decoration: none;">
+					<h4>Fetch and cache all items</h4>
+				</a>
+				<p>You can call this to have all items fully available for usage (via <code>.get</code>) at any time without needing to fetch individual items. Items change at most once a week, so you should probably only call this once at startup, and then once every few days.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">await</span> Items.fetchAll();</code></pre>
+				<a href="#fetch-a-particular-item" id="fetch-a-particular-item" style="color: inherit; text-decoration: none;">
+					<h4>Fetch a particular item</h4>
+				</a>
+				<p>This will <em>fetch</em> the latest version of a particular item.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBow = <span class="hljs-keyword">await</span> Items.fetch(<span class="hljs-number">20997</span>);
+
+<span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);</code></pre>
+				<a href="#getting-an-item-by-id" id="getting-an-item-by-id" style="color: inherit; text-decoration: none;">
+					<h4>Getting an Item by ID</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBow = Items.get(<span class="hljs-number">20997</span>);
+
+<span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);</code></pre>
+				<a href="#getting-an-item-by-name" id="getting-an-item-by-name" style="color: inherit; text-decoration: none;">
+					<h4>Getting an Item by Name</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonDagger = Items.get(<span class="hljs-string">'dragon dagger(p++)'</span>);
+
+<span class="hljs-keyword">if</span> (dragonDagger) <span class="hljs-built_in">console</span>.log(dragonDagger);</code></pre>
+				<a href="#find-items-by-any-properties" id="find-items-by-any-properties" style="color: inherit; text-decoration: none;">
+					<h4>Find items by any properties</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonItems = Items.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.name.includes(<span class="hljs-string">'Dragon'</span>));
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Found <span class="hljs-subst">${dragonItems.size}</span> Dragon Items!`</span>);
+
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> dragonItems.values()) {
+    <span class="hljs-built_in">console</span>.log(item.name);
+}</code></pre>
+				<a href="#news" id="news" style="color: inherit; text-decoration: none;">
+					<h2>News</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { News } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<p>Be careful with <em>fetching</em> news articles too often, as the website will ratelimit you after roughly 30 requests in a short period. Whenever a fetch is done, the <code>News</code> collection will have any new articles cached.</p>
+				<p>Rather than fetching articles on demand, you may want to</p>
+				<a href="#fetch-recent-news-articles" id="fetch-recent-news-articles" style="color: inherit; text-decoration: none;">
+					<h4>Fetch recent news articles</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> recentArticles = <span class="hljs-keyword">await</span> News.fetchRecent();
+
+<span class="hljs-keyword">const</span> mostRecentArticle = recentArticles.first();</code></pre>
+				<a href="#get-news-articles-for-a-specific-month" id="get-news-articles-for-a-specific-month" style="color: inherit; text-decoration: none;">
+					<h4>Get news articles for a specific month</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> monthOfArticles = <span class="hljs-keyword">await</span> News.filter(<span class="hljs-function"><span class="hljs-params">article</span> =&gt;</span> article.year === <span class="hljs-number">2018</span> &amp;&amp; article.month === <span class="hljs-number">12</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);</code></pre>
+				<a href="#fetch-news-articles-for-a-specific-month" id="fetch-news-articles-for-a-specific-month" style="color: inherit; text-decoration: none;">
+					<h4>Fetch news articles for a specific month</h4>
+				</a>
+				<p>This will <em>fetch</em> news articles for a specific month, i.e it wont be cached. In most cases you can just use <code>News.filter()</code> instead of this.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> monthOfArticles = <span class="hljs-keyword">await</span> News.fetchMonth({ <span class="hljs-attr">year</span>: <span class="hljs-number">2018</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">12</span> });
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);</code></pre>
+				<a href="#list-every-available-news-article" id="list-every-available-news-article" style="color: inherit; text-decoration: none;">
+					<h4>List every available news article</h4>
+				</a>
+				<p>If you want this to be up to 100% up to date, you need to call <code>News.fetchNewArticles()</code> to fetch newly released articles that aren&#39;t cached by oldschooljs.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> article <span class="hljs-keyword">of</span> News.values()) {
+    <span class="hljs-built_in">console</span>.log(article);
+}</code></pre>
+				<a href="#worlds" id="worlds" style="color: inherit; text-decoration: none;">
+					<h2>Worlds</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Worlds } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#fetch-and-cache-all-worlds" id="fetch-and-cache-all-worlds" style="color: inherit; text-decoration: none;">
+					<h4>Fetch and cache all worlds</h4>
+				</a>
+				<p>You <strong>must</strong> call this atleast once to be able to use <code>Worlds</code>. To keep worlds up to date, fetching once at startup and then once every few days is enough. If you need an up to date playercount of worlds, you can call it more often or on demand.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">await</span> Worlds.fetch();</code></pre>
+				<a href="#getting-a-particular-world" id="getting-a-particular-world" style="color: inherit; text-decoration: none;">
+					<h4>Getting a particular world</h4>
+				</a>
+				<p>You can use either form of numbering, giving <code>301</code> and <code>1</code> will both give you World 1.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> worldOne = Worlds.get(<span class="hljs-number">301</span>);
+<span class="hljs-keyword">const</span> worldTwo = Worlds.get(<span class="hljs-number">2</span>);</code></pre>
+				<a href="#filtering-worlds" id="filtering-worlds" style="color: inherit; text-decoration: none;">
+					<h4>Filtering Worlds</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> australianWorlds = Worlds.filter(<span class="hljs-function"><span class="hljs-params">world</span> =&gt;</span> world.location === <span class="hljs-string">'Australia'</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There are <span class="hljs-subst">${australianWorlds.size}</span> Australian Worlds!`</span>);</code></pre>
+				<a href="#iterating-over-worlds" id="iterating-over-worlds" style="color: inherit; text-decoration: none;">
+					<h4>Iterating over worlds</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> world <span class="hljs-keyword">of</span> Worlds.values()) {
+    <span class="hljs-built_in">console</span>.log(world);
+}</code></pre>
+				<a href="#wiki" id="wiki" style="color: inherit; text-decoration: none;">
+					<h2>Wiki</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Wiki } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#searching-for-pages" id="searching-for-pages" style="color: inherit; text-decoration: none;">
+					<h4>Searching for pages</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> searchResults = <span class="hljs-keyword">await</span> Wiki.search(<span class="hljs-string">'Twisted bow'</span>);
+<span class="hljs-keyword">if</span> (searchResults.length === <span class="hljs-number">0</span>) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Found no results'</span>);
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);</code></pre>
+				<a href="#picking-random-pages" id="picking-random-pages" style="color: inherit; text-decoration: none;">
+					<h4>Picking random pages</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> randomPages = <span class="hljs-keyword">await</span> Wiki.random(<span class="hljs-number">10</span>);
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);</code></pre>
+				<a href="#fetch-page-by-id" id="fetch-page-by-id" style="color: inherit; text-decoration: none;">
+					<h4>Fetch page by ID</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBowPage = <span class="hljs-keyword">await</span> Wiki.fetchPage(<span class="hljs-number">82098</span>);
+
+<span class="hljs-built_in">console</span>.log(twistedBowPage);</code></pre>
+				<a href="#polls" id="polls" style="color: inherit; text-decoration: none;">
+					<h2>Polls</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Polls } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#iterating-over-worlds-1" id="iterating-over-worlds-1" style="color: inherit; text-decoration: none;">
+					<h4>Iterating over worlds</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> poll <span class="hljs-keyword">of</span> Polls.values()) {
+    <span class="hljs-built_in">console</span>.log(poll.title);
+}</code></pre>
+				<a href="#getting-all-polls-in-a-year" id="getting-all-polls-in-a-year" style="color: inherit; text-decoration: none;">
+					<h4>Getting all polls in a year</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> pollsFrom2013 = Polls.filter(<span class="hljs-function"><span class="hljs-params">poll</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(poll.datePosted).getFullYear() === <span class="hljs-number">2013</span>);
+<span class="hljs-built_in">console</span>.log(pollsFrom2013.size);</code></pre>
+				<a href="#utilities" id="utilities" style="color: inherit; text-decoration: none;">
+					<h2>Utilities</h2>
+				</a>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Util } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#checking-if-a-username-is-valid" id="checking-if-a-username-is-valid" style="color: inherit; text-decoration: none;">
+					<h4>Checking if a username is valid</h4>
+				</a>
+				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Util.isValidUsername(username)); <span class="hljs-comment">// true</span></code></pre>
+				<a href="#converting-numbers-to-and-from-kmb-syntax" id="converting-numbers-to-and-from-kmb-syntax" style="color: inherit; text-decoration: none;">
+					<h4>Converting numbers to and from KMB syntax</h4>
+				</a>
+				<p>KMB Syntax is how numbers are often formatted in runescape, for example: 5k, 1.5m, 5m, 1b, etc.</p>
+				<pre><code class="language-js">Util.toKMB(<span class="hljs-number">5</span>); <span class="hljs-comment">// '5'</span>
+Util.toKMB(<span class="hljs-number">1000</span>); <span class="hljs-comment">// '1k'</span>
+Util.toKMB(<span class="hljs-number">1000000</span>); <span class="hljs-comment">// '1m'</span>
+Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comment">// '1.2b'</span></code></pre>
+				<pre><code class="language-js">Util.fromKMB(<span class="hljs-string">'5'</span>); <span class="hljs-comment">// 5</span>
+Util.fromKMB(<span class="hljs-string">'1k'</span>); <span class="hljs-comment">// 1000</span>
+Util.fromKMB(<span class="hljs-string">'1m'</span>); <span class="hljs-comment">// 1000000</span>
+Util.fromKMB(<span class="hljs-string">'1.2b'</span>); <span class="hljs-comment">// 1200000000</span></code></pre>
+				<a href="#clues" id="clues" style="color: inherit; text-decoration: none;">
+					<h2>Clues</h2>
+				</a>
+				<p>Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Clues.Beginner.open(<span class="hljs-number">1</span>));
+<span class="hljs-built_in">console</span>.log(Clues.Master.open(<span class="hljs-number">5</span>));
+<span class="hljs-built_in">console</span>.log(Clues.Elite.open());</code></pre>
+				<a href="#monsters" id="monsters" style="color: inherit; text-decoration: none;">
+					<h2>Monsters</h2>
+				</a>
+				<p>Allows you to simulate killing monsters. The loot is returned in a format containing the item ID and the quantity.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Monsters.LuckyImp.roll());</code></pre>
+				<a href="#planned-features" id="planned-features" style="color: inherit; text-decoration: none;">
+					<h2>Planned features</h2>
+				</a>
+				<ul>
+					<li>Ability to ping worlds?</li>
+					<li>CrystalMathLabs</li>
+					<li>Simulating: killing monsters, opening clue scrolls, pets (like in osbot)</li>
+					<li>Quests (e.g. containing all wiki data on quests)</li>
+					<li>fetch wiki page by item ID?</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/errors.html" class="tsd-kind-icon">Errors</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/monsterattacktype.html" class="tsd-kind-icon">Monster<wbr>Attack<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/monsterattribute.html" class="tsd-kind-icon">Monster<wbr>Attribute</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/monsterslayermaster.html" class="tsd-kind-icon">Monster<wbr>Slayer<wbr>Master</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/barrows.html" class="tsd-kind-icon">Barrows</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/beginnercasket.html" class="tsd-kind-icon">Beginner<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/clue.html" class="tsd-kind-icon">Clue</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/collection.html" class="tsd-kind-icon">Collection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/easycasket.html" class="tsd-kind-icon">Easy<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/elitecasket.html" class="tsd-kind-icon">Elite<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hardcasket.html" class="tsd-kind-icon">Hard<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/hiscores.html" class="tsd-kind-icon">Hiscores</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/items.html" class="tsd-kind-icon">Items</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/loot.html" class="tsd-kind-icon">Loot</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/loottable.html" class="tsd-kind-icon">Loot<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mastercasket.html" class="tsd-kind-icon">Master<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mediumcasket.html" class="tsd-kind-icon">Medium<wbr>Casket</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/monster.html" class="tsd-kind-icon">Monster</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/monsterscollection.html" class="tsd-kind-icon">Monsters<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/news.html" class="tsd-kind-icon">News</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/oldschooljserror.html" class="tsd-kind-icon">Old<wbr>SchoolJSError</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/openable.html" class="tsd-kind-icon">Openable</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/openablescollection.html" class="tsd-kind-icon">Openables<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/player.html" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/polls.html" class="tsd-kind-icon">Polls</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/simplemonster.html" class="tsd-kind-icon">Simple<wbr>Monster</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/simpleopenable.html" class="tsd-kind-icon">Simple<wbr>Openable</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/vorkath.html" class="tsd-kind-icon">Vorkath</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/wiki.html" class="tsd-kind-icon">Wiki</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/worlds.html" class="tsd-kind-icon">Worlds</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/zulrah.html" class="tsd-kind-icon">Zulrah</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/bossrecords.html" class="tsd-kind-icon">Boss<wbr>Records</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/cluesscore.html" class="tsd-kind-icon">Clues<wbr>Score</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/dateyearmonth.html" class="tsd-kind-icon">Date<wbr>Year<wbr>Month</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/getoptions.html" class="tsd-kind-icon">Get<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/item.html" class="tsd-kind-icon">Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itembank.html" class="tsd-kind-icon">Item<wbr>Bank</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itemcollection.html" class="tsd-kind-icon">Item<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/loottableitem.html" class="tsd-kind-icon">Loot<wbr>Table<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/minigamescore.html" class="tsd-kind-icon">Minigame<wbr>Score</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/minigamesscore.html" class="tsd-kind-icon">Minigames<wbr>Score</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/monsterdata.html" class="tsd-kind-icon">Monster<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/monsterkilloptions.html" class="tsd-kind-icon">Monster<wbr>Kill<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/monsteroptions.html" class="tsd-kind-icon">Monster<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/newsitem.html" class="tsd-kind-icon">News<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/newspagecontent.html" class="tsd-kind-icon">News<wbr>Page<wbr>Content</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/oneinitems.html" class="tsd-kind-icon">One<wbr>InItems</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/openableopenoptions.html" class="tsd-kind-icon">Openable<wbr>Open<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/openableoptions.html" class="tsd-kind-icon">Openable<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/partialitem.html" class="tsd-kind-icon">Partial<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/poll.html" class="tsd-kind-icon">Poll</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pollquestion.html" class="tsd-kind-icon">Poll<wbr>Question</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/pollresult.html" class="tsd-kind-icon">Poll<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/returnedlootitem.html" class="tsd-kind-icon">Returned<wbr>Loot<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/simplelootitem.html" class="tsd-kind-icon">Simple<wbr>Loot<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/simplemonsteroptions.html" class="tsd-kind-icon">Simple<wbr>Monster<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/simpleopenableoptions.html" class="tsd-kind-icon">Simple<wbr>Openable<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/skillscore.html" class="tsd-kind-icon">Skill<wbr>Score</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/skillsscore.html" class="tsd-kind-icon">Skills<wbr>Score</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/wikipage.html" class="tsd-kind-icon">Wiki<wbr>Page</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/world.html" class="tsd-kind-icon">World</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#accounttype" class="tsd-kind-icon">Account<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#itemequipment" class="tsd-kind-icon">Item<wbr>Equipment</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#itemid" class="tsd-kind-icon">ItemID</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#itemresolvable" class="tsd-kind-icon">Item<wbr>Resolvable</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#itemweapon" class="tsd-kind-icon">Item<wbr>Weapon</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#tuplelootitem" class="tsd-kind-icon">Tuple<wbr>Loot<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#worldlocation" class="tsd-kind-icon">World<wbr>Location</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#account_types" class="tsd-kind-icon">ACCOUNT_<wbr>TYPES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#base_api_url" class="tsd-kind-icon">BASE_<wbr>API_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#base_url" class="tsd-kind-icon">BASE_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#barrowstable" class="tsd-kind-icon">Barrows<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#beginnercluetable" class="tsd-kind-icon">Beginner<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#blessingtable" class="tsd-kind-icon">Blessing<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#clues" class="tsd-kind-icon">CLUES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#callistotable" class="tsd-kind-icon">Callisto<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cerberustable" class="tsd-kind-icon">Cerberus<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cerberusuniquetable" class="tsd-kind-icon">Cerberus<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#chaoselementalminortable" class="tsd-kind-icon">Chaos<wbr>Elemental<wbr>Minor<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#chaoselementaltable" class="tsd-kind-icon">Chaos<wbr>Elemental<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#chaosfanatictable" class="tsd-kind-icon">Chaos<wbr>Fanatic<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#chaosfanaticuniquetable" class="tsd-kind-icon">Chaos<wbr>Fanatic<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#cluetable" class="tsd-kind-icon">Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#commanderzilyanatable" class="tsd-kind-icon">Commander<wbr>Zilyana<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#corporealbeasttable" class="tsd-kind-icon">Corporeal<wbr>Beast<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#crazyarchaeologisttable" class="tsd-kind-icon">Crazy<wbr>Archaeologist<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#crazyarchaeologistuniquetable" class="tsd-kind-icon">Crazy<wbr>Archaeologist<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#dagannothprimetable" class="tsd-kind-icon">Dagannoth<wbr>Prime<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#dagannothrextable" class="tsd-kind-icon">Dagannoth<wbr>Rex<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#dagannothsupremetable" class="tsd-kind-icon">Dagannoth<wbr>Supreme<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easyamulettable" class="tsd-kind-icon">Easy<wbr>Amulet<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easyblessingstable" class="tsd-kind-icon">Easy<wbr>Blessings<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easybowtable" class="tsd-kind-icon">Easy<wbr>Bow<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easycapetable" class="tsd-kind-icon">Easy<wbr>Cape<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easycheftable" class="tsd-kind-icon">Easy<wbr>Chef<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easycluetable" class="tsd-kind-icon">Easy<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easyeleganttable" class="tsd-kind-icon">Easy<wbr>Elegant<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easymonktable" class="tsd-kind-icon">Easy<wbr>Monk<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easyraretable" class="tsd-kind-icon">Easy<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easystandardtable" class="tsd-kind-icon">Easy<wbr>Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#easysubmonktable" class="tsd-kind-icon">Easy<wbr>Sub<wbr>Monk<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#elite3rdagetable" class="tsd-kind-icon">Elite3rdage<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#elitecluetable" class="tsd-kind-icon">Elite<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#elitemegararetable" class="tsd-kind-icon">Elite<wbr>Mega<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#eliteraretable" class="tsd-kind-icon">Elite<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#eliteseedtable" class="tsd-kind-icon">Elite<wbr>Seed<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#elitestandardtable" class="tsd-kind-icon">Elite<wbr>Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#elitetuxedotable" class="tsd-kind-icon">Elite<wbr>Tuxedo<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#firelightertable" class="tsd-kind-icon">Firelighter<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#fixedallotmentseedtable" class="tsd-kind-icon">Fixed<wbr>Allotment<wbr>Seed<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gwgemtable" class="tsd-kind-icon">GWGem<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gwmegararetable" class="tsd-kind-icon">GWMega<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gwraredroptable" class="tsd-kind-icon">GWRare<wbr>Drop<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gemtable" class="tsd-kind-icon">Gem<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#generalgraardorarmortable" class="tsd-kind-icon">General<wbr>Graardor<wbr>Armor<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#generalgraardortable" class="tsd-kind-icon">General<wbr>Graardor<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#giantmoletable" class="tsd-kind-icon">Giant<wbr>Mole<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#gildedtable" class="tsd-kind-icon">Gilded<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#givehalfkeytable" class="tsd-kind-icon">Give<wbr>Half<wbr>Key<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#goblintable" class="tsd-kind-icon">Goblin<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#grimspikeminiontable" class="tsd-kind-icon">Grimspike<wbr>Minion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#guardtable" class="tsd-kind-icon">Guard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hard3rdagetable" class="tsd-kind-icon">Hard3rdage<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardblessedshields" class="tsd-kind-icon">Hard<wbr>Blessed<wbr>Shields</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardbowtable" class="tsd-kind-icon">Hard<wbr>Bow<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardcluetable" class="tsd-kind-icon">Hard<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardheralicplatebody" class="tsd-kind-icon">Hard<wbr>Heralic<wbr>Platebody</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardmegararetable" class="tsd-kind-icon">Hard<wbr>Mega<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardraretable" class="tsd-kind-icon">Hard<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#hardstandardtable" class="tsd-kind-icon">Hard<wbr>Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kalphitequeentable" class="tsd-kind-icon">Kalphite<wbr>Queen<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kingblackdragontable" class="tsd-kind-icon">King<wbr>Black<wbr>Dragon<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kqconsumablestable" class="tsd-kind-icon">Kq<wbr>Consumables<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kreearraarmortable" class="tsd-kind-icon">Kreearra<wbr>Armor<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kreearratable" class="tsd-kind-icon">Kreearra<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#kriltsutsarothtable" class="tsd-kind-icon">Kril<wbr>Tsutsaroth<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#luckyimplingtable" class="tsd-kind-icon">Lucky<wbr>Impling<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#minigames" class="tsd-kind-icon">MINIGAMES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#master3rdagetable" class="tsd-kind-icon">Master3rdage<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#masterankououtfittable" class="tsd-kind-icon">Master<wbr>Ankou<wbr>Outfit<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastercluetable" class="tsd-kind-icon">Master<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#masterdragonorntable" class="tsd-kind-icon">Master<wbr>Dragon<wbr>Orn<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastergodswordorntable" class="tsd-kind-icon">Master<wbr>God<wbr>Sword<wbr>Orn<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastermegararetable" class="tsd-kind-icon">Master<wbr>Mega<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastermummyoutfittable" class="tsd-kind-icon">Master<wbr>Mummy<wbr>Outfit<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#masterraretable" class="tsd-kind-icon">Master<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#masterseedtable" class="tsd-kind-icon">Master<wbr>Seed<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#masterstandardtable" class="tsd-kind-icon">Master<wbr>Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastersubankououtfittable" class="tsd-kind-icon">Master<wbr>Sub<wbr>Ankou<wbr>Outfit<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastersubdragonorntable" class="tsd-kind-icon">Master<wbr>Sub<wbr>Dragon<wbr>Orn<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mastersubmummyoutfittable" class="tsd-kind-icon">Master<wbr>Sub<wbr>Mummy<wbr>Outfit<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumamulettable" class="tsd-kind-icon">Medium<wbr>Amulet<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumbowtable" class="tsd-kind-icon">Medium<wbr>Bow<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumcluetable" class="tsd-kind-icon">Medium<wbr>Clue<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumeleganttable" class="tsd-kind-icon">Medium<wbr>Elegant<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumfirelightertable" class="tsd-kind-icon">Medium<wbr>Firelighter<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumraretable" class="tsd-kind-icon">Medium<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumstandardtable" class="tsd-kind-icon">Medium<wbr>Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumsubfirelightertable" class="tsd-kind-icon">Medium<wbr>Sub<wbr>Firelighter<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mediumunicorntable" class="tsd-kind-icon">Medium<wbr>Unicorn<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#megararetable" class="tsd-kind-icon">Mega<wbr>Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#minionshardtable" class="tsd-kind-icon">Minion<wbr>Shard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#miniontable" class="tsd-kind-icon">Minion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#minionuniquetable" class="tsd-kind-icon">Minion<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#monsters" class="tsd-kind-icon">Monsters</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mysteryboxtable" class="tsd-kind-icon">Mystery<wbr>Box<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#number_of_brothers" class="tsd-kind-icon">NUMBER_<wbr>OF_<wbr>BROTHERS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#osrs_box_base_url" class="tsd-kind-icon">OSRS_<wbr>BOX_<wbr>BASE_<wbr>URL</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#openables" class="tsd-kind-icon">Openables</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#othertable" class="tsd-kind-icon">Other<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#prayerpagetable" class="tsd-kind-icon">Prayer<wbr>Page<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#raredroptable" class="tsd-kind-icon">Rare<wbr>Drop<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#rareseedtable" class="tsd-kind-icon">Rare<wbr>Seed<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#raretable" class="tsd-kind-icon">Rare<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#skills" class="tsd-kind-icon">SKILLS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#scorpiatable" class="tsd-kind-icon">Scorpia<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#scorpiauniquetable" class="tsd-kind-icon">Scorpia<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#shardtable" class="tsd-kind-icon">Shard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#sigiltable" class="tsd-kind-icon">Sigil<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#standardtable" class="tsd-kind-icon">Standard<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#steelwillminiontable" class="tsd-kind-icon">Steelwill<wbr>Minion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#strongsackminiontable" class="tsd-kind-icon">Strongsack<wbr>Minion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#subteleportscrolltable" class="tsd-kind-icon">Sub<wbr>Teleport<wbr>Scroll<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#successfuluniquetable" class="tsd-kind-icon">Successful<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#talismantable" class="tsd-kind-icon">Talisman<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#teleportscrolltable" class="tsd-kind-icon">Teleport<wbr>Scroll<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#treeherbseedtable" class="tsd-kind-icon">Tree<wbr>Herb<wbr>Seed<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#useless_items" class="tsd-kind-icon">USELESS_<wbr>ITEMS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#uniquetable" class="tsd-kind-icon">Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#venenatistable" class="tsd-kind-icon">Venenatis<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#vetiontable" class="tsd-kind-icon">Vetion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#vorkathbolttiptable" class="tsd-kind-icon">Vorkath<wbr>Bolt<wbr>Tip<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#vorkathtable" class="tsd-kind-icon">Vorkath<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zaklngritchminiontable" class="tsd-kind-icon">Zakln<wbr>Gritch<wbr>Minion<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zulrahflaxmutagentable" class="tsd-kind-icon">Zulrah<wbr>Flax<wbr>Mutagen<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zulrahtable" class="tsd-kind-icon">Zulrah<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#zulrahuniquetable" class="tsd-kind-icon">Zulrah<wbr>Unique<wbr>Table</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#allmonsters" class="tsd-kind-icon">all<wbr>Monsters</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#bossnamemap" class="tsd-kind-icon">boss<wbr>Name<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#itemnamemap" class="tsd-kind-icon">item<wbr>Name<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#items" class="tsd-kind-icon">items</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#itemsexport" class="tsd-kind-icon">items<wbr>Export</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#mappedbossnames" class="tsd-kind-icon">mapped<wbr>Boss<wbr>Names</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#monsterdata" class="tsd-kind-icon">monster<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#news" class="tsd-kind-icon">news</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#newsarchive" class="tsd-kind-icon">news<wbr>Archive</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#pollarchive" class="tsd-kind-icon">poll<wbr>Archive</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#polls" class="tsd-kind-icon">polls</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#hiscoreurl" class="tsd-kind-icon">hiscoreURL</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#errordescriptions" class="tsd-kind-icon">Error<wbr>Descriptions</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#defaultgetoptions" class="tsd-kind-icon">default<wbr>Get<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#hiscoreurls" class="tsd-kind-icon">hiscoreURLs</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#monstersobject" class="tsd-kind-icon">monsters<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#openablesobject" class="tsd-kind-icon">openables<wbr>Object</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
