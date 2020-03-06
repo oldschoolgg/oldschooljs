@@ -20,7 +20,8 @@
 		"dev": "tsc --watch -p .",
 		"prepareData": "npm run build && npm run prepareData:run",
 		"prepareData:run": "ts-node scripts/prepare",
-		"prepmon": "npm run build && ts-node scripts/prepareMonsters.ts"
+		"prepmon": "npm run build && ts-node scripts/prepareMonsters.ts",
+		"docs": "typedoc --excludeNotExported --exclude ./src/util/**/*.ts --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
 		"jsdom": "^16.0.1",
@@ -43,6 +44,7 @@
 		"tape": "^4.12.1",
 		"terser": "^4.5.1",
 		"ts-node": "^8.5.4",
+		"typedoc": "^0.16.11",
 		"typescript": "^3.7.4"
 	},
 	"husky": {
