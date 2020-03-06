@@ -21,7 +21,7 @@
 		"prepareData": "npm run build && npm run prepareData:run",
 		"prepareData:run": "ts-node scripts/prepare",
 		"prepmon": "npm run build && ts-node scripts/prepareMonsters.ts",
-		"docs": "typedoc --excludeNotExported --exclude ./src/util/**/*.ts --mode file --out ./dist/ ./src/"
+		"docs": "typedoc --excludeNotExported --exclude ./src/util/**/*.ts ./src/simulation/**/*.ts --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
 		"jsdom": "^16.0.1",
