@@ -15,7 +15,7 @@ const ChaosElementalMinorTable = new LootTable()
 	.add('Super strength(4)')
 	.add('Tuna', 5);
 
-export const ChaosElementalTable = new LootTable()
+const ChaosElementalTable = new LootTable()
 	.every(ChaosElementalMinorTable, 1)
 	.tertiary(200, 'Clue scroll (elite)')
 	.tertiary(300, 'Pet chaos elemental')

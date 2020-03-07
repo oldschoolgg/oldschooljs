@@ -4,7 +4,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-export const DagannothPrimeTable = new LootTable()
+const DagannothPrimeTable = new LootTable()
 	.every('Dagannoth bones')
 	.every('Dagannoth hide')
 	.tertiary(20, 'Ensouled dagannoth head')

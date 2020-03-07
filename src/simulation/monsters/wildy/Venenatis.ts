@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-export const VenenatisTable = new LootTable()
+const VenenatisTable = new LootTable()
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, 'Venenatis spiderling')
 	.tertiary(400, 'Long bone')

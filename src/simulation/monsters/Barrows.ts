@@ -4,7 +4,7 @@ import { ItemBank } from '../../meta/types';
 import { roll } from '../../util/util';
 import Monster from '../../structures/Monster';
 
-export const BarrowsTable = new LootTable();
+const BarrowsTable = new LootTable();
 
 [
 	"Ahrim's hood",
@@ -38,7 +38,7 @@ export const BarrowsTable = new LootTable();
 	"Verac's flail"
 ].map(item => BarrowsTable.addItem(item));
 
-export const OtherTable = new LootTable()
+const OtherTable = new LootTable()
 	.addItem('Coins', [2, 760], 380)
 	.addItem('Mind rune', [381, 504], 125)
 	.addItem('Chaos rune', [168, 210], 125)

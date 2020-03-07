@@ -8,7 +8,7 @@ const CerberusUniqueTable = new LootTable()
 	.add('Eternal crystal')
 	.add('Smouldering stone');
 
-export const CerberusTable = new LootTable()
+const CerberusTable = new LootTable()
 	.every('Ashes')
 	.add(CerberusUniqueTable)
 	.tertiary(100, 'Clue scroll (elite)')

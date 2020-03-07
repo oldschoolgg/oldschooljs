@@ -1,10 +1,7 @@
 import DagannothPrime from './bosses/DagannothPrime';
 import DagannothRex from './bosses/DagannothRex';
 import DagannothSupreme from './bosses/DagannothSupreme';
-import Cerberus from './slayer/Cerberus';
 import GiantMole from './bosses/GiantMole';
-import Goblin from './low/Goblin';
-import Guard from './low/Guard';
 import Vorkath from './bosses/Vorkath';
 import Zulrah from './bosses/Zulrah';
 import Barrows from './Barrows';
@@ -12,8 +9,6 @@ import GeneralGraardor from './gwd/GeneralGraardor';
 import CommanderZilyana from './gwd/CommanderZilyana';
 import Kreearra from './gwd/Kreearra';
 import KrilTsutsaroth from './gwd/KrilTsutsaroth';
-import Man from './low/Man';
-import Woman from './low/Woman';
 import Callisto from './wildy/Callisto';
 import ChaosElemental from './wildy/ChaosElemental';
 import ChaosFanatic from './wildy/ChaosFanatic';
@@ -26,6 +21,9 @@ import Collection from '../../structures/Collection';
 import Monster from '../../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
 import KalphiteQueen from './bosses/KalphiteQueen';
+import Cerberus from './bosses/Cerberus';
+
+import LowMonsters from './low';
 
 const monstersObject = {
 	DagannothPrime,
@@ -33,8 +31,6 @@ const monstersObject = {
 	DagannothSupreme,
 	Cerberus,
 	GiantMole,
-	Goblin,
-	Guard,
 	Vorkath,
 	Zulrah,
 	Barrows,
@@ -42,8 +38,6 @@ const monstersObject = {
 	CommanderZilyana,
 	Kreearra,
 	KrilTsutsaroth,
-	Man,
-	Woman,
 	Callisto,
 	ChaosElemental,
 	ChaosFanatic,
@@ -53,7 +47,8 @@ const monstersObject = {
 	Vetion,
 	CrazyArchaeologist,
 	CorporealBeast,
-	KalphiteQueen
+	KalphiteQueen,
+	...LowMonsters
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [

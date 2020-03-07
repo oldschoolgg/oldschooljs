@@ -5,14 +5,14 @@ import test from 'tape';
 test('Hiscores', async t => {
 	t.plan(38);
 
-	const [lynxTitan, zulu, mgby, leaguesMgby, virtualMgby] = await Promise.all([
+	const [lynxTitan, zulu, magnaboy, leaguesmagnaboy, virtualMagnaboy] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),
-		Hiscores.fetch('Mgby'),
-		Hiscores.fetch('Mgby', {
+		Hiscores.fetch('Magnaboy'),
+		Hiscores.fetch('Magnaboy', {
 			type: 'seasonal'
 		}),
-		Hiscores.fetch('Mgby', { virtualLevels: true })
+		Hiscores.fetch('Magnaboy', { virtualLevels: true })
 	]);
 
 	t.equal(lynxTitan.username, 'Lynx Titan', 'Expected name to equal Lynx Titan.');
@@ -49,29 +49,29 @@ test('Hiscores', async t => {
 
 	t.equal(zulu.minigames.LMS.score, 500);
 
-	t.equal(mgby.clues.all.score, 137);
+	t.equal(magnaboy.clues.all.score, 140);
 
-	t.equal(mgby.clues.beginner.score, 5);
-	t.equal(mgby.clues.easy.score, 12);
+	t.equal(magnaboy.clues.beginner.score, 6);
+	t.equal(magnaboy.clues.easy.score, 13);
 
-	t.equal(mgby.clues.medium.score, 56);
-	t.equal(mgby.clues.hard.score, 44);
+	t.equal(magnaboy.clues.medium.score, 57);
+	t.equal(magnaboy.clues.hard.score, 44);
 
-	t.equal(mgby.clues.elite.score, 13);
-	t.equal(mgby.clues.master.score, 7);
+	t.equal(magnaboy.clues.elite.score, 13);
+	t.equal(magnaboy.clues.master.score, 7);
 
-	t.equal(mgby.minigames.bountyHunter.rank, -1);
-	t.equal(mgby.minigames.bountyHunter.score, -1);
+	t.equal(magnaboy.minigames.bountyHunter.rank, -1);
+	t.equal(magnaboy.minigames.bountyHunter.score, -1);
 
-	t.equal(mgby.minigames.bountyHunterRogue.rank > 1, true);
-	t.equal(mgby.minigames.bountyHunterRogue.score, 2);
+	t.equal(magnaboy.minigames.bountyHunterRogue.rank > 1, true);
+	t.equal(magnaboy.minigames.bountyHunterRogue.score, 2);
 
-	t.equal(mgby.minigames.LMS.score, -1);
+	t.equal(magnaboy.minigames.LMS.score, -1);
 
-	t.equal(leaguesMgby.username, 'Mgby');
-	t.equal(leaguesMgby.skills.overall.level > 1, true);
+	t.equal(leaguesmagnaboy.username, 'Magnaboy');
+	t.equal(leaguesmagnaboy.skills.overall.level > 1, true);
 
-	t.equal(virtualMgby.skills.firemaking.level, 106, 'Expected fm level to equal 106');
-	t.equal(virtualMgby.skills.cooking.level, 100, 'Expected fm level to equal 106');
-	t.equal(virtualMgby.skills.fletching.level, 99, 'Expected fm level to equal 106');
+	t.equal(virtualMagnaboy.skills.firemaking.level, 106, 'Expected fm level to equal 106');
+	t.equal(virtualMagnaboy.skills.cooking.level, 100, 'Expected fm level to equal 106');
+	t.equal(virtualMagnaboy.skills.fletching.level, 99, 'Expected fm level to equal 106');
 });

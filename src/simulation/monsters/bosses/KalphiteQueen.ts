@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
 
-export const KqConsumablesTable = new LootTable()
+const KqConsumablesTable = new LootTable()
 	.addItem('Monkfish', 3, 1)
 	.addItem('Shark', 2, 1)
 	.addItem('Dark crab', 2, 1)
@@ -13,7 +13,7 @@ export const KqConsumablesTable = new LootTable()
 	.addItem('Ranging potion(3)', 1, 1)
 	.addItem('Superantipoison(2)', 1, 1);
 
-export const KalphiteQueenTable = new LootTable(256)
+const KalphiteQueenTable = new LootTable(256)
 
 	/* Consumables */
 	.every(KqConsumablesTable)

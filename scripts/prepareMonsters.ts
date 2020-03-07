@@ -71,10 +71,6 @@ async function prepareMonsters(): Promise<void> {
 		// @ts-ignore
 		delete mon.drops;
 
-		if (mon.attributes === null) mon.attributes = [];
-		if (mon.slayer_level === null) mon.slayer_level = 0;
-		if (mon.slayer_xp === null) mon.slayer_xp = 0;
-
 		const newMonster: MonsterData = {
 			members: mon.members,
 			releaseDate: mon.release_date,
@@ -121,6 +117,12 @@ async function prepareMonsters(): Promise<void> {
 		};
 
 		monsterMap[mon.id] = newMonster;
+
+		if (mon.name.toLowerCase() !== Monsters.get(mon.id)?.name.toLowerCase()) {
+			console.warn(
+				`Warning: Name of ${mon.name} does not match ${Monsters.get(mon.id)?.name}`
+			);
+		}
 	}
 
 	writeFileSync('./src/data/monsters_data.json', JSON.stringify(monsterMap, null, 4));

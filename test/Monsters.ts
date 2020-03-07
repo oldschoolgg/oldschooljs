@@ -11,11 +11,15 @@ import { Monsters } from '../dist';
 import { MonsterData } from '../dist/meta/monsterData';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
+const currentMonIDs = new Set();
 for (const monster of Monsters.values()) {
+	if (currentMonIDs.has(monster.id)) throw `${monster.name} has the same ID as another monster.`;
+
 	if (!monsterData[monster.id] || !monster.data) {
 		console.error(`[${monster.name}][${monster.id}] has no data in the monster data cache!`);
 		process.exit();
 	}
+	currentMonIDs.add(monster.id);
 }
 
 const subSubTable = new LootTable().add('Coal');

@@ -16,7 +16,7 @@ const ZulrahFlaxMutagenTable = new LootTable()
 	.add('Magma mutagen', 1, 10)
 	.add('Flax', 1000, 5244);
 
-export const ZulrahTable = new LootTable()
+const ZulrahTable = new LootTable()
 	.add(RareDropTable, undefined, 9)
 	.oneIn(256, ZulrahUniqueTable)
 

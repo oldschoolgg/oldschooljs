@@ -34,7 +34,7 @@ const UniqueTable = new LootTable()
 	.addItem('Armadyl hilt')
 	.addItem('Coins', [20_500, 21_000], 5);
 
-export const KreearraTable = new LootTable()
+const KreearraTable = new LootTable()
 	.every('Big bones')
 	.every(MinionTable)
 	.every(MinionTable)
