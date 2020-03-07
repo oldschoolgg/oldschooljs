@@ -26,10 +26,10 @@ import Cerberus from './bosses/Cerberus';
 import LowMonsters from './low';
 
 const monstersObject = {
-	Cerberus,
 	DagannothPrime,
 	DagannothRex,
 	DagannothSupreme,
+	Cerberus,
 	GiantMole,
 	Vorkath,
 	Zulrah,
