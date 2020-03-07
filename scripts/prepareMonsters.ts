@@ -121,6 +121,12 @@ async function prepareMonsters(): Promise<void> {
 		};
 
 		monsterMap[mon.id] = newMonster;
+
+		if (mon.name.toLowerCase() !== Monsters.get(mon.id)?.name.toLowerCase()) {
+			console.warn(
+				`Warning: Name of ${mon.name} does not match ${Monsters.get(mon.id)?.name}`
+			);
+		}
 	}
 
 	writeFileSync('./src/data/monsters_data.json', JSON.stringify(monsterMap, null, 4));
