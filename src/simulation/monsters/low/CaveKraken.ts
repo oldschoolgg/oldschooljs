@@ -63,7 +63,7 @@ const CaveKrakenTable = new LootTable(128)
 
 export default new SimpleMonster({
 	id: 492,
-	name: 'CaveKraken',
+	name: 'Cave Kraken',
 	table: CaveKrakenTable,
 	aliases: ['cave kraken', 'cave k']
 });
