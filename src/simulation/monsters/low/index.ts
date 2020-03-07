@@ -37,7 +37,7 @@ import MithrilDragon from './MithrilDragon';
 import Turoth from './Turoth';
 import Gargoyle from './Gargoyle';
 import MountainTroll from './MountainTroll';
-import MutatedZygomite from './MutatedZygomite';
+import Zygomite from './Zygomite';
 import Wyrm from './Wyrm';
 import GreaterDemon from './GreaterDemon';
 import Nechryael from './Nechryael';
@@ -82,7 +82,7 @@ export default {
 	Turoth,
 	Gargoyle,
 	MountainTroll,
-	MutatedZygomite,
+	Zygomite,
 	Wyrm,
 	GreaterDemon,
 	Nechryael
