@@ -1,6 +1,11 @@
 import { rand, roll } from '../util/util';
-import { LootTableItem, OneInItems, ReturnedLootItem } from '../meta/types';
+import { LootTableItem, OneInItems, ReturnedLootItem, LootTableType } from '../meta/types';
 import itemID from '../util/itemID';
+import monsterID from '../util/monsterID';
+
+export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
+	return Array.isArray(x[0]);
+}
 
 export default class LootTable {
 	public length: number;
@@ -10,8 +15,9 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
+	public type: LootTableType;
 
-	public constructor(limit?: number) {
+	public constructor(limit?: number, type: LootTableType = LootTableType.Item) {
 		this.table = [];
 		this.oneInItems = [];
 		this.tertiaryItems = [];
@@ -19,11 +25,17 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = limit;
+		this.type = type;
+	}
+
+	private resolveName(name: string): number {
+		if (this.type === LootTableType.Item) return itemID(name);
+		if (this.type === LootTableType.Monster) return monsterID(name);
 	}
 
 	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
 		this.oneInItems.push({
-			item: typeof item === 'string' ? itemID(item) : item,
+			item: typeof item === 'string' ? this.resolveName(item) : item,
 			chance,
 			quantity
 		});
@@ -37,7 +49,7 @@ export default class LootTable {
 		quantity: number | number[] = 1
 	): this {
 		this.tertiaryItems.push({
-			item: typeof item === 'string' ? itemID(item) : item,
+			item: typeof item === 'string' ? this.resolveName(item) : item,
 			chance,
 			quantity
 		});
@@ -47,7 +59,7 @@ export default class LootTable {
 
 	public every(item: string | LootTable, quantity: number | number[] = 1): this {
 		this.everyItems.push({
-			item: typeof item === 'string' ? itemID(item) : item,
+			item: typeof item === 'string' ? this.resolveName(item) : item,
 			quantity
 		});
 
@@ -55,12 +67,27 @@ export default class LootTable {
 	}
 
 	public add(
-		item: LootTable | number | string | LootTableItem[],
+		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
 		weight = 1
 	): this {
 		if (typeof item === 'string') {
-			return this.addItem(item, quantity, weight);
+			return this.add(this.resolveName(item), quantity, weight);
+		}
+
+		// If its an array, but not a LootTableItem[] array.
+		// i.e, if its directly from the user, and not being internally added.
+		if (Array.isArray(item) && isArrayOfItemTuples(item)) {
+			const newItems = [];
+			const _item = item as [string, (number | number[])?][];
+			for (const itemToAdd of _item) {
+				newItems.push({
+					item: this.resolveName(itemToAdd[0]),
+					quantity: this.determineQuantity(itemToAdd[1]) || 1
+				});
+			}
+
+			return this.add(newItems, quantity, weight);
 		}
 
 		this.length += 1;
@@ -71,27 +98,6 @@ export default class LootTable {
 			weight,
 			quantity
 		});
-
-		return this;
-	}
-
-	public addItem(
-		item: string | [string, (number | number[])?][],
-		quantity: number[] | number = 1,
-		weight = 1
-	): this {
-		if (Array.isArray(item)) {
-			const newItems = [];
-			for (const itemToAdd of item) {
-				newItems.push({
-					item: itemID(itemToAdd[0]),
-					quantity: this.determineQuantity(itemToAdd[1]) || 1
-				});
-			}
-			this.add(newItems, quantity, weight);
-		} else {
-			this.add(itemID(item), quantity, weight);
-		}
 
 		return this;
 	}
@@ -170,7 +176,7 @@ export default class LootTable {
 		];
 	}
 
-	private determineQuantity(quantity: number | number[]): number {
+	protected determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
 			return rand(quantity[0], quantity[1]);
 		} else {
