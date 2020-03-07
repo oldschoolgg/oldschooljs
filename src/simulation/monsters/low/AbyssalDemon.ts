@@ -7,27 +7,27 @@ const AbyssalDemonTable = new LootTable()
 	.every('Ashes')
 
 	/*Weapons and armour */
-	.addItem('Black sword', 1, 4)
-	.addItem('Steel battleaxe', 1, 3)
-	.addItem('Black axe', 1, 2)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Rune chainbody', 1, 1)
-	.addItem('Rune med helm', 1, 1)
+	.add('Black sword', 1, 4)
+	.add('Steel battleaxe', 1, 3)
+	.add('Black axe', 1, 2)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Rune chainbody', 1, 1)
+	.add('Rune med helm', 1, 1)
 	.oneIn(512, 'Abyssal whip')
 	.oneIn(32768, 'Abyssal dagger')
 
 	/* Runes */
-	.addItem('Air rune', 50, 8)
-	.addItem('Chaos rune', 10, 6)
-	.addItem('Blood rune', 7, 4)
-	.addItem('Law rune', 3, 1)
+	.add('Air rune', 50, 8)
+	.add('Chaos rune', 10, 6)
+	.add('Blood rune', 7, 4)
+	.add('Law rune', 3, 1)
 
 	/* Seeds */
 	.add(HerbDropTable, 1, 19)
 
 	/* Materials */
-	.addItem('Pure essence', 60, 5)
-	.addItem('Adamantite bar', 1, 2)
+	.add('Pure essence', 60, 5)
+	.add('Adamantite bar', 1, 2)
 
 	/* Coins */
 	.add('Coins', 132, 35)
@@ -38,9 +38,9 @@ const AbyssalDemonTable = new LootTable()
 
 	/* Other */
 	.add('Lobster', 1, 2)
-	.addItem('Cosmic talisman', 1, 1)
-	.addItem('Chaos talisman', 1, 1)
-	.addItem('Defence potion(3)', 1, 1)
+	.add('Cosmic talisman', 1, 1)
+	.add('Chaos talisman', 1, 1)
+	.add('Defence potion(3)', 1, 1)
 
 	.add(RareDropTable, 1, 2)
 	.add(GemTable, 1, 5)

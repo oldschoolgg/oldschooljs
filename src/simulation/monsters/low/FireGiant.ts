@@ -7,33 +7,33 @@ const FireGiantTable = new LootTable()
 	.every('Big bones')
 
 	/*Weapons and armour */
-	.addItem('Steel axe', 1, 3)
-	.addItem('Mithril sq shield', 1, 2)
-	.addItem('Fire battlestaff', 1, 1)
-	.addItem('Rune scimitar', 1, 1)
+	.add('Steel axe', 1, 3)
+	.add('Mithril sq shield', 1, 2)
+	.add('Fire battlestaff', 1, 1)
+	.add('Rune scimitar', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Fire rune', 150, 10)
-	.addItem('Chaos rune', 5, 7)
-	.addItem('Rune arrow', 12, 5)
-	.addItem('Blood rune', 5, 4)
-	.addItem('Fire rune', 37, 1)
-	.addItem('Law rune', 2, 1)
+	.add('Fire rune', 150, 10)
+	.add('Chaos rune', 5, 7)
+	.add('Rune arrow', 12, 5)
+	.add('Blood rune', 5, 4)
+	.add('Fire rune', 37, 1)
+	.add('Law rune', 2, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 19)
 
 	/* Coins */
-	.addItem('Coins', 60, 40)
-	.addItem('Coins', 15, 7)
-	.addItem('Coins', 25, 6)
-	.addItem('Coins', 300, 2)
-	.addItem('Coins', 50, 1)
+	.add('Coins', 60, 40)
+	.add('Coins', 15, 7)
+	.add('Coins', 25, 6)
+	.add('Coins', 300, 2)
+	.add('Coins', 50, 1)
 
 	/* Other */
-	.addItem('Lobster', 1, 3)
-	.addItem('Steel bar', 1, 2)
-	.addItem('Strength potion(2)', 1, 1)
+	.add('Lobster', 1, 3)
+	.add('Steel bar', 1, 2)
+	.add('Strength potion(2)', 1, 1)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 1)

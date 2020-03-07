@@ -22,22 +22,22 @@ const ChaosElementalTable = new LootTable()
 	.oneIn(256, 'Dragon pickaxe')
 
 	/* Weapons and armour */
-	.addItem('Dragon dagger', 1, 11)
-	.addItem('Dragon 2h sword', 1, 1)
+	.add('Dragon dagger', 1, 11)
+	.add('Dragon 2h sword', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Air rune', 500, 10)
-	.addItem('Blood rune', 75, 10)
-	.addItem('Chaos rune', 250, 10)
-	.addItem('Death rune', 125, 10)
-	.addItem('Mithril dart', 300, 10)
-	.addItem('Rune arrow', 150, 10)
+	.add('Air rune', 500, 10)
+	.add('Blood rune', 75, 10)
+	.add('Chaos rune', 250, 10)
+	.add('Death rune', 125, 10)
+	.add('Mithril dart', 300, 10)
+	.add('Rune arrow', 150, 10)
 
 	/* Other */
-	.addItem('Strange fruit', 10, 13)
-	.addItem('Antidote++(4)', 1, 10)
-	.addItem('Weapon poison(++)', 1, 10)
-	.addItem('Coins', 7500, 8)
+	.add('Strange fruit', 10, 13)
+	.add('Antidote++(4)', 1, 10)
+	.add('Weapon poison(++)', 1, 10)
+	.add('Coins', 7500, 8)
 
 	/* Subtables */
 	.add(HerbDropTable, 1, 4)

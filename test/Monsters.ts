@@ -30,7 +30,7 @@ const subTable = new LootTable()
 	.add('Needle')
 	.add('Amethyst')
 	.add('Knife')
-	.addItem([['Iron bar'], ['Steel bar']])
+	.add([['Iron bar'], ['Steel bar']])
 	.add(subSubTable);
 
 class TestMonsterClass extends Monster {

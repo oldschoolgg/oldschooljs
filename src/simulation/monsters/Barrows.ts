@@ -36,17 +36,17 @@ const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail"
-].map(item => BarrowsTable.addItem(item));
+].map(item => BarrowsTable.add(item));
 
 const OtherTable = new LootTable()
-	.addItem('Coins', [2, 760], 380)
-	.addItem('Mind rune', [381, 504], 125)
-	.addItem('Chaos rune', [168, 210], 125)
-	.addItem('Death rune', [105, 124], 125)
-	.addItem('Bolt rack', [35, 40], 125)
-	.addItem('Blood rune', [55, 66], 125)
-	.add(new LootTable().addItem('Loop half of key').addItem('Tooth half of key'), 1, 6)
-	.addItem('Dragon med helm');
+	.add('Coins', [2, 760], 380)
+	.add('Mind rune', [381, 504], 125)
+	.add('Chaos rune', [168, 210], 125)
+	.add('Death rune', [105, 124], 125)
+	.add('Bolt rack', [35, 40], 125)
+	.add('Blood rune', [55, 66], 125)
+	.add(new LootTable().add('Loop half of key').add('Tooth half of key'), 1, 6)
+	.add('Dragon med helm');
 
 const NUMBER_OF_BROTHERS = 6;
 

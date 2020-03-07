@@ -7,31 +7,31 @@ const GargoyleTable = new LootTable()
 	.oneIn(512, 'Mystic robe top (dark)')
 
 	/* Weapons and armor */
-	.addItem('Adamant platelegs', 1, 4)
-	.addItem('Rune full helm', 1, 3)
-	.addItem('Rune 2h sword', 1, 2)
-	.addItem('Adamant boots', 1, 1)
-	.addItem('Rune battleaxe', 1, 1)
-	.addItem('Rune platelegs', 1, 1)
+	.add('Adamant platelegs', 1, 4)
+	.add('Rune full helm', 1, 3)
+	.add('Rune 2h sword', 1, 2)
+	.add('Adamant boots', 1, 1)
+	.add('Rune battleaxe', 1, 1)
+	.add('Rune platelegs', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Fire rune', 75, 10)
-	.addItem('Chaos rune', 30, 8)
-	.addItem('Fire rune', 150, 6)
-	.addItem('Death rune', 15, 5)
+	.add('Fire rune', 75, 10)
+	.add('Chaos rune', 30, 8)
+	.add('Fire rune', 150, 6)
+	.add('Death rune', 15, 5)
 
 	/* Materials */
-	.addItem('Gold ore', [10, 20], 10)
-	.addItem('Pure essence', 150, 6)
-	.addItem('Steel bar', 15, 6)
-	.addItem('Gold bar', [10, 15], 3)
-	.addItem('Mithril bar', 15, 2)
-	.addItem('Runite ore', 1, 2)
+	.add('Gold ore', [10, 20], 10)
+	.add('Pure essence', 150, 6)
+	.add('Steel bar', 15, 6)
+	.add('Gold bar', [10, 15], 3)
+	.add('Mithril bar', 15, 2)
+	.add('Runite ore', 1, 2)
 
 	/* Coins */
-	.addItem('Coins', [400, 800], 28)
-	.addItem('Coins', [500, 1000], 20)
-	.addItem('Coins', 10000, 5)
+	.add('Coins', [400, 800], 28)
+	.add('Coins', [500, 1000], 20)
+	.add('Coins', 10000, 5)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

@@ -8,33 +8,33 @@ const RuneDragonTable = new LootTable()
 	.every('Runite bar')
 
 	/*Weapons and armour */
-	.addItem('Rune platebody', 1, 9)
-	.addItem('Rune longsword', 1, 8)
-	.addItem('Rune mace', 1, 7)
-	.addItem('Rune scimitar', 1, 7)
-	.addItem('Rune warhammer', 1, 7)
-	.addItem('Rune platelegs', 1, 6)
-	.addItem('Dragon platelegs', 1, 1)
-	.addItem('Dragon plateskirt', 1, 1)
-	.addItem('Dragon med helm', 1, 1)
+	.add('Rune platebody', 1, 9)
+	.add('Rune longsword', 1, 8)
+	.add('Rune mace', 1, 7)
+	.add('Rune scimitar', 1, 7)
+	.add('Rune warhammer', 1, 7)
+	.add('Rune platelegs', 1, 6)
+	.add('Dragon platelegs', 1, 1)
+	.add('Dragon plateskirt', 1, 1)
+	.add('Dragon med helm', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Rune arrow', [30, 40], 8)
-	.addItem('Wrath rune', [30, 50], 8)
-	.addItem('Chaos rune', [75, 150], 7)
-	.addItem('Death rune', [50, 100], 7)
+	.add('Rune arrow', [30, 40], 8)
+	.add('Wrath rune', [30, 50], 8)
+	.add('Chaos rune', [75, 150], 7)
+	.add('Death rune', [50, 100], 7)
 
 	/* Herbs */
 	.add(UsefulHerbTable, 1, 8)
 
 	/* Other */
-	.addItem('Rune javelin heads', [20, 30], 10)
-	.addItem('Runite bolts (unf)', [20, 30], 11)
-	.addItem('Dragonstone', 1, 7)
-	.addItem('Runite ore', [2, 5], 6)
-	.addItem('Dragon javelin heads', [30, 40], 5)
-	.addItem('Dragon bolts (unf)', [20, 40], 1)
-	.addItem('Wrath talisman', 1, 1)
+	.add('Rune javelin heads', [20, 30], 10)
+	.add('Runite bolts (unf)', [20, 30], 11)
+	.add('Dragonstone', 1, 7)
+	.add('Runite ore', [2, 5], 6)
+	.add('Dragon javelin heads', [30, 40], 5)
+	.add('Dragon bolts (unf)', [20, 40], 1)
+	.add('Wrath talisman', 1, 1)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 1)

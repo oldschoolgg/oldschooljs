@@ -8,19 +8,19 @@ const BlueDragonTable = new LootTable()
 	.every('Blue dragonhide')
 
 	/*Weapons and armour */
-	.addItem('Steel platelegs', 1, 4)
-	.addItem('Mithril axe', 1, 3)
-	.addItem('Steel battleaxe', 1, 3)
-	.addItem('Mithril spear', 1, 2)
-	.addItem('Adamant full helm', 1, 1)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Rune dagger', 1, 1)
+	.add('Steel platelegs', 1, 4)
+	.add('Mithril axe', 1, 3)
+	.add('Steel battleaxe', 1, 3)
+	.add('Mithril spear', 1, 2)
+	.add('Adamant full helm', 1, 1)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Rune dagger', 1, 1)
 
 	/* Runes*/
-	.addItem('Water rune', 75, 8)
-	.addItem('Nature rune', 15, 5)
-	.addItem('Law rune', 3, 3)
-	.addItem('Fire rune', 37, 1)
+	.add('Water rune', 75, 8)
+	.add('Nature rune', 15, 5)
+	.add('Law rune', 3, 3)
+	.add('Fire rune', 37, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 15)

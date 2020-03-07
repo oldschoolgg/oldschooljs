@@ -1,44 +1,44 @@
 import LootTable from '../../structures/LootTable';
 
 const MegaRareTable = new LootTable(128)
-	.addItem('Rune spear', 1, 8)
-	.addItem('Shield left half', 1, 4)
-	.addItem('Dragon spear', 1, 3);
+	.add('Rune spear', 1, 8)
+	.add('Shield left half', 1, 4)
+	.add('Dragon spear', 1, 3);
 
 export const GemTable = new LootTable(128)
-	.addItem('Uncut sapphire', 1, 32)
-	.addItem('Uncut emerald', 1, 16)
-	.addItem('Uncut ruby', 1, 8)
+	.add('Uncut sapphire', 1, 32)
+	.add('Uncut emerald', 1, 16)
+	.add('Uncut ruby', 1, 8)
 	.add(new LootTable().add('Chaos talisman').add('Nature talisman'))
-	.addItem('Uncut diamond', 1, 2)
-	.addItem('Rune javelin', 5, 1)
-	.addItem('Loop half of key')
-	.addItem('Tooth half of key')
+	.add('Uncut diamond', 1, 2)
+	.add('Rune javelin', 5, 1)
+	.add('Loop half of key')
+	.add('Tooth half of key')
 	.add(MegaRareTable);
 
 const RareDropTable = new LootTable()
 	/* Runes and ammunition */
-	.addItem('Nature rune', 67, 3)
-	.addItem('Adamant javelin', 20, 2)
-	.addItem('Death rune', 45, 2)
-	.addItem('Law rune', 45, 2)
-	.addItem('Rune arrow', 42, 2)
-	.addItem('Steel arrow', 150, 2)
+	.add('Nature rune', 67, 3)
+	.add('Adamant javelin', 20, 2)
+	.add('Death rune', 45, 2)
+	.add('Law rune', 45, 2)
+	.add('Rune arrow', 42, 2)
+	.add('Steel arrow', 150, 2)
 
 	/* Weapons and armour */
-	.addItem('Rune 2h sword', 1, 3)
-	.addItem('Rune battleaxe', 1, 3)
-	.addItem('Rune sq shield', 1, 2)
-	.addItem('Dragon med helm', 1, 1)
-	.addItem('Rune kiteshield', 1, 1)
+	.add('Rune 2h sword', 1, 3)
+	.add('Rune battleaxe', 1, 3)
+	.add('Rune sq shield', 1, 2)
+	.add('Dragon med helm', 1, 1)
+	.add('Rune kiteshield', 1, 1)
 
 	/* Other */
-	.addItem('Coins', 3000, 21)
-	.addItem('Loop half of key', 1, 20)
-	.addItem('Tooth half of key', 1, 20)
-	.addItem('Runite bar', 1, 5)
-	.addItem('Dragonstone', 1, 2)
-	.addItem('Silver ore', 100, 2)
+	.add('Coins', 3000, 21)
+	.add('Loop half of key', 1, 20)
+	.add('Tooth half of key', 1, 20)
+	.add('Runite bar', 1, 5)
+	.add('Dragonstone', 1, 2)
+	.add('Silver ore', 100, 2)
 
 	/* Subtables */
 	.add(GemTable, 1, 20)

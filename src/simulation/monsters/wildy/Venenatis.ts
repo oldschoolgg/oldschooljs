@@ -9,22 +9,22 @@ const VenenatisTable = new LootTable()
 	.oneIn(512, 'Treasonous ring')
 
 	/* Weapons and armour */
-	.addItem('Rune pickaxe', 1, 48)
-	.addItem('Rune knife', 60, 20)
-	.addItem('Rune 2h sword', 1, 12)
-	.addItem('Dragon pickaxe', 1, 3)
-	.addItem('Dragon 2h sword', 1, 2)
+	.add('Rune pickaxe', 1, 48)
+	.add('Rune knife', 60, 20)
+	.add('Rune 2h sword', 1, 12)
+	.add('Dragon pickaxe', 1, 3)
+	.add('Dragon 2h sword', 1, 2)
 
 	/* Runes and ammunition */
 
-	.addItem('Chaos rune', 400, 28)
-	.addItem('Death rune', 300, 28)
-	.addItem('Blood rune', 200, 28)
-	.addItem('Diamond bolts (e)', 100, 20)
-	.addItem('Cannonball', 250, 16)
+	.add('Chaos rune', 400, 28)
+	.add('Death rune', 300, 28)
+	.add('Blood rune', 200, 28)
+	.add('Diamond bolts (e)', 100, 20)
+	.add('Cannonball', 250, 16)
 
 	/* Materials */
-	.addItem(
+	.add(
 		[
 			['Uncut ruby', 20],
 			['Uncut diamond', 10]
@@ -32,18 +32,18 @@ const VenenatisTable = new LootTable()
 		1,
 		28
 	)
-	.addItem('Gold ore', 300, 24)
-	.addItem('Onyx bolt tips', 60, 20)
-	.addItem('Magic logs', 100, 20)
-	.addItem('Limpwurt root', 25, 20)
-	.addItem("Red spiders' eggs", 500, 12)
-	.addItem('Unicorn horn', 100, 8)
-	.addItem('Uncut dragonstone', 1, 8)
-	.addItem('Grimy snapdragon', 100, 4)
+	.add('Gold ore', 300, 24)
+	.add('Onyx bolt tips', 60, 20)
+	.add('Magic logs', 100, 20)
+	.add('Limpwurt root', 25, 20)
+	.add("Red spiders' eggs", 500, 12)
+	.add('Unicorn horn', 100, 8)
+	.add('Uncut dragonstone', 1, 8)
+	.add('Grimy snapdragon', 100, 4)
 
 	/* Other */
-	.addItem('Coins', [15000, 19999], 76)
-	.addItem(
+	.add('Coins', [15000, 19999], 76)
+	.add(
 		[
 			['Dark crab', 8],
 			['Super restore(4)', 3]
@@ -51,12 +51,12 @@ const VenenatisTable = new LootTable()
 		1,
 		40
 	)
-	.addItem('Supercompost', 100, 19)
-	.addItem('Antidote++(4)', 10, 12)
-	.addItem('Dark fishing bait', 375, 4)
-	.addItem('Yew seed', 1, 4)
-	.addItem('Magic seed', 1, 4)
-	.addItem('Palm tree seed', 1, 4);
+	.add('Supercompost', 100, 19)
+	.add('Antidote++(4)', 10, 12)
+	.add('Dark fishing bait', 375, 4)
+	.add('Yew seed', 1, 4)
+	.add('Magic seed', 1, 4)
+	.add('Palm tree seed', 1, 4);
 
 export default new SimpleMonster({
 	id: 6610,

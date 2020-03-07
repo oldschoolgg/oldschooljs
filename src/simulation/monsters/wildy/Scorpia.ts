@@ -11,17 +11,17 @@ const ScorpiaTable = new LootTable()
 	.add(ScorpiaUniqueTable, undefined, 1)
 
 	/* Weapons and armour */
-	.addItem('Rune pickaxe', 1, 5)
-	.addItem('Rune 2h sword', 1, 5)
-	.addItem('Rune spear', 1, 5)
-	.addItem('Rune chainbody', 1, 4)
-	.addItem('Rune scimitar', 1, 4)
-	.addItem('Rune sword', 1, 4)
-	.addItem('Rune warhammer', 1, 4)
-	.addItem('Dragon scimitar', 1, 1)
+	.add('Rune pickaxe', 1, 5)
+	.add('Rune 2h sword', 1, 5)
+	.add('Rune spear', 1, 5)
+	.add('Rune chainbody', 1, 4)
+	.add('Rune scimitar', 1, 4)
+	.add('Rune sword', 1, 4)
+	.add('Rune warhammer', 1, 4)
+	.add('Dragon scimitar', 1, 1)
 
 	/* Materials */
-	.addItem(
+	.add(
 		[
 			['Uncut emerald', 6],
 			['Uncut sapphire', 4]
@@ -29,22 +29,22 @@ const ScorpiaTable = new LootTable()
 		1,
 		5
 	)
-	.addItem('Grimy kwuarm', 4, 8)
-	.addItem('Bucket of sand', 25, 6)
-	.addItem('Cactus spine', 10, 6)
+	.add('Grimy kwuarm', 4, 8)
+	.add('Bucket of sand', 25, 6)
+	.add('Cactus spine', 10, 6)
 
 	/* Consumables */
-	.addItem('Admiral pie', 3, 8)
-	.addItem('Prayer potion(4)', 1, 8)
-	.addItem('Shark', 1, 8)
-	.addItem('Anchovy pizza', 8, 4)
-	.addItem('Superantipoison(4)', 1, 2)
+	.add('Admiral pie', 3, 8)
+	.add('Prayer potion(4)', 1, 8)
+	.add('Shark', 1, 8)
+	.add('Anchovy pizza', 8, 4)
+	.add('Superantipoison(4)', 1, 2)
 
 	/* Other */
-	.addItem('Coins', [499, 3998], 18)
-	.addItem('Phoenix necklace', 1, 7)
-	.addItem('Dust rune', 30, 4)
-	.addItem('Weapon poison(++)', 1, 4)
+	.add('Coins', [499, 3998], 18)
+	.add('Phoenix necklace', 1, 7)
+	.add('Dust rune', 30, 4)
+	.add('Weapon poison(++)', 1, 4)
 
 	/* Subtables */
 	.add(RareDropTable, 1, 4)

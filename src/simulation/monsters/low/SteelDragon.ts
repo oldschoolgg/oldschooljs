@@ -7,32 +7,32 @@ const SteelDragonTable = new LootTable(128)
 	.every('Steel bar', 5)
 
 	/*Weapons and armour */
-	.addItem('Rune dart(p)', 12, 7)
-	.addItem('Rune mace', 1, 4)
-	.addItem('Rune knife', 7, 3)
-	.addItem('Adamant kiteshield', 1, 2)
-	.addItem('Rune axe', 1, 2)
-	.addItem('Rune full helm', 1, 1)
+	.add('Rune dart(p)', 12, 7)
+	.add('Rune mace', 1, 4)
+	.add('Rune knife', 7, 3)
+	.add('Adamant kiteshield', 1, 2)
+	.add('Rune axe', 1, 2)
+	.add('Rune full helm', 1, 1)
 	.oneIn(512, 'Dragon plateskirt')
 	.oneIn(512, 'Dragon platelegs')
 
 	/* Runes and ammunition */
-	.addItem('Rune javelin', 7, 20)
-	.addItem('Blood rune', 20, 19)
-	.addItem('Runite bolts', [2, 12], 6)
-	.addItem('Soul rune', 5, 5)
+	.add('Rune javelin', 7, 20)
+	.add('Blood rune', 20, 19)
+	.add('Runite bolts', [2, 12], 6)
+	.add('Soul rune', 5, 5)
 
 	/* Coins */
-	.addItem('Coins', 470, 17)
+	.add('Coins', 470, 17)
 
 	/* Other */
-	.addItem('Super attack(3)', 1, 13)
-	.addItem('Runite limbs', 1, 8)
-	.addItem('Dragon javelin heads', 12, 5)
-	.addItem('Runite bar', 1, 3)
-	.addItem('Super defence(2)', 1, 3)
-	.addItem('Curry', 1, 1)
-	.addItem('Curry', 2, 1)
+	.add('Super attack(3)', 1, 13)
+	.add('Runite limbs', 1, 8)
+	.add('Dragon javelin heads', 12, 5)
+	.add('Runite bar', 1, 3)
+	.add('Super defence(2)', 1, 3)
+	.add('Curry', 1, 1)
+	.add('Curry', 2, 1)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 4)

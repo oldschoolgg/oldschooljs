@@ -4,15 +4,15 @@ import HerbDropTable from './HerbDropTable';
 export default new LootTable(128)
 	.every('Bones')
 
-	.addItem('Bronze med helm', 1, 2)
-	.addItem('Iron dagger', 1)
+	.add('Bronze med helm', 1, 2)
+	.add('Iron dagger', 1)
 
-	.addItem('Bronze bolts', [2, 12], 22)
-	.addItem('Bronze arrow', 7, 3)
-	.addItem('Earth rune', 4, 2)
-	.addItem('Fire rune', 6, 2)
-	.addItem('Mind rune', 9, 2)
-	.addItem('Chaos rune', 2, 1)
+	.add('Bronze bolts', [2, 12], 22)
+	.add('Bronze arrow', 7, 3)
+	.add('Earth rune', 4, 2)
+	.add('Fire rune', 6, 2)
+	.add('Mind rune', 9, 2)
+	.add('Chaos rune', 2, 1)
 
 	.add(HerbDropTable, 1, 23)
 
@@ -21,10 +21,10 @@ export default new LootTable(128)
 	.add('Coins', 15, 4)
 	.add('Coins', 25, 1)
 
-	.addItem('Fishing bait', 1, 5)
-	.addItem('Copper ore', 1, 2)
-	.addItem('Earth talisman', 1, 2)
-	.addItem('Cabbage', 1, 1)
+	.add('Fishing bait', 1, 5)
+	.add('Copper ore', 1, 2)
+	.add('Earth talisman', 1, 2)
+	.add('Cabbage', 1, 1)
 
 	.tertiary(90, 'Clue scroll (beginner)', 1)
 	.tertiary(128, 'Clue scroll (easy)', 1);

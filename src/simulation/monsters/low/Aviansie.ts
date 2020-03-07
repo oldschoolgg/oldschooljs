@@ -8,23 +8,23 @@ const AviansieTable = new LootTable()
 	.every('Feather', [1, 6])
 
 	/* Runes */
-	.addItem('Air rune', 15, 18)
-	.addItem('Water rune', 30, 13)
-	.addItem('Law rune', 2, 4)
-	.addItem('Nature rune', 9, 4)
-	.addItem('Chaos rune', 3, 3)
-	.addItem('Body rune', 12, 2)
-	.addItem('Blood rune', 11, 2)
-	.addItem('Mind rune', 5, 1)
-	.addItem('Chaos rune', 16, 1)
+	.add('Air rune', 15, 18)
+	.add('Water rune', 30, 13)
+	.add('Law rune', 2, 4)
+	.add('Nature rune', 9, 4)
+	.add('Chaos rune', 3, 3)
+	.add('Body rune', 12, 2)
+	.add('Blood rune', 11, 2)
+	.add('Mind rune', 5, 1)
+	.add('Chaos rune', 16, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 15)
 
 	/* Materials */
-	.addItem('Adamantite bar', 4, 30)
-	.addItem('Silver ore', 1, 10)
-	.addItem('Runite limbs', 1, 1)
+	.add('Adamantite bar', 4, 30)
+	.add('Silver ore', 1, 10)
+	.add('Runite limbs', 1, 1)
 
 	/* Other */
 	.add('Rune dagger(p+)', 1, 11)

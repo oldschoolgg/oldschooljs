@@ -8,15 +8,15 @@ const ZygomiteTable = new LootTable()
 	.every('Ashes')
 
 	/*Weapons and armour */
-	.addItem('Steel axe', 1, 10)
-	.addItem('Steel 2h sword', 1, 10)
-	.addItem('Mithril full helm', 1, 5)
-	.addItem('Rune full helm', 1, 5)
+	.add('Steel axe', 1, 10)
+	.add('Steel 2h sword', 1, 10)
+	.add('Mithril full helm', 1, 5)
+	.add('Rune full helm', 1, 5)
 
 	/* Runes and ammunition */
-	.addItem('Nature rune', 5, 15)
-	.addItem('Law rune', [10, 20], 10)
-	.addItem('Earth rune', 15, 10)
+	.add('Nature rune', 5, 15)
+	.add('Law rune', [10, 20], 10)
+	.add('Earth rune', 15, 10)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 16)
@@ -25,11 +25,11 @@ const ZygomiteTable = new LootTable()
 	.add(CommonSeedDropTable, 1, 10)
 
 	/* Other */
-	.addItem('Coins', [44, 400], 9)
-	.addItem('Supercompost', [1, 3], 7)
-	.addItem('Mort myre fungus', [1, 5], 7)
-	.addItem('Clay', 1, 7)
-	.addItem('Fungicide', 1, 7)
+	.add('Coins', [44, 400], 9)
+	.add('Supercompost', [1, 3], 7)
+	.add('Mort myre fungus', [1, 5], 7)
+	.add('Clay', 1, 7)
+	.add('Fungicide', 1, 7)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 1);

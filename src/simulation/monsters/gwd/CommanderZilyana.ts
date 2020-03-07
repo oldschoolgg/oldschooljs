@@ -12,24 +12,24 @@ const MinionTable = new LootTable()
 	.every('Bones')
 	.add(MinionUniqueTable, 1, 1)
 	.add(MinionShardTable, 1, 1)
-	.addItem('Steel arrow', [95, 100], 8)
-	.addItem('Steel dart', [95, 100], 8)
-	.addItem('Law rune', [5, 10], 8)
-	.addItem('Monkfish', 3, 8)
-	.addItem('Summer pie', 1, 8)
-	.addItem('Coins', [1_300, 1_400], 62)
-	.addItem('Grimy ranarr weed', 1, 8)
-	.addItem('Unicorn horn', 6, 8)
-	.addItem('Snape grass', 5, 7)
+	.add('Steel arrow', [95, 100], 8)
+	.add('Steel dart', [95, 100], 8)
+	.add('Law rune', [5, 10], 8)
+	.add('Monkfish', 3, 8)
+	.add('Summer pie', 1, 8)
+	.add('Coins', [1_300, 1_400], 62)
+	.add('Grimy ranarr weed', 1, 8)
+	.add('Unicorn horn', 6, 8)
+	.add('Snape grass', 5, 7)
 	.tertiary(128, 'Clue scroll (hard)');
 
 const UniqueTable = new LootTable()
-	.addItem('Saradomin sword', 1, 4)
-	.addItem("Saradomin's light", 1, 2)
-	.addItem('Armadyl crossbow')
-	.addItem('Saradomin hilt')
+	.add('Saradomin sword', 1, 4)
+	.add("Saradomin's light", 1, 2)
+	.add('Armadyl crossbow')
+	.add('Saradomin hilt')
 	.add(ShardTable, undefined, 2)
-	.addItem('Coins', [19_500, 20_000], 2);
+	.add('Coins', [19_500, 20_000], 2);
 
 const CommanderZilyanaTable = new LootTable()
 	.every('Bones')
@@ -41,14 +41,14 @@ const CommanderZilyanaTable = new LootTable()
 	.tertiary(5000, 'Pet zilyana')
 
 	/* Weapons and armour */
-	.addItem('Adamant platebody', 1, 8)
-	.addItem('Rune dart', [35, 40], 8)
-	.addItem('Rune kiteshield', 1, 8)
-	.addItem('Rune plateskirt', 1, 8)
+	.add('Adamant platebody', 1, 8)
+	.add('Rune dart', [35, 40], 8)
+	.add('Rune kiteshield', 1, 8)
+	.add('Rune plateskirt', 1, 8)
 
 	/* Potions */
-	.addItem('Prayer potion(4)', 3, 8)
-	.addItem(
+	.add('Prayer potion(4)', 3, 8)
+	.add(
 		[
 			['Super defence(3)', 3],
 			['Magic potion(3)', 3]
@@ -56,7 +56,7 @@ const CommanderZilyanaTable = new LootTable()
 		1,
 		8
 	)
-	.addItem(
+	.add(
 		[
 			['Saradomin brew(3)', 3],
 			['Super restore(4)', 3]
@@ -66,12 +66,12 @@ const CommanderZilyanaTable = new LootTable()
 	)
 
 	/* Other */
-	.addItem('Coins', [19500, 20000], 27)
-	.addItem('Diamond', 6, 8)
-	.addItem('Law rune', [95, 100], 8)
-	.addItem('Grimy ranarr weed', 5, 8)
-	.addItem('Ranarr seed', 2, 8)
-	.addItem('Magic seed', 1, 1)
+	.add('Coins', [19500, 20000], 27)
+	.add('Diamond', 6, 8)
+	.add('Law rune', [95, 100], 8)
+	.add('Grimy ranarr weed', 5, 8)
+	.add('Ranarr seed', 2, 8)
+	.add('Magic seed', 1, 1)
 
 	.add(GWRareDropTable, undefined, 8)
 	.add(GWGemTable, undefined, 2);

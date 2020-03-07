@@ -16,15 +16,15 @@ const DemonicGorillaTable = new LootTable(500)
 	.oneIn(1500, 'Monkey tail')
 
 	/* Weapons and armor */
-	.addItem('Rune platelegs', 1, 35)
-	.addItem('Rune plateskirt', 1, 35)
-	.addItem('Rune chainbody', 1, 20)
-	.addItem('Dragon scimitar', 1, 10)
+	.add('Rune platelegs', 1, 35)
+	.add('Rune plateskirt', 1, 35)
+	.add('Rune chainbody', 1, 20)
+	.add('Dragon scimitar', 1, 10)
 
 	/* Runes and ammunition */
-	.addItem('Law rune', [50, 75], 35)
-	.addItem('Death rune', [50, 75], 35)
-	.addItem('Runite bolts', [100, 150], 25)
+	.add('Law rune', [50, 75], 35)
+	.add('Death rune', [50, 75], 35)
+	.add('Runite bolts', [100, 150], 25)
 
 	/* Herbs */
 	.add(NotedHerbTable, [7, 13], 18)
@@ -33,16 +33,16 @@ const DemonicGorillaTable = new LootTable(500)
 	.add(TreeHerbSeedTable, 1, 25)
 
 	/* Other */
-	.addItem('Prayer potion(3)', 2, 40)
-	.addItem('Shark', [2, 3], 35)
-	.addItem('Coins', [5000, 10000], 25)
-	.addItem('Saradomin brew(2)', 1, 25)
-	.addItem('Javelin shaft', [750, 1250], 25)
-	.addItem('Rune javelin heads', [45, 55], 25)
-	.addItem('Dragon javelin heads', [27, 33], 25)
-	.addItem('Adamantite bar', 6, 20)
-	.addItem('Diamond', [4, 6], 17)
-	.addItem('Runite bar', 3, 15)
+	.add('Prayer potion(3)', 2, 40)
+	.add('Shark', [2, 3], 35)
+	.add('Coins', [5000, 10000], 25)
+	.add('Saradomin brew(2)', 1, 25)
+	.add('Javelin shaft', [750, 1250], 25)
+	.add('Rune javelin heads', [45, 55], 25)
+	.add('Dragon javelin heads', [27, 33], 25)
+	.add('Adamantite bar', 6, 20)
+	.add('Diamond', [4, 6], 17)
+	.add('Runite bar', 3, 15)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 5)

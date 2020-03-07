@@ -9,8 +9,8 @@ const LizardmanTable = new LootTable(78)
 	.add(CommonSeedDropTable, 1, 15)
 
 	/* Other */
-	.addItem('Lizardman fang', 1, 14)
-	.addItem('Xerician fabric', 1, 8)
+	.add('Lizardman fang', 1, 14)
+	.add('Xerician fabric', 1, 8)
 	.oneIn(125, "Xeric's talisman(inert)");
 
 export default new SimpleMonster({

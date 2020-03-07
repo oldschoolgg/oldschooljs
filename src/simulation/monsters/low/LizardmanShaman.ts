@@ -9,24 +9,24 @@ const LizardmanShamanTable = new LootTable(500)
 	.oneIn(5000, 'Dragon Warhammer')
 
 	/* Weapons and armor */
-	.addItem('Rune med helm', 1, 18)
-	.addItem('Earth battlestaff', 1, 17)
-	.addItem('Mystic earth staff', 1, 17)
-	.addItem('Rune warhammer', 1, 16)
-	.addItem('Rune chainbody', 1, 12)
-	.addItem("Red d'hide vamb", 1, 10)
+	.add('Rune med helm', 1, 18)
+	.add('Earth battlestaff', 1, 17)
+	.add('Mystic earth staff', 1, 17)
+	.add('Rune warhammer', 1, 16)
+	.add('Rune chainbody', 1, 12)
+	.add("Red d'hide vamb", 1, 10)
 
 	/* Runes */
-	.addItem('Air rune', [60, 80], 25)
-	.addItem('Chaos rune', [40, 60], 25)
-	.addItem('Death rune', [20, 30], 25)
-	.addItem('Fire rune', [60, 80], 25)
+	.add('Air rune', [60, 80], 25)
+	.add('Chaos rune', [40, 60], 25)
+	.add('Death rune', [20, 30], 25)
+	.add('Fire rune', [60, 80], 25)
 
 	/*  Materials */
-	.addItem('Xerician fabric', 2, 40)
-	.addItem('Coal', [20, 25], 20)
-	.addItem('Iron ore', [30, 35], 20)
-	.addItem('Runite ore', [3, 5], 8)
+	.add('Xerician fabric', 2, 40)
+	.add('Coal', [20, 25], 20)
+	.add('Iron ore', [30, 35], 20)
+	.add('Runite ore', [3, 5], 8)
 
 	/* Herbs */
 	.add(NotedHerbTable, [2, 3], 45)
@@ -35,10 +35,10 @@ const LizardmanShamanTable = new LootTable(500)
 	.add(TreeHerbSeedTable, 1, 10)
 
 	/* Other */
-	.addItem('Coins', [100, 6_000], 70)
-	.addItem('Lizardman fang', [10, 14], 38)
-	.addItem('Chilli potato', 2, 30)
-	.addItem("Xeric's talisman(inert)", 1, 4)
+	.add('Coins', [100, 6_000], 70)
+	.add('Lizardman fang', [10, 14], 38)
+	.add('Chilli potato', 2, 30)
+	.add("Xeric's talisman(inert)", 1, 4)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 20)

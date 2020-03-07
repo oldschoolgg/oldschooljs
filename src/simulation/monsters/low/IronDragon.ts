@@ -11,31 +11,31 @@ const IronDragonTable = new LootTable()
 	.oneIn(1024, 'Dragon platelegs')
 
 	/* Weapons and armour */
-	.addItem('Rune dart(p)', 9, 7)
-	.addItem('Adamant 2h sword', 1, 4)
-	.addItem('Adamant axe', 1, 3)
-	.addItem('Adamant battleaxe', 1, 3)
-	.addItem('Rune knife', 5, 3)
-	.addItem('Adamant sq shield', 1, 1)
-	.addItem('Rune med helm', 1, 1)
-	.addItem('Rune battleaxe', 1, 1)
+	.add('Rune dart(p)', 9, 7)
+	.add('Adamant 2h sword', 1, 4)
+	.add('Adamant axe', 1, 3)
+	.add('Adamant battleaxe', 1, 3)
+	.add('Rune knife', 5, 3)
+	.add('Adamant sq shield', 1, 1)
+	.add('Rune med helm', 1, 1)
+	.add('Rune battleaxe', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Rune javelin', 4, 20)
-	.addItem('Blood rune', 15, 19)
-	.addItem('Adamant bolts', [2, 12], 6)
-	.addItem('Soul rune', 3, 5)
+	.add('Rune javelin', 4, 20)
+	.add('Blood rune', 15, 19)
+	.add('Adamant bolts', [2, 12], 6)
+	.add('Soul rune', 3, 5)
 
 	/* Coins */
-	.addItem('Coins', 270, 20)
-	.addItem('Coins', 550, 10)
-	.addItem('Coins', 990, 1)
+	.add('Coins', 270, 20)
+	.add('Coins', 550, 10)
+	.add('Coins', 990, 1)
 
 	/* Other */
-	.addItem('Super strength(1)', 1, 8)
-	.addItem('Runite limbs', 1, 5)
-	.addItem('Adamantite bar', 2, 3)
-	.addItem('Curry', 1, 3)
+	.add('Super strength(1)', 1, 8)
+	.add('Runite limbs', 1, 5)
+	.add('Adamantite bar', 2, 3)
+	.add('Curry', 1, 3)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 2)
