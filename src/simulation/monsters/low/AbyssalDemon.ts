@@ -52,7 +52,7 @@ const AbyssalDemonTable = new LootTable()
 	.tertiary(6000, 'Abyssal head');
 
 export default new SimpleMonster({
-	id: 124,
+	id: 415,
 	name: 'Abyssal Demon',
 	table: AbyssalDemonTable,
 	aliases: ['abbys', 'abby demon', 'abby demons', 'abyssal demons']

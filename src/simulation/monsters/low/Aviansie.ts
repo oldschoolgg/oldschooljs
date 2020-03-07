@@ -39,7 +39,7 @@ const AviansieTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 3619,
+	id: 3169,
 	name: 'Aviansie',
 	table: AviansieTable,
 	aliases: ['aviansie', 'avi']

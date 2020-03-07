@@ -41,7 +41,7 @@ const BasiliskTable = new LootTable()
 	.tertiary(2000, 'Basilisk head');
 
 export default new SimpleMonster({
-	id: 122,
+	id: 417,
 	name: 'Basilisk',
 	table: BasiliskTable,
 	aliases: ['basilisk', 'basi']
