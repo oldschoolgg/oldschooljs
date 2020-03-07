@@ -4,7 +4,7 @@ import RareDropTable from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
-const MutatedZygomiteTable = new LootTable()
+const ZygomiteTable = new LootTable()
 	.every('Ashes')
 
 	/*Weapons and armour */
@@ -36,7 +36,7 @@ const MutatedZygomiteTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 537,
-	name: 'Mutated Zygomite',
-	table: MutatedZygomiteTable,
+	name: 'Zygomite',
+	table: ZygomiteTable,
 	aliases: ['mutated zygomite', 'zygomite']
 });

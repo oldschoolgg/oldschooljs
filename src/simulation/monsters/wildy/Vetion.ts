@@ -61,7 +61,7 @@ export const VetionTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 6611,
-	name: 'Vetion',
+	name: "Vet'ion",
 	table: VetionTable,
 	aliases: ['vetion', "vet'ion", 'vet']
 });

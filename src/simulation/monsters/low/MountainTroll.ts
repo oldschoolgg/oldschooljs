@@ -49,7 +49,7 @@ const MountainTrollTable = new LootTable(128)
 
 export default new SimpleMonster({
 	id: 936,
-	name: 'MountainTroll',
+	name: 'Mountain Troll',
 	table: MountainTrollTable,
 	aliases: ['mountain troll']
 });
