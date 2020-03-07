@@ -14,7 +14,7 @@ const VorkathBoltTipTable = new LootTable()
 	.add('Onyx bolt tips', [25, 30], 3)
 	.add('Sapphire bolt tips', [25, 30], 2);
 
-export const VorkathTable = new LootTable()
+const VorkathTable = new LootTable()
 	.every('Superior dragon bones')
 	.every('Blue dragonhide')
 

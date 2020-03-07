@@ -4,7 +4,7 @@ import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
 const ChaosFanaticUniqueTable = new LootTable().add('Odium shard 1').add('Malediction shard 1');
 
-export const ChaosFanaticTable = new LootTable()
+const ChaosFanaticTable = new LootTable()
 	.every('Bones')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(1000, 'Pet chaos elemental')

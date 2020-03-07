@@ -31,7 +31,7 @@ const UniqueTable = new LootTable()
 	.add(ShardTable, undefined, 2)
 	.addItem('Coins', [19_500, 20_000], 2);
 
-export const CommanderZilyanaTable = new LootTable()
+const CommanderZilyanaTable = new LootTable()
 	.every('Bones')
 	.every(MinionTable)
 	.every(MinionTable)

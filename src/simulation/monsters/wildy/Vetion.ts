@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-export const VetionTable = new LootTable()
+const VetionTable = new LootTable()
 	.every('Big bones')
 	.oneIn(512, 'Ring of the gods')
 	.tertiary(100, 'Clue scroll (elite)')

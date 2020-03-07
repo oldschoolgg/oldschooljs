@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
-export const KingBlackDragonTable = new LootTable()
+const KingBlackDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Black dragonhide', 2)
 	.tertiary(450, 'Clue scroll (elite)')

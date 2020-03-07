@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
-export const GiantMoleTable = new LootTable()
+const GiantMoleTable = new LootTable()
 	.every('Big bones')
 	.every('Mole claw', 1)
 	.every('Mole skin', [1, 3])

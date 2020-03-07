@@ -7,7 +7,7 @@ const SigilTable = new LootTable()
 	.add('Arcane sigil', 1, 3)
 	.add('Elysian sigil', 1, 1);
 
-export const CorporealBeastTable = new LootTable()
+const CorporealBeastTable = new LootTable()
 
 	.add('Spirit shield', 1, 8)
 	.add('Holy elixir', 1, 3)

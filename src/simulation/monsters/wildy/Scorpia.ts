@@ -4,7 +4,7 @@ import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
 const ScorpiaUniqueTable = new LootTable().add('Odium shard 3').add('Malediction shard 3');
 
-export const ScorpiaTable = new LootTable()
+const ScorpiaTable = new LootTable()
 	.tertiary(18, 'Ensouled scorpion head')
 	.tertiary(100, 'Clue scroll (hard)')
 	.tertiary(2016, "Scorpia's offspring")

@@ -6,7 +6,7 @@ const CrazyArchaeologistUniqueTable = new LootTable()
 	.add('Odium shard 2')
 	.add('Malediction shard 2');
 
-export const CrazyArchaeologistTable = new LootTable()
+const CrazyArchaeologistTable = new LootTable()
 	.every('Bones')
 	.tertiary(128, 'Clue scroll (hard)')
 	.add(CrazyArchaeologistUniqueTable, undefined, 1)

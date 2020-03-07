@@ -35,7 +35,7 @@ const UniqueTable = new LootTable()
 	.addItem('Zamorak hilt')
 	.add(ShardTable, undefined, 2);
 
-export const KrilTsutsarothTable = new LootTable()
+const KrilTsutsarothTable = new LootTable()
 	.every('Ashes')
 	.every(MinionTable)
 	.every(MinionTable)

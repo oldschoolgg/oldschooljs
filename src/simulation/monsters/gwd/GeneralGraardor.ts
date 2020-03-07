@@ -40,7 +40,7 @@ const UniqueTable = new LootTable()
 	.addItem('Bandos hilt')
 	.addItem('Coins', [20_100, 20_600], 5);
 
-export const GeneralGraardorTable = new LootTable()
+const GeneralGraardorTable = new LootTable()
 	.every('Big bones')
 	.every(StrongsackMinionTable)
 	.every(SteelwillMinionTable)
