@@ -52,6 +52,27 @@ import Wyrm from './Wyrm';
 import CaveKraken from './CaveKraken';
 import GreaterDemon from './GreaterDemon';
 import Nechryael from './Nechryael';
+import Banshee from './Banshee';
+import CaveBug from './CaveBug';
+import Cow from './Cow';
+import Dwarf from './Dwarf';
+import Lizard from './Lizard';
+import Rat from './Rat';
+import Spider from './Spider';
+import Bat from './Bat';
+import CaveCrawler from './CaveCrawler';
+import CrawlingHand from './CrawlingHand';
+import Ghost from './Ghost';
+import Minotaur from './Minotaur';
+import Scorpion from './Scorpion';
+import Wolf from './Wolf';
+import Bear from './Bear';
+import CaveSlime from './CaveSlime';
+import GuardDog from './GuardDog';
+import Icefiend from './Icefiend';
+import Monkey from './Monkey';
+import Skeleton from './Skeleton';
+import Zombie from './Zombie';
 
 export default {
 	AberrantSpectre,
@@ -107,5 +128,26 @@ export default {
 	Wyrm,
 	CaveKraken,
 	GreaterDemon,
-	Nechryael
+	Nechryael,
+	Banshee,
+	CaveBug,
+	Cow,
+	Dwarf,
+	Lizard,
+	Rat,
+	Spider,
+	Bat,
+	CaveCrawler,
+	CrawlingHand,
+	Ghost,
+	Minotaur,
+	Scorpion,
+	Wolf,
+	Bear,
+	CaveSlime,
+	GuardDog,
+	Icefiend,
+	Monkey,
+	Skeleton,
+	Zombie
 };
