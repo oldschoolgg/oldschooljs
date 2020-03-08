@@ -9,16 +9,16 @@ const CaveHorrorTable = new LootTable()
 	.every('Big bones')
 
 	/* Weapons and armor*/
-	.addItem('Mithril axe', 1, 3)
-	.addItem('Rune dagger', 1, 1)
-	.addItem('Adamant full helm', 1, 1)
-	.addItem('Mithril kiteshield', 1, 1)
+	.add('Mithril axe', 1, 3)
+	.add('Rune dagger', 1, 1)
+	.add('Adamant full helm', 1, 1)
+	.add('Mithril kiteshield', 1, 1)
 	.oneIn(512, 'Black mask (10)')
 
 	/* Runes */
-	.addItem('Nature rune', 6, 6)
-	.addItem('Nature rune', 4, 5)
-	.addItem('Nature rune', 3, 1)
+	.add('Nature rune', 6, 6)
+	.add('Nature rune', 4, 5)
+	.add('Nature rune', 3, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 13)

@@ -21,52 +21,52 @@ const ZulrahTable = new LootTable()
 	.oneIn(256, ZulrahUniqueTable)
 
 	/* Weapons and armour */
-	.addItem('Dragon med helm', 1, 2)
-	.addItem('Dragon halberd', 1, 2)
-	.addItem('Battlestaff', 10, 10)
+	.add('Dragon med helm', 1, 2)
+	.add('Dragon halberd', 1, 2)
+	.add('Battlestaff', 10, 10)
 
 	/* Runes */
-	.addItem('Death rune', 300, 12)
-	.addItem('Law rune', 200, 12)
-	.addItem('Chaos rune', 500, 12)
+	.add('Death rune', 300, 12)
+	.add('Law rune', 200, 12)
+	.add('Chaos rune', 500, 12)
 
 	/* Herbs */
-	.addItem('Snapdragon', 10, 2)
-	.addItem('Dwarf weed', 30, 2)
-	.addItem('Toadflax', 25, 2)
-	.addItem('Torstol', 10, 2)
+	.add('Snapdragon', 10, 2)
+	.add('Dwarf weed', 30, 2)
+	.add('Toadflax', 25, 2)
+	.add('Torstol', 10, 2)
 
 	/* Seeds */
-	.addItem('Palm tree seed', 1, 6)
-	.addItem('Papaya tree seed', 3, 6)
-	.addItem('Calquat tree seed', 2, 6)
-	.addItem('Magic seed', 1, 4)
-	.addItem('Toadflax seed', 2, 2)
-	.addItem('Snapdragon seed', 1, 2)
-	.addItem('Dwarf weed seed', 2, 2)
-	.addItem('Torstol seed', 1, 2)
-	.addItem('Spirit seed')
+	.add('Palm tree seed', 1, 6)
+	.add('Papaya tree seed', 3, 6)
+	.add('Calquat tree seed', 2, 6)
+	.add('Magic seed', 1, 4)
+	.add('Toadflax seed', 2, 2)
+	.add('Snapdragon seed', 1, 2)
+	.add('Dwarf weed seed', 2, 2)
+	.add('Torstol seed', 1, 2)
+	.add('Spirit seed')
 
 	/* Resources */
-	.addItem('Snakeskin', 35, 11)
-	.addItem('Runite ore', 2, 11)
-	.addItem('Pure essence', 1500, 10)
+	.add('Snakeskin', 35, 11)
+	.add('Runite ore', 2, 11)
+	.add('Pure essence', 1500, 10)
 	.add(ZulrahFlaxMutagenTable, undefined, 10)
-	.addItem('Yew logs', 35, 10)
-	.addItem('Adamantite bar', 20, 8)
-	.addItem('Coal', 200, 8)
-	.addItem('Dragon bones', 12, 8)
-	.addItem('Mahogany logs', 50, 8)
+	.add('Yew logs', 35, 10)
+	.add('Adamantite bar', 20, 8)
+	.add('Coal', 200, 8)
+	.add('Dragon bones', 12, 8)
+	.add('Mahogany logs', 50, 8)
 
 	/* Other */
-	.addItem('Zul-andra teleport', 4, 15)
-	.addItem('Manta ray', 35, 12)
-	.addItem('Antidote++(4)', 10, 9)
-	.addItem('Dragonstone bolt tips', 12, 8)
-	.addItem('Grapes', 250, 6)
-	.addItem('Coconut', 20, 5)
-	.addItem('Swamp tar', 1000, 5)
-	.addItem("Zulrah's scales", 500, 5);
+	.add('Zul-andra teleport', 4, 15)
+	.add('Manta ray', 35, 12)
+	.add('Antidote++(4)', 10, 9)
+	.add('Dragonstone bolt tips', 12, 8)
+	.add('Grapes', 250, 6)
+	.add('Coconut', 20, 5)
+	.add('Swamp tar', 1000, 5)
+	.add("Zulrah's scales", 500, 5);
 
 export class Zulrah extends SimpleMonster {
 	public kill(quantity = 1): ItemBank {

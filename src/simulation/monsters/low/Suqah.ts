@@ -2,14 +2,14 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const SuqahTable = new LootTable(129)
+const SuqahTable = new LootTable({ limit: 129 })
 	.every('Big bones')
 	.every('Suqah hide')
 
 	/* Other */
-	.addItem('Suqah tooth', 1, 69)
-	.addItem('Grimy guam leaf', 1, 30)
-	.addItem('Grimy marrentill', 1, 25)
+	.add('Suqah tooth', 1, 69)
+	.add('Grimy guam leaf', 1, 30)
+	.add('Grimy marrentill', 1, 25)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

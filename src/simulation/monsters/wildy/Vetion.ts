@@ -11,20 +11,20 @@ const VetionTable = new LootTable()
 	.tertiary(5000, 'Curved bone')
 
 	/* Weapons and armour */
-	.addItem('Rune pickaxe', 1, 48)
-	.addItem('Rune 2h sword', 1, 12)
-	.addItem('Ancient staff', 1, 12)
-	.addItem('Dragon pickaxe', 1, 3)
-	.addItem('Dragon 2h sword', 1, 2)
+	.add('Rune pickaxe', 1, 48)
+	.add('Rune 2h sword', 1, 12)
+	.add('Ancient staff', 1, 12)
+	.add('Dragon pickaxe', 1, 3)
+	.add('Dragon 2h sword', 1, 2)
 
 	/* Runes and ammunition */
-	.addItem('Chaos rune', 400, 28)
-	.addItem('Death rune', 300, 28)
-	.addItem('Blood rune', 200, 28)
-	.addItem('Cannonball', 250, 16)
+	.add('Chaos rune', 400, 28)
+	.add('Death rune', 300, 28)
+	.add('Blood rune', 200, 28)
+	.add('Cannonball', 250, 16)
 
 	/* Materials */
-	.addItem(
+	.add(
 		[
 			['Uncut ruby', 20],
 			['Uncut diamond', 10]
@@ -32,18 +32,18 @@ const VetionTable = new LootTable()
 		1,
 		28
 	)
-	.addItem('Gold ore', 300, 24)
-	.addItem('Limpwurt root', 25, 20)
-	.addItem('Magic logs', 100, 20)
-	.addItem('Oak plank', 300, 20)
-	.addItem('Dragon bones', 100, 12)
-	.addItem('Uncut dragonstone', 1, 8)
-	.addItem('Mort myre fungus', 200, 8)
-	.addItem('Grimy ranarr weed', 100, 4)
+	.add('Gold ore', 300, 24)
+	.add('Limpwurt root', 25, 20)
+	.add('Magic logs', 100, 20)
+	.add('Oak plank', 300, 20)
+	.add('Dragon bones', 100, 12)
+	.add('Uncut dragonstone', 1, 8)
+	.add('Mort myre fungus', 200, 8)
+	.add('Grimy ranarr weed', 100, 4)
 
 	/* Other */
-	.addItem('Coins', [15000, 19999], 76)
-	.addItem(
+	.add('Coins', [15000, 19999], 76)
+	.add(
 		[
 			['Dark crab', 8],
 			['Super restore(4)', 3]
@@ -51,13 +51,13 @@ const VetionTable = new LootTable()
 		1,
 		40
 	)
-	.addItem('Sanfew serum(4)', 10, 20)
-	.addItem('Ogre coffin key', 10, 20)
-	.addItem('Supercompost', 100, 19)
-	.addItem('Dark fishing bait', 375, 4)
-	.addItem('Palm tree seed', 1, 4)
-	.addItem('Yew seed', 1, 4)
-	.addItem('Magic seed', 1, 4);
+	.add('Sanfew serum(4)', 10, 20)
+	.add('Ogre coffin key', 10, 20)
+	.add('Supercompost', 100, 19)
+	.add('Dark fishing bait', 375, 4)
+	.add('Palm tree seed', 1, 4)
+	.add('Yew seed', 1, 4)
+	.add('Magic seed', 1, 4);
 
 export default new SimpleMonster({
 	id: 6611,

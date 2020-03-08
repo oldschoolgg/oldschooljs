@@ -5,48 +5,48 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 
 const SmokeDevilHerbTable = new LootTable().add(HerbDropTable, 1, 2).add(HerbDropTable, 2, 1);
 
-const SmokeDevilTable = new LootTable(128)
+const SmokeDevilTable = new LootTable({ limit: 128 })
 	.every('Ashes')
 
 	/* Weapons and armor */
-	.addItem('Adamant battleaxe', 1, 3)
-	.addItem('Rune dagger', 1, 3)
-	.addItem('Air battlestaff', 1, 3)
-	.addItem("Black d'hide vamb", 1, 3)
-	.addItem('Fire battlestaff', 1, 3)
-	.addItem('Mithril plateskirt', 1, 2)
-	.addItem('Rune full helm', 1, 2)
-	.addItem('Rune chainbody', 1, 2)
-	.addItem("Red d'hide body", 1, 1)
+	.add('Adamant battleaxe', 1, 3)
+	.add('Rune dagger', 1, 3)
+	.add('Air battlestaff', 1, 3)
+	.add("Black d'hide vamb", 1, 3)
+	.add('Fire battlestaff', 1, 3)
+	.add('Mithril plateskirt', 1, 2)
+	.add('Rune full helm', 1, 2)
+	.add('Rune chainbody', 1, 2)
+	.add("Red d'hide body", 1, 1)
 	.oneIn(512, 'Occult necklace')
 	.oneIn(32_768, 'Dragon chainbody')
 
 	/* Runes and ammunition */
-	.addItem('Smoke rune', 15, 11)
-	.addItem('Smoke rune', 40, 5)
-	.addItem('Runite bolts', 15, 5)
-	.addItem('Fire rune', 37, 4)
-	.addItem('Air rune', 37, 4)
-	.addItem('Soul rune', 10, 4)
-	.addItem('Fire rune', 150, 2)
-	.addItem('Rune arrow', 24, 2)
+	.add('Smoke rune', 15, 11)
+	.add('Smoke rune', 40, 5)
+	.add('Runite bolts', 15, 5)
+	.add('Fire rune', 37, 4)
+	.add('Air rune', 37, 4)
+	.add('Soul rune', 10, 4)
+	.add('Fire rune', 150, 2)
+	.add('Rune arrow', 24, 2)
 
 	/* Herbs */
 	.add(SmokeDevilHerbTable, 1, 18)
 
 	/* Coins */
-	.addItem('Coins', 750, 12)
-	.addItem('Coins', 80, 7)
-	.addItem('Coins', 300, 3)
+	.add('Coins', 750, 12)
+	.add('Coins', 80, 7)
+	.add('Coins', 300, 3)
 
 	/* Other */
-	.addItem('Shark', 1, 6)
-	.addItem('Steel bar', 2, 3)
-	.addItem('Magic logs', 5, 3)
-	.addItem('Coal', 15, 3)
-	.addItem('Adamantite bar', 1, 2)
-	.addItem('Crossbow string', 1, 2)
-	.addItem('Ugthanki kebab', 3, 2)
+	.add('Shark', 1, 6)
+	.add('Steel bar', 2, 3)
+	.add('Magic logs', 5, 3)
+	.add('Coal', 15, 3)
+	.add('Adamantite bar', 1, 2)
+	.add('Crossbow string', 1, 2)
+	.add('Ugthanki kebab', 3, 2)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 4)

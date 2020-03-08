@@ -7,32 +7,32 @@ const ElfWarriorTable = new LootTable()
 	.every('Bones')
 
 	/*Weapons and armour */
-	.addItem("Green d'hide body", 1, 4)
-	.addItem("Green d'hide chaps", 1, 3)
-	.addItem('Mithril spear', 1, 2)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Adamant full helm', 1, 1)
-	.addItem('Rune dagger', 1, 1)
+	.add("Green d'hide body", 1, 4)
+	.add("Green d'hide chaps", 1, 3)
+	.add('Mithril spear', 1, 2)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Adamant full helm', 1, 1)
+	.add('Rune dagger', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Water rune', 70, 8)
-	.addItem('Nature rune', 12, 5)
-	.addItem('Law rune', 2, 3)
-	.addItem('Fire rune', 37, 2)
+	.add('Water rune', 70, 8)
+	.add('Nature rune', 12, 5)
+	.add('Law rune', 2, 3)
+	.add('Fire rune', 37, 2)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 15)
 
 	/* Coins */
-	.addItem('Coins', 44, 29)
-	.addItem('Coins', 180, 10)
-	.addItem('Coins', 20, 5)
+	.add('Coins', 44, 29)
+	.add('Coins', 180, 10)
+	.add('Coins', 20, 5)
 
 	/* Other */
-	.addItem('Crystal teleport seed', 1, 25)
-	.addItem('Bass', 1, 3)
-	.addItem('Shark', 1, 3)
-	.addItem('Adamantite ore', 1, 2)
+	.add('Crystal teleport seed', 1, 25)
+	.add('Bass', 1, 3)
+	.add('Shark', 1, 3)
+	.add('Adamantite ore', 1, 2)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

@@ -17,28 +17,30 @@ const MinionTable = new LootTable()
 	.every('Bones')
 	.add(MinionUniqueTable, 1, 1)
 	.add(MinionShardTable, 1, 1)
-	.addItem('Steel dart', [95, 100], 8)
-	.addItem('Nature rune', [15, 20], 8)
-	.addItem('Cosmic rune', [25, 30], 8)
-	.addItem('Shark', 2, 8)
-	.addItem('Chilli potato', 3, 8)
-	.addItem('Steel arrow', [95, 100], 7)
-	.addItem('Coins', [1_400, 1_500], 66)
-	.addItem('Limpwurt root', 5, 8)
-	.addItem('Combat potion(3)', 1, 2)
-	.addItem('Super strength(3)', 1, 2)
+	.add('Steel dart', [95, 100], 8)
+	.add('Nature rune', [15, 20], 8)
+	.add('Cosmic rune', [25, 30], 8)
+	.add('Shark', 2, 8)
+	.add('Chilli potato', 3, 8)
+	.add('Steel arrow', [95, 100], 7)
+	.add('Coins', [1_400, 1_500], 66)
+	.add('Limpwurt root', 5, 8)
+	.add('Combat potion(3)', 1, 2)
+	.add('Super strength(3)', 1, 2)
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(5000, 'Goblin champion scroll');
 
-const StrongsackMinionTable = new LootTable(6).every(MinionTable).addItem('Kebab', 1, 1);
-const SteelwillMinionTable = new LootTable(6).every(MinionTable).addItem('Beer', 1, 1);
-const GrimspikeMinionTable = new LootTable(6).every(MinionTable).addItem('Right eye patch', 1, 1);
+const StrongsackMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Kebab', 1, 1);
+const SteelwillMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Beer', 1, 1);
+const GrimspikeMinionTable = new LootTable({ limit: 6 })
+	.every(MinionTable)
+	.add('Right eye patch', 1, 1);
 
 const UniqueTable = new LootTable()
 	.add(GeneralGraardorArmorTable, undefined, 4)
 	.add(ShardTable, undefined, 2)
-	.addItem('Bandos hilt')
-	.addItem('Coins', [20_100, 20_600], 5);
+	.add('Bandos hilt')
+	.add('Coins', [20_100, 20_600], 5);
 
 const GeneralGraardorTable = new LootTable()
 	.every('Big bones')
@@ -52,20 +54,20 @@ const GeneralGraardorTable = new LootTable()
 	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
-	.addItem('Rune longsword', 1, 8)
-	.addItem('Rune 2h sword', 1, 8)
-	.addItem('Rune platebody', 1, 8)
-	.addItem('Rune pickaxe', 1, 6)
+	.add('Rune longsword', 1, 8)
+	.add('Rune 2h sword', 1, 8)
+	.add('Rune platebody', 1, 8)
+	.add('Rune pickaxe', 1, 6)
 
 	/* Other */
-	.addItem('Coins', [19500, 20000], 28)
-	.addItem('Grimy snapdragon', 3, 8)
-	.addItem('Snapdragon seed', 1, 8)
-	.addItem('Super restore(4)', 3, 8)
-	.addItem('Adamantite ore', [15, 20], 8)
-	.addItem('Coal', [115, 120], 8)
-	.addItem('Magic logs', [15, 20], 8)
-	.addItem('Nature rune', [65, 70], 8)
+	.add('Coins', [19500, 20000], 28)
+	.add('Grimy snapdragon', 3, 8)
+	.add('Snapdragon seed', 1, 8)
+	.add('Super restore(4)', 3, 8)
+	.add('Adamantite ore', [15, 20], 8)
+	.add('Coal', [115, 120], 8)
+	.add('Magic logs', [15, 20], 8)
+	.add('Nature rune', [65, 70], 8)
 
 	.add(GWRareDropTable, undefined, 8)
 	.add(GWGemTable, undefined, 2);

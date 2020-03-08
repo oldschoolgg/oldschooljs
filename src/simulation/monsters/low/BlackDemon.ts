@@ -7,19 +7,19 @@ const BlackDemonTable = new LootTable()
 	.every('Ashes')
 
 	/*Weapons and armour */
-	.addItem('Black sword', 1, 4)
-	.addItem('Steel battleaxe', 1, 3)
-	.addItem('Black axe', 1, 2)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Rune med helm', 1, 1)
-	.addItem('Rune chainbody', 1, 1)
+	.add('Black sword', 1, 4)
+	.add('Steel battleaxe', 1, 3)
+	.add('Black axe', 1, 2)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Rune med helm', 1, 1)
+	.add('Rune chainbody', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Air rune', 50, 8)
-	.addItem('Chaos rune', 10, 7)
-	.addItem('Blood rune', 7, 4)
-	.addItem('Fire rune', 37, 1)
-	.addItem('Law rune', 3, 1)
+	.add('Air rune', 50, 8)
+	.add('Chaos rune', 10, 7)
+	.add('Blood rune', 7, 4)
+	.add('Fire rune', 37, 1)
+	.add('Law rune', 3, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 23)

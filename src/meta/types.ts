@@ -347,6 +347,11 @@ export interface LootTableItem {
 	quantity: number | number[];
 }
 
+export enum LootTableType {
+	Item = 'item',
+	Monster = 'monster'
+}
+
 export interface OneInItems extends LootTableItem {
 	chance: number;
 }
@@ -380,3 +385,8 @@ export interface OpenableOptions {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface OpenableOpenOptions {}
+
+export interface LootTableOptions {
+	limit?: number;
+	type?: LootTableType;
+}

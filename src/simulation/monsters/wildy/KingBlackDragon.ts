@@ -12,33 +12,33 @@ const KingBlackDragonTable = new LootTable()
 	.oneIn(1500, 'Dragon pickaxe')
 
 	/* Weapons and armour */
-	.addItem('Rune longsword', 1, 10)
-	.addItem('Adamant platebody', 1, 9)
-	.addItem('Adamant kiteshield', 1, 3)
-	.addItem('Dragon med helm', 1, 1)
+	.add('Rune longsword', 1, 10)
+	.add('Adamant platebody', 1, 9)
+	.add('Adamant kiteshield', 1, 3)
+	.add('Dragon med helm', 1, 1)
 
 	/* Runes and ammunition */
 
-	.addItem('Air rune', 300, 10)
-	.addItem('Iron arrow', 690, 10)
-	.addItem('Runite bolts', [10, 20], 10)
-	.addItem('Fire rune', 300, 5)
-	.addItem('Law rune', 30, 5)
-	.addItem('Blood rune', 30, 5)
+	.add('Air rune', 300, 10)
+	.add('Iron arrow', 690, 10)
+	.add('Runite bolts', [10, 20], 10)
+	.add('Fire rune', 300, 5)
+	.add('Law rune', 30, 5)
+	.add('Blood rune', 30, 5)
 
 	/* Resources */
-	.addItem('Yew logs', 150, 10)
-	.addItem('Adamantite bar', 3, 5)
-	.addItem('Runite bar', 1, 3)
-	.addItem('Gold ore', 100, 2)
+	.add('Yew logs', 150, 10)
+	.add('Adamantite bar', 3, 5)
+	.add('Runite bar', 1, 3)
+	.add('Gold ore', 100, 2)
 
 	/* Other */
-	.addItem('Amulet of power', 1, 7)
-	.addItem('Dragon arrowtips', [5, 14], 5)
-	.addItem('Dragon dart tip', [5, 14], 5)
-	.addItem('Dragon javelin heads', 15, 5)
-	.addItem('Runite limbs', 1, 4)
-	.addItem('Shark', 4, 4)
+	.add('Amulet of power', 1, 7)
+	.add('Dragon arrowtips', [5, 14], 5)
+	.add('Dragon dart tip', [5, 14], 5)
+	.add('Dragon javelin heads', 15, 5)
+	.add('Runite limbs', 1, 4)
+	.add('Shark', 4, 4)
 
 	.add(RareDropTable, 1, 8)
 	.add(GemTable, 1, 2);

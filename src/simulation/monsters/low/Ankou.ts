@@ -4,19 +4,19 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
-const AnkouTable = new LootTable(100)
+const AnkouTable = new LootTable({ limit: 100 })
 	.every('Bones')
 
 	/* Weapons and armor */
-	.addItem('Black knife', 1, 1)
-	.addItem('Black robe', 1, 1)
+	.add('Black knife', 1, 1)
+	.add('Black robe', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Death rune', 10, 10)
-	.addItem('Blood rune', 11, 6)
-	.addItem('Law rune', 2, 6)
-	.addItem('Adamant arrow', [5, 14], 4)
-	.addItem('Blood rune', 5, 3)
+	.add('Death rune', 10, 10)
+	.add('Blood rune', 11, 6)
+	.add('Law rune', 2, 6)
+	.add('Adamant arrow', [5, 14], 4)
+	.add('Blood rune', 5, 3)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 3)
@@ -25,17 +25,17 @@ const AnkouTable = new LootTable(100)
 	.add(CommonSeedDropTable, 1, 1)
 
 	/* Materials */
-	.addItem('Pure essence', 15, 5)
-	.addItem('Mithril ore', [3, 7], 2)
+	.add('Pure essence', 15, 5)
+	.add('Mithril ore', [3, 7], 2)
 
 	/* Coins */
-	.addItem('Coins', 8, 33)
-	.addItem('Coins', [5, 204], 10)
+	.add('Coins', 8, 33)
+	.add('Coins', [5, 204], 10)
 
 	/* Other */
-	.addItem('Bass', 1, 2)
-	.addItem('Weapon poison', 1, 2)
-	.addItem('Fried mushrooms', 1, 1)
+	.add('Bass', 1, 2)
+	.add('Weapon poison', 1, 2)
+	.add('Fried mushrooms', 1, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 2)

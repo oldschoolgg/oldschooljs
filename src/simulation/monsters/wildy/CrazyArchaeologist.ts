@@ -12,29 +12,29 @@ const CrazyArchaeologistTable = new LootTable()
 	.add(CrazyArchaeologistUniqueTable, undefined, 1)
 
 	/* Weapons and armour */
-	.addItem('Amulet of power', 1, 7)
-	.addItem('Rune crossbow', 2, 5)
-	.addItem("Red d'hide body", 1, 4)
-	.addItem('Rune knife', 10, 4)
+	.add('Amulet of power', 1, 7)
+	.add('Rune crossbow', 2, 5)
+	.add("Red d'hide body", 1, 4)
+	.add('Rune knife', 10, 4)
 
 	/* Runes and ammunition */
 
-	.addItem('Mud rune', 30, 4)
-	.addItem('Cannonball', 150, 4)
-	.addItem('Dragon arrow', 75, 1)
+	.add('Mud rune', 30, 4)
+	.add('Cannonball', 150, 4)
+	.add('Dragon arrow', 75, 1)
 
 	/* Consumables */
-	.addItem('Shark', 1, 8)
-	.addItem('Potato with cheese', 3, 8)
-	.addItem('Prayer potion(4)', 1, 8)
-	.addItem('Anchovy pizza', 8, 4)
+	.add('Shark', 1, 8)
+	.add('Potato with cheese', 3, 8)
+	.add('Prayer potion(4)', 1, 8)
+	.add('Anchovy pizza', 8, 4)
 
 	/* Other */
-	.addItem('Coins', [499, 3998], 18)
-	.addItem('Grimy dwarf weed', 4, 8)
-	.addItem('White berries', 10, 6)
-	.addItem('Silver ore', 40, 6)
-	.addItem(
+	.add('Coins', [499, 3998], 18)
+	.add('Grimy dwarf weed', 4, 8)
+	.add('White berries', 10, 6)
+	.add('Silver ore', 40, 6)
+	.add(
 		[
 			['Uncut emerald', 6],
 			['Uncut sapphire', 4]
@@ -42,12 +42,12 @@ const CrazyArchaeologistTable = new LootTable()
 		1,
 		5
 	)
-	.addItem('Red dragonhide', 10, 5)
-	.addItem('Rusty sword', 1, 4)
-	.addItem('Muddy key', 1, 4)
-	.addItem('Onyx bolt tips', 12, 4)
-	.addItem('Long bone', 1, 2)
-	.addItem('Fedora', 1, 1)
+	.add('Red dragonhide', 10, 5)
+	.add('Rusty sword', 1, 4)
+	.add('Muddy key', 1, 4)
+	.add('Onyx bolt tips', 12, 4)
+	.add('Long bone', 1, 2)
+	.add('Fedora', 1, 1)
 
 	/* Subtables */
 	.add(RareDropTable, 1, 4)

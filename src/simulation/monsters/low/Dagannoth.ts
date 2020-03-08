@@ -7,30 +7,30 @@ const DagannothTable = new LootTable()
 	.every('Bones')
 
 	/*Weapons*/
-	.addItem('Iron spear', 1, 6)
-	.addItem('Bronze spear', 1, 5)
-	.addItem('Mithril spear', 1, 1)
+	.add('Iron spear', 1, 6)
+	.add('Bronze spear', 1, 5)
+	.add('Mithril spear', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Water rune', 15, 4)
-	.addItem('Steel arrow', 15, 2)
-	.addItem('Mithril javelin', 3, 1)
+	.add('Water rune', 15, 4)
+	.add('Steel arrow', 15, 2)
+	.add('Mithril javelin', 3, 1)
 
 	/* Seeds */
 	.add(RareSeedTable, 1, 18)
 
 	/* Fishing */
-	.addItem('Lobster pot', 1, 12)
-	.addItem('Raw herring', 3, 4)
-	.addItem('Raw sardine', 5, 4)
-	.addItem('Harpoon', 1, 3)
-	.addItem('Feather', 15, 2)
-	.addItem('Fishing bait', 50, 2)
-	.addItem('Raw lobster', 1, 2)
-	.addItem('Raw tuna', 1, 2)
-	.addItem('Seaweed', 10, 2)
-	.addItem('Oyster pearls', 1, 1)
-	.addItem('Oyster pearls', 2, 1)
+	.add('Lobster pot', 1, 12)
+	.add('Raw herring', 3, 4)
+	.add('Raw sardine', 5, 4)
+	.add('Harpoon', 1, 3)
+	.add('Feather', 15, 2)
+	.add('Fishing bait', 50, 2)
+	.add('Raw lobster', 1, 2)
+	.add('Raw tuna', 1, 2)
+	.add('Seaweed', 10, 2)
+	.add('Oyster pearls', 1, 1)
+	.add('Oyster pearls', 2, 1)
 
 	/* Coins */
 	.add('Coins', 56, 29)
@@ -39,8 +39,8 @@ const DagannothTable = new LootTable()
 	.add('Coins', 41, 6)
 
 	/* Other */
-	.addItem('Opal bolt tips', 12, 2)
-	.addItem('Casket', 1, 1)
+	.add('Opal bolt tips', 12, 2)
+	.add('Casket', 1, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 1)

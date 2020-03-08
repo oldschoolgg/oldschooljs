@@ -10,19 +10,19 @@ const DarkBeastTable = new LootTable()
 	.every('Big bones')
 
 	/*Weapons and armour */
-	.addItem('Black battleaxe', 1, 3)
-	.addItem('Adamant sq shield', 1, 1)
-	.addItem('Rune chainbody', 1, 1)
-	.addItem('Rune med helm', 1, 1)
-	.addItem('Rune full helm', 1, 1)
-	.addItem('Rune 2h sword', 1, 1)
-	.addItem('Rune battleaxe', 1, 1)
+	.add('Black battleaxe', 1, 3)
+	.add('Adamant sq shield', 1, 1)
+	.add('Rune chainbody', 1, 1)
+	.add('Rune med helm', 1, 1)
+	.add('Rune full helm', 1, 1)
+	.add('Rune 2h sword', 1, 1)
+	.add('Rune battleaxe', 1, 1)
 	.oneIn(512, 'Dark bow')
 
 	/* Runes and ammunition */
-	.addItem('Death rune', 20, 8)
-	.addItem('Chaos rune', 30, 7)
-	.addItem('Blood rune', 15, 4)
+	.add('Death rune', 20, 8)
+	.add('Chaos rune', 30, 7)
+	.add('Blood rune', 15, 4)
 
 	/* Herbs */
 	.add(DBHerbTable, 1, 24)
@@ -37,12 +37,12 @@ const DarkBeastTable = new LootTable()
 	.add('Coins', 220, 5)
 
 	/* Other */
-	.addItem('Shark', 1, 3)
-	.addItem('Adamantite bar', 3, 2)
-	.addItem('Adamantite ore', 5, 1)
-	.addItem('Death talisman', 1, 1)
-	.addItem('Runite ore', 1, 1)
-	.addItem('Shark', 2, 1)
+	.add('Shark', 1, 3)
+	.add('Adamantite bar', 3, 2)
+	.add('Adamantite ore', 5, 1)
+	.add('Death talisman', 1, 1)
+	.add('Runite ore', 1, 1)
+	.add('Shark', 2, 1)
 
 	/* Rdt */
 	.add(RareDropTable, 1, 3)

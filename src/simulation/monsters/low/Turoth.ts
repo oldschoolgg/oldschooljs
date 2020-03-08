@@ -9,22 +9,22 @@ const TurothHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 10)
 	.add(HerbDropTable, 3, 6);
 
-const TurothTable = new LootTable(128)
+const TurothTable = new LootTable({ limit: 128 })
 	.every('Bones')
 
 	/* Weapons and armour */
-	.addItem('Steel platelegs', 1, 7)
-	.addItem('Mithril axe', 1, 3)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Adamant full helm', 1, 1)
-	.addItem('Rune dagger', 1, 1)
+	.add('Steel platelegs', 1, 7)
+	.add('Mithril axe', 1, 3)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Adamant full helm', 1, 1)
+	.add('Rune dagger', 1, 1)
 	.oneIn(500, 'Leaf-bladed sword')
 	.oneIn(512, 'Mystic robe bottom (light)')
 
 	/* Runes */
-	.addItem('Law rune', 3, 6)
-	.addItem('Nature rune', 15, 5)
-	.addItem('Nature rune', 37, 1)
+	.add('Law rune', 3, 6)
+	.add('Nature rune', 15, 5)
+	.add('Nature rune', 37, 1)
 
 	/* Herbs */
 	.add(TurothHerbTable, 1, 31)
@@ -33,12 +33,12 @@ const TurothTable = new LootTable(128)
 	.add(RareSeedTable, 1, 18)
 
 	/* Materials */
-	.addItem('Limpwurt root', 1, 7)
+	.add('Limpwurt root', 1, 7)
 
 	/* Other */
-	.addItem('Coins', 44, 29)
-	.addItem('Coins', 132, 12)
-	.addItem('Coins', 440, 1)
+	.add('Coins', 44, 29)
+	.add('Coins', 132, 12)
+	.add('Coins', 440, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

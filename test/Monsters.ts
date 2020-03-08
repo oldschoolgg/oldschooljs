@@ -24,13 +24,13 @@ for (const monster of Monsters.values()) {
 
 const subSubTable = new LootTable().add('Coal');
 const quantityTable = new LootTable().add('Dragon claws');
-const emptyTable = new LootTable(100).add('Rune crossbow');
+const emptyTable = new LootTable({ limit: 100 }).add('Rune crossbow');
 
 const subTable = new LootTable()
 	.add('Needle')
 	.add('Amethyst')
 	.add('Knife')
-	.addItem([['Iron bar'], ['Steel bar']])
+	.add([['Iron bar'], ['Steel bar']])
 	.add(subSubTable);
 
 class TestMonsterClass extends Monster {

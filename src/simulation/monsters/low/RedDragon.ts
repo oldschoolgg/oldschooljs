@@ -8,34 +8,34 @@ const RedDragonTable = new LootTable()
 	.every('Red dragonhide')
 
 	/*Weapons and armour */
-	.addItem('Mithril 2h sword', 1, 4)
-	.addItem('Mithril axe', 1, 3)
-	.addItem('Mithril battleaxe', 1, 3)
-	.addItem('Rune dart', 8, 3)
-	.addItem('Mithril javelin', 20, 1)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Adamant platebody', 1, 1)
-	.addItem('Rune longsword', 1, 1)
+	.add('Mithril 2h sword', 1, 4)
+	.add('Mithril axe', 1, 3)
+	.add('Mithril battleaxe', 1, 3)
+	.add('Rune dart', 8, 3)
+	.add('Mithril javelin', 20, 1)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Adamant platebody', 1, 1)
+	.add('Rune longsword', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Rune arrow', 4, 8)
-	.addItem('Law rune', 4, 5)
-	.addItem('Blood rune', 2, 4)
-	.addItem('Death rune', 5, 3)
+	.add('Rune arrow', 4, 8)
+	.add('Law rune', 4, 5)
+	.add('Blood rune', 2, 4)
+	.add('Death rune', 5, 3)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 2)
 
 	/* Coins */
-	.addItem('Coins', 196, 40)
-	.addItem('Coins', 66, 29)
-	.addItem('Coins', 330, 10)
-	.addItem('Coins', 690, 1)
+	.add('Coins', 196, 40)
+	.add('Coins', 66, 29)
+	.add('Coins', 330, 10)
+	.add('Coins', 690, 1)
 
 	/* Other */
-	.addItem('Dragon javelin heads', 10, 10)
-	.addItem('Chocolate cake', 3, 3)
-	.addItem('Adamantite bar', 1, 1)
+	.add('Dragon javelin heads', 10, 10)
+	.add('Chocolate cake', 3, 3)
+	.add('Adamantite bar', 1, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

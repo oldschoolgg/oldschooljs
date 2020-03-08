@@ -3,32 +3,32 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 import UsefulHerbTable from '../../subtables/UsefulHerbTable';
 
-const BasiliskKnightTable = new LootTable(52)
+const BasiliskKnightTable = new LootTable({ limit: 52 })
 	.every('Big bones')
 
 	/*Weapons and armour */
-	.addItem('Rune axe', 1, 2)
-	.addItem('Adamant platelegs', 1, 1)
-	.addItem('Adamant kiteshield', 1, 1)
-	.addItem('Rune battleaxe', 1, 1)
-	.addItem('Rune dagger', 1, 1)
-	.addItem('Rune scimitar', 1, 1)
-	.addItem('Rune spear', 1, 1)
-	.addItem('Rune med helm', 1, 1)
+	.add('Rune axe', 1, 2)
+	.add('Adamant platelegs', 1, 1)
+	.add('Adamant kiteshield', 1, 1)
+	.add('Rune battleaxe', 1, 1)
+	.add('Rune dagger', 1, 1)
+	.add('Rune scimitar', 1, 1)
+	.add('Rune spear', 1, 1)
+	.add('Rune med helm', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Astral rune', [15, 35], 6)
-	.addItem('Nature rune', [15, 30], 6)
-	.addItem('Law rune', [20, 30], 6)
-	.addItem('Death rune', [10, 25], 3)
-	.addItem('Blood rune', [8, 20], 3)
+	.add('Astral rune', [15, 35], 6)
+	.add('Nature rune', [15, 30], 6)
+	.add('Law rune', [20, 30], 6)
+	.add('Death rune', [10, 25], 3)
+	.add('Blood rune', [8, 20], 3)
 
 	/* Herbs */
 	.add(UsefulHerbTable, 1, 3)
 
 	/* Other */
-	.addItem('Coins', [500, 2498], 7)
-	.addItem('Adamantite ore', [1, 2], 1)
+	.add('Coins', [500, 2498], 7)
+	.add('Adamantite ore', [1, 2], 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 8)

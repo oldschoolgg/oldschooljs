@@ -7,19 +7,19 @@ const BlackDragonTable = new LootTable()
 	.every('Black dragonhide')
 
 	/*Weapons and armour */
-	.addItem('Mithril 2h sword', 1, 4)
-	.addItem('Mithril axe', 1, 3)
-	.addItem('Mithril battleaxe', 1, 3)
-	.addItem('Rune knife', 2, 3)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Adamant platebody', 1, 1)
-	.addItem('Rune longsword', 1, 1)
+	.add('Mithril 2h sword', 1, 4)
+	.add('Mithril axe', 1, 3)
+	.add('Mithril battleaxe', 1, 3)
+	.add('Rune knife', 2, 3)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Adamant platebody', 1, 1)
+	.add('Rune longsword', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Adamant javelin', 30, 20)
-	.addItem('Fire rune', 50, 8)
-	.addItem('Blood rune', 15, 3)
-	.addItem('Air rune', 75, 1)
+	.add('Adamant javelin', 30, 20)
+	.add('Fire rune', 50, 8)
+	.add('Blood rune', 15, 3)
+	.add('Air rune', 75, 1)
 
 	/* Coins */
 	.add('Coins', 196, 40)

@@ -9,34 +9,34 @@ const DustDevilTable = new LootTable()
 	.oneIn(32768, 'Dragon chainbody')
 
 	/*Weapons and armour */
-	.addItem('Adamant axe', 1, 3)
-	.addItem('Rune dagger', 1, 2)
-	.addItem("Red d'hide vamb", 1, 2)
-	.addItem('Air battlestaff', 1, 2)
-	.addItem('Earth battlestaff', 1, 2)
-	.addItem("Black d'hide vamb", 1, 1)
-	.addItem('Mystic air staff', 1, 1)
-	.addItem('Mystic earth staff', 1, 1)
-	.addItem('Dragon dagger', 1, 1)
+	.add('Adamant axe', 1, 3)
+	.add('Rune dagger', 1, 2)
+	.add("Red d'hide vamb", 1, 2)
+	.add('Air battlestaff', 1, 2)
+	.add('Earth battlestaff', 1, 2)
+	.add("Black d'hide vamb", 1, 1)
+	.add('Mystic air staff', 1, 1)
+	.add('Mystic earth staff', 1, 1)
+	.add('Dragon dagger', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Dust rune', 200, 10)
-	.addItem('Earth rune', 300, 10)
-	.addItem('Fire rune', 300, 10)
-	.addItem('Chaos rune', 80, 7)
-	.addItem('Rune arrow', 12, 5)
-	.addItem('Soul rune', 20, 4)
-	.addItem('Fire rune', 50, 1)
-	.addItem('Soul rune', 50, 1)
+	.add('Dust rune', 200, 10)
+	.add('Earth rune', 300, 10)
+	.add('Fire rune', 300, 10)
+	.add('Chaos rune', 80, 7)
+	.add('Rune arrow', 12, 5)
+	.add('Soul rune', 20, 4)
+	.add('Fire rune', 50, 1)
+	.add('Soul rune', 50, 1)
 
 	/* Herbs */
 	.add(HerbDropTable, 1, 8)
 
 	/* Other */
-	.addItem('Coins', [2000, 4000], 32)
-	.addItem('Mithril bar', 10, 3)
-	.addItem('Ugthanki kebab', 4, 2)
-	.addItem('Adamantite bar', 4, 1)
+	.add('Coins', [2000, 4000], 32)
+	.add('Mithril bar', 10, 3)
+	.add('Ugthanki kebab', 4, 2)
+	.add('Adamantite bar', 4, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 8);

@@ -5,36 +5,36 @@ import { GemTable } from '../../subtables/RareDropTable';
 const SpiritualMageTable = new LootTable()
 
 	/* Armour */
-	.addItem('Dragon boots', 1, 1)
+	.add('Dragon boots', 1, 1)
 
 	/* Elemental runes */
-	.addItem('Air rune', 30, 9)
-	.addItem('Water rune', 15, 8)
-	.addItem('Water rune', 50, 7)
-	.addItem('Air rune', 50, 2)
-	.addItem('Fire rune', 65, 2)
+	.add('Air rune', 30, 9)
+	.add('Water rune', 15, 8)
+	.add('Water rune', 50, 7)
+	.add('Air rune', 50, 2)
+	.add('Fire rune', 65, 2)
 
 	/* Combination runes */
-	.addItem('Dust rune', 15, 11)
-	.addItem('Mud rune', 20, 7)
-	.addItem('Mist rune', 20, 6)
+	.add('Dust rune', 15, 11)
+	.add('Mud rune', 20, 7)
+	.add('Mist rune', 20, 6)
 
 	/* Catalytic runes */
-	.addItem('Chaos rune', 10, 18)
-	.addItem('Astral rune', 15, 9)
-	.addItem('Death rune', 15, 8)
-	.addItem('Nature rune', 25, 7)
-	.addItem('Mind rune', 50, 4)
-	.addItem('Nature rune', 18, 4)
-	.addItem('Body rune', 35, 3)
-	.addItem('Law rune', 15, 2)
-	.addItem('Body rune', 25, 2)
-	.addItem('Blood rune', 10, 2)
-	.addItem('Chaos rune', 25, 1)
+	.add('Chaos rune', 10, 18)
+	.add('Astral rune', 15, 9)
+	.add('Death rune', 15, 8)
+	.add('Nature rune', 25, 7)
+	.add('Mind rune', 50, 4)
+	.add('Nature rune', 18, 4)
+	.add('Body rune', 35, 3)
+	.add('Law rune', 15, 2)
+	.add('Body rune', 25, 2)
+	.add('Blood rune', 10, 2)
+	.add('Chaos rune', 25, 1)
 
 	/* Other */
-	.addItem('Pure essence', 90, 6)
-	.addItem('Antipoison(3)', 5, 5)
+	.add('Pure essence', 90, 6)
+	.add('Antipoison(3)', 5, 5)
 
 	/* Rdt */
 	.add(GemTable, 1, 2)

@@ -9,14 +9,14 @@ const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 11)
 	.add(HerbDropTable, 3, 4);
 
-const AberrantSpectreTable = new LootTable(128)
+const AberrantSpectreTable = new LootTable({ limit: 128 })
 
 	/*Weapons and armour */
-	.addItem('Steel axe', 1, 3)
-	.addItem('Mithril kiteshield', 1, 1)
-	.addItem('Lava battlestaff', 1, 1)
-	.addItem('Adamant platelegs', 1, 1)
-	.addItem('Rune full helm', 1, 1)
+	.add('Steel axe', 1, 3)
+	.add('Mithril kiteshield', 1, 1)
+	.add('Lava battlestaff', 1, 1)
+	.add('Adamant platelegs', 1, 1)
+	.add('Rune full helm', 1, 1)
 	.oneIn(512, 'Mystic robe bottom (dark)')
 
 	/* Herbs */
@@ -26,7 +26,7 @@ const AberrantSpectreTable = new LootTable(128)
 	.add(RareSeedTable, 1, 19)
 
 	/* Coins */
-	.addItem('Coins', 460, 1)
+	.add('Coins', 460, 1)
 
 	/* Rdt */
 	.add(GemTable, 1, 5)

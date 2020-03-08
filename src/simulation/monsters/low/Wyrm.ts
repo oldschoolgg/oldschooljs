@@ -4,7 +4,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const WyrmTable = new LootTable(76)
+const WyrmTable = new LootTable({ limit: 76 })
 	.every('Wyrm bones')
 
 	/* Pre-roll*/
@@ -14,21 +14,21 @@ const WyrmTable = new LootTable(76)
 	.oneIn(2000, 'Dragon thrownaxe', [75, 150])
 
 	/* Weapons and armour */
-	.addItem("Red d'hide chaps", 1, 3)
-	.addItem('Adamant axe', 1, 2)
-	.addItem('Adamant sq shield', 1, 2)
-	.addItem('Adamant battleaxe', 1, 2)
-	.addItem('Adamant 2h sword', 1, 2)
-	.addItem('Rune med helm', 1, 2)
-	.addItem('Earth battlestaff', 1, 1)
-	.addItem('Rune battleaxe', 1, 1)
-	.addItem('Dragon dagger', 1, 1)
+	.add("Red d'hide chaps", 1, 3)
+	.add('Adamant axe', 1, 2)
+	.add('Adamant sq shield', 1, 2)
+	.add('Adamant battleaxe', 1, 2)
+	.add('Adamant 2h sword', 1, 2)
+	.add('Rune med helm', 1, 2)
+	.add('Earth battlestaff', 1, 1)
+	.add('Rune battleaxe', 1, 1)
+	.add('Dragon dagger', 1, 1)
 
 	/* Runes */
-	.addItem('Fire rune', 200, 10)
-	.addItem('Earth rune', [75, 150], 10)
-	.addItem('Soul rune', [15, 20], 5)
-	.addItem('Blood rune', [25, 30], 5)
+	.add('Fire rune', 200, 10)
+	.add('Earth rune', [75, 150], 10)
+	.add('Soul rune', [15, 20], 5)
+	.add('Blood rune', [25, 30], 5)
 
 	/* Herbs */
 	.add(HerbDropTable, 2, 4)
@@ -37,11 +37,11 @@ const WyrmTable = new LootTable(76)
 	.add(RareSeedTable, 1, 3)
 
 	/* Other */
-	.addItem('Coins', [950, 1450], 8)
-	.addItem('Bass', 1, 7)
-	.addItem('Pure essence', [200, 300], 3)
-	.addItem('Rune arrowtips', [8, 12], 2)
-	.addItem('Adamant arrowtips', [8, 12], 2)
+	.add('Coins', [950, 1450], 8)
+	.add('Bass', 1, 7)
+	.add('Pure essence', [200, 300], 3)
+	.add('Rune arrowtips', [8, 12], 2)
+	.add('Adamant arrowtips', [8, 12], 2)
 
 	/* Rdt */
 	.add(GemTable, 1, 1)

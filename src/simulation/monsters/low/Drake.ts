@@ -24,18 +24,18 @@ const DrakeTable = new LootTable()
 	.oneIn(2000, 'Dragon knife', [100, 200])
 
 	/*Weapons and armour */
-	.addItem('Rune full helm', 1, 3)
-	.addItem("Red d'hide body", 1, 2)
-	.addItem("Black d'hide vamb", 1, 1)
-	.addItem('Mystic earth staff', 1, 1)
-	.addItem('Dragon mace', 1, 1)
+	.add('Rune full helm', 1, 3)
+	.add("Red d'hide body", 1, 2)
+	.add("Black d'hide vamb", 1, 1)
+	.add('Mystic earth staff', 1, 1)
+	.add('Dragon mace', 1, 1)
 
 	/* Runes and ammunition */
-	.addItem('Fire rune', [100, 200], 10)
-	.addItem('Nature rune', [30, 60], 10)
-	.addItem('Law rune', [25, 50], 10)
-	.addItem('Death rune', [20, 40], 10)
-	.addItem('Rune arrow', [35, 65], 10)
+	.add('Fire rune', [100, 200], 10)
+	.add('Nature rune', [30, 60], 10)
+	.add('Law rune', [25, 50], 10)
+	.add('Death rune', [20, 40], 10)
+	.add('Rune arrow', [35, 65], 10)
 
 	/* Herbs */
 	.add(HerbDropTable, [1, 3], 1)
@@ -45,10 +45,10 @@ const DrakeTable = new LootTable()
 	.add(RareSeedTable, 1, 1)
 
 	/* Other */
-	.addItem('Coins', [1000, 2000], 4)
-	.addItem('Coins', [5000, 7000], 1)
-	.addItem('Diamond', [3, 6], 4)
-	.addItem('Swordfish', [1, 2], 4)
+	.add('Coins', [1000, 2000], 4)
+	.add('Coins', [5000, 7000], 1)
+	.add('Diamond', [3, 6], 4)
+	.add('Swordfish', [1, 2], 4)
 
 	/* Rdt */
 	.add(GemTable, 1, 1)

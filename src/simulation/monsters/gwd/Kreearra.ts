@@ -18,21 +18,21 @@ const MinionTable = new LootTable()
 	.every('Feather', [1, 11])
 	.add(MinionUniqueTable, 1, 1)
 	.add(MinionShardTable, 1, 1)
-	.addItem('Steel dart', [91, 101], 8)
-	.addItem('Smoke rune', [10, 15], 8)
-	.addItem('Manta ray', 2, 8)
-	.addItem('Mushroom potato', 3, 8)
-	.addItem('Steel arrow', [91, 101], 7)
-	.addItem('Coins', [1_000, 1_100], 70)
-	.addItem('Crushed nest', 2, 8)
-	.addItem('Grimy kwuarm', 1, 8)
+	.add('Steel dart', [91, 101], 8)
+	.add('Smoke rune', [10, 15], 8)
+	.add('Manta ray', 2, 8)
+	.add('Mushroom potato', 3, 8)
+	.add('Steel arrow', [91, 101], 7)
+	.add('Coins', [1_000, 1_100], 70)
+	.add('Crushed nest', 2, 8)
+	.add('Grimy kwuarm', 1, 8)
 	.tertiary(128, 'Clue scroll (hard)');
 
 const UniqueTable = new LootTable()
 	.add(KreearraArmorTable, undefined, 4)
 	.add(ShardTable, undefined, 2)
-	.addItem('Armadyl hilt')
-	.addItem('Coins', [20_500, 21_000], 5);
+	.add('Armadyl hilt')
+	.add('Coins', [20_500, 21_000], 5);
 
 const KreearraTable = new LootTable()
 	.every('Big bones')
@@ -47,18 +47,18 @@ const KreearraTable = new LootTable()
 	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
-	.addItem(`Black d'hide body`, 1, 8)
-	.addItem('Rune crossbow', 1, 8)
+	.add(`Black d'hide body`, 1, 8)
+	.add('Rune crossbow', 1, 8)
 
 	/* Runes and ammunition */
-	.addItem('Mind rune', [586, 601], 8)
-	.addItem('Rune arrow', [100, 105], 8)
-	.addItem('Runite bolts', [20, 25], 8)
-	.addItem('Dragonstone bolts (e)', [5, 10], 8)
+	.add('Mind rune', [586, 601], 8)
+	.add('Rune arrow', [100, 105], 8)
+	.add('Runite bolts', [20, 25], 8)
+	.add('Dragonstone bolts (e)', [5, 10], 8)
 
 	/* Other */
-	.addItem('Coins', [19500, 20000], 40)
-	.addItem(
+	.add('Coins', [19500, 20000], 40)
+	.add(
 		[
 			['Ranging potion(3)', 3],
 			['Super defence(3)', 3]
@@ -66,10 +66,10 @@ const KreearraTable = new LootTable()
 		1,
 		8
 	)
-	.addItem('Grimy dwarf weed', [8, 13], 8)
-	.addItem('Dwarf weed seed', 3, 8)
-	.addItem('Crystal key', 1, 1)
-	.addItem('Yew seed', 1, 1)
+	.add('Grimy dwarf weed', [8, 13], 8)
+	.add('Dwarf weed seed', 3, 8)
+	.add('Crystal key', 1, 1)
+	.add('Yew seed', 1, 1)
 
 	.add(GWRareDropTable, undefined, 8)
 	.add(GWGemTable, undefined, 2);
