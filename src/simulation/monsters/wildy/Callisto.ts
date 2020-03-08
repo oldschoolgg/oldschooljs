@@ -67,5 +67,5 @@ export default new SimpleMonster({
 	id: 6503,
 	name: 'Callisto',
 	table: CallistoTable,
-	aliases: ['callisto', 'bear']
+	aliases: ['callisto']
 });
