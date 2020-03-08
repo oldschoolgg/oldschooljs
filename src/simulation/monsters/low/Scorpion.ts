@@ -6,7 +6,7 @@ export const ScorpionTable = new LootTable()
 	.tertiary(100, 'Clue scroll (beginner)');
 
 export default new SimpleMonster({
-	id: 2479,
+	id: 3024,
 	name: 'Scorpion',
 	table: ScorpionTable,
 	aliases: ['scorpion']

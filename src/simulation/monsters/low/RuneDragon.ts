@@ -46,7 +46,7 @@ const RuneDragonTable = new LootTable()
 	.tertiary(8000, 'Draconic visage');
 
 export default new SimpleMonster({
-	id: 8027,
+	id: 8031,
 	name: 'Rune Dragon',
 	table: RuneDragonTable,
 	aliases: ['rune dragon']
