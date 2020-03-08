@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import HerbDropTable from './HerbDropTable';
 
-export default new LootTable(128)
+export default new LootTable({ limit: 128 })
 	.every('Bones')
 
 	.add('Bronze med helm', 1, 2)

@@ -9,7 +9,7 @@ const TurothHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 10)
 	.add(HerbDropTable, 3, 6);
 
-const TurothTable = new LootTable(128)
+const TurothTable = new LootTable({ limit: 128 })
 	.every('Bones')
 
 	/* Weapons and armour */

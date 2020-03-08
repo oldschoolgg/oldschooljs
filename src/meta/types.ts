@@ -385,3 +385,8 @@ export interface OpenableOptions {
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface OpenableOpenOptions {}
+
+export interface LootTableOptions {
+	limit?: number;
+	type?: LootTableType;
+}

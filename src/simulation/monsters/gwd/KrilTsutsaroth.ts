@@ -24,7 +24,7 @@ const MinionTable = new LootTable()
 	.add('Super strength(3)', 1, 2)
 	.tertiary(128, 'Clue scroll (hard)');
 
-const ZaklnGritchMinionTable = new LootTable(5000)
+const ZaklnGritchMinionTable = new LootTable({ limit: 5000 })
 	.every(MinionTable)
 	.add('Lesser demon champion scroll', 1, 1);
 

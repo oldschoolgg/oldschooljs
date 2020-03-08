@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const SpiritualWarriorTable = new LootTable(127)
+const SpiritualWarriorTable = new LootTable({ limit: 127 })
 
 	/* Weapons */
 	.add('Steel longsword', 1, 15)

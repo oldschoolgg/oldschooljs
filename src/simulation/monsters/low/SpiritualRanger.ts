@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const SpiritualRangerTable = new LootTable(128)
+const SpiritualRangerTable = new LootTable({ limit: 128 })
 
 	/* Weapons */
 	.add('Oak shortbow', 1, 8)

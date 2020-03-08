@@ -4,7 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const KuraskTable = new LootTable(124)
+const KuraskTable = new LootTable({ limit: 124 })
 	.every('Bones')
 
 	/* Weapons and armor */

@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
-const SteelDragonTable = new LootTable(128)
+const SteelDragonTable = new LootTable({ limit: 128 })
 	.every('Dragon bones')
 	.every('Steel bar', 5)
 

@@ -1,5 +1,11 @@
 import { rand, roll } from '../util/util';
-import { LootTableItem, OneInItems, ReturnedLootItem, LootTableType } from '../meta/types';
+import {
+	LootTableItem,
+	OneInItems,
+	ReturnedLootItem,
+	LootTableType,
+	LootTableOptions
+} from '../meta/types';
 import itemID from '../util/itemID';
 import monsterID from '../util/monsterID';
 
@@ -17,15 +23,15 @@ export default class LootTable {
 	public everyItems: LootTableItem[];
 	public type: LootTableType;
 
-	public constructor(limit?: number, type: LootTableType = LootTableType.Item) {
+	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
 		this.oneInItems = [];
 		this.tertiaryItems = [];
 		this.everyItems = [];
 		this.length = 0;
 		this.totalWeight = 0;
-		this.limit = limit;
-		this.type = type;
+		this.limit = lootTableOptions.limit;
+		this.type = lootTableOptions.type ?? LootTableType.Item;
 	}
 
 	private resolveName(name: string): number {

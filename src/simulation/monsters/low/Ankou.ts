@@ -4,7 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
-const AnkouTable = new LootTable(100)
+const AnkouTable = new LootTable({ limit: 100 })
 	.every('Bones')
 
 	/* Weapons and armor */

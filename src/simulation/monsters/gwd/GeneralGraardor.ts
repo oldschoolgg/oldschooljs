@@ -30,9 +30,11 @@ const MinionTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(5000, 'Goblin champion scroll');
 
-const StrongsackMinionTable = new LootTable(6).every(MinionTable).add('Kebab', 1, 1);
-const SteelwillMinionTable = new LootTable(6).every(MinionTable).add('Beer', 1, 1);
-const GrimspikeMinionTable = new LootTable(6).every(MinionTable).add('Right eye patch', 1, 1);
+const StrongsackMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Kebab', 1, 1);
+const SteelwillMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Beer', 1, 1);
+const GrimspikeMinionTable = new LootTable({ limit: 6 })
+	.every(MinionTable)
+	.add('Right eye patch', 1, 1);
 
 const UniqueTable = new LootTable()
 	.add(GeneralGraardorArmorTable, undefined, 4)

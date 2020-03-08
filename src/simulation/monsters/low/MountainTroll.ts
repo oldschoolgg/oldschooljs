@@ -4,7 +4,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
-const MountainTrollTable = new LootTable(128)
+const MountainTrollTable = new LootTable({ limit: 128 })
 	.every('Big bones')
 
 	/* Weapons and armour */

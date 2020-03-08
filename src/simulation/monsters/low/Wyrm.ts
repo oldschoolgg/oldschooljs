@@ -4,7 +4,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const WyrmTable = new LootTable(76)
+const WyrmTable = new LootTable({ limit: 76 })
 	.every('Wyrm bones')
 
 	/* Pre-roll*/

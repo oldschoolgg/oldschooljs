@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const SuqahTable = new LootTable(129)
+const SuqahTable = new LootTable({ limit: 129 })
 	.every('Big bones')
 	.every('Suqah hide')
 

@@ -5,7 +5,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 
 const SmokeDevilHerbTable = new LootTable().add(HerbDropTable, 1, 2).add(HerbDropTable, 2, 1);
 
-const SmokeDevilTable = new LootTable(128)
+const SmokeDevilTable = new LootTable({ limit: 128 })
 	.every('Ashes')
 
 	/* Weapons and armor */

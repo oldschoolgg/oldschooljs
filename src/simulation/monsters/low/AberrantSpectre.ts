@@ -9,7 +9,7 @@ const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 11)
 	.add(HerbDropTable, 3, 4);
 
-const AberrantSpectreTable = new LootTable(128)
+const AberrantSpectreTable = new LootTable({ limit: 128 })
 
 	/*Weapons and armour */
 	.add('Steel axe', 1, 3)

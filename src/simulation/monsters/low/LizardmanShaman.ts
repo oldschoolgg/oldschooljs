@@ -4,7 +4,7 @@ import NotedHerbTable from '../../subtables/NotedHerbTable';
 import TreeHerbSeedTable from '../../subtables/TreeHerbSeedTable';
 import RareDropTable from '../../subtables/RareDropTable';
 
-const LizardmanShamanTable = new LootTable(500)
+const LizardmanShamanTable = new LootTable({ limit: 500 })
 	.every('Big bones')
 	.oneIn(5000, 'Dragon Warhammer')
 

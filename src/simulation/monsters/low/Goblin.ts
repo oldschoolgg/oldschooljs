@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const GoblinTable = new LootTable(128)
+const GoblinTable = new LootTable({ limit: 128 })
 	.every('Bones')
 	.tertiary(35, 'Ensouled goblin head')
 	.tertiary(60, 'Clue scroll (beginner)')

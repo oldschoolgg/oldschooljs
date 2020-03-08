@@ -4,7 +4,7 @@ import RareDropTable from '../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../subtables/TreeHerbSeedTable';
 import NotedHerbTable from '../../subtables/NotedHerbTable';
 
-const DemonicGorillaTable = new LootTable(500)
+const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.every('Ashes')
 
 	/* Uniques */

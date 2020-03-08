@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
-const LizardmanTable = new LootTable(78)
+const LizardmanTable = new LootTable({ limit: 78 })
 	.every('Bones')
 
 	/* Seeds */

@@ -1,11 +1,11 @@
 import LootTable from '../../structures/LootTable';
 
-const MegaRareTable = new LootTable(128)
+const MegaRareTable = new LootTable({ limit: 128 })
 	.add('Rune spear', 1, 8)
 	.add('Shield left half', 1, 4)
 	.add('Dragon spear', 1, 3);
 
-export const GemTable = new LootTable(128)
+export const GemTable = new LootTable({ limit: 128 })
 	.add('Uncut sapphire', 1, 32)
 	.add('Uncut emerald', 1, 16)
 	.add('Uncut ruby', 1, 8)

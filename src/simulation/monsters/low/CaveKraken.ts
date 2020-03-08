@@ -4,7 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const CaveKrakenTable = new LootTable(128)
+const CaveKrakenTable = new LootTable({ limit: 128 })
 
 	/* Weapons and armour 36/128 */
 	.add('Staff of water', 1, 8)

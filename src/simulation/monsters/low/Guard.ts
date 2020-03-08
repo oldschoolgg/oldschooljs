@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import FixedAllotmentSeedTable from '../../subtables/FixedAllotmentSeedTable';
 
-const GuardTable = new LootTable(128)
+const GuardTable = new LootTable({ limit: 128 })
 	.every('Bones')
 	.tertiary(106, 'Clue scroll (medium)')
 

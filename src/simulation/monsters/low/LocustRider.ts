@@ -4,7 +4,7 @@ import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const LocustRiderTable = new LootTable(128)
+const LocustRiderTable = new LootTable({ limit: 128 })
 	.every('Bones')
 
 	/* Weapons and armor */

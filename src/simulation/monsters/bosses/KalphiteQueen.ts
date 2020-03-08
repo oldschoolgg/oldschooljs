@@ -13,7 +13,7 @@ const KqConsumablesTable = new LootTable()
 	.add('Ranging potion(3)', 1, 1)
 	.add('Superantipoison(2)', 1, 1);
 
-const KalphiteQueenTable = new LootTable(256)
+const KalphiteQueenTable = new LootTable({ limit: 256 })
 
 	/* Consumables */
 	.every(KqConsumablesTable)

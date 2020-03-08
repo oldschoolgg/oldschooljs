@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 import UsefulHerbTable from '../../subtables/UsefulHerbTable';
 
-const BasiliskKnightTable = new LootTable(52)
+const BasiliskKnightTable = new LootTable({ limit: 52 })
 	.every('Big bones')
 
 	/*Weapons and armour */

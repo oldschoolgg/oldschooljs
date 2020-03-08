@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import RareSeedTable from '../../subtables/RareSeedTable';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
-const NechryaelTable = new LootTable(116)
+const NechryaelTable = new LootTable({ limit: 116 })
 	.every('Ashes')
 
 	/* Weapons and armor */
