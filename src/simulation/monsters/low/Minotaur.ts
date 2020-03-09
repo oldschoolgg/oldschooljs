@@ -27,10 +27,9 @@ export const MinotaurTable = new LootTable({ limit: 101 })
 	.add('Copper ore', 1, 5)
 	.add('Pure essence', 15, 6)
 	.add('Pure essence', 20, 4)
-	.add('Rune essence', 5, 6)
 
 	/* Subtables */
-	.add(GemTable, 1, 5);
+	.add(GemTable, 1, 2);
 
 export default new SimpleMonster({
 	id: 2481,
