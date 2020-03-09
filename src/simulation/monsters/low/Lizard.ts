@@ -5,7 +5,9 @@ import { GemTable } from '../../subtables/RareDropTable';
 export const LizardTable = new LootTable()
 	.every('Big bones')
 
-	/* Armour */
+	.tertiary(400, 'Long bone', 1)
+	.tertiary(5012, 'Curved bone', 1)
+
 	.oneIn(512, 'Mystic gloves (light)', 1)
 
 	/* Runes */
@@ -54,12 +56,9 @@ export const LizardTable = new LootTable()
 	.add('Waterskin(2)', 2, 6)
 	.add('Waterskin(3)', 2, 6)
 	.add('Waterskin(4)', 2, 6)
-	/* Tertiary */
-	.tertiary(400, 'Long bone', 1)
-	.tertiary(5012, 'Curved bone', 1)
 
 	/* Subtables */
-	.add(GemTable, 1, 42);
+	.add(GemTable, 1, 5);
 
 export default new SimpleMonster({
 	id: 458,
