@@ -4,6 +4,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 
 export const MinotaurTable = new LootTable({ limit: 101 })
 	.every('Bones')
+
 	.tertiary(50, 'Ensouled minotaur head')
 	.tertiary(60, 'Clue scroll (beginner)')
 	.tertiary(101, 'Clue scroll (easy)')
@@ -29,7 +30,7 @@ export const MinotaurTable = new LootTable({ limit: 101 })
 	.add('Rune essence', 5, 6)
 
 	/* Subtables */
-	.add(GemTable, 1, 20);
+	.add(GemTable, 1, 5);
 
 export default new SimpleMonster({
 	id: 2481,
