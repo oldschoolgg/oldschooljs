@@ -3,10 +3,11 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 
 export const SkeletonTable = new LootTable({ limit: 128 })
 	.every('Bones')
-	.tertiary(5000, 'Skeleton champion scroll', 1)
+
+	.tertiary(5000, 'Skeleton champion scroll')
 
 	/* Herbs */
-
+	// TODO - herb drop table?
 	.add('Grimy guam leaf', 1, 6)
 	.add('Grimy marrentill', 1, 6)
 	.add('Grimy tarromin', 1, 6)
@@ -20,7 +21,6 @@ export const SkeletonTable = new LootTable({ limit: 128 })
 	.add('Grimy dwarf weed', 1, 3)
 
 	/* Runes/Ammunition */
-
 	.add('Bronze arrow', 2, 20)
 	.add('Bronze arrow', 5, 17)
 	.add('Earth rune', 3, 8)
