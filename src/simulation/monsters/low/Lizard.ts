@@ -13,6 +13,7 @@ export const LizardTable = new LootTable()
 	.add('Nature rune', 5, 1)
 
 	/* Herbs */
+	// TODO - herb drop table?
 	.add('Grimy tarromin', 1, 15)
 	.add('Grimy harralander', 1, 15)
 	.add('Grimy guam leaf', 1, 6)
