@@ -2,9 +2,11 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 
-export const SkeletonTable = new LootTable({ limit: 128 })
+export const SkeletonTable = new LootTable()
 	.every('Bones')
 	.tertiary(5000, 'Skeleton champion scroll')
+	.tertiary(100, 'Clue scroll (beginner)', 1)
+	.tertiary(128, 'Clue scroll (easy)', 1)
 
 	.add(HerbDropTable, 1, 20)
 
@@ -23,15 +25,18 @@ export const SkeletonTable = new LootTable({ limit: 128 })
 	.add('Iron dagger', 1, 8)
 
 	/* Other */
-	.add('Coins', 2, 24)
-	.add('Coins', 4, 24)
-	.add('Coins', 12, 24)
-	.add('Coins', 16, 24)
-	.add('Coins', 25, 20)
-	.add('Coins', 33, 20)
+	.add(
+		new LootTable()
+			.add('Coins', 2)
+			.add('Coins', 4)
+			.add('Coins', 12)
+			.add('Coins', 16)
+			.add('Coins', 25)
+			.add('Coins', 33),
+		1,
+		24
+	)
 	.add('Fire talisman', 1, 10)
-	.tertiary(100, 'Clue scroll (beginner)', 1)
-	.tertiary(128, 'Clue scroll (easy)', 1)
 	.add('Grain', 1, 3)
 	.add('Iron ore', 1, 3);
 
