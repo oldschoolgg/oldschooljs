@@ -4,7 +4,6 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 
 export const ZombieTable = new LootTable({ limit: 128 })
 	.every('Bones')
-
 	.tertiary(5000, 'Zombie champion scroll')
 
 	/* Weapons and armour */
