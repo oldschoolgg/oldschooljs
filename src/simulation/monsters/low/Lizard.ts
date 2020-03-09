@@ -1,6 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
+import HerbDropTable from '../../subtables/HerbDropTable';
 
 export const LizardTable = new LootTable()
 	.every('Big bones')
@@ -15,18 +16,7 @@ export const LizardTable = new LootTable()
 	.add('Nature rune', 5, 1)
 
 	/* Herbs */
-	// TODO - herb drop table?
-	.add('Grimy tarromin', 1, 15)
-	.add('Grimy harralander', 1, 15)
-	.add('Grimy guam leaf', 1, 6)
-	.add('Grimy marrentill', 1, 6)
-	.add('Grimy ranarr weed', 1, 4)
-	.add('Grimy irit leaf', 1, 4)
-	.add('Grimy avantoe', 1, 4)
-	.add('Grimy kwuarm')
-	.add('Grimy cadantine')
-	.add('Grimy lantadyme')
-	.add('Grimy dwarf weed')
+	.add(HerbDropTable, 1, 20)
 
 	/* Seeds */
 	.add('Tomato seed', 3, 14)
