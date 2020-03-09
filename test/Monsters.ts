@@ -12,7 +12,21 @@ import { MonsterData } from '../dist/meta/monsterData';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 const currentMonIDs = new Set();
+const currentAliases = new Set();
+
 for (const monster of Monsters.values()) {
+	if (!monster.aliases.some(alias => alias === monster.name.toLowerCase())) {
+		throw `${monster.name} should have its name as an alias.`;
+	}
+	// Make sure all aliases are lowercase
+	for (const alias of monster.aliases) {
+		if (alias.toLowerCase() !== alias) {
+			throw `Aliases for ${monster.name} should be lowercased.`;
+		}
+		if (currentAliases.has(alias)) throw `Alias of '${alias}' is duplicated.`;
+		currentAliases.add(alias);
+	}
+
 	if (currentMonIDs.has(monster.id)) throw `${monster.name} has the same ID as another monster.`;
 
 	if (!monsterData[monster.id] || !monster.data) {

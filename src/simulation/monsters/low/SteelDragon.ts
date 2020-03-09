@@ -44,7 +44,7 @@ const SteelDragonTable = new LootTable({ limit: 128 })
 	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
-	id: 139,
+	id: 8086,
 	name: 'Steel Dragon',
 	table: SteelDragonTable,
 	aliases: ['steel dragon']

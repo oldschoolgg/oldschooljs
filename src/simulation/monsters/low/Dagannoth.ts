@@ -50,7 +50,7 @@ const DagannothTable = new LootTable()
 	.tertiary(128, 'Clue scroll (medium)');
 
 export default new SimpleMonster({
-	id: 140,
+	id: 3185,
 	name: 'Dagannoth',
 	table: DagannothTable,
 	aliases: ['dagannoth']
