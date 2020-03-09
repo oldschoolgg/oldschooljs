@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-export const IcefiendTable = new LootTable({ limit: 128 })
+export const IcefiendTable = new LootTable()
 	.tertiary(128, 'Clue scroll (easy)')
 
 	/* Weapons and Armour */
