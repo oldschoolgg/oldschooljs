@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import FixedAllotmentSeedTable from '../../subtables/FixedAllotmentSeedTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
+import VariableAllotmentSeedTable from '../../subtables/VariableAllotmentSeedTable';
 
 export const CaveCrawlerTable = new LootTable({ limit: 128 })
 	/* Armour */
@@ -14,7 +14,7 @@ export const CaveCrawlerTable = new LootTable({ limit: 128 })
 	.add('Earth rune', 9, 2)
 
 	/* Subtables */
-	.add(FixedAllotmentSeedTable, 1, 26)
+	.add(VariableAllotmentSeedTable, 1, 26)
 	.add(HerbDropTable, 1, 22)
 	.add(GemTable)
 
