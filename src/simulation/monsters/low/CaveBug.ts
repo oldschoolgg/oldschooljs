@@ -9,6 +9,7 @@ export const CaveBugTable = new LootTable({ limit: 128 })
 	.add('Nature rune', [1, 2], 7)
 
 	/* Herbs */
+	// TODO - should this use central herb drop table?
 	.add('Grimy guam leaf', 1, 20)
 	.add('Grimy marrentill', 1, 20)
 	.add('Grimy tarromin', 1, 20)
