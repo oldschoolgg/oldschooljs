@@ -29,7 +29,7 @@ export const DwarfTable = new LootTable({ limit: 128 })
 	.add('Tin ore', 1, 3)
 	.add('Copper ore', 1, 3)
 	.add('Iron bar', 1, 3)
-	.add('Coal', 1, 3)
+	.add('Coal', 1, 2)
 
 	.add(GemTable);
 
