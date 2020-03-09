@@ -15,6 +15,9 @@ const currentMonIDs = new Set();
 const currentAliases = new Set();
 
 for (const monster of Monsters.values()) {
+	if (!monster.aliases.some(alias => alias === monster.name.toLowerCase())) {
+		throw `${monster.name} should have its name as an alias.`;
+	}
 	// Make sure all aliases are lowercase
 	for (const alias of monster.aliases) {
 		if (alias.toLowerCase() !== alias) {
