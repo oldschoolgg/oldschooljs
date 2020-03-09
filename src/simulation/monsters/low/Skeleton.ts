@@ -1,24 +1,12 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import HerbDropTable from '../../subtables/HerbDropTable';
 
 export const SkeletonTable = new LootTable({ limit: 128 })
 	.every('Bones')
-
 	.tertiary(5000, 'Skeleton champion scroll')
 
-	/* Herbs */
-	// TODO - herb drop table?
-	.add('Grimy guam leaf', 1, 6)
-	.add('Grimy marrentill', 1, 6)
-	.add('Grimy tarromin', 1, 6)
-	.add('Grimy harralander', 1, 6)
-	.add('Grimy ranarr weed', 1, 5)
-	.add('Grimy irit leaf', 1, 5)
-	.add('Grimy avantoe', 1, 3)
-	.add('Grimy kwuarm', 1, 3)
-	.add('Grimy cadantine', 1, 3)
-	.add('Grimy lantadyme', 1, 3)
-	.add('Grimy dwarf weed', 1, 3)
+	.add(HerbDropTable, 1, 20)
 
 	/* Runes/Ammunition */
 	.add('Bronze arrow', 2, 20)
