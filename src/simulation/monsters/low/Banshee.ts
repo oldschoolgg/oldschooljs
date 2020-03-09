@@ -5,12 +5,12 @@ import { GemTable } from '../../subtables/RareDropTable';
 
 export const BansheeTable = new LootTable({ limit: 128 })
 	.tertiary(128, 'Clue scroll (easy)', 1)
+	.oneIn(512, 'Mystic gloves (dark)', 1)
 
 	/* Weapons and armour */
 	.add('Iron mace', 1, 2)
 	.add('Iron dagger', 1, 2)
 	.add('Iron kiteshield', 1, 1)
-	.oneIn(512, 'Mystic gloves (dark)', 1)
 
 	/* Runes and ammunition */
 	.add('Air rune', 3, 3)
