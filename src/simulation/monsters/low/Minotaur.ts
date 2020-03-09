@@ -22,7 +22,6 @@ export const MinotaurTable = new LootTable({ limit: 101 })
 	/* Other */
 	.add('Coins', [2, 84], 16)
 	.add('Tin ore', 1, 13)
-	.add('Rune essence', 5, 6)
 	.add('Cooked meat', 1, 7)
 	.add('Copper ore', 1, 5)
 	.add('Pure essence', 15, 6)
