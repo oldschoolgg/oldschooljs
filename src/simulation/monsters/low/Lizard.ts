@@ -48,11 +48,11 @@ export const LizardTable = new LootTable()
 	.add('Waterskin(4)', 2, 6)
 
 	/* Subtables */
-	.add(GemTable, 1, 5);
+	.add(GemTable, 1, 3);
 
 export default new SimpleMonster({
 	id: 458,
 	name: 'Lizard',
 	table: LizardTable,
-	aliases: ['lizard']
+	aliases: ['lizard', 'desert lizard']
 });
