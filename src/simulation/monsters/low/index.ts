@@ -66,7 +66,7 @@ import Ghost from './Ghost';
 import Minotaur from './Minotaur';
 import Scorpion from './Scorpion';
 import Wolf from './Wolf';
-import Bear from './Bear';
+import Bear from './BlackBear';
 import CaveSlime from './CaveSlime';
 import GuardDog from './GuardDog';
 import Icefiend from './Icefiend';
