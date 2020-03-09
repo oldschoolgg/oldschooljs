@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 
-export const CaveBugTable = new LootTable({ limit: 128 })
+export const CaveBugTable = new LootTable()
 	/* Runes and ammunition */
 	.add('Earth rune', [2, 7], 25)
 	.add('Water rune', [8, 119], 25)
