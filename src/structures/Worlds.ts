@@ -1,16 +1,10 @@
-import { JSDOM } from 'jsdom';
-import fetch from 'node-fetch';
-
 import Collection from './Collection';
 import { World, WorldLocation } from '../meta/types';
+import getDom from '../util/getDom';
 
 class Worlds extends Collection<number, World> {
 	public async fetch(number?: number): Promise<World | undefined | void> {
-		const html: string = await fetch('http://oldschool.runescape.com/slu?order=WMLPA').then(
-			(res): Promise<string> => res.text()
-		);
-
-		const dom = new JSDOM(html.replace(/\s+/g, ' ').trim());
+		const dom = await getDom('http://oldschool.runescape.com/slu?order=WMLPA');
 
 		const CollectionOfElements = Array.from(
 			dom.window.document.getElementsByClassName('server-list__row')
@@ -26,7 +20,8 @@ class Worlds extends Collection<number, World> {
 				!columns[3].textContent ||
 				!columns[4].textContent
 			) {
-				throw new Error('World element is missing text content.');
+				continue;
+				//throw new Error('World element is missing text content.');
 			}
 
 			const worldNumber = parseInt(columns[0].textContent.replace(/\D/g, '')) + 300;
