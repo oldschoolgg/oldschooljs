@@ -1,4 +1,4 @@
-import { Monsters } from '..';
+import Monsters from '../simulation/monsters';
 
 export default function monsterID(name: string): number {
 	const mon = Monsters.find(mon => mon.name === name);
