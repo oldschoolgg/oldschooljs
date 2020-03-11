@@ -1,13 +1,6 @@
 import { rand, roll } from '../util/util';
-import {
-	LootTableItem,
-	OneInItems,
-	ReturnedLootItem,
-	LootTableType,
-	LootTableOptions
-} from '../meta/types';
+import { LootTableItem, OneInItems, ReturnedLootItem, LootTableOptions } from '../meta/types';
 import itemID from '../util/itemID';
-import monsterID from '../util/monsterID';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
@@ -21,7 +14,6 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
-	public type: LootTableType;
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -31,12 +23,10 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = lootTableOptions.limit;
-		this.type = lootTableOptions.type ?? LootTableType.Item;
 	}
 
 	private resolveName(name: string): number {
-		if (this.type === LootTableType.Item) return itemID(name);
-		if (this.type === LootTableType.Monster) return monsterID(name);
+		return itemID(name);
 	}
 
 	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
