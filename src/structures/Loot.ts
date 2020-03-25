@@ -4,7 +4,7 @@ import itemID from '../util/itemID';
 export default class Loot {
 	public loot: ItemBank = {};
 
-	public add(item: string | ReturnedLootItem | ReturnedLootItem[], quantity = 1): void {
+	public add(item: string | number | ReturnedLootItem | ReturnedLootItem[], quantity = 1): void {
 		if (Array.isArray(item)) {
 			for (const _item of item) this.add(_item);
 			return;
@@ -14,6 +14,14 @@ export default class Loot {
 		if (typeof item === 'string') {
 			return this.add({
 				item: itemID(item),
+				quantity
+			});
+		}
+
+		// If they did Loot.add(number);
+		if (typeof item === 'number') {
+			return this.add({
+				item,
 				quantity
 			});
 		}
