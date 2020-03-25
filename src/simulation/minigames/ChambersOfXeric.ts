@@ -1,8 +1,11 @@
 import Minigame from '../../structures/Minigame';
-import { addArrayOfNumbers, randFloat } from '../../util/util';
+import { addArrayOfNumbers, randFloat, roll } from '../../util/util';
 import LootTable from '../../structures/LootTable';
 import { ReturnedLootItem, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
+import convertNameBank from '../../util/convertNameBank';
+import SimpleTable from '../../structures/SimpleTable';
+import itemID from '../../util/itemID';
 
 interface TeamMember {
 	id: string;
@@ -13,6 +16,44 @@ export interface ChambersOfXericOptions {
 	challengeMode: boolean;
 	team: TeamMember[];
 }
+
+const itemScales = convertNameBank({
+	'Death rune': 36,
+	'Blood rune': 32,
+	'Soul rune': 20,
+	'Rune arrow': 14,
+	'Dragon arrow': 202,
+	'Grimy toadflax': 525,
+	'Grimy ranarr weed': 800,
+	'Grimy irit leaf': 162,
+	'Grimy avantoe': 234,
+	'Grimy kwuarm': 378,
+	'Grimy snapdragon': 1348,
+	'Grimy cadantine': 358,
+	'Grimy lantadyme': 249,
+	'Grimy dwarf weed': 201,
+	'Grimy torstol': 824,
+	'Silver ore': 20,
+	Coal: 20,
+	'Gold ore': 44,
+	'Mithril ore': 32,
+	'Adamantite ore': 167,
+	'Runite ore': 2093,
+	'Uncut sapphire': 189,
+	'Uncut emerald': 142,
+	'Uncut ruby': 250,
+	'Uncut diamond': 514,
+	'Lizardman fang': 28,
+	'Pure essence': 2,
+	Saltpetre: 24,
+	'Teak plank': 100,
+	'Mahogany plank': 240,
+	Dynamite: 54,
+	'Torn prayer scroll': 999_999
+});
+
+const NonUniqueTable = new SimpleTable<number>();
+for (const itemID of Object.keys(itemScales)) NonUniqueTable.add(parseInt(itemID));
 
 const UniqueTable = new LootTable()
 	.add('Dexterous prayer scroll', 1, 20)
@@ -77,6 +118,25 @@ class ChambersOfXericClass extends Minigame {
 		return loot;
 	}
 
+	// We're rolling 2 non-unique loots based off a number of personal points.
+	public rollNonUniqueLoot(personalPoints: number): ItemBank {
+		// First, pick which items we will be giving them.
+		const [firstItem, secondItem] = [NonUniqueTable.roll(), NonUniqueTable.roll()];
+
+		// Now return an ItemBank of these 2 items, the quantity is [points / scale].
+		// With a minimum of 1.
+		const loot: ItemBank = {
+			[firstItem.item]: Math.max(1, Math.floor(personalPoints / itemScales[firstItem.item])),
+			[secondItem.item]: Math.max(1, Math.floor(personalPoints / itemScales[secondItem.item]))
+		};
+
+		if (roll(12)) {
+			loot[itemID('Clue scroll (elite)')] = 1;
+		}
+
+		return loot;
+	}
+
 	public complete(
 		options: ChambersOfXericOptions
 	): {
@@ -94,23 +154,39 @@ class ChambersOfXericClass extends Minigame {
 		} = {};
 
 		// This table is used to pick which team member gets the unique(s).
-		const uniqueDeciderTable = new LootTable();
+		const uniqueDeciderTable = new SimpleTable<string>();
 
 		for (const teamMember of options.team) {
 			// Give every team member a Loot.
 			lootResult[teamMember.id] = new Loot();
 
 			// Add this member to the "unique decider table", using their points as the weight.
-			uniqueDeciderTable.addAny(teamMember.id, 1, teamMember.personalPoints);
+			uniqueDeciderTable.add(teamMember.id, teamMember.personalPoints);
 		}
 
 		// For every unique item received, add it to someones loot.
 		for (const uniqueItem of uniqueLoot) {
-			const receipientID = uniqueDeciderTable.roll()[0].item;
+			if (uniqueDeciderTable.table.length === 0) break;
+			const receipientID = uniqueDeciderTable.roll().item;
 			lootResult[receipientID].add(uniqueItem);
+			uniqueDeciderTable.delete(receipientID);
 		}
 
-		// Convert the `Loot` classes to a ItemBank
+		// For everyone who didn't receive a unique, i.e wasn't removed from the
+		// unique decider table, give them a non-unique roll.
+		for (const leftOverRecipient of uniqueDeciderTable.table) {
+			// Find this member in the team, and get their points.
+			const pointsOfThisMember = options.team.find(
+				member => member.id === leftOverRecipient.item
+			).personalPoints;
+
+			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
+			for (const [itemID, quantity] of entries) {
+				lootResult[leftOverRecipient.item].add(parseInt(itemID), quantity);
+			}
+		}
+
+		// Convert everyones loot to ItemBanks.
 		const result: { [key: string]: ItemBank } = {};
 		for (const [id, loot] of Object.entries(lootResult)) {
 			result[id] = loot.values();
@@ -122,3 +198,16 @@ class ChambersOfXericClass extends Minigame {
 
 const ChambersOfXeric = new ChambersOfXericClass();
 export default ChambersOfXeric;
+const totalLoot = {};
+for (let i = 0; i < 100_000; i++) {
+	const { Magnaboy } = ChambersOfXeric.complete({
+		challengeMode: false,
+		team: [{ id: 'Magnaboy', personalPoints: 25_000 }]
+	});
+	for (const [id, qty] of Object.entries(Magnaboy)) {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		totalLoot[id] ? (totalLoot[id] += qty) : (totalLoot[id] = qty);
+	}
+}
+console.log(totalLoot);
