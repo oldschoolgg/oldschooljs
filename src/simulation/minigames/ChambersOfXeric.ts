@@ -198,16 +198,3 @@ class ChambersOfXericClass extends Minigame {
 
 const ChambersOfXeric = new ChambersOfXericClass();
 export default ChambersOfXeric;
-const totalLoot = {};
-for (let i = 0; i < 100_000; i++) {
-	const { Magnaboy } = ChambersOfXeric.complete({
-		challengeMode: false,
-		team: [{ id: 'Magnaboy', personalPoints: 25_000 }]
-	});
-	for (const [id, qty] of Object.entries(Magnaboy)) {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
-		totalLoot[id] ? (totalLoot[id] += qty) : (totalLoot[id] = qty);
-	}
-}
-console.log(totalLoot);
