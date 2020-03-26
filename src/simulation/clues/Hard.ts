@@ -65,7 +65,7 @@ export const HardRareTable = new LootTable()
 	.add('Enchanted hat')
 	.add('Enchanted top')
 	.add('Enchanted robe')
-	.add('Amulet of glory (t)')
+	.add('Amulet of glory (t4)')
 	.add('Pith helmet')
 	.add('Explorer backpack')
 	.add(19912) // Zombie head
