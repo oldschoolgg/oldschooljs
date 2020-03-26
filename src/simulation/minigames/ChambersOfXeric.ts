@@ -6,14 +6,37 @@ import Loot from '../../structures/Loot';
 import convertNameBank from '../../util/convertNameBank';
 import SimpleTable from '../../structures/SimpleTable';
 import itemID from '../../util/itemID';
+import { Time } from '../../constants';
 
 interface TeamMember {
 	id: string;
 	personalPoints: number;
+	/**
+	 * Whether this team member can receive an ancient tablet, assumed false.
+	 *
+	 * Only received if players do not own one or have not consumed it already.
+	 */
+	canReceiveAncientTablet?: boolean;
+	/**
+	 * Whether this team member can receive Metamorphic dust.
+	 *
+	 * https://twitter.com/JagexAsh/status/1050349088124952576.
+	 */
+	canReceiveDust?: boolean;
 }
 
 export interface ChambersOfXericOptions {
-	challengeMode: boolean;
+	/**
+	 * Whether or not this raid is in Challenge Mode or not.
+	 */
+	challengeMode?: boolean;
+	/**
+	 * The time in *milliseconds* that it took to complete the raid, used for rewarding with dust in challenge mode.
+	 */
+	timeToComplete?: number;
+	/**
+	 * The members of the raid team, can be only 1 person.
+	 */
 	team: TeamMember[];
 }
 
@@ -49,7 +72,9 @@ const itemScales = convertNameBank({
 	'Teak plank': 100,
 	'Mahogany plank': 240,
 	Dynamite: 54,
-	'Torn prayer scroll': 999_999
+	// These 2 items are "special" but not really, they just only drop a max of 1.
+	'Torn prayer scroll': 999_999,
+	'Dark relic': 999_999
 });
 
 const NonUniqueTable = new SimpleTable<number>();
@@ -73,6 +98,16 @@ const UniqueTable = new LootTable()
 	.add('Twisted bow', 1, 2)
 
 	.tertiary(53, 'Olmlet');
+
+const cmTeamTimes = [
+	[1, Time.Hour + Time.Minute * 10],
+	[2, Time.Hour + Time.Minute * 5],
+	[3, Time.Minute * 50],
+	[4, Time.Minute * 45],
+	[10, Time.Minute * 42],
+	[15, Time.Minute * 45],
+	[23, Time.Hour]
+];
 
 class ChambersOfXericClass extends Minigame {
 	id = 1;
@@ -104,6 +139,28 @@ class ChambersOfXericClass extends Minigame {
 		}
 
 		return chances;
+	}
+
+	/**
+	 * Returns true if the team is elligible to receive dust based on their
+	 * completion time.
+	 *
+	 * https://oldschool.runescape.wiki/w/Chambers_of_Xeric/Challenge_Mode#Rewards
+	 *
+	 * @param teamSize How many members in the raid team.
+	 * @param completionTime The completion time of the raid, in *milliseconds*.
+	 */
+	public elligibleForDust(teamSize: number, completionTime: number): boolean {
+		// For every required time there is, if their team size is in that range,
+		// return true if their time is <= the required time.
+		for (const [teamSizeRange, timeRequired] of cmTeamTimes) {
+			if (teamSize < teamSizeRange + 1) {
+				return completionTime <= timeRequired;
+			}
+		}
+
+		// If their team is >= 24, must be 1h 20m.
+		return completionTime <= Time.Hour + Time.Minute * 20;
 	}
 
 	public rollLootFromChances(chances: number[]): ReturnedLootItem[] {
@@ -142,9 +199,21 @@ class ChambersOfXericClass extends Minigame {
 	): {
 		[key: string]: ItemBank;
 	} {
-		const teamPoints = addArrayOfNumbers(
-			options.team.map((val: TeamMember) => val.personalPoints)
-		);
+		// The sum of all members personal points is the team points.
+		let teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
+
+		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
+		const elligibleForDust =
+			typeof options.timeToComplete === 'number' &&
+			options.challengeMode === true &&
+			this.elligibleForDust(options.team.length, options.timeToComplete);
+
+		// If in challenge mode, and elligible for dust, 5000pts per team member is added
+		// to the team points total, making chance of a unique more likely.
+		// https://oldschool.runescape.wiki/w/Chambers_of_Xeric/Challenge_Mode#Rewards
+		if (elligibleForDust) {
+			teamPoints += options.team.length * 5000;
+		}
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -159,6 +228,16 @@ class ChambersOfXericClass extends Minigame {
 		for (const teamMember of options.team) {
 			// Give every team member a Loot.
 			lootResult[teamMember.id] = new Loot();
+
+			// If the team and team member is elligible for dust, roll for this user.
+			if (elligibleForDust && teamMember.canReceiveDust && roll(400)) {
+				lootResult[teamMember.id].add('Metamorphic dust');
+			}
+
+			// If the team member can receive an Ancient Tablet, roll for this user.
+			if (teamMember.canReceiveAncientTablet && roll(10)) {
+				lootResult[teamMember.id].add('Ancient tablet');
+			}
 
 			// Add this member to the "unique decider table", using their points as the weight.
 			uniqueDeciderTable.add(teamMember.id, teamMember.personalPoints);
