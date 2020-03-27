@@ -19,8 +19,15 @@ export function rand(min: number, max: number): number {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * Rolls a random floating point number inclusively between min and max.
+ *
+ * @param {number} min - min number
+ * @param {number} max - max number
+ * @return {number} A random float.
+ */
 export function randFloat(min: number, max: number): number {
-	return Math.random() * (max - min + 1) + min;
+	return Math.random() * (max - min) + min;
 }
 
 export function resolvePlayerFromHiscores(csvData: string): Player {
