@@ -203,21 +203,23 @@ class ChambersOfXericClass extends Minigame {
 	): {
 		[key: string]: ItemBank;
 	} {
-		// The sum of all members personal points is the team points.
-		let teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
-
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =
 			typeof options.timeToComplete === 'number' &&
 			options.challengeMode === true &&
 			this.elligibleForDust(options.team.length, options.timeToComplete);
 
-		// If in challenge mode, and elligible for dust, 5000pts per team member is added
-		// to the team points total, making chance of a unique more likely.
-		// https://oldschool.runescape.wiki/w/Chambers_of_Xeric/Challenge_Mode#Rewards
 		if (elligibleForDust) {
-			teamPoints += options.team.length * 5000;
+			// If in challenge mode, and elligible for dust, 5000pts is added to
+			// each team member.
+			// https://oldschool.runescape.wiki/w/Chambers_of_Xeric/Challenge_Mode#Rewards
+			for (const member of options.team) {
+				member.personalPoints += 5000;
+			}
 		}
+
+		// The sum of all members personal points is the team points.
+		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
