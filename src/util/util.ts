@@ -19,6 +19,17 @@ export function rand(min: number, max: number): number {
 	return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+/**
+ * Rolls a random floating point number inclusively between min and max.
+ *
+ * @param {number} min - min number
+ * @param {number} max - max number
+ * @return {number} A random float.
+ */
+export function randFloat(min: number, max: number): number {
+	return Math.random() * (max - min) + min;
+}
+
 export function resolvePlayerFromHiscores(csvData: string): Player {
 	const data: string[][] = csvData
 		.trim()
@@ -171,4 +182,8 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	} else {
 		return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 	}
+}
+
+export function addArrayOfNumbers(arr: number[]): number {
+	return arr.reduce((a, b) => a + b, 0);
 }

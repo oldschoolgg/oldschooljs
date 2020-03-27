@@ -336,6 +336,11 @@ export interface ItemBank {
 	[key: number]: number;
 }
 
+export interface SimpleTableItem<T> {
+	item: T;
+	weight: number;
+}
+
 export interface ReturnedLootItem {
 	item: number;
 	quantity: number;
