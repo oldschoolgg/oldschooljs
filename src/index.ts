@@ -6,6 +6,7 @@ import News from './structures/News';
 import Wiki from './structures/Wiki';
 import Polls from './structures/Polls';
 import Monsters from './simulation/monsters/index';
+import Minigames from './simulation/minigames';
 import Openables from './simulation/openables/index';
 import * as Clues from './simulation/clues';
 import * as Util from './util/util';
@@ -22,6 +23,7 @@ export {
 	Polls,
 	Clues,
 	Monsters,
+	Minigames,
 	Openables,
 	constants
 };

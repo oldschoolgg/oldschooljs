@@ -109,7 +109,7 @@ const cmTeamTimes = [
 	[23, Time.Hour]
 ];
 
-class ChambersOfXericClass extends Minigame {
+export class ChambersOfXericClass extends Minigame {
 	id = 1;
 	aliases = ['raids', 'cox'];
 	name = 'Chambers of Xeric';
