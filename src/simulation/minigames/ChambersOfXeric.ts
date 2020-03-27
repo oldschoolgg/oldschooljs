@@ -1,7 +1,7 @@
 import Minigame from '../../structures/Minigame';
 import { addArrayOfNumbers, randFloat, roll } from '../../util/util';
 import LootTable from '../../structures/LootTable';
-import { ReturnedLootItem, ItemBank } from '../../meta/types';
+import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import convertNameBank from '../../util/convertNameBank';
 import SimpleTable from '../../structures/SimpleTable';
@@ -167,7 +167,7 @@ class ChambersOfXericClass extends Minigame {
 		let loot: ReturnedLootItem[] = [];
 
 		for (const chance of chances) {
-			if (randFloat(1, 100) < chance) {
+			if (randFloat(0, 100) < chance) {
 				loot = loot.concat(UniqueTable.roll());
 			}
 		}
@@ -177,14 +177,18 @@ class ChambersOfXericClass extends Minigame {
 
 	// We're rolling 2 non-unique loots based off a number of personal points.
 	public rollNonUniqueLoot(personalPoints: number): ItemBank {
-		// First, pick which items we will be giving them.
-		const [firstItem, secondItem] = [NonUniqueTable.roll(), NonUniqueTable.roll()];
+		// First, pick which items we will be giving them, without giving a duplicate.
+		const items: SimpleTableItem<number>[] = [];
+		while (items.length < 2) {
+			const rolledItem = NonUniqueTable.roll();
+			if (!items.includes(rolledItem)) items.push(rolledItem);
+		}
 
 		// Now return an ItemBank of these 2 items, the quantity is [points / scale].
 		// With a minimum of 1.
 		const loot: ItemBank = {
-			[firstItem.item]: Math.max(1, Math.floor(personalPoints / itemScales[firstItem.item])),
-			[secondItem.item]: Math.max(1, Math.floor(personalPoints / itemScales[secondItem.item]))
+			[items[0].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[0].item])),
+			[items[1].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[1].item]))
 		};
 
 		if (roll(12)) {
