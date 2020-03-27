@@ -111,7 +111,7 @@ const cmTeamTimes = [
 
 class ChambersOfXericClass extends Minigame {
 	id = 1;
-	aliases = ['raids'];
+	aliases = ['raids', 'cox'];
 	name = 'Chambers of Xeric';
 
 	maxRoll = 570_000 * (1 / 8675);
