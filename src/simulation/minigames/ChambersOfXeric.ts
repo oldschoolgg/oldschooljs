@@ -159,7 +159,7 @@ class ChambersOfXericClass extends Minigame {
 			}
 		}
 
-		// If their team is >= 24, must be 1h 20m.
+		// If their team is > 23, must be 1h 20m.
 		return completionTime <= Time.Hour + Time.Minute * 20;
 	}
 
