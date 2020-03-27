@@ -154,7 +154,7 @@ class ChambersOfXericClass extends Minigame {
 		// For every required time there is, if their team size is in that range,
 		// return true if their time is <= the required time.
 		for (const [teamSizeRange, timeRequired] of cmTeamTimes) {
-			if (teamSize < teamSizeRange + 1) {
+			if (teamSize <= teamSizeRange) {
 				return completionTime <= timeRequired;
 			}
 		}
