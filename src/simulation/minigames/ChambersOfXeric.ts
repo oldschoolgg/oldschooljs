@@ -1,5 +1,5 @@
 import Minigame from '../../structures/Minigame';
-import { addArrayOfNumbers, randFloat, roll } from '../../util/util';
+import { addArrayOfNumbers, randFloat, roll, JSONClone } from '../../util/util';
 import LootTable from '../../structures/LootTable';
 import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
@@ -203,7 +203,7 @@ export class ChambersOfXericClass extends Minigame {
 	): {
 		[key: string]: ItemBank;
 	} {
-		const options = { ..._options };
+		const options = JSONClone(_options);
 
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =

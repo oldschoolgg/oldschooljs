@@ -187,3 +187,7 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 export function addArrayOfNumbers(arr: number[]): number {
 	return arr.reduce((a, b) => a + b, 0);
 }
+
+export function JSONClone<O>(object: O): O {
+	return JSON.parse(JSON.stringify(object));
+}
