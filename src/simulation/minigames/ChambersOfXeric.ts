@@ -199,10 +199,12 @@ export class ChambersOfXericClass extends Minigame {
 	}
 
 	public complete(
-		options: ChambersOfXericOptions
+		_options: ChambersOfXericOptions
 	): {
 		[key: string]: ItemBank;
 	} {
+		const options = { ..._options };
+
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =
 			typeof options.timeToComplete === 'number' &&
