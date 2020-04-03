@@ -8,7 +8,7 @@ import SimpleTable from '../../structures/SimpleTable';
 import itemID from '../../util/itemID';
 import { Time } from '../../constants';
 
-interface TeamMember {
+export interface TeamMember {
 	id: string;
 	personalPoints: number;
 	/**
