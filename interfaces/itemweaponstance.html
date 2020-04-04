@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ReturnedLootItem | oldschooljs</title>
+	<title>ItemWeaponStance | oldschooljs</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,21 +54,28 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="returnedlootitem.html">ReturnedLootItem</a>
+					<a href="itemweaponstance.html">ItemWeaponStance</a>
 				</li>
 			</ul>
-			<h1>Interface ReturnedLootItem</h1>
+			<h1>Interface ItemWeaponStance</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The information about weapon properties.</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ReturnedLootItem</span>
+						<span class="target">ItemWeaponStance</span>
 					</li>
 				</ul>
 			</section>
@@ -79,8 +86,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="returnedlootitem.html#item" class="tsd-kind-icon">item</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="returnedlootitem.html#quantity" class="tsd-kind-icon">quantity</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itemweaponstance.html#attack_style" class="tsd-kind-icon">attack_<wbr>style</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itemweaponstance.html#attack_type" class="tsd-kind-icon">attack_<wbr>type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itemweaponstance.html#boosts" class="tsd-kind-icon">boosts</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itemweaponstance.html#combat_style" class="tsd-kind-icon">combat_<wbr>style</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="itemweaponstance.html#experience" class="tsd-kind-icon">experience</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,22 +99,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="item" class="tsd-anchor"></a>
-					<h3>item</h3>
-					<div class="tsd-signature tsd-kind-icon">item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="attack_style" class="tsd-anchor"></a>
+					<h3>attack_<wbr>style</h3>
+					<div class="tsd-signature tsd-kind-icon">attack_<wbr>style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L415">src/meta/types.ts:415</a></li>
+							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L207">src/meta/types.ts:207</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="quantity" class="tsd-anchor"></a>
-					<h3>quantity</h3>
-					<div class="tsd-signature tsd-kind-icon">quantity<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="attack_type" class="tsd-anchor"></a>
+					<h3>attack_<wbr>type</h3>
+					<div class="tsd-signature tsd-kind-icon">attack_<wbr>type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L416">src/meta/types.ts:416</a></li>
+							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L206">src/meta/types.ts:206</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="boosts" class="tsd-anchor"></a>
+					<h3>boosts</h3>
+					<div class="tsd-signature tsd-kind-icon">boosts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L209">src/meta/types.ts:209</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="combat_style" class="tsd-anchor"></a>
+					<h3>combat_<wbr>style</h3>
+					<div class="tsd-signature tsd-kind-icon">combat_<wbr>style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L205">src/meta/types.ts:205</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="experience" class="tsd-anchor"></a>
+					<h3>experience</h3>
+					<div class="tsd-signature tsd-kind-icon">experience<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/gc/oldschooljs/blob/2477f10/src/meta/types.ts#L208">src/meta/types.ts:208</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -123,13 +163,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="returnedlootitem.html" class="tsd-kind-icon">Returned<wbr>Loot<wbr>Item</a>
+						<a href="itemweaponstance.html" class="tsd-kind-icon">Item<wbr>Weapon<wbr>Stance</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="returnedlootitem.html#item" class="tsd-kind-icon">item</a>
+								<a href="itemweaponstance.html#attack_style" class="tsd-kind-icon">attack_<wbr>style</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="returnedlootitem.html#quantity" class="tsd-kind-icon">quantity</a>
+								<a href="itemweaponstance.html#attack_type" class="tsd-kind-icon">attack_<wbr>type</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="itemweaponstance.html#boosts" class="tsd-kind-icon">boosts</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="itemweaponstance.html#combat_style" class="tsd-kind-icon">combat_<wbr>style</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="itemweaponstance.html#experience" class="tsd-kind-icon">experience</a>
 							</li>
 						</ul>
 					</li>
