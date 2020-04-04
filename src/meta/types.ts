@@ -132,18 +132,88 @@ export interface SkillScore {
 }
 
 export type ItemID = number;
+
+export interface ItemRequirements {
+	attack: number;
+	defence: number;
+	strength: number;
+	hitpoints: number;
+	ranged: number;
+	prayer: number;
+	magic: number;
+	cooking: number;
+	woodcutting: number;
+	fletching: number;
+	fishing: number;
+	firemaking: number;
+	crafting: number;
+	smithing: number;
+	mining: number;
+	herblore: number;
+	agility: number;
+	thieving: number;
+	slayer: number;
+	farming: number;
+	runecrafting: number;
+	hunter: number;
+	construction: number;
+	combat: number;
+}
+
 /**
  * The equipment bonuses of equipable armour/weapons.
  */
-export type ItemEquipment = {
-	[k: string]: any;
-} | null;
+export interface ItemEquipment {
+	attack_stab: number;
+	attack_slash: number;
+	attack_crush: number;
+	attack_magic: number;
+	attack_ranged: number;
+	defence_stab: number;
+	defence_slash: number;
+	defence_crush: number;
+	defence_magic: number;
+	defence_ranged: number;
+	melee_strength: number;
+	ranged_strength: number;
+	magic_damage: number;
+	prayer: number;
+	slot: EquipmentSlot;
+	requirements: ItemRequirements | null;
+}
+
+export enum EquipmentSlot {
+	TwoHanded = '2h',
+	Ammo = 'ammo',
+	Body = 'body',
+	Cape = 'cape',
+	Feet = 'feet',
+	Hands = 'hands',
+	Head = 'head',
+	Legs = 'legs',
+	Neck = 'neck',
+	Ring = 'ring',
+	Shield = 'shield',
+	Weapon = 'weapon'
+}
+
 /**
  * The information about weapon properties.
  */
-export type ItemWeapon = {
-	[k: string]: any;
-} | null;
+
+export interface ItemWeaponStance {
+	combat_style: string;
+	attack_type: string;
+	attack_style: string;
+	experience: string;
+	boosts: string;
+}
+
+export interface ItemWeapon {
+	attack_speed: number;
+	weapon_type: string;
+	stances: ItemWeaponStance[];
+}
 
 /**
  * A representation of an Old School RuneScape (OSRS) item.
@@ -257,8 +327,8 @@ export interface Item {
 	 * The OSRS Wiki URL (possibly including anchor link).
 	 */
 	wiki_url: string | null;
-	equipment: ItemEquipment;
-	weapon?: ItemWeapon;
+	equipment: ItemEquipment | null;
+	weapon: ItemWeapon | null;
 }
 
 export interface PartialItem {
