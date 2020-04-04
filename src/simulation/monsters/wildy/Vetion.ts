@@ -1,8 +1,13 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
+const SkeletonHellhoundTable = new LootTable()
+	.every('Bones')
+	.oneIn(5000, 'Skeleton champion scroll');
+
 const VetionTable = new LootTable()
 	.every('Big bones')
+	.every(SkeletonHellhoundTable, 4)
 	.oneIn(512, 'Ring of the gods')
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, "Vet'ion jr.")
