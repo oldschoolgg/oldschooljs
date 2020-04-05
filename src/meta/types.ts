@@ -340,6 +340,10 @@ export interface PartialItem {
 	 * Name of the item.
 	 */
 	name: string;
+	/**
+	 * High alchemy value of the item.
+	 */
+	highalch: number;
 }
 
 export interface NewsItem {
