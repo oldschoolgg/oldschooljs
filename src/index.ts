@@ -9,6 +9,7 @@ import Monsters from './simulation/monsters/index';
 import Minigames from './simulation/minigames';
 import Openables from './simulation/openables/index';
 import * as Clues from './simulation/clues';
+import * as Misc from './simulation/misc';
 import * as Util from './util/util';
 import * as constants from './constants';
 
@@ -22,6 +23,7 @@ export {
 	Wiki,
 	Polls,
 	Clues,
+	Misc,
 	Monsters,
 	Minigames,
 	Openables,
