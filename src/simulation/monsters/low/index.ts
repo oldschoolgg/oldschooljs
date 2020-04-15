@@ -73,6 +73,8 @@ import Icefiend from './Icefiend';
 import Monkey from './Monkey';
 import Skeleton from './Skeleton';
 import Zombie from './Zombie';
+import Bird from './Bird';
+import TzHaarKet from './TzHaarKet';
 
 export default {
 	AberrantSpectre,
@@ -149,5 +151,7 @@ export default {
 	Icefiend,
 	Monkey,
 	Skeleton,
-	Zombie
+	Zombie,
+	Bird,
+	TzHaarKet
 };

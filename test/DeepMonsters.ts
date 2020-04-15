@@ -767,3 +767,39 @@ test('Corporeal Beast', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Sarachnis', async (test): Promise<void> => {
+	const expectedRates = {
+		'Dragon med helm': 192,
+		'Sarachnis cudgel': 384,
+		'Grubby key': 15,
+		'Giant egg sac(full)': 20,
+		'Clue scroll (hard)': 40,
+		'Clue scroll (elite)': 60,
+		'Jar of eyes': 2000,
+		Sraracha: 3000
+	};
+
+	const number = 5_000_000;
+	const loot = Monsters.Sarachnis.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
+
+test('TzHaar Ket', async (test): Promise<void> => {
+	const expectedRates = {
+		'Tzhaar-ket-om': 512,
+		'Toktz-ket-xil': 512,
+		'Obsidian cape': 512,
+		'Obsidian helmet': 2000,
+		'Obsidian platebody': 2000,
+		'Obsidian platelegs': 2000
+	};
+
+	const number = 5_000_000;
+	const loot = Monsters.TzHaarKet.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+	test.end();
+});
