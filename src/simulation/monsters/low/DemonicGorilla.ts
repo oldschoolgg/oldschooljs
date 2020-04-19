@@ -30,7 +30,7 @@ const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.add(NotedHerbTable, [7, 13], 18)
 
 	/* Seeds */
-	.add(TreeHerbSeedTable, 1, 25)
+	.add(TreeHerbSeedTable, 2, 25)
 
 	/* Other */
 	.add('Prayer potion(3)', 2, 40)
