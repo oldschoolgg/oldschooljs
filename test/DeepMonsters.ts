@@ -194,7 +194,7 @@ test('Dagannoth Supreme', async (test): Promise<void> => {
 		'Dragon axe': 128,
 		'Archers ring': 128,
 		'Mithril knife': 12.8 / (75 / 2),
-		"Red d'hide vamb": 18.29,
+		"Red d'hide vambraces": 18.29,
 		'Iron knife': 25.6 / 350,
 		'Steel knife': 25.6 / 100,
 		Seercull: 128,

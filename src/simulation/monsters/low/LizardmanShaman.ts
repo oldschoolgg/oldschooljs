@@ -14,7 +14,7 @@ const LizardmanShamanTable = new LootTable({ limit: 500 })
 	.add('Mystic earth staff', 1, 17)
 	.add('Rune warhammer', 1, 16)
 	.add('Rune chainbody', 1, 12)
-	.add("Red d'hide vamb", 1, 10)
+	.add("Red d'hide vambraces", 1, 10)
 
 	/* Runes */
 	.add('Air rune', [60, 80], 25)

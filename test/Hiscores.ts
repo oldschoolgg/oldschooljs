@@ -49,13 +49,13 @@ test('Hiscores', async t => {
 
 	t.equal(zulu.minigames.LMS.score, 500);
 
-	t.equal(magnaboy.clues.all.score, 140);
+	t.equal(magnaboy.clues.all.score, 141);
 
 	t.equal(magnaboy.clues.beginner.score, 6);
 	t.equal(magnaboy.clues.easy.score, 13);
 
 	t.equal(magnaboy.clues.medium.score, 57);
-	t.equal(magnaboy.clues.hard.score, 44);
+	t.equal(magnaboy.clues.hard.score, 45);
 
 	t.equal(magnaboy.clues.elite.score, 13);
 	t.equal(magnaboy.clues.master.score, 7);

@@ -158,7 +158,7 @@ test('Master Clues', async (test): Promise<void> => {
 		Cabbage: 13616 / 6 / 3,
 		'Anti-venom+(4)': 13616 / 6 / 15,
 		Torstol: 13616 / 6 / 50,
-		"Gilded d'hide vambs": 13616 / 6,
+		"Gilded d'hide vambraces": 13616 / 6,
 		'Gilded spade': 13616 / 6,
 		'Gilded full helm': 149776 / 6,
 		'Gilded 2h sword': 149776 / 6,

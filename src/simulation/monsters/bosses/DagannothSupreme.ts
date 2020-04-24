@@ -14,7 +14,7 @@ const DagannothSupremeTable = new LootTable()
 
 	/* Weapons and armour */
 	.add('Mithril knife', [25, 50], 10)
-	.add(`Red d'hide vamb`, 1, 7)
+	.add(`Red d'hide vambraces`, 1, 7)
 	.add('Rune thrownaxe', [5, 10], 5)
 	.add('Adamant dart', [10, 25], 5)
 	.add('Iron knife', [200, 500], 5)

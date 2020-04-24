@@ -26,7 +26,7 @@ const DrakeTable = new LootTable()
 	/*Weapons and armour */
 	.add('Rune full helm', 1, 3)
 	.add("Red d'hide body", 1, 2)
-	.add("Black d'hide vamb", 1, 1)
+	.add("Black d'hide vambraces", 1, 1)
 	.add('Mystic earth staff', 1, 1)
 	.add('Dragon mace', 1, 1)
 
