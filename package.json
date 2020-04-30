@@ -1,63 +1,67 @@
 {
-	"name": "oldschooljs",
-	"version": "1.1.2",
-	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gc/oldschooljs.git"
-	},
-	"scripts": {
-		"prepublishOnly": "npm run build",
-		"test": "npm run test:run",
-		"test:run": "yarn build && ts-node test/suite",
-		"test:lint": "eslint --ext ts src",
-		"deeptest": "yarn build && ts-node test/deepsuite",
-		"lint": "eslint --ext ts src --fix",
-		"build": "tsc -p .",
-		"dev": "tsc --watch -p .",
-		"prepareData": "npm run build && npm run prepareData:run",
-		"prepareData:run": "ts-node scripts/prepare",
-		"prepmon": "npm run build && ts-node scripts/prepareMonsters.ts",
-		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
-	},
-	"dependencies": {
-		"jsdom": "^16.0.1",
-		"node-fetch": "^2.6.0"
-	},
-	"devDependencies": {
-		"@types/jsdom": "^12.2.4",
-		"@types/node": "^13.1.4",
-		"@types/node-fetch": "^2.5.4",
-		"@types/tape": "^4.2.33",
-		"@typescript-eslint/eslint-plugin": "^2.14.0",
-		"@typescript-eslint/parser": "^2.14.0",
-		"eslint": "^6.8.0",
-		"eslint-config-bamboo": "^3.0.0",
-		"eslint-config-prettier": "^6.9.0",
-		"eslint-plugin-prettier": "^3.1.2",
-		"husky": "^4.2.1",
-		"prettier": "^1.19.1",
-		"pretty-quick": "^2.0.1",
-		"tape": "^4.12.1",
-		"ts-node": "^8.5.4",
-		"typedoc": "^0.16.11",
-		"typescript": "^3.7.4"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "pretty-quick --staged"
-		}
-	},
-	"keywords": [
-		"osrs",
-		"runescape",
-		"oldschool",
-		"oldschoolrs"
-	],
-	"files": [
-		"dist/*"
-	]
+  "name": "oldschooljs",
+  "version": "1.1.2",
+  "description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gc/oldschooljs.git"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "test": "npm run test:run",
+    "test:run": "yarn build && ts-node test/suite",
+    "test:lint": "eslint --ext ts src",
+    "deeptest": "yarn build && ts-node test/deepsuite",
+    "lint": "eslint --ext ts src --fix",
+    "build": "tsc -p .",
+    "dev": "tsc --watch -p .",
+    "prepareData": "npm run build && npm run prepareData:run",
+    "prepareData:run": "ts-node scripts/prepare",
+    "prepmon": "npm run build && ts-node scripts/prepareMonsters.ts",
+    "docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "dependencies": {
+    "jsdom": "^16.0.1",
+    "node-fetch": "^2.6.0",
+    "snyk": "^1.316.1"
+  },
+  "devDependencies": {
+    "@types/jsdom": "^12.2.4",
+    "@types/node": "^13.1.4",
+    "@types/node-fetch": "^2.5.4",
+    "@types/tape": "^4.2.33",
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.8.0",
+    "eslint-config-bamboo": "^3.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "tape": "^4.12.1",
+    "ts-node": "^8.5.4",
+    "typedoc": "^0.16.11",
+    "typescript": "^3.7.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "keywords": [
+    "osrs",
+    "runescape",
+    "oldschool",
+    "oldschoolrs"
+  ],
+  "files": [
+    "dist/*"
+  ],
+  "snyk": true
 }
