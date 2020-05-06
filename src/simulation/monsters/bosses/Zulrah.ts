@@ -64,7 +64,7 @@ const ZulrahTable = new LootTable()
 	.add('Antidote++(4)', 10, 9)
 	.add('Dragonstone bolt tips', 12, 8)
 	.add('Grapes', 250, 6)
-	.add('Coconut', 20, 5)
+	.add('Coconut', 20, 6)
 	.add('Swamp tar', 1000, 5)
 	.add("Zulrah's scales", 500, 5);
 

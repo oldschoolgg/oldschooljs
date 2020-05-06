@@ -50,6 +50,8 @@ const VorkathTable = new LootTable()
 	/* Other */
 	.add(RareDropTable, undefined, 5)
 	.add(TreeHerbSeedTable, undefined, 3)
+	.add('Snapdragon seed', 1, 1)
+	.add('Torstol seed', 1, 1)
 	.add('Adamantite ore', [10, 30], 7)
 	.add('Coins', [20000, 81000], 5)
 	.add('Grapes', [250, 300], 5)

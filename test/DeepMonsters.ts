@@ -87,7 +87,7 @@ test('Zulrah', async (test): Promise<void> => {
 	};
 
 	const Zulrah = Monsters.Zulrah;
-	test.equals(Zulrah.table.totalWeight, 247, 'Zulrah table weight should be 247');
+	test.equals(Zulrah.table.totalWeight, 248, 'Zulrah table weight should be 248');
 
 	const number = 10_000_000;
 	const loot = Monsters.Zulrah.kill(number);
@@ -246,7 +246,7 @@ test('Vorkath', async (test): Promise<void> => {
 	};
 
 	const Vorkath = Monsters.Vorkath;
-	test.equals(Vorkath.table.totalWeight, 148, 'Vorkath table weight should be 148');
+	test.equals(Vorkath.table.totalWeight, 150, 'Vorkath table weight should be 150');
 
 	const number = 10_000_000;
 	const loot = Monsters.Vorkath.kill(number);
