@@ -65,7 +65,8 @@
 				<a href="#oldschooljs" id="oldschooljs" style="color: inherit; text-decoration: none;">
 					<h1>OldSchoolJS</h1>
 				</a>
-				<p>A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, and more.</p>
+				<p>A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, simulating killing monsters, and opening clue caskets - and more.</p>
+				<p>For discussion, help or questions - please join <a href="https://discord.gg/ob">https://discord.gg/ob</a> and then our <code>#developers</code> channel.</p>
 				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
 					<h2>Examples</h2>
 				</a>
@@ -262,9 +263,18 @@ Util.fromKMB(<span class="hljs-string">'1.2b'</span>); <span class="hljs-comment
 				<a href="#monsters" id="monsters" style="color: inherit; text-decoration: none;">
 					<h2>Monsters</h2>
 				</a>
-				<p>Allows you to simulate killing monsters. The loot is returned in a format containing the item ID and the quantity.</p>
+				<p>Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
-				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Monsters.LuckyImp.roll());</code></pre>
+				<a href="#simulating-100-kills-of-every-monster" id="simulating-100-kills-of-every-monster" style="color: inherit; text-decoration: none;">
+					<h4>Simulating 100 Kills of every Monster</h4>
+				</a>
+				<pre><code class="language-js">Monsters.map(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.kill(<span class="hljs-number">100</span>));</code></pre>
+				<a href="#simulating-100-corp-beast-kills" id="simulating-100-corp-beast-kills" style="color: inherit; text-decoration: none;">
+					<h4>Simulating 100 Corp beast kills</h4>
+				</a>
+				<pre><code class="language-js">Monsters.CorporealBeast.kill(<span class="hljs-number">100</span>);
+Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">'corp'</span>)).kill(<span class="hljs-number">100</span>);
+Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);</code></pre>
 				<a href="#planned-features" id="planned-features" style="color: inherit; text-decoration: none;">
 					<h2>Planned features</h2>
 				</a>
