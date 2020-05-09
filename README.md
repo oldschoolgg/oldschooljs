@@ -1,6 +1,8 @@
 # OldSchoolJS
 
-A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, and more.
+A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, simulating killing monsters, and opening clue caskets - and more.
+
+For discussion, help or questions - please join https://discord.gg/ob and then our `#developers` channel.
 
 ## Examples
 
@@ -272,14 +274,24 @@ console.log(Clues.Elite.open());
 
 ## Monsters
 
-Allows you to simulate killing monsters. The loot is returned in a format containing the item ID and the quantity.
+Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.
 
 ```js
 import { Monsters } from 'oldschooljs';
 ```
 
+#### Simulating 100 Kills of every Monster
+
 ```js
-console.log(Monsters.LuckyImp.roll());
+Monsters.map(monster => monster.kill(100));
+```
+
+#### Simulating 100 Corp beast kills
+
+```js
+Monsters.CorporealBeast.kill(100);
+Monsters.find(monster => monster.name.aliases.includes('corp')).kill(100);
+Monsters.get(319).kill(100);
 ```
 
 ## Planned features
