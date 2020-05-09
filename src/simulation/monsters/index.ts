@@ -4,7 +4,6 @@ import DagannothSupreme from './bosses/DagannothSupreme';
 import GiantMole from './bosses/GiantMole';
 import Vorkath from './bosses/Vorkath';
 import Zulrah from './bosses/Zulrah';
-import Barrows from './Barrows';
 import GeneralGraardor from './gwd/GeneralGraardor';
 import CommanderZilyana from './gwd/CommanderZilyana';
 import Kreearra from './gwd/Kreearra';
@@ -23,6 +22,7 @@ import CorporealBeast from './bosses/CorporealBeast';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Cerberus from './bosses/Cerberus';
 
+import SpecialMonsters from './special';
 import LowMonsters from './low';
 
 const monstersObject = {
@@ -33,7 +33,6 @@ const monstersObject = {
 	GiantMole,
 	Vorkath,
 	Zulrah,
-	Barrows,
 	GeneralGraardor,
 	CommanderZilyana,
 	Kreearra,
@@ -48,7 +47,8 @@ const monstersObject = {
 	CrazyArchaeologist,
 	CorporealBeast,
 	KalphiteQueen,
-	...LowMonsters
+	...LowMonsters,
+	...SpecialMonsters
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [

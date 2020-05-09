@@ -33,7 +33,7 @@ test('Hiscores', async t => {
 	t.equal(zulu.bossRecords.commanderZilyana.score, 1082);
 
 	t.equal(zulu.bossRecords.zulrah.rank > 1, true);
-	t.equal(zulu.bossRecords.zulrah.score, 2475);
+	t.equal(zulu.bossRecords.zulrah.score, 2522);
 
 	t.equal(zulu.bossRecords.callisto.rank > 1, true);
 	t.equal(zulu.bossRecords.callisto.score, 327);
@@ -49,15 +49,15 @@ test('Hiscores', async t => {
 
 	t.equal(zulu.minigames.LMS.score, 500);
 
-	t.equal(magnaboy.clues.all.score, 141);
+	t.equal(magnaboy.clues.all.score, 147);
 
 	t.equal(magnaboy.clues.beginner.score, 6);
 	t.equal(magnaboy.clues.easy.score, 13);
 
-	t.equal(magnaboy.clues.medium.score, 57);
-	t.equal(magnaboy.clues.hard.score, 45);
+	t.equal(magnaboy.clues.medium.score, 58);
+	t.equal(magnaboy.clues.hard.score, 49);
 
-	t.equal(magnaboy.clues.elite.score, 13);
+	t.equal(magnaboy.clues.elite.score, 14);
 	t.equal(magnaboy.clues.master.score, 7);
 
 	t.equal(magnaboy.minigames.bountyHunter.rank, -1);

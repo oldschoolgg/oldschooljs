@@ -1,8 +1,8 @@
-import LootTable from '../../structures/LootTable';
-import Loot from '../../structures/Loot';
-import { ItemBank } from '../../meta/types';
-import { roll } from '../../util/util';
-import Monster from '../../structures/Monster';
+import LootTable from '../../../structures/LootTable';
+import Loot from '../../../structures/Loot';
+import { ItemBank } from '../../../meta/types';
+import { roll } from '../../../util/util';
+import Monster from '../../../structures/Monster';
 
 const BarrowsTable = new LootTable();
 
