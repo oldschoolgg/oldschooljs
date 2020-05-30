@@ -6,3 +6,5 @@ dist/
 **/*.js
 **/*.js.map
 **/*.tsbuildinfo
+.nyc_output
+coverage
