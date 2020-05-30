@@ -32,4 +32,8 @@ jobs:
             - name: Build Project
               run: yarn build
             - name: Test
-              run: yarn test
+              run: yarn test:coverage
+            - name: Generate coverage report
+              run: yarn test:coverage:report
+            - name: Upload coverage data to Codecov
+              uses: codecov/codecov-action@v1
