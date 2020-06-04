@@ -403,7 +403,7 @@ export interface PollResult {
 }
 
 export interface NumberKeyedBank {
-	[key: number]: number | undefined;
+	[key: number]: number;
 }
 
 export interface StringKeyedBank {
