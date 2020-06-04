@@ -12,6 +12,7 @@ import * as Clues from './simulation/clues';
 import * as Misc from './simulation/misc';
 import * as Util from './util/util';
 import * as constants from './constants';
+import * as BankUtil from './util/bank';
 
 export {
 	Items,
@@ -27,5 +28,6 @@ export {
 	Monsters,
 	Minigames,
 	Openables,
-	constants
+	constants,
+	BankUtil
 };
