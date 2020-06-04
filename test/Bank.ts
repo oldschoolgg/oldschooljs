@@ -167,7 +167,7 @@ test('remove bank from bank', test => {
 		36: 6
 	};
 
-	test.deepEqual(BankUtil.removeBankFromBank(bank, deleter), {
+	test.deepEqual(BankUtil.removeBankFromBank(deleter, bank), {
 		45: 9,
 		87: 1
 	});
