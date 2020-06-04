@@ -7,7 +7,7 @@ import {
 } from './General';
 import LootTable from '../../structures/LootTable';
 import Clue from '../../structures/Clue';
-import { ItemBank } from '../../meta/types';
+import { NumberKeyedBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import { rand, roll } from '../../util/util';
 
@@ -217,7 +217,7 @@ export const HardClueTable = new LootTable()
 	.add(HardRareTable, undefined, 1);
 
 export class HardCasket extends Clue {
-	public open(quantity = 1): ItemBank {
+	public open(quantity = 1): NumberKeyedBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

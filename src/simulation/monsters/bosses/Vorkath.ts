@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { ItemBank } from '../../../meta/types';
+import { NumberKeyedBank } from '../../../meta/types';
 import Loot from '../../../structures/Loot';
 import { roll } from '../../../util/util';
 import RareDropTable from '../../subtables/RareDropTable';
@@ -61,7 +61,7 @@ const VorkathTable = new LootTable()
 	.add('Wrath talisman', 1, 3);
 
 export class Vorkath extends SimpleMonster {
-	public kill(quantity = 1): ItemBank {
+	public kill(quantity = 1): NumberKeyedBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

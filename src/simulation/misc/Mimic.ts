@@ -1,6 +1,6 @@
 import LootTable from '../../structures/LootTable';
 import Clue from '../../structures/Clue';
-import { ItemBank } from '../../meta/types';
+import { NumberKeyedBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 
 type MimicClueTier = 'master' | 'elite';
@@ -55,7 +55,7 @@ export const MasterMimicTable = new LootTable()
 	.add('Wine of zamorak', 25, 2);
 
 class MimicCasket extends Clue {
-	public open(tier: MimicClueTier = 'master', quantity = 1): ItemBank {
+	public open(tier: MimicClueTier = 'master', quantity = 1): NumberKeyedBank {
 		const loot = new Loot();
 		for (let i = 0; i < quantity; i++) {
 			loot.add(

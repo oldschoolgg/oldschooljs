@@ -402,8 +402,12 @@ export interface PollResult {
 	voteCount: number;
 }
 
-export interface ItemBank {
-	[key: number]: number;
+export interface NumberKeyedBank {
+	[key: number]: number | undefined;
+}
+
+export interface StringKeyedBank {
+	[key: string]: number;
 }
 
 export interface SimpleTableItem<T> {

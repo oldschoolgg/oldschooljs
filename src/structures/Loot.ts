@@ -1,8 +1,8 @@
-import { ItemBank, ReturnedLootItem } from '../meta/types';
+import { NumberKeyedBank, ReturnedLootItem } from '../meta/types';
 import itemID from '../util/itemID';
 
 export default class Loot {
-	public loot: ItemBank = {};
+	public loot: NumberKeyedBank = {};
 
 	public add(item: string | number | ReturnedLootItem | ReturnedLootItem[], quantity = 1): void {
 		if (Array.isArray(item)) {
@@ -32,7 +32,7 @@ export default class Loot {
 		else this.loot[id] += item.quantity;
 	}
 
-	public values(): ItemBank {
+	public values(): NumberKeyedBank {
 		return this.loot;
 	}
 }
