@@ -916,10 +916,10 @@ escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-bamboo@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-bamboo/-/eslint-config-bamboo-3.0.0.tgz#26d013e5b575b9608cecb53cc7410be32e1f0471"
-  integrity sha512-OyY6aVXQ3RrSNtTDpLf6V426ZUV28JerCizGisLuXQco319ZpxyCtMKonJ04l6faYurdFmV6giDHhXmw7Fe9Lg==
+eslint-config-bamboo@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-bamboo/-/eslint-config-bamboo-4.0.1.tgz#a1122590dbc942b6fd972cbfc02c283652f31445"
+  integrity sha512-ggRdL0ylhzNO9A5Ecl9hDqRoNA+aeY7F0QoPM5k1kNihsss+YRbDYUXKRRu/rFgncuX2MgugorDxIOZPh8fszw==
 
 eslint-config-prettier@^6.9.0:
   version "6.11.0"
