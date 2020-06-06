@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { NumberKeyedBank } from '../../../meta/types';
+import { ItemBank } from '../../../meta/types';
 import Loot from '../../../structures/Loot';
 import { roll, rand } from '../../../util/util';
 import RareDropTable from '../../subtables/RareDropTable';
@@ -69,7 +69,7 @@ const ZulrahTable = new LootTable()
 	.add("Zulrah's scales", 500, 5);
 
 export class Zulrah extends SimpleMonster {
-	public kill(quantity = 1): NumberKeyedBank {
+	public kill(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

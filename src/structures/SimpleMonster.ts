@@ -1,5 +1,5 @@
 import Monster from './Monster';
-import { MonsterOptions, NumberKeyedBank, MonsterKillOptions } from '../meta/types';
+import { MonsterOptions, ItemBank, MonsterKillOptions } from '../meta/types';
 import LootTable from './LootTable';
 import Loot from './Loot';
 import { MonsterSlayerMaster } from '../meta/monsterData';
@@ -17,7 +17,7 @@ export default class SimpleMonster extends Monster {
 		this.table = options.table;
 	}
 
-	public kill(quantity = 1, options: MonsterKillOptions = {}): NumberKeyedBank {
+	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

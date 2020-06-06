@@ -402,7 +402,7 @@ export interface PollResult {
 	voteCount: number;
 }
 
-export interface NumberKeyedBank {
+export interface ItemBank {
 	[key: number]: number;
 }
 

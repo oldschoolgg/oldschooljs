@@ -1,7 +1,7 @@
 import { Test } from 'tape';
 
 import { Items } from '../dist';
-import { NumberKeyedBank } from '../dist/meta/types';
+import { ItemBank } from '../dist/meta/types';
 
 export function withinThreshold(source: number, target: number, epsilon = 5): boolean {
 	if (source === target) return true;
@@ -11,7 +11,7 @@ export function withinThreshold(source: number, target: number, epsilon = 5): bo
 export function checkThreshold(
 	test: Test,
 	expectedRates: { [key: string]: number },
-	result: NumberKeyedBank,
+	result: ItemBank,
 	numberDone: number
 ): void {
 	for (const [name, qty] of Object.entries(expectedRates)) {

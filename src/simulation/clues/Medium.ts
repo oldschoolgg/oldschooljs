@@ -1,7 +1,7 @@
 import { PrayerPageTable, TeleportScrollTable, BlessingTable } from './General';
 import LootTable from '../../structures/LootTable';
 import Clue from '../../structures/Clue';
-import { NumberKeyedBank } from '../../meta/types';
+import { ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import { rand, roll } from '../../util/util';
 
@@ -181,7 +181,7 @@ export const MediumClueTable = new LootTable()
 	.add(MediumRareTable, undefined, 1);
 
 export class MediumCasket extends Clue {
-	public open(quantity = 1): NumberKeyedBank {
+	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

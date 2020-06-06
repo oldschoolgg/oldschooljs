@@ -1,4 +1,4 @@
-import { NumberKeyedBank, OpenableOptions } from '../meta/types';
+import { ItemBank, OpenableOptions } from '../meta/types';
 import LootTable from './LootTable';
 import Loot from './Loot';
 import Openable from './Openable';
@@ -15,7 +15,7 @@ export default class SimpleOpenable extends Openable {
 		this.table = options.table;
 	}
 
-	public open(quantity = 1): NumberKeyedBank {
+	public open(quantity = 1): ItemBank {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {

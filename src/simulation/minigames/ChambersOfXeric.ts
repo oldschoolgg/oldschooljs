@@ -1,7 +1,7 @@
 import Minigame from '../../structures/Minigame';
 import { addArrayOfNumbers, randFloat, roll, JSONClone } from '../../util/util';
 import LootTable from '../../structures/LootTable';
-import { ReturnedLootItem, NumberKeyedBank, SimpleTableItem } from '../../meta/types';
+import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import { transformStringBankToIdBank } from '../../util/bank';
 import SimpleTable from '../../structures/SimpleTable';
@@ -176,7 +176,7 @@ export class ChambersOfXericClass extends Minigame {
 	}
 
 	// We're rolling 2 non-unique loots based off a number of personal points.
-	public rollNonUniqueLoot(personalPoints: number): NumberKeyedBank {
+	public rollNonUniqueLoot(personalPoints: number): ItemBank {
 		// First, pick which items we will be giving them, without giving a duplicate.
 		const items: SimpleTableItem<number>[] = [];
 		while (items.length < 2) {
@@ -186,7 +186,7 @@ export class ChambersOfXericClass extends Minigame {
 
 		// Now return an ItemBank of these 2 items, the quantity is [points / scale].
 		// With a minimum of 1.
-		const loot: NumberKeyedBank = {
+		const loot: ItemBank = {
 			[items[0].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[0].item])),
 			[items[1].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[1].item]))
 		};
@@ -201,7 +201,7 @@ export class ChambersOfXericClass extends Minigame {
 	public complete(
 		_options: ChambersOfXericOptions
 	): {
-		[key: string]: NumberKeyedBank;
+		[key: string]: ItemBank;
 	} {
 		const options = JSONClone(_options);
 
@@ -274,7 +274,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// Convert everyones loot to ItemBanks.
-		const result: { [key: string]: NumberKeyedBank } = {};
+		const result: { [key: string]: ItemBank } = {};
 		for (const [id, loot] of Object.entries(lootResult)) {
 			result[id] = loot.values();
 		}

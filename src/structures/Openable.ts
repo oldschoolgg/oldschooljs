@@ -1,4 +1,4 @@
-import { NumberKeyedBank, OpenableOpenOptions, OpenableOptions } from '../meta/types';
+import { ItemBank, OpenableOpenOptions, OpenableOptions } from '../meta/types';
 
 /**
  * An entity from OSRS which can be opened (e.g. implings)
@@ -10,7 +10,7 @@ export default abstract class Openable {
 	public id: number;
 	public name: string;
 	public aliases: string[];
-	public abstract open(quantity: number, options: OpenableOpenOptions): NumberKeyedBank;
+	public abstract open(quantity: number, options: OpenableOpenOptions): ItemBank;
 
 	constructor(options: OpenableOptions) {
 		this.id = options.id;
