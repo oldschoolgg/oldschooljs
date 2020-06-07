@@ -406,6 +406,10 @@ export interface ItemBank {
 	[key: number]: number;
 }
 
+export interface StringKeyedBank {
+	[key: string]: number;
+}
+
 export interface SimpleTableItem<T> {
 	item: T;
 	weight: number;
