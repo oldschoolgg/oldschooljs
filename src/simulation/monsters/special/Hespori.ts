@@ -5,8 +5,8 @@ import { roll } from '../../../util/util';
 import Monster from '../../../structures/Monster';
 
 const HesporiTable = new LootTable()
-    .add('Attas seed', [1, 2], 1)
-    .add('Iasor seed', [1, 2], 1)
+	.add('Attas seed', [1, 2], 1)
+	.add('Iasor seed', [1, 2], 1)
 	.add('Kronos seed', [1, 2], 1);
 
 const OtherTable = new LootTable()
