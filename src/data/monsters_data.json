@@ -3909,7 +3909,8 @@
 		"slayerLevelRequired": 1,
 		"slayerXP": 220.5,
 		"assignableSlayerMasters": ["chaeldar", "konar", "nieve", "duradel"]
-	},"8583": {
+	},
+	"8583": {
 		"members": true,
 		"releaseDate": "2019-01-10",
 		"combatLevel": 284,
