@@ -33,13 +33,13 @@ const UniqueTable = new LootTable()
 	.add('Zamorakian spear', 1, 4)
 	.add('Staff of the dead')
 	.add('Zamorak hilt')
-	.add(ShardTable, undefined, 2);
+	.add(ShardTable, 1, 2);
 
 const KrilTsutsarothTable = new LootTable()
 	.every('Ashes')
 	.every(MinionTable, 2)
 	.every(ZaklnGritchMinionTable)
-	.add(UniqueTable, undefined, 3)
+	.add(UniqueTable, 1, 3)
 	.tertiary(250, 'Clue scroll (elite)')
 	.tertiary(5000, `Pet k'ril tsutsaroth`)
 
@@ -75,8 +75,8 @@ const KrilTsutsarothTable = new LootTable()
 	.add('Death rune', [120, 125], 8)
 	.add('Blood rune', [80, 85], 8)
 
-	.add(GWRareDropTable, undefined, 8)
-	.add(GWGemTable, undefined, 2);
+	.add(GWRareDropTable, 1, 8)
+	.add(GWGemTable, 1, 2);
 
 export default new SimpleMonster({
 	id: 3129,

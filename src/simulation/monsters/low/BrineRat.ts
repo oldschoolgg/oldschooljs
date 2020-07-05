@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const BrineRatTable = new LootTable()
+const BrineRatTable = new LootTable({ limit: 128 })
 	.every('Bones')
 	.every('Raw rat meat')
 

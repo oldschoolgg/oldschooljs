@@ -18,6 +18,7 @@ const DrakeTable = new LootTable()
 	.every('Drake bones')
 
 	/* Pre-roll */
+	// TODO: dynamic drop based on slayer task
 	.oneIn(512, "Drake's tooth")
 	.oneIn(512, "Drake's claw")
 	.oneIn(2000, 'Dragon thrownaxe', [100, 200])
@@ -38,7 +39,7 @@ const DrakeTable = new LootTable()
 	.add('Rune arrow', [35, 65], 10)
 
 	/* Herbs */
-	.add(HerbDropTable, [1, 3], 1)
+	.add(HerbDropTable, [1, 3], 5)
 	.add(DrakeNotedHerbTable, 1, 6)
 
 	/* Seeds */

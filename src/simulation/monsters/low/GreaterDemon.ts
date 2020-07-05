@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const GreaterDemonTable = new LootTable()
+const GreaterDemonTable = new LootTable({ limit: 128 })
 	.every('Ashes')
 
 	/* Weapons and armor */

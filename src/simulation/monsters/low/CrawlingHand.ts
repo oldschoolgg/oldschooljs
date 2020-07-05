@@ -19,12 +19,11 @@ export const CrawlingHandTable = new LootTable({ limit: 128 })
 	.add('Emerald ring', 1, 2)
 
 	/* Coins */
-	.add('Coins', 5, 10)
-	.add('Coins', 8, 8)
-	.add('Coins', 10, 8)
+	.add('Coins', 5, 30)
+	.add('Coins', 8, 18)
+	.add('Coins', 10, 4)
 
 	/* Subtables */
-
 	.add(GemTable, 4);
 
 export default new SimpleMonster({

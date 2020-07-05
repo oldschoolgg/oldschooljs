@@ -10,7 +10,7 @@ export const DwarfTable = new LootTable({ limit: 128 })
 	.add('Bronze pickaxe', 1, 13)
 	.add('Bronze med helm', 1, 4)
 	.add('Bronze battleaxe', 1, 2)
-	.add('Iron pickaxe')
+	.add('Iron battleaxe')
 
 	/* Runes and ammunition */
 	.add('Bronze bolts', [2, 12], 7)

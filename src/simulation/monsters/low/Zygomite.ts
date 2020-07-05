@@ -4,6 +4,7 @@ import RareDropTable from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
+// TODO: check back for wiki drop table update
 const ZygomiteTable = new LootTable()
 	.every('Ashes')
 
@@ -25,7 +26,7 @@ const ZygomiteTable = new LootTable()
 	.add(CommonSeedDropTable, 1, 10)
 
 	/* Other */
-	.add('Coins', [44, 400], 9)
+	.add('Coins', [44, 460], 9)
 	.add('Supercompost', [1, 3], 7)
 	.add('Mort myre fungus', [1, 5], 7)
 	.add('Clay', 1, 7)

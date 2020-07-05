@@ -5,7 +5,7 @@ const VenenatisTable = new LootTable()
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, 'Venenatis spiderling')
 	.tertiary(400, 'Long bone')
-	.tertiary(5000, 'Curved bone')
+	.tertiary(5013, 'Curved bone')
 	.oneIn(512, 'Treasonous ring')
 
 	/* Weapons and armour */

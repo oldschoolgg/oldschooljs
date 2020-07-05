@@ -13,7 +13,7 @@ const VetionTable = new LootTable()
 	.tertiary(2000, "Vet'ion jr.")
 	.tertiary(400, 'Long bone')
 	.tertiary(5000, 'Skeleton champion scroll')
-	.tertiary(5000, 'Curved bone')
+	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
 	.add('Rune pickaxe', 1, 48)

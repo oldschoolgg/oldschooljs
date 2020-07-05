@@ -8,6 +8,7 @@ const WyrmTable = new LootTable({ limit: 76 })
 	.every('Wyrm bones')
 
 	/* Pre-roll*/
+	// TODO: dynamic drop based on slayer task
 	.oneIn(2000, 'Dragon sword')
 	.oneIn(2000, 'Dragon harpoon')
 	.oneIn(2000, 'Dragon knife', [75, 150])

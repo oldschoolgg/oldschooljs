@@ -4,30 +4,30 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 const SpiritualRangerTable = new LootTable({ limit: 128 })
 
 	/* Weapons */
-	.add('Oak shortbow', 1, 8)
-	.add('Steel crossbow', 1, 5)
-	.add('Maple longbow', 1, 5)
-	.add('Magic shortbow', [1, 2], 3)
+	.add('Oak shortbow', 1, 5)
+	.add('Maple longbow', 1, 4)
+	.add('Steel crossbow', 1, 3)
+	.add('Magic shortbow', [1, 2], 1)
 
 	/* Runes and ammunition */
-	.add('Mithril arrow(p+)', 1, 8)
-	.add('Steel arrow', [1, 12], 8)
-	.add('Iron arrow', [1, 24], 8)
-	.add('Bronze arrow', [1, 58], 8)
-	.add('Bronze arrow(p+)', 1, 8)
-	.add('Body rune', [1, 12], 5)
-	.add('Rune arrow', [1, 5], 5)
-	.add('Adamant arrow', [1, 15], 5)
-	.add('Adamant arrow(p++)', 3, 2)
-	.add('Adamant fire arrow', [3, 4], 2)
+	.add('Iron arrow', 12, 15)
+	.add('Bronze arrow', 16, 13)
+	.add('Mithril arrow(p+)', 1, 11)
+	.add('Steel arrow', 12, 4)
+	.add('Body rune', 12, 4)
+	.add('Adamant arrow(p++)', 3, 3)
+	.add('Rune arrow', 5, 2)
+	.add('Adamant fire arrow', 4, 2)
+	.add('Bronze arrow(p+)', 1, 1)
+	.add('Adamant arrow', 12, 1)
 
 	/* Other */
-	.add('Headless arrow', 12, 8)
-	.add('Iron arrowtips', 5, 8)
-	.add('Adamant arrowtips', [1, 13], 8)
-	.add('Bow string', 7, 8)
-	.add('Broken arrow', 1, 8)
-	.add('Oak longbow (u)', [1, 12], 8)
+	.add('Bow string', 7, 18)
+	.add('Iron arrowtips', 5, 11)
+	.add('Headless arrow', 12, 10)
+	.add('Adamant arrowtips', 13, 9)
+	.add('Oak longbow (u)', 12, 9)
+	.add('Broken arrow', 1, 1)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

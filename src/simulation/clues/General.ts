@@ -62,7 +62,7 @@ export const SubTeleportScrollTable = new LootTable()
 
 export const TeleportScrollTable = new LootTable()
 	.add('Master scroll book (empty)')
-	.add(SubTeleportScrollTable, undefined, 21);
+	.add(SubTeleportScrollTable, 1, 21);
 
 export const GiveHalfKeyTable = new LootTable().add('Loop half of key').add('Tooth half of key');
 

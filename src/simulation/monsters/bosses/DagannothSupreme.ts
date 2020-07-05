@@ -44,9 +44,9 @@ const DagannothSupremeTable = new LootTable()
 	.add('Maple logs', [15, 65], 3)
 	.add('Runite limbs', 1, 2)
 	.add('Feather', [250, 500], 1)
-	.add(RareDropTable, undefined, 8)
-	.add(GemTable, undefined, 10)
-	.add(RareSeedTable, undefined, 7)
+	.add(RareDropTable, 1, 8)
+	.add(GemTable, 1, 10)
+	.add(RareSeedTable, 1, 7)
 	.add(TalismanTable);
 
 export default new SimpleMonster({

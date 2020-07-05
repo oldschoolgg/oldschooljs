@@ -8,7 +8,7 @@ const ChaosFanaticTable = new LootTable()
 	.every('Bones')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(1000, 'Pet chaos elemental')
-	.add(ChaosFanaticUniqueTable, undefined, 1)
+	.add(ChaosFanaticUniqueTable, 1, 1)
 
 	/* Weapons and armour */
 	.add('Battlestaff', 5, 5)

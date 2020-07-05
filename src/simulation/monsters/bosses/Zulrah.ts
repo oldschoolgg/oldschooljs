@@ -17,13 +17,13 @@ const ZulrahFlaxMutagenTable = new LootTable()
 	.add('Flax', 1000, 5244);
 
 const ZulrahTable = new LootTable()
-	.add(RareDropTable, undefined, 9)
+	.add(RareDropTable, 1, 9)
 	.oneIn(256, ZulrahUniqueTable)
 
 	/* Weapons and armour */
+	.add('Battlestaff', 10, 10)
 	.add('Dragon med helm', 1, 2)
 	.add('Dragon halberd', 1, 2)
-	.add('Battlestaff', 10, 10)
 
 	/* Runes */
 	.add('Death rune', 300, 12)
@@ -51,7 +51,7 @@ const ZulrahTable = new LootTable()
 	.add('Snakeskin', 35, 11)
 	.add('Runite ore', 2, 11)
 	.add('Pure essence', 1500, 10)
-	.add(ZulrahFlaxMutagenTable, undefined, 10)
+	.add(ZulrahFlaxMutagenTable, 1, 10)
 	.add('Yew logs', 35, 10)
 	.add('Adamantite bar', 20, 8)
 	.add('Coal', 200, 8)
@@ -64,7 +64,7 @@ const ZulrahTable = new LootTable()
 	.add('Antidote++(4)', 10, 9)
 	.add('Dragonstone bolt tips', 12, 8)
 	.add('Grapes', 250, 6)
-	.add('Coconut', 20, 5)
+	.add('Coconut', 20, 6)
 	.add('Swamp tar', 1000, 5)
 	.add("Zulrah's scales", 500, 5);
 

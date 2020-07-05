@@ -37,8 +37,8 @@ const GrimspikeMinionTable = new LootTable({ limit: 6 })
 	.add('Right eye patch', 1, 1);
 
 const UniqueTable = new LootTable()
-	.add(GeneralGraardorArmorTable, undefined, 4)
-	.add(ShardTable, undefined, 2)
+	.add(GeneralGraardorArmorTable, 1, 4)
+	.add(ShardTable, 1, 2)
 	.add('Bandos hilt')
 	.add('Coins', [20_100, 20_600], 5);
 
@@ -47,7 +47,7 @@ const GeneralGraardorTable = new LootTable()
 	.every(StrongsackMinionTable)
 	.every(SteelwillMinionTable)
 	.every(GrimspikeMinionTable)
-	.add(UniqueTable, undefined, 3)
+	.add(UniqueTable, 1, 3)
 	.tertiary(250, 'Clue scroll (elite)')
 	.tertiary(400, 'Long bone')
 	.tertiary(5000, 'Pet general graardor')
@@ -69,8 +69,8 @@ const GeneralGraardorTable = new LootTable()
 	.add('Magic logs', [15, 20], 8)
 	.add('Nature rune', [65, 70], 8)
 
-	.add(GWRareDropTable, undefined, 8)
-	.add(GWGemTable, undefined, 2);
+	.add(GWRareDropTable, 1, 8)
+	.add(GWGemTable, 1, 2);
 
 export default new SimpleMonster({
 	id: 2215,

@@ -143,17 +143,15 @@ export const EasyRareTable = new LootTable()
 	.add(EasyChefTable)
 	.add(EasyMonkTable)
 	.add(EasyCapeTable)
-	.add(EasyElegantTable, undefined, 6);
+	.add(EasyElegantTable, 1, 6);
 
 export const EasyAmuletTable = new LootTable()
 	.add('Amulet of magic (t)')
-	.add('Amulet of magic', undefined, 9);
+	.add('Amulet of magic', 1, 9);
 
 export const EasyBlessingsTable = new LootTable().add(BlessingTable).add('Coins', [3000, 7000], 2);
 
-export const EasyBowTable = new LootTable()
-	.add('Willow comp bow')
-	.add('Willow longbow', undefined, 9);
+export const EasyBowTable = new LootTable().add('Willow comp bow').add('Willow longbow', 1, 9);
 
 export const EasyStandardTable = new LootTable()
 	.add('Coins', [50, 200])
@@ -190,9 +188,7 @@ export const EasyStandardTable = new LootTable()
 	.add(FirelighterTable)
 	.add(TeleportScrollTable);
 
-export const EasyClueTable = new LootTable()
-	.add(EasyStandardTable, undefined, 11)
-	.add(EasyRareTable, undefined, 1);
+export const EasyClueTable = new LootTable().add(EasyStandardTable, 1, 11).add(EasyRareTable, 1, 1);
 
 export class EasyCasket extends Clue {
 	public open(quantity = 1): ItemBank {

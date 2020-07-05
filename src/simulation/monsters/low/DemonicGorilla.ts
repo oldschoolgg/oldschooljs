@@ -4,16 +4,18 @@ import RareDropTable from '../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../subtables/TreeHerbSeedTable';
 import NotedHerbTable from '../../subtables/NotedHerbTable';
 
+const UniqueTable = new LootTable()
+	.add('Zenyte shard', 1, 5)
+	.add('Ballista limbs', 1, 3)
+	.add('Ballista spring', 1, 3)
+	.add('Light frame', 1, 2)
+	.add('Heavy frame', 1, 1)
+	.add('Monkey tail', 1, 1);
+
 const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.every('Ashes')
 
-	/* Uniques */
-	.oneIn(300, 'Zenyte shard')
-	.oneIn(500, 'Ballista limbs')
-	.oneIn(500, 'Ballista spring')
-	.oneIn(750, 'Light frame')
-	.oneIn(1500, 'Heavy frame')
-	.oneIn(1500, 'Monkey tail')
+	.add(UniqueTable, 1, 5)
 
 	/* Weapons and armor */
 	.add('Rune platelegs', 1, 35)
@@ -27,6 +29,7 @@ const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.add('Runite bolts', [100, 150], 25)
 
 	/* Herbs */
+	// TODO: multiply drop by quantity instead of rolling the table again
 	.add(NotedHerbTable, [7, 13], 18)
 
 	/* Seeds */

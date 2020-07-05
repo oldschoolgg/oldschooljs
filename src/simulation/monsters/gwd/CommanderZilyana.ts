@@ -28,13 +28,13 @@ const UniqueTable = new LootTable()
 	.add("Saradomin's light", 1, 2)
 	.add('Armadyl crossbow')
 	.add('Saradomin hilt')
-	.add(ShardTable, undefined, 2)
+	.add(ShardTable, 1, 2)
 	.add('Coins', [19_500, 20_000], 2);
 
 const CommanderZilyanaTable = new LootTable()
 	.every('Bones')
 	.every(MinionTable, 3)
-	.add(UniqueTable, undefined, 3)
+	.add(UniqueTable, 1, 3)
 	.tertiary(250, 'Clue scroll (elite)')
 	.tertiary(5000, 'Pet zilyana')
 
@@ -71,8 +71,8 @@ const CommanderZilyanaTable = new LootTable()
 	.add('Ranarr seed', 2, 8)
 	.add('Magic seed', 1, 1)
 
-	.add(GWRareDropTable, undefined, 8)
-	.add(GWGemTable, undefined, 2);
+	.add(GWRareDropTable, 1, 8)
+	.add(GWGemTable, 1, 2);
 
 export default new SimpleMonster({
 	id: 2205,
