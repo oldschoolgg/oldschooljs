@@ -27,10 +27,10 @@ const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.add('Runite bolts', [100, 150], 25)
 
 	/* Herbs */
-	.add(NotedHerbTable, [7, 13], 18)
+	.add(NotedHerbTable, [7, 13], 18, true) // multiply dropped roll instead of separate rolls
 
 	/* Seeds */
-	.add(TreeHerbSeedTable, 1, 25)
+	.add(TreeHerbSeedTable, 2, 25, true) // multiply dropped roll instead of separate rolls
 
 	/* Other */
 	.add('Prayer potion(3)', 2, 40)

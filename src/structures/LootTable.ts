@@ -65,10 +65,13 @@ export default class LootTable {
 	public add(
 		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
-		weight = 1
+		weight = 1,
+		mult = false /* set if the added item is a loot table and
+						the monster multiplies the drop from that table
+						by the quantity instead of rolling that table separately */
 	): this {
 		if (typeof item === 'string') {
-			return this.add(this.resolveName(item), quantity, weight);
+			return this.add(this.resolveName(item), quantity, weight, mult);
 		}
 
 		// If its an array, but not a LootTableItem[] array.
@@ -83,7 +86,7 @@ export default class LootTable {
 				});
 			}
 
-			return this.add(newItems, quantity, weight);
+			return this.add(newItems, quantity, weight, mult);
 		}
 
 		this.length += 1;
@@ -92,7 +95,8 @@ export default class LootTable {
 		this.table.push({
 			item,
 			weight,
-			quantity
+			quantity,
+			mult
 		});
 
 		return this;
@@ -135,22 +139,34 @@ export default class LootTable {
 			}
 		}
 
-		return chosenItem == undefined ? items : items.concat(this.generateResultItem(chosenItem));
+		return chosenItem == undefined
+			? items
+			: items.concat(this.generateResultItem(chosenItem, chosenItem.mult));
 	}
 
-	private generateResultItem(item: LootTableItem): ReturnedLootItem[] {
+	private generateResultItem(item: LootTableItem, mult = false): ReturnedLootItem[] {
 		// If the chosen item is a loot table, the result is a roll of that table.
 		if (item.item instanceof LootTable) {
 			const quantity = this.determineQuantity(item.quantity);
 			let items: ReturnedLootItem[] = [];
 
-			for (let i = 0; i < quantity; i++) {
-				items = items.concat(
-					item.item
-						.roll()
-						.map(item => this.generateResultItem(item))
-						.flat()
-				);
+			//some monsters multiply the drop from a roll instead of having separate rolls on a table
+			if (mult) {
+				items = items.concat(item.item.roll());
+				if (items.length > 0) {
+					for (let i = 0; i < items.length; i++) {
+						items[i].quantity *= quantity;
+					}
+				}
+			} else {
+				for (let i = 0; i < quantity; i++) {
+					items = items.concat(
+						item.item
+							.roll()
+							.map(item => this.generateResultItem(item))
+							.flat()
+					);
+				}
 			}
 
 			return items;
