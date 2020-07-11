@@ -42133,5 +42133,1235 @@
 		],
 		"year": 2019,
 		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1575"
+	},
+	{
+		"title": "Twisted League Rewards",
+		"description": "In the forthcoming Twisted League, some of the rewards can be carried over to the main OSRS game. Such rewards will be cosmetic and tradeable unless otherwise stated. The Twisted League opens on Thursday 14th November 2019.",
+		"datePosted": 1571371119000,
+		"totalVotes": 31832,
+		"questions": [
+			{
+				"question": "Should the Twisted League offer cosmetic armour rewards as described in the blog? This will consist of three tiers of cosmetic outfits that represent the league.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 75.3,
+						"voteCount": 23966
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 20.5,
+						"voteCount": 6499
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.3,
+						"voteCount": 1367
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer a Twisted League themed banner reward as described in the blog? This will be similar to the Kourend house banners and be held in the main-hand slot.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 71.2,
+						"voteCount": 22636
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 23.4,
+						"voteCount": 7432
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.6,
+						"voteCount": 1764
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer a Twisted League Slayer Helm recolour reward as described in the blog? The recolour will require 1000 Slayer points to unlock to be consistent with the other Slayer helm recolours.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 73.8,
+						"voteCount": 23489
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 22.7,
+						"voteCount": 7203
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.6,
+						"voteCount": 1140
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer a Twisted League Home Teleport Animation reward as described in the blog? This will be similar to the default home teleport animation but the player will draw a black/green circle on the ground. When teleporting away a Xerician symbol appears under them.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 73.6,
+						"voteCount": 23418
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 22.3,
+						"voteCount": 7080
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.2,
+						"voteCount": 1334
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer a Twisted League themed PoH wallkit reward as described in the blog?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 74.1,
+						"voteCount": 23585
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 20.7,
+						"voteCount": 6585
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.3,
+						"voteCount": 1662
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer a Twisted League Ancestral Robes Ornament Kit reward as described in the blog?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 70.6,
+						"voteCount": 22463
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 25,
+						"voteCount": 7932
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.6,
+						"voteCount": 1437
+					}
+				]
+			},
+			{
+				"question": "Should the Twisted League offer cosmetic Twisted League trophy rewards as described in the blog? This trophy will represent the tier you place in and will be untradeable.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 73.8,
+						"voteCount": 23475
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 21.2,
+						"voteCount": 6740
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.1,
+						"voteCount": 1617
+					}
+				]
+			}
+		],
+		"year": 2019,
+		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1576"
+	},
+	{
+		"title": "Rune Pouch, Looting Bag & Abyssal Sire",
+		"description": "In the Bounty Hunter rewards poll blog, we said we'd make the Rune pouch and Looting bag tradeable. However, the poll questions to let players own multiple copies of the items did not pass. Being tradeable would implicitly enable that, despite it failing its poll, so we didn't make them tradeable at the time. As there does seem to be player interest in making them tradeable, we're now polling that more explicitly, alongside reducing the cost of the Rune pouch in the Slayer points reward shop.",
+		"datePosted": 1571980414000,
+		"totalVotes": 36978,
+		"questions": [
+			{
+				"question": "Should the Rune pouch be made tradeable? It would remain accessible from the Bounty Hunter shop and Slayer reward points shop. Players with multiple copies of the pouch would not be able to store different runes in each one - each pouch would access the same inventory of runes. If this question passes, players will become able to own multiple copies of the pouch, superseding Question 1 from the Bounty Hunter Rework rewards poll.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 60.1,
+						"voteCount": 22211
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 34.8,
+						"voteCount": 12840
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.3,
+						"voteCount": 1927
+					}
+				]
+			},
+			{
+				"question": "Should the Looting bag be made tradeable? It would remain accessible from the Bounty Hunter shop. Players with multiple copies of the bag would not be able to store different items in each one - each bag would access the same stored items. If this question passes, players will become able to own multiple copies of the pouch, superseding Question 2 from the Bounty Hunter Rework rewards poll.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 61.4,
+						"voteCount": 22684
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 33.3,
+						"voteCount": 12298
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.4,
+						"voteCount": 1996
+					}
+				]
+			},
+			{
+				"question": "Should the cost of the Rune pouch in the Slayer points rewards shop be reduced to 750? Currently it costs 1,250 Slayer reward points.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 74.9,
+						"voteCount": 27732
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 22.3,
+						"voteCount": 8220
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 2.8,
+						"voteCount": 1026
+					}
+				]
+			},
+			{
+				"question": "When the Abyssal Sire takes damage, should it check immediately whether it has reached the damage threshold for the next phase of the fight? Currently players are obliged to hit it one more time before it will change phase, yet that damage never takes effect on it, so the hit feels wasted.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 79.9,
+						"voteCount": 29527
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.2,
+						"voteCount": 1887
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 15.1,
+						"voteCount": 5564
+					}
+				]
+			},
+			{
+				"question": "Should Shadow spells be able to stun the Abyssal Sire at any time during its first phase? Currently players must wait for the first stun to expire before they can stun it again. The stun chance for each Shadow spell would remain unchanged.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 71.6,
+						"voteCount": 26441
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 10.2,
+						"voteCount": 3749
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 18.4,
+						"voteCount": 6788
+					}
+				]
+			},
+			{
+				"question": "Should players be able to begin an Abyssal Sire fight by stunning the Sire? It would still go through its 'waking up' animation, meaning you won't be able to tell if the stun was successful until this is completed. Currently, players must wait until their second attack before they can stun the Sire.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 68.2,
+						"voteCount": 25214
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 13.5,
+						"voteCount": 4985
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 18.4,
+						"voteCount": 6779
+					}
+				]
+			}
+		],
+		"year": 2019,
+		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1577"
+	},
+	{
+		"title": "Old School Content Poll #69: Game Improvements",
+		"description": "The time has come once again to chip away at the backlog and propose a list of game improvement changes.",
+		"datePosted": 1574228785000,
+		"totalVotes": 42820,
+		"questions": [
+			{
+				"question": "Should the Coal Bag have an 'Open/Close' option? When the bag is open, coal that you mine would go into the bag instead of your inventory.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 91.1,
+						"voteCount": 38975
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.7,
+						"voteCount": 2403
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.4,
+						"voteCount": 1442
+					}
+				]
+			},
+			{
+				"question": "Should the Gem Bag have an 'Open/Close' option? When the bag is open, gems that you mine would go into the bag instead of your inventory.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 91.4,
+						"voteCount": 39116
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.5,
+						"voteCount": 2337
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.2,
+						"voteCount": 1367
+					}
+				]
+			},
+			{
+				"question": "If Question #2 passes, should this effect apply to gems stolen from Tzhaar creatures?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 78.8,
+						"voteCount": 33728
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 13.8,
+						"voteCount": 5886
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7.5,
+						"voteCount": 3206
+					}
+				]
+			},
+			{
+				"question": "Should the Herb Sack have an 'Open/Close' option? When the sack is open, grimy herbs that you pick up would go into the sack instead of your inventory.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 92.1,
+						"voteCount": 39433
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.2,
+						"voteCount": 2185
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 2.9,
+						"voteCount": 1202
+					}
+				]
+			},
+			{
+				"question": "If Question #4 passes, should this effect apply to herbs grown in farming patches?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 83.4,
+						"voteCount": 35707
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 12.3,
+						"voteCount": 5232
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.4,
+						"voteCount": 1881
+					}
+				]
+			},
+			{
+				"question": "If Question #4 passes, should this effect apply to herbs harvested from a Herbiboar?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 82.9,
+						"voteCount": 35464
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 10.3,
+						"voteCount": 4380
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7,
+						"voteCount": 2976
+					}
+				]
+			},
+			{
+				"question": "Should the Seed Box have an 'Open/Close' option? When the box is open, seeds that you pick up would go into the box instead of your inventory.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 87.7,
+						"voteCount": 37527
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 7.3,
+						"voteCount": 3119
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.1,
+						"voteCount": 2174
+					}
+				]
+			},
+			{
+				"question": "Should the Bruma Torch be able to light the braziers in Wintertodt?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 86.3,
+						"voteCount": 36938
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.7,
+						"voteCount": 2439
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8.1,
+						"voteCount": 3443
+					}
+				]
+			},
+			{
+				"question": "Should the Bruma Torch act as a light source and be usable for smoking Hunter traps? This would bring it in line with regular torches.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 87.8,
+						"voteCount": 37561
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 4.6,
+						"voteCount": 1928
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7.8,
+						"voteCount": 3331
+					}
+				]
+			},
+			{
+				"question": "Should players be able to recolour their phoenix pets by consuming 250 gnomish firelighters? The firelighters would all have to be the same colour. The available recolours would be red, green, blue, purple, and white.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 87.2,
+						"voteCount": 37327
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 7.6,
+						"voteCount": 3245
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.3,
+						"voteCount": 2248
+					}
+				]
+			},
+			{
+				"question": "Should a right-click/long-press 'Previous Destination' option be added to charter ships? Selecting this option would take you to the last place you chartered a ship.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 84.8,
+						"voteCount": 36271
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 9,
+						"voteCount": 3853
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 6.3,
+						"voteCount": 2696
+					}
+				]
+			},
+			{
+				"question": "Should the rat behemoths in Evil Dave's basement have a 1/3 chance to drop one of Doris' shakers? Each behemoth would drop one of four coloured shakers which could be used to store an (almost) infinite number of doses of their respective colour spice. If both this and Question #13 pass, only the one with the most Yes votes will be implemented.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 65.6,
+						"voteCount": 28076
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 20.3,
+						"voteCount": 8673
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 14.2,
+						"voteCount": 6071
+					}
+				]
+			},
+			{
+				"question": "Should players be able to build a Spice Rack in the Kitchen of their Player Owned Houses? It would require 60 Construction, 3 Teak Planks, 6 Soft Clay, and the 4 dose versions of each colour spice. The rack would be used to store an (almost) infinite number of doses of each spice. If both this and Question #12 pass, only the one with the most Yes votes will be implemented.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 73.2,
+						"voteCount": 31336
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 17,
+						"voteCount": 7239
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 10,
+						"voteCount": 4245
+					}
+				]
+			},
+			{
+				"question": "Should a toggleable right-click/long-press 'Equip' option be added to equipable items in your inventory while the Bank interface is open? A button in the Bank interface would be added to see your equipped items should you wish to unequip them again without closing the interface.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 86.1,
+						"voteCount": 36865
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 10,
+						"voteCount": 4249
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4,
+						"voteCount": 1706
+					}
+				]
+			},
+			{
+				"question": "Should a toggleable right-click/long-press 'Eat' option be added to food in your inventory while the Bank interface is open?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 76.6,
+						"voteCount": 32765
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 19,
+						"voteCount": 8107
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.6,
+						"voteCount": 1948
+					}
+				]
+			},
+			{
+				"question": "Should a toggleable right-click/long-press 'Drink' option be added to suitable items in your inventory while the Bank interface is open?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 76.8,
+						"voteCount": 32881
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 18.7,
+						"voteCount": 7974
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.6,
+						"voteCount": 1965
+					}
+				]
+			},
+			{
+				"question": "Should the increased run restoration effect be split among the pieces of the Graceful outfit? Each piece would give 3% or 4% increased run energy restoration with a 10% bonus for wearing the full set, matching the current total of 30%.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 76.8,
+						"voteCount": 32845
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 17.8,
+						"voteCount": 7619
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 5.6,
+						"voteCount": 2356
+					}
+				]
+			},
+			{
+				"question": "Should a new 'explore' emote be added as a reward for completing 600 Beginner clues?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 77.2,
+						"voteCount": 33016
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 15,
+						"voteCount": 6408
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 8,
+						"voteCount": 3396
+					}
+				]
+			},
+			{
+				"question": "Should Air, Water, Earth, Fire, Mind and Body talismans be added to the Beginner clue loot table?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 55.2,
+						"voteCount": 23628
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 30.8,
+						"voteCount": 13182
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 14.1,
+						"voteCount": 6010
+					}
+				]
+			},
+			{
+				"question": "Should the Hard clue step that requires players to enter the Duel Arena be moved to outside the actual arena? This would mean they would no longer require the assistance of another player to complete this step.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 88.3,
+						"voteCount": 37790
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 8.4,
+						"voteCount": 3558
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.5,
+						"voteCount": 1472
+					}
+				]
+			},
+			{
+				"question": "Should Crystal tools behave as their Dragon counterparts do rather than become unusable when they are inactive? This would be in line with Infernal tool behaviour.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 75.1,
+						"voteCount": 32134
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 9,
+						"voteCount": 3822
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 16.1,
+						"voteCount": 6864
+					}
+				]
+			},
+			{
+				"question": "Should Crystal tools be prevented from consuming charges when using them doesn't provide an additional benefit?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 77.6,
+						"voteCount": 33204
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 9.1,
+						"voteCount": 3860
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 13.5,
+						"voteCount": 5756
+					}
+				]
+			},
+			{
+				"question": "Should players receive a red message in the chatbox when they receive a new music track? This would come with a toggle for the feature to be enabled/disabled in the settings tab.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 84.1,
+						"voteCount": 35969
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 7,
+						"voteCount": 2987
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 9.1,
+						"voteCount": 3864
+					}
+				]
+			},
+			{
+				"question": "If you dodge the Maiden's blood splat attack, should the chances of a blood spawn appearing be halved?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 53.2,
+						"voteCount": 22763
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 6.7,
+						"voteCount": 2841
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 40.3,
+						"voteCount": 17216
+					}
+				]
+			},
+			{
+				"question": "Should the blood spawns cap be lowered overall, and increase as the Maiden absorbs nylocas?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 47.6,
+						"voteCount": 20343
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 7.4,
+						"voteCount": 3155
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 45.2,
+						"voteCount": 19322
+					}
+				]
+			},
+			{
+				"question": "Should the chances of freezing the nylocas during the Maiden boss fight scale based on the player's effective Magic accuracy bonus (including hidden bonuses such as the Void knight set), reaching 100% at 140 and above?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 47.7,
+						"voteCount": 20412
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 6.4,
+						"voteCount": 2731
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 46,
+						"voteCount": 19677
+					}
+				]
+			},
+			{
+				"question": "Should the Puro Puro interface be updated to the one shown in the poll blog? It features better use of space.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 75.6,
+						"voteCount": 32342
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 4.5,
+						"voteCount": 1894
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 20.1,
+						"voteCount": 8584
+					}
+				]
+			},
+			{
+				"question": "Should the Mage Training Arena interface be updated to the one shown in the poll blog? It matches the style of other interfaces and features quantity buttons for easier bulk-purchasing.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 74.4,
+						"voteCount": 31846
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 9,
+						"voteCount": 3839
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 16.7,
+						"voteCount": 7135
+					}
+				]
+			},
+			{
+				"question": "Should players be able to dig-up herbs after planting them? If this question passes, the XP given for planting the seed will be given when the herb is cleared or harvested instead.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 64.8,
+						"voteCount": 27723
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 20.1,
+						"voteCount": 8565
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 15.3,
+						"voteCount": 6532
+					}
+				]
+			},
+			{
+				"question": "Should the Jewellery Box found in Player Owned Houses receive a right-click/long-press 'Previous Location' option? This would teleport the player to the last location that the Jewellery Box was used to teleport to.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 86.1,
+						"voteCount": 36855
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 6.9,
+						"voteCount": 2945
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7.1,
+						"voteCount": 3020
+					}
+				]
+			},
+			{
+				"question": "Which version of Dragonstone armour do you prefer, from the versions shown in the blog? The most popular option will become the final appearance of the set.",
+				"results": [
+					{
+						"voteOption": "option a",
+						"percentOfTotal": 33.1,
+						"voteCount": 14162
+					},
+					{
+						"voteOption": "option b",
+						"percentOfTotal": 13,
+						"voteCount": 5547
+					},
+					{
+						"voteOption": "option c",
+						"percentOfTotal": 7.4,
+						"voteCount": 3137
+					},
+					{
+						"voteOption": "option d",
+						"percentOfTotal": 18.6,
+						"voteCount": 7949
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 28.1,
+						"voteCount": 12025
+					}
+				]
+			},
+			{
+				"question": "Should players be able to re-arrange the order in which Prayers appear in the Prayer tab? Doing so would not affect the icon size.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 67.6,
+						"voteCount": 28915
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 25.5,
+						"voteCount": 10908
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7,
+						"voteCount": 2997
+					}
+				]
+			},
+			{
+				"question": "Should players be able to receive a new Blurite Sword by giving Thurgo a blurite ore and 2 iron bars after completion of The Knight's Sword quest?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 80,
+						"voteCount": 34245
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 10.5,
+						"voteCount": 4490
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 9.6,
+						"voteCount": 4085
+					}
+				]
+			},
+			{
+				"question": "Should players be able to receive a new Dark Dagger from Radimus Erkle after completing Legends' Quest?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 80.6,
+						"voteCount": 34479
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 8.9,
+						"voteCount": 3794
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 10.7,
+						"voteCount": 4547
+					}
+				]
+			},
+			{
+				"question": "Should the Weiss Teleport be made available via the Portal Nexus in the Player Owned House?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 83.8,
+						"voteCount": 35858
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 5.6,
+						"voteCount": 2366
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 10.8,
+						"voteCount": 4596
+					}
+				]
+			},
+			{
+				"question": "Should the teleports available on the Arceuus spellbook be made available via the Portal Nexus in the Player Owned House?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 86,
+						"voteCount": 36788
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 6.4,
+						"voteCount": 2705
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 7.8,
+						"voteCount": 3327
+					}
+				]
+			},
+			{
+				"question": "Should the Account Management tab be updated to show when a poll is open, open the past poll archive, and allow players to vote?",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 78.7,
+						"voteCount": 33675
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 7.2,
+						"voteCount": 3077
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 14.2,
+						"voteCount": 6068
+					}
+				]
+			},
+			{
+				"question": "Should Fremennik Sea Boots (from the Fremennik Achievement Diary) have their inventory icons adjusted to point at an angle as shown in the poll blog? This should make them look more like boots.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 82.2,
+						"voteCount": 35163
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 6.9,
+						"voteCount": 2921
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 11.1,
+						"voteCount": 4736
+					}
+				]
+			}
+		],
+		"year": 2019,
+		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1582"
+	},
+	{
+		"title": "The Nightmare of Ashihama",
+		"description": "A new threat has arrived in Morytania, The Nightmare of Ashihama! The Nightmare is a new group boss located within the Sisterhood Sanctuary, deep beneath the town of Slepe. The Nightmare can be fought in any group size (or alone if you think you have what it takes). Those who survive will have a chance of obtaining some powerful new reward items. A rewards beta is currently active on worlds 446, 464 and 477. Head on over to try the potential new items out!",
+		"datePosted": 1575592696000,
+		"totalVotes": 45601,
+		"questions": [
+			{
+				"question": "Should we add a new group boss called The Nightmare to Old School RuneScape? This boss will be located in the depths of the Slepe Dungeon in Morytania.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 90.1,
+						"voteCount": 41042
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 8.7,
+						"voteCount": 3950
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 1.4,
+						"voteCount": 609
+					}
+				]
+			},
+			{
+				"question": "Should The Inquisitor's Mace be a potential reward from The Nightmare? This item will be tradeable and require 75 Attack to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 83.8,
+						"voteCount": 38203
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 12.6,
+						"voteCount": 5745
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.7,
+						"voteCount": 1653
+					}
+				]
+			},
+			{
+				"question": "Should the Nightmare Staff be a potential reward from The Nightmare? This item will be tradeable and require 65 Magic and 50 Hitpoints to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 81.2,
+						"voteCount": 37008
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 15.2,
+						"voteCount": 6914
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.7,
+						"voteCount": 1679
+					}
+				]
+			},
+			{
+				"question": "If question 3 passes, should the Harmonised Orb be a potential reward from The Nightmare? Attaching this item to a Nightmare Staff will create the Harmonised Nightmare Staff as described in the blog. The Harmonised Nightmare Staff will require 75 Magic and 50 Hitpoints to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 77,
+						"voteCount": 35073
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 17.1,
+						"voteCount": 7794
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 6,
+						"voteCount": 2734
+					}
+				]
+			},
+			{
+				"question": "If question 3 passes, should the Volatile Orb be a potential reward from The Nightmare? Attaching this item to a Nightmare Staff will create the Volatile Nightmare Staff as described in the blog. The Volatile Nightmare Staff will require 75 Magic and 50 Hitpoints to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 75.4,
+						"voteCount": 34351
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 18.4,
+						"voteCount": 8345
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 6.4,
+						"voteCount": 2905
+					}
+				]
+			},
+			{
+				"question": "If question 3 passes, should the Eldritch Orb be a potential reward from The Nightmare? Attaching this item to a Nightmare Staff will create the Eldritch Nightmare Staff as described in the blog. The Eldritch Nightmare Staff will require 75 Magic and 50 Hitpoints to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 76.3,
+						"voteCount": 34769
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 17.4,
+						"voteCount": 7923
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 6.4,
+						"voteCount": 2909
+					}
+				]
+			},
+			{
+				"question": "Should the Siren's Charm be a potential reward from The Nightmare? Attaching this item to a Mage's Book will create the Siren's Tome as described in the blog. The Siren's Tome will require 75 Magic to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 78.1,
+						"voteCount": 35609
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 17.9,
+						"voteCount": 8134
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 4.1,
+						"voteCount": 1858
+					}
+				]
+			},
+			{
+				"question": "Should The Inquisitor's Armour be a potential reward from The Nightmare? This armour will be tradeable and require 70 Strength and 30 Defence to equip.",
+				"results": [
+					{
+						"voteOption": "yes",
+						"percentOfTotal": 81.1,
+						"voteCount": 36957
+					},
+					{
+						"voteOption": "no",
+						"percentOfTotal": 15.3,
+						"voteCount": 6971
+					},
+					{
+						"voteOption": "skip",
+						"percentOfTotal": 3.7,
+						"voteCount": 1673
+					}
+				]
+			}
+		],
+		"year": 2019,
+		"url": "http://services.runescape.com/m=poll/oldschool/results.ws?id=1583"
 	}
 ]
