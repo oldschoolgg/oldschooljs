@@ -4,7 +4,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 const GoblinTable = new LootTable({ limit: 128 })
 	.every('Bones')
 	.tertiary(35, 'Ensouled goblin head')
-	.tertiary(60, 'Clue scroll (beginner)')
+	.tertiary(64, 'Clue scroll (beginner)')
 	.tertiary(128, 'Clue scroll (easy)')
 	.tertiary(5000, 'Goblin champion scroll')
 

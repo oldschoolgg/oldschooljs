@@ -123,7 +123,7 @@ export const MediumRareTable = new LootTable()
 	.add('Shayzien banner')
 	.add('Lovakengj banner')
 	.add(MediumUnicornTable)
-	.add(MediumElegantTable, undefined, 8);
+	.add(MediumElegantTable, 1, 8);
 
 // For some reason the medium table has 1 less firelighter chance?
 export const MediumSubFirelighterTable = new LootTable()
@@ -135,13 +135,13 @@ export const MediumSubFirelighterTable = new LootTable()
 
 export const MediumFirelighterTable = new LootTable()
 	.add('Gnomish firelighter')
-	.add(MediumSubFirelighterTable, undefined, 9);
+	.add(MediumSubFirelighterTable, 1, 9);
 
 export const MediumAmuletTable = new LootTable()
 	.add('Strength amulet (t)')
-	.add('Amulet of power', undefined, 9);
+	.add('Amulet of power', 1, 9);
 
-export const MediumBowTable = new LootTable().add('Yew comp bow').add('Yew longbow', undefined, 9);
+export const MediumBowTable = new LootTable().add('Yew comp bow').add('Yew longbow', 1, 9);
 
 export const MediumStandardTable = new LootTable()
 	.add('Coins', [200, 1000])
@@ -177,8 +177,8 @@ export const MediumStandardTable = new LootTable()
 	.add(MediumBowTable);
 
 export const MediumClueTable = new LootTable()
-	.add(MediumStandardTable, undefined, 10)
-	.add(MediumRareTable, undefined, 1);
+	.add(MediumStandardTable, 1, 10)
+	.add(MediumRareTable, 1, 1);
 
 export class MediumCasket extends Clue {
 	public open(quantity = 1): ItemBank {

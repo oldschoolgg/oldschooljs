@@ -8,7 +8,7 @@ const TalonedWyvernTable = new LootTable()
 	.oneIn(512, 'Granite longsword')
 	.oneIn(2560, 'Granite boots')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Air battlestaff', 1, 4)
 	.add('Battlestaff', [3, 5], 3)
 	.add('Adamant battleaxe', 1, 2)
@@ -49,7 +49,7 @@ const TalonedWyvernTable = new LootTable()
 	.add('Volcanic ash', [20, 60], 2)
 
 	/* Tertiary */
-	.tertiary(2, 'Numulite', [4, 25])
+	.tertiary(2, 'Numulite', [5, 95])
 	.tertiary(35, 'Unidentified small fossil')
 	.tertiary(70, 'Unidentified medium fossil')
 	.tertiary(88, 'Unidentified large fossil')

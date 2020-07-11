@@ -28,7 +28,7 @@ const GuardTable = new LootTable({ limit: 128 })
 	.add('Coins', 30, 2)
 
 	/* Other */
-	.add(FixedAllotmentSeedTable, undefined, 18)
+	.add(FixedAllotmentSeedTable, 1, 18)
 	.add('Iron dagger', 1, 6)
 	.add('Body talisman', 1, 4)
 	.add('Grain', 1, 1)

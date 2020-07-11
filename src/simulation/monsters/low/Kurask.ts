@@ -28,7 +28,7 @@ const KuraskTable = new LootTable({ limit: 124 })
 	.add(RareSeedTable, 1, 15)
 
 	/* Other */
-	.add('Coins', [2000, 5000], 16)
+	.add('Coins', [2000, 3000], 16)
 	.add('Flax', 100, 6)
 	.add('White berries', 12, 6)
 	.add('Coins', 10000, 5)

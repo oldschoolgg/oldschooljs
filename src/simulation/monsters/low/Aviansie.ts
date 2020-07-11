@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const AviansieTable = new LootTable()
+const AviansieTable = new LootTable({ limit: 128 })
 	.every('Bones')
 	.every('Feather', [1, 6])
 

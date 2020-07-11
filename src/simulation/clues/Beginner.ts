@@ -86,9 +86,7 @@ export const StandardTable = new LootTable()
 	.add('Shortbow')
 	.add(RareTable);
 
-export const BeginnerClueTable = new LootTable()
-	.add(StandardTable, undefined, 11)
-	.add(UniqueTable, undefined, 1);
+export const BeginnerClueTable = new LootTable().add(StandardTable, 1, 11).add(UniqueTable, 1, 1);
 
 export class BeginnerCasket extends Clue {
 	public open(quantity = 1): ItemBank {

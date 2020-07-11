@@ -48,9 +48,9 @@ const DagannothPrimeTable = new LootTable()
 	.add('Pure essence', 150, 5)
 	.add('Grimy ranarr weed', 1, 5)
 	.add('Coins', [500, 1109], 3)
-	.add(RareDropTable, undefined, 8)
-	.add(GemTable, undefined, 10)
-	.add(RareSeedTable, undefined, 7);
+	.add(RareDropTable, 1, 8)
+	.add(GemTable, 1, 10)
+	.add(RareSeedTable, 1, 7);
 
 export default new SimpleMonster({
 	id: 2266,

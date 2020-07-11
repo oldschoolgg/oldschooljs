@@ -18,6 +18,8 @@ const BlackDragonTable = new LootTable()
 	/* Runes and ammunition */
 	.add('Adamant javelin', 30, 20)
 	.add('Fire rune', 50, 8)
+	.add('Adamant dart(p)', 16, 7)
+	.add('Law rune', 10, 5)
 	.add('Blood rune', 15, 3)
 	.add('Air rune', 75, 1)
 

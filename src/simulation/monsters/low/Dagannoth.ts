@@ -30,7 +30,7 @@ const DagannothTable = new LootTable()
 	.add('Raw tuna', 1, 2)
 	.add('Seaweed', 10, 2)
 	.add('Oyster pearls', 1, 1)
-	.add('Oyster pearls', 2, 1)
+	.add('Oyster pearl', 2, 1)
 
 	/* Coins */
 	.add('Coins', 56, 29)

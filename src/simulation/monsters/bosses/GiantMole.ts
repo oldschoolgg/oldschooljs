@@ -9,7 +9,7 @@ const GiantMoleTable = new LootTable()
 	.tertiary(400, 'Long bone')
 	.tertiary(500, 'Clue scroll (elite)')
 	.tertiary(3000, 'Baby mole')
-	.tertiary(5000, 'Curved bone')
+	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
 	.add('Adamant longsword', 1, 10)

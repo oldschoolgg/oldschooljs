@@ -42,7 +42,7 @@ export const MasterMummyOutfitTable = new LootTable()
 
 export const MasterSubDragonOrnTable = new LootTable()
 	.add('Dragon kiteshield ornament kit')
-	.add('Dragon platebody ornament kit', undefined, 2);
+	.add('Dragon platebody ornament kit', 1, 2);
 
 export const MasterDragonOrnTable = new LootTable()
 	.add('Coins', [15000, 30000], 9)
@@ -166,8 +166,8 @@ export const MasterStandardTable = new LootTable()
 	.add(BlessingTable);
 
 export const MasterClueTable = new LootTable()
-	.add(MasterStandardTable, undefined, 22)
-	.add(MasterRareTable, undefined, 1);
+	.add(MasterStandardTable, 1, 22)
+	.add(MasterRareTable, 1, 1);
 
 export class MasterCasket extends Clue {
 	public open(quantity = 1): ItemBank {

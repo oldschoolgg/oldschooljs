@@ -51,7 +51,7 @@ test('Giant Mole', async (test): Promise<void> => {
 		'Mithril bar': 42.67,
 		'Oyster pearls': 128,
 		'Baby mole': 3000,
-		'Curved bone': 5000,
+		'Curved bone': 5013,
 		'Clue scroll (elite)': 500,
 		'Long bone': 400,
 		'Rune med helm': 128,
@@ -87,7 +87,7 @@ test('Zulrah', async (test): Promise<void> => {
 	};
 
 	const Zulrah = Monsters.Zulrah;
-	test.equals(Zulrah.table.totalWeight, 247, 'Zulrah table weight should be 247');
+	test.equals(Zulrah.table.totalWeight, 248, 'Zulrah table weight should be 248');
 
 	const number = 10_000_000;
 	const loot = Monsters.Zulrah.kill(number);
@@ -246,7 +246,7 @@ test('Vorkath', async (test): Promise<void> => {
 	};
 
 	const Vorkath = Monsters.Vorkath;
-	test.equals(Vorkath.table.totalWeight, 148, 'Vorkath table weight should be 148');
+	test.equals(Vorkath.table.totalWeight, 150, 'Vorkath table weight should be 150');
 
 	const number = 10_000_000;
 	const loot = Monsters.Vorkath.kill(number);
@@ -281,7 +281,7 @@ test('Goblins', async (test): Promise<void> => {
 test('General Graardor', async (test): Promise<void> => {
 	const expectedRates = {
 		'Pet general graardor': 5000,
-		'Curved bone': 5012.5,
+		'Curved bone': 5013,
 		'Long bone': 400,
 		'Clue scroll(elite)': 250,
 		'Bandos chestplate': 1 / (1 / 381 + 3 / 16_129),

@@ -8,7 +8,7 @@ const ScorpiaTable = new LootTable()
 	.tertiary(18, 'Ensouled scorpion head')
 	.tertiary(100, 'Clue scroll (hard)')
 	.tertiary(2016, "Scorpia's offspring")
-	.add(ScorpiaUniqueTable, undefined, 1)
+	.add(ScorpiaUniqueTable, 1, 1)
 
 	/* Weapons and armour */
 	.add('Rune pickaxe', 1, 5)

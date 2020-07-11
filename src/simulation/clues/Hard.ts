@@ -36,7 +36,7 @@ export const HardMegaRareTable = new LootTable()
 		['Super defence(4)', 5]
 	])
 	.add(Hard3rdageTable)
-	.add(GildedTable, undefined, 5);
+	.add(GildedTable, 1, 5);
 
 export const HardBlessedShields = new LootTable()
 	.add("Guthix d'hide shield")
@@ -180,9 +180,7 @@ export const HardRareTable = new LootTable()
 	.add(HardBlessedShields)
 	.add(HardHeralicPlatebody);
 
-export const HardBowTable = new LootTable()
-	.add('Magic comp bow')
-	.add('Magic longbow', undefined, 9);
+export const HardBowTable = new LootTable().add('Magic comp bow').add('Magic longbow', 1, 9);
 
 export const HardStandardTable = new LootTable()
 	.add('Coins', [1000, 5000])
@@ -212,9 +210,7 @@ export const HardStandardTable = new LootTable()
 	.add(BlessingTable)
 	.add(HardBowTable);
 
-export const HardClueTable = new LootTable()
-	.add(HardStandardTable, undefined, 12)
-	.add(HardRareTable, undefined, 1);
+export const HardClueTable = new LootTable().add(HardStandardTable, 1, 12).add(HardRareTable, 1, 1);
 
 export class HardCasket extends Clue {
 	public open(quantity = 1): ItemBank {

@@ -52,7 +52,7 @@ const CerberusTable = new LootTable()
 	.add('Key master teleport', 3, 2)
 	.add('Torstol seed', 3, 2)
 
-	.add(RareDropTable, undefined, 3);
+	.add(RareDropTable, 1, 3);
 
 export default new SimpleMonster({
 	id: 5862,

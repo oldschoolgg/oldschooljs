@@ -49,7 +49,7 @@ export const EliteMegaRareTable = new LootTable()
 	.add('Gilded pickaxe')
 	.add('Gilded axe')
 	.add('Gilded Spade')
-	.add(GildedTable, undefined, 5)
+	.add(GildedTable, 1, 5)
 	.add(Elite3rdageTable);
 
 export const EliteTuxedoTable = new LootTable()
@@ -149,12 +149,12 @@ export const EliteStandardTable = new LootTable()
 	.add(PrayerPageTable)
 	.add(FirelighterTable)
 	.add(GiveHalfKeyTable)
-	.add(TeleportScrollTable, undefined, 2)
+	.add(TeleportScrollTable, 1, 2)
 	.add(BlessingTable);
 
 export const EliteClueTable = new LootTable()
-	.add(EliteStandardTable, undefined, 24)
-	.add(EliteRareTable, undefined, 1);
+	.add(EliteStandardTable, 1, 24)
+	.add(EliteRareTable, 1, 1);
 
 export class EliteCasket extends Clue {
 	public open(quantity = 1): ItemBank {

@@ -9,7 +9,7 @@ const CrazyArchaeologistUniqueTable = new LootTable()
 const CrazyArchaeologistTable = new LootTable()
 	.every('Bones')
 	.tertiary(128, 'Clue scroll (hard)')
-	.add(CrazyArchaeologistUniqueTable, undefined, 1)
+	.add(CrazyArchaeologistUniqueTable, 1, 1)
 
 	/* Weapons and armour */
 	.add('Amulet of power', 1, 7)

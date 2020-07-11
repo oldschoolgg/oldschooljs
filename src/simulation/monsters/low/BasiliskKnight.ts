@@ -38,6 +38,7 @@ const BasiliskKnightTable = new LootTable({ limit: 52 })
 	.tertiary(256, 'Mystic hat (light)')
 	.tertiary(400, 'Long bone')
 	.tertiary(1000, 'Basilisk head')
+	// TODO: dynamic drop based on slayer task
 	.tertiary(1000, 'Basilisk jaw')
 	.tertiary(5013, 'Curved bone');
 

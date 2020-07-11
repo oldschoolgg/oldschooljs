@@ -29,8 +29,8 @@ const MinionTable = new LootTable()
 	.tertiary(128, 'Clue scroll (hard)');
 
 const UniqueTable = new LootTable()
-	.add(KreearraArmorTable, undefined, 4)
-	.add(ShardTable, undefined, 2)
+	.add(KreearraArmorTable, 1, 4)
+	.add(ShardTable, 1, 2)
 	.add('Armadyl hilt')
 	.add('Coins', [20_500, 21_000], 5);
 
@@ -38,7 +38,7 @@ const KreearraTable = new LootTable()
 	.every('Big bones')
 	.every(MinionTable, 3)
 	.every('Feather', [1, 16])
-	.add(UniqueTable, undefined, 3)
+	.add(UniqueTable, 1, 3)
 	.tertiary(250, 'Clue scroll (elite)')
 	.tertiary(400, 'Long bone')
 	.tertiary(5000, `Pet kree'arra`)
@@ -69,8 +69,8 @@ const KreearraTable = new LootTable()
 	.add('Crystal key', 1, 1)
 	.add('Yew seed', 1, 1)
 
-	.add(GWRareDropTable, undefined, 8)
-	.add(GWGemTable, undefined, 2);
+	.add(GWRareDropTable, 1, 8)
+	.add(GWGemTable, 1, 2);
 
 export default new SimpleMonster({
 	id: 3162,

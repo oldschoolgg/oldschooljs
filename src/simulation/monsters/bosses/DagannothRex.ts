@@ -52,8 +52,8 @@ const DagannothRexTable = new LootTable()
 	.add('Bass', 5, 7)
 	.add('Swordfish', 5, 4)
 	.add('Shark', 5, 1)
-	.add(RareDropTable, undefined, 8)
-	.add(GemTable, undefined, 10)
+	.add(RareDropTable, 1, 8)
+	.add(GemTable, 1, 10)
 	.add(TalismanTable);
 
 export default new SimpleMonster({
