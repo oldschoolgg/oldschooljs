@@ -5,12 +5,12 @@ import itemID from './itemID';
  * Joins an array of banks together
  * @param arrayOfBanks An array of number-keyed banks
  */
-export function addArrayOfBanks(arrayOfBanks: readonly Partial<ItemBank>[]): ItemBank {
+export function addBanks(arrayOfBanks: readonly Partial<ItemBank>[]): ItemBank {
 	const newBank: Partial<ItemBank> = {};
 
 	for (const bank of arrayOfBanks) {
 		for (const [itemID, quantity] of Object.entries(bank)) {
-			const numID = parseInt(itemID, 10);
+			const numID = parseInt(itemID);
 			if (newBank[numID]) newBank[numID] += quantity;
 			else newBank[numID] = quantity;
 		}
@@ -38,7 +38,7 @@ export function bankFromLootTableOutput(tableOutput: ReturnedLootItem[]): ItemBa
  * Transforms a string-based bank to an ID-based bank
  * @param nameBank A string-based bank to convert
  */
-export function transformStringBankToIdBank(nameBank: StringKeyedBank): ItemBank {
+export function resolveNameBank(nameBank: StringKeyedBank): ItemBank {
 	const newBank: ItemBank = {};
 
 	for (const [name, number] of Object.entries(nameBank)) {
@@ -129,26 +129,11 @@ export function addItemToBank(bank: ItemBank, itemID: number, amountToAdd = 1): 
 }
 
 /**
- * Adds the content of a bank to another bank
- * @param fromBank The source bank
- * @param toBank The target bank
- */
-export function addBankToBank(fromBank: ItemBank, toBank: ItemBank): ItemBank {
-	let newBank = { ...toBank };
-
-	for (const [itemID, quantity] of Object.entries(fromBank)) {
-		newBank = addItemToBank(newBank, parseInt(itemID), quantity);
-	}
-
-	return newBank;
-}
-
-/**
  * Adds an array of items in a bank
  * @param bank A NumberKeyed bank to add items to
  * @param items An array of item IDs
  */
-export function addArrayOfItemsToBank(bank: ItemBank, items: number[]): ItemBank {
+export function addArrayToBank(bank: ItemBank, items: number[]): ItemBank {
 	let newBank = { ...bank };
 
 	for (const item of items) {
@@ -163,7 +148,7 @@ export function addArrayOfItemsToBank(bank: ItemBank, items: number[]): ItemBank
  * @param bank A NumberKeyed bank whose contents will be multiplied
  * @param times How many times should the contents be multiplied
  */
-export function multiplyBankItems(bank: ItemBank, times: number): ItemBank {
+export function multiplyBank(bank: ItemBank, times: number): ItemBank {
 	const newBank = { ...bank };
 	for (const [itemID] of Object.entries(newBank)) {
 		newBank[parseInt(itemID)] *= times;

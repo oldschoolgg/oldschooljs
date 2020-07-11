@@ -1,5 +1,16 @@
 import test from 'tape';
-import * as BankUtil from '../dist/util/bank';
+import {
+	resolveNameBank,
+	bankFromLootTableOutput,
+	bankHasItem,
+	bankHasAllItemsFromBank,
+	removeItemFromBank,
+	removeBankFromBank,
+	addItemToBank,
+	addBanks,
+	addArrayToBank,
+	multiplyBank
+} from '../dist/util';
 
 test('convert string bank to number bank', t => {
 	t.plan(1);
@@ -13,7 +24,7 @@ test('convert string bank to number bank', t => {
 		4: 4,
 		36: 1
 	};
-	t.deepEqual(BankUtil.transformStringBankToIdBank(strBank), numBank);
+	t.deepEqual(resolveNameBank(strBank), numBank);
 });
 
 test('convert loot item array to number bank', t => {
@@ -41,7 +52,7 @@ test('convert loot item array to number bank', t => {
 		32: 1,
 		67: 2
 	};
-	t.deepEqual(BankUtil.bankFromLootTableOutput(lootItems), expected);
+	t.deepEqual(bankFromLootTableOutput(lootItems), expected);
 });
 
 test('join a number of banks', t => {
@@ -73,21 +84,18 @@ test('join a number of banks', t => {
 		87: 1
 	};
 
-	t.deepEqual(BankUtil.addArrayOfBanks(banks), expected);
+	t.deepEqual(addBanks(banks), expected);
 });
 
 test('bank contains item', test => {
 	test.plan(4);
 	const bank = { 1: 2, 3: 4 };
 
-	test.true(BankUtil.bankHasItem(bank, 1), 'returns true on existing item');
-	test.false(BankUtil.bankHasItem(bank, 2), 'returns false on non-existing item');
-	test.true(
-		BankUtil.bankHasItem(bank, 3, 3),
-		'returns true if more items than those specified exist'
-	);
+	test.true(bankHasItem(bank, 1), 'returns true on existing item');
+	test.false(bankHasItem(bank, 2), 'returns false on non-existing item');
+	test.true(bankHasItem(bank, 3, 3), 'returns true if more items than those specified exist');
 	test.false(
-		BankUtil.bankHasItem(bank, 1, 4),
+		bankHasItem(bank, 1, 4),
 		'returns false if bank has less items than the quantity provided'
 	);
 });
@@ -109,8 +117,8 @@ test('bank has all items', test => {
 		87: 1
 	};
 
-	test.true(BankUtil.bankHasAllItemsFromBank(bank1, bank2));
-	test.false(BankUtil.bankHasAllItemsFromBank(bank1, bank3));
+	test.true(bankHasAllItemsFromBank(bank1, bank2));
+	test.false(bankHasAllItemsFromBank(bank1, bank3));
 });
 
 test('remove item from bank', test => {
@@ -121,7 +129,7 @@ test('remove item from bank', test => {
 	};
 
 	test.deepEqual(
-		BankUtil.removeItemFromBank(bank, 87),
+		removeItemFromBank(bank, 87),
 		{
 			45: 9
 		},
@@ -129,7 +137,7 @@ test('remove item from bank', test => {
 	);
 
 	test.deepEqual(
-		BankUtil.removeItemFromBank(bank, 98, 1),
+		removeItemFromBank(bank, 98, 1),
 		{
 			45: 9,
 			87: 1
@@ -138,7 +146,7 @@ test('remove item from bank', test => {
 	);
 
 	test.deepEqual(
-		BankUtil.removeItemFromBank(bank, 45, 2),
+		removeItemFromBank(bank, 45, 2),
 		{
 			45: 7,
 			87: 1
@@ -167,7 +175,7 @@ test('remove bank from bank', test => {
 		36: 6
 	};
 
-	test.deepEqual(BankUtil.removeBankFromBank(deleter, bank), {
+	test.deepEqual(removeBankFromBank(deleter, bank), {
 		45: 9,
 		87: 1
 	});
@@ -191,8 +199,8 @@ test('add item to bank', test => {
 		87: 2
 	};
 
-	test.deepEqual(BankUtil.addItemToBank(bank, 69, 420), expected, 'add new item');
-	test.deepEqual(BankUtil.addItemToBank(bank, 87), expectedInc, 'increment item item');
+	test.deepEqual(addItemToBank(bank, 69, 420), expected, 'add new item');
+	test.deepEqual(addItemToBank(bank, 87), expectedInc, 'increment item item');
 });
 
 test('add bank to bank', test => {
@@ -204,7 +212,7 @@ test('add bank to bank', test => {
 
 	const expected = { 1: 2, 3: 4 };
 
-	test.deepEqual(BankUtil.addBankToBank(bank, bank2), expected);
+	test.deepEqual(addBanks([bank, bank2]), expected);
 });
 
 test('add array of items to bank', test => {
@@ -216,7 +224,7 @@ test('add array of items to bank', test => {
 
 	const expected = { 1: 2, 3: 1, 4: 1, 5: 1 };
 
-	test.deepEqual(BankUtil.addArrayOfItemsToBank(bank, items), expected);
+	test.deepEqual(addArrayToBank(bank, items), expected);
 });
 
 test('multiply bank items', test => {
@@ -226,5 +234,5 @@ test('multiply bank items', test => {
 
 	const expected = { 1: 4, 3: 8 };
 
-	test.deepEqual(BankUtil.multiplyBankItems(bank, 2), expected);
+	test.deepEqual(multiplyBank(bank, 2), expected);
 });

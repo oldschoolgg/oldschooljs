@@ -21,7 +21,7 @@ export const MasterGodSwordOrnTable = new LootTable()
 export const MasterSubAnkouOutfitTable = new LootTable()
 	.add('Ankou mask')
 	.add('Ankou top')
-	.add('Ankou leggings')
+	.add("Ankou's leggings")
 	.add('Ankou gloves')
 	.add('Ankou socks');
 

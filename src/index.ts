@@ -10,9 +10,8 @@ import Minigames from './simulation/minigames';
 import Openables from './simulation/openables/index';
 import * as Clues from './simulation/clues';
 import * as Misc from './simulation/misc';
-import * as Util from './util/util';
+import * as Util from './util/';
 import * as constants from './constants';
-import * as BankUtil from './util/bank';
 
 export {
 	Items,
@@ -28,6 +27,5 @@ export {
 	Monsters,
 	Minigames,
 	Openables,
-	constants,
-	BankUtil
+	constants
 };

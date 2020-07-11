@@ -3,7 +3,7 @@ import { addArrayOfNumbers, randFloat, roll, JSONClone } from '../../util/util';
 import LootTable from '../../structures/LootTable';
 import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
-import { transformStringBankToIdBank } from '../../util/bank';
+import { resolveNameBank } from '../../util/bank';
 import SimpleTable from '../../structures/SimpleTable';
 import itemID from '../../util/itemID';
 import { Time } from '../../constants';
@@ -40,7 +40,7 @@ export interface ChambersOfXericOptions {
 	team: TeamMember[];
 }
 
-const itemScales = transformStringBankToIdBank({
+const itemScales = resolveNameBank({
 	'Death rune': 36,
 	'Blood rune': 32,
 	'Soul rune': 20,
