@@ -157,28 +157,21 @@ test('remove item from bank', test => {
 
 test('remove bank from bank', test => {
 	test.plan(1);
-	const bank = {
-		1: 5,
-		4: 4,
-		8: 4,
-		14: 4,
-		36: 6,
-		45: 9,
-		87: 1
-	};
-
-	const deleter = {
-		1: 5,
-		4: 4,
-		8: 4,
-		14: 4,
-		36: 6
-	};
-
-	test.deepEqual(removeBankFromBank(deleter, bank), {
-		45: 9,
-		87: 1
+	const sourceBank = resolveNameBank({
+		'Fire rune': 100,
+		'Air rune': 50
 	});
+
+	const bankToRemove = resolveNameBank({
+		'Fire rune': 50,
+		'Air rune': 50
+	});
+
+	const expectedBank = resolveNameBank({
+		'Fire rune': 50
+	});
+
+	test.deepEqual(removeBankFromBank(sourceBank, bankToRemove), expectedBank);
 });
 
 test('add item to bank', test => {

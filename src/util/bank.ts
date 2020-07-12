@@ -100,10 +100,8 @@ export function removeItemFromBank(bank: ItemBank, itemID: number, amountToRemov
 
 /**
  * Removes the contents of a bank from another bank
- * @param bankToRemove The source bank
- * @param targetBank The target bank
  */
-export function removeBankFromBank(bankToRemove: ItemBank, targetBank: ItemBank): ItemBank {
+export function removeBankFromBank(targetBank: ItemBank, bankToRemove: ItemBank): ItemBank {
 	let newBank = { ...targetBank };
 
 	for (const [itemID, qty] of Object.entries(bankToRemove)) {
