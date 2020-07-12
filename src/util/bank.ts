@@ -63,7 +63,7 @@ export function bankHasItem(itemBank: ItemBank, itemID: number, quantity = 1): b
  * @param bankToHave The source bank
  * @param bankToCheck The target bank
  */
-export function bankHasAllItemsFromBank(bankToHave: ItemBank, bankToCheck: ItemBank): boolean {
+export function bankHasAllItemsFromBank(bankToCheck: ItemBank, bankToHave: ItemBank): boolean {
 	const itemsToHave: [string, number][] = Object.entries(bankToHave);
 
 	for (const [itemID, qty] of itemsToHave) {

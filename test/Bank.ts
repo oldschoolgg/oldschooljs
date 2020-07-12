@@ -101,24 +101,27 @@ test('bank contains item', test => {
 });
 test('bank has all items', test => {
 	test.plan(2);
-	const bank1 = {
-		45: 9,
-		14: 4,
-		36: 1
-	};
-	const bank2 = {
-		45: 9,
-		14: 4,
-		36: 1
-	};
-	const bank3 = {
-		1: 3,
-		8: 4,
-		87: 1
-	};
+	const bankToHave = resolveNameBank({
+		'Fire rune': 1000,
+		'Air rune': 1,
+		'Chaos rune': 101010
+	});
 
-	test.true(bankHasAllItemsFromBank(bank1, bank2));
-	test.false(bankHasAllItemsFromBank(bank1, bank3));
+	const bankThatShouldntHave = resolveNameBank({
+		'Fire rune': 1000,
+		'Air rune': 1,
+		'Chaos rune': 1
+	});
+
+	const bankThatShouldHave = resolveNameBank({
+		'Fire rune': 104200,
+		'Air rune': 43432,
+		'Chaos rune': 121010,
+		'Death rune': 121010
+	});
+
+	test.true(bankHasAllItemsFromBank(bankThatShouldHave, bankToHave));
+	test.false(bankHasAllItemsFromBank(bankThatShouldntHave, bankToHave));
 });
 
 test('remove item from bank', test => {
