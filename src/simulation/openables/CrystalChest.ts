@@ -1,7 +1,14 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
-const CrystalChestTable = new LootTable({ limit: 256 })
+const runeTable = new LootTable().add('Rune platelegs', 1, 1).add('Rune plateskirt', 1, 1);
+
+const keyTable = new LootTable()
+	.every('Coins', 750)
+	.add('Tooth half of key', 1, 1)
+	.add('Loop half of key', 1, 1);
+
+const CrystalChestTable = new LootTable({ limit: 128 })
 	.every('Uncut dragonstone')
 	.add(
 		[
@@ -9,7 +16,7 @@ const CrystalChestTable = new LootTable({ limit: 256 })
 			['Coins', 2000]
 		],
 		1,
-		68
+		34
 	)
 	.add(
 		[
@@ -26,7 +33,7 @@ const CrystalChestTable = new LootTable({ limit: 256 })
 			['Law rune', 10]
 		],
 		1,
-		24
+		12
 	)
 	.add(
 		[
@@ -34,38 +41,22 @@ const CrystalChestTable = new LootTable({ limit: 256 })
 			['Diamond', 2]
 		],
 		1,
-		24
+		12
 	)
-	.add('Runite bar', 3, 24)
-	.add('Iron ore', 150, 20)
-	.add('Coal', 100, 20)
+	.add('Runite bar', 3, 12)
+	.add(keyTable, 10)
+	.add('Iron ore', 150, 10)
+	.add('Coal', 100, 10)
 	.add(
 		[
 			['Raw swordfish', 5],
 			['Coins', 1000]
 		],
 		1,
-		16
+		8
 	)
-	.add(
-		[
-			['Tooth half of key', 1],
-			['Coins', 750]
-		],
-		1,
-		10
-	)
-	.add(
-		[
-			['Loop half of key', 1],
-			['Coins', 750]
-		],
-		1,
-		10
-	)
-	.add('Adamant sq shield', 1, 4)
-	.add('Rune platelegs', 1, 1)
-	.add('Rune plateskirt', 1, 1);
+	.add('Adamant sq shield', 1, 2)
+	.add(runeTable, 1);
 
 export default new SimpleOpenable({
 	id: 989,

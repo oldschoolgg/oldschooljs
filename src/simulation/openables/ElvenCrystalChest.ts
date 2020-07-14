@@ -2,7 +2,7 @@ import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
 /* Dragonstone armour roll */
-const DragonStoneTable = new LootTable()
+const DragonStoneArmorTable = new LootTable()
 	.add('Dragonstone full helm', 1, 1)
 	.add('Dragonstone platebody', 1, 1)
 	.add('Dragonstone platelegs', 1, 1)
@@ -11,7 +11,7 @@ const DragonStoneTable = new LootTable()
 
 const ElvenCrystalChestTable = new LootTable()
 	.oneIn(10000, 'Uncut onyx')
-	.oneIn(500, DragonStoneTable)
+	.oneIn(500, DragonStoneArmorTable)
 	.add(
 		[
 			['Uncut dragonstone', 1],
@@ -163,9 +163,9 @@ export default new SimpleOpenable({
 	id: 23951,
 	name: 'Elven crystal chest',
 	aliases: [
+		'elven crystal chest',
 		'elven chest',
 		'enhanced',
-		'enhanced crystal chest',
 		'enhanced crystal chest',
 		'elven chest',
 		'elven'

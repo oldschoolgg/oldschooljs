@@ -5,6 +5,7 @@ import { rand } from '../../util';
 const rolls = rand(1, 5);
 
 /* Gem loots */
+//TODO
 const GemTable = new LootTable({ limit: 100 })
 	.add('Uncut sapphire', 1, 15)
 	.add('Sapphire', 1, 15)

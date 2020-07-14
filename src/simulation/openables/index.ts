@@ -1,6 +1,5 @@
 import Openable from '../../structures/Openable';
 import Collection from '../../structures/Collection';
-import BirthdayPresent from './BirthdayPresent';
 import BronzeHAMChest from './BronzeHAMChest';
 import IronHAMChest from './IronHAMChest';
 import SilverHAMChest from './SilverHAMChest';
@@ -24,7 +23,6 @@ import LuckyImp from './LuckyImp';
 const openablesObject = {
 	LuckyImp,
 	MysteryBox,
-	BirthdayPresent,
 	BronzeHAMChest,
 	IronHAMChest,
 	SilverHAMChest,

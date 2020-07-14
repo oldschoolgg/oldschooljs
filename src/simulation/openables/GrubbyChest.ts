@@ -2,18 +2,18 @@ import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
 const FoodTable = new LootTable({ limit: 100 })
-	.add('Egg potato', 4, 60)
-	.add('Shark', 4, 35)
+	.add('Egg potato', 4, 12)
+	.add('Shark', 4, 7)
 	.add(
 		[
 			['Saradomin brew(2)', 3],
 			['Super restore(2)', 1]
 		],
 		1,
-		5
+		1
 	);
 
-const PotionTable = new LootTable({ limit: 100 })
+const PotionTable = new LootTable()
 	.add(
 		[
 			['Super attack(2)', 1],
@@ -21,7 +21,7 @@ const PotionTable = new LootTable({ limit: 100 })
 			['Super defence(2)', 1]
 		],
 		1,
-		34
+		2
 	)
 	.add(
 		[
@@ -29,16 +29,18 @@ const PotionTable = new LootTable({ limit: 100 })
 			['Ranging potion(2)', 1]
 		],
 		1,
-		34
+		2
 	)
-	.add('Super restore(3)', 2, 16)
-	.add('Prayer potion(3)', 2, 16);
+	.add('Super restore(3)', 2, 1)
+	.add('Prayer potion(3)', 2, 1);
 
 const GrubbyChestTable = new LootTable()
 	/* Food roll */
+	//TODO
 	.every(FoodTable, 2)
 
 	/* Potion roll */
+	//TODO
 	.every(PotionTable, 1)
 
 	/* Main roll */
