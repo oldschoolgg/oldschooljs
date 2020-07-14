@@ -14,6 +14,7 @@ import OgreCoffin from './OgreCoffin';
 import SinisterChest from './SinisterChest';
 import BrimstoneChest from './BrimstoneChest';
 import LarransBigChest from './LarransBigChest';
+import LarransSmallChest from './LarransSmallChest';
 import MysteryBox from './MysteryBox';
 import LuckyImp from './LuckyImp';
 
@@ -33,7 +34,8 @@ const openablesObject = {
 	OgreCoffin,
 	SinisterChest,
 	BrimstoneChest,
-	LarransBigChest
+	LarransBigChest,
+	LarransSmallChest
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [
