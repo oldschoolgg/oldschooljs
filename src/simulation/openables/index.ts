@@ -12,8 +12,7 @@ import MuddyChest from './MuddyChest';
 import OgreCoffin from './OgreCoffin';
 import SinisterChest from './SinisterChest';
 import BrimstoneChest from './BrimstoneChest';
-import LarransBigChest from './LarransBigChest';
-import LarransSmallChest from './LarransSmallChest';
+import LarransChest from './LarransChest';
 import LowSeedPack from './LowSeedPack';
 import MediumSeedPack from './MediumSeedPack';
 import HighSeedPack from './HighSeedPack';
@@ -35,8 +34,7 @@ const openablesObject = {
 	OgreCoffin,
 	SinisterChest,
 	BrimstoneChest,
-	LarransBigChest,
-	LarransSmallChest,
+	LarransChest,
 	LowSeedPack,
 	MediumSeedPack,
 	HighSeedPack
