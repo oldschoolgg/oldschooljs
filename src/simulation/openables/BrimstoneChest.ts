@@ -1,7 +1,8 @@
 import LootTable from '../../structures/LootTable';
-import { ItemBank, OpenableOptions } from '../../meta/types';
+import { ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import { clone } from '../../util/util';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
@@ -34,18 +35,7 @@ const BrimstoneChestTable = new LootTable()
 	.oneIn(1000, 'Mystic gloves (dusk)')
 	.oneIn(1000, 'Mystic boots (dusk)');
 
-interface BrimstoneChestOptions extends OpenableOptions {
-	table: LootTable;
-}
-
-class BrimstoneChestOpenable extends SimpleOpenable {
-	public table: LootTable;
-
-	constructor(options: BrimstoneChestOptions) {
-		super(options);
-		this.table = options.table;
-	}
-
+export class BrimstoneChestOpenable extends SimpleOpenable {
 	public open(fishlvl: number = 1, quantity = 1): ItemBank {
 		var tempTable = clone(this.table);
 		const loot = new Loot();
@@ -96,22 +86,3 @@ export default new BrimstoneChestOpenable({
 	aliases: ['brimstone chest', 'brimstone'],
 	table: BrimstoneChestTable
 });
-
-//Consider moving this function somewhere else in future.
-/**
- * @function
- * @description Deep clone a class instance.
- * @param {object} instance The class instance you want to clone.
- * @returns {object} A new cloned instance.
- */
-function clone(instance: any) {
-	return Object.assign(
-		Object.create(
-			// Set the prototype of the new object to the prototype of the instance.
-			// Used to allow new object behave like class instance.
-			Object.getPrototypeOf(instance)
-		),
-		// Prevent shallow copies of nested structures like arrays, etc
-		JSON.parse(JSON.stringify(instance))
-	);
-}
