@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
-const FoodTable = new LootTable({ limit: 100 })
+const FoodTable = new LootTable()
 	.add('Egg potato', 4, 12)
 	.add('Shark', 4, 7)
 	.add(
@@ -36,11 +36,11 @@ const PotionTable = new LootTable()
 
 const GrubbyChestTable = new LootTable()
 	/* Food roll */
-	//TODO
+	//TODO: check back for wiki drop table update from another one in the repo
 	.every(FoodTable, 2)
 
 	/* Potion roll */
-	//TODO
+	// TODO: check back for wiki drop table update from another one in the repo
 	.every(PotionTable, 1)
 
 	/* Main roll */

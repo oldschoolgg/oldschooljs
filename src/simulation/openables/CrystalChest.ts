@@ -1,9 +1,9 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
-const runeTable = new LootTable().add('Rune platelegs', 1, 1).add('Rune plateskirt', 1, 1);
+const runeArmorTable = new LootTable().add('Rune platelegs', 1, 1).add('Rune plateskirt', 1, 1);
 
-const keyTable = new LootTable()
+const coinsKeyHalfTable = new LootTable()
 	.every('Coins', 750)
 	.add('Tooth half of key', 1, 1)
 	.add('Loop half of key', 1, 1);
@@ -44,7 +44,7 @@ const CrystalChestTable = new LootTable({ limit: 128 })
 		12
 	)
 	.add('Runite bar', 3, 12)
-	.add(keyTable, 10)
+	.add(coinsKeyHalfTable, 10)
 	.add('Iron ore', 150, 10)
 	.add('Coal', 100, 10)
 	.add(
@@ -56,7 +56,7 @@ const CrystalChestTable = new LootTable({ limit: 128 })
 		8
 	)
 	.add('Adamant sq shield', 1, 2)
-	.add(runeTable, 1);
+	.add(runeArmorTable, 1);
 
 export default new SimpleOpenable({
 	id: 989,

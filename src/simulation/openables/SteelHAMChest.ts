@@ -5,7 +5,7 @@ import { rand } from '../../util';
 const rolls = rand(1, 5);
 
 /* Gem loots */
-//TODO
+// TODO: check back for wiki drop table update from another one in the repo
 const GemTable = new LootTable({ limit: 100 })
 	.add('Uncut sapphire', 1, 20)
 	.add('Sapphire', 1, 20)
