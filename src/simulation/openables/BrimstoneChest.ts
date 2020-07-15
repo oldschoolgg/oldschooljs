@@ -1,5 +1,5 @@
 import LootTable from '../../structures/LootTable';
-import SimpleOpenable from '../../structures/SimpleOpenable';
+import BrimstoneChestOpenable from '../../structures/BrimstoneChestOpenable';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
@@ -12,7 +12,6 @@ const BrimstoneChestTable = new LootTable()
 	.add('Rune full helm', [2, 4], 3)
 	.add('Rune platebody', [1, 2], 3)
 	.add('Rune platelegs', [1, 2], 3)
-	.add('Raw manta ray', [80, 160], 3)
 	.add('Runite ore', [10, 15], 2)
 	.add('Steel bar', [300, 500], 2)
 	.add('Magic logs', [120, 160], 2)
@@ -33,9 +32,11 @@ const BrimstoneChestTable = new LootTable()
 	.oneIn(1000, 'Mystic gloves (dusk)')
 	.oneIn(1000, 'Mystic boots (dusk)');
 
-export default new SimpleOpenable({
+export default new BrimstoneChestOpenable({
 	id: 23083,
 	name: 'Brimstone chest',
 	aliases: ['brimstone chest', 'brimstone'],
-	table: BrimstoneChestTable
+	table: BrimstoneChestTable,
+	//Add something to fit here.
+	open: open(fishlvl)
 });
