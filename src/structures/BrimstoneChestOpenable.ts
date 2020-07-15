@@ -16,41 +16,43 @@ export default class BrimstoneChestOpenable extends SimpleOpenable {
 	}
 
 	public open(fishlvl: number = 1, quantity = 1): ItemBank {
+		var tempTable = new LootTable();
+		tempTable = this.table;
 		const loot = new Loot();
 
 		switch (true) {
 			case fishlvl < 40: {
-				this.table.add('Raw tuna', [100, 350], 3);
+				tempTable.add('Raw tuna', [100, 350], 3);
 				break;
 			}
 			case fishlvl < 50: {
-				this.table.add('Raw lobster', [100, 350], 3);
+				tempTable.add('Raw lobster', [100, 350], 3);
 				break;
 			}
 			case fishlvl < 62: {
-				this.table.add('Raw swordfish', [100, 300], 3);
+				tempTable.add('Raw swordfish', [100, 300], 3);
 				break;
 			}
 			case fishlvl < 76: {
-				this.table.add('Raw monkfish', [100, 300], 3);
+				tempTable.add('Raw monkfish', [100, 300], 3);
 				break;
 			}
 			case fishlvl < 79: {
-				this.table.add('Raw shark', [100, 250], 3);
+				tempTable.add('Raw shark', [100, 250], 3);
 				break;
 			}
 			case fishlvl < 81: {
-				this.table.add('Raw sea turtle', [80, 200], 3);
+				tempTable.add('Raw sea turtle', [80, 200], 3);
 				break;
 			}
 			case fishlvl >= 81: {
-				this.table.add('Raw manta ray', [80, 160], 3);
+				tempTable.add('Raw manta ray', [80, 160], 3);
 				break;
 			}
 		}
 
 		for (let i = 0; i < quantity; i++) {
-			loot.add(this.table.roll());
+			loot.add(tempTable.roll());
 		}
 
 		return loot.values();
