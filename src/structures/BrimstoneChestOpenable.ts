@@ -54,7 +54,7 @@ export default class BrimstoneChestOpenable extends SimpleOpenable {
 		for (let i = 0; i < quantity; i++) {
 			loot.add(tempTable.roll());
 		}
-
+		tempTable = new LootTable();
 		return loot.values();
 	}
 }
