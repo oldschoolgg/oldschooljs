@@ -36,7 +36,5 @@ export default new BrimstoneChestOpenable({
 	id: 23083,
 	name: 'Brimstone chest',
 	aliases: ['brimstone chest', 'brimstone'],
-	table: BrimstoneChestTable,
-	//Add something to fit here.
-	open: open(fishlvl)
+	table: BrimstoneChestTable
 });

@@ -1,9 +1,9 @@
-import { ItemBank } from '../meta/types';
+import { ItemBank, OpenableOptions } from '../meta/types';
 import LootTable from './LootTable';
 import Loot from './Loot';
 import SimpleOpenable from '../structures/SimpleOpenable';
 
-interface BrimstoneChestOptions extends SimpleOpenable {
+interface BrimstoneChestOptions extends OpenableOptions {
 	table: LootTable;
 }
 
