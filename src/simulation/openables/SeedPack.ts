@@ -1,0 +1,148 @@
+import LootTable from '../../structures/LootTable';
+import { ItemBank } from '../../meta/types';
+import Loot from '../../structures/Loot';
+import SimpleOpenable from '../../structures/SimpleOpenable';
+import { clone, rand } from '../../util/util';
+
+const LowSeedPackTable = new LootTable()
+	.add('Potato seed', [8, 12], 2)
+	.add('Onion seed', [8, 12], 2)
+	.add('Cabbage seed', [8, 12], 2)
+	.add('Tomato seed', [8, 12], 2)
+	.add('Sweetcorn seed', [8, 12], 2)
+	.add('Strawberry seed', [8, 12], 2)
+	.add('Barley seed', [8, 14], 2)
+	.add('Hammerstone seed', [6, 8], 2)
+	.add('Asgarnian seed', [6, 8], 2)
+	.add('Jute seed', [8, 12], 2)
+	.add('Yanillian seed', [6, 8], 2)
+	.add('Krandorian seed', [6, 8], 2)
+	.add('Acorn', [3, 5], 2)
+	.add('Apple tree seed', [3, 5], 2)
+	.add('Banana tree seed', [3, 5], 2)
+	.add('Orange tree seed', [3, 5], 2)
+	.add('Curry tree seed', [3, 5], 2)
+	.add('Redberry seed', [6, 8], 2)
+	.add('Cadavaberry seed', [6, 8], 2)
+	.add('Dwellberry seed', [6, 8], 2)
+	.add('Jangerberry seed', [6, 8], 2)
+	.add('Marigold seed', [8, 12], 2)
+	.add('Rosemary seed', [8, 12], 2)
+	.add('Nasturtium seed', [8, 12], 2)
+	.add('Woad seed', [8, 12], 2)
+	.add('Guam seed', [3, 5], 2)
+	.add('Marrentill seed', [3, 5], 2)
+	.add('Tarromin seed', [3, 5], 2)
+	.add('Harralander seed', [3, 5], 2)
+	.add('Mushroom spore', [4, 6], 1)
+	.add('Belladonna seed', [4, 6], 1);
+
+const MediumSeedPackTable = new LootTable()
+	.add('Irit seed', [2, 6], 3)
+	.add('Limpwurt seed', [4, 8], 3)
+	.add('Watermelon seed', [8, 12], 2)
+	.add('Snape grass seed', [6, 8], 2)
+	.add('Wildblood seed', [8, 12], 2)
+	.add('Whiteberry seed', [6, 8], 2)
+	.add('Poison ivy seed', [6, 8], 2)
+	.add('Cactus seed', [2, 6], 2)
+	.add('Potato cactus seed', [2, 6], 2)
+	.add('Willow seed', [2, 4], 1)
+	.add('Pineapple seed', [3, 5], 1)
+	.add('Toadflax seed', [1, 3], 1)
+	.add('Avantoe seed', [1, 3], 1)
+	.add('Kwuarm seed', [1, 3], 1)
+	.add('Cadantine seed', [1, 3], 1)
+	.add('Lantadyme seed', [1, 3], 1)
+	.add('Dwarf weed seed', [1, 3], 1)
+	.add('Calquat tree seed', [3, 6], 1)
+	.add('Teak seed', [1, 3], 1);
+
+const HighSeedPackTable = new LootTable()
+	.add('Papaya tree seed', [1, 3], 5)
+	.add('Palm tree seed', [1, 2], 5)
+	.add('Hespori seed', 1, 5)
+	.add('Ranarr seed', [1, 2], 4)
+	.add('Snapdragon seed', 1, 4)
+	.add('Maple seed', [1, 2], 4)
+	.add('Mahogany seed', [1, 2], 4)
+	.add('Yew seed', 1, 3)
+	.add('Dragonfruit tree seed', 1, 3)
+	.add('Celastrus seed', 1, 2)
+	.add('Torstol seed', 1, 2)
+	.add('Magic seed', 1, 1)
+	.add('Spirit seed', 1, 1)
+	.add('Redwood tree seed', 1, 1);
+
+const SeedPackTable = new LootTable();
+
+export class SeedPackOpenable extends SimpleOpenable {
+	public open(tier: number = 1, quantity = 1): ItemBank {
+		let tempTable = clone(this.table);
+		const loot = new Loot();
+
+		if (tier > 0 && tier < 6) {
+			//Roll amount variables
+			var high = 0;
+			var medium = 0;
+			var low = 0;
+
+			switch (tier) {
+				case 1: {
+					high = 0;
+					medium = rand(1, 3);
+					low = 6 - medium;
+					break;
+				}
+				case 2: {
+					var highroll = rand(1, 11);
+					if (highroll == 1) {
+						high = 1;
+					} else {
+						high = 0;
+					}
+					medium = rand(2, 3);
+					low = 7 - medium - high;
+					break;
+				}
+				case 3: {
+					high = rand(0, 1);
+					medium = rand(2, 4);
+					low = 8 - medium - high;
+					break;
+				}
+				case 4: {
+					high = rand(1, 2);
+					medium = rand(3, 5);
+					low = 9 - medium - high;
+					break;
+				}
+				case 5: {
+					high = rand(1, 3);
+					medium = rand(4, 6);
+					low = 10 - medium - high;
+					break;
+				}
+			}
+			//Low seed roll
+			tempTable.every(LowSeedPackTable, low);
+			//Medium seed roll
+			tempTable.every(MediumSeedPackTable, medium);
+			//High seed roll
+			tempTable.every(HighSeedPackTable, high);
+		}
+		for (let i = 0; i < quantity; i++) {
+			loot.add(tempTable.roll());
+		}
+
+		tempTable = new LootTable();
+		return loot.values();
+	}
+}
+
+export default new SeedPackOpenable({
+	id: 22993,
+	name: 'Seed pack',
+	aliases: ['seed pack'],
+	table: SeedPackTable
+});
