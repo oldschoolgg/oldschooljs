@@ -198,7 +198,9 @@ export function JSONClone<O>(object: O): O {
  * @param {object} instance The class instance you want to clone.
  * @returns {object} A new cloned instance.
  */
-export function clone(instance: any) {
+export function clone(instance: any): object {
+	// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+	// @ts-ignore
 	return Object.assign(
 		Object.create(
 			// Set the prototype of the new object to the prototype of the instance.
