@@ -61,7 +61,7 @@ const LarransBigChestTable = new LootTable()
 const LarransChestTable = new LootTable();
 
 export class LarransChestOpenable extends SimpleOpenable {
-	public open(fishlvl: number = 1, name: string = '', quantity = 1): ItemBank {
+	public open(fishlvl = 1, name = '', quantity = 1): ItemBank {
 		let tempTable = clone(this.table);
 		name = name.toLowerCase();
 		const loot = new Loot();

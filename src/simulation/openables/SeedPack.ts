@@ -77,15 +77,15 @@ const HighSeedPackTable = new LootTable()
 const SeedPackTable = new LootTable();
 
 export class SeedPackOpenable extends SimpleOpenable {
-	public open(tier: number = 1, quantity = 1): ItemBank {
+	public open(tier = 1, quantity = 1): ItemBank {
 		let tempTable = clone(this.table);
 		const loot = new Loot();
 
 		if (tier > 0 && tier < 6) {
 			//Roll amount variables
-			var high = 0;
-			var medium = 0;
-			var low = 0;
+			let high = 0;
+			let medium = 0;
+			let low = 0;
 
 			switch (tier) {
 				case 1: {
@@ -95,7 +95,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 					break;
 				}
 				case 2: {
-					var highroll = rand(1, 11);
+					const highroll = rand(1, 11);
 					if (highroll == 1) {
 						high = 1;
 					} else {
