@@ -31,11 +31,9 @@ const HillGiantTable = new LootTable({ limit: 128 })
 
 	/* Coins */
 
-	.add('Coins', 5, 18)
 	.add('Coins', 38, 14)
 	.add('Coins', 52, 10)
 	.add('Coins', 15, 8)
-	.add('Coins', 10, 7)
 	.add('Coins', 8, 6)
 	.add('Coins', 64, 2)
 
