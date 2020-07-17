@@ -31,7 +31,6 @@ const HillGiantTable = new LootTable({ limit: 128 })
 	.add('Death rune', 2, 1)
 
 	/* Coins */
-
 	.add('Coins', 38, 14)
 	.add('Coins', 52, 10)
 	.add('Coins', 15, 8)
@@ -39,7 +38,6 @@ const HillGiantTable = new LootTable({ limit: 128 })
 	.add('Coins', 88, 2)
 
 	/* Other */
-
 	.add(FixedAllotmentSeedTable, 1, 18)
 	.add(HerbDropTable, 1, 7)
 	.add('Limpwurt root', 1, 11)
