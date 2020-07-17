@@ -145,7 +145,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 
 export default new LarransChestOpenable({
 	id: 23490,
-	name: "Larran's big chest",
+	name: "Larran's chest",
 	aliases: [
 		'larran big chest',
 		'larrans big chest',
