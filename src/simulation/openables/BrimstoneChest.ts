@@ -37,7 +37,7 @@ const BrimstoneChestTable = new LootTable()
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
 	public open(fishlvl = 99, quantity = 1): ItemBank {
-		let tempTable = clone(this.table);
+		let tempTable = clone(BrimstoneChestTable);
 		const loot = new Loot();
 
 		switch (true) {
