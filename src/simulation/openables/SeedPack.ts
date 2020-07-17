@@ -79,7 +79,7 @@ const SeedPackTable = new LootTable();
 
 export class SeedPackOpenable extends SimpleOpenable {
 	public open(tier = 5, quantity = 1): ItemBank {
-		const tempTable = clone(SeedPackTable);
+		const tempTable = new LootTable();
 		const loot = new Loot();
 
 		if (tier > 0 && tier < 6) {
