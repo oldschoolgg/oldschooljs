@@ -3,7 +3,6 @@ import { ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import { rand, roll } from '../../util/util';
-import { clone } from '../../util/clone';
 
 const LowSeedPackTable = new LootTable()
 	.add('Potato seed', [8, 12], 2)
