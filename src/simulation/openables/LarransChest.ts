@@ -67,7 +67,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 		let tempTable;
 		const loot = new Loot();
 
-		if (tier.toLowerCase() === 'big') {
+		if (tier === 'big') {
 			tempTable = clone(LarransBigChestTable);
 
 			switch (true) {
