@@ -44,7 +44,7 @@ const CrystalChestTable = new LootTable({ limit: 128 })
 		12
 	)
 	.add('Runite bar', 3, 12)
-	.add(coinsKeyHalfTable, 10)
+	.add(coinsKeyHalfTable, 1, 10)
 	.add('Iron ore', 150, 10)
 	.add('Coal', 100, 10)
 	.add(
