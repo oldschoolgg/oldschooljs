@@ -1,8 +1,6 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const OborGemTable = new LootTable().every('Uncut Ruby', 5).every('Uncut Diamond', 5);
-
 const OborTable = new LootTable({ limit: 118 })
 	.every('Big Bones')
 	.every('Clue scroll (beginner)')
@@ -35,8 +33,14 @@ const OborTable = new LootTable({ limit: 118 })
 	.add('Coins', [10_000, 20_000], 10)
 	.add('Limpwurt root', 20, 8)
 	.add('Big bones', 50, 8)
-	.add('Uncut ruby', 5, 5)
-	.add(OborGemTable, 1, 5);
+	.add(
+		[
+			['Uncut Diamond', 5],
+			['Uncut ruby', 5]
+		],
+		1,
+		1
+	);
 
 export default new SimpleMonster({
 	id: 7416,
