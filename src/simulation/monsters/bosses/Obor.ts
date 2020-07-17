@@ -7,6 +7,10 @@ const OborTable = new LootTable({ limit: 118 })
 	.every('Big Bones')
 	.every('Clue scroll (beginner)')
 	.every('Ensouled giant head')
+	.tertiary(16, 'Giant key')
+	.tertiary(400, 'Long bone')
+	.tertiary(5000, 'Giant champion scroll')
+	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
 	.add('Rune med helm', 1, 6)

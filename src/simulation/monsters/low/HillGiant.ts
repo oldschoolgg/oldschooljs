@@ -5,11 +5,11 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 
 const HillGiantTable = new LootTable({ limit: 128 })
 	.every('Big Bones')
-	.tertiary(25, 'Ensouled Giant Head')
-	.tertiary(50, 'Clue Scroll (beginner)')
-	.tertiary(400, 'Long Bone')
-	.tertiary(5000, 'Giant Champion Scroll')
-	.tertiary(5013, 'Curved Bone')
+	.tertiary(25, 'Ensouled giant head')
+	.tertiary(50, 'Clue scroll (beginner)')
+	.tertiary(400, 'Long bone')
+	.tertiary(5000, 'Giant champion scroll')
+	.tertiary(5013, 'Curved bone')
 
 	/* Weapons and armour */
 	.add('Iron full helm', 1, 5)
@@ -46,7 +46,7 @@ const HillGiantTable = new LootTable({ limit: 128 })
 	.add('Limpwurt root', 1, 11)
 	.add('Beer', 1, 6)
 	.add('Body talisman', 1, 2)
-	.add('Giant Key', 1, 1);
+	.add('Giant key', 1, 1);
 
 export default new SimpleMonster({
 	id: 2098,
