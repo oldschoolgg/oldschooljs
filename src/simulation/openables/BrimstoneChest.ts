@@ -2,7 +2,7 @@ import LootTable from '../../structures/LootTable';
 import { ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import { clone } from '../../util/util';
+import { clone } from '../../util/clone';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
@@ -37,7 +37,7 @@ const BrimstoneChestTable = new LootTable()
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
 	public open(fishlvl = 99, quantity = 1): ItemBank {
-		let tempTable = clone(BrimstoneChestTable);
+		const tempTable = clone(BrimstoneChestTable);
 		const loot = new Loot();
 
 		switch (true) {

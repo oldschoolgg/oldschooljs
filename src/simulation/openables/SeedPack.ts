@@ -2,7 +2,8 @@ import LootTable from '../../structures/LootTable';
 import { ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import { clone, rand, roll } from '../../util/util';
+import { rand, roll } from '../../util/util';
+import { clone } from '../../util/clone';
 
 const LowSeedPackTable = new LootTable()
 	.add('Potato seed', [8, 12], 2)
@@ -78,7 +79,7 @@ const SeedPackTable = new LootTable();
 
 export class SeedPackOpenable extends SimpleOpenable {
 	public open(tier = 5, quantity = 1): ItemBank {
-		let tempTable = clone(SeedPackTable);
+		const tempTable = clone(SeedPackTable);
 		const loot = new Loot();
 
 		if (tier > 0 && tier < 6) {
