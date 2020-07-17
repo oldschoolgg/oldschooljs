@@ -31,9 +31,9 @@ const LarransSmallChestTable = new LootTable()
 	.add('Pure essence', [3359, 5815], 1);
 
 const LarransBigChestTable = new LootTable()
-	.tertiary(256, `Dagon'hai hat`)
-	.tertiary(256, `Dagon'hai robe top`)
-	.tertiary(256, `Dagon'hai robe bottom`)
+	.oneIn(256, `Dagon'hai hat`)
+	.oneIn(256, `Dagon'hai robe top`)
+	.oneIn(256, `Dagon'hai robe bottom`)
 	.add('Uncut diamond', [35, 45], 5)
 	.add('Uncut ruby', [35, 45], 5)
 	.add('Coal', [450, 650], 5)
@@ -61,8 +61,8 @@ const LarransBigChestTable = new LootTable()
 const LarransChestTable = new LootTable();
 
 export class LarransChestOpenable extends SimpleOpenable {
-	public open(fishlvl = 1, name = '', quantity = 1): ItemBank {
-		let tempTable = clone(this.table);
+	public open(fishlvl = 99, name = 'big', quantity = 1): ItemBank {
+		let tempTable;
 		name = name.toLowerCase();
 		const loot = new Loot();
 
@@ -138,7 +138,6 @@ export class LarransChestOpenable extends SimpleOpenable {
 			loot.add(tempTable.roll());
 		}
 
-		tempTable = new LootTable();
 		return loot.values();
 	}
 }

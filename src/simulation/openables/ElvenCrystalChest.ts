@@ -9,27 +9,31 @@ const DragonStoneArmorTable = new LootTable()
 	.add('Dragonstone gauntlets', 1, 1)
 	.add('Dragonstone boots', 1, 1);
 
+/* Key half roll */
+const coinsKeyHalfTable = new LootTable()
+	.every('Uncut dragonstone')
+	.every('Coins', [10000, 15000])
+	.add('Tooth half of key', 1, 1)
+	.add('Loop half of key', 1, 1);
+
+/* Rune armor roll */
+const runeArmorTable = new LootTable()
+	.every('Uncut dragonstone')
+	.every('Crystal shard', [4, 6])
+	.add('Rune platelegs', 1, 1)
+	.add('Rune plateskirt', 1, 1);
+
+/* Dragon items roll */
+const dragonItemTable = new LootTable()
+	.every('Uncut dragonstone')
+	.add('Dragon platelegs', 1, 1)
+	.add('Dragon plateskirt', 1, 1)
+	.add('Shield left half', 1, 1);
+
 const ElvenCrystalChestTable = new LootTable()
 	.oneIn(10000, 'Uncut onyx')
 	.oneIn(500, DragonStoneArmorTable)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Tooth half of key', 1],
-			['Coins', [10000, 15000]]
-		],
-		1,
-		32
-	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Loop half of key', 1],
-			['Coins', [10000, 15000]]
-		],
-		1,
-		32
-	)
+	.add(coinsKeyHalfTable, 1, 64)
 	.add(
 		[
 			['Uncut dragonstone', 1],
@@ -64,24 +68,7 @@ const ElvenCrystalChestTable = new LootTable()
 		1,
 		17
 	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Crystal shard', [4, 6]],
-			['Rune platelegs', 1]
-		],
-		1,
-		9
-	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Crystal shard', [4, 6]],
-			['Rune plateskirt', 1]
-		],
-		1,
-		8
-	)
+	.add(runeArmorTable, 1, 17)
 	.add(
 		[
 			['Uncut dragonstone', 1],
@@ -134,30 +121,7 @@ const ElvenCrystalChestTable = new LootTable()
 		1,
 		7
 	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Dragon platelegs', 1]
-		],
-		1,
-		1
-	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Dragon plateskirt', 1]
-		],
-		1,
-		1
-	)
-	.add(
-		[
-			['Uncut dragonstone', 1],
-			['Shield left half', 1]
-		],
-		1,
-		1
-	);
+	.add(dragonItemTable, 1, 3);
 
 export default new SimpleOpenable({
 	id: 23951,
