@@ -38,7 +38,7 @@ const OborTable = new LootTable({ limit: 118 })
 			['Uncut Diamond', 5],
 			['Uncut ruby', 5]
 		],
-		1,
+		5,
 		1
 	);
 

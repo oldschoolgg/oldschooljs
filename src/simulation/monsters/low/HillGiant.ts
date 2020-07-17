@@ -2,6 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import FixedAllotmentSeedTable from '../../subtables/FixedAllotmentSeedTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
 
 const HillGiantTable = new LootTable({ limit: 128 })
 	.every('Big Bones')
@@ -13,7 +14,7 @@ const HillGiantTable = new LootTable({ limit: 128 })
 
 	/* Weapons and armour */
 	.add('Iron full helm', 1, 5)
-	.add('Iron dagger', 1, 5)
+	.add('Iron dagger', 1, 4)
 	.add('Iron kiteshield', 1, 3)
 	.add('Steel longsword', 1, 2)
 
@@ -35,7 +36,7 @@ const HillGiantTable = new LootTable({ limit: 128 })
 	.add('Coins', 52, 10)
 	.add('Coins', 15, 8)
 	.add('Coins', 8, 6)
-	.add('Coins', 64, 2)
+	.add('Coins', 88, 2)
 
 	/* Other */
 
@@ -44,7 +45,10 @@ const HillGiantTable = new LootTable({ limit: 128 })
 	.add('Limpwurt root', 1, 11)
 	.add('Beer', 1, 6)
 	.add('Body talisman', 1, 2)
-	.add('Giant key', 1, 1);
+	.add('Giant key', 1, 1)
+
+	/* Gem drop table */
+	.add(GemTable, 1, 3);
 
 export default new SimpleMonster({
 	id: 2098,
