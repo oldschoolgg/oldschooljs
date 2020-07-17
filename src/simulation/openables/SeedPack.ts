@@ -81,54 +81,60 @@ export class SeedPackOpenable extends SimpleOpenable {
 	public open(tier = 5, quantity = 1): ItemBank {
 		const tempTable = clone(SeedPackTable);
 		const loot = new Loot();
-
-		if (tier > 0 && tier < 6) {
-			//Roll amount variables
-			let high = 0;
-			let medium = 0;
-			let low = 0;
-
-			switch (tier) {
-				case 1: {
-					high = 0;
-					medium = rand(1, 3);
-					low = 6 - medium;
-					break;
-				}
-				case 2: {
-					if (roll(11)) {
-						high = 1;
-					}
-					medium = rand(2, 3);
-					low = 7 - medium - high;
-					break;
-				}
-				case 3: {
-					high = rand(0, 1);
-					medium = rand(2, 4);
-					low = 8 - medium - high;
-					break;
-				}
-				case 4: {
-					high = rand(1, 2);
-					medium = rand(3, 5);
-					low = 9 - medium - high;
-					break;
-				}
-				case 5: {
-					high = rand(1, 3);
-					medium = rand(4, 6);
-					low = 10 - medium - high;
-					break;
-				}
-			}
-			//Low seed roll
-			tempTable.every(LowSeedPackTable, low);
-			//Medium seed roll
-			tempTable.every(MediumSeedPackTable, medium);
-			//High seed roll
-			tempTable.every(HighSeedPackTable, high);
+		if (tier >= 5) {
+			tier = 5;
 		}
+		if (tier <= 1) {
+			tier = 1;
+		}
+
+		//Roll amount variables
+		let high = 0;
+		let medium = 0;
+		let low = 0;
+
+		switch (tier) {
+			case 1: {
+				high = 0;
+				medium = rand(1, 3);
+				low = 6 - medium;
+				break;
+			}
+			case 2: {
+				if (roll(11)) {
+					high = 1;
+				}
+				medium = rand(2, 3);
+				low = 7 - medium - high;
+				break;
+			}
+			case 3: {
+				high = rand(0, 1);
+				medium = rand(2, 4);
+				low = 8 - medium - high;
+				break;
+			}
+			case 4: {
+				high = rand(1, 2);
+				medium = rand(3, 5);
+				low = 9 - medium - high;
+				break;
+			}
+			case 5:
+			default: {
+				high = rand(1, 3);
+				medium = rand(4, 6);
+				low = 10 - medium - high;
+				break;
+			}
+		}
+		//Low seed roll
+		tempTable.every(LowSeedPackTable, low);
+		//Medium seed roll
+		tempTable.every(MediumSeedPackTable, medium);
+		//High seed roll
+		tempTable.every(HighSeedPackTable, high);
+
 		for (let i = 0; i < quantity; i++) {
 			loot.add(tempTable.roll());
 		}
