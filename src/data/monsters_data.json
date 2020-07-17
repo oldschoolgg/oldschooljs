@@ -3660,9 +3660,9 @@
 		"rangedStrength": 65,
 		"magicDamage": 0,
 		"isSlayerMonster": true,
-		"slayerLevelRequired": 66,
-		"slayerXP": 205,
-		"assignableSlayerMasters": ["chaeldar", "konar", "nieve", "duradel"]
+		"slayerLevelRequired": 1,
+		"slayerXP": 129,
+		"assignableSlayerMasters": ["mazchna", "vannaka"]
 	},
 	"7792": {
 		"members": true,
@@ -3701,9 +3701,9 @@
 		"rangedStrength": 0,
 		"magicDamage": 0,
 		"isSlayerMonster": true,
-		"slayerLevelRequired": 1,
-		"slayerXP": 129,
-		"assignableSlayerMasters": ["mazchna", "vannaka"]
+		"slayerLevelRequired": 66,
+		"slayerXP": 205,
+		"assignableSlayerMasters": ["chaeldar", "konar", "nieve", "duradel"]
 	},
 	"7793": {
 		"members": true,
