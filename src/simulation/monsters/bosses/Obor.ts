@@ -39,7 +39,7 @@ const OborTable = new LootTable({ limit: 118 })
 			['Uncut ruby', 5]
 		],
 		1,
-		1
+		5
 	);
 
 export default new SimpleMonster({
