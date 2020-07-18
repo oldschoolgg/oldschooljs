@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import Loot from '../../../structures/Loot';
 import { ItemBank } from '../../../meta/types';
 import { roll } from '../../../util/util';
-import Monster from '../../../structures/Monster';
+import SimpleMonster from '../../../structures/Monster';
 
 const HesporiTable = new LootTable()
 	.add('Attas seed', [1, 2], 1)
@@ -64,19 +64,18 @@ const MainTable = new LootTable()
 	.add('Spirit seed', 1, 1)
 	.add('Redwood tree seed', 1, 1);
 
-export class Hespori extends Monster {
-    kill(quantity = 1, options, farmingLevel = 99): ItemBank {
-        const loot = new Loot();
-        for (let i = 0; i < quantity; i++) {
+export class Hespori extends SimpleMonster {
+	kill(quantity = 1, options, farmingLevel = 99): ItemBank {
+		const loot = new Loot();
+		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
-			if (roll(7000 - (farmingLevel * 25))) {
-				loot.add('Tangleroot')
+			if (roll(7000 - farmingLevel * 25)) {
+				loot.add('Tangleroot');
 			}
-        }
-        return loot.values();
+		}
+		return loot.values();
 	}
 }
 
 // Uses NPC id for Hespori
 export default new Hespori({ id: 8583, name: 'Hespori', aliases: ['hespori'] });
-
