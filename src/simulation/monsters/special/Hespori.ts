@@ -65,7 +65,7 @@ const MainTable = new LootTable()
 	.add('Redwood tree seed', 1, 1);
 
 export class Hespori extends SimpleMonster {
-	kill(quantity = 1, options, farmingLevel = 99): ItemBank {
+	public kill(quantity = 1, options: any, farmingLevel = 99): ItemBank {
 		const loot = new Loot();
 		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
