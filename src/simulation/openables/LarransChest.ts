@@ -1,10 +1,8 @@
 import LootTable from '../../structures/LootTable';
-import { ItemBank } from '../../meta/types';
+import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import { clone } from '../../util/clone';
-
-type LarransTier = 'big' | 'small';
 
 //TODO check wiki for more accurate results in future
 const LarransSmallChestTable = new LootTable()
@@ -63,9 +61,11 @@ const LarransBigChestTable = new LootTable()
 const LarransChestTable = new LootTable();
 
 export class LarransChestOpenable extends SimpleOpenable {
-	public open(fishlvl = 99, tier: LarransTier = 'big', quantity = 1): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 99, size: 'big' }): ItemBank {
 		let tempTable;
 		const loot = new Loot();
+		const tier = options.size;
+		const fishlvl = options.lvl;
 
 		if (tier.toLowerCase() === 'big') {
 			tempTable = clone(LarransBigChestTable);

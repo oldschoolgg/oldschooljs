@@ -1,5 +1,5 @@
 import LootTable from '../../structures/LootTable';
-import { ItemBank } from '../../meta/types';
+import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import { clone } from '../../util/clone';
@@ -36,9 +36,10 @@ const BrimstoneChestTable = new LootTable()
 	.oneIn(1000, 'Mystic boots (dusk)');
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
-	public open(fishlvl = 99, quantity = 1): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 99 }): ItemBank {
 		const tempTable = clone(BrimstoneChestTable);
 		const loot = new Loot();
+		const fishlvl = options.lvl;
 
 		switch (true) {
 			case fishlvl < 40: {

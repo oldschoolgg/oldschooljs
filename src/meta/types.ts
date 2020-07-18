@@ -457,8 +457,10 @@ export interface OpenableOptions {
 	aliases: string[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface OpenableOpenOptions {}
+export interface OpenableOpenOptions {
+	lvl?: number;
+	size?: 'big' | 'small';
+}
 
 export interface LootTableOptions {
 	limit?: number;

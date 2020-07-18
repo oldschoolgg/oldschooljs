@@ -1,5 +1,5 @@
 import LootTable from '../../structures/LootTable';
-import { ItemBank } from '../../meta/types';
+import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import { rand, roll } from '../../util/util';
@@ -77,9 +77,11 @@ const HighSeedPackTable = new LootTable()
 const SeedPackTable = new LootTable();
 
 export class SeedPackOpenable extends SimpleOpenable {
-	public open(tier = 5, quantity = 1): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 5 }): ItemBank {
 		const tempTable = new LootTable();
 		const loot = new Loot();
+		let tier = options.lvl;
+
 		if (tier >= 5) {
 			tier = 5;
 		}
