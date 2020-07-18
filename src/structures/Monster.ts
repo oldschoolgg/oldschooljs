@@ -8,7 +8,7 @@ export default abstract class Monster {
 	public name: string;
 	public aliases: string[];
 	public data: MonsterData;
-	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
+	public abstract kill(quantity: number, options: MonsterKillOptions, farmingLevel?: number): ItemBank;
 
 	constructor(options: MonsterOptions) {
 		this.id = options.id;
