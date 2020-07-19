@@ -67,10 +67,7 @@ const MainTable = new LootTable()
 export class Hespori extends SimpleMonster {
 	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): ItemBank {
 		const loot = new Loot();
-		let farmingLvl;
-
-		if (!options.farmingLevel) farmingLvl = 99;
-		else farmingLvl = options.farmingLevel;
+		const farmingLvl = options.farmingLevel ?? 99;
 
 		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
