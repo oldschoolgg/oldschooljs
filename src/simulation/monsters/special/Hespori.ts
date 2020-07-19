@@ -67,9 +67,14 @@ const MainTable = new LootTable()
 export class Hespori extends SimpleMonster {
 	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): ItemBank {
 		const loot = new Loot();
+		let farmingLvl;
+
+		if (!options.farmingLevel) farmingLvl = 99;
+		else farmingLvl = options.farmingLevel;
+
 		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
-			if (roll(7000 - options.farmingLevel * 25)) {
+			if (roll(7000 - farmingLvl * 25)) {
 				loot.add('Tangleroot');
 			}
 		}
