@@ -1,9 +1,9 @@
 import Openable from '../../structures/Openable';
 import Collection from '../../structures/Collection';
-import BronzeHAMChest from './BronzeHAMChest';
-import IronHAMChest from './IronHAMChest';
-import SilverHAMChest from './SilverHAMChest';
-import SteelHAMChest from './SteelHAMChest';
+import { BronzeHAMChest } from './HAMChests';
+import { IronHAMChest } from './HAMChests';
+import { SilverHAMChest } from './HAMChests';
+import { SteelHAMChest } from './HAMChests';
 import Casket from './Casket';
 import CrystalChest from './CrystalChest';
 import ElvenCrystalChest from './ElvenCrystalChest';
