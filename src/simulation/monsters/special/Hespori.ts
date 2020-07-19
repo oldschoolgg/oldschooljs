@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
 import Loot from '../../../structures/Loot';
-import { ItemBank } from '../../../meta/types';
+import { ItemBank, MonsterKillOptions } from '../../../meta/types';
 import { roll } from '../../../util/util';
 import SimpleMonster from '../../../structures/Monster';
 
@@ -65,11 +65,11 @@ const MainTable = new LootTable()
 	.add('Redwood tree seed', 1, 1);
 
 export class Hespori extends SimpleMonster {
-	public kill(quantity = 1, options: any, farmingLevel = 99): ItemBank {
+	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): ItemBank {
 		const loot = new Loot();
 		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
-			if (roll(7000 - farmingLevel * 25)) {
+			if (roll(7000 - options.farmingLevel * 25)) {
 				loot.add('Tangleroot');
 			}
 		}
