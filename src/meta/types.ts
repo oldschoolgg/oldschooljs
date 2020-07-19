@@ -1,6 +1,8 @@
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
+type chestSize = 'big' | 'small';
+
 export interface SimpleLootItem {
 	id: string;
 	dropRate: number;
@@ -458,8 +460,9 @@ export interface OpenableOptions {
 }
 
 export interface OpenableOpenOptions {
-	lvl?: number;
-	size?: 'big' | 'small';
+	fishlvl?: number;
+	seedtier?: number;
+	chestSize?: chestSize;
 }
 
 export interface LootTableOptions {

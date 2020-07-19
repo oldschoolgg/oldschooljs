@@ -36,10 +36,10 @@ const BrimstoneChestTable = new LootTable()
 	.oneIn(1000, 'Mystic boots (dusk)');
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
-	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 99 }): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { fishlvl: 99 }): ItemBank {
 		const tempTable = clone(BrimstoneChestTable);
 		const loot = new Loot();
-		const fishlvl = options.lvl;
+		const fishlvl = options.fishlvl ?? 99;
 
 		switch (true) {
 			case fishlvl < 40: {

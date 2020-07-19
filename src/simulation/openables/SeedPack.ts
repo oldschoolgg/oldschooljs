@@ -74,13 +74,16 @@ const HighSeedPackTable = new LootTable()
 	.add('Spirit seed', 1, 1)
 	.add('Redwood tree seed', 1, 1);
 
-const SeedPackTable = new LootTable();
+const SeedPackTable = new LootTable()
+	.add(LowSeedPackTable)
+	.add(MediumSeedPackTable)
+	.add(HighSeedPackTable);
 
 export class SeedPackOpenable extends SimpleOpenable {
-	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 5 }): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { seedtier: 5 }): ItemBank {
 		const tempTable = new LootTable();
 		const loot = new Loot();
-		let tier = options.lvl;
+		let tier = options.seedtier ?? 5;
 
 		if (tier >= 5) {
 			tier = 5;

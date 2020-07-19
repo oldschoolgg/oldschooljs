@@ -58,14 +58,17 @@ const LarransBigChestTable = new LootTable()
 	.add('Snapdragon seed', [4, 6], 1)
 	.add('Ranarr seed', [4, 6], 1);
 
-const LarransChestTable = new LootTable();
+const LarransChestTable = new LootTable().add(LarransSmallChestTable).add(LarransBigChestTable);
 
 export class LarransChestOpenable extends SimpleOpenable {
-	public open(quantity = 1, options: OpenableOpenOptions = { lvl: 99, size: 'big' }): ItemBank {
+	public open(
+		quantity = 1,
+		options: OpenableOpenOptions = { fishlvl: 99, chestSize: 'big' }
+	): ItemBank {
 		let tempTable;
 		const loot = new Loot();
-		const tier = options.size;
-		const fishlvl = options.lvl;
+		const tier = options.chestSize ?? 'big';
+		const fishlvl = options.fishlvl ?? 99;
 
 		if (tier.toLowerCase() === 'big') {
 			tempTable = clone(LarransBigChestTable);
