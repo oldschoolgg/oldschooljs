@@ -71,9 +71,7 @@ export class Hespori extends SimpleMonster {
 
 		for (let i = 0; i < quantity; i++) {
 			loot.add(MainTable.roll());
-			if (roll(7000 - farmingLvl * 25)) {
-				loot.add('Tangleroot');
-			}
+			if (roll(7000 - farmingLvl * 25)) loot.add('Tangleroot');
 		}
 		return loot.values();
 	}
