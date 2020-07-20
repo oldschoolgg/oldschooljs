@@ -83,7 +83,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 	public open(quantity = 1, options: OpenableOpenOptions = { seedTier: '5' }): ItemBank {
 		const tempTable = new LootTable();
 		const loot = new Loot();
-		let tier = options.seedTier ?? '5';
+		const tier = options.seedTier ?? '5';
 
 		//Roll amount variables
 		let high = 0;
