@@ -2,7 +2,7 @@ import LootTable from '../../structures/LootTable';
 import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import { clone } from '../../util/clone';
+import clone from '../../util/clone';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
