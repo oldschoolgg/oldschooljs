@@ -3,6 +3,7 @@ import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import clone from '../../util/clone';
+import { LarransBigChestBonus, LarransSmallChestBonus } from './BonusOpenables';
 
 //TODO check wiki for more accurate results in future
 const LarransSmallChestTable = new LootTable()
@@ -63,77 +64,39 @@ const LarransChestTable = new LootTable().add(LarransSmallChestTable).add(Larran
 export class LarransChestOpenable extends SimpleOpenable {
 	public open(
 		quantity = 1,
-		options: OpenableOpenOptions = { fishlvl: 99, chestSize: 'big' }
+		options: OpenableOpenOptions = { fishLvl: 99, chestSize: 'big' }
 	): ItemBank {
 		let tempTable;
 		const loot = new Loot();
 		const tier = options.chestSize ?? 'big';
-		const fishlvl = options.fishlvl ?? 99;
+		const fishLvl = options.fishLvl ?? 99;
 
 		if (tier.toLowerCase() === 'big') {
 			tempTable = clone(LarransBigChestTable);
 
-			switch (true) {
-				case fishlvl < 40: {
-					tempTable.add('Raw tuna', [150, 520], 3);
-					break;
-				}
-				case fishlvl < 50: {
-					tempTable.add('Raw lobster', [150, 525], 3);
-					break;
-				}
-				case fishlvl < 62: {
-					tempTable.add('Raw swordfish', [150, 450], 3);
-					break;
-				}
-				case fishlvl < 76: {
-					tempTable.add('Raw monkfish', [150, 450], 3);
-					break;
-				}
-				case fishlvl < 79: {
-					tempTable.add('Raw shark', [150, 375], 3);
-					break;
-				}
-				case fishlvl < 81: {
-					tempTable.add('Raw sea turtle', [120, 300], 3);
-					break;
-				}
-				case fishlvl >= 81: {
-					tempTable.add('Raw manta ray', [125, 235], 3);
-					break;
+			for (const fish of LarransBigChestBonus) {
+				if (typeof fish.req === 'number') {
+					if (fishLvl >= fish.req) {
+						tempTable.add(fish.item, fish.qty, fish.weight);
+					}
+				} else {
+					if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+						tempTable.add(fish.item, fish.qty, fish.weight);
+					}
 				}
 			}
 		} else {
 			tempTable = clone(LarransSmallChestTable);
 
-			switch (true) {
-				case fishlvl < 40: {
-					tempTable.add('Raw tuna', 204, 3);
-					break;
-				}
-				case fishlvl < 50: {
-					tempTable.add('Raw lobster', 214, 3);
-					break;
-				}
-				case fishlvl < 62: {
-					tempTable.add('Raw swordfish', 224, 3);
-					break;
-				}
-				case fishlvl < 76: {
-					tempTable.add('Raw monkfish', 234, 3);
-					break;
-				}
-				case fishlvl < 79: {
-					tempTable.add('Raw shark', 126, 3);
-					break;
-				}
-				case fishlvl < 81: {
-					tempTable.add('Raw sea turtle', 136, 3);
-					break;
-				}
-				case fishlvl >= 81: {
-					tempTable.add('Raw manta ray', 116, 3);
-					break;
+			for (const fish of LarransSmallChestBonus) {
+				if (typeof fish.req === 'number') {
+					if (fishLvl >= fish.req) {
+						tempTable.add(fish.item, fish.qty, fish.weight);
+					}
+				} else {
+					if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+						tempTable.add(fish.item, fish.qty, fish.weight);
+					}
 				}
 			}
 		}

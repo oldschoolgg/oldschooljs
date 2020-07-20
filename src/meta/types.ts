@@ -1,7 +1,8 @@
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
-type chestSize = 'big' | 'small';
+type ChestSize = 'big' | 'small';
+type SeedTier = '1' | '2' | '3' | '4' | '5';
 
 export interface SimpleLootItem {
 	id: string;
@@ -460,9 +461,9 @@ export interface OpenableOptions {
 }
 
 export interface OpenableOpenOptions {
-	fishlvl?: number;
-	seedtier?: number;
-	chestSize?: chestSize;
+	fishLvl?: number;
+	seedTier?: SeedTier;
+	chestSize?: ChestSize;
 }
 
 export interface LootTableOptions {

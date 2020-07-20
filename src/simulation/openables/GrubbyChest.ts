@@ -36,11 +36,11 @@ const PotionTable = new LootTable()
 
 const GrubbyChestTable = new LootTable()
 	/* Food roll */
-	//TODO: check back for wiki drop table update from another one in the repo
+	// TODO: check back for wiki drop table update in future (Written: 2020-07-20)
 	.every(FoodTable, 2)
 
 	/* Potion roll */
-	// TODO: check back for wiki drop table update from another one in the repo
+	// TODO: check back for wiki drop table update in future (Written: 2020-07-20)
 	.every(PotionTable, 1)
 
 	/* Main roll */

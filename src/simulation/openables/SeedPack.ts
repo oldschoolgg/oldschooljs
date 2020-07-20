@@ -80,17 +80,10 @@ const SeedPackTable = new LootTable()
 	.add(HighSeedPackTable);
 
 export class SeedPackOpenable extends SimpleOpenable {
-	public open(quantity = 1, options: OpenableOpenOptions = { seedtier: 5 }): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { seedTier: '5' }): ItemBank {
 		const tempTable = new LootTable();
 		const loot = new Loot();
-		let tier = options.seedtier ?? 5;
-
-		if (tier >= 5) {
-			tier = 5;
-		}
-		if (tier <= 1) {
-			tier = 1;
-		}
+		let tier = options.seedTier ?? '5';
 
 		//Roll amount variables
 		let high = 0;
@@ -98,13 +91,13 @@ export class SeedPackOpenable extends SimpleOpenable {
 		let low = 0;
 
 		switch (tier) {
-			case 1: {
+			case '1': {
 				high = 0;
 				medium = rand(1, 3);
 				low = 6 - medium;
 				break;
 			}
-			case 2: {
+			case '2': {
 				if (roll(11)) {
 					high = 1;
 				}
@@ -112,19 +105,19 @@ export class SeedPackOpenable extends SimpleOpenable {
 				low = 7 - medium - high;
 				break;
 			}
-			case 3: {
+			case '3': {
 				high = rand(0, 1);
 				medium = rand(2, 4);
 				low = 8 - medium - high;
 				break;
 			}
-			case 4: {
+			case '4': {
 				high = rand(1, 2);
 				medium = rand(3, 5);
 				low = 9 - medium - high;
 				break;
 			}
-			case 5:
+			case '5':
 			default: {
 				high = rand(1, 3);
 				medium = rand(4, 6);

@@ -3,6 +3,7 @@ import { OpenableOpenOptions, ItemBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import clone from '../../util/clone';
+import { BrimstoneChestBonus } from './BonusOpenables';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
@@ -36,39 +37,20 @@ const BrimstoneChestTable = new LootTable()
 	.oneIn(1000, 'Mystic boots (dusk)');
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
-	public open(quantity = 1, options: OpenableOpenOptions = { fishlvl: 99 }): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { fishLvl: 99 }): ItemBank {
 		const tempTable = clone(BrimstoneChestTable);
 		const loot = new Loot();
-		const fishlvl = options.fishlvl ?? 99;
+		const fishLvl = options.fishLvl ?? 99;
 
-		switch (true) {
-			case fishlvl < 40: {
-				tempTable.add('Raw tuna', [100, 350], 3);
-				break;
-			}
-			case fishlvl < 50: {
-				tempTable.add('Raw lobster', [100, 350], 3);
-				break;
-			}
-			case fishlvl < 62: {
-				tempTable.add('Raw swordfish', [100, 300], 3);
-				break;
-			}
-			case fishlvl < 76: {
-				tempTable.add('Raw monkfish', [100, 300], 3);
-				break;
-			}
-			case fishlvl < 79: {
-				tempTable.add('Raw shark', [100, 250], 3);
-				break;
-			}
-			case fishlvl < 81: {
-				tempTable.add('Raw sea turtle', [80, 200], 3);
-				break;
-			}
-			case fishlvl >= 81: {
-				tempTable.add('Raw manta ray', [80, 160], 3);
-				break;
+		for (const fish of BrimstoneChestBonus) {
+			if (typeof fish.req === 'number') {
+				if (fishLvl >= fish.req) {
+					tempTable.add(fish.item, fish.qty, fish.weight);
+				}
+			} else {
+				if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+					tempTable.add(fish.item, fish.qty, fish.weight);
+				}
 			}
 		}
 
