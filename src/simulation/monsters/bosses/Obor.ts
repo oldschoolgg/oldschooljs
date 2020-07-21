@@ -35,7 +35,7 @@ const OborTable = new LootTable({ limit: 118 })
 	.add('Big bones', 50, 8)
 	.add(
 		[
-			['Uncut Diamond', 5],
+			['Uncut diamond', 5],
 			['Uncut ruby', 5]
 		],
 		1,
