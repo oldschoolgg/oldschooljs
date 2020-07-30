@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 
 export const UndeadChickenTable = new LootTable({ limit: 4 })
 	.every('Bones')
-	.every('Raw chicken (undead)')
+	.every('Raw chicken')
 	.add('Feather', 5, 2)
 	.add('Feather', 15, 1);
 
