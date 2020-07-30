@@ -15,7 +15,6 @@ import IronDragon from './IronDragon';
 import SkeletalWyvern from './SkeletalWyvern';
 import Aviansie from './Aviansie';
 import DustDevil from './DustDevil';
-import KalphiteWorker from './KalphiteWorker';
 import SmokeDevil from './SmokeDevil';
 import BasiliskKnight from './BasiliskKnight';
 import ElfWarrior from './ElfWarrior';
@@ -46,33 +45,11 @@ import Gargoyle from './Gargoyle';
 import MountainTroll from './MountainTroll';
 import Woman from './Woman';
 import CaveHorror from './CaveHorror';
-import Goblin from './Goblin';
 import Zygomite from './Zygomite';
 import Wyrm from './Wyrm';
 import CaveKraken from './CaveKraken';
 import GreaterDemon from './GreaterDemon';
 import Nechryael from './Nechryael';
-import Banshee from './Banshee';
-import CaveBug from './CaveBug';
-import Cow from './Cow';
-import Dwarf from './Dwarf';
-import Lizard from './Lizard';
-import Rat from './Rat';
-import Spider from './Spider';
-import Bat from './Bat';
-import CaveCrawler from './CaveCrawler';
-import CrawlingHand from './CrawlingHand';
-import Ghost from './Ghost';
-import Minotaur from './Minotaur';
-import Scorpion from './Scorpion';
-import Wolf from './Wolf';
-import Bear from './BlackBear';
-import CaveSlime from './CaveSlime';
-import GuardDog from './GuardDog';
-import Icefiend from './Icefiend';
-import Monkey from './Monkey';
-import Skeleton from './Skeleton';
-import Zombie from './Zombie';
 
 export default {
 	AberrantSpectre,
@@ -92,7 +69,6 @@ export default {
 	SkeletalWyvern,
 	Aviansie,
 	DustDevil,
-	KalphiteWorker,
 	SmokeDevil,
 	BasiliskKnight,
 	ElfWarrior,
@@ -123,31 +99,9 @@ export default {
 	MountainTroll,
 	Woman,
 	CaveHorror,
-	Goblin,
 	Zygomite,
 	Wyrm,
 	CaveKraken,
 	GreaterDemon,
-	Nechryael,
-	Banshee,
-	CaveBug,
-	Cow,
-	Dwarf,
-	Lizard,
-	Rat,
-	Spider,
-	Bat,
-	CaveCrawler,
-	CrawlingHand,
-	Ghost,
-	Minotaur,
-	Scorpion,
-	Wolf,
-	Bear,
-	CaveSlime,
-	GuardDog,
-	Icefiend,
-	Monkey,
-	Skeleton,
-	Zombie
+	Nechryael
 };
