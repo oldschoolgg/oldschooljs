@@ -45,5 +45,5 @@ export default new SimpleMonster({
 	id: 955,
 	name: 'Kalphite Worker',
 	table: KalphiteWorkerTable,
-	aliases: ['kalphite worker', 'kalphite']
+	aliases: ['kalphite worker']
 });
