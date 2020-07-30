@@ -6,8 +6,8 @@ import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 const TatteredPageTable = new LootTable()
 	.add('Tattered moon page')
-	.add('Tattared sun page')
-	.add('Tattared temple page');
+	.add('Tattered sun page')
+	.add('Tattered temple page');
 
 export const TempleSpiderTable = new LootTable()
 	/* Tertiary */

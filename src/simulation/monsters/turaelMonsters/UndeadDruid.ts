@@ -6,8 +6,8 @@ import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 const TatteredPageTable = new LootTable()
 	.add('Tattered moon page')
-	.add('Tattared sun page')
-	.add('Tattared temple page');
+	.add('Tattered sun page')
+	.add('Tattered temple page');
 
 /* For more herbs */
 const HerbHerbDropTable = new LootTable()
