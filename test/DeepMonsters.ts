@@ -767,3 +767,39 @@ test('Corporeal Beast', async (test): Promise<void> => {
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
+
+test('Obor', async (test): Promise<void> => {
+	const expectedRates = {
+		'Rune med helm': 19.67,
+		'Rune full helm': 23.6,
+		'Rune longsword': 23.6,
+		'Rune battleaxe': 29.5,
+		'Rune kiteshield': 39.33,
+		'Rune chainbody': 39.33,
+		'Rune platelegs': 39.33,
+		'Rune plateskirt': 39.33,
+		'Rune 2h sword': 39.33,
+		'Hill giant club': 118,
+		'Law rune': 9.83 / ((50 + 99) / 2),
+		'Cosmic rune': 9.83 / ((60 + 119) / 2),
+		'Chaos rune': 11.8 / ((100 + 199) / 2),
+		'Death rune': 11.8 / ((40 + 79) / 2),
+		'Nature rune': 16.86 / ((40 + 79) / 2),
+		Coins: 11.8 / ((10000 + 20000) / 2),
+		'Limpwurt root': 14.75 / 20,
+		'Uncut ruby': 23.6 / 5,
+		'Uncut diamond': 23.6 / 5,
+		'Giant key': 16,
+		'Long bone': 400,
+		'Giant champion scroll': 5000,
+		'Curved bone': 5013
+	};
+
+	const Obor = Monsters.Obor;
+	test.equals(Obor.table.totalWeight, 118, 'Obor table weight should be 118');
+
+	const number = 10_000_000;
+	const loot = Monsters.Obor.kill(number);
+
+	checkThreshold(test, expectedRates, loot, number);
+});
