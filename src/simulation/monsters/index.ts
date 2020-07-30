@@ -24,6 +24,7 @@ import Cerberus from './bosses/Cerberus';
 
 import SpecialMonsters from './special';
 import LowMonsters from './low';
+import TuraelMonsters from './turaelMonsters';
 
 const monstersObject = {
 	DagannothPrime,
@@ -48,7 +49,8 @@ const monstersObject = {
 	CorporealBeast,
 	KalphiteQueen,
 	...LowMonsters,
-	...SpecialMonsters
+	...SpecialMonsters,
+	...TuraelMonsters
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [

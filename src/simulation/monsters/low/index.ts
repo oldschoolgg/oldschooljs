@@ -7,7 +7,6 @@ import DarkBeast from './DarkBeast';
 import Hellhound from './Hellhound';
 import RuneDragon from './RuneDragon';
 import AdamantDragon from './AdamantDragon';
-import DemonicGorilla from '../turaelMonsters/DemonicGorilla';
 import ScarabMage from './ScarabMage';
 import Ankou from './Ankou';
 import Drake from './Drake';
@@ -61,7 +60,6 @@ export default {
 	Hellhound,
 	RuneDragon,
 	AdamantDragon,
-	DemonicGorilla,
 	ScarabMage,
 	Ankou,
 	Drake,
