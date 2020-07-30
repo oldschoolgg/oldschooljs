@@ -449,9 +449,6 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
-	/**
-	 * Needed for Hespori
-	 */
 	farmingLevel?: number;
 }
 

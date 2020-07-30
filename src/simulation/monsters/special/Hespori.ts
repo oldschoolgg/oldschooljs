@@ -10,7 +10,6 @@ const HesporiTable = new LootTable()
 	.add('Kronos seed', [1, 2], 1);
 
 const MainTable = new LootTable()
-	// Always roll on this table
 	.every(HesporiTable)
 
 	// Pre-roll for bucket
@@ -77,5 +76,4 @@ export class Hespori extends SimpleMonster {
 	}
 }
 
-// Uses NPC id for Hespori
 export default new Hespori({ id: 8583, name: 'Hespori', aliases: ['hespori'] });
