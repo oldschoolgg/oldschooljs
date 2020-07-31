@@ -1,6 +1,5 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
 
 export const OborTable = new LootTable()
 	.every('Big bones')
@@ -29,7 +28,7 @@ export const OborTable = new LootTable()
 	/* Other */
 	.add('Coins', [10000, 20000], 10)
 	.add('Limpwurt root', 20, 8)
-	.add('Big bone', 50, 8)
+	.add('Big bones', 50, 8)
 	.add('Uncut ruby', 5, 5)
 	.add('Uncut diamond', 1, 5)
 

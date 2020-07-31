@@ -1,7 +1,5 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
-import HerbDropTable from '../../subtables/HerbDropTable';
 import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 export const MogreTable = new LootTable()

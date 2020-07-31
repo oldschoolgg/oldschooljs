@@ -29,7 +29,7 @@ export const WallBeastTable = new LootTable()
 	.add('Lantern lens', 1, 8)
 	.add('Unlit torch', 1, 8)
 	.add('Eye of newt', 1, 4)
-	.add('Bullseye latern (unf)', 1, 1)
+	.add('Bullseye lantern (unf)', 1, 1)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (medium)');
