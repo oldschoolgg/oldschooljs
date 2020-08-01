@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const ElfWarriorTable = new LootTable()
+const ElfArcherTable = new LootTable()
 	.every('Bones')
 
 	/*Weapons and armour */
@@ -34,16 +34,16 @@ const ElfWarriorTable = new LootTable()
 	.add('Shark', 1, 3)
 	.add('Adamantite ore', 1, 2)
 
-	/* Rdt */
+	/* Gem drop table */
 	.add(GemTable, 1, 5)
 
 	/* Tertiary */
-	.tertiary(40, 'Ensouled elf head')
+	.tertiary(50, 'Ensouled elf head')
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 5293,
-	name: 'Elf Warrior',
-	table: ElfWarriorTable,
-	aliases: ['elf warrior']
+	id: 5295,
+	name: 'Elf Archer',
+	table: ElfArcherTable,
+	aliases: ['elf archer']
 });

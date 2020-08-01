@@ -2,8 +2,9 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
+import RareSeedDropTable from '../../subtables/RareSeedTable';
 
-const ElfWarriorTable = new LootTable()
+const IorwerthArcherTable = new LootTable()
 	.every('Bones')
 
 	/*Weapons and armour */
@@ -23,27 +24,32 @@ const ElfWarriorTable = new LootTable()
 	/* Herbs */
 	.add(HerbDropTable, 1, 15)
 
+	/* Seeds */
+	.add(RareSeedDropTable, 1, 16)
+
 	/* Coins */
 	.add('Coins', 44, 29)
 	.add('Coins', 180, 10)
+	.add('Coins', 132, 8)
 	.add('Coins', 20, 5)
+	.add('Coins', 440, 1)
 
 	/* Other */
-	.add('Crystal teleport seed', 1, 25)
 	.add('Bass', 1, 3)
 	.add('Shark', 1, 3)
 	.add('Adamantite ore', 1, 2)
+	.add('teleport crystal (1)', 1, 1)
 
-	/* Rdt */
+	/* Gem drop table */
 	.add(GemTable, 1, 5)
 
 	/* Tertiary */
-	.tertiary(40, 'Ensouled elf head')
+	.tertiary(50, 'Ensouled elf head')
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
-	id: 5293,
-	name: 'Elf Warrior',
-	table: ElfWarriorTable,
-	aliases: ['elf warrior']
+	id: 3428,
+	name: 'Iorwerth Archer',
+	table: IorwerthArcherTable,
+	aliases: ['iorwerth archer']
 });
