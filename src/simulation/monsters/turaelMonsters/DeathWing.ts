@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 
 export const DeathWingTable = new LootTable().tertiary(128, 'Clue scroll (beginner)');
 export default new SimpleMonster({
-	id: 99,
+	id: 509,
 	name: 'Death wing',
 	table: DeathWingTable,
 	aliases: ['death wing']
