@@ -51,7 +51,7 @@ const BrutalRedDragonTable = new LootTable()
 	/* Tertiary */
 	.tertiary(20, 'Ensouled dragon head')
 	.tertiary(128, 'Clue scroll (hard)')
-	.tertiary(5000, 'Clue scroll (elite)')
+	.tertiary(500, 'Clue scroll (elite)')
 	.tertiary(10000, 'Draconic visage');
 
 export default new SimpleMonster({
