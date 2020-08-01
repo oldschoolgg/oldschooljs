@@ -1,51 +1,60 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import HerbDropTable from '../../subtables/HerbDropTable';
+import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
+//Wildy loot table, not rev cave
 const IceGiantTable = new LootTable()
-	//Ice giant loot table is not done!
 	.every('Big bones')
 
 	/*Weapons and armour */
-	.add('Steel platelegs', 1, 4)
-	.add('Mithril axe', 1, 3)
-	.add('Steel battleaxe', 1, 3)
-	.add('Mithril spear', 1, 2)
-	.add('Adamant full helm', 1, 1)
-	.add('Mithril kiteshield', 1, 1)
-	.add('Rune dagger', 1, 1)
+	.add('Iron 2h sword', 1, 5)
+	.add('Black kiteshield', 1, 4)
+	.add('Steel axe', 1, 4)
+	.add('Steel sword', 1, 4)
+	.add('Iron platelegs', 1, 1)
+	.add('Mithril mace', 1, 1)
+	.add('Mithril sq shield', 1, 1)
 
-	/* Runes*/
-	.add('Water rune', 75, 8)
-	.add('Nature rune', 15, 5)
-	.add('Law rune', 3, 3)
-	.add('Fire rune', 37, 1)
+	/* Runes and ammunition */
+	.add('Adamant arrow', 5, 6)
+	.add('Nature rune', 6, 4)
+	.add('Mind rune', 24, 3)
+	.add('Body rune', 37, 3)
+	.add('Law rune', 3, 2)
+	.add('Water rune', 12, 1)
+	.add('Cosmic rune', 4, 1)
+	.add('Death rune', 3, 1)
+	.add('Blood rune', 2, 1)
 
-	/* Herbs */
-	.add(HerbDropTable, 1, 15)
+	/* Seeds */
+	.add(UncommonSeedDropTable, 1, 8)
 
 	/* Coins */
-	.add('Coins', 44, 29)
-	.add('Coins', 132, 25)
-	.add('Coins', 200, 10)
-	.add('Coins', 11, 5)
-	.add('Coins', 440, 1)
+	.add('Coins', 117, 32)
+	.add('Coins', 53, 12)
+	.add('Coins', 196, 10)
+	.add('Coins', 8, 7)
+	.add('Coins', 22, 6)
+	.add('Coins', 400, 2)
 
 	/* Other */
-	.add('Adamantite ore', 1, 3)
-	.add('Bass', 1, 3)
+	.add('Jug of wine', 1, 3)
+	.add('Mithril ore', 1, 1)
+	.add('Banana', 1, 1)
 
-	/* Rdt */
-	.add(GemTable, 1, 5)
+	/* Gem drop table */
+	.add(GemTable, 1, 4)
 
 	/* Tertiary */
-	.tertiary(50, 'Ensouled dragon head')
-	.tertiary(128, 'Clue scroll (hard)');
+	.tertiary(21, 'Ensouled giant head')
+	.tertiary(40, 'Clue scroll (beginner)')
+	.tertiary(400, 'Long bone')
+	.tertiary(5000, 'Giant champion scroll')
+	.tertiary(5013, 'Curved bone');
 
 export default new SimpleMonster({
-	//Not right ID
-	id: 2086,
+	id: 2085,
 	name: 'Ice giant',
 	table: IceGiantTable,
 	aliases: ['ice giant']

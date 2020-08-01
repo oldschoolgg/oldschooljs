@@ -1,6 +1,5 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import RareSeedTable from '../../subtables/RareSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
 const DagannothSpawnTable = new LootTable()
