@@ -52,5 +52,5 @@ export default new SimpleMonster({
 	id: 794,
 	name: 'Scarab Mage',
 	table: ScarabMageTable,
-	aliases: ['scarab mage', 'scarab']
+	aliases: ['scarab mage']
 });
