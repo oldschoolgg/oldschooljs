@@ -8,7 +8,6 @@ import Hellhound from './Hellhound';
 import RuneDragon from './RuneDragon';
 import AdamantDragon from './AdamantDragon';
 import DemonicGorilla from './DemonicGorilla';
-import ScarabMage from './ScarabMage';
 import Ankou from './Ankou';
 import Drake from './Drake';
 import IronDragon from './IronDragon';
@@ -30,7 +29,6 @@ import FossilIslandWyvernAncient from './FossilIslandWyvernAncient';
 import Lizardman from './Lizardman';
 import SpiritualWarrior from './SpiritualWarrior';
 import FossilIslandWyvernLongTailed from './FossilIslandWyvernLongTailed';
-import LocustRider from './LocustRider';
 import SteelDragon from './SteelDragon';
 import Bloodveld from './Bloodveld';
 import FossilIslandWyvernSpitting from './FossilIslandWyvernSpitting';
@@ -84,7 +82,6 @@ export default {
 	RuneDragon,
 	AdamantDragon,
 	DemonicGorilla,
-	ScarabMage,
 	Ankou,
 	Drake,
 	IronDragon,
@@ -106,7 +103,6 @@ export default {
 	Lizardman,
 	SpiritualWarrior,
 	FossilIslandWyvernLongTailed,
-	LocustRider,
 	SteelDragon,
 	Bloodveld,
 	FossilIslandWyvernSpitting,
