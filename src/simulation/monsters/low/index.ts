@@ -1,7 +1,6 @@
 import AberrantSpectre from './AberrantSpectre';
 import Dagannoth from './Dagannoth';
 import Guard from './Guard';
-import RedDragon from './RedDragon';
 import AbyssalDemon from './AbyssalDemon';
 import DarkBeast from './DarkBeast';
 import Hellhound from './Hellhound';
@@ -78,7 +77,6 @@ export default {
 	AberrantSpectre,
 	Dagannoth,
 	Guard,
-	RedDragon,
 	AbyssalDemon,
 	DarkBeast,
 	Hellhound,
