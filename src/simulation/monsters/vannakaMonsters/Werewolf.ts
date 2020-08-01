@@ -42,7 +42,7 @@ const WerewolfTable = new LootTable({ limit: 512 })
 	.tertiary(512, 'Clue scroll (medium)');
 
 export default new SimpleMonster({
-	id: 2592,
+	id: 2593,
 	name: 'Werewolf',
 	table: WerewolfTable,
 	aliases: ['werefolf']

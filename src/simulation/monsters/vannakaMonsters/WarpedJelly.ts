@@ -13,7 +13,7 @@ const WarpedJellyTable = new LootTable()
 	.add('Rune full helm', 1, 1)
 
 	/* Runes */
-	.add('Chaons rune', 45, 5)
+	.add('Chaos rune', 45, 5)
 	.add('Death rune', 15, 3)
 
 	/* Coins */

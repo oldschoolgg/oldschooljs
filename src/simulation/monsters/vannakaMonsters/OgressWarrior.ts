@@ -4,7 +4,7 @@ import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
 const OgressWarriorTable = new LootTable()
-	.every('Big boness')
+	.every('Big bones')
 
 	/* Armour */
 	.add('Mithril kiteshield', 1, 7)

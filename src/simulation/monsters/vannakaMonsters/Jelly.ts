@@ -19,7 +19,7 @@ const JellyTable = new LootTable()
 	.add('Coins', 460, 2)
 
 	/* Other */
-	.add('Chaons rune', 15, 5)
+	.add('Chaos rune', 15, 5)
 	.add('Death rune', 5, 3)
 	.add('Gold bar', 1, 2)
 	.add('Thread', 10, 1)
