@@ -23,11 +23,8 @@ import Kurask from './Kurask';
 import SpiritualMage from './SpiritualMage';
 import Basilisk from './Basilisk';
 import FireGiant from './FireGiant';
-import LizardmanShaman from './LizardmanShaman';
 import SpiritualRanger from './SpiritualRanger';
-import BlackDemon from './BlackDemon';
 import FossilIslandWyvernAncient from './FossilIslandWyvernAncient';
-import Lizardman from './Lizardman';
 import SpiritualWarrior from './SpiritualWarrior';
 import BlackDragon from './BlackDragon';
 import FossilIslandWyvernLongTailed from './FossilIslandWyvernLongTailed';
@@ -45,12 +42,8 @@ import BrineRat from './BrineRat';
 import Gargoyle from './Gargoyle';
 import MountainTroll from './MountainTroll';
 import Woman from './Woman';
-import CaveHorror from './CaveHorror';
 import Goblin from './Goblin';
-import Zygomite from './Zygomite';
 import Wyrm from './Wyrm';
-import CaveKraken from './CaveKraken';
-import GreaterDemon from './GreaterDemon';
 import Nechryael from './Nechryael';
 import Banshee from './Banshee';
 import CaveBug from './CaveBug';
@@ -100,11 +93,8 @@ export default {
 	SpiritualMage,
 	Basilisk,
 	FireGiant,
-	LizardmanShaman,
 	SpiritualRanger,
-	BlackDemon,
 	FossilIslandWyvernAncient,
-	Lizardman,
 	SpiritualWarrior,
 	BlackDragon,
 	FossilIslandWyvernLongTailed,
@@ -122,12 +112,8 @@ export default {
 	Gargoyle,
 	MountainTroll,
 	Woman,
-	CaveHorror,
 	Goblin,
-	Zygomite,
 	Wyrm,
-	CaveKraken,
-	GreaterDemon,
 	Nechryael,
 	Banshee,
 	CaveBug,

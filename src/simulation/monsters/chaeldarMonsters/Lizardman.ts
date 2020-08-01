@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
+import CommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 const LizardmanTable = new LootTable({ limit: 78 })
 	.every('Bones')
