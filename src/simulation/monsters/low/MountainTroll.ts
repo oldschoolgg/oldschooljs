@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
-import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
+import UncommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 const MountainTrollTable = new LootTable({ limit: 128 })
 	.every('Big bones')
@@ -26,7 +26,7 @@ const MountainTrollTable = new LootTable({ limit: 128 })
 	.add(HerbDropTable, 1, 15)
 
 	/* Seeds */
-	.add(CommonSeedDropTable, 1, 19)
+	.add(UncommonSeedDropTable, 1, 19)
 
 	/* Other */
 	.add('Coins', 35, 29)
