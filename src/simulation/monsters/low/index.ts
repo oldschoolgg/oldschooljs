@@ -29,7 +29,6 @@ import BlackDemon from './BlackDemon';
 import FossilIslandWyvernAncient from './FossilIslandWyvernAncient';
 import Lizardman from './Lizardman';
 import SpiritualWarrior from './SpiritualWarrior';
-import BlackDragon from './BlackDragon';
 import FossilIslandWyvernLongTailed from './FossilIslandWyvernLongTailed';
 import LocustRider from './LocustRider';
 import SteelDragon from './SteelDragon';
@@ -106,7 +105,6 @@ export default {
 	FossilIslandWyvernAncient,
 	Lizardman,
 	SpiritualWarrior,
-	BlackDragon,
 	FossilIslandWyvernLongTailed,
 	LocustRider,
 	SteelDragon,
