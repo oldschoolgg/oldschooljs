@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
-import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
+import CommonSeedDropTable from '../../subtables/UncommonSeedDropTable';
 
 // TODO: check back for wiki drop table update
 const ZygomiteTable = new LootTable()
