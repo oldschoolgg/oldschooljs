@@ -49,7 +49,7 @@ const NormalTable = new LootTable()
 	.add('Chaos rune', [150, 300], 6)
 	.add('Death rune', [150, 300], 6)
 	.add('Blood rune', [150, 300], 6)
-	.add('Astrak rune', [150, 300], 6)
+	.add('Astral rune', [150, 300], 6)
 	.add('Dragonstone bolts (e)', [100, 120], 2)
 	.add('Onyx bolts (e)', [35, 50], 1)
 

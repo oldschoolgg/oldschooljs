@@ -21,6 +21,11 @@ import Monster from '../../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Cerberus from './bosses/Cerberus';
+import AbyssalSire from './bosses/AbyssalSire';
+import AlchemicalHydra from './bosses/AlchemicalHydra';
+import GrotesqueGuardians from './bosses/GrotesqueGuardians';
+import Sarachnis from './bosses/Sarachnis';
+import ThermonuclearSmokeDevil from './bosses/ThermonuclearSmokeDevil';
 
 import SpecialMonsters from './special';
 import LowMonsters from './low';
@@ -47,6 +52,11 @@ const monstersObject = {
 	CrazyArchaeologist,
 	CorporealBeast,
 	KalphiteQueen,
+	AlchemicalHydra,
+	AbyssalSire,
+	GrotesqueGuardians,
+	Sarachnis,
+	ThermonuclearSmokeDevil,
 	...LowMonsters,
 	...SpecialMonsters
 };
