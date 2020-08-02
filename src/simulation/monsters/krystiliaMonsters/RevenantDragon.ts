@@ -45,7 +45,7 @@ export const RevenantDragonTable = new LootTable()
 	.add('Yew logs', [60, 100], 3)
 	.add('Magic logs', [15, 25], 2)
 	.add('Uncut dragonstone', [5, 7], 1)
-	.oneIn(2000, 'Maigc seed', [5, 19])
+	.oneIn(2000, 'Magic seed', [5, 19])
 
 	/* Other */
 	.add('Revenant cave teleport', 1, 7)

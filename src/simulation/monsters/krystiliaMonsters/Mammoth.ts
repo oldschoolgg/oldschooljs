@@ -35,7 +35,7 @@ const FruitTreeSeedTable = new LootTable()
 	.add('Orange tree seed', 1, 10)
 	.add('Curry tree seed', 1, 6)
 	.add('Pineapple seed', 1, 3)
-	.add('Papaya seed', 1, 1);
+	.add('Papaya tree seed', 1, 1);
 
 export const MammothTable = new LootTable()
 	.every('Big bones')

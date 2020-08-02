@@ -24,6 +24,7 @@ import Cerberus from './bosses/Cerberus';
 
 import SpecialMonsters from './special';
 import LowMonsters from './low';
+import KrystiliaMonsters from './krystiliaMonsters';
 
 const monstersObject = {
 	DagannothPrime,
@@ -48,6 +49,7 @@ const monstersObject = {
 	CorporealBeast,
 	KalphiteQueen,
 	...LowMonsters,
+	...KrystiliaMonsters,
 	...SpecialMonsters
 };
 
