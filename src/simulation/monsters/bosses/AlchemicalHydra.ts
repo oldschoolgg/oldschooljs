@@ -86,6 +86,7 @@ const AlchemicalHydraTable = new LootTable()
 	.every(NormalTable)
 
 	/* Tertiary */
+	.tertiary(40, 'Brimstone key')
 	.tertiary(100, 'Clue scroll (hard)')
 	.tertiary(256, 'Alchemical hydra heads')
 	.tertiary(256, 'Clue scroll (elite)')
