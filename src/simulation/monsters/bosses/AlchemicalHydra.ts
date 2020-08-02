@@ -60,12 +60,18 @@ const NormalTable = new LootTable()
 	.add(TreeSeedDropTable, 1, 2)
 
 	/* Other */
-	.add('Coins', [40000, 60000], 16)
-	.add('Shark', [2, 4], 11)
-	.add('Ranging potion(3)', 1, 6)
-	.add('Super restore(3)', 2, 4)
-	.add('Dragon bones', 30, 3)
-	.add('Crystal key', 1, 2)
+	.add('Coins', [40000, 60000], 10)
+	.add('Shark', [2, 4], 7)
+	.add(
+		[
+			['Ranging potion(3)', 1],
+			['Super restore(3)', 2]
+		],
+		1,
+		7
+	)
+	.add('Dragon bones', 30, 6)
+	.add('Crystal key', 1, 1)
 	.oneIn(202, 'Coins', [5550, 25550])
 
 	/* Rare drop table */
