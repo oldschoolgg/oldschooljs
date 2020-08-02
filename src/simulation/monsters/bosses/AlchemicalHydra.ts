@@ -1,58 +1,96 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
+import TreeSeedDropTable from '../../subtables/TreeHerbSeedTable';
 
-const CerberusUniqueTable = new LootTable()
-	.add('Primordial crystal')
-	.add('Pegasian crystal')
-	.add('Eternal crystal')
-	.add('Smouldering stone');
+const RuneArmourTable = new LootTable()
+	.every('Rune platebody')
+	.add('Rune platelegs')
+	.add('Rune plateskirt');
 
-const AlchemicalHydraTable = new LootTable()
-	.every('Ashes')
-	.add(CerberusUniqueTable)
-	.tertiary(100, 'Clue scroll (elite)')
-	.tertiary(2000, 'Jar of souls')
-	.tertiary(3000, 'Hellpuppy')
+const NotedHerbsTable = new LootTable()
+	.add('Grimy avantoe', [10, 15], 4)
+	.add('Grimy kwuarm', [25, 30], 4)
+	.add('Grimy ranarr weed', [10, 15], 3)
+	.add('Grimy snapdragon', [25, 30], 3)
+	.add('Grimy cadantine', [25, 30], 3)
+	.add('Grimy dwarf weed', [25, 30], 3)
+	.add('Grimy lantadyme', [25, 30], 2)
+	.add('Grimy torstol', [10, 15], 2);
 
-	/* Weapons and armour */
-	.add('Rune platebody', 1, 5)
-	.add('Rune chainbody', 1, 4)
-	.add('Rune 2h sword', 1, 4)
-	.add(`Black d'hide body`, 1, 3)
-	.add('Rune axe', 1, 3)
-	.add('Rune pickaxe', 1, 3)
-	.add('Battlestaff', 6, 3)
-	.add('Rune full helm', 1, 3)
-	.add('Lava battlestaff', 1, 2)
-	.add('Rune halberd', 1, 2)
+const NormalTable = new LootTable()
+	.every('Hydra bones')
+
+	/*Weapons and armour */
+	.add(
+		[
+			['Mystic fire staff', 1],
+			['Mystic water staff', 1]
+		],
+		1,
+		8
+	)
+	.add(RuneArmourTable, 1, 6)
+	.add('Battlestaff', [8, 12], 5)
+	.add("Black d'hide body", 1, 5)
+	.add('Dragon longsword', 1, 3)
+	.add('Dragon med helm', 1, 3)
+	.add('Dragon battleaxe', 1, 2)
+	.add(
+		[
+			['Mystic robe top (light)', 1],
+			['Mystic robe bottom (light)', 1]
+		],
+		1,
+		1
+	)
 
 	/* Runes and ammunition */
-	.add('Fire rune', 300, 6)
-	.add('Soul rune', 100, 6)
-	.add('Pure essence', 300, 5)
-	.add('Blood rune', 60, 4)
-	.add('Cannonball', 50, 4)
-	.add('Runite bolts (unf)', 40, 4)
-	.add('Death rune', 100, 3)
+	.add('Chaos rune', [150, 300], 6)
+	.add('Death rune', [150, 300], 6)
+	.add('Blood rune', [150, 300], 6)
+	.add('Astrak rune', [150, 300], 6)
+	.add('Dragonstone bolts (e)', [100, 120], 2)
+	.add('Onyx bolts (e)', [35, 50], 1)
+
+	/* Herbs */
+	.add(NotedHerbsTable, 1, 10)
+
+	/* Seeds */
+	.add(TreeSeedDropTable, 1, 2)
 
 	/* Other */
-	.add('Coal', 120, 6)
-	.add('Super restore(4)', 2, 6)
-	.add('Summer pie', 3, 6)
-	.add('Coins', [10000, 20000], 5)
-	.add('Dragon Bones', 20, 5)
-	.add('Unholy symbol', 1, 5)
-	.add('Wine of zamorak', 15, 5)
-	.add('Ashes', 50, 4)
-	.add('Fire orb', 20, 4)
-	.add('Grimy Torstol', 6, 4)
-	.add('Runite ore', 5, 3)
-	.add('Uncut diamond', 5, 3)
-	.add('Key master teleport', 3, 2)
-	.add('Torstol seed', 3, 2)
+	.add('Coins', [40000, 60000], 16)
+	.add('Shark', [2, 4], 11)
+	.add('Ranging potion(3)', 1, 6)
+	.add('Super restore(3)', 2, 4)
+	.add('Dragon bones', 30, 3)
+	.add('Crystal key', 1, 2)
+	.oneIn(202, 'Coins', [5550, 25550])
 
-	.add(RareDropTable, 1, 3);
+	/* Rare drop table */
+	.add(RareDropTable, 1, 1);
+
+const NormalUniqueTable = new LootTable()
+	.add(NormalTable)
+	.oneIn(181, "Hydra's eye")
+	.oneIn(181, "Hydra's fang")
+	.oneIn(181, "Hydra's heart")
+	.oneIn(513, 'Hydra tail')
+	.oneIn(1001, "Hydra's claw")
+	.oneIn(2000, 'Dragon thrownaxe', [500, 1000])
+	.oneIn(2001, 'Dragon knife', [500, 1000]);
+
+const AlchemicalHydraTable = new LootTable()
+	.every(NormalUniqueTable)
+	.every(NormalTable)
+
+	/* Tertiary */
+	.tertiary(100, 'Clue scroll (hard)')
+	.tertiary(256, 'Alchemical hydra heads')
+	.tertiary(256, 'Clue scroll (elite)')
+	.tertiary(2000, 'Jar of chemicals')
+	.tertiary(3000, 'Ikkle hydra');
 
 export default new SimpleMonster({
 	id: 8615,
