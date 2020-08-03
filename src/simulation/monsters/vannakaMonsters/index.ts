@@ -1,5 +1,6 @@
 import AberrantSpectre from './AberrantSpectre';
 import AbyssalDemon from './AbyssalDemon';
+import Ankou from './Ankou';
 import BabyBlueDragon from './BabyBlueDragon';
 import BabyGreenDragon from './BabyGreenDragon';
 import Basilisk from './Basilisk';
@@ -64,6 +65,7 @@ import Werewolf from './Werewolf';
 export default {
 	AberrantSpectre,
 	AbyssalDemon,
+	Ankou,
 	BabyBlueDragon,
 	BabyGreenDragon,
 	Basilisk,

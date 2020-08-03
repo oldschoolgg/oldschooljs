@@ -15,6 +15,7 @@ import LizardmanBrute from './LizardmanBrute';
 import LizardmanShaman from './LizardmanShaman';
 import Porazdir from './Porazdir';
 import ReanimatedTzHaar from './ReanimatedTzHaar';
+import SkeletalWyvern from './SkeletalWyvern';
 import Skotizo from './Skotizo';
 import TzHaarKet from './TzHaarKet';
 import Wyrm from './Wyrm';
@@ -38,6 +39,7 @@ export default {
 	LizardmanShaman,
 	Porazdir,
 	ReanimatedTzHaar,
+	SkeletalWyvern,
 	Skotizo,
 	TzHaarKet,
 	Wyrm,
