@@ -1,6 +1,6 @@
 import LootTable from '../../structures/LootTable';
 
-const CommonSeedDropTable = new LootTable()
+const UncommonSeedDropTable = new LootTable()
 	.add('Limpwurt seed', 1, 137)
 	.add('Strawberry seed', 1, 131)
 	.add('Marrentill seed', 1, 125)
@@ -27,4 +27,4 @@ const CommonSeedDropTable = new LootTable()
 	.add('Dwarf weed seed', 1, 2)
 	.add('Torstol seed', 1, 1);
 
-export default CommonSeedDropTable;
+export default UncommonSeedDropTable;
