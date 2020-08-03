@@ -21,9 +21,21 @@ import Monster from '../../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Cerberus from './bosses/Cerberus';
+import AbyssalSire from './bosses/AbyssalSire';
+import AlchemicalHydra from './bosses/AlchemicalHydra';
+import GrotesqueGuardians from './bosses/GrotesqueGuardians';
+import Sarachnis from './bosses/Sarachnis';
+import ThermonuclearSmokeDevil from './bosses/ThermonuclearSmokeDevil';
 
 import SpecialMonsters from './special';
 import LowMonsters from './low';
+import ChaeldarMonsters from './chaeldarMonsters';
+import KonarMonsters from './konarMonsters';
+import KrystiliaMonsters from './krystiliaMonsters';
+import MazchnaMonsters from './mazchnaMonsters';
+import NieveMonsters from './nieveMonsters';
+import TuraelMonsters from './turaelMonsters';
+import VannakaMonsters from './vannakaMonsters';
 
 const monstersObject = {
 	DagannothPrime,
@@ -47,7 +59,20 @@ const monstersObject = {
 	CrazyArchaeologist,
 	CorporealBeast,
 	KalphiteQueen,
+	AlchemicalHydra,
+	AbyssalSire,
+	GrotesqueGuardians,
+	Sarachnis,
+	ThermonuclearSmokeDevil,
 	...LowMonsters,
+	...SpecialMonsters,
+	...ChaeldarMonsters,
+	...KonarMonsters,
+	...KrystiliaMonsters,
+	...MazchnaMonsters,
+	...NieveMonsters,
+	...TuraelMonsters,
+	...VannakaMonsters,
 	...SpecialMonsters
 };
 
