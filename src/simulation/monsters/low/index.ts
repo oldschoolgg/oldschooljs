@@ -73,6 +73,17 @@ import Icefiend from './Icefiend';
 import Monkey from './Monkey';
 import Skeleton from './Skeleton';
 import Zombie from './Zombie';
+import RevenantCyclops from './RevenantCyclops';
+import RevenantDarkBeast from './RevenantDarkBeast';
+import RevenantDemon from './RevenantDemon';
+import RevenantDragon from './RevenantDragon';
+import RevenantGoblin from './RevenantGoblin';
+import RevenantHellhound from './RevenantHellhound';
+import RevenantHobgoblin from './RevenantHobgoblin';
+import RevenantImp from './RevenantImp';
+import RevenantKnight from './RevenantKnight';
+import RevenantOrk from './RevenantOrk';
+import RevenantPyrefiend from './RevenantPyrefiend';
 
 export default {
 	AberrantSpectre,
@@ -149,5 +160,16 @@ export default {
 	Icefiend,
 	Monkey,
 	Skeleton,
-	Zombie
+	Zombie,
+	RevenantCyclops,
+	RevenantDarkBeast,
+	RevenantDemon,
+	RevenantDragon,
+	RevenantGoblin,
+	RevenantHellhound,
+	RevenantHobgoblin,
+	RevenantImp,
+	RevenantKnight,
+	RevenantOrk,
+	RevenantPyrefiend
 };
