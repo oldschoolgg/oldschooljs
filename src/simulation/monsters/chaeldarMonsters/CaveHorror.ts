@@ -5,9 +5,7 @@ import RareSeedTable from '../../subtables/RareSeedTable';
 import VariableAllotmentSeedTable from '../../subtables/VariableAllotmentSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const CaveHorrorTable = new LootTable()
-	.every('Big bones')
-
+export const CaveHorrorPreTable = new LootTable()
 	/* Weapons and armor*/
 	.add('Mithril axe', 1, 3)
 	.add('Rune dagger', 1, 1)
@@ -38,7 +36,11 @@ const CaveHorrorTable = new LootTable()
 	.add('Mahogany logs', 2, 3)
 
 	/* Gems */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const CaveHorrorTable = new LootTable()
+	.every('Big bones')
+	.every(CaveHorrorPreTable)
 
 	/* Tertiary */
 	.tertiary(30, 'Ensouled horror head')

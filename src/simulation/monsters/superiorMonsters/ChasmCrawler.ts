@@ -6,10 +6,10 @@ const ChasmCrawlerTable = new LootTable()
 	.every(CaveCrawlerTable, 3)
 
 	/* Superior Slayer tertiary */
-	.oneIn(380, 'Mist battlestaff')
-	.oneIn(380, 'Dust battlestaff')
-	.oneIn(1330, 'Eternal gem')
-	.oneIn(1330, 'Imbued heart');
+	.tertiary(380, 'Mist battlestaff')
+	.tertiary(380, 'Dust battlestaff')
+	.tertiary(1330, 'Eternal gem')
+	.tertiary(1330, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7389,

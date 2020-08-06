@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const WarpedJellyTable = new LootTable()
+export const WarpedJellyPreTable = new LootTable()
 	/*Weapons and armour */
 	.add('Adamant battleaxe', 1, 11)
 	.add('Black 2h sword', 1, 5)
@@ -29,10 +29,19 @@ const WarpedJellyTable = new LootTable()
 	.add('Thread', 10, 1)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 4)
+	.add(GemTable, 1, 4);
+
+const WarpedJellyTable = new LootTable()
+	.every(WarpedJellyPreTable)
 
 	/* Tertiary */
-	.tertiary(64, 'Clue scroll (hard)');
+	.tertiary(64, 'Clue scroll (hard)')
+
+	/* Catacombs tertiary */
+	.oneIn(240, 'Ancient shard')
+	.oneIn(360, 'Dark totem base')
+	.oneIn(360, 'Dark totem middle')
+	.oneIn(360, 'Dark totem top');
 
 export default new SimpleMonster({
 	id: 7277,

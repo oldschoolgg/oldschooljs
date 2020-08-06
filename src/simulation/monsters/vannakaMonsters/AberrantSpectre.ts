@@ -9,8 +9,7 @@ const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 11)
 	.add(HerbDropTable, 3, 4);
 
-const AberrantSpectreTable = new LootTable({ limit: 128 })
-
+export const AberrantSpectrePreTable = new LootTable({ limit: 128 })
 	/*Weapons and armour */
 	.add('Steel axe', 1, 3)
 	.add('Mithril kiteshield', 1, 1)
@@ -29,7 +28,10 @@ const AberrantSpectreTable = new LootTable({ limit: 128 })
 	.add('Coins', 460, 1)
 
 	/* Rdt */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const AberrantSpectreTable = new LootTable()
+	.every(AberrantSpectrePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

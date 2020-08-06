@@ -4,9 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const KuraskTable = new LootTable({ limit: 124 })
-	.every('Bones')
-
+export const KuraskPreTable = new LootTable({ limit: 124 })
 	/* Weapons and armor */
 	.add('Mithril kiteshield', 1, 3)
 	.add('Rune longsword', 1, 3)
@@ -37,7 +35,11 @@ const KuraskTable = new LootTable({ limit: 124 })
 	.add('Coconut', 10, 4)
 
 	/* Rdt */
-	.add(GemTable, 1, 6)
+	.add(GemTable, 1, 6);
+
+const KuraskTable = new LootTable()
+	.every('Bones')
+	.every(KuraskPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')

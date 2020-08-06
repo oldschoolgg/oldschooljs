@@ -5,9 +5,7 @@ import UsefulHerbDropTable from '../../subtables/UsefulHerbTable';
 import RareSeedDropTable from '../../subtables/RareSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const HydraTable = new LootTable()
-	.every('Hydra bones')
-
+export const HydraPreTable = new LootTable()
 	/* Pre-roll Averaged to make it easier */
 	.oneIn(900, "Hydra's eye")
 	.oneIn(900, "Hydra's heart")
@@ -57,7 +55,11 @@ const HydraTable = new LootTable()
 	.add('Dragon bones', [3, 5], 3)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const HydraTable = new LootTable()
+	.every('Hydra bones')
+	.every(HydraPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')

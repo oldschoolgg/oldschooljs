@@ -6,7 +6,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 
 const DeviantSpectreHerbTable = new LootTable().add(HerbDropTable, 2, 29).add(HerbDropTable, 3, 17);
 
-const DeviantSpectreTable = new LootTable()
+export const DeviantSpectrePreTable = new LootTable()
 	/*Weapons and armour */
 	.add('Battlestaff', 1, 5)
 	.add('Black platelegs', 1, 5)
@@ -26,11 +26,20 @@ const DeviantSpectreTable = new LootTable()
 	.add('Adamantite ore', 1, 5)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 32)
+	.add(GemTable, 1, 32);
+
+const DeviantSpectreTable = new LootTable()
+	.every(DeviantSpectrePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')
-	.tertiary(512, 'Mystic robe bottom (dark)');
+	.tertiary(512, 'Mystic robe bottom (dark)')
+
+	/* Catacombs tertiary */
+	.tertiary(206, 'Ancient shard')
+	.tertiary(310, 'Dark totem base')
+	.tertiary(310, 'Dark totem middle')
+	.tertiary(310, 'Dark totem top');
 
 export default new SimpleMonster({
 	id: 7279,

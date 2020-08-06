@@ -7,10 +7,10 @@ const ScreamingBansheeTable = new LootTable()
 	.tertiary(13, 'Clue scroll (easy)')
 
 	/* Superior Slayer tertiary */
-	.oneIn(368, 'Mist battlestaff')
-	.oneIn(367, 'Dust battlestaff')
-	.oneIn(1286, 'Eternal gem')
-	.oneIn(1286, 'Imbued heart');
+	.tertiary(368, 'Mist battlestaff')
+	.tertiary(367, 'Dust battlestaff')
+	.tertiary(1286, 'Eternal gem')
+	.tertiary(1286, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7390,

@@ -3,9 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import RareSeedTable from '../../subtables/RareSeedTable';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 
-const NechryaelTable = new LootTable({ limit: 116 })
-	.every('Ashes')
-
+export const NechryaelPreTable = new LootTable({ limit: 116 })
 	/* Weapons and armor */
 	.add('Adamant platelegs', 1, 8)
 	.add('Rune 2h sword', 1, 8)
@@ -38,7 +36,11 @@ const NechryaelTable = new LootTable({ limit: 116 })
 
 	/* Rdt */
 	.add(RareDropTable, 1, 2)
-	.add(GemTable, 1, 10)
+	.add(GemTable, 1, 10);
+
+const NechryaelTable = new LootTable()
+	.every('Ashes')
+	.every(NechryaelPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

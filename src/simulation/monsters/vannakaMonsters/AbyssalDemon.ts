@@ -3,9 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 
-const AbyssalDemonTable = new LootTable()
-	.every('Ashes')
-
+export const AbyssalDemonPreTable = new LootTable()
 	/*Weapons and armour */
 	.add('Black sword', 1, 4)
 	.add('Steel battleaxe', 1, 3)
@@ -43,13 +41,23 @@ const AbyssalDemonTable = new LootTable()
 	.add('Defence potion(3)', 1, 1)
 
 	.add(RareDropTable, 1, 2)
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const AbyssalDemonTable = new LootTable()
+	.every('Ashes')
+	.every(AbyssalDemonPreTable)
 
 	/* Tertiary */
 	.tertiary(25, 'Ensouled abyssal head')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(1200, 'Clue scroll (elite)')
-	.tertiary(6000, 'Abyssal head');
+	.tertiary(6000, 'Abyssal head')
+
+	/* Catacombs tertiary */
+	.tertiary(233, 'Ancient shard')
+	.tertiary(350, 'Dark totem base')
+	.tertiary(350, 'Dark totem middle')
+	.tertiary(350, 'Dark totem top');
 
 export default new SimpleMonster({
 	id: 415,

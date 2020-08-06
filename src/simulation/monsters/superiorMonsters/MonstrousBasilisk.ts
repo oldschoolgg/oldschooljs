@@ -7,13 +7,13 @@ const MonstrousBasiliskTable = new LootTable()
 	.every(BasiliskPreTable, 3)
 
 	/* Tertiary */
-	.oneIn(2000, 'Basilisk head')
+	.tertiary(2000, 'Basilisk head')
 
 	/* Superior Slayer tertiary */
-	.oneIn(292, 'Mist battlestaff')
-	.oneIn(292, 'Dust battlestaff')
-	.oneIn(1022, 'Eternal gem')
-	.oneIn(1022, 'Imbued heart');
+	.tertiary(292, 'Mist battlestaff')
+	.tertiary(292, 'Dust battlestaff')
+	.tertiary(1022, 'Eternal gem')
+	.tertiary(1022, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7395,

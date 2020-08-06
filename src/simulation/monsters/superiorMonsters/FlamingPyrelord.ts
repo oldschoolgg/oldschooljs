@@ -7,13 +7,13 @@ const FlamingPyrelordTable = new LootTable()
 	.every(PyrefiendPreTable, 3)
 
 	/* Tertiary */
-	.oneIn(13, 'Clue scroll (medium)')
+	.tertiary(13, 'Clue scroll (medium)')
 
 	/* Superior Slayer tertiary */
-	.oneIn(325, 'Mist battlestaff')
-	.oneIn(325, 'Dust battlestaff')
-	.oneIn(1138, 'Eternal gem')
-	.oneIn(1138, 'Imbued heart');
+	.tertiary(325, 'Mist battlestaff')
+	.tertiary(325, 'Dust battlestaff')
+	.tertiary(1138, 'Eternal gem')
+	.tertiary(1138, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7394,

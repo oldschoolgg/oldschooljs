@@ -36,6 +36,7 @@ import MazchnaMonsters from './mazchnaMonsters';
 import NieveMonsters from './nieveMonsters';
 import TuraelMonsters from './turaelMonsters';
 import VannakaMonsters from './vannakaMonsters';
+import SuperiorMonsters from './superiorMonsters';
 
 const monstersObject = {
 	DagannothPrime,
@@ -73,6 +74,7 @@ const monstersObject = {
 	...NieveMonsters,
 	...TuraelMonsters,
 	...VannakaMonsters,
+	...SuperiorMonsters,
 	...SpecialMonsters
 };
 

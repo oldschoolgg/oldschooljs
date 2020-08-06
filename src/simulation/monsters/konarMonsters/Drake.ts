@@ -14,9 +14,7 @@ const DrakeNotedHerbTable = new LootTable()
 	.add('Grimy lantadyme', [1, 3], 6)
 	.add('Grimy torstol', [1, 3], 6);
 
-const DrakeTable = new LootTable()
-	.every('Drake bones')
-
+export const DrakePreTable = new LootTable()
 	/* Pre-roll */
 	// TODO: dynamic drop based on slayer task
 	.oneIn(512, "Drake's tooth")
@@ -52,7 +50,11 @@ const DrakeTable = new LootTable()
 	.add('Swordfish', [1, 2], 4)
 
 	/* Rdt */
-	.add(GemTable, 1, 1)
+	.add(GemTable, 1, 1);
+
+const DrakeTable = new LootTable()
+	.every('Drake bones')
+	.every(DrakePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

@@ -7,10 +7,10 @@ const MalevolentMageTable = new LootTable()
 	.every(InfernalMagePreTable, 3)
 
 	/* Superior Slayer tertiary */
-	.oneIn(274, 'Mist battlestaff')
-	.oneIn(275, 'Dust battlestaff')
-	.oneIn(960, 'Eternal gem')
-	.oneIn(960, 'Imbued heart');
+	.tertiary(274, 'Mist battlestaff')
+	.tertiary(275, 'Dust battlestaff')
+	.tertiary(960, 'Eternal gem')
+	.tertiary(960, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7396,

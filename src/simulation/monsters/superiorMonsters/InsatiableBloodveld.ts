@@ -9,10 +9,10 @@ const InsatiableBloodveldTable = new LootTable()
 	.tertiary(26, 'Clue scroll (hard)')
 
 	/* Superior Slayer tertiary */
-	.oneIn(256, 'Mist battlestaff')
-	.oneIn(255, 'Dust battlestaff')
-	.oneIn(894, 'Eternal gem')
-	.oneIn(895, 'Imbued heart');
+	.tertiary(256, 'Mist battlestaff')
+	.tertiary(255, 'Dust battlestaff')
+	.tertiary(894, 'Eternal gem')
+	.tertiary(895, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7397,

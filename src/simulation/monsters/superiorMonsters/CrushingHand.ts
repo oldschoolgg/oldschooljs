@@ -8,10 +8,10 @@ const CrushingHandTable = new LootTable()
 	.every(CrawlingHandPreTable, 3)
 
 	/* Superior Slayer tertiary */
-	.oneIn(391, 'Mist battlestaff')
-	.oneIn(391, 'Dust battlestaff')
-	.oneIn(1370, 'Eternal gem')
-	.oneIn(1370, 'Imbued heart');
+	.tertiary(391, 'Mist battlestaff')
+	.tertiary(391, 'Dust battlestaff')
+	.tertiary(1370, 'Eternal gem')
+	.tertiary(1370, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7388,

@@ -3,9 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 import UsefulHerbTable from '../../subtables/UsefulHerbTable';
 
-const BasiliskKnightTable = new LootTable({ limit: 52 })
-	.every('Big bones')
-
+export const BasiliskKnightPreTable = new LootTable({ limit: 52 })
 	/*Weapons and armour */
 	.add('Rune axe', 1, 2)
 	.add('Adamant platelegs', 1, 1)
@@ -31,15 +29,19 @@ const BasiliskKnightTable = new LootTable({ limit: 52 })
 	.add('Adamantite ore', [1, 2], 1)
 
 	/* Rdt */
-	.add(GemTable, 1, 8)
+	.add(GemTable, 1, 8);
+
+const BasiliskKnightTable = new LootTable()
+	.every('Big bones')
+	.every(BasiliskKnightPreTable)
 
 	/* Tertiary */
 	.tertiary(192, 'Clue scroll (hard)')
 	.tertiary(256, 'Mystic hat (light)')
 	.tertiary(400, 'Long bone')
 	.tertiary(1000, 'Basilisk head')
-	// TODO: dynamic drop based on slayer task
-	.tertiary(1000, 'Basilisk jaw')
+	// TODO: dynamic drop based on slayer task, inbetween drop rates now
+	.tertiary(3000, 'Basilisk jaw')
 	.tertiary(5013, 'Curved bone');
 
 export default new SimpleMonster({

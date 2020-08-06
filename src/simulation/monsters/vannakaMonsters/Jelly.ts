@@ -2,7 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 
-const JellyTable = new LootTable()
+export const JellyPreTable = new LootTable()
 	/*Weapons and armour */
 	.add('Steel battleaxe', 1, 11)
 	.add('Steel 2h sword', 1, 7)
@@ -25,7 +25,10 @@ const JellyTable = new LootTable()
 	.add('Thread', 10, 1)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 4)
+	.add(GemTable, 1, 4);
+
+const JellyTable = new LootTable()
+	.every(JellyPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

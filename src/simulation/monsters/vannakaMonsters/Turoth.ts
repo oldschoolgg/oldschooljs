@@ -9,9 +9,7 @@ const TurothHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 10)
 	.add(HerbDropTable, 3, 6);
 
-const TurothTable = new LootTable({ limit: 128 })
-	.every('Bones')
-
+export const TurothPreTable = new LootTable({ limit: 128 })
 	/* Weapons and armour */
 	.add('Steel platelegs', 1, 7)
 	.add('Mithril axe', 1, 3)
@@ -41,7 +39,11 @@ const TurothTable = new LootTable({ limit: 128 })
 	.add('Coins', 440, 1)
 
 	/* Rdt */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const TurothTable = new LootTable()
+	.every('Bones')
+	.every(TurothPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

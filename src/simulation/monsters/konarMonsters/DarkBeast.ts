@@ -6,9 +6,7 @@ import RareSeedTable from '../../subtables/RareSeedTable';
 
 const DBHerbTable = new LootTable().add(HerbDropTable, 1, 4).add(HerbDropTable, 2, 1);
 
-const DarkBeastTable = new LootTable()
-	.every('Big bones')
-
+export const DarkBeastPreTable = new LootTable()
 	/*Weapons and armour */
 	.add('Black battleaxe', 1, 3)
 	.add('Adamant sq shield', 1, 1)
@@ -46,7 +44,11 @@ const DarkBeastTable = new LootTable()
 
 	/* Rdt */
 	.add(RareDropTable, 1, 3)
-	.add(GemTable, 1, 3)
+	.add(GemTable, 1, 3);
+
+const DarkBeastTable = new LootTable()
+	.every('Big bones')
+	.every(DarkBeastPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')

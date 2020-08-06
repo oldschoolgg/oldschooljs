@@ -7,14 +7,14 @@ const CockathriceTable = new LootTable()
 	.every(CockatricePreTable, 3)
 
 	/* Tertiary */
-	.oneIn(13, 'Clue scroll (medium)')
-	.oneIn(1000, 'Cockatrice head')
+	.tertiary(13, 'Clue scroll (medium)')
+	.tertiary(1000, 'Cockatrice head')
 
 	/* Superior Slayer tertiary */
-	.oneIn(340, 'Mist battlestaff')
-	.oneIn(340, 'Dust battlestaff')
-	.oneIn(1190, 'Eternal gem')
-	.oneIn(1190, 'Imbued heart');
+	.tertiary(340, 'Mist battlestaff')
+	.tertiary(340, 'Dust battlestaff')
+	.tertiary(1190, 'Eternal gem')
+	.tertiary(1190, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7393,

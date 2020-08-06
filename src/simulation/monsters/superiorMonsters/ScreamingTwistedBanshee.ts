@@ -13,13 +13,13 @@ const ScreamingTwistedBansheeTable = new LootTable()
 
 	/*Catacombs teriary */
 	.every(TotemPiece)
-	.oneIn(186, 'Ancient shard')
+	.tertiary(186, 'Ancient shard')
 
 	/* Superior Slayer tertiary */
-	.oneIn(367, 'Mist battlestaff')
-	.oneIn(368, 'Dust battlestaff')
-	.oneIn(1286, 'Eternal gem')
-	.oneIn(1286, 'Imbued heart');
+	.tertiary(367, 'Mist battlestaff')
+	.tertiary(368, 'Dust battlestaff')
+	.tertiary(1286, 'Eternal gem')
+	.tertiary(1286, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7391,

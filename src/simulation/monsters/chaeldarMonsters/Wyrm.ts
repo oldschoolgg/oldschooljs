@@ -4,9 +4,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
-const WyrmTable = new LootTable({ limit: 76 })
-	.every('Wyrm bones')
-
+export const WyrmPreTable = new LootTable({ limit: 76 })
 	/* Pre-roll*/
 	// TODO: dynamic drop based on slayer task
 	.oneIn(2000, 'Dragon sword')
@@ -45,7 +43,11 @@ const WyrmTable = new LootTable({ limit: 76 })
 	.add('Adamant arrowtips', [8, 12], 2)
 
 	/* Rdt */
-	.add(GemTable, 1, 1)
+	.add(GemTable, 1, 1);
+
+const WyrmTable = new LootTable()
+	.every('Wyrm bones')
+	.every(WyrmPreTable)
 
 	/* Tertiary */
 	.tertiary(256, 'Clue scroll (hard)');

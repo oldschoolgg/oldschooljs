@@ -13,13 +13,13 @@ const InsatiableMutatedBloodveldTable = new LootTable()
 	.every(MutatedBloodveldPreTable, 3)
 	.tertiary(13, 'Clue scroll (hard)')
 	.every(TotemPiece)
-	.oneIn(66, 'Ancient shard')
+	.tertiary(66, 'Ancient shard')
 
 	/* Superior Slayer tertiary */
-	.oneIn(255, 'Mist battlestaff')
-	.oneIn(256, 'Dust battlestaff')
-	.oneIn(895, 'Eternal gem')
-	.oneIn(894, 'Imbued heart');
+	.tertiary(255, 'Mist battlestaff')
+	.tertiary(256, 'Dust battlestaff')
+	.tertiary(895, 'Eternal gem')
+	.tertiary(894, 'Imbued heart');
 
 export default new SimpleMonster({
 	id: 7398,
