@@ -16,6 +16,7 @@ import Mogre from './Mogre';
 import Obor from './Obor';
 import PhrinShade from './PhrinShade';
 import Pyrefiend from './Pyrefiend';
+import Pyrelord from './Pyrelord';
 import RiylShade from './RiylShade';
 import Rockslug from './Rockslug';
 import Shade from './Shade';
@@ -43,6 +44,7 @@ export default {
 	Obor,
 	PhrinShade,
 	Pyrefiend,
+	Pyrelord,
 	RiylShade,
 	Rockslug,
 	Shade,
