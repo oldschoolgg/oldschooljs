@@ -4,9 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 // import GeneralSeedDropTable from '../../subtables/GeneralSeedDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-export const CockatriceTable = new LootTable({ limit: 128 })
-	.every('Bones')
-
+export const CockatricePreTable = new LootTable({ limit: 128 })
 	/* Weapons and armour */
 	.add('Iron sword', 1, 3)
 	.add('Steel dagger', 1, 3)
@@ -42,6 +40,14 @@ export const CockatriceTable = new LootTable({ limit: 128 })
 
 	/* Gem drop table */
 	.add(GemTable, 1, 2);
+
+const CockatriceTable = new LootTable()
+	.every('Bones')
+	.every(CockatricePreTable)
+
+	/* Tertiary */
+	.oneIn(128, 'Clue scroll (medium)')
+	.oneIn(1000, 'Cockatrice head');
 
 export default new SimpleMonster({
 	id: 420,

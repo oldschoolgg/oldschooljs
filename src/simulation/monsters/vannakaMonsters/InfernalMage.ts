@@ -1,9 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const InfernalMageTable = new LootTable()
-	.every('Bones')
-
+export const InfernalMagePreTable = new LootTable()
 	/*Weapons and armour */
 	.oneIn(512, 'Mystic boots (dark)')
 	.oneIn(512, 'Mystic hat (dark)')
@@ -35,6 +33,8 @@ const InfernalMageTable = new LootTable()
 	.add('Coins', 2, 14)
 	.add('Coins', 4, 8)
 	.add('Coins', 29, 3);
+
+const InfernalMageTable = new LootTable().every('Bones').every(InfernalMagePreTable);
 
 export default new SimpleMonster({
 	id: 447,

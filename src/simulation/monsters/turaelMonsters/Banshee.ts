@@ -3,8 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-export const BansheeTable = new LootTable({ limit: 128 })
-	.tertiary(128, 'Clue scroll (easy)', 1)
+export const BansheePreTable = new LootTable({ limit: 128 })
 	.oneIn(512, 'Mystic gloves (dark)', 1)
 
 	/* Weapons and armour */
@@ -36,6 +35,8 @@ export const BansheeTable = new LootTable({ limit: 128 })
 	/* Subtables */
 	.add(HerbDropTable, 1, 34)
 	.add(GemTable, 1, 2);
+
+const BansheeTable = new LootTable().tertiary(128, 'Clue scroll (easy)', 1).every(BansheePreTable);
 
 export default new SimpleMonster({
 	id: 414,

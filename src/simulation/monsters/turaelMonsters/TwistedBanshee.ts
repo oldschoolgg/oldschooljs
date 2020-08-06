@@ -4,10 +4,7 @@ import HerbDropTable from '../../subtables/HerbDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
 
-export const TwistedBansheeTable = new LootTable()
-	/* Tertiary */
-	.tertiary(128, 'Clue scroll (hard)', 1)
-
+export const TwistedBansheePreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Battlestaff', 1, 10)
 	.add('Air battlestaff', 1, 4)
@@ -41,7 +38,13 @@ export const TwistedBansheeTable = new LootTable()
 	/* Subtables */
 	.add(HerbDropTable, 1, 68)
 	.add(RareSeedTable, 1, 26)
-	.add(GemTable, 1, 4)
+	.add(GemTable, 1, 4);
+
+const TwistedBansheeTable = new LootTable()
+	.every(TwistedBansheePreTable)
+
+	/* Tertiary */
+	.tertiary(128, 'Clue scroll (hard)', 1)
 
 	/* Catacombs tertiary */
 	.tertiary(260, 'Ancient shard', 1)
