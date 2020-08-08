@@ -57,6 +57,7 @@ const AbyssalSireTable = new LootTable()
 	.add('Binding necklace', 25, 4)
 	.add('Saradomin brew(3)', 6, 2)
 	.add('Jug of water', [250, 350], 2)
+	//add unsired loot table to openable or this loottable.
 	.oneIn(100, 'Unsired')
 
 	/* Rare drop table */
