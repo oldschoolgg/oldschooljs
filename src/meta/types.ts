@@ -54,7 +54,7 @@ export interface SkillsScore {
 	thieving: SkillScore;
 	slayer: SkillScore;
 	farming: SkillScore;
-	runecrafting: SkillScore;
+	runecraft: SkillScore;
 	hunter: SkillScore;
 	construction: SkillScore;
 }
@@ -154,7 +154,7 @@ export interface ItemRequirements {
 	thieving: number;
 	slayer: number;
 	farming: number;
-	runecrafting: number;
+	runecraft: number;
 	hunter: number;
 	construction: number;
 	combat: number;
