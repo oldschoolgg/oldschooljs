@@ -19,7 +19,7 @@ const defaultGetOptions = {
 class Hiscores {
 	public async fetch(
 		username: string,
-		options: GetOptions = { type: 'normal', virtualLevels: false }
+		options: GetOptions = { type: AccountType.Normal, virtualLevels: false }
 	): Promise<Player> {
 		const mergedOptions = { ...defaultGetOptions, ...options };
 		if (!isValidUsername(username)) throw new OSError(Errors.INVALID_USERNAME);

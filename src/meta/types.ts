@@ -14,14 +14,14 @@ export interface MonsterOptions {
 	aliases?: string[];
 }
 
-export type AccountType =
-	| 'normal'
-	| 'ironman'
-	| 'ultimate'
-	| 'hardcore'
-	| 'deadman'
-	| 'seasonal'
-	| undefined;
+export enum AccountType {
+	Normal = 'normal',
+	Ironman = 'ironman',
+	Ultimate = 'ultimate',
+	Hardcore = 'hardcore',
+	Deadman = 'deadman',
+	Seasonal = 'seasonal'
+}
 
 export interface Player {
 	bossRecords: BossRecords;
