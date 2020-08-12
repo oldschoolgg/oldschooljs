@@ -17,7 +17,7 @@ const SeaSnakeHatchlingTable = new LootTable()
 	.add('Coins', 23, 7)
 
 	/* Other */
-	.add('Adamant dart tip', 2, 1)
+	.add('Adamant dart tip', 2, 10)
 	.add('Fishing bait', 50, 4)
 	.add('Pearl bolt tips', 3, 4)
 	.add('Raw bass', 2, 4)
