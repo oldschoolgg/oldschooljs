@@ -27,7 +27,7 @@ export const Elite3rdageTable = new LootTable()
 	.add('3rd age plateskirt')
 	.add('3rd age kiteshield')
 	.add('3rd age longsword')
-	.add('3rd age druidic cloak')
+	.add('3rd age cloak')
 	.add('3rd age wand')
 	.add('3rd age bow');
 
