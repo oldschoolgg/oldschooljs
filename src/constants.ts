@@ -31,7 +31,7 @@ export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 
-export const mappedBossNames = [
+export const mappedBossNames: [string, string][] = [
 	['abyssalSire', 'Abyssal Sire'],
 	['alchemicalHydra', 'Alchemical Hydra'],
 	['barrowsChests', 'Barrows Chests'],
@@ -78,7 +78,7 @@ export const mappedBossNames = [
 	['zulrah', 'Zulrah']
 ];
 
-export const bossNameMap: Map<string, string> = new Map(mappedBossNames as [string, string][]);
+export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
 
 // Hiscores
 
