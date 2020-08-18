@@ -174,4 +174,4 @@ export class EliteCasket extends Clue {
 	}
 }
 
-export default new EliteCasket();
+export default new EliteCasket({ table: EliteClueTable });

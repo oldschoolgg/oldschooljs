@@ -198,4 +198,4 @@ export class MediumCasket extends Clue {
 	}
 }
 
-export default new MediumCasket();
+export default new MediumCasket({ table: MediumClueTable });

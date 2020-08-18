@@ -66,4 +66,4 @@ class MimicCasket extends Clue {
 	}
 }
 
-export default new MimicCasket();
+export default new MimicCasket({ table: MasterMimicTable });

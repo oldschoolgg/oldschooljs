@@ -31,11 +31,22 @@ export default class LootTable {
 		return itemID(name);
 	}
 
-	private addToAllItems(items: number | number[] | LootTable): void {
+	private addToAllItems(
+		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
+	): void {
+		if (Array.isArray(items)) {
+			for (const item of items) {
+				this.addToAllItems(item);
+			}
+			return;
+		}
+
 		if (typeof items === 'number') {
 			this.allItems.push(items);
-		} else {
+		} else if (items instanceof LootTable) {
 			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
+		} else {
+			return this.addToAllItems(items.item);
 		}
 	}
 
@@ -109,6 +120,8 @@ export default class LootTable {
 
 		this.length += 1;
 		this.totalWeight += weight;
+
+		this.addToAllItems(item);
 
 		this.table.push({
 			item,

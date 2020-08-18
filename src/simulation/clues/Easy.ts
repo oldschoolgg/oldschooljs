@@ -208,4 +208,4 @@ export class EasyCasket extends Clue {
 	}
 }
 
-export default new EasyCasket();
+export default new EasyCasket({ table: EasyClueTable });

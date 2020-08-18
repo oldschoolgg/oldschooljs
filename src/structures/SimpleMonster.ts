@@ -13,7 +13,7 @@ export default class SimpleMonster extends Monster {
 	public table: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
-		super(options);
+		super({ ...options, allItems: options.table.allItems });
 		this.table = options.table;
 	}
 

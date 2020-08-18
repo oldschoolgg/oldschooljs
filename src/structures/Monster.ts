@@ -9,11 +9,13 @@ export default abstract class Monster {
 	public aliases: string[];
 	public data: MonsterData;
 	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
+	public allItems: number[];
 
 	constructor(options: MonsterOptions) {
 		this.id = options.id;
 		this.name = options.name;
 		this.aliases = options.aliases ?? [];
 		this.data = monsterData[this.id];
+		this.allItems = options.allItems;
 	}
 }

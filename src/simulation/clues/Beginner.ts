@@ -102,4 +102,4 @@ export class BeginnerCasket extends Clue {
 	}
 }
 
-export default new BeginnerCasket();
+export default new BeginnerCasket({ table: BeginnerClueTable });

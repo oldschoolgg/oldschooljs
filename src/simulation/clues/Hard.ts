@@ -230,4 +230,4 @@ export class HardCasket extends Clue {
 	}
 }
 
-export default new HardCasket();
+export default new HardCasket({ table: HardClueTable });

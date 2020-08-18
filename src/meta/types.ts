@@ -12,6 +12,7 @@ export interface MonsterOptions {
 	combatLevel?: number;
 	hitpoints?: number;
 	aliases?: string[];
+	allItems?: number[];
 }
 
 export enum AccountType {
@@ -464,4 +465,8 @@ export interface OpenableOpenOptions {}
 
 export interface LootTableOptions {
 	limit?: number;
+}
+
+export interface ClueOptions {
+	table: LootTable;
 }

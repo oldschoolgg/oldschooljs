@@ -187,4 +187,4 @@ export class MasterCasket extends Clue {
 	}
 }
 
-export default new MasterCasket();
+export default new MasterCasket({ table: MasterClueTable });
