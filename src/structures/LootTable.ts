@@ -14,6 +14,7 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
+	public allItems: number[];
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -23,18 +24,30 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = lootTableOptions.limit;
+		this.allItems = [];
 	}
 
 	private resolveName(name: string): number {
 		return itemID(name);
 	}
 
+	private addToAllItems(items: number | number[] | LootTable): void {
+		if (typeof items === 'number') {
+			this.allItems.push(items);
+		} else {
+			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
+		}
+	}
+
 	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.oneInItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			chance,
 			quantity
 		});
+
+		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -44,20 +57,26 @@ export default class LootTable {
 		item: string | LootTable,
 		quantity: number | number[] = 1
 	): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.tertiaryItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			chance,
 			quantity
 		});
+
+		this.addToAllItems(resolved);
 
 		return this;
 	}
 
 	public every(item: string | LootTable, quantity: number | number[] = 1): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.everyItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			quantity
 		});
+
+		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -77,8 +96,10 @@ export default class LootTable {
 			const newItems = [];
 			const _item = item as [string, (number | number[])?][];
 			for (const itemToAdd of _item) {
+				const resolvedId = this.resolveName(itemToAdd[0]);
+				this.addToAllItems(resolvedId);
 				newItems.push({
-					item: this.resolveName(itemToAdd[0]),
+					item: resolvedId,
 					quantity: this.determineQuantity(itemToAdd[1]) || 1
 				});
 			}
