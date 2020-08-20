@@ -1,6 +1,7 @@
 import { Hiscores } from '../dist';
 
 import test from 'tape';
+import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async t => {
 	t.plan(38);
@@ -10,7 +11,7 @@ test('Hiscores', async t => {
 		Hiscores.fetch('Zulu'),
 		Hiscores.fetch('Magnaboy'),
 		Hiscores.fetch('Magnaboy', {
-			type: 'seasonal'
+			type: AccountType.Seasonal
 		}),
 		Hiscores.fetch('Magnaboy', { virtualLevels: true })
 	]);
@@ -47,15 +48,15 @@ test('Hiscores', async t => {
 	t.equal(zulu.minigames.bountyHunterRogue.rank > 1, true);
 	t.equal(zulu.minigames.bountyHunterRogue.score, 3);
 
-	t.equal(zulu.minigames.LMS.score, 500);
+	t.equal(zulu.minigames.LMS.score, 507);
 
-	t.equal(magnaboy.clues.all.score, 152);
+	t.equal(magnaboy.clues.all.score, 156);
 
 	t.equal(magnaboy.clues.beginner.score, 6);
-	t.equal(magnaboy.clues.easy.score, 14);
+	t.equal(magnaboy.clues.easy.score, 15);
 
-	t.equal(magnaboy.clues.medium.score, 59);
-	t.equal(magnaboy.clues.hard.score, 50);
+	t.equal(magnaboy.clues.medium.score, 60);
+	t.equal(magnaboy.clues.hard.score, 52);
 
 	t.equal(magnaboy.clues.elite.score, 16);
 	t.equal(magnaboy.clues.master.score, 7);

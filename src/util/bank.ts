@@ -153,3 +153,13 @@ export function multiplyBank(bank: ItemBank, times: number): ItemBank {
 	}
 	return newBank;
 }
+
+export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank): number {
+	let has = 0;
+	for (const itemID of Object.keys(bankItemsToHave).map(i => parseInt(i))) {
+		if (bankHasItem(bank, itemID)) {
+			has++;
+		}
+	}
+	return has;
+}

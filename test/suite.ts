@@ -1,5 +1,5 @@
 import './Monsters';
-// import './Hiscores';
+import './Hiscores';
 import './Items';
 import './Worlds';
 import './News';

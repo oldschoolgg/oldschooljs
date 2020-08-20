@@ -9,7 +9,8 @@ import {
 	addItemToBank,
 	addBanks,
 	addArrayToBank,
-	multiplyBank
+	multiplyBank,
+	numItemsBankHasInBank
 } from '../dist/util';
 
 test('convert string bank to number bank', t => {
@@ -231,4 +232,17 @@ test('multiply bank items', test => {
 	const expected = { 1: 4, 3: 8 };
 
 	test.deepEqual(multiplyBank(bank, 2), expected);
+});
+
+test('numItemsBankHasInBank', test => {
+	test.plan(2);
+	const sourceBank1 = { 1: 2, 3: 4 };
+	const bankToHave1 = { 1: 4, 3: 8 };
+
+	test.is(numItemsBankHasInBank(sourceBank1, bankToHave1), 2);
+
+	const sourceBank2 = { 1: 0, 3: 4 };
+	const bankToHave2 = { 1: 4, 3: 8 };
+
+	test.is(numItemsBankHasInBank(sourceBank2, bankToHave2), 1);
 });
