@@ -1,6 +1,5 @@
-import { rand, roll } from '../util/util';
+import { rand, randFloat, roll, itemID } from '../util';
 import { LootTableItem, OneInItems, ReturnedLootItem, LootTableOptions } from '../meta/types';
-import itemID from '../util/itemID';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
@@ -15,6 +14,7 @@ export default class LootTable {
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
 	public allItems: number[];
+	public weightPrecision = 7;
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -27,31 +27,8 @@ export default class LootTable {
 		this.allItems = [];
 	}
 
-	private resolveName(name: string): number {
-		return itemID(name);
-	}
-
-	private addToAllItems(
-		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
-	): void {
-		if (Array.isArray(items)) {
-			for (const item of items) {
-				this.addToAllItems(item);
-			}
-			return;
-		}
-
-		if (typeof items === 'number') {
-			this.allItems.push(items);
-		} else if (items instanceof LootTable) {
-			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
-		} else {
-			return this.addToAllItems(items.item);
-		}
-	}
-
 	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === 'string' ? LootTable.resolveName(item) : item;
 		this.oneInItems.push({
 			item: resolved,
 			chance,
@@ -68,20 +45,18 @@ export default class LootTable {
 		item: string | LootTable,
 		quantity: number | number[] = 1
 	): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === 'string' ? LootTable.resolveName(item) : item;
 		this.tertiaryItems.push({
 			item: resolved,
 			chance,
 			quantity
 		});
-
 		this.addToAllItems(resolved);
-
 		return this;
 	}
 
 	public every(item: string | LootTable, quantity: number | number[] = 1): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === 'string' ? LootTable.resolveName(item) : item;
 		this.everyItems.push({
 			item: resolved,
 			quantity
@@ -92,22 +67,31 @@ export default class LootTable {
 		return this;
 	}
 
+	public precision(precision: number): this {
+		this.weightPrecision = precision;
+		return this;
+	}
+
+	public addNothing(): this {
+		this.limit = 1;
+		return this;
+	}
+
 	public add(
 		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
 		weight = 1
 	): this {
 		if (typeof item === 'string') {
-			return this.add(this.resolveName(item), quantity, weight);
+			return this.add(LootTable.resolveName(item), quantity, weight);
 		}
-
 		// If its an array, but not a LootTableItem[] array.
 		// i.e, if its directly from the user, and not being internally added.
 		if (Array.isArray(item) && isArrayOfItemTuples(item)) {
 			const newItems = [];
 			const _item = item as [string, (number | number[])?][];
 			for (const itemToAdd of _item) {
-				const resolvedId = this.resolveName(itemToAdd[0]);
+				const resolvedId = LootTable.resolveName(itemToAdd[0]);
 				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
@@ -133,9 +117,8 @@ export default class LootTable {
 	}
 
 	public roll(): ReturnedLootItem[] {
-		// Random number between 1 and the total weighting
-		const randomWeight = rand(1, this.limit || this.totalWeight);
-
+		// Random number between 1 and limit the total weighting
+		const randomWeight = randFloat(0, this.limit || this.totalWeight);
 		// The index of the item that will be used.
 		let result;
 		let weight = 0;
@@ -172,6 +155,37 @@ export default class LootTable {
 		return chosenItem == undefined ? items : items.concat(this.generateResultItem(chosenItem));
 	}
 
+	protected determineQuantity(quantity: number | number[]): number {
+		if (Array.isArray(quantity)) {
+			return rand(quantity[0], quantity[1]);
+		} else {
+			return quantity;
+		}
+	}
+
+	private static resolveName(name: string): number {
+		return itemID(name);
+	}
+
+	private addToAllItems(
+		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
+	): void {
+		if (Array.isArray(items)) {
+			for (const item of items) {
+				this.addToAllItems(item);
+			}
+			return;
+		}
+
+		if (typeof items === 'number') {
+			this.allItems.push(items);
+		} else if (items instanceof LootTable) {
+			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
+		} else {
+			return this.addToAllItems(items.item);
+		}
+	}
+
 	private generateResultItem(item: LootTableItem): ReturnedLootItem[] {
 		// If the chosen item is a loot table, the result is a roll of that table.
 		if (item.item instanceof LootTable) {
@@ -204,13 +218,5 @@ export default class LootTable {
 				quantity: this.determineQuantity(item.quantity)
 			}
 		];
-	}
-
-	protected determineQuantity(quantity: number | number[]): number {
-		if (Array.isArray(quantity)) {
-			return rand(quantity[0], quantity[1]);
-		} else {
-			return quantity;
-		}
 	}
 }

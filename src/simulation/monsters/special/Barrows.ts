@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import Loot from '../../../structures/Loot';
 import { ItemBank } from '../../../meta/types';
-import { roll } from '../../../util/util';
+import { roll } from '../../../util';
 import Monster from '../../../structures/Monster';
 
 const BarrowsTable = new LootTable();
@@ -36,17 +36,17 @@ const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail"
-].map(item => BarrowsTable.add(item));
+].map(item => BarrowsTable.add(item, 1, 7 * (1 / 2448)));
 
 const OtherTable = new LootTable()
-	.add('Coins', [2, 760], 380)
-	.add('Mind rune', [381, 504], 125)
-	.add('Chaos rune', [168, 210], 125)
-	.add('Death rune', [105, 124], 125)
-	.add('Bolt rack', [35, 40], 125)
-	.add('Blood rune', [55, 66], 125)
-	.add(new LootTable().add('Loop half of key').add('Tooth half of key'), 1, 6)
-	.add('Dragon med helm');
+	.add('Coins', [2, 760], 7 * (1 / 2.67))
+	.add('Mind rune', [381, 504], 7 * (1 / 8.096))
+	.add('Chaos rune', [168, 210], 7 * (1 / 8.096))
+	.add('Death rune', [105, 124], 7 * (1 / 8.096))
+	.add('Bolt rack', [35, 40], 7 * (1 / 8.096))
+	.add('Blood rune', [55, 66], 7 * (1 / 8.096))
+	.add(new LootTable().add('Loop half of key').add('Tooth half of key'), 1, 7 * (1 / 337.3))
+	.add('Dragon med helm', 1, 7 * (1 / 1012));
 
 const NUMBER_OF_BROTHERS = 6;
 
