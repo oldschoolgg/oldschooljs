@@ -405,7 +405,11 @@ test("K'ril Tsutsaroth", async (test): Promise<void> => {
 	};
 
 	const KrilTsutsaroth = Monsters.KrilTsutsaroth;
-	test.equals(KrilTsutsaroth.table.totalWeight, 1, "K'ril Tsutsaroth table weight should be 1");
+	test.equals(
+		KrilTsutsaroth.table.totalWeight,
+		127,
+		"K'ril Tsutsaroth table weight should be 127"
+	);
 
 	const number = 10_000_000;
 	const loot = Monsters.KrilTsutsaroth.kill(number);
