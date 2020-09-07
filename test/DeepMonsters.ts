@@ -764,7 +764,6 @@ test('Corporeal Beast', async (test): Promise<void> => {
 	};
 	const number = 10_000_000;
 	const loot = Monsters.CorporealBeast.kill(number);
-	console.log(loot);
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
