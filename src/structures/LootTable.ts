@@ -50,7 +50,11 @@ export default class LootTable {
 		}
 	}
 
-	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
+	public oneIn(
+		chance: number,
+		item: LootTable | number | string,
+		quantity: number | number[] = 1
+	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.oneInItems.push({
 			item: resolved,
@@ -65,7 +69,7 @@ export default class LootTable {
 
 	public tertiary(
 		chance: number,
-		item: string | LootTable,
+		item: LootTable | number | string,
 		quantity: number | number[] = 1
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
@@ -80,7 +84,7 @@ export default class LootTable {
 		return this;
 	}
 
-	public every(item: string | LootTable, quantity: number | number[] = 1): this {
+	public every(item: LootTable | number | string, quantity: number | number[] = 1): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.everyItems.push({
 			item: resolved,
@@ -133,7 +137,7 @@ export default class LootTable {
 	}
 
 	public roll(): ReturnedLootItem[] {
-		// Random number between 1 and the total weighting
+		// Random float between 0 and the total weighting
 		const randomWeight = randFloat(0, this.limit || this.totalWeight);
 
 		// The index of the item that will be used.
