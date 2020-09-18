@@ -733,7 +733,9 @@ test("Vet'ion", async (test): Promise<void> => {
 		'Clue scroll (elite)': 100,
 		'Long bone': 400,
 		"Vet'ion jr.": 2000,
-		'Skeleton champion scroll': 5000,
+		// 4 hellhounds are killed for each vetion, and they have the ability to also give scrolls
+		// on a 1/5000, reducing the rate to a 1 in 1000.
+		'Skeleton champion scroll': 1000,
 		'Curved bone': 5013
 	};
 
@@ -746,24 +748,22 @@ test("Vet'ion", async (test): Promise<void> => {
 
 test('Corporeal Beast', async (test): Promise<void> => {
 	const expectedRates = {
-		'Spirit shield': 64,
+		// 'Spirit shield': 64,
 		'Holy elixir': 170.7,
 		'Spectral sigil': 1365,
 		'Arcane sigil': 1365,
 		'Elysian sigil': 4095,
-		'Mystic air staff': 30.11,
+		'Mystic air staff': 42.67,
 		'Onyx bolts (e)': 25.6 / 175,
 		Cannonball: 30.11 / 2000,
 		'Watermelon seed': 34.13 / 24,
-		'White berries': 36.57 / 120,
-		'Ranarr seed': 51.2 / 10,
+		'White berries': 30.12 / 120,
+		'Ranarr seed': 102.4 / 10,
 		'Clue scroll (elite)': 200,
 		'Pet dark core': 5000
 	};
-
 	const number = 10_000_000;
 	const loot = Monsters.CorporealBeast.kill(number);
-
 	checkThreshold(test, expectedRates, loot, number);
 	test.end();
 });
