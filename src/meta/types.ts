@@ -453,6 +453,7 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	farmingLevel?: number;
 }
 
 export interface OpenableOptions {
