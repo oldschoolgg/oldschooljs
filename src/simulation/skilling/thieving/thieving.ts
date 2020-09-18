@@ -19,6 +19,7 @@ import Hero from './Pickpockets/Hero';
 import Vyre from './Pickpockets/Vyre';
 import Elf from './Pickpockets/Elf';
 import PrifddinasElf from './Pickpockets/PrifddinasElf';
+import TzHaarHur from './Pickpockets/TzHaarHur';
 
 export const Thieving = {
 	Pickpocketing: {
@@ -42,6 +43,7 @@ export const Thieving = {
 		Hero,
 		Vyre,
 		Elf,
-		PrifddinasElf
+		PrifddinasElf,
+		TzHaarHur
 	}
 };
