@@ -27,6 +27,32 @@ export const SKILLS = [
 	'construction'
 ];
 
+export const enum SkillsEnum {
+	Attack = 'attack',
+	Defence = 'defence',
+	Strength = 'strength',
+	Hitpoints = 'hitpoints',
+	Ranged = 'ranged',
+	Prayer = 'prayer',
+	Magic = 'magic',
+	Cooking = 'cooking',
+	Woodcutting = 'woodcutting',
+	Fletching = 'fletching',
+	Fishing = 'fishing',
+	Firemaking = 'firemaking',
+	Crafting = 'crafting',
+	Smithing = 'smithing',
+	Mining = 'mining',
+	Herblore = 'herblore',
+	Agility = 'agility',
+	Thieving = 'thieving',
+	Slayer = 'slayer',
+	Farming = 'farming',
+	Runecraft = 'runecraft',
+	Hunter = 'hunter',
+	Construction = 'construction'
+}
+
 export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];

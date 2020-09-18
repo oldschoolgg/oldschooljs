@@ -1,5 +1,6 @@
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
+import { SkillsEnum } from '../constants';
 
 export interface SimpleLootItem {
 	id: string;
@@ -469,4 +470,11 @@ export interface LootTableOptions {
 
 export interface ClueOptions {
 	table: LootTable;
+}
+
+export interface SkillOptions {
+	skill: SkillsEnum;
+	name: string;
+	aliases?: string[];
+	allItems?: number[];
 }
