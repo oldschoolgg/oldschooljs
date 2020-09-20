@@ -1,4 +1,9 @@
-import { MonsterOptions, MonsterKillOptions, ItemBank } from '../meta/types';
+import {
+	MonsterOptions,
+	MonsterKillOptions,
+	ItemBank,
+	MonsterPickpocketOptions
+} from '../meta/types';
 import { MonsterData } from '../meta/monsterData';
 import rawMonsterData from '../data/monsters_data.json';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
@@ -8,8 +13,10 @@ export default abstract class Monster {
 	public name: string;
 	public aliases: string[];
 	public data: MonsterData;
-	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
 	public allItems: number[];
+
+	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
+	public abstract pickpocket(quantity: number, options: MonsterPickpocketOptions): ItemBank;
 
 	constructor(options: MonsterOptions) {
 		this.id = options.id;

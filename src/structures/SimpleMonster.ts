@@ -1,20 +1,31 @@
 import Monster from './Monster';
-import { MonsterOptions, ItemBank, MonsterKillOptions } from '../meta/types';
+import {
+	MonsterOptions,
+	ItemBank,
+	MonsterKillOptions,
+	MonsterPickpocketOptions
+} from '../meta/types';
 import LootTable from './LootTable';
 import Loot from './Loot';
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { roll, getBrimKeyChanceFromCBLevel } from '../util/util';
 
 interface SimpleMonsterOptions extends MonsterOptions {
-	table: LootTable;
+	table?: LootTable;
+	pickpocketTable?: LootTable;
+	rockyChance?: number;
 }
 
 export default class SimpleMonster extends Monster {
-	public table: LootTable;
+	public table?: LootTable;
+	public pickpocketTable?: LootTable;
+	public rockyChance?: number;
 
 	constructor(options: SimpleMonsterOptions) {
 		super({ ...options, allItems: options.table.allItems });
 		this.table = options.table;
+		this.pickpocketTable = options.pickpocketTable;
+		this.rockyChance = options.rockyChance;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
@@ -26,6 +37,24 @@ export default class SimpleMonster extends Monster {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
 				}
+			}
+
+			loot.add(this.table.roll());
+		}
+
+		return loot.values();
+	}
+
+	public pickpocket(
+		quantity = 1,
+		options: MonsterPickpocketOptions = { thievingLevel: 99 }
+	): ItemBank {
+		const rockyChance = this.rockyChance ?? 257_211 - options.thievingLevel * 25;
+		const loot = new Loot();
+
+		for (let i = 0; i < quantity; i++) {
+			if (roll(rockyChance)) {
+				loot.add('Rocky');
 			}
 
 			loot.add(this.table.roll());

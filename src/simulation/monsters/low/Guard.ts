@@ -38,5 +38,6 @@ export default new SimpleMonster({
 	id: 995,
 	name: 'Guard',
 	table: GuardTable,
+	pickpocketTable: new LootTable().add('Coins', 30),
 	aliases: ['guard']
 });

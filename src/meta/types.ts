@@ -471,3 +471,7 @@ export interface LootTableOptions {
 export interface ClueOptions {
 	table: LootTable;
 }
+
+export interface MonsterPickpocketOptions {
+	thievingLevel: number;
+}

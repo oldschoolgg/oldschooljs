@@ -74,6 +74,26 @@ import Monkey from './Monkey';
 import Skeleton from './Skeleton';
 import Zombie from './Zombie';
 import HillGiant from './HillGiant';
+import BeardedBandit from './BeardedBandit';
+import CaveGoblin from './CaveGoblin';
+import DesertBandit from './DesertBandit';
+import Elf from './Elf';
+import Farmer from './Farmer';
+import FremennikCitizen from './FremennikCitizen';
+import Gnome from './Gnome';
+import HamMember from './HamMember';
+import Hero from './Hero';
+import KnightOfArdougne from './KnightOfArdougne';
+import MasterFarmer from './MasterFarmer';
+import Paladin from './Paladin';
+import YanilleWatchman from './YanilleWatchman';
+import Vyre from './Vyre';
+import TzHaarHur from './TzHaarHur';
+import Rogue from './Rogue';
+import PrifddinasElf from './PrifddinasElf';
+import PollnivnianBandit from './PollnivnianBandit';
+import WarriorWoman from './WarriorWoman';
+import AlKharidWarrior from './AlKharidWarrior';
 
 export default {
 	AberrantSpectre,
@@ -151,5 +171,25 @@ export default {
 	Monkey,
 	Skeleton,
 	Zombie,
-	HillGiant
+	HillGiant,
+	BeardedBandit,
+	CaveGoblin,
+	DesertBandit,
+	Elf,
+	Farmer,
+	FremennikCitizen,
+	Gnome,
+	HamMember,
+	Hero,
+	KnightOfArdougne,
+	MasterFarmer,
+	Paladin,
+	YanilleWatchman,
+	Vyre,
+	TzHaarHur,
+	Rogue,
+	PrifddinasElf,
+	PollnivnianBandit,
+	WarriorWoman,
+	AlKharidWarrior
 };
