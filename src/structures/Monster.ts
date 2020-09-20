@@ -15,8 +15,8 @@ export default abstract class Monster {
 	public data: MonsterData;
 	public allItems: number[];
 
-	public abstract kill(quantity: number, options: MonsterKillOptions): ItemBank;
-	public abstract pickpocket(quantity: number, options: MonsterPickpocketOptions): ItemBank;
+	public abstract kill?: (quantity: number, options: MonsterKillOptions) => ItemBank;
+	public abstract pickpocket?: (quantity: number, options: MonsterPickpocketOptions) => ItemBank;
 
 	constructor(options: MonsterOptions) {
 		this.id = options.id;

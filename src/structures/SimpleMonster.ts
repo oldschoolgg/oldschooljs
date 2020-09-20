@@ -57,7 +57,7 @@ export default class SimpleMonster extends Monster {
 				loot.add('Rocky');
 			}
 
-			loot.add(this.table.roll());
+			loot.add(this.pickpocketTable.roll());
 		}
 
 		return loot.values();
