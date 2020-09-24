@@ -1,4 +1,4 @@
-import { Errors, ErrorDescriptions } from '../constants';
+import { ErrorDescriptions, Errors } from '../constants';
 
 export default class OldSchoolJSError extends Error {
 	public code: Errors;

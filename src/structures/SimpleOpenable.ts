@@ -1,6 +1,6 @@
 import { ItemBank, OpenableOptions } from '../meta/types';
-import LootTable from './LootTable';
 import Loot from './Loot';
+import LootTable from './LootTable';
 import Openable from './Openable';
 
 interface SimpleOpenableOptions extends OpenableOptions {

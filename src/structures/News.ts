@@ -1,7 +1,7 @@
-import { NewsItem, DateYearMonth } from '../meta/types';
-import { getDate } from '../util/util';
-import getDom from '../util/getDom';
 import _newsArchive from '../data/news/news_archive.json';
+import { DateYearMonth, NewsItem } from '../meta/types';
+import getDom from '../util/getDom';
+import { getDate } from '../util/util';
 import Collection from './Collection';
 
 const newsArchive = _newsArchive as NewsItem[];

@@ -1,12 +1,13 @@
-import Minigame from '../../structures/Minigame';
-import { addArrayOfNumbers, randFloat, roll, JSONClone } from '../../util/util';
-import LootTable from '../../structures/LootTable';
-import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
+import { randFloat, roll, Time } from 'e';
+
+import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
-import { resolveNameBank } from '../../util/bank';
+import LootTable from '../../structures/LootTable';
+import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
+import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { Time } from '../../constants';
+import { addArrayOfNumbers, JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -226,9 +227,7 @@ export class ChambersOfXericClass extends Minigame {
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
 
-		const lootResult: {
-			[key: string]: Loot;
-		} = {};
+		const lootResult: LootBank = {};
 
 		// This table is used to pick which team member gets the unique(s).
 		const uniqueDeciderTable = new SimpleTable<string>();

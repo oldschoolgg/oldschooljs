@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
-import TalismanTable from '../../subtables/TalismanTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
+import TalismanTable from '../../subtables/TalismanTable';
 
 const DagannothRexTable = new LootTable()
 	.every('Dagannoth bones')

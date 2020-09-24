@@ -806,6 +806,11 @@ dotignore@^0.1.2:
   dependencies:
     minimatch "^3.0.4"
 
+e@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/e/-/e-0.1.2.tgz#7b3b8502bba19ab1a19c17c427292e8c9e9ac68a"
+  integrity sha512-+wzwnYu3dB2OCVl/GUfhcAXH0uSyFeGYvqucvOyx1wm9Cc+35u/8Vc2B/IxcgnMlrpIRggeRFkFKRO9nfNZ0MQ==
+
 ecc-jsbn@~0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
@@ -934,6 +939,11 @@ eslint-plugin-prettier@^3.1.2:
   integrity sha512-+HG5jmu/dN3ZV3T6eCD7a4BlAySdN7mLIbJYo0z1cFQuI+r2DiTJEFeF68ots93PsnrMxbzIZ2S/ieX+mkrBeQ==
   dependencies:
     prettier-linter-helpers "^1.0.0"
+
+eslint-plugin-simple-import-sort@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-5.0.3.tgz#9ae258ddada6efffc55e47a134afbd279eb31fc6"
+  integrity sha512-1rf3AWiHeWNCQdAq0iXNnlccnH1UDnelGgrPbjBBHE8d2hXVtOudcmy0vTF4hri3iJ0MKz8jBhmH6lJ0ZWZLHQ==
 
 eslint-scope@^5.0.0:
   version "5.0.0"

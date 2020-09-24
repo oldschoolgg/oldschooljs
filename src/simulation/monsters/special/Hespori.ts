@@ -1,7 +1,8 @@
-import LootTable from '../../../structures/LootTable';
-import Loot from '../../../structures/Loot';
+import { roll } from 'e';
+
 import { ItemBank, MonsterKillOptions } from '../../../meta/types';
-import { roll } from '../../../util/util';
+import Loot from '../../../structures/Loot';
+import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/Monster';
 
 const HesporiTable = new LootTable()

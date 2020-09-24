@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
 const WyrmTable = new LootTable({ limit: 76 })

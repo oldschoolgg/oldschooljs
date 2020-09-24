@@ -1,3 +1,4 @@
+import Loot from '../structures/Loot';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -411,6 +412,10 @@ export interface ItemBank {
 
 export interface StringKeyedBank {
 	[key: string]: number;
+}
+
+export interface LootBank {
+	[key: string]: Loot;
 }
 
 export interface SimpleTableItem<T> {

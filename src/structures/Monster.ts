@@ -1,6 +1,6 @@
-import { MonsterOptions, MonsterKillOptions, ItemBank } from '../meta/types';
-import { MonsterData } from '../meta/monsterData';
 import rawMonsterData from '../data/monsters_data.json';
+import { MonsterData } from '../meta/monsterData';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 export default abstract class Monster {

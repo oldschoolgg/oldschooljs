@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import NotedHerbTable from '../../subtables/NotedHerbTable';
 import RareDropTable from '../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../subtables/TreeHerbSeedTable';
-import NotedHerbTable from '../../subtables/NotedHerbTable';
 
 const UniqueTable = new LootTable()
 	.add('Zenyte shard', 1, 5)

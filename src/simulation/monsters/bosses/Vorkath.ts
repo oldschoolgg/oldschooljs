@@ -1,8 +1,9 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import { roll } from 'e';
+
 import { ItemBank } from '../../../meta/types';
 import Loot from '../../../structures/Loot';
-import { roll } from '../../../util/util';
+import LootTable from '../../../structures/LootTable';
+import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../subtables/TreeHerbSeedTable';
 

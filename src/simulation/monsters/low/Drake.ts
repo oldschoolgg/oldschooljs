@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
-import RareSeedTable from '../../subtables/RareSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
+import RareSeedTable from '../../subtables/RareSeedTable';
 
 const DrakeNotedHerbTable = new LootTable()
 	.add('Grimy avantoe', [1, 3], 10)

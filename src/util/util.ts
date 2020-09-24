@@ -1,34 +1,6 @@
-import { SKILLS, MINIGAMES, CLUES, mappedBossNames } from '../constants';
-import Player from '../structures/Player';
+import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
 import { DateYearMonth } from '../meta/types';
-
-/**
- * Rolls a 1 in X chance, returning a boolean on successfull rolls.
- * @param upperLimit The upper limit of the roll.
- */
-export function roll(upperLimit: number): boolean {
-	return Math.floor(Math.random() * upperLimit + 1) === 1;
-}
-
-/**
- * Rolls a random number inclusively between a min and max.
- * @param min The lower limit of the roll.
- * @param max The upper limit of the roll.
- */
-export function rand(min: number, max: number): number {
-	return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-/**
- * Rolls a random floating point number inclusively between min and max.
- *
- * @param {number} min - min number
- * @param {number} max - max number
- * @return {number} A random float.
- */
-export function randFloat(min: number, max: number): number {
-	return Math.random() * (max - min) + min;
-}
+import Player from '../structures/Player';
 
 export function resolvePlayerFromHiscores(csvData: string): Player {
 	const data: string[][] = csvData
