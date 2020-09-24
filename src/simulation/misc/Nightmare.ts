@@ -139,8 +139,8 @@ class NightmareClass {
 			giveWeightedDrop(OrbTable.roll().item);
 		}
 
-		if (gotInitialUnique) {
-			const secondRollChance = Math.min(75, parsedTeam.length - 5);
+		const secondRollChance = Math.min(75, parsedTeam.length - 5);
+		if (gotInitialUnique && secondRollChance > 0) {
 			if (percentChance(secondRollChance)) {
 				giveWeightedDrop(OrbTable.roll().item);
 			}
