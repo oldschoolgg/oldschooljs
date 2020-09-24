@@ -124,11 +124,9 @@ class NightmareClass {
 			WeightedUniqueTable.add(teamMember.id, teamMember.percentDamage);
 		}
 
-		let gotInitialUnique = false;
 		function giveWeightedDrop(item: string): void {
 			const { item: recipient } = WeightedUniqueTable.roll();
 			lootResult[recipient].add(item);
-			if (!gotInitialUnique) gotInitialUnique = true;
 		}
 
 		if (roll(120)) {
@@ -140,7 +138,7 @@ class NightmareClass {
 		}
 
 		const secondRollChance = Math.min(75, parsedTeam.length - 5);
-		if (gotInitialUnique && secondRollChance > 0 && percentChance(secondRollChance)) {
+		if (secondRollChance > 0 && percentChance(secondRollChance)) {
 			if (roll(600)) {
 				giveWeightedDrop(OrbTable.roll().item);
 			}
