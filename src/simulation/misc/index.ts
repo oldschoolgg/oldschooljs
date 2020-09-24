@@ -1,3 +1,4 @@
 import Mimic from './Mimic';
+import Nightmare from './Nightmare';
 
-export { Mimic };
+export { Mimic, Nightmare };

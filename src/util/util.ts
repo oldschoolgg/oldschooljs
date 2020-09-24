@@ -1,5 +1,5 @@
 import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
-import { DateYearMonth } from '../meta/types';
+import { DateYearMonth, ItemBank, LootBank } from '../meta/types';
 import Player from '../structures/Player';
 
 export function resolvePlayerFromHiscores(csvData: string): Player {
@@ -162,4 +162,13 @@ export function addArrayOfNumbers(arr: number[]): number {
 
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));
+}
+
+export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
+	const result: { [key: string]: ItemBank } = {};
+	for (const [id, loot] of Object.entries(lootResult)) {
+		result[id] = loot.values();
+	}
+
+	return result;
 }
