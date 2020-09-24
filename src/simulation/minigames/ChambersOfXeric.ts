@@ -7,7 +7,7 @@ import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { addArrayOfNumbers, JSONClone } from '../../util/util';
+import { addArrayOfNumbers, convertLootBanksToItemBanks, JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -272,13 +272,7 @@ export class ChambersOfXericClass extends Minigame {
 			}
 		}
 
-		// Convert everyones loot to ItemBanks.
-		const result: { [key: string]: ItemBank } = {};
-		for (const [id, loot] of Object.entries(lootResult)) {
-			result[id] = loot.values();
-		}
-
-		return result;
+		return convertLootBanksToItemBanks(lootResult);
 	}
 }
 

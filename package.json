@@ -26,7 +26,7 @@
 		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
-		"e": "^0.1.2",
+		"e": "^0.1.3",
 		"jsdom": "^16.0.1",
 		"node-fetch": "^2.6.0"
 	},
@@ -48,6 +48,7 @@
 		"pretty-quick": "^2.0.1",
 		"tape": "^5.0.1",
 		"ts-node": "^8.5.4",
+		"ts-toolbelt": "^6.9.9",
 		"typedoc": "^0.17.7",
 		"typescript": "^3.7.4"
 	},
