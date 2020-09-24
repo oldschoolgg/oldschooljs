@@ -1,9 +1,11 @@
-import Monster from './Monster';
-import { MonsterOptions, ItemBank, MonsterKillOptions } from '../meta/types';
-import LootTable from './LootTable';
-import Loot from './Loot';
+import { roll } from 'e';
+
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { roll, getBrimKeyChanceFromCBLevel } from '../util/util';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { getBrimKeyChanceFromCBLevel } from '../util/util';
+import Loot from './Loot';
+import LootTable from './LootTable';
+import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
 	table: LootTable;

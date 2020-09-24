@@ -1,6 +1,7 @@
-import { MonsterKillOptions, ItemBank } from '../../../meta/types';
+import { roll } from 'e';
+
+import { ItemBank, MonsterKillOptions } from '../../../meta/types';
 import Loot from '../../../structures/Loot';
-import { roll } from '../../../util/util';
 import Monster from '../../../structures/Monster';
 
 export class TzTokJadClass extends Monster {

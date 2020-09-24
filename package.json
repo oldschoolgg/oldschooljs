@@ -26,6 +26,7 @@
 		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
+		"e": "^0.1.2",
 		"jsdom": "^16.0.1",
 		"node-fetch": "^2.6.0"
 	},
@@ -40,6 +41,7 @@
 		"eslint-config-bamboo": "^3.0.0",
 		"eslint-config-prettier": "^6.9.0",
 		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-simple-import-sort": "^5.0.3",
 		"husky": "^4.2.1",
 		"nyc": "^15.0.1",
 		"prettier": "^1.19.1",

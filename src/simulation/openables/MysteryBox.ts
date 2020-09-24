@@ -1,6 +1,6 @@
-import RareDropTable from '../subtables/RareDropTable';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import RareDropTable from '../subtables/RareDropTable';
 
 const ClueTable = new LootTable()
 	.add('Clue scroll (easy)', 1, 5)

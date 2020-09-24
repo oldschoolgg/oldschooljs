@@ -1,9 +1,9 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 import VariableAllotmentSeedTable from '../../subtables/VariableAllotmentSeedTable';
-import { GemTable } from '../../subtables/RareDropTable';
 
 const CaveHorrorTable = new LootTable()
 	.every('Big bones')

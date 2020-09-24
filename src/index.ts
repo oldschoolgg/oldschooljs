@@ -1,17 +1,17 @@
-import Player from './structures/Player';
+import * as constants from './constants';
+import * as Clues from './simulation/clues';
+import Minigames from './simulation/minigames';
+import * as Misc from './simulation/misc';
+import Monsters from './simulation/monsters/index';
+import Openables from './simulation/openables/index';
 import Hiscores from './structures/Hiscores';
 import Items from './structures/Items';
-import Worlds from './structures/Worlds';
 import News from './structures/News';
-import Wiki from './structures/Wiki';
+import Player from './structures/Player';
 import Polls from './structures/Polls';
-import Monsters from './simulation/monsters/index';
-import Minigames from './simulation/minigames';
-import Openables from './simulation/openables/index';
-import * as Clues from './simulation/clues';
-import * as Misc from './simulation/misc';
+import Wiki from './structures/Wiki';
+import Worlds from './structures/Worlds';
 import * as Util from './util/';
-import * as constants from './constants';
 
 export {
 	Items,

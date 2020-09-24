@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import RareSeedTable from '../../subtables/RareSeedTable';
-import { GemTable } from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
+import RareSeedTable from '../../subtables/RareSeedTable';
 
 const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 1, 11)

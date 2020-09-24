@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
 import { GemTable } from '../../subtables/RareDropTable';
-import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
 
 const AnkouTable = new LootTable({ limit: 100 })
 	.every('Bones')

@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
-import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
 const MinionUniqueTable = new LootTable()
 	.add('Coins', [1_400, 1_500], 124)

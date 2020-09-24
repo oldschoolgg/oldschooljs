@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
-import HerbDropTable from '../../subtables/HerbDropTable';
 import FixedAllotmentSeedTable from '../../subtables/FixedAllotmentSeedTable';
+import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
 
 const HerbFireRuneTable = new LootTable().every(HerbDropTable).every('Fire rune', 42);
 const SeedWaterskinTable = new LootTable().every(FixedAllotmentSeedTable).every('Waterskin(0)', 2);

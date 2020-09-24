@@ -1,16 +1,17 @@
-import {
-	PrayerPageTable,
-	GiveHalfKeyTable,
-	GildedTable,
-	FirelighterTable,
-	TeleportScrollTable,
-	BlessingTable
-} from './General';
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
+import { randInt, roll } from 'e';
+
 import { ItemBank } from '../../meta/types';
+import Clue from '../../structures/Clue';
 import Loot from '../../structures/Loot';
-import { rand, roll } from '../../util/util';
+import LootTable from '../../structures/LootTable';
+import {
+	BlessingTable,
+	FirelighterTable,
+	GildedTable,
+	GiveHalfKeyTable,
+	PrayerPageTable,
+	TeleportScrollTable
+} from './General';
 
 export const MasterGodSwordOrnTable = new LootTable()
 	.add('Armadyl godsword ornament kit')
@@ -176,7 +177,7 @@ export class MasterCasket extends Clue {
 		for (let i = 0; i < quantity; i++) {
 			if (roll(1000)) loot.add('Bloodhound');
 
-			const numberOfRolls = rand(5, 7);
+			const numberOfRolls = randInt(5, 7);
 
 			for (let i = 0; i < numberOfRolls; i++) {
 				loot.add(MasterClueTable.roll());

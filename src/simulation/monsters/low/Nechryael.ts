@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import RareSeedTable from '../../subtables/RareSeedTable';
 import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
+import RareSeedTable from '../../subtables/RareSeedTable';
 
 const NechryaelTable = new LootTable({ limit: 116 })
 	.every('Ashes')
