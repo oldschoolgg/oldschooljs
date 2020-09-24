@@ -1,6 +1,5 @@
-import { randFloat, roll } from 'e';
+import { randFloat, roll, Time } from 'e';
 
-import { Time } from '../../constants';
 import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import LootTable from '../../structures/LootTable';
