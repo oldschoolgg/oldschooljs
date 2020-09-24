@@ -15,12 +15,14 @@ export interface TeamMember {
 
 export interface NightmareOptions {
 	/**
-	 * The members of the raid team, can be only 1 person.
+	 * The members of the team killing the nightmare.
 	 */
 	team: TeamMember[];
 }
 
 const data: Record<string, [number[], number]> = {
+	// [name, [quantity_range, weighting]]
+
 	// Runes and ammunition
 	'Cosmic rune': [[15, 214], 4],
 	'Nature rune': [[6, 138], 4],
