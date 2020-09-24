@@ -140,11 +140,11 @@ class NightmareClass {
 		}
 
 		const secondRollChance = Math.min(75, parsedTeam.length - 5);
-		if (gotInitialUnique && secondRollChance > 0) {
-			if (percentChance(secondRollChance)) {
+		if (gotInitialUnique && secondRollChance > 0 && percentChance(secondRollChance)) {
+			if (roll(600)) {
 				giveWeightedDrop(OrbTable.roll().item);
 			}
-			if (percentChance(secondRollChance)) {
+			if (roll(120)) {
 				giveWeightedDrop(GearTable.roll().item);
 			}
 		}
