@@ -21,6 +21,7 @@ import Monster from '../../structures/Monster';
 import CorporealBeast from './bosses/CorporealBeast';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Cerberus from './bosses/Cerberus';
+import Sarachnis from './bosses/Sarachnis';
 
 import SpecialMonsters from './special';
 import LowMonsters from './low';
@@ -47,6 +48,7 @@ const monstersObject = {
 	CrazyArchaeologist,
 	CorporealBeast,
 	KalphiteQueen,
+	Sarachnis,
 	...LowMonsters,
 	...SpecialMonsters
 };
