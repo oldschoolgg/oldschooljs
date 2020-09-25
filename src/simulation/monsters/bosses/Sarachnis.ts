@@ -74,5 +74,5 @@ export default new SimpleMonster({
 	id: 8713,
 	name: 'Sarachnis',
 	table: SarachnisTable,
-	aliases: ['sarac', 'sarach', 'saracnis']
+	aliases: ['sarachnis', 'sarac', 'sarach', 'saracnis']
 });
