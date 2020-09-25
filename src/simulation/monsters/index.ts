@@ -8,6 +8,7 @@ import DagannothSupreme from './bosses/DagannothSupreme';
 import GiantMole from './bosses/GiantMole';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Obor from './bosses/Obor';
+import Sarachnis from './bosses/Sarachnis';
 import Vorkath from './bosses/Vorkath';
 import Zulrah from './bosses/Zulrah';
 import CommanderZilyana from './gwd/CommanderZilyana';
@@ -48,6 +49,7 @@ const monstersObject = {
 	CorporealBeast,
 	KalphiteQueen,
 	Obor,
+	Sarachnis,
 	...LowMonsters,
 	...SpecialMonsters
 };
