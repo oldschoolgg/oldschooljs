@@ -8,6 +8,7 @@ import DagannothSupreme from './bosses/DagannothSupreme';
 import GiantMole from './bosses/GiantMole';
 import KalphiteQueen from './bosses/KalphiteQueen';
 import Obor from './bosses/Obor';
+import Sarachnis from './bosses/Sarachnis';
 import Vorkath from './bosses/Vorkath';
 import Zulrah from './bosses/Zulrah';
 import CommanderZilyana from './gwd/CommanderZilyana';
@@ -24,7 +25,6 @@ import KingBlackDragon from './wildy/KingBlackDragon';
 import Scorpia from './wildy/Scorpia';
 import Venenatis from './wildy/Venenatis';
 import Vetion from './wildy/Vetion';
-import Sarachnis from './bosses/Sarachnis';
 
 const monstersObject = {
 	DagannothPrime,
