@@ -1,3 +1,4 @@
+import Loot from '../structures/Loot';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -12,16 +13,17 @@ export interface MonsterOptions {
 	combatLevel?: number;
 	hitpoints?: number;
 	aliases?: string[];
+	allItems?: number[];
 }
 
-export type AccountType =
-	| 'normal'
-	| 'ironman'
-	| 'ultimate'
-	| 'hardcore'
-	| 'deadman'
-	| 'seasonal'
-	| undefined;
+export enum AccountType {
+	Normal = 'normal',
+	Ironman = 'ironman',
+	Ultimate = 'ultimate',
+	Hardcore = 'hardcore',
+	Deadman = 'deadman',
+	Seasonal = 'seasonal'
+}
 
 export interface Player {
 	bossRecords: BossRecords;
@@ -54,12 +56,13 @@ export interface SkillsScore {
 	thieving: SkillScore;
 	slayer: SkillScore;
 	farming: SkillScore;
-	runecrafting: SkillScore;
+	runecraft: SkillScore;
 	hunter: SkillScore;
 	construction: SkillScore;
 }
 
 export interface BossRecords {
+	obor: MinigameScore;
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
 	barrowsChests: MinigameScore;
@@ -87,6 +90,7 @@ export interface BossRecords {
 	kreeArra: MinigameScore;
 	krilTsutsaroth: MinigameScore;
 	mimic: MinigameScore;
+	nightmare: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
@@ -154,7 +158,7 @@ export interface ItemRequirements {
 	thieving: number;
 	slayer: number;
 	farming: number;
-	runecrafting: number;
+	runecraft: number;
 	hunter: number;
 	construction: number;
 	combat: number;
@@ -410,6 +414,10 @@ export interface StringKeyedBank {
 	[key: string]: number;
 }
 
+export interface LootBank {
+	[key: string]: Loot;
+}
+
 export interface SimpleTableItem<T> {
 	item: T;
 	weight: number;
@@ -449,6 +457,7 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	farmingLevel?: number;
 }
 
 export interface OpenableOptions {
@@ -462,4 +471,8 @@ export interface OpenableOpenOptions {}
 
 export interface LootTableOptions {
 	limit?: number;
+}
+
+export interface ClueOptions {
+	table: LootTable;
 }

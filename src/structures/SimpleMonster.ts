@@ -1,9 +1,11 @@
-import Monster from './Monster';
-import { MonsterOptions, ItemBank, MonsterKillOptions } from '../meta/types';
-import LootTable from './LootTable';
-import Loot from './Loot';
+import { roll } from 'e';
+
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { roll, getBrimKeyChanceFromCBLevel } from '../util/util';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { getBrimKeyChanceFromCBLevel } from '../util/util';
+import Loot from './Loot';
+import LootTable from './LootTable';
+import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
 	table: LootTable;
@@ -13,7 +15,7 @@ export default class SimpleMonster extends Monster {
 	public table: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
-		super(options);
+		super({ ...options, allItems: options.table.allItems });
 		this.table = options.table;
 	}
 

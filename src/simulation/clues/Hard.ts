@@ -1,15 +1,16 @@
-import {
-	PrayerPageTable,
-	FirelighterTable,
-	TeleportScrollTable,
-	BlessingTable,
-	GildedTable
-} from './General';
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
+import { randInt, roll } from 'e';
+
 import { ItemBank } from '../../meta/types';
+import Clue from '../../structures/Clue';
 import Loot from '../../structures/Loot';
-import { rand, roll } from '../../util/util';
+import LootTable from '../../structures/LootTable';
+import {
+	BlessingTable,
+	FirelighterTable,
+	GildedTable,
+	PrayerPageTable,
+	TeleportScrollTable
+} from './General';
 
 export const Hard3rdageTable = new LootTable()
 	.add('3rd age range coif')
@@ -61,7 +62,7 @@ export const HardRareTable = new LootTable()
 	.add('White Cavalier')
 	.add('Red Cavalier')
 	.add('Navy Cavalier')
-	.add('Big pirate hat')
+	.add("Pirate's hat")
 	.add('Enchanted hat')
 	.add('Enchanted top')
 	.add('Enchanted robe')
@@ -217,7 +218,7 @@ export class HardCasket extends Clue {
 		const loot = new Loot();
 
 		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = rand(4, 6);
+			const numberOfRolls = randInt(4, 6);
 
 			if (roll(15)) loot.add('Clue scroll (master)');
 
@@ -230,4 +231,4 @@ export class HardCasket extends Clue {
 	}
 }
 
-export default new HardCasket();
+export default new HardCasket({ table: HardClueTable });

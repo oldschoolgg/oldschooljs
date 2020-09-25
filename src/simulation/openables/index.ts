@@ -1,8 +1,7 @@
-import Openable from '../../structures/Openable';
 import Collection from '../../structures/Collection';
-
-import MysteryBox from './MysteryBox';
+import Openable from '../../structures/Openable';
 import LuckyImp from './LuckyImp';
+import MysteryBox from './MysteryBox';
 
 const openablesObject = {
 	LuckyImp,

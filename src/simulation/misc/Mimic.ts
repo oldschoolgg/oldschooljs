@@ -1,7 +1,7 @@
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
 import { ItemBank } from '../../meta/types';
+import Clue from '../../structures/Clue';
 import Loot from '../../structures/Loot';
+import LootTable from '../../structures/LootTable';
 
 type MimicClueTier = 'master' | 'elite';
 
@@ -66,4 +66,4 @@ class MimicCasket extends Clue {
 	}
 }
 
-export default new MimicCasket();
+export default new MimicCasket({ table: MasterMimicTable });
