@@ -24,6 +24,7 @@ import KingBlackDragon from './wildy/KingBlackDragon';
 import Scorpia from './wildy/Scorpia';
 import Venenatis from './wildy/Venenatis';
 import Vetion from './wildy/Vetion';
+import Sarachnis from './bosses/Sarachnis';
 
 const monstersObject = {
 	DagannothPrime,
@@ -48,6 +49,7 @@ const monstersObject = {
 	CorporealBeast,
 	KalphiteQueen,
 	Obor,
+	Sarachnis,
 	...LowMonsters,
 	...SpecialMonsters
 };

@@ -4,7 +4,7 @@
 		"releaseDate": "2005-01-26",
 		"combatLevel": 96,
 		"hitpoints": 90,
-		"maxHit": 11,
+		"maxHit": 0,
 		"attackType": ["magic"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -120,7 +120,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 22,
-		"assignableSlayerMasters": ["turael", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna"]
 	},
 	"70": {
 		"members": false,
@@ -161,7 +161,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 29,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna"]
 	},
 	"85": {
 		"members": false,
@@ -202,7 +202,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 25,
-		"assignableSlayerMasters": ["turael", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna"]
 	},
 	"104": {
 		"members": true,
@@ -284,7 +284,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 69,
-		"assignableSlayerMasters": ["turael", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna"]
 	},
 	"114": {
 		"members": true,
@@ -325,14 +325,14 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 49,
-		"assignableSlayerMasters": ["turael", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna"]
 	},
 	"240": {
 		"members": true,
 		"releaseDate": "2002-02-27",
 		"combatLevel": 172,
 		"hitpoints": 157,
-		"maxHit": 18,
+		"maxHit": 16,
 		"attackType": ["slash"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -345,8 +345,8 @@
 		"wikiName": "Black demon (Level 172)",
 		"wikiURL": "https://oldschool.runescape.wiki/w/Black_demon#Level_172",
 		"attackLevel": 145,
-		"strengthLevel": 152,
-		"defenceLevel": 148,
+		"strengthLevel": 148,
+		"defenceLevel": 152,
 		"magicLevel": 1,
 		"rangedLevel": 1,
 		"attackStab": 0,
@@ -373,7 +373,7 @@
 		"releaseDate": "2002-02-27",
 		"combatLevel": 152,
 		"hitpoints": 140,
-		"maxHit": 14,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -414,7 +414,7 @@
 		"releaseDate": "2002-02-27",
 		"combatLevel": 227,
 		"hitpoints": 190,
-		"maxHit": 21,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -455,7 +455,7 @@
 		"releaseDate": "2002-02-27",
 		"combatLevel": 111,
 		"hitpoints": 105,
-		"maxHit": 10,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -496,7 +496,7 @@
 		"releaseDate": "2005-01-17",
 		"combatLevel": 189,
 		"hitpoints": 165,
-		"maxHit": 19,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -538,8 +538,8 @@
 		"combatLevel": 10,
 		"hitpoints": 16,
 		"maxHit": 2,
-		"attackType": ["melee"],
-		"attackSpeed": 6,
+		"attackType": ["crush"],
+		"attackSpeed": 5,
 		"aggressive": false,
 		"poisonous": false,
 		"immuneToPoison": false,
@@ -551,7 +551,7 @@
 		"wikiURL": "https://oldschool.runescape.wiki/w/Dwarf#Level_10",
 		"attackLevel": 8,
 		"strengthLevel": 8,
-		"defenceLevel": 8,
+		"defenceLevel": 6,
 		"magicLevel": 1,
 		"rangedLevel": 1,
 		"attackStab": 0,
@@ -571,7 +571,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 16,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"319": {
 		"members": true,
@@ -616,7 +616,7 @@
 	},
 	"406": {
 		"members": true,
-		"releaseDate": "2005-03-14",
+		"releaseDate": "2005-01-26",
 		"combatLevel": 23,
 		"hitpoints": 22,
 		"maxHit": 3,
@@ -653,7 +653,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 10,
 		"slayerXP": 22,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka", "chaeldar"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar"]
 	},
 	"410": {
 		"members": true,
@@ -776,7 +776,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 15,
 		"slayerXP": 22,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka", "chaeldar"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar"]
 	},
 	"415": {
 		"members": true,
@@ -865,7 +865,7 @@
 		"releaseDate": "2005-04-18",
 		"combatLevel": 93,
 		"hitpoints": 105,
-		"maxHit": 8,
+		"maxHit": 0,
 		"attackType": ["melee", "ranged"],
 		"attackSpeed": 4,
 		"aggressive": false,
@@ -981,7 +981,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 5,
 		"slayerXP": 16,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka"]
 	},
 	"458": {
 		"members": true,
@@ -1022,13 +1022,13 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 22,
 		"slayerXP": 40,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka", "chaeldar"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar"]
 	},
 	"465": {
 		"members": true,
 		"releaseDate": "2005-12-12",
 		"combatLevel": 140,
-		"hitpoints": 210,
+		"hitpoints": 200,
 		"maxHit": 0,
 		"attackType": ["melee", "ranged"],
 		"attackSpeed": 6,
@@ -1104,7 +1104,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 17,
 		"slayerXP": 25,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka", "chaeldar"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar"]
 	},
 	"481": {
 		"members": true,
@@ -1145,7 +1145,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 7,
 		"slayerXP": 5,
-		"assignableSlayerMasters": ["turael", "mazchna", "vannaka"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka"]
 	},
 	"484": {
 		"members": true,
@@ -1186,7 +1186,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 50,
 		"slayerXP": 120,
-		"assignableSlayerMasters": ["vannaka", "chaeldar", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": ["krystilia", "vannaka", "chaeldar", "konar", "nieve", "duradel"]
 	},
 	"492": {
 		"members": true,
@@ -1318,7 +1318,7 @@
 		"hitpoints": 12,
 		"maxHit": 1,
 		"attackType": ["crush"],
-		"attackSpeed": 4,
+		"attackSpeed": 6,
 		"aggressive": false,
 		"poisonous": false,
 		"immuneToPoison": false,
@@ -1328,8 +1328,8 @@
 		"examineText": "An ugly green creature.",
 		"wikiName": "Goblin (Level 5)",
 		"wikiURL": "https://oldschool.runescape.wiki/w/Goblin#Level_5",
-		"attackLevel": 7,
-		"strengthLevel": 2,
+		"attackLevel": 3,
+		"strengthLevel": 1,
 		"defenceLevel": 4,
 		"magicLevel": 1,
 		"rangedLevel": 1,
@@ -1350,13 +1350,13 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 5,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"787": {
 		"members": true,
 		"releaseDate": "2006-07-24",
 		"combatLevel": 111,
-		"hitpoints": 106,
+		"hitpoints": 105,
 		"maxHit": 10,
 		"attackType": ["stab", "magic"],
 		"attackSpeed": 6,
@@ -1557,6 +1557,7 @@
 		"slayerXP": 40,
 		"assignableSlayerMasters": [
 			"turael",
+			"spria",
 			"mazchna",
 			"vannaka",
 			"chaeldar",
@@ -1606,6 +1607,7 @@
 		"slayerXP": 535.5,
 		"assignableSlayerMasters": [
 			"turael",
+			"spria",
 			"mazchna",
 			"vannaka",
 			"chaeldar",
@@ -1616,7 +1618,7 @@
 	},
 	"995": {
 		"members": false,
-		"releaseDate": "2001-01-04",
+		"releaseDate": "2001-04-06",
 		"combatLevel": 22,
 		"hitpoints": 22,
 		"maxHit": 4,
@@ -1662,7 +1664,7 @@
 		"hitpoints": 55,
 		"maxHit": 9,
 		"attackType": ["melee", "magic"],
-		"attackSpeed": 0,
+		"attackSpeed": 4,
 		"aggressive": true,
 		"poisonous": false,
 		"immuneToPoison": false,
@@ -1700,7 +1702,7 @@
 		"members": false,
 		"releaseDate": "2001-01-04",
 		"combatLevel": 4,
-		"hitpoints": 7,
+		"hitpoints": 13,
 		"maxHit": 1,
 		"attackType": ["crush"],
 		"attackSpeed": 4,
@@ -1711,9 +1713,9 @@
 		"attributes": [],
 		"category": [],
 		"examineText": "One of Gielinor's many citizens.",
-		"wikiName": "Man (West Ardougne)",
-		"wikiURL": "https://oldschool.runescape.wiki/w/Man#West_Ardougne",
-		"attackLevel": 1,
+		"wikiName": "Man (level 4)",
+		"wikiURL": "https://oldschool.runescape.wiki/w/Man_(level_4)",
+		"attackLevel": 2,
 		"strengthLevel": 1,
 		"defenceLevel": 1,
 		"magicLevel": 1,
@@ -1723,11 +1725,11 @@
 		"attackCrush": 0,
 		"attackMagic": 0,
 		"attackRanged": 0,
-		"defenceStab": -21,
-		"defenceSlash": -21,
-		"defenceCrush": -21,
-		"defenceMagic": -21,
-		"defenceRanged": -21,
+		"defenceStab": 1,
+		"defenceSlash": 1,
+		"defenceCrush": 1,
+		"defenceMagic": 0,
+		"defenceRanged": 0,
 		"attackAccuracy": 0,
 		"meleeStrength": 0,
 		"rangedStrength": 0,
@@ -2275,7 +2277,7 @@
 		"releaseDate": "2005-11-07",
 		"combatLevel": 303,
 		"hitpoints": 255,
-		"maxHit": 68,
+		"maxHit": 50,
 		"attackType": ["magic"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -2391,7 +2393,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 10,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"2514": {
 		"members": false,
@@ -2440,7 +2442,7 @@
 		"combatLevel": 2,
 		"hitpoints": 8,
 		"maxHit": 1,
-		"attackType": ["melee"],
+		"attackType": ["crush"],
 		"attackSpeed": 4,
 		"aggressive": false,
 		"poisonous": false,
@@ -2473,7 +2475,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 8,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"2827": {
 		"members": true,
@@ -2514,7 +2516,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 8,
-		"assignableSlayerMasters": ["turael", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna"]
 	},
 	"2839": {
 		"members": false,
@@ -2555,7 +2557,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 25,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna"]
 	},
 	"2848": {
 		"members": false,
@@ -2596,15 +2598,15 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 6,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"2854": {
 		"members": false,
 		"releaseDate": "2001-01-04",
 		"combatLevel": 1,
 		"hitpoints": 2,
-		"maxHit": 1,
-		"attackType": ["melee"],
+		"maxHit": 0,
+		"attackType": ["crush"],
 		"attackSpeed": 4,
 		"aggressive": false,
 		"poisonous": false,
@@ -2616,35 +2618,35 @@
 		"wikiName": "Rat (Level 1)",
 		"wikiURL": "https://oldschool.runescape.wiki/w/Rat#Level_1",
 		"attackLevel": 1,
-		"strengthLevel": 0,
-		"defenceLevel": 0,
-		"magicLevel": 0,
-		"rangedLevel": 0,
+		"strengthLevel": 1,
+		"defenceLevel": 1,
+		"magicLevel": 1,
+		"rangedLevel": 1,
 		"attackStab": 0,
 		"attackSlash": 0,
 		"attackCrush": 0,
 		"attackMagic": 0,
 		"attackRanged": 0,
-		"defenceStab": 0,
-		"defenceSlash": 0,
-		"defenceCrush": 0,
-		"defenceMagic": 0,
-		"defenceRanged": 0,
-		"attackAccuracy": 0,
-		"meleeStrength": 0,
+		"defenceStab": -42,
+		"defenceSlash": -42,
+		"defenceCrush": -42,
+		"defenceMagic": -42,
+		"defenceRanged": -42,
+		"attackAccuracy": -47,
+		"meleeStrength": -53,
 		"rangedStrength": 0,
 		"magicDamage": 0,
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 2,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"2919": {
 		"members": true,
 		"releaseDate": "2007-07-03",
 		"combatLevel": 304,
 		"hitpoints": 254,
-		"maxHit": 28,
+		"maxHit": 0,
 		"attackType": ["melee", "dragonfire", "ranged"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -2685,7 +2687,7 @@
 		"releaseDate": "2001-01-04",
 		"combatLevel": 1,
 		"hitpoints": 2,
-		"maxHit": 1,
+		"maxHit": 0,
 		"attackType": ["stab"],
 		"attackSpeed": 4,
 		"aggressive": false,
@@ -2719,7 +2721,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 2,
-		"assignableSlayerMasters": ["turael", "krystilia"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia"]
 	},
 	"3024": {
 		"members": false,
@@ -2760,7 +2762,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 17,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna"]
 	},
 	"3127": {
 		"members": true,
@@ -2883,7 +2885,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 20,
-		"assignableSlayerMasters": ["turael"]
+		"assignableSlayerMasters": ["turael", "spria"]
 	},
 	"3162": {
 		"members": true,
@@ -3088,7 +3090,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 47,
 		"slayerXP": 50,
-		"assignableSlayerMasters": ["turael", "vannaka", "chaeldar", "konar", "nieve"]
+		"assignableSlayerMasters": ["turael", "spria", "vannaka", "chaeldar", "konar", "nieve"]
 	},
 	"5293": {
 		"members": true,
@@ -3185,7 +3187,7 @@
 		"immuneToPoison": false,
 		"immuneToVenom": false,
 		"attributes": [],
-		"category": ["boss", "hellhound"],
+		"category": ["hellhound", "boss"],
 		"examineText": "A three-headed gigantic hound. Guardian of the River of Souls.",
 		"wikiName": "Cerberus",
 		"wikiURL": "https://oldschool.runescape.wiki/w/Cerberus",
@@ -3218,7 +3220,7 @@
 		"releaseDate": "2002-09-24",
 		"combatLevel": 276,
 		"hitpoints": 240,
-		"maxHit": 25,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -3259,7 +3261,7 @@
 		"releaseDate": "2014-03-13",
 		"combatLevel": 470,
 		"hitpoints": 255,
-		"maxHit": 50,
+		"maxHit": 0,
 		"attackType": ["crush"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -3293,7 +3295,15 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 312,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": [
+			"turael",
+			"spria",
+			"krystilia",
+			"mazchna",
+			"konar",
+			"nieve",
+			"duradel"
+		]
 	},
 	"6610": {
 		"members": true,
@@ -3334,7 +3344,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 388.8,
-		"assignableSlayerMasters": ["turael", "krystilia", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "konar", "nieve", "duradel"]
 	},
 	"6611": {
 		"members": true,
@@ -3375,7 +3385,15 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 624,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": [
+			"turael",
+			"spria",
+			"krystilia",
+			"mazchna",
+			"konar",
+			"nieve",
+			"duradel"
+		]
 	},
 	"6615": {
 		"members": true,
@@ -3416,7 +3434,15 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 260,
-		"assignableSlayerMasters": ["turael", "krystilia", "mazchna", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": [
+			"turael",
+			"spria",
+			"krystilia",
+			"mazchna",
+			"konar",
+			"nieve",
+			"duradel"
+		]
 	},
 	"6618": {
 		"members": true,
@@ -3505,7 +3531,7 @@
 		"releaseDate": "2016-01-21",
 		"combatLevel": 150,
 		"hitpoints": 150,
-		"maxHit": 31,
+		"maxHit": 0,
 		"attackType": ["crush", "ranged"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -3621,7 +3647,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 408.5,
-		"assignableSlayerMasters": ["turael", "chaeldar", "duradel", "nieve"]
+		"assignableSlayerMasters": ["turael", "spria", "chaeldar", "duradel", "nieve"]
 	},
 	"7416": {
 		"members": true,
@@ -3669,7 +3695,7 @@
 		"releaseDate": "2017-09-07",
 		"combatLevel": 152,
 		"hitpoints": 200,
-		"maxHit": 13,
+		"maxHit": 0,
 		"attackType": ["slash"],
 		"attackSpeed": 6,
 		"aggressive": true,
@@ -3833,7 +3859,7 @@
 		"releaseDate": "2018-01-04",
 		"combatLevel": 338,
 		"hitpoints": 295,
-		"maxHit": 29,
+		"maxHit": 0,
 		"attackType": ["melee", "dragonfire", "ranged"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -3874,7 +3900,7 @@
 		"releaseDate": "2018-01-04",
 		"combatLevel": 380,
 		"hitpoints": 330,
-		"maxHit": 38,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire", "ranged"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -3949,14 +3975,14 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 750,
-		"assignableSlayerMasters": ["turael", "mazchna", "konar", "nieve", "duradel"]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"8086": {
 		"members": true,
 		"releaseDate": "2005-01-17",
 		"combatLevel": 246,
 		"hitpoints": 210,
-		"maxHit": 22,
+		"maxHit": 0,
 		"attackType": ["slash", "dragonfire"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -4115,12 +4141,53 @@
 		"slayerXP": 268.7,
 		"assignableSlayerMasters": ["konar", "nieve", "duradel"]
 	},
+	"8713": {
+		"members": true,
+		"releaseDate": "2019-07-04",
+		"combatLevel": 318,
+		"hitpoints": 400,
+		"maxHit": 31,
+		"attackType": ["melee", "ranged"],
+		"attackSpeed": 4,
+		"aggressive": true,
+		"poisonous": false,
+		"immuneToPoison": true,
+		"immuneToVenom": true,
+		"attributes": [],
+		"category": ["spider", "boss"],
+		"examineText": "I'm going to need a really big newspaper...",
+		"wikiName": "Sarachnis",
+		"wikiURL": "https://oldschool.runescape.wiki/w/Sarachnis",
+		"attackLevel": 200,
+		"strengthLevel": 240,
+		"defenceLevel": 150,
+		"magicLevel": 150,
+		"rangedLevel": 300,
+		"attackStab": 0,
+		"attackSlash": 0,
+		"attackCrush": 0,
+		"attackMagic": 0,
+		"attackRanged": 15,
+		"defenceStab": 60,
+		"defenceSlash": 40,
+		"defenceCrush": 10,
+		"defenceMagic": 150,
+		"defenceRanged": 300,
+		"attackAccuracy": 30,
+		"meleeStrength": 0,
+		"rangedStrength": 15,
+		"magicDamage": 0,
+		"isSlayerMonster": true,
+		"slayerLevelRequired": 1,
+		"slayerXP": 430,
+		"assignableSlayerMasters": ["turael", "spria", "konar", "nieve", "duradel"]
+	},
 	"9293": {
 		"members": true,
 		"releaseDate": "2019-09-26",
 		"combatLevel": 204,
 		"hitpoints": 300,
-		"maxHit": 20,
+		"maxHit": 50,
 		"attackType": ["melee", "magic"],
 		"attackSpeed": 4,
 		"aggressive": true,
