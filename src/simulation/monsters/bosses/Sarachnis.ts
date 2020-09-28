@@ -3,6 +3,11 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { GemTable } from '../../subtables/RareDropTable';
 import RareSeedTable from '../../subtables/RareSeedTable';
 
+const TatteredPageTable = new LootTable()
+	.add('Tattered moon page')
+	.add('Tattered sun page')
+	.add('Tattered temple page');
+
 const HerbTable = new LootTable()
 	.add('Grimy kwuarm', [10, 15], 31)
 	.add('Grimy cadantine', [10, 15], 27)
@@ -34,8 +39,11 @@ const SarachnisTable = new LootTable()
 	.add('Mithril bolts', [175, 225], 2)
 
 	/* Seeds and Herbs */
-	.add(RareSeedTable, 1, 2)
 	.add(HerbTable, 1, 10)
+	.add(RareSeedTable, 3, 2)
+	.add('Maple seed', 2, 1)
+	.add('Papaya tree seed', 2, 1)
+	.add('Yew seed', 1, 1)
 
 	/* Materials */
 	.add('Mithril ore', [60, 90], 6)
@@ -60,9 +68,7 @@ const SarachnisTable = new LootTable()
 	.add(GemTable, 1, 1)
 
 	/* Tertiary */
-	.tertiary(5, 'Tattered moon page')
-	.tertiary(5, 'Tattered sun page')
-	.tertiary(5, 'Tattered temple page')
+	.tertiary(5, TatteredPageTable)
 	.tertiary(15, 'Grubby key')
 	.tertiary(20, 'Giant egg sac(full)')
 	.tertiary(40, 'Clue scroll (hard)')
