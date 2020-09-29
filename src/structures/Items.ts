@@ -24,7 +24,7 @@ class Items extends Collection<number, Item | PartialItem> {
 		).then((res): Promise<any> => res.json());
 
 		for (const item of Object.values(allItems).filter(weirdItemFilter)) {
-			this.set(item.id, item);
+			this.set(item.id, { ...item, custom: false });
 		}
 	}
 
@@ -35,7 +35,7 @@ class Items extends Collection<number, Item | PartialItem> {
 			(res): Promise<any> => res.json()
 		);
 
-		this.set(item.id, item);
+		this.set(item.id, { ...item, custom: false });
 		return item;
 	}
 

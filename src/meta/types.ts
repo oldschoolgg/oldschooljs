@@ -333,6 +333,15 @@ export interface Item {
 	wiki_url: string | null;
 	equipment: ItemEquipment | null;
 	weapon: ItemWeapon | null;
+	/**
+	 * Special property that will be set to true for custom created items that is used in the bot
+	 * only and have no link with OSRS
+	 */
+	custom?: boolean;
+	/**
+	 * Item icon as base64
+	 */
+	icon?: string;
 }
 
 export interface PartialItem {
