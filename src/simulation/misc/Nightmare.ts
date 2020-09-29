@@ -1,4 +1,4 @@
-import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from 'e';
+import { calcPercentOfNum, calcWhatPercent, percentChance, roll } from 'e';
 import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
@@ -91,8 +91,12 @@ class NightmareClass {
 		const { item } = NonUniqueTable.roll();
 
 		const [range] = nonUniqueItemRanges[item];
+		// If the quantity range of the item is 50-100, we
+		// give you 50 qty to start, then increase it.
 		let quantity = range[0];
-		quantity += randInt(0, calcPercentOfNum(percentage, range[1]));
+
+		quantity += calcPercentOfNum(percentage, range[1]) - range[0];
+
 		if (isMvp) quantity *= 1.1;
 
 		return [item, Math.floor(quantity)];
