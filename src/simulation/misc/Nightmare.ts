@@ -1,11 +1,11 @@
-import { calcPercentOfNum, calcWhatPercent, objectEntries, percentChance, roll } from 'e';
+import { calcPercentOfNum, calcWhatPercent, percentChance, roll } from 'e';
 import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import LootTable from '../../structures/LootTable';
 import SimpleTable from '../../structures/SimpleTable';
-import { addBanks, resolveNameBank } from '../../util/bank';
+import { resolveNameBank } from '../../util/bank';
 import { convertLootBanksToItemBanks } from '../../util/util';
 
 export interface TeamMember {
