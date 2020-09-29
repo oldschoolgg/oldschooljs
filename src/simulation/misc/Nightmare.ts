@@ -1,11 +1,11 @@
-import { calcPercentOfNum, calcWhatPercent, percentChance, roll } from 'e';
+import { calcPercentOfNum, calcWhatPercent, objectEntries, percentChance, roll } from 'e';
 import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Loot from '../../structures/Loot';
 import LootTable from '../../structures/LootTable';
 import SimpleTable from '../../structures/SimpleTable';
-import { resolveNameBank } from '../../util/bank';
+import { addBanks, resolveNameBank } from '../../util/bank';
 import { convertLootBanksToItemBanks } from '../../util/util';
 
 export interface TeamMember {
@@ -94,12 +94,13 @@ class NightmareClass {
 		// If the quantity range of the item is 50-100, we
 		// give you 50 qty to start, then increase it.
 		let quantity = range[0];
-
 		quantity += calcPercentOfNum(percentage, range[1]) - range[0];
 
 		if (isMvp) quantity *= 1.1;
 
-		return [item, Math.floor(quantity)];
+		quantity = Math.floor(Math.max(quantity, range[0]));
+
+		return [item, quantity];
 	}
 
 	public kill(
@@ -112,6 +113,9 @@ class NightmareClass {
 		const parsedTeam = options.team.map(teamMember => ({
 			...teamMember,
 			percentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp)),
+			scaledPercentDamage: Math.floor(
+				calcWhatPercent(teamMember.damageDone, this.hp / options.team.length)
+			),
 			mvp: mvp === teamMember
 		}));
 
@@ -155,7 +159,7 @@ class NightmareClass {
 		for (const teamMember of parsedTeam) {
 			if (Object.keys(lootResult[teamMember.id].loot).length === 0) {
 				lootResult[teamMember.id].add(
-					...this.rollNonUniqueLoot(teamMember.percentDamage, teamMember.mvp)
+					...this.rollNonUniqueLoot(teamMember.scaledPercentDamage, teamMember.mvp)
 				);
 			}
 			lootResult[teamMember.id].add(teamMember.mvp ? 'Big bones' : 'Bones');
