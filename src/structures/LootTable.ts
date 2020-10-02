@@ -42,12 +42,18 @@ export default class LootTable {
 			return;
 		}
 
+		if (items instanceof LootTable) {
+			this.allItems = Array.from(
+				new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems))
+			);
+			return;
+		}
+
 		if (typeof items === 'number') {
+			if (this.allItems.includes(items)) return;
 			this.allItems.push(items);
-		} else if (items instanceof LootTable) {
-			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
 		} else {
-			return this.addToAllItems(items.item);
+			this.addToAllItems(items.item);
 		}
 	}
 
