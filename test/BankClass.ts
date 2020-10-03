@@ -1,6 +1,9 @@
 import test from 'tape';
 
 import { Bank } from '../dist';
+import LootTable from '../dist/structures/LootTable';
+
+const TestLootTable = new LootTable().add('Toolkit');
 
 test('adding', t => {
 	const bank = new Bank({ 1: 1 });
@@ -33,5 +36,29 @@ test('chaining', t => {
 		.add(1);
 
 	t.is(bank.amount(1), 1);
+	t.end();
+});
+
+test('other', t => {
+	const bank = new Bank()
+		.add(1)
+		.add(1)
+		.add(1)
+		.add(1);
+
+	t.is(bank.amount(1), 4);
+
+	bank.remove({ 1: 4 });
+	t.is(bank.amount(1), 0);
+
+	bank.add({ Toolkit: 4 });
+	t.is(bank.amount(1), 4);
+
+	bank.remove({ Toolkit: 4 });
+	t.is(bank.amount(1), 0);
+
+	bank.add(TestLootTable.roll());
+	t.is(bank.amount(1), 1);
+
 	t.end();
 });
