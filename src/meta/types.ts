@@ -232,13 +232,13 @@ export interface Item {
 	 */
 	name: string;
 	/**
-	 * If the item is a members-only.
-	 */
-	members: boolean;
-	/**
 	 * If the item has incomplete wiki data.
 	 */
 	incomplete: boolean;
+	/**
+	 * If the item is a members-only.
+	 */
+	members: boolean;
 	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
@@ -324,6 +324,10 @@ export interface Item {
 	 */
 	examine: string | null;
 	/**
+	 * Item icon as base64
+	 */
+	icon?: string;
+	/**
 	 * The OSRS Wiki name for the item.
 	 */
 	wiki_name: string | null;
@@ -331,6 +335,10 @@ export interface Item {
 	 * The OSRS Wiki URL (possibly including anchor link).
 	 */
 	wiki_url: string | null;
+	/**
+	 * The OSRS Wiki Exchaange URL (possibly including anchor link).
+	 */
+	wiki_exchange: string | null;
 	equipment: ItemEquipment | null;
 	weapon: ItemWeapon | null;
 }
