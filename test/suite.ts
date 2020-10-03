@@ -7,3 +7,4 @@ import './Wiki';
 import './Polls';
 import './Util';
 import './Bank';
+import './BankClass';
