@@ -4,6 +4,7 @@ import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
 import Monsters from './simulation/monsters/index';
 import Openables from './simulation/openables/index';
+import Bank from './structures/Bank';
 import Hiscores from './structures/Hiscores';
 import Items from './structures/Items';
 import News from './structures/News';
@@ -27,5 +28,6 @@ export {
 	Monsters,
 	Minigames,
 	Openables,
+	Bank,
 	constants
 };

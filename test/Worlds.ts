@@ -1,6 +1,6 @@
-import { Worlds } from '../dist';
-
 import test from 'tape';
+
+import { Worlds } from '../dist';
 
 test('Setup', async t => {
 	await Worlds.fetch();

@@ -1,6 +1,6 @@
-import { Util } from '../dist';
-
 import test from 'tape';
+
+import { Util } from '../dist';
 
 test('toKMB checks', async t => {
 	t.plan(10);

@@ -1,5 +1,6 @@
-import { Items } from '../dist';
 import test from 'tape';
+
+import { Items } from '../dist';
 import { Item } from '../dist/meta/types';
 
 const expectedIDTuple = [

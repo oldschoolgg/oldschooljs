@@ -1,6 +1,6 @@
-import { Hiscores } from '../dist';
-
 import test from 'tape';
+
+import { Hiscores } from '../dist';
 import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async t => {

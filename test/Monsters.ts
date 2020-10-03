@@ -1,14 +1,13 @@
 import test from 'tape';
 
-import { checkThreshold } from './testUtil';
-import Monster from '../dist/structures/Monster';
-import LootTable from '../dist/structures/LootTable';
-import Loot from '../dist/structures/Loot';
-import { ItemBank } from '../dist/meta/types';
-
-import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { Monsters } from '../dist';
+import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { MonsterData } from '../dist/meta/monsterData';
+import { ItemBank } from '../dist/meta/types';
+import Loot from '../dist/structures/Loot';
+import LootTable from '../dist/structures/LootTable';
+import Monster from '../dist/structures/Monster';
+import { checkThreshold } from './testUtil';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 const currentMonIDs = new Set();
