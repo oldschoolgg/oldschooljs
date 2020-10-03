@@ -12,7 +12,7 @@ test('adding', t => {
 	t.is(bank.amount(1), 2);
 	t.is(bank.amount('Toolkit'), 2);
 	t.is(bank.amount('Twisted bow'), 0);
-	t.deepEqual(bank.loot, { 1: 2 });
+	t.deepEqual(bank.bank, { 1: 2 });
 
 	t.end();
 });
@@ -24,7 +24,7 @@ test('removing', t => {
 	t.is(bank.amount(1), 0);
 	t.is(bank.amount('Toolkit'), 0);
 
-	t.deepEqual(bank.loot, {});
+	t.deepEqual(bank.bank, {});
 
 	t.end();
 });
@@ -58,6 +58,15 @@ test('other', t => {
 	t.is(bank.amount(1), 0);
 
 	bank.add(TestLootTable.roll());
+	t.is(bank.amount(1), 1);
+
+	bank.add(new Bank({ 1: 1 }));
+	t.is(bank.amount(1), 2);
+
+	bank.add(new Bank({ 1: 0 }));
+	t.is(bank.amount(1), 2);
+
+	bank.remove(new Bank({ 1: 1 }));
 	t.is(bank.amount(1), 1);
 
 	t.end();

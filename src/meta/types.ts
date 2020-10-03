@@ -415,10 +415,6 @@ export interface PollResult {
 }
 
 export interface ItemBank {
-	[key: number]: number;
-}
-
-export interface StringKeyedBank {
 	[key: string]: number;
 }
 
