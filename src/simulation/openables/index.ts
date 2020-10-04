@@ -1,11 +1,13 @@
 import Collection from '../../structures/Collection';
 import Openable from '../../structures/Openable';
+import GrandHallowedCoffin from './GrandHallowedCoffin';
 import LuckyImp from './LuckyImp';
 import MysteryBox from './MysteryBox';
 
 const openablesObject = {
 	LuckyImp,
-	MysteryBox
+	MysteryBox,
+	GrandHallowedCoffin
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [
