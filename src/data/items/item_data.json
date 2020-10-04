@@ -6114,7 +6114,7 @@
 	"9822": "Magical cape rack",
 	"9823": "Oak costume box",
 	"9824": "Teak costume box",
-	"9825": "Mahogany cos box",
+	"9825": "Mahogany costume box",
 	"9826": "Oak armour case",
 	"9827": "Teak armour case",
 	"9828": "Mahogany armour case",
@@ -11464,5 +11464,8 @@
 	"24937": "Mahogany cupboard",
 	"24938": "Waxwood log",
 	"24939": "Waxwood plank",
-	"24940": "Marlo's crate"
+	"24940": "Marlo's crate",
+	"24941": "Bp obj",
+	"24942": "Reinforced goggles",
+	"24944": "Sourhog foot"
 }
