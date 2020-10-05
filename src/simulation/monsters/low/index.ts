@@ -20,6 +20,7 @@ import CaveKraken from './CaveKraken';
 import CaveSlime from './CaveSlime';
 import Cow from './Cow';
 import CrawlingHand from './CrawlingHand';
+import Cyclops from './Cyclops';
 import Dagannoth from './Dagannoth';
 import DarkBeast from './DarkBeast';
 import DemonicGorilla from './DemonicGorilla';
@@ -151,5 +152,6 @@ export default {
 	Monkey,
 	Skeleton,
 	Zombie,
-	HillGiant
+	HillGiant,
+	Cyclops
 };
