@@ -46,7 +46,9 @@ const expectedIDTuple = [
 	['Adamant platebody (h5)', 23404],
 	['Wolf mask', 23407],
 	['Wolf cloak', 23410],
-	['Climbing boots (g)', 23413]
+	['Climbing boots (g)', 23413],
+
+	['Ring of endurance (uncharged)', 24844]
 ];
 
 // Check that items have the ID that we expect them to have, and not some random other version of that item.
