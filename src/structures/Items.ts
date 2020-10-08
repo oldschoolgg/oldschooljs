@@ -41,7 +41,7 @@ class Items extends Collection<number, Item | PartialItem> {
 
 	public get(item: ItemResolvable): Item | PartialItem | undefined {
 		const id = this.resolveID(item);
-		if (!id) return undefined;
+		if (typeof id === 'undefined') return undefined;
 		return super.get(id);
 	}
 
