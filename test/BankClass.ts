@@ -39,6 +39,23 @@ test('chaining', t => {
 	t.end();
 });
 
+test('multiply', t => {
+	const bank = new Bank({ 1: 1, 2: 1, 3: 1, 4: 1 });
+	bank.multiply(10);
+	t.is(bank.amount(1), 10);
+	t.is(bank.amount(2), 10);
+	t.is(bank.amount(3), 10);
+	t.is(bank.amount(4), 10);
+	t.end();
+});
+
+test('random', t => {
+	const bank = new Bank({ 69: 420 });
+	const random = bank.random();
+	t.deepEqual(random, { id: 69, qty: 420 });
+	t.end();
+});
+
 test('other', t => {
 	const bank = new Bank()
 		.add(1)

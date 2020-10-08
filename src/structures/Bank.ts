@@ -1,7 +1,10 @@
-import { ItemBank, ReturnedLootItem } from '../meta/types';
+import { objectEntries, randArrItem } from 'e';
+
+import { BankItem, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
 	addItemToBank,
+	multiplyBank,
 	removeBankFromBank,
 	removeItemFromBank,
 	resolveNameBank
@@ -88,10 +91,16 @@ export default class Bank {
 		return this;
 	}
 
-	public random(): number | null {
-		const keys = Object.keys(this.bank);
-		if (keys.length === 0) return null;
-		return Number(keys[Math.floor(Math.random() * keys.length)]);
+	public random(): BankItem | null {
+		const entries = objectEntries(this.bank);
+		if (entries.length === 0) return null;
+		const randomEntry = randArrItem(entries);
+		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
+	}
+
+	public multiply(multiplier: number): this {
+		this.bank = multiplyBank(this.bank, multiplier);
+		return this;
 	}
 
 	public values(): ItemBank {
