@@ -1,8 +1,8 @@
 import { randInt, roll } from 'e';
 
 import { ItemBank } from '../../meta/types';
+import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
-import Loot from '../../structures/Loot';
 import LootTable from '../../structures/LootTable';
 import {
 	BlessingTable,
@@ -215,7 +215,7 @@ export const HardClueTable = new LootTable().add(HardStandardTable, 1, 12).add(H
 
 export class HardCasket extends Clue {
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			const numberOfRolls = randInt(4, 6);

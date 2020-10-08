@@ -1,7 +1,7 @@
 import { roll } from 'e';
 
 import { ItemBank } from '../../../meta/types';
-import Loot from '../../../structures/Loot';
+import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import Monster from '../../../structures/Monster';
 
@@ -53,7 +53,7 @@ const NUMBER_OF_BROTHERS = 6;
 
 export class Barrows extends Monster {
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			if (roll(34)) loot.add('Clue scroll (elite)');
@@ -70,7 +70,7 @@ export class Barrows extends Monster {
 						barrowsItem = BarrowsTable.roll()[0];
 					}
 					barrowsItemsThisKill.add(barrowsItem.item);
-					loot.add(barrowsItem);
+					loot.add([barrowsItem]);
 				} else {
 					loot.add(OtherTable.roll());
 				}

@@ -3,7 +3,7 @@ import { roll } from 'e';
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
 import { getBrimKeyChanceFromCBLevel } from '../util/util';
-import Loot from './Loot';
+import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
 
@@ -20,7 +20,7 @@ export default class SimpleMonster extends Monster {
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.

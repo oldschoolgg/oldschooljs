@@ -1,7 +1,7 @@
 import { roll } from 'e';
 
 import { ItemBank } from '../../../meta/types';
-import Loot from '../../../structures/Loot';
+import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
@@ -65,7 +65,7 @@ const VorkathTable = new LootTable()
 
 export class Vorkath extends SimpleMonster {
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			loot.add(VorkathTable.roll());

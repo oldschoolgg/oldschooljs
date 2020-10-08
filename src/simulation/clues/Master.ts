@@ -1,8 +1,8 @@
 import { randInt, roll } from 'e';
 
 import { ItemBank } from '../../meta/types';
+import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
-import Loot from '../../structures/Loot';
 import LootTable from '../../structures/LootTable';
 import {
 	BlessingTable,
@@ -172,7 +172,7 @@ export const MasterClueTable = new LootTable()
 
 export class MasterCasket extends Clue {
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			if (roll(1000)) loot.add('Bloodhound');

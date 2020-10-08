@@ -1,7 +1,7 @@
 import { randFloat, roll, Time } from 'e';
 
 import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
-import Loot from '../../structures/Loot';
+import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
@@ -234,7 +234,7 @@ export class ChambersOfXericClass extends Minigame {
 
 		for (const teamMember of options.team) {
 			// Give every team member a Loot.
-			lootResult[teamMember.id] = new Loot();
+			lootResult[teamMember.id] = new Bank();
 
 			// If the team and team member is elligible for dust, roll for this user.
 			if (elligibleForDust && teamMember.canReceiveDust && roll(400)) {
@@ -254,7 +254,7 @@ export class ChambersOfXericClass extends Minigame {
 		for (const uniqueItem of uniqueLoot) {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
-			lootResult[receipientID].add(uniqueItem);
+			lootResult[receipientID].add([uniqueItem]);
 			uniqueDeciderTable.delete(receipientID);
 		}
 

@@ -2,7 +2,7 @@ import { calcPercentOfNum, calcWhatPercent, percentChance, roll } from 'e';
 import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
+import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
@@ -127,7 +127,7 @@ class NightmareClass {
 		// done very similar amounts of damage, varying by only a few percent.
 		const WeightedUniqueTable = new SimpleTable<string>();
 		for (const teamMember of parsedTeam) {
-			lootResult[teamMember.id] = new Loot();
+			lootResult[teamMember.id] = new Bank();
 
 			WeightedUniqueTable.add(teamMember.id, teamMember.percentDamage);
 		}
@@ -157,7 +157,7 @@ class NightmareClass {
 
 		// Hand out non-uniques
 		for (const teamMember of parsedTeam) {
-			if (Object.keys(lootResult[teamMember.id].loot).length === 0) {
+			if (Object.keys(lootResult[teamMember.id].bank).length === 0) {
 				lootResult[teamMember.id].add(
 					...this.rollNonUniqueLoot(teamMember.scaledPercentDamage, teamMember.mvp)
 				);
