@@ -88,6 +88,12 @@ export default class Bank {
 		return this;
 	}
 
+	public random(): number | null {
+		const keys = Object.keys(this.bank);
+		if (keys.length === 0) return null;
+		return Number(keys[Math.floor(Math.random() * keys.length)]);
+	}
+
 	public values(): ItemBank {
 		return this.bank;
 	}
