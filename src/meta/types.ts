@@ -432,6 +432,11 @@ export interface ReturnedLootItem {
 	quantity: number;
 }
 
+export interface BankItem {
+	id: number;
+	qty: number;
+}
+
 export interface LootTableItem {
 	item: number | LootTable | LootTableItem[];
 	weight?: number;
