@@ -1,6 +1,7 @@
 import test from 'tape';
 
 import { Bank } from '../dist';
+import { ReturnedLootItem } from '../dist/meta/types';
 import LootTable from '../dist/structures/LootTable';
 
 const TestLootTable = new LootTable().add('Toolkit');
@@ -53,6 +54,23 @@ test('random', t => {
 	const bank = new Bank({ 69: 420 });
 	const random = bank.random();
 	t.deepEqual(random, { id: 69, qty: 420 });
+	t.end();
+});
+
+test('ReturnedLootItem', t => {
+	const items: ReturnedLootItem[] = [
+		{ item: 1, quantity: 5 },
+		{ item: 1, quantity: 5 },
+		{ item: 1, quantity: 0 },
+		{ item: 2, quantity: 10 }
+	];
+	const bank = new Bank().add(items);
+	t.deepEqual(bank.bank, { 1: 10, 2: 10 });
+	bank.remove(items);
+	t.deepEqual(bank.bank, {});
+	t.is(bank.amount(1), 0);
+	t.is(bank.amount(2), 0);
+
 	t.end();
 });
 

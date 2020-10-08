@@ -24,7 +24,7 @@ export default class Bank {
 
 	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
 		if (Array.isArray(item)) {
-			for (const _item of item) this.add(_item.item, quantity);
+			for (const _item of item) this.add(_item.item, _item.quantity);
 			return this;
 		}
 
@@ -60,7 +60,7 @@ export default class Bank {
 		quantity = 1
 	): Bank {
 		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, quantity);
+			for (const _item of item) this.remove(_item.item, _item.quantity);
 			return this;
 		}
 
