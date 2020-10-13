@@ -102,18 +102,6 @@
 					<h2>Items</h2>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
-				<a href="#fetch-and-cache-all-items" id="fetch-and-cache-all-items" style="color: inherit; text-decoration: none;">
-					<h4>Fetch and cache all items</h4>
-				</a>
-				<p>You can call this to have all items fully available for usage (via <code>.get</code>) at any time without needing to fetch individual items. Items change at most once a week, so you should probably only call this once at startup, and then once every few days.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">await</span> Items.fetchAll();</code></pre>
-				<a href="#fetch-a-particular-item" id="fetch-a-particular-item" style="color: inherit; text-decoration: none;">
-					<h4>Fetch a particular item</h4>
-				</a>
-				<p>This will <em>fetch</em> the latest version of a particular item.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBow = <span class="hljs-keyword">await</span> Items.fetch(<span class="hljs-number">20997</span>);
-
-<span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);</code></pre>
 				<a href="#getting-an-item-by-id" id="getting-an-item-by-id" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by ID</h4>
 				</a>
@@ -446,9 +434,6 @@ Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/openableoptions.html" class="tsd-kind-icon">Openable<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/partialitem.html" class="tsd-kind-icon">Partial<wbr>Item</a>
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/poll.html" class="tsd-kind-icon">Poll</a>
