@@ -74,11 +74,6 @@ test('Pre-fetch checks', t => {
 	t.end();
 });
 
-test('Setup', async t => {
-	await Items.fetchAll();
-	t.end();
-});
-
 test('Fetching Item by ID', async t => {
 	t.plan(6);
 

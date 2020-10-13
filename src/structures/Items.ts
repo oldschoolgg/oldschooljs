@@ -1,10 +1,6 @@
-import fetch from 'node-fetch';
-
-import { OSRS_BOX_BASE_URL } from '../constants';
 import _items from '../data/items/item_data.json';
 import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/util';
-import weirdItemFilter from '../util/weirdItemFilter';
 import Collection from './Collection';
 const items = _items as Record<string, Item>;
 
@@ -18,27 +14,6 @@ export interface ItemCollection {
 const USELESS_ITEMS = [617, 8890, 6964, 2513, 19492, 11071, 11068, 21284, 24735];
 
 class Items extends Collection<number, Item> {
-	public async fetchAll(): Promise<void> {
-		const allItems: ItemCollection = await fetch(
-			`${OSRS_BOX_BASE_URL}/items-complete.json`
-		).then((res): Promise<any> => res.json());
-
-		for (const item of Object.values(allItems).filter(weirdItemFilter)) {
-			this.set(item.id, item);
-		}
-	}
-
-	public async fetch(input: ItemResolvable): Promise<Item> {
-		const id = this.resolveID(input);
-
-		const item: Item = await fetch(`${OSRS_BOX_BASE_URL}/items-json/${id}.json`).then(
-			(res): Promise<any> => res.json()
-		);
-
-		this.set(item.id, item);
-		return item;
-	}
-
 	public get(item: ItemResolvable): Item | undefined {
 		const id = this.resolveID(item);
 		if (typeof id === 'undefined') return undefined;
