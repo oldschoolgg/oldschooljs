@@ -2,11 +2,11 @@ import fetch from 'node-fetch';
 
 import { OSRS_BOX_BASE_URL } from '../constants';
 import _items from '../data/items/item_data.json';
-import { Item, ItemID, PartialItem } from '../meta/types';
+import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/util';
 import weirdItemFilter from '../util/weirdItemFilter';
 import Collection from './Collection';
-const items = _items as Record<string, string>;
+const items = _items as Record<string, Item>;
 
 export const itemNameMap: Map<string, number> = new Map();
 
@@ -17,7 +17,7 @@ export interface ItemCollection {
 
 const USELESS_ITEMS = [617, 8890, 6964, 2513, 19492, 11071, 11068, 21284, 24735];
 
-class Items extends Collection<number, Item | PartialItem> {
+class Items extends Collection<number, Item> {
 	public async fetchAll(): Promise<void> {
 		const allItems: ItemCollection = await fetch(
 			`${OSRS_BOX_BASE_URL}/items-complete.json`
@@ -39,7 +39,7 @@ class Items extends Collection<number, Item | PartialItem> {
 		return item;
 	}
 
-	public get(item: ItemResolvable): Item | PartialItem | undefined {
+	public get(item: ItemResolvable): Item | undefined {
 		const id = this.resolveID(item);
 		if (typeof id === 'undefined') return undefined;
 		return super.get(id);
@@ -61,12 +61,12 @@ class Items extends Collection<number, Item | PartialItem> {
 
 const itemsExport = new Items();
 
-for (const [id, name] of Object.entries(items)) {
+for (const [id, item] of Object.entries(items)) {
 	const numID = parseInt(id);
 
 	if (USELESS_ITEMS.includes(numID)) continue;
-	itemsExport.set(numID, { name, id: numID });
-	const cleanName = cleanString(name);
+	itemsExport.set(numID, item);
+	const cleanName = cleanString(item.name);
 	if (!itemNameMap.has(cleanName)) itemNameMap.set(cleanName, numID);
 }
 
