@@ -183,7 +183,7 @@ export interface ItemEquipment {
 	magic_damage: number;
 	prayer: number;
 	slot: EquipmentSlot;
-	requirements: ItemRequirements | null;
+	requirements: Partial<ItemRequirements> | null;
 }
 
 export enum EquipmentSlot {
@@ -324,10 +324,6 @@ export interface Item {
 	 */
 	examine: string | null;
 	/**
-	 * Item icon as base64
-	 */
-	icon?: string;
-	/**
 	 * The OSRS Wiki name for the item.
 	 */
 	wiki_name: string | null;
@@ -335,23 +331,8 @@ export interface Item {
 	 * The OSRS Wiki URL (possibly including anchor link).
 	 */
 	wiki_url: string | null;
-	/**
-	 * The OSRS Wiki Exchaange URL (possibly including anchor link).
-	 */
-	wiki_exchange: string | null;
 	equipment: ItemEquipment | null;
 	weapon: ItemWeapon | null;
-}
-
-export interface PartialItem {
-	/**
-	 * Unique OSRS item ID number.
-	 */
-	id: number;
-	/**
-	 * Name of the item.
-	 */
-	name: string;
 }
 
 export interface NewsItem {

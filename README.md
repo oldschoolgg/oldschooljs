@@ -46,24 +46,6 @@ console.log(ironHyger);
 import { Items } from 'oldschooljs';
 ```
 
-#### Fetch and cache all items
-
-You can call this to have all items fully available for usage (via `.get`) at any time without needing to fetch individual items. Items change at most once a week, so you should probably only call this once at startup, and then once every few days.
-
-```js
-await Items.fetchAll();
-```
-
-#### Fetch a particular item
-
-This will _fetch_ the latest version of a particular item.
-
-```js
-const twistedBow = await Items.fetch(20997);
-
-if (twistedBow) console.log(twistedBow);
-```
-
 #### Getting an Item by ID
 
 ```js
