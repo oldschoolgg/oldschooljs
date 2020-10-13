@@ -4,7 +4,7 @@ import { Monsters } from '../dist';
 import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { MonsterData } from '../dist/meta/monsterData';
 import { ItemBank } from '../dist/meta/types';
-import Loot from '../dist/structures/Loot';
+import Bank from '../dist/structures/Bank';
 import LootTable from '../dist/structures/LootTable';
 import Monster from '../dist/structures/Monster';
 import { checkThreshold } from './testUtil';
@@ -61,7 +61,7 @@ class TestMonsterClass extends Monster {
 		.add(emptyTable);
 
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			const roll = this.table.roll();
