@@ -46,6 +46,10 @@ export default class Bank {
 		}
 
 		const firstKey = Object.keys(item)[0];
+		if (firstKey === undefined) {
+			return this;
+		}
+
 		if (isNaN(Number(firstKey))) {
 			this.add(resolveNameBank(item));
 		} else {
@@ -82,6 +86,10 @@ export default class Bank {
 		}
 
 		const firstKey = Object.keys(item)[0];
+		if (firstKey === undefined) {
+			return this;
+		}
+
 		if (isNaN(Number(firstKey))) {
 			this.remove(resolveNameBank(item));
 		} else {

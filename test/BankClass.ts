@@ -102,6 +102,9 @@ test('other', t => {
 	t.is(bank.amount(1), 2);
 
 	bank.remove(new Bank({ 1: 1 }));
+	bank.add(new Bank({}));
+	bank.add({});
+
 	t.is(bank.amount(1), 1);
 
 	t.end();
