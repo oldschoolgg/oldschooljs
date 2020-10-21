@@ -71,7 +71,7 @@ test('Pre-fetch checks', () => {
 	checkItems();
 });
 
-test('Fetching Item by ID', async done => {
+test('Fetching Item by ID', async (done) => {
 	expect.assertions(6);
 
 	const [tbow, superStr, dragonDagger, coins] = [
@@ -99,9 +99,9 @@ test('Fetching Item by ID', async done => {
 test('Duplicate/Stacked item counts', async () => {
 	checkItems();
 	for (const itemName of ["Zulrah's scales", 'Belladonna seed']) {
-		const itemArr = Items.filter(i => i.name === itemName).array();
+		const itemArr = Items.filter((i) => i.name === itemName).array();
 		if (itemArr.length !== 1) {
-			throw `Should be only 1x ${itemName}. Was: ${itemArr.map(i => i.id)}`;
+			throw `Should be only 1x ${itemName}. Was: ${itemArr.map((i) => i.id)}`;
 		}
 
 		const item = itemArr[0] as Item | undefined;

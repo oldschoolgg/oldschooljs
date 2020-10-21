@@ -3,16 +3,16 @@ import { News } from '../dist';
 test('Generic checks', async () => {
 	expect.assertions(1);
 
-	const firstPageNews = News.filter(article => article.year === 2013 && article.month === 2);
+	const firstPageNews = News.filter((article) => article.year === 2013 && article.month === 2);
 
 	expect(firstPageNews.size).toBe(12);
 });
 
-test('Single article check', async done => {
+test('Single article check', async (done) => {
 	expect.assertions(4);
 
 	const article = News.find(
-		article => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream'
+		(article) => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream'
 	);
 
 	if (!article) return done.fail('Missing article.');

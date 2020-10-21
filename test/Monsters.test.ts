@@ -12,7 +12,7 @@ const currentMonIDs = new Set();
 const currentAliases = new Set();
 
 for (const monster of Monsters.values()) {
-	if (!monster.aliases.some(alias => alias === monster.name.toLowerCase())) {
+	if (!monster.aliases.some((alias) => alias === monster.name.toLowerCase())) {
 		throw `${monster.name} should have its name as an alias.`;
 	}
 	// Make sure all aliases are lowercase
@@ -63,10 +63,10 @@ class TestMonsterClass extends Monster {
 
 		for (let i = 0; i < quantity; i++) {
 			const roll = this.table.roll();
-			const barDrop = roll.find(item => item.item === 2353);
-			const otherBarDrop = roll.find(item => item.item === 2351);
+			const barDrop = roll.find((item) => item.item === 2353);
+			const otherBarDrop = roll.find((item) => item.item === 2351);
 
-			const dragonClaws = roll.find(item => item.item === 13652);
+			const dragonClaws = roll.find((item) => item.item === 13652);
 
 			if (otherBarDrop && otherBarDrop.quantity !== barDrop?.quantity) {
 				throw new Error('Should drop array items at once');
@@ -75,8 +75,8 @@ class TestMonsterClass extends Monster {
 			if (
 				dragonClaws &&
 				roll
-					.filter(i => i.item === 13652)
-					.map(item => item.quantity)
+					.filter((i) => i.item === 13652)
+					.map((item) => item.quantity)
 					.reduce((a, b) => a + b, 0) !== 100
 			) {
 				throw new Error('should always drop 100 at a time');

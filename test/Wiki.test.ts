@@ -20,7 +20,7 @@ test('Random', async () => {
 	expect(twentyRandom.length).toBe(20);
 });
 
-test('Fetching by ID', async done => {
+test('Fetching by ID', async (done) => {
 	expect.assertions(1);
 
 	const twistedBowPage = await Wiki.fetchPage(82098);

@@ -25,10 +25,7 @@ test('removing', () => {
 });
 
 test('chaining', () => {
-	const bank = new Bank()
-		.add(1)
-		.remove(1)
-		.add(1);
+	const bank = new Bank().add(1).remove(1).add(1);
 
 	expect(bank.amount(1)).toBe(1);
 });
@@ -64,11 +61,7 @@ test('ReturnedLootItem', () => {
 });
 
 test('other', () => {
-	const bank = new Bank()
-		.add(1)
-		.add(1)
-		.add(1)
-		.add(1);
+	const bank = new Bank().add(1).add(1).add(1).add(1);
 
 	expect(bank.amount(1)).toBe(4);
 
