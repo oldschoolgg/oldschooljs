@@ -1,9 +1,7 @@
-import test from 'tape';
-
 import { Clues } from '../dist';
 import { checkThreshold } from './testUtil';
 
-test('Beginner Clues', async (test): Promise<void> => {
+test('Beginner Clues', async () => {
 	const expectedRates = {
 		'Mole slippers': 180,
 		'Shoulder parrot': 180,
@@ -24,7 +22,7 @@ test('Beginner Clues', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Easy Clues', async (test): Promise<void> => {
+test('Easy Clues', async () => {
 	const expectedRates = {
 		'Amulet of magic (t)': 360 / 3,
 		'Wooden shield (g)': 1404 / 3,
@@ -59,7 +57,7 @@ test('Easy Clues', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Medium Clues', async (test): Promise<void> => {
+test('Medium Clues', async () => {
 	const expectedRates = {
 		'Clue scroll (master)': 30,
 		'Ranger boots': 1133 / 4,
@@ -83,7 +81,7 @@ test('Medium Clues', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Hard Clues', async (test): Promise<void> => {
+test('Hard Clues', async () => {
 	const expectedRates = {
 		'Clue scroll (master)': 15,
 		'Ancient page 2': 650 / 5,
@@ -117,7 +115,7 @@ test('Hard Clues', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Elite Clues', async (test): Promise<void> => {
+test('Elite Clues', async () => {
 	const expectedRates = {
 		'Clue scroll (master)': 5,
 		'Dragon full helm ornament kit': 1250 / 5,
@@ -143,7 +141,7 @@ test('Elite Clues', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Master Clues', async (test): Promise<void> => {
+test('Master Clues', async () => {
 	const expectedRates = {
 		'Occult ornament kit': 851 / 6,
 		'Arceuus hood': 851 / 6,

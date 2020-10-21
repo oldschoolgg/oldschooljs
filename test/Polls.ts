@@ -1,23 +1,21 @@
-import test from 'tape';
-
 import { Polls } from '../dist';
 
-test('Generic checks', async t => {
-	t.plan(3);
+test('Generic checks', async done => {
+	expect.assertions(3);
 
-	t.equal(Polls.size > 163, true, 'Expected atleast 163 polls');
+	expect(Polls.size > 163).toBe(true);
 
 	const raidsPoll = Polls.find(poll => poll.title === 'More Raids Rewards');
-	if (!raidsPoll) return t.fail('Expected raids poll.');
-	t.equal(raidsPoll.questions.length, 11, 'Expected atleast 163 polls');
+	if (!raidsPoll) return done.fail('Expected raids poll.');
+	expect(raidsPoll.questions.length).toBe(11);
 
 	const pollsFrom2013 = Polls.filter(poll => new Date(poll.datePosted).getFullYear() === 2013);
-	t.equal(pollsFrom2013.size, 23, 'Expected 23 polls in 2013');
+	expect(pollsFrom2013.size).toBe(23);
 });
 
-test('Method checks', async t => {
-	t.plan(1);
+test('Method checks', async () => {
+	expect.assertions(1);
 
 	const pollsFrom2013 = await Polls.fetchYear(2013);
-	t.equal(pollsFrom2013.length, 23, 'Expected 23 polls in 2013');
+	expect(pollsFrom2013.length).toBe(23);
 });

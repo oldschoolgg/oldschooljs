@@ -1,5 +1,3 @@
-import { Test } from 'tape';
-
 import { Items } from '../dist';
 import { ItemBank } from '../dist/meta/types';
 

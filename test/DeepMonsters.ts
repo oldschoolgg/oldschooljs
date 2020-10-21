@@ -1,9 +1,7 @@
-import test from 'tape';
-
 import { Monsters } from '../dist';
 import { checkThreshold } from './testUtil';
 
-test('Barrows', async (test): Promise<void> => {
+test('Barrows', async () => {
 	const NUM_BROTHERS = 6;
 	const NUM_BARR_ITEMS = NUM_BROTHERS * 4;
 
@@ -42,7 +40,7 @@ test('Barrows', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Giant Mole', async (test): Promise<void> => {
+test('Giant Mole', async () => {
 	const expectedRates = {
 		'Big bones': 1,
 		'Mole claw': 1,
@@ -66,7 +64,7 @@ test('Giant Mole', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Zulrah', async (test): Promise<void> => {
+test('Zulrah', async () => {
 	const expectedRates = {
 		'Pet snakeling': 4000,
 		'Jar of swamp': 3000,
@@ -95,7 +93,7 @@ test('Zulrah', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Cerberus', async (test): Promise<void> => {
+test('Cerberus', async () => {
 	const expectedRates = {
 		Hellpuppy: 3000,
 		'Jar of souls': 2000,
@@ -126,7 +124,7 @@ test('Cerberus', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Dagannoth Prime', async (test): Promise<void> => {
+test('Dagannoth Prime', async () => {
 	const expectedRates = {
 		'Pet dagannoth prime': 5000,
 		'Dragon axe': 128,
@@ -156,7 +154,7 @@ test('Dagannoth Prime', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Dagannoth Rex', async (test): Promise<void> => {
+test('Dagannoth Rex', async () => {
 	const expectedRates = {
 		'Pet dagannoth rex': 5000,
 		'Dragon axe': 128,
@@ -188,7 +186,7 @@ test('Dagannoth Rex', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Dagannoth Supreme', async (test): Promise<void> => {
+test('Dagannoth Supreme', async () => {
 	const expectedRates = {
 		'Pet dagannoth supreme': 5000,
 		'Dragon axe': 128,
@@ -219,7 +217,7 @@ test('Dagannoth Supreme', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Vorkath', async (test): Promise<void> => {
+test('Vorkath', async () => {
 	const expectedRates = {
 		Vorki: 3000,
 		'Jar of decay': 3000,
@@ -254,7 +252,7 @@ test('Vorkath', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Goblins', async (test): Promise<void> => {
+test('Goblins', async () => {
 	const expectedRates = {
 		'Ensouled goblin head': 35,
 		'Clue scroll (beginner)': 60,
@@ -278,7 +276,7 @@ test('Goblins', async (test): Promise<void> => {
 	test.end();
 });
 
-test('General Graardor', async (test): Promise<void> => {
+test('General Graardor', async () => {
 	const expectedRates = {
 		'Pet general graardor': 5000,
 		'Curved bone': 5013,
@@ -313,7 +311,7 @@ test('General Graardor', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Commander Zilyana', async (test): Promise<void> => {
+test('Commander Zilyana', async () => {
 	const expectedRates = {
 		'Pet zilyana': 5000,
 		'Clue scroll(elite)': 250,
@@ -350,7 +348,7 @@ test('Commander Zilyana', async (test): Promise<void> => {
 	test.end();
 });
 
-test("Kree'arra", async (test): Promise<void> => {
+test("Kree'arra", async () => {
 	const expectedRates = {
 		"Pet kree'arra": 5000,
 		'Curved bone': 5013,
@@ -381,7 +379,7 @@ test("Kree'arra", async (test): Promise<void> => {
 	test.end();
 });
 
-test("K'ril Tsutsaroth", async (test): Promise<void> => {
+test("K'ril Tsutsaroth", async () => {
 	const expectedRates = {
 		"Pet k'ril tsutsaroth": 5000,
 		'Clue scroll(elite)': 250,
@@ -417,7 +415,7 @@ test("K'ril Tsutsaroth", async (test): Promise<void> => {
 	test.end();
 });
 
-test('Guard', async (test): Promise<void> => {
+test('Guard', async () => {
 	const expectedRates = {
 		'Clue scroll (medium)': 106,
 		'Iron bolts': 12.8 / 7,
@@ -439,7 +437,7 @@ test('Guard', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Men', async (test): Promise<void> => {
+test('Men', async () => {
 	const expectedRates = {
 		Bones: 1,
 		'Clue scroll (beginner)': 90,
@@ -455,7 +453,7 @@ test('Men', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Callisto', async (test): Promise<void> => {
+test('Callisto', async () => {
 	const expectedRates = {
 		'Tyrannical ring': 512,
 		'Rune pickaxe': 10.67,
@@ -489,7 +487,7 @@ test('Callisto', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Chaos Elemental', async (test): Promise<void> => {
+test('Chaos Elemental', async () => {
 	const expectedRates = {
 		'Anchovy pizza': 10 / 3,
 		'Babydragon bones': 10 / 2,
@@ -521,7 +519,7 @@ test('Chaos Elemental', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Chaos Fanatic', async (test): Promise<void> => {
+test('Chaos Fanatic', async () => {
 	const expectedRates = {
 		Bones: 1,
 		'Odium shard 1': 256,
@@ -557,7 +555,7 @@ test('Chaos Fanatic', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Crazy Archaeologist ', async (test): Promise<void> => {
+test('Crazy Archaeologist ', async () => {
 	const expectedRates = {
 		Bones: 1,
 		'Odium shard 2': 256,
@@ -591,7 +589,7 @@ test('Crazy Archaeologist ', async (test): Promise<void> => {
 	test.end();
 });
 
-test('King Black Dragon', async (test): Promise<void> => {
+test('King Black Dragon', async () => {
 	const expectedRates = {
 		'Dragon bones': 1,
 		'Dragon pickaxe': 1500,
@@ -625,7 +623,7 @@ test('King Black Dragon', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Scorpia', async (test): Promise<void> => {
+test('Scorpia', async () => {
 	const expectedRates = {
 		'Odium shard 3': 256,
 		'Malediction shard 3': 256,
@@ -660,7 +658,7 @@ test('Scorpia', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Venenatis', async (test): Promise<void> => {
+test('Venenatis', async () => {
 	const expectedRates = {
 		'Treasonous ring': 512,
 		'Rune pickaxe': 10.67,
@@ -702,7 +700,7 @@ test('Venenatis', async (test): Promise<void> => {
 	test.end();
 });
 
-test("Vet'ion", async (test): Promise<void> => {
+test("Vet'ion", async () => {
 	const expectedRates = {
 		'Big bones': 1,
 		'Ring of the gods': 512,
@@ -746,7 +744,7 @@ test("Vet'ion", async (test): Promise<void> => {
 	test.end();
 });
 
-test('Corporeal Beast', async (test): Promise<void> => {
+test('Corporeal Beast', async () => {
 	const expectedRates = {
 		// 'Spirit shield': 64,
 		'Holy elixir': 170.7,
@@ -768,7 +766,7 @@ test('Corporeal Beast', async (test): Promise<void> => {
 	test.end();
 });
 
-test('Obor', async (test): Promise<void> => {
+test('Obor', async () => {
 	const expectedRates = {
 		'Rune med helm': 19.67,
 		'Rune full helm': 23.6,

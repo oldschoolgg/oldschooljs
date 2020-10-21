@@ -1,9 +1,7 @@
-import test from 'tape';
-
 import ChambersOfXeric from '../dist/simulation/minigames/ChambersOfXeric';
 
-test('Chambers Of Xeric', async t => {
-	t.plan(3);
+test('Chambers Of Xeric', async () => {
+	expect.assertions(3);
 
 	const maxRoll = 570_000 * (1 / 8675);
 

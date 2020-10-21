@@ -1,5 +1,3 @@
-import test from 'tape';
-
 import { Monsters } from '../dist';
 import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { MonsterData } from '../dist/meta/monsterData';
@@ -93,7 +91,7 @@ class TestMonsterClass extends Monster {
 
 const TesterMonster = new TestMonsterClass({ id: 1, name: 'Test' });
 
-test('Test Monster', async (test): Promise<void> => {
+test('Test Monster', async () => {
 	const number = 500_000;
 
 	const expectedRates = {

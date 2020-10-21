@@ -1,41 +1,34 @@
-import test from 'tape';
-
 import { Worlds } from '../dist';
 
-test('Setup', async t => {
+test('Setup', async () => {
 	await Worlds.fetch();
-	t.end();
 });
 
-test('Generic Worlds', t => {
-	t.plan(2);
+test('Generic Worlds', () => {
+	expect.assertions(2);
 
 	// New worlds are sometimes added, so just check it has atleast the amount of normal worlds.
-	t.ok(Worlds.size >= 180, 'Expected >= 180 Worlds');
+	expect(Worlds.size >= 180).toBeTruthy();
 
 	// There should be more than 14 Australian Worlds.
 	const australianWorlds = Worlds.filter(world => world.location === 'Australia');
-	t.ok(australianWorlds.size > 14, 'Expected more than 14 Australian Worlds');
+	expect(australianWorlds.size > 14).toBeTruthy();
 });
 
-test('Single world should be correct', t => {
-	t.plan(3);
+test('Single world should be correct', done => {
+	expect.assertions(3);
 
 	const WorldOne = Worlds.get(301);
-	if (!WorldOne) throw t.fail('World One not found.');
+	if (!WorldOne) throw done.fail('World One not found.');
 
-	t.equal(WorldOne.number, 301, 'Expected World 1 number to equal 301');
-	t.equal(WorldOne.location, 'United States', 'Expected World 1 country to equal United States');
-	t.equal(
-		WorldOne.activity,
-		'Trade - Free',
-		'Expected World 1 description to equal Trade - Free'
-	);
+	expect(WorldOne.number).toBe(301);
+	expect(WorldOne.location).toBe('United States');
+	expect(WorldOne.activity).toBe('Trade - Free');
 });
 
-test('Getting worlds in different formats', t => {
-	t.plan(2);
+test('Getting worlds in different formats', () => {
+	expect.assertions(2);
 
-	t.equal(Worlds.get(301), Worlds.get(1), 'Expected w301 to equal w1');
-	t.equal(Worlds.get(230), Worlds.get(530), 'Expected w230 to equal w530');
+	expect(Worlds.get(301)).toBe(Worlds.get(1));
+	expect(Worlds.get(230)).toBe(Worlds.get(530));
 });

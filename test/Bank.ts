@@ -1,5 +1,3 @@
-import test from 'tape';
-
 import {
 	addArrayToBank,
 	addBanks,
@@ -14,8 +12,8 @@ import {
 	resolveNameBank
 } from '../dist/util';
 
-test('convert string bank to number bank', t => {
-	t.plan(1);
+test('convert string bank to number bank', () => {
+	expect.assertions(1);
 	const strBank = {
 		Toolkit: 2,
 		'Ammo Mould': 4,
@@ -26,11 +24,11 @@ test('convert string bank to number bank', t => {
 		4: 4,
 		36: 1
 	};
-	t.deepEqual(resolveNameBank(strBank), numBank);
+	expect(resolveNameBank(strBank)).toEqual(numBank);
 });
 
-test('convert loot item array to number bank', t => {
-	t.plan(1);
+test('convert loot item array to number bank', () => {
+	expect.assertions(1);
 	const lootItems = [
 		{
 			item: 6,
@@ -54,11 +52,11 @@ test('convert loot item array to number bank', t => {
 		32: 1,
 		67: 2
 	};
-	t.deepEqual(bankFromLootTableOutput(lootItems), expected);
+	expect(bankFromLootTableOutput(lootItems)).toEqual(expected);
 });
 
-test('join a number of banks', t => {
-	t.plan(1);
+test('join a number of banks', () => {
+	expect.assertions(1);
 	const banks = [
 		{
 			45: 9,
@@ -86,10 +84,10 @@ test('join a number of banks', t => {
 		87: 1
 	};
 
-	t.deepEqual(addBanks(banks), expected);
+	expect(addBanks(banks)).toEqual(expected);
 });
 
-test('bank contains item', test => {
+test('bank contains item', () => {
 	test.plan(4);
 	const bank = { 1: 2, 3: 4 };
 
@@ -101,7 +99,7 @@ test('bank contains item', test => {
 		'returns false if bank has less items than the quantity provided'
 	);
 });
-test('bank has all items', test => {
+test('bank has all items', () => {
 	test.plan(2);
 	const bankToHave = resolveNameBank({
 		'Fire rune': 1000,
@@ -126,7 +124,7 @@ test('bank has all items', test => {
 	test.false(bankHasAllItemsFromBank(bankThatShouldntHave, bankToHave));
 });
 
-test('remove item from bank', test => {
+test('remove item from bank', () => {
 	test.plan(3);
 	const bank = {
 		45: 9,
@@ -160,7 +158,7 @@ test('remove item from bank', test => {
 	);
 });
 
-test('remove bank from bank', test => {
+test('remove bank from bank', () => {
 	test.plan(1);
 	const sourceBank = resolveNameBank({
 		'Fire rune': 100,
@@ -179,7 +177,7 @@ test('remove bank from bank', test => {
 	test.deepEqual(removeBankFromBank(sourceBank, bankToRemove), expectedBank);
 });
 
-test('add item to bank', test => {
+test('add item to bank', () => {
 	test.plan(2);
 	const bank = {
 		45: 9,
@@ -201,7 +199,7 @@ test('add item to bank', test => {
 	test.deepEqual(addItemToBank(bank, 87), expectedInc, 'increment item item');
 });
 
-test('add bank to bank', test => {
+test('add bank to bank', () => {
 	test.plan(1);
 
 	const bank = { 1: 2 };
@@ -213,7 +211,7 @@ test('add bank to bank', test => {
 	test.deepEqual(addBanks([bank, bank2]), expected);
 });
 
-test('add array of items to bank', test => {
+test('add array of items to bank', () => {
 	test.plan(1);
 
 	const bank = { 1: 2 };
@@ -225,7 +223,7 @@ test('add array of items to bank', test => {
 	test.deepEqual(addArrayToBank(bank, items), expected);
 });
 
-test('multiply bank items', test => {
+test('multiply bank items', () => {
 	test.plan(1);
 
 	const bank = { 1: 2, 3: 4 };
@@ -235,7 +233,7 @@ test('multiply bank items', test => {
 	test.deepEqual(multiplyBank(bank, 2), expected);
 });
 
-test('numItemsBankHasInBank', test => {
+test('numItemsBankHasInBank', () => {
 	test.plan(2);
 	const sourceBank1 = { 1: 2, 3: 4 };
 	const bankToHave1 = { 1: 4, 3: 8 };

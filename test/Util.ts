@@ -1,68 +1,66 @@
-import test from 'tape';
-
 import { Util } from '../dist';
 
-test('toKMB checks', async t => {
-	t.plan(10);
+test('toKMB checks', async () => {
+	expect.assertions(10);
 
-	t.equal(Util.toKMB(5), '5');
+	expect(Util.toKMB(5)).toBe('5');
 
-	t.equal(Util.toKMB(1000), '1k');
-	t.equal(Util.toKMB(1500), '1.5k');
+	expect(Util.toKMB(1000)).toBe('1k');
+	expect(Util.toKMB(1500)).toBe('1.5k');
 
-	t.equal(Util.toKMB(1000000), '1m');
-	t.equal(Util.toKMB(1500000), '1.5m');
-	t.equal(Util.toKMB(15000000), '15m');
-	t.equal(Util.toKMB(150000000), '150m');
+	expect(Util.toKMB(1000000)).toBe('1m');
+	expect(Util.toKMB(1500000)).toBe('1.5m');
+	expect(Util.toKMB(15000000)).toBe('15m');
+	expect(Util.toKMB(150000000)).toBe('150m');
 
-	t.equal(Util.toKMB(1000000000), '1b');
-	t.equal(Util.toKMB(1200000000), '1.2b');
-	t.equal(Util.toKMB(50000000000), '50b');
+	expect(Util.toKMB(1000000000)).toBe('1b');
+	expect(Util.toKMB(1200000000)).toBe('1.2b');
+	expect(Util.toKMB(50000000000)).toBe('50b');
 });
 
-test('negative toKMB checks', async t => {
-	t.plan(10);
+test('negative toKMB checks', async () => {
+	expect.assertions(10);
 
-	t.equal(Util.toKMB(-5), '-5');
+	expect(Util.toKMB(-5)).toBe('-5');
 
-	t.equal(Util.toKMB(-1000), '-1k');
-	t.equal(Util.toKMB(-1500), '-1.5k');
+	expect(Util.toKMB(-1000)).toBe('-1k');
+	expect(Util.toKMB(-1500)).toBe('-1.5k');
 
-	t.equal(Util.toKMB(-1000000), '-1m');
-	t.equal(Util.toKMB(-1500000), '-1.5m');
-	t.equal(Util.toKMB(-15000000), '-15m');
-	t.equal(Util.toKMB(-150000000), '-150m');
+	expect(Util.toKMB(-1000000)).toBe('-1m');
+	expect(Util.toKMB(-1500000)).toBe('-1.5m');
+	expect(Util.toKMB(-15000000)).toBe('-15m');
+	expect(Util.toKMB(-150000000)).toBe('-150m');
 
-	t.equal(Util.toKMB(-1000000000), '-1b');
-	t.equal(Util.toKMB(-1200000000), '-1.2b');
-	t.equal(Util.toKMB(-50000000000), '-50b');
+	expect(Util.toKMB(-1000000000)).toBe('-1b');
+	expect(Util.toKMB(-1200000000)).toBe('-1.2b');
+	expect(Util.toKMB(-50000000000)).toBe('-50b');
 });
 
-test('KMB checks', async t => {
-	t.plan(10);
+test('KMB checks', async () => {
+	expect.assertions(10);
 
-	t.equal(Util.fromKMB('5'), 5);
+	expect(Util.fromKMB('5')).toBe(5);
 
-	t.equal(Util.fromKMB('1k'), 1000);
-	t.equal(Util.fromKMB('1.5k'), 1500);
+	expect(Util.fromKMB('1k')).toBe(1000);
+	expect(Util.fromKMB('1.5k')).toBe(1500);
 
-	t.equal(Util.fromKMB('1m'), 1000000);
-	t.equal(Util.fromKMB('1.5m'), 1500000);
-	t.equal(Util.fromKMB('15m'), 15000000);
-	t.equal(Util.fromKMB('150m'), 150000000);
+	expect(Util.fromKMB('1m')).toBe(1000000);
+	expect(Util.fromKMB('1.5m')).toBe(1500000);
+	expect(Util.fromKMB('15m')).toBe(15000000);
+	expect(Util.fromKMB('150m')).toBe(150000000);
 
-	t.equal(Util.fromKMB('1b'), 1000000000);
-	t.equal(Util.fromKMB('1.2b'), 1200000000);
-	t.equal(Util.fromKMB('50b'), 50000000000);
+	expect(Util.fromKMB('1b')).toBe(1000000000);
+	expect(Util.fromKMB('1.2b')).toBe(1200000000);
+	expect(Util.fromKMB('50b')).toBe(50000000000);
 });
 
-test('Brimestone chance calc', async t => {
-	t.plan(6);
+test('Brimestone chance calc', async () => {
+	expect.assertions(6);
 
-	t.equal(Util.getBrimKeyChanceFromCBLevel(725), 50);
-	t.equal(Util.getBrimKeyChanceFromCBLevel(321), 56);
-	t.equal(Util.getBrimKeyChanceFromCBLevel(303), 59);
-	t.equal(Util.getBrimKeyChanceFromCBLevel(123), 95);
-	t.equal(Util.getBrimKeyChanceFromCBLevel(28), 1137);
-	t.equal(Util.getBrimKeyChanceFromCBLevel(2), 2021);
+	expect(Util.getBrimKeyChanceFromCBLevel(725)).toBe(50);
+	expect(Util.getBrimKeyChanceFromCBLevel(321)).toBe(56);
+	expect(Util.getBrimKeyChanceFromCBLevel(303)).toBe(59);
+	expect(Util.getBrimKeyChanceFromCBLevel(123)).toBe(95);
+	expect(Util.getBrimKeyChanceFromCBLevel(28)).toBe(1137);
+	expect(Util.getBrimKeyChanceFromCBLevel(2)).toBe(2021);
 });
