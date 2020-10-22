@@ -1,5 +1,6 @@
 import { News } from '../dist';
 
+jest.setTimeout(60000);
 test('Generic checks', async () => {
 	expect.assertions(1);
 
@@ -8,7 +9,7 @@ test('Generic checks', async () => {
 	expect(firstPageNews.size).toBe(12);
 });
 
-test('Single article check', async (done) => {
+test('Single article check', (done) => {
 	expect.assertions(4);
 
 	const article = News.find(
@@ -17,10 +18,12 @@ test('Single article check', async (done) => {
 
 	if (!article) return done.fail('Missing article.');
 
-	expect(article.category).toBe('Website');
-	expect(article.link).toBe(
-		'https://secure.runescape.com/m=news/gameblast15--friday-1200-utc--live-stream?oldschool=1'
-	);
-	expect(article.year).toBe(2015);
-	expect(article.month).toBe(2);
+	Promise.all([
+		expect(article.category).toBe('Website'),
+		expect(article.link).toBe(
+			'https://secure.runescape.com/m=news/gameblast15--friday-1200-utc--live-stream?oldschool=1'
+		),
+		expect(article.year).toBe(2015),
+		expect(article.month).toBe(2)
+	]).then(() => done());
 });

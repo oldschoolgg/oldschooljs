@@ -7,7 +7,7 @@ export function withinThreshold(source: number, target: number, epsilon = 5): bo
 }
 
 export function checkThreshold(
-	test: Test,
+	test: jest.DoneCallback,
 	expectedRates: { [key: string]: number },
 	result: ItemBank,
 	numberDone: number
@@ -36,7 +36,7 @@ export function checkThreshold(
 				`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`
 			);
 		} else {
-			test.pass(`${item.name} 1 in ${effectiveRate} - ${expectedRate}`);
+			test(`${item.name} 1 in ${effectiveRate} - ${expectedRate}`);
 		}
 	}
 }

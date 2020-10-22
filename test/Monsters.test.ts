@@ -91,7 +91,7 @@ class TestMonsterClass extends Monster {
 
 const TesterMonster = new TestMonsterClass({ id: 1, name: 'Test' });
 
-test('Test Monster', async () => {
+test('Test Monster', (done) => {
 	const number = 500_000;
 
 	const expectedRates = {
@@ -113,6 +113,5 @@ test('Test Monster', async () => {
 		'Rune crossbow': TesterMonster.table.length * 100
 	};
 	const loot = TesterMonster.kill(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
 });

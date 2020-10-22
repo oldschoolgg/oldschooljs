@@ -1,7 +1,7 @@
 import { Clues } from '../dist';
 import { checkThreshold } from './testUtil';
 
-test('Beginner Clues', async () => {
+test('Beginner Clues', (done) => {
 	const expectedRates = {
 		'Mole slippers': 180,
 		'Shoulder parrot': 180,
@@ -18,11 +18,11 @@ test('Beginner Clues', async () => {
 
 	const number = 500_000;
 	const loot = Clues.Beginner.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
 
-test('Easy Clues', async () => {
+test('Easy Clues', (done) => {
 	const expectedRates = {
 		'Amulet of magic (t)': 360 / 3,
 		'Wooden shield (g)': 1404 / 3,
@@ -53,11 +53,11 @@ test('Easy Clues', async () => {
 
 	const number = 1_000_000;
 	const loot = Clues.Easy.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
 
-test('Medium Clues', async () => {
+test('Medium Clues', (done) => {
 	const expectedRates = {
 		'Clue scroll (master)': 30,
 		'Ranger boots': 1133 / 4,
@@ -77,11 +77,11 @@ test('Medium Clues', async () => {
 
 	const number = 1_000_000;
 	const loot = Clues.Medium.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
 
-test('Hard Clues', async () => {
+test('Hard Clues', (done) => {
 	const expectedRates = {
 		'Clue scroll (master)': 15,
 		'Ancient page 2': 650 / 5,
@@ -111,11 +111,11 @@ test('Hard Clues', async () => {
 
 	const number = 20_000_000;
 	const loot = Clues.Hard.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
 
-test('Elite Clues', async () => {
+test('Elite Clues', (done) => {
 	const expectedRates = {
 		'Clue scroll (master)': 5,
 		'Dragon full helm ornament kit': 1250 / 5,
@@ -137,11 +137,11 @@ test('Elite Clues', async () => {
 
 	const number = 25_000_000;
 	const loot = Clues.Elite.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
 
-test('Master Clues', async () => {
+test('Master Clues', (done) => {
 	const expectedRates = {
 		'Occult ornament kit': 851 / 6,
 		'Arceuus hood': 851 / 6,
@@ -171,6 +171,6 @@ test('Master Clues', async () => {
 
 	const number = 25_000_000;
 	const loot = Clues.Master.open(number);
-	checkThreshold(test, expectedRates, loot, number);
-	test.end();
+	checkThreshold(done, expectedRates, loot, number);
+	done();
 });
