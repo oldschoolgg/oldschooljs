@@ -20,7 +20,7 @@
  * A Map with additional utility methods.
  * @extends {Map}
  */
-class Collection<K, V> extends Map<K, V> {
+export default class Collection<K, V> extends Map<K, V> {
 	private _array!: V[] | null;
 	private _keyArray!: K[] | null;
 	public static readonly default: typeof Collection = Collection;
@@ -466,7 +466,3 @@ class Collection<K, V> extends Map<K, V> {
 		return this;
 	}
 }
-
-export = Collection as typeof Collection & {
-	default: typeof Collection;
-};
