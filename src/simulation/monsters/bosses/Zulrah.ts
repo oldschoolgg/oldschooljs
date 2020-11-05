@@ -1,4 +1,4 @@
-import { randInt, roll } from 'e';
+import { randInt } from 'e';
 
 import { ItemBank } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
@@ -69,6 +69,11 @@ const ZulrahTable = new LootTable()
 	.add('Swamp tar', 1000, 5)
 	.add("Zulrah's scales", 500, 5);
 
+const ZulrahTertiaryTable = new LootTable()
+	.tertiary(75, 'Clue scroll (elite)')
+	.tertiary(3000, 'Jar of swamp')
+	.tertiary(4000, 'Pet snakeling');
+
 export class Zulrah extends SimpleMonster {
 	public kill(quantity = 1): ItemBank {
 		const loot = new Bank();
@@ -78,9 +83,11 @@ export class Zulrah extends SimpleMonster {
 			loot.add(ZulrahTable.roll());
 
 			loot.add("Zulrah's scales", randInt(100, 299));
-			if (roll(75)) loot.add('Clue scroll (elite)');
-			if (roll(3000)) loot.add('Jar of swamp');
-			if (roll(4000)) loot.add('Pet snakeling');
+
+			loot.add(ZulrahTertiaryTable.roll());
+			// if (roll(75)) loot.add('Clue scroll (elite)');
+			// if (roll(3000)) loot.add('Jar of swamp');
+			// if (roll(4000)) loot.add('Pet snakeling');
 		}
 
 		return loot.values();
