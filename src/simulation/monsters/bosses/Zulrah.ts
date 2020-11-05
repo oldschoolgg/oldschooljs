@@ -85,7 +85,7 @@ export class Zulrah extends SimpleMonster {
 			loot.add("Zulrah's scales", randInt(100, 299));
 
 			loot.add(ZulrahTertiaryTable.roll());
-			
+
 			// if (roll(75)) loot.add('Clue scroll (elite)');
 			// if (roll(3000)) loot.add('Jar of swamp');
 			// if (roll(4000)) loot.add('Pet snakeling');
