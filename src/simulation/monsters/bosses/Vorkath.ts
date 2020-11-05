@@ -1,4 +1,4 @@
-import { roll } from 'e';
+//import { roll } from 'e';
 
 import { ItemBank } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
@@ -63,6 +63,15 @@ const VorkathTable = new LootTable()
 	.add('Dragonstone', [2, 3], 3)
 	.add('Wrath talisman', 1, 3);
 
+const VorkathTertiaryTable = new LootTable()
+	.tertiary(50, 21907) // Vorkath's head, exists twice, this is the head with 50k worth
+	.tertiary(65, 'Clue scroll (elite)')
+	.tertiary(1000, 'Dragonbone necklace')
+	.tertiary(3000, 'Jar of decay')
+	.tertiary(3000, 'Vorki')
+	.tertiary(5000, 'Draconic visage')
+	.tertiary(5000, 'Skeletal visage');
+
 export class Vorkath extends SimpleMonster {
 	public kill(quantity = 1): ItemBank {
 		const loot = new Bank();
@@ -71,13 +80,15 @@ export class Vorkath extends SimpleMonster {
 			loot.add(VorkathTable.roll());
 			loot.add(VorkathTable.roll());
 
-			if (roll(50)) loot.add("Vorkath's head");
-			if (roll(65)) loot.add('Clue scroll (elite)');
-			if (roll(1000)) loot.add('Dragonbone necklace');
-			if (roll(3000)) loot.add('Jar of decay');
-			if (roll(3000)) loot.add('Vorki');
-			if (roll(5000)) loot.add('Draconic visage');
-			if (roll(5000)) loot.add('Skeletal visage');
+			loot.add(VorkathTertiaryTable.roll());
+
+			// if (roll(50)) loot.add("Vorkath's head");
+			// if (roll(65)) loot.add('Clue scroll (elite)');
+			// if (roll(1000)) loot.add('Dragonbone necklace');
+			// if (roll(3000)) loot.add('Jar of decay');
+			// if (roll(3000)) loot.add('Vorki');
+			// if (roll(5000)) loot.add('Draconic visage');
+			// if (roll(5000)) loot.add('Skeletal visage');
 		}
 
 		return loot.values();
@@ -87,6 +98,6 @@ export class Vorkath extends SimpleMonster {
 export default new Vorkath({
 	id: 8061,
 	name: 'Vorkath',
-	table: VorkathTable,
+	table: new LootTable().add(VorkathTable).add(VorkathTertiaryTable),
 	aliases: ['vorkath', 'vorki', 'vork']
 });
