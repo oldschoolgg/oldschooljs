@@ -1,7 +1,3 @@
-// import { randInt } from 'e';
-
-// import { ItemBank } from '../../../meta/types';
-// import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import RareDropTable from '../../subtables/RareDropTable';
@@ -70,33 +66,11 @@ const ZulrahTable = new LootTable()
 	.add("Zulrah's scales", 500, 5);
 
 const TotalZulrahyTable = new LootTable()
-	.every(ZulrahTable)
-	.every(ZulrahTable)
+	.every(ZulrahTable, 2)
 	.every("Zulrah's scales", [100, 299])
 	.tertiary(75, 'Clue scroll (elite)')
 	.tertiary(3000, 'Jar of swamp')
 	.tertiary(4000, 'Pet snakeling');
-
-// export class Zulrah extends SimpleMonster {
-// 	public kill(quantity = 1): ItemBank {
-// 		const loot = new Bank();
-
-// 		for (let i = 0; i < quantity; i++) {
-// 			loot.add(ZulrahTable.roll());
-// 			loot.add(ZulrahTable.roll());
-
-// 			loot.add("Zulrah's scales", randInt(100, 299));
-
-// 			loot.add(ZulrahTertiaryTable.roll());
-
-// 			// if (roll(75)) loot.add('Clue scroll (elite)');
-// 			// if (roll(3000)) loot.add('Jar of swamp');
-// 			// if (roll(4000)) loot.add('Pet snakeling');
-// 		}
-
-// 		return loot.values();
-// 	}
-// }
 
 export default new SimpleMonster({
 	id: 2042,
