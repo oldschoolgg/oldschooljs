@@ -65,7 +65,7 @@ const ZulrahTable = new LootTable()
 	.add('Swamp tar', 1000, 5)
 	.add("Zulrah's scales", 500, 5);
 
-const TotalZulrahyTable = new LootTable()
+const TotalZulrahTable = new LootTable()
 	.every(ZulrahTable, 2)
 	.every("Zulrah's scales", [100, 299])
 	.tertiary(75, 'Clue scroll (elite)')
@@ -75,6 +75,6 @@ const TotalZulrahyTable = new LootTable()
 export default new SimpleMonster({
 	id: 2042,
 	name: 'Zulrah',
-	table: TotalZulrahyTable,
+	table: TotalZulrahTable,
 	aliases: ['zulrah', 'snek', 'zul']
 });
