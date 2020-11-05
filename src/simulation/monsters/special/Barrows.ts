@@ -82,9 +82,9 @@ export class Barrows extends SimpleMonster {
 }
 
 // Uses NPC id for Dharoks
-export default new Barrows({ 
+export default new Barrows({
 	id: 1673,
 	name: 'Barrows',
 	table: new LootTable().add(BarrowsTable).add(OtherTable),
 	aliases: ['barrows']
- });
+});
