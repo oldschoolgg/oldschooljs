@@ -72,7 +72,7 @@ const ZulrahTable = new LootTable()
 const TotalZulrahyTable = new LootTable()
 	.every(ZulrahTable)
 	.every(ZulrahTable)
-	.every("Zulrah's scales", [100,299])
+	.every("Zulrah's scales", [100, 299])
 	.tertiary(75, 'Clue scroll (elite)')
 	.tertiary(3000, 'Jar of swamp')
 	.tertiary(4000, 'Pet snakeling');
