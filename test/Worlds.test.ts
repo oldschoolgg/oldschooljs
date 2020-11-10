@@ -31,7 +31,7 @@ describe('Worlds', () => {
 	test('Getting worlds in different formats', () => {
 		expect.assertions(2);
 
-		expect(Worlds.get(301)).toBe(Worlds.get(1));
-		expect(Worlds.get(230)).toBe(Worlds.get(530));
+		expect(Worlds.get(301)).toEqual(Worlds.get(1));
+		expect(Worlds.get(230)).toEqual(Worlds.get(530));
 	});
 });
