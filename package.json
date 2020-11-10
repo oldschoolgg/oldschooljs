@@ -12,10 +12,9 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"test": "npm run test:run",
-		"test:run": "yarn build && ts-node test/suite",
+		"test:run": "yarn build && jest",
 		"test:lint": "eslint --ext ts src",
-		"test:coverage": "nyc npm run test:run --reporter=lcov --reporter=text --reporter=text-summary --reporter=cobertura --all",
-		"test:coverage:report": "nyc report --reporter=lcov --reporter=cobertura",
+		"test:coverage": "npm run test:run --coverage",
 		"deeptest": "yarn build && ts-node test/deepsuite",
 		"lint": "eslint --ext ts src test --fix",
 		"build": "tsc -p .",
