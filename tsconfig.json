@@ -10,7 +10,8 @@
 		"types": ["node"],
 		"target": "ES6",
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"skipLibCheck": true
 	},
 	"include": ["./src/**/*"]
 }
