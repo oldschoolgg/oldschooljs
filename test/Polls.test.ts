@@ -9,7 +9,7 @@ describe('Polls', () => {
 		expect(Polls.size > 163).toEqual(true);
 
 		const raidsPoll = Polls.find((poll) => poll.title === 'More Raids Rewards');
-		if (!raidsPoll) return done.fail('Expected raids poll.');
+		if (!raidsPoll) return fail('Expected raids poll.');
 		expect(raidsPoll.questions.length).toEqual(11);
 
 		const pollsFrom2013 = Polls.filter(

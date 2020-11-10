@@ -19,7 +19,7 @@ describe('News', () => {
 			(article) => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream'
 		);
 
-		if (!article) return done.fail('Missing article.');
+		if (!article) return fail('Missing article.');
 
 		Promise.all([
 			expect(article.category).toEqual('Website'),
