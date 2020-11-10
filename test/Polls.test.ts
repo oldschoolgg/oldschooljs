@@ -1,7 +1,8 @@
 import { Polls } from '../dist';
 
-jest.setTimeout(20000);
 describe('Polls', () => {
+	jest.setTimeout(20000);
+
 	test('Generic checks', (done) => {
 		expect.assertions(3);
 
@@ -15,13 +16,13 @@ describe('Polls', () => {
 			(poll) => new Date(poll.datePosted).getFullYear() === 2013
 		);
 		expect(pollsFrom2013.size).toBe(23);
-		done();
+		return done();
 	});
 
 	test('Method checks', async () => {
 		expect.assertions(1);
 
 		const pollsFrom2013 = await Polls.fetchYear(2013);
-		expect(pollsFrom2013.length).toBe(23);
+		expect(pollsFrom2013.length).toEqual(23);
 	});
 });
