@@ -1,5 +1,5 @@
 {
-	"extends": "eslint-config-bamboo",
+	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"sourceMap": false,
 		"declaration": false,
