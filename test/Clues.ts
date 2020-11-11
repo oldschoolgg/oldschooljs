@@ -19,7 +19,7 @@ describe('Clues', () => {
 
 		const number = 500_000;
 		const loot = Clues.Beginner.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 
 	test.concurrent('Easy Clues', (done) => {
@@ -53,7 +53,7 @@ describe('Clues', () => {
 
 		const number = 1_000_000;
 		const loot = Clues.Easy.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 
 	test.concurrent('Medium Clues', (done) => {
@@ -76,7 +76,7 @@ describe('Clues', () => {
 
 		const number = 1_000_000;
 		const loot = Clues.Medium.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 
 	test.concurrent('Hard Clues', (done) => {
@@ -109,7 +109,7 @@ describe('Clues', () => {
 
 		const number = 20_000_000;
 		const loot = Clues.Hard.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 
 	test.concurrent('Elite Clues', (done) => {
@@ -134,7 +134,7 @@ describe('Clues', () => {
 
 		const number = 25_000_000;
 		const loot = Clues.Elite.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 
 	test.concurrent('Master Clues', (done) => {
@@ -167,6 +167,6 @@ describe('Clues', () => {
 
 		const number = 25_000_000;
 		const loot = Clues.Master.open(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(done, fail, expectedRates, loot, number);
 	});
 });

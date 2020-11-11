@@ -113,5 +113,5 @@ test('Test Monster', (done) => {
 		'Rune crossbow': TesterMonster.table.length * 100
 	};
 	const loot = TesterMonster.kill(number);
-	return checkThreshold(done, expectedRates, loot, number);
+	return checkThreshold(done, fail, expectedRates, loot, number);
 });

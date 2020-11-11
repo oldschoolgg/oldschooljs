@@ -8,6 +8,7 @@ export function withinThreshold(source: number, target: number, epsilon = 5): bo
 
 export function checkThreshold(
 	done: jest.DoneCallback,
+	fail: (error?: any) => never,
 	expectedRates: Record<string, number>,
 	result: ItemBank,
 	numberDone: number
