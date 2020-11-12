@@ -67,37 +67,17 @@
 				</a>
 				<p>A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, news, worlds, wiki, items, simulating killing monsters, and opening clue caskets - and more.</p>
 				<p>For discussion, help or questions - please join <a href="https://discord.gg/ob">https://discord.gg/ob</a> and then our <code>#developers</code> channel.</p>
-				<a href="#examples" id="examples" style="color: inherit; text-decoration: none;">
-					<h2>Examples</h2>
-				</a>
-				<ul>
-					<li><a href="#Hiscores">Hiscores</a></li>
-					<li><a href="#Items">Items</a></li>
-					<li><a href="#News">News</a></li>
-					<li><a href="#Worlds">Worlds</a></li>
-					<li><a href="#Wiki">Wiki</a></li>
-					<li><a href="#Polls">Polls</a></li>
-					<li><a href="#Clues">Clues (Clue Scroll Simulating)</a></li>
-					<li><a href="#Monsters">Monsters (Monster killing simulating)</a></li>
-					<li><a href="#Utilies">Utilies</a></li>
-				</ul>
+				<p>Automatically generated docs are available at: <a href="https://docs.oldschool.gg/">https://docs.oldschool.gg/</a></p>
 				<a href="#hiscores" id="hiscores" style="color: inherit; text-decoration: none;">
 					<h2>Hiscores</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
-				<a href="#getting-any-player-from-the-hiscores" id="getting-any-player-from-the-hiscores" style="color: inherit; text-decoration: none;">
-					<h4>Getting any player from the hiscores</h4>
-				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Lynx Titan'</span>).catch(<span class="hljs-built_in">console</span>.error);
+				<p>Docs: <a href="https://docs.oldschool.gg/classes/hiscores.html">https://docs.oldschool.gg/classes/hiscores.html</a></p>
+				<p>Possible account types: normal, ironman, ultimate, hardcore, deadman, seasonal</p>
+				<p>You can also pass <code>virtualLevels: true</code> to receive their stats back in virtual level format, with their skill levels able to go up to 120.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;
 
-<span class="hljs-built_in">console</span>.log(lynxTitan);</code></pre>
-				<a href="#getting-an-ironman-from-the-hiscores" id="getting-an-ironman-from-the-hiscores" style="color: inherit; text-decoration: none;">
-					<h4>Getting an Ironman from the hiscores</h4>
-				</a>
-				<p>Possible account types: &#39;normal&#39; | &#39;ironman&#39; | &#39;ultimate&#39; | &#39;hardcore&#39; | &#39;deadman&#39; | &#39;seasonal&#39;</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Iron Hyger'</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">'ironman'</span> }).catch(<span class="hljs-built_in">console</span>.error);
-
-<span class="hljs-built_in">console</span>.log(ironHyger);</code></pre>
+<span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Lynx Titan'</span>);
+<span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Iron Hyger'</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">'ironman'</span> });</code></pre>
 				<a href="#items" id="items" style="color: inherit; text-decoration: none;">
 					<h2>Items</h2>
 				</a>
@@ -106,24 +86,76 @@
 					<h4>Getting an Item by ID</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBow = Items.get(<span class="hljs-number">20997</span>);
-
 <span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);</code></pre>
 				<a href="#getting-an-item-by-name" id="getting-an-item-by-name" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by Name</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonDagger = Items.get(<span class="hljs-string">'dragon dagger(p++)'</span>);
-
 <span class="hljs-keyword">if</span> (dragonDagger) <span class="hljs-built_in">console</span>.log(dragonDagger);</code></pre>
 				<a href="#find-items-by-any-properties" id="find-items-by-any-properties" style="color: inherit; text-decoration: none;">
 					<h4>Find items by any properties</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonItems = Items.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.name.includes(<span class="hljs-string">'Dragon'</span>));
-
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Found <span class="hljs-subst">${dragonItems.size}</span> Dragon Items!`</span>);
 
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> dragonItems.values()) {
     <span class="hljs-built_in">console</span>.log(item.name);
 }</code></pre>
+				<a href="#monster-killing-simulator" id="monster-killing-simulator" style="color: inherit; text-decoration: none;">
+					<h2>Monster Killing Simulator</h2>
+				</a>
+				<p>Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<a href="#simulating-100-kills-of-every-monster" id="simulating-100-kills-of-every-monster" style="color: inherit; text-decoration: none;">
+					<h4>Simulating 100 Kills of every Monster</h4>
+				</a>
+				<pre><code class="language-js">Monsters.map(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.kill(<span class="hljs-number">100</span>));</code></pre>
+				<a href="#simulating-100-corp-beast-kills" id="simulating-100-corp-beast-kills" style="color: inherit; text-decoration: none;">
+					<h4>Simulating 100 Corp beast kills</h4>
+				</a>
+				<pre><code class="language-js">Monsters.CorporealBeast.kill(<span class="hljs-number">100</span>);
+Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">'corp'</span>)).kill(<span class="hljs-number">100</span>);
+Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);</code></pre>
+				<a href="#clue-scroll-simulating" id="clue-scroll-simulating" style="color: inherit; text-decoration: none;">
+					<h2>Clue Scroll Simulating</h2>
+				</a>
+				<p>Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Clues.Beginner.open(<span class="hljs-number">1</span>));
+<span class="hljs-built_in">console</span>.log(Clues.Master.open(<span class="hljs-number">5</span>));
+<span class="hljs-built_in">console</span>.log(Clues.Elite.open());</code></pre>
+				<a href="#banks" id="banks" style="color: inherit; text-decoration: none;">
+					<h2>Banks</h2>
+				</a>
+				<p>Docs: <a href="https://docs.oldschool.gg/classes/bank.html">https://docs.oldschool.gg/classes/bank.html</a></p>
+				<p>The bank class provides a powerful and ergonomic way to construct and interact with item banks.</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> bank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">'Twisted bow'</span>);
+<span class="hljs-keyword">const</span> otherBank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">'Coal'</span>);
+<span class="hljs-keyword">const</span> lootTable = <span class="hljs-keyword">new</span> LootTable().add(;
+
+bank
+  .add(otherBank)
+  .add({ <span class="hljs-attr">Coal</span>: <span class="hljs-number">1</span> })
+  .add(<span class="hljs-string">'Coal'</span>)
+  .add(<span class="hljs-string">'Coal'</span>, <span class="hljs-number">500</span>)
+  .add({ <span class="hljs-number">124</span>: <span class="hljs-number">500</span> })
+  .add(lootTable.roll())
+  .add(CorporealBeast.kill());
+
+<span class="hljs-built_in">console</span>.log(bank.values());</code></pre>
+				<a href="#loot-tables" id="loot-tables" style="color: inherit; text-decoration: none;">
+					<h2>Loot Tables</h2>
+				</a>
+				<p>Docs: <a href="https://docs.oldschool.gg/classes/loottable.html">https://docs.oldschool.gg/classes/loottable.html</a></p>
+				<p>For a good demonstration of using Loot tables, refer to the oldschooljs code for Monsters and Clues, which all use loottables, a good example is Corp: <a href="https://github.com/oldschoolgg/oldschooljs/blob/master/src/simulation/monsters/bosses/CorporealBeast.ts">https://github.com/oldschoolgg/oldschooljs/blob/master/src/simulation/monsters/bosses/CorporealBeast.ts</a></p>
+				<p>Here is a trimmed-down example of corp:</p>
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> CorporealBeastTable = <span class="hljs-keyword">new</span> LootTable()
+    .add(<span class="hljs-string">'Spirit shield'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">8</span>)
+    .add(<span class="hljs-string">'Holy elixir'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
+    .oneIn(<span class="hljs-number">585</span>, SigilTable)
+    .tertiary(<span class="hljs-number">5000</span>, <span class="hljs-string">'Pet dark core'</span>);
+
+CorporealBeastTable.roll();</code></pre>
 				<a href="#news" id="news" style="color: inherit; text-decoration: none;">
 					<h2>News</h2>
 				</a>
@@ -240,29 +272,6 @@ Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comme
 Util.fromKMB(<span class="hljs-string">'1k'</span>); <span class="hljs-comment">// 1000</span>
 Util.fromKMB(<span class="hljs-string">'1m'</span>); <span class="hljs-comment">// 1000000</span>
 Util.fromKMB(<span class="hljs-string">'1.2b'</span>); <span class="hljs-comment">// 1200000000</span></code></pre>
-				<a href="#clues" id="clues" style="color: inherit; text-decoration: none;">
-					<h2>Clues</h2>
-				</a>
-				<p>Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
-				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Clues.Beginner.open(<span class="hljs-number">1</span>));
-<span class="hljs-built_in">console</span>.log(Clues.Master.open(<span class="hljs-number">5</span>));
-<span class="hljs-built_in">console</span>.log(Clues.Elite.open());</code></pre>
-				<a href="#monsters" id="monsters" style="color: inherit; text-decoration: none;">
-					<h2>Monsters</h2>
-				</a>
-				<p>Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
-				<a href="#simulating-100-kills-of-every-monster" id="simulating-100-kills-of-every-monster" style="color: inherit; text-decoration: none;">
-					<h4>Simulating 100 Kills of every Monster</h4>
-				</a>
-				<pre><code class="language-js">Monsters.map(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.kill(<span class="hljs-number">100</span>));</code></pre>
-				<a href="#simulating-100-corp-beast-kills" id="simulating-100-corp-beast-kills" style="color: inherit; text-decoration: none;">
-					<h4>Simulating 100 Corp beast kills</h4>
-				</a>
-				<pre><code class="language-js">Monsters.CorporealBeast.kill(<span class="hljs-number">100</span>);
-Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">'corp'</span>)).kill(<span class="hljs-number">100</span>);
-Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);</code></pre>
 				<a href="#planned-features" id="planned-features" style="color: inherit; text-decoration: none;">
 					<h2>Planned features</h2>
 				</a>
