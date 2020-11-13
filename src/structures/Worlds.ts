@@ -1,6 +1,6 @@
-import Collection from './Collection';
 import { World, WorldLocation } from '../meta/types';
 import getDom from '../util/getDom';
+import Collection from './Collection';
 
 class Worlds extends Collection<number, World> {
 	public async fetch(number?: number): Promise<World | undefined | void> {

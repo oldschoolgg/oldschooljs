@@ -1,10 +1,10 @@
 import LootTable from '../../structures/LootTable';
-import { EasyClueTable } from '../clues/Easy';
-import { MediumClueTable } from '../clues/Medium';
-import { HardClueTable } from '../clues/Hard';
-import { EliteClueTable } from '../clues/Elite';
-import { MasterClueTable } from '../clues/Master';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import { EasyClueTable } from '../clues/Easy';
+import { EliteClueTable } from '../clues/Elite';
+import { HardClueTable } from '../clues/Hard';
+import { MasterClueTable } from '../clues/Master';
+import { MediumClueTable } from '../clues/Medium';
 
 const LuckyImplingTable = new LootTable()
 	.add(EasyClueTable)

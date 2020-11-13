@@ -1,8 +1,9 @@
+import { randInt, roll } from 'e';
+
+import { ItemBank } from '../../../meta/types';
+import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { ItemBank } from '../../../meta/types';
-import Loot from '../../../structures/Loot';
-import { roll, rand } from '../../../util/util';
 import RareDropTable from '../../subtables/RareDropTable';
 
 const ZulrahUniqueTable = new LootTable()
@@ -70,13 +71,13 @@ const ZulrahTable = new LootTable()
 
 export class Zulrah extends SimpleMonster {
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			loot.add(ZulrahTable.roll());
 			loot.add(ZulrahTable.roll());
 
-			loot.add("Zulrah's scales", rand(100, 299));
+			loot.add("Zulrah's scales", randInt(100, 299));
 			if (roll(75)) loot.add('Clue scroll (elite)');
 			if (roll(3000)) loot.add('Jar of swamp');
 			if (roll(4000)) loot.add('Pet snakeling');

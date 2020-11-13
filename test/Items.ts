@@ -1,5 +1,6 @@
-import { Items } from '../dist';
 import test from 'tape';
+
+import { Items } from '../dist';
 import { Item } from '../dist/meta/types';
 
 const expectedIDTuple = [
@@ -45,7 +46,9 @@ const expectedIDTuple = [
 	['Adamant platebody (h5)', 23404],
 	['Wolf mask', 23407],
 	['Wolf cloak', 23410],
-	['Climbing boots (g)', 23413]
+	['Climbing boots (g)', 23413],
+
+	['Ring of endurance (uncharged)', 24844]
 ];
 
 // Check that items have the ID that we expect them to have, and not some random other version of that item.
@@ -68,11 +71,6 @@ function checkItems(): void {
 
 test('Pre-fetch checks', t => {
 	checkItems();
-	t.end();
-});
-
-test('Setup', async t => {
-	await Items.fetchAll();
 	t.end();
 });
 

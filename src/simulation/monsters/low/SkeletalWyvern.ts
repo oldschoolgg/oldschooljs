@@ -1,7 +1,7 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import RareDropTable from '../../subtables/RareDropTable';
 import HerbDropTable from '../../subtables/HerbDropTable';
+import RareDropTable from '../../subtables/RareDropTable';
 
 const SkeletalWyvernTable = new LootTable()
 	.every('Wyvern bones')

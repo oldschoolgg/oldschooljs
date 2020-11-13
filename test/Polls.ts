@@ -1,6 +1,6 @@
-import { Polls } from '../dist';
-
 import test from 'tape';
+
+import { Polls } from '../dist';
 
 test('Generic checks', async t => {
 	t.plan(3);

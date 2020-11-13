@@ -50,11 +50,14 @@ class Wiki {
 			iwurl: '1',
 			generator: 'search',
 			gsrlimit: '20',
-			gsrsearch: `${encodeURIComponent(query)} ${parsedSearchOptions}`
+			gsrsearch: `${query} ${parsedSearchOptions}`
 		});
 
-		if (!results || !results.query) return [];
-		return results.query.pages.map(this.parseRawPage);
+		if (!results || !results.query || !results.query.pages) return [];
+
+		return results.query.pages
+			.sort((a: any, b: any) => a.index - b.index)
+			.map(this.parseRawPage);
 	}
 
 	private parseRawPage(rawPage: any): WikiPage {

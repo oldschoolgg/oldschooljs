@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
-import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
 const KreearraArmorTable = new LootTable()
 	.add('Armadyl helmet')

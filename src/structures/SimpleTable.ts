@@ -1,4 +1,5 @@
-import { rand } from '../util/util';
+import { randInt } from 'e';
+
 import { SimpleTableItem } from '../meta/types';
 
 export default class SimpleTable<T> {
@@ -40,7 +41,7 @@ export default class SimpleTable<T> {
 
 	public roll(): SimpleTableItem<T> {
 		// Random number between 1 and the total weighting
-		const randomWeight = rand(1, this.totalWeight);
+		const randomWeight = randInt(1, this.totalWeight);
 
 		// The index of the item that will be used.
 		let result;

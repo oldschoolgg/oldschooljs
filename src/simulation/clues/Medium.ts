@@ -1,9 +1,10 @@
-import { PrayerPageTable, TeleportScrollTable, BlessingTable } from './General';
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
+import { randInt, roll } from 'e';
+
 import { ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
-import { rand, roll } from '../../util/util';
+import Bank from '../../structures/Bank';
+import Clue from '../../structures/Clue';
+import LootTable from '../../structures/LootTable';
+import { BlessingTable, PrayerPageTable, TeleportScrollTable } from './General';
 
 export const MediumUnicornTable = new LootTable()
 	.add('White unicorn mask')
@@ -182,10 +183,10 @@ export const MediumClueTable = new LootTable()
 
 export class MediumCasket extends Clue {
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = rand(3, 5);
+			const numberOfRolls = randInt(3, 5);
 
 			if (roll(30)) loot.add('Clue scroll (master)');
 

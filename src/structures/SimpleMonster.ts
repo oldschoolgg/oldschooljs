@@ -1,14 +1,11 @@
-import Monster from './Monster';
-import {
-	MonsterOptions,
-	ItemBank,
-	MonsterKillOptions,
-	MonsterPickpocketOptions
-} from '../meta/types';
-import LootTable from './LootTable';
-import Loot from './Loot';
+import { roll } from 'e';
+
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { roll, getBrimKeyChanceFromCBLevel } from '../util/util';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { getBrimKeyChanceFromCBLevel } from '../util/util';
+import Bank from './Bank';
+import LootTable from './LootTable';
+import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
@@ -29,7 +26,7 @@ export default class SimpleMonster extends Monster {
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.
@@ -40,24 +37,6 @@ export default class SimpleMonster extends Monster {
 			}
 
 			loot.add(this.table.roll());
-		}
-
-		return loot.values();
-	}
-
-	public pickpocket(
-		quantity = 1,
-		options: MonsterPickpocketOptions = { thievingLevel: 99 }
-	): ItemBank {
-		const rockyChance = this.rockyChance ?? 257_211 - options.thievingLevel * 25;
-		const loot = new Loot();
-
-		for (let i = 0; i < quantity; i++) {
-			if (roll(rockyChance)) {
-				loot.add('Rocky');
-			}
-
-			loot.add(this.pickpocketTable.roll());
 		}
 
 		return loot.values();

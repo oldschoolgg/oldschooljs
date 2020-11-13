@@ -1,6 +1,6 @@
-import { News } from '../dist';
-
 import test from 'tape';
+
+import { News } from '../dist';
 
 test('Generic checks', async t => {
 	t.plan(1);

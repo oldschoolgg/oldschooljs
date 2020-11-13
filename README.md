@@ -4,40 +4,21 @@ A NodeJS library for doing everything OSRS related. Access the OSRS hiscores, ne
 
 For discussion, help or questions - please join https://discord.gg/ob and then our `#developers` channel.
 
-## Examples
-
--   [Hiscores](#Hiscores)
--   [Items](#Items)
--   [News](#News)
--   [Worlds](#Worlds)
--   [Wiki](#Wiki)
--   [Polls](#Polls)
--   [Clues (Clue Scroll Simulating)](#Clues)
--   [Monsters (Monster killing simulating)](#Monsters)
--   [Utilies](#Utilies)
+Automatically generated docs are available at: https://docs.oldschool.gg/
 
 ## Hiscores
 
+Docs: https://docs.oldschool.gg/classes/hiscores.html
+
+Possible account types: normal, ironman, ultimate, hardcore, deadman, seasonal
+
+You can also pass `virtualLevels: true` to receive their stats back in virtual level format, with their skill levels able to go up to 120.
+
 ```js
 import { Hiscores } from 'oldschooljs';
-```
 
-#### Getting any player from the hiscores
-
-```js
-const lynxTitan = await Hiscores.fetch('Lynx Titan').catch(console.error);
-
-console.log(lynxTitan);
-```
-
-#### Getting an Ironman from the hiscores
-
-Possible account types: 'normal' | 'ironman' | 'ultimate' | 'hardcore' | 'deadman' | 'seasonal'
-
-```js
-const ironHyger = await Hiscores.fetch('Iron Hyger', { type: 'ironman' }).catch(console.error);
-
-console.log(ironHyger);
+const lynxTitan = await Hiscores.fetch('Lynx Titan');
+const ironHyger = await Hiscores.fetch('Iron Hyger', { type: 'ironman' });
 ```
 
 ## Items
@@ -46,29 +27,10 @@ console.log(ironHyger);
 import { Items } from 'oldschooljs';
 ```
 
-#### Fetch and cache all items
-
-You can call this to have all items fully available for usage (via `.get`) at any time without needing to fetch individual items. Items change at most once a week, so you should probably only call this once at startup, and then once every few days.
-
-```js
-await Items.fetchAll();
-```
-
-#### Fetch a particular item
-
-This will _fetch_ the latest version of a particular item.
-
-```js
-const twistedBow = await Items.fetch(20997);
-
-if (twistedBow) console.log(twistedBow);
-```
-
 #### Getting an Item by ID
 
 ```js
 const twistedBow = Items.get(20997);
-
 if (twistedBow) console.log(twistedBow);
 ```
 
@@ -76,7 +38,6 @@ if (twistedBow) console.log(twistedBow);
 
 ```js
 const dragonDagger = Items.get('dragon dagger(p++)');
-
 if (dragonDagger) console.log(dragonDagger);
 ```
 
@@ -84,12 +45,88 @@ if (dragonDagger) console.log(dragonDagger);
 
 ```js
 const dragonItems = Items.filter(item => item.name.includes('Dragon'));
-
 console.log(`Found ${dragonItems.size} Dragon Items!`);
 
 for (const item of dragonItems.values()) {
 	console.log(item.name);
 }
+```
+
+## Monster Killing Simulator
+
+Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.
+
+```js
+import { Monsters } from 'oldschooljs';
+```
+
+#### Simulating 100 Kills of every Monster
+
+```js
+Monsters.map(monster => monster.kill(100));
+```
+
+#### Simulating 100 Corp beast kills
+
+```js
+Monsters.CorporealBeast.kill(100);
+Monsters.find(monster => monster.name.aliases.includes('corp')).kill(100);
+Monsters.get(319).kill(100);
+```
+
+## Clue Scroll Simulating
+
+Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.
+
+```js
+import { Clues } from 'oldschooljs';
+```
+
+```js
+console.log(Clues.Beginner.open(1));
+console.log(Clues.Master.open(5));
+console.log(Clues.Elite.open());
+```
+
+## Banks
+
+Docs: https://docs.oldschool.gg/classes/bank.html
+
+The bank class provides a powerful and ergonomic way to construct and interact with item banks.
+
+```js
+const bank = new Bank().add('Twisted bow');
+const otherBank = new Bank().add('Coal');
+const lootTable = new LootTable().add(;
+
+bank
+  .add(otherBank)
+  .add({ Coal: 1 })
+  .add('Coal')
+  .add('Coal', 500)
+  .add({ 124: 500 })
+  .add(lootTable.roll())
+  .add(CorporealBeast.kill());
+
+console.log(bank.values());
+```
+
+## Loot Tables
+
+Docs: https://docs.oldschool.gg/classes/loottable.html
+
+For a good demonstration of using Loot tables, refer to the oldschooljs code for Monsters and Clues, which all use loottables, a good example is Corp: https://github.com/oldschoolgg/oldschooljs/blob/master/src/simulation/monsters/bosses/CorporealBeast.ts
+
+Here is a trimmed-down example of corp:
+
+```js
+const CorporealBeastTable = new LootTable()
+	.add('Spirit shield', 1, 8)
+	.add('Holy elixir', 1, 3)
+	.oneIn(585, SigilTable)
+	.tertiary(5000, 'Pet dark core');
+
+CorporealBeastTable.roll();
 ```
 
 ## News
@@ -256,42 +293,6 @@ Util.fromKMB('5'); // 5
 Util.fromKMB('1k'); // 1000
 Util.fromKMB('1m'); // 1000000
 Util.fromKMB('1.2b'); // 1200000000
-```
-
-## Clues
-
-Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.
-
-```js
-import { Clues } from 'oldschooljs';
-```
-
-```js
-console.log(Clues.Beginner.open(1));
-console.log(Clues.Master.open(5));
-console.log(Clues.Elite.open());
-```
-
-## Monsters
-
-Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.
-
-```js
-import { Monsters } from 'oldschooljs';
-```
-
-#### Simulating 100 Kills of every Monster
-
-```js
-Monsters.map(monster => monster.kill(100));
-```
-
-#### Simulating 100 Corp beast kills
-
-```js
-Monsters.CorporealBeast.kill(100);
-Monsters.find(monster => monster.name.aliases.includes('corp')).kill(100);
-Monsters.get(319).kill(100);
 ```
 
 ## Planned features

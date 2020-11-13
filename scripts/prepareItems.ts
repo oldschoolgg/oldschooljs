@@ -1,9 +1,11 @@
+import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
+
+import { Item } from '../dist/meta/types';
 import { ItemCollection } from '../dist/structures/Items';
 import weirdItemFilter from '../dist/util/weirdItemFilter';
-import { writeFileSync } from 'fs';
 
-const itemNameMap: { [key: string]: string } = {};
+const itemNameMap: { [key: string]: Item } = {};
 
 export default async function prepareItems(): Promise<void> {
 	const allItems: ItemCollection = await fetch(
@@ -11,7 +13,13 @@ export default async function prepareItems(): Promise<void> {
 	).then((res): Promise<any> => res.json());
 
 	for (const item of Object.values(allItems).filter(weirdItemFilter)) {
-		itemNameMap[item.id] = item.name;
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		delete item.icon;
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		delete item.wiki_exchange;
+		itemNameMap[item.id] = item;
 	}
 
 	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));

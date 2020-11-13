@@ -1,6 +1,6 @@
 import { ItemBank, OpenableOptions } from '../meta/types';
+import Bank from './Bank';
 import LootTable from './LootTable';
-import Loot from './Loot';
 import Openable from './Openable';
 
 interface SimpleOpenableOptions extends OpenableOptions {
@@ -16,7 +16,7 @@ export default class SimpleOpenable extends Openable {
 	}
 
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			loot.add(this.table.roll());

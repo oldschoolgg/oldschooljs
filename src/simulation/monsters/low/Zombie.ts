@@ -1,6 +1,6 @@
 import LootTable from '../../../structures/LootTable';
-import HerbDropTable from '../../subtables/HerbDropTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
+import HerbDropTable from '../../subtables/HerbDropTable';
 
 export const ZombieTable = new LootTable({ limit: 128 })
 	.every('Bones')

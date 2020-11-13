@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 
-import OSError from './OldSchoolJSError';
-import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../constants';
-import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../util/util';
-import Player from './Player';
+import { ACCOUNT_TYPES, Errors, hiscoreURLs } from '../constants';
 import { AccountType, SkillsScore } from '../meta/types';
+import { convertXPtoLVL, isValidUsername, resolvePlayerFromHiscores } from '../util/util';
+import OSError from './OldSchoolJSError';
+import Player from './Player';
 
 export interface GetOptions {
 	type?: AccountType;

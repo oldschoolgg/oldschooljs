@@ -1,14 +1,13 @@
 import test from 'tape';
 
-import { checkThreshold } from './testUtil';
-import Monster from '../dist/structures/Monster';
-import LootTable from '../dist/structures/LootTable';
-import Loot from '../dist/structures/Loot';
-import { ItemBank } from '../dist/meta/types';
-
-import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { Monsters } from '../dist';
+import * as rawMonsterData from '../dist/data/monsters_data.json';
 import { MonsterData } from '../dist/meta/monsterData';
+import { ItemBank } from '../dist/meta/types';
+import Bank from '../dist/structures/Bank';
+import LootTable from '../dist/structures/LootTable';
+import Monster from '../dist/structures/Monster';
+import { checkThreshold } from './testUtil';
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 const currentMonIDs = new Set();
@@ -62,7 +61,7 @@ class TestMonsterClass extends Monster {
 		.add(emptyTable);
 
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			const roll = this.table.roll();

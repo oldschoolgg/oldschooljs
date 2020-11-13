@@ -1,3 +1,4 @@
+import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -182,7 +183,7 @@ export interface ItemEquipment {
 	magic_damage: number;
 	prayer: number;
 	slot: EquipmentSlot;
-	requirements: ItemRequirements | null;
+	requirements: Partial<ItemRequirements> | null;
 }
 
 export enum EquipmentSlot {
@@ -231,13 +232,13 @@ export interface Item {
 	 */
 	name: string;
 	/**
-	 * If the item is a members-only.
-	 */
-	members: boolean;
-	/**
 	 * If the item has incomplete wiki data.
 	 */
 	incomplete: boolean;
+	/**
+	 * If the item is a members-only.
+	 */
+	members: boolean;
 	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
@@ -334,17 +335,6 @@ export interface Item {
 	weapon: ItemWeapon | null;
 }
 
-export interface PartialItem {
-	/**
-	 * Unique OSRS item ID number.
-	 */
-	id: number;
-	/**
-	 * Name of the item.
-	 */
-	name: string;
-}
-
 export interface NewsItem {
 	title: string;
 	link: string;
@@ -406,11 +396,11 @@ export interface PollResult {
 }
 
 export interface ItemBank {
-	[key: number]: number;
+	[key: string]: number;
 }
 
-export interface StringKeyedBank {
-	[key: string]: number;
+export interface LootBank {
+	[key: string]: Bank;
 }
 
 export interface SimpleTableItem<T> {
@@ -421,6 +411,11 @@ export interface SimpleTableItem<T> {
 export interface ReturnedLootItem {
 	item: number;
 	quantity: number;
+}
+
+export interface BankItem {
+	id: number;
+	qty: number;
 }
 
 export interface LootTableItem {
@@ -470,8 +465,4 @@ export interface LootTableOptions {
 
 export interface ClueOptions {
 	table: LootTable;
-}
-
-export interface MonsterPickpocketOptions {
-	thievingLevel: number;
 }

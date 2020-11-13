@@ -1,5 +1,6 @@
-import { rand, randFloat, roll } from '../util/util';
-import { LootTableItem, OneInItems, ReturnedLootItem, LootTableOptions } from '../meta/types';
+import { randFloat, randInt, roll } from 'e';
+
+import { LootTableItem, LootTableOptions, OneInItems, ReturnedLootItem } from '../meta/types';
 import itemID from '../util/itemID';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
@@ -41,12 +42,18 @@ export default class LootTable {
 			return;
 		}
 
+		if (items instanceof LootTable) {
+			this.allItems = Array.from(
+				new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems))
+			);
+			return;
+		}
+
 		if (typeof items === 'number') {
+			if (this.allItems.includes(items)) return;
 			this.allItems.push(items);
-		} else if (items instanceof LootTable) {
-			this.allItems = this.allItems.concat(Array.isArray(items) ? items : items.allItems);
 		} else {
-			return this.addToAllItems(items.item);
+			this.addToAllItems(items.item);
 		}
 	}
 
@@ -212,7 +219,7 @@ export default class LootTable {
 
 	protected determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
-			return rand(quantity[0], quantity[1]);
+			return randInt(quantity[0], quantity[1]);
 		} else {
 			return quantity;
 		}

@@ -1,10 +1,10 @@
 import {
-	Player as PlayerType,
-	SkillsScore,
-	MinigamesScore,
 	AccountType,
+	BossRecords,
 	CluesScore,
-	BossRecords
+	MinigamesScore,
+	Player as PlayerType,
+	SkillsScore
 } from '../meta/types';
 
 class Player {

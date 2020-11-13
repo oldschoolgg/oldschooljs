@@ -1,16 +1,17 @@
 import test from 'tape';
+
 import {
-	resolveNameBank,
-	bankFromLootTableOutput,
-	bankHasItem,
-	bankHasAllItemsFromBank,
-	removeItemFromBank,
-	removeBankFromBank,
-	addItemToBank,
-	addBanks,
 	addArrayToBank,
+	addBanks,
+	addItemToBank,
+	bankFromLootTableOutput,
+	bankHasAllItemsFromBank,
+	bankHasItem,
 	multiplyBank,
-	numItemsBankHasInBank
+	numItemsBankHasInBank,
+	removeBankFromBank,
+	removeItemFromBank,
+	resolveNameBank
 } from '../dist/util';
 
 test('convert string bank to number bank', t => {

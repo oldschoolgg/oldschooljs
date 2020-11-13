@@ -1,7 +1,8 @@
-import LootTable from '../../../structures/LootTable';
-import Loot from '../../../structures/Loot';
+import { roll } from 'e';
+
 import { ItemBank, MonsterKillOptions } from '../../../meta/types';
-import { roll } from '../../../util/util';
+import Bank from '../../../structures/Bank';
+import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/Monster';
 
 const HesporiTable = new LootTable()
@@ -65,7 +66,7 @@ const MainTable = new LootTable()
 
 export class Hespori extends SimpleMonster {
 	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 		const farmingLvl = options.farmingLevel ?? 99;
 
 		for (let i = 0; i < quantity; i++) {
