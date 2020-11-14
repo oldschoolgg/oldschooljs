@@ -5,5 +5,5 @@ export default new SimpleMonster({
 	id: 736,
 	name: 'Bandit',
 	pickpocketTable: new LootTable().add('Coins', 50),
-	aliases: ['pollnivnian bandit']
+	aliases: ['pollnivnian bandit', 'bandit']
 });
