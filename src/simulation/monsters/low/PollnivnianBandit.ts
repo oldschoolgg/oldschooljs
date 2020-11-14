@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 
 export default new SimpleMonster({
 	id: 736,
-	name: 'Pollnivnian Bandit',
+	name: 'Bandit',
 	pickpocketTable: new LootTable().add('Coins', 50),
 	aliases: ['pollnivnian bandit']
 });

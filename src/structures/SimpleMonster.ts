@@ -17,7 +17,14 @@ export default class SimpleMonster extends Monster {
 	public pickpocketTable?: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
-		super({ ...options, allItems: options.table.allItems });
+		let allItems: number[] = [];
+		if (options.table) {
+			allItems = allItems.concat(options.table.allItems);
+		}
+		if (options.pickpocketTable) {
+			allItems = allItems.concat(options.pickpocketTable.allItems);
+		}
+		super({ ...options, allItems: allItems });
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
 	}

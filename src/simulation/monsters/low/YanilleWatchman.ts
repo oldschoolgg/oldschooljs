@@ -8,7 +8,7 @@ const YanilleWatchmanTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 5420,
-	name: 'Yanille Watchman',
+	name: 'Watchman',
 	pickpocketTable: YanilleWatchmanTable,
 	aliases: ['yanille', 'watchman', 'yanille watchman']
 });
