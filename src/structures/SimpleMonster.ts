@@ -8,15 +8,25 @@ import LootTable from './LootTable';
 import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
-	table: LootTable;
+	table?: LootTable;
+	pickpocketTable?: LootTable;
 }
 
 export default class SimpleMonster extends Monster {
-	public table: LootTable;
+	public table?: LootTable;
+	public pickpocketTable?: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
-		super({ ...options, allItems: options.table.allItems });
+		let allItems: number[] = [];
+		if (options.table) {
+			allItems = allItems.concat(options.table.allItems);
+		}
+		if (options.pickpocketTable) {
+			allItems = allItems.concat(options.pickpocketTable.allItems);
+		}
+		super({ ...options, allItems: allItems });
 		this.table = options.table;
+		this.pickpocketTable = options.pickpocketTable;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {

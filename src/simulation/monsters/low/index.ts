@@ -1,12 +1,14 @@
 import AberrantSpectre from './AberrantSpectre';
 import AbyssalDemon from './AbyssalDemon';
 import AdamantDragon from './AdamantDragon';
+import AlKharidWarrior from './AlKharidWarrior';
 import Ankou from './Ankou';
 import Aviansie from './Aviansie';
 import Banshee from './Banshee';
 import Basilisk from './Basilisk';
 import BasiliskKnight from './BasiliskKnight';
 import Bat from './Bat';
+import BeardedBandit from './BeardedBandit';
 import Bear from './BlackBear';
 import BlackDemon from './BlackDemon';
 import BlackDragon from './BlackDragon';
@@ -15,6 +17,7 @@ import BlueDragon from './BlueDragon';
 import BrineRat from './BrineRat';
 import CaveBug from './CaveBug';
 import CaveCrawler from './CaveCrawler';
+import CaveGoblin from './CaveGoblin';
 import CaveHorror from './CaveHorror';
 import CaveKraken from './CaveKraken';
 import CaveSlime from './CaveSlime';
@@ -23,39 +26,52 @@ import CrawlingHand from './CrawlingHand';
 import Dagannoth from './Dagannoth';
 import DarkBeast from './DarkBeast';
 import DemonicGorilla from './DemonicGorilla';
+import DesertBandit from './DesertBandit';
 import Drake from './Drake';
 import DustDevil from './DustDevil';
 import Dwarf from './Dwarf';
+import Elf from './Elf';
 import ElfWarrior from './ElfWarrior';
+import Farmer from './Farmer';
 import FireGiant from './FireGiant';
 import FossilIslandWyvernAncient from './FossilIslandWyvernAncient';
 import FossilIslandWyvernLongTailed from './FossilIslandWyvernLongTailed';
 import FossilIslandWyvernSpitting from './FossilIslandWyvernSpitting';
 import FossilIslandWyvernTaloned from './FossilIslandWyvernTaloned';
+import FremennikCitizen from './FremennikCitizen';
 import Gargoyle from './Gargoyle';
 import Ghost from './Ghost';
+import Gnome from './Gnome';
 import Goblin from './Goblin';
 import GreaterDemon from './GreaterDemon';
 import Guard from './Guard';
 import GuardDog from './GuardDog';
+import HamMember from './HamMember';
 import Hellhound from './Hellhound';
+import Hero from './Hero';
 import HillGiant from './HillGiant';
 import Icefiend from './Icefiend';
 import IronDragon from './IronDragon';
 import KalphiteWorker from './KalphiteWorker';
+import KnightOfArdougne from './KnightOfArdougne';
 import Kurask from './Kurask';
 import Lizard from './Lizard';
 import Lizardman from './Lizardman';
 import LizardmanShaman from './LizardmanShaman';
 import LocustRider from './LocustRider';
 import Man from './Man';
+import MasterFarmer from './MasterFarmer';
 import Minotaur from './Minotaur';
 import MithrilDragon from './MithrilDragon';
 import Monkey from './Monkey';
 import MountainTroll from './MountainTroll';
 import Nechryael from './Nechryael';
+import Paladin from './Paladin';
+import PollnivnianBandit from './PollnivnianBandit';
+import PrifddinasElf from './PrifddinasElf';
 import Rat from './Rat';
 import RedDragon from './RedDragon';
+import Rogue from './Rogue';
 import RuneDragon from './RuneDragon';
 import ScarabMage from './ScarabMage';
 import Scorpion from './Scorpion';
@@ -69,9 +85,13 @@ import SpiritualWarrior from './SpiritualWarrior';
 import SteelDragon from './SteelDragon';
 import Suqah from './Suqah';
 import Turoth from './Turoth';
+import TzHaarHur from './TzHaarHur';
+import Vyre from './Vyre';
+import WarriorWoman from './WarriorWoman';
 import Wolf from './Wolf';
 import Woman from './Woman';
 import Wyrm from './Wyrm';
+import YanilleWatchman from './YanilleWatchman';
 import Zombie from './Zombie';
 import Zygomite from './Zygomite';
 
@@ -151,5 +171,25 @@ export default {
 	Monkey,
 	Skeleton,
 	Zombie,
-	HillGiant
+	HillGiant,
+	BeardedBandit,
+	CaveGoblin,
+	DesertBandit,
+	Elf,
+	Farmer,
+	FremennikCitizen,
+	Gnome,
+	HamMember,
+	Hero,
+	KnightOfArdougne,
+	MasterFarmer,
+	Paladin,
+	YanilleWatchman,
+	Vyre,
+	TzHaarHur,
+	Rogue,
+	PrifddinasElf,
+	PollnivnianBandit,
+	WarriorWoman,
+	AlKharidWarrior
 };
