@@ -55,7 +55,8 @@ const MasterFarmerTable = new LootTable()
 	.add('Mushroom spore', 1, 1 / 400)
 	.add('Belladonna seed', 1, 1 / 667)
 	.add('Cactus seed', 1, 1 / 1000)
-	.add('Potato cactus seed', 1, 1 / 2200);
+	.add('Potato cactus seed', 1, 1 / 2200)
+	.tertiary(257_211, 'Rocky');
 
 export default new SimpleMonster({
 	id: 5730,

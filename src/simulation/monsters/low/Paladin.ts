@@ -1,10 +1,10 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 
-const PaladinTable = new LootTable().add([
-	['Coins', 80],
-	['Chaos rune', 2]
-]);
+const PaladinTable = new LootTable()
+	.every('Coins', 80)
+	.every('Chaos rune', 2)
+	.tertiary(127_056, 'Rocky');
 
 export default new SimpleMonster({
 	id: 1144,
