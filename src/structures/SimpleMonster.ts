@@ -10,19 +10,16 @@ import Monster from './Monster';
 interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
 	pickpocketTable?: LootTable;
-	rockyChance?: number;
 }
 
 export default class SimpleMonster extends Monster {
 	public table?: LootTable;
 	public pickpocketTable?: LootTable;
-	public rockyChance?: number;
 
 	constructor(options: SimpleMonsterOptions) {
 		super({ ...options, allItems: options.table.allItems });
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
-		this.rockyChance = options.rockyChance;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
