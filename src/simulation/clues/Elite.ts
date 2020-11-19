@@ -113,6 +113,7 @@ export const EliteRareTable = new LootTable()
 	.add("Uri's hat")
 	.add('Giant boot')
 	.add("Rangers' tunic")
+	.add('Monocle')
 	.add(EliteMegaRareTable)
 	.add(EliteTuxedoTable);
 
