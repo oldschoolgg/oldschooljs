@@ -1,12 +1,9 @@
 import { Monsters } from '../dist';
-import * as rawMonsterData from '../dist/data/monsters_data.json';
-import { MonsterData } from '../dist/meta/monsterData';
 import { ItemBank } from '../dist/meta/types';
 import Bank from '../dist/structures/Bank';
 import LootTable from '../dist/structures/LootTable';
 import Monster from '../dist/structures/Monster';
 import { checkThreshold } from './testUtil';
-const monsterData = rawMonsterData as { [key: string]: MonsterData };
 
 describe('Monsters', () => {
 	const currentMonIDs = new Set();
@@ -39,13 +36,6 @@ describe('Monsters', () => {
 
 			if (currentMonIDs.has(monster.id))
 				throw `${monster.name} has the same ID as another monster.`;
-
-			if (!monsterData[monster.id] || !monster.data) {
-				console.error(
-					`[${monster.name}][${monster.id}] has no data in the monster data cache!`
-				);
-				process.exit();
-			}
 			currentMonIDs.add(monster.id);
 		}
 	});
