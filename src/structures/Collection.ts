@@ -252,8 +252,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example collection.filter(user => user.username === 'Bob');
 	 */
 	public filter(fn: (value: V, key: K, collection: this) => boolean): Collection<K, V> {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
+		// @ts-expect-error Element implicitly has an 'any' type because expression of type 'symbol' can't be used to index type 'Function'.ts(7053)
 		const results = new this.constructor[Symbol.species]();
 		for (const [key, val] of this) {
 			if (fn(val, key, this)) results.set(key, val);
@@ -289,8 +288,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example collection.mapValues(user => user.tag);
 	 */
 	public mapValues<T>(fn: (value: V, key: K, collection: this) => T): Collection<K, T> {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
+		// @ts-expect-error Element implicitly has an 'any' type because expression of type 'symbol' can't be used to index type 'Function'.ts(7053)
 		const coll = new this.constructor[Symbol.species]();
 		for (const [key, val] of this) coll.set(key, fn(val, key, this));
 		return coll;
@@ -404,8 +402,7 @@ class Collection<K, V> extends Map<K, V> {
 	 * @example const newColl = someColl.clone();
 	 */
 	public clone(): Collection<K, V> {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
+		// @ts-expect-error Element implicitly has an 'any' type because expression of type 'symbol' can't be used to index type 'Function'.ts(7053)
 		return new this.constructor[Symbol.species](this);
 	}
 

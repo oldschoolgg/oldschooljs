@@ -222,7 +222,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
+		const teamPoints = addArrayOfNumbers(options.team.map((val) => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -263,7 +263,7 @@ export class ChambersOfXericClass extends Minigame {
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
 			const pointsOfThisMember = options.team.find(
-				member => member.id === leftOverRecipient.item
+				(member) => member.id === leftOverRecipient.item
 			).personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
