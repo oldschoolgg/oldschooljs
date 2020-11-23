@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "1.5.0",
+	"version": "1.5.01",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
 		"test:coverage": "nyc npm run test:run --reporter=lcov --reporter=text --reporter=text-summary --reporter=cobertura --all",
 		"test:coverage:report": "nyc report --reporter=lcov --reporter=cobertura",
 		"deeptest": "yarn build && ts-node test/deepsuite",
-		"lint": "eslint --ext ts src test --fix",
+		"lint": "eslint --ext ts src test --fix && prettier --check \"{src,test}/**/*.{ts,json}\" --write",
 		"build": "tsc -p .",
 		"dev": "tsc --watch -p .",
 		"prepareData": "npm run build && npm run prepareData:run",
