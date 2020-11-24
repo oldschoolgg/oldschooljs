@@ -1,3 +1,4 @@
+import { objectEntries } from 'e';
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
@@ -23,5 +24,19 @@ export default async function prepareItems(): Promise<void> {
 	}
 
 	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
+
+	const newFormat: Record<string, { qty: number; id: number }[]> = {};
+	const stackedItems = await fetch(
+		'https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/data/items/stacked-items.json'
+	).then((res): Promise<Record<string, { id: number; count: number }>> => res.json());
+
+	for (const [key, val] of objectEntries(stackedItems)) {
+		if (!newFormat[val.id]) newFormat[val.id] = [];
+		newFormat[val.id].push({ qty: val.count, id: Number(key) });
+		newFormat[val.id].sort((a, b) => b.qty - a.qty);
+	}
+
+	writeFileSync('./src/data/items/item_stacked_data.json', JSON.stringify(newFormat, null, 4));
+
 	console.log('Prepared items.');
 }
