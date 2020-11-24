@@ -333,6 +333,10 @@ export interface Item {
 	wiki_url: string | null;
 	equipment: ItemEquipment | null;
 	weapon: ItemWeapon | null;
+	/**
+	 * The stacked variant item IDs for this item, if any.
+	 */
+	stackedVariants?: { qty: number; id: number }[];
 }
 
 export interface NewsItem {

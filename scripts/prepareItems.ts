@@ -13,18 +13,6 @@ export default async function prepareItems(): Promise<void> {
 		`https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/items-complete.json`
 	).then((res): Promise<any> => res.json());
 
-	for (const item of Object.values(allItems).filter(weirdItemFilter)) {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
-		delete item.icon;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
-		delete item.wiki_exchange;
-		itemNameMap[item.id] = item;
-	}
-
-	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
-
 	const newFormat: Record<string, { qty: number; id: number }[]> = {};
 	const stackedItems = await fetch(
 		'https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/data/items/stacked-items.json'
@@ -36,7 +24,21 @@ export default async function prepareItems(): Promise<void> {
 		newFormat[val.id].sort((a, b) => b.qty - a.qty);
 	}
 
-	writeFileSync('./src/data/items/item_stacked_data.json', JSON.stringify(newFormat, null, 4));
+	for (const item of Object.values(allItems).filter(weirdItemFilter)) {
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		delete item.icon;
+		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+		// @ts-ignore
+		delete item.wiki_exchange;
+
+		if (newFormat[item.id]) {
+			item.stackedVariants = newFormat[item.id];
+		}
+		itemNameMap[item.id] = item;
+	}
+
+	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
 
 	console.log('Prepared items.');
 }
