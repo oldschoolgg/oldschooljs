@@ -1,7 +1,7 @@
 import { Polls } from '../dist';
 
 describe('Polls', () => {
-	jest.setTimeout(20000);
+	jest.setTimeout(60_000);
 
 	test('Generic checks', (done) => {
 		expect.assertions(3);
