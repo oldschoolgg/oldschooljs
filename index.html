@@ -74,14 +74,14 @@
 				<p>Docs: <a href="https://docs.oldschool.gg/classes/hiscores.html">https://docs.oldschool.gg/classes/hiscores.html</a></p>
 				<p>Possible account types: normal, ironman, ultimate, hardcore, deadman, seasonal</p>
 				<p>You can also pass <code>virtualLevels: true</code> to receive their stats back in virtual level format, with their skill levels able to go up to 120.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
 
-<span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Lynx Titan'</span>);
-<span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">'Iron Hyger'</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">'ironman'</span> });</code></pre>
+<span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">&#x27;Lynx Titan&#x27;</span>);
+<span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">&#x27;Iron Hyger&#x27;</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;ironman&#x27;</span> });</code></pre>
 				<a href="#items" id="items" style="color: inherit; text-decoration: none;">
 					<h2>Items</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#getting-an-item-by-id" id="getting-an-item-by-id" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by ID</h4>
 				</a>
@@ -90,12 +90,12 @@
 				<a href="#getting-an-item-by-name" id="getting-an-item-by-name" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by Name</h4>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonDagger = Items.get(<span class="hljs-string">'dragon dagger(p++)'</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonDagger = Items.get(<span class="hljs-string">&#x27;dragon dagger(p++)&#x27;</span>);
 <span class="hljs-keyword">if</span> (dragonDagger) <span class="hljs-built_in">console</span>.log(dragonDagger);</code></pre>
 				<a href="#find-items-by-any-properties" id="find-items-by-any-properties" style="color: inherit; text-decoration: none;">
 					<h4>Find items by any properties</h4>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonItems = Items.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.name.includes(<span class="hljs-string">'Dragon'</span>));
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonItems = Items.filter(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> item.name.includes(<span class="hljs-string">&#x27;Dragon&#x27;</span>));
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Found <span class="hljs-subst">${dragonItems.size}</span> Dragon Items!`</span>);
 
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> dragonItems.values()) {
@@ -105,7 +105,7 @@
 					<h2>Monster Killing Simulator</h2>
 				</a>
 				<p>Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#simulating-100-kills-of-every-monster" id="simulating-100-kills-of-every-monster" style="color: inherit; text-decoration: none;">
 					<h4>Simulating 100 Kills of every Monster</h4>
 				</a>
@@ -114,13 +114,13 @@
 					<h4>Simulating 100 Corp beast kills</h4>
 				</a>
 				<pre><code class="language-js">Monsters.CorporealBeast.kill(<span class="hljs-number">100</span>);
-Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">'corp'</span>)).kill(<span class="hljs-number">100</span>);
+Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">&#x27;corp&#x27;</span>)).kill(<span class="hljs-number">100</span>);
 Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);</code></pre>
 				<a href="#clue-scroll-simulating" id="clue-scroll-simulating" style="color: inherit; text-decoration: none;">
 					<h2>Clue Scroll Simulating</h2>
 				</a>
 				<p>Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Clues.Beginner.open(<span class="hljs-number">1</span>));
 <span class="hljs-built_in">console</span>.log(Clues.Master.open(<span class="hljs-number">5</span>));
 <span class="hljs-built_in">console</span>.log(Clues.Elite.open());</code></pre>
@@ -129,15 +129,15 @@ Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number
 				</a>
 				<p>Docs: <a href="https://docs.oldschool.gg/classes/bank.html">https://docs.oldschool.gg/classes/bank.html</a></p>
 				<p>The bank class provides a powerful and ergonomic way to construct and interact with item banks.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> bank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">'Twisted bow'</span>);
-<span class="hljs-keyword">const</span> otherBank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">'Coal'</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> bank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">&#x27;Twisted bow&#x27;</span>);
+<span class="hljs-keyword">const</span> otherBank = <span class="hljs-keyword">new</span> Bank().add(<span class="hljs-string">&#x27;Coal&#x27;</span>);
 <span class="hljs-keyword">const</span> lootTable = <span class="hljs-keyword">new</span> LootTable().add(;
 
 bank
   .add(otherBank)
   .add({ <span class="hljs-attr">Coal</span>: <span class="hljs-number">1</span> })
-  .add(<span class="hljs-string">'Coal'</span>)
-  .add(<span class="hljs-string">'Coal'</span>, <span class="hljs-number">500</span>)
+  .add(<span class="hljs-string">&#x27;Coal&#x27;</span>)
+  .add(<span class="hljs-string">&#x27;Coal&#x27;</span>, <span class="hljs-number">500</span>)
   .add({ <span class="hljs-number">124</span>: <span class="hljs-number">500</span> })
   .add(lootTable.roll())
   .add(CorporealBeast.kill());
@@ -150,16 +150,16 @@ bank
 				<p>For a good demonstration of using Loot tables, refer to the oldschooljs code for Monsters and Clues, which all use loottables, a good example is Corp: <a href="https://github.com/oldschoolgg/oldschooljs/blob/master/src/simulation/monsters/bosses/CorporealBeast.ts">https://github.com/oldschoolgg/oldschooljs/blob/master/src/simulation/monsters/bosses/CorporealBeast.ts</a></p>
 				<p>Here is a trimmed-down example of corp:</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> CorporealBeastTable = <span class="hljs-keyword">new</span> LootTable()
-    .add(<span class="hljs-string">'Spirit shield'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">8</span>)
-    .add(<span class="hljs-string">'Holy elixir'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
+    .add(<span class="hljs-string">&#x27;Spirit shield&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">8</span>)
+    .add(<span class="hljs-string">&#x27;Holy elixir&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>)
     .oneIn(<span class="hljs-number">585</span>, SigilTable)
-    .tertiary(<span class="hljs-number">5000</span>, <span class="hljs-string">'Pet dark core'</span>);
+    .tertiary(<span class="hljs-number">5000</span>, <span class="hljs-string">&#x27;Pet dark core&#x27;</span>);
 
 CorporealBeastTable.roll();</code></pre>
 				<a href="#news" id="news" style="color: inherit; text-decoration: none;">
 					<h2>News</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { News } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { News } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<p>Be careful with <em>fetching</em> news articles too often, as the website will ratelimit you after roughly 30 requests in a short period. Whenever a fetch is done, the <code>News</code> collection will have any new articles cached.</p>
 				<p>Rather than fetching articles on demand, you may want to</p>
 				<a href="#fetch-recent-news-articles" id="fetch-recent-news-articles" style="color: inherit; text-decoration: none;">
@@ -191,7 +191,7 @@ CorporealBeastTable.roll();</code></pre>
 				<a href="#worlds" id="worlds" style="color: inherit; text-decoration: none;">
 					<h2>Worlds</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Worlds } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Worlds } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#fetch-and-cache-all-worlds" id="fetch-and-cache-all-worlds" style="color: inherit; text-decoration: none;">
 					<h4>Fetch and cache all worlds</h4>
 				</a>
@@ -206,7 +206,7 @@ CorporealBeastTable.roll();</code></pre>
 				<a href="#filtering-worlds" id="filtering-worlds" style="color: inherit; text-decoration: none;">
 					<h4>Filtering Worlds</h4>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> australianWorlds = Worlds.filter(<span class="hljs-function"><span class="hljs-params">world</span> =&gt;</span> world.location === <span class="hljs-string">'Australia'</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> australianWorlds = Worlds.filter(<span class="hljs-function"><span class="hljs-params">world</span> =&gt;</span> world.location === <span class="hljs-string">&#x27;Australia&#x27;</span>);
 
 <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There are <span class="hljs-subst">${australianWorlds.size}</span> Australian Worlds!`</span>);</code></pre>
 				<a href="#iterating-over-worlds" id="iterating-over-worlds" style="color: inherit; text-decoration: none;">
@@ -218,12 +218,12 @@ CorporealBeastTable.roll();</code></pre>
 				<a href="#wiki" id="wiki" style="color: inherit; text-decoration: none;">
 					<h2>Wiki</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Wiki } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Wiki } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#searching-for-pages" id="searching-for-pages" style="color: inherit; text-decoration: none;">
 					<h4>Searching for pages</h4>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">const</span> searchResults = <span class="hljs-keyword">await</span> Wiki.search(<span class="hljs-string">'Twisted bow'</span>);
-<span class="hljs-keyword">if</span> (searchResults.length === <span class="hljs-number">0</span>) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Found no results'</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> searchResults = <span class="hljs-keyword">await</span> Wiki.search(<span class="hljs-string">&#x27;Twisted bow&#x27;</span>);
+<span class="hljs-keyword">if</span> (searchResults.length === <span class="hljs-number">0</span>) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Found no results&#x27;</span>);
 <span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);</code></pre>
 				<a href="#picking-random-pages" id="picking-random-pages" style="color: inherit; text-decoration: none;">
 					<h4>Picking random pages</h4>
@@ -240,7 +240,7 @@ CorporealBeastTable.roll();</code></pre>
 				<a href="#polls" id="polls" style="color: inherit; text-decoration: none;">
 					<h2>Polls</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Polls } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Polls } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#iterating-over-worlds-1" id="iterating-over-worlds-1" style="color: inherit; text-decoration: none;">
 					<h4>Iterating over worlds</h4>
 				</a>
@@ -255,7 +255,7 @@ CorporealBeastTable.roll();</code></pre>
 				<a href="#utilities" id="utilities" style="color: inherit; text-decoration: none;">
 					<h2>Utilities</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Util } <span class="hljs-keyword">from</span> <span class="hljs-string">'oldschooljs'</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Util } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
 				<a href="#checking-if-a-username-is-valid" id="checking-if-a-username-is-valid" style="color: inherit; text-decoration: none;">
 					<h4>Checking if a username is valid</h4>
 				</a>
@@ -264,23 +264,23 @@ CorporealBeastTable.roll();</code></pre>
 					<h4>Converting numbers to and from KMB syntax</h4>
 				</a>
 				<p>KMB Syntax is how numbers are often formatted in runescape, for example: 5k, 1.5m, 5m, 1b, etc.</p>
-				<pre><code class="language-js">Util.toKMB(<span class="hljs-number">5</span>); <span class="hljs-comment">// '5'</span>
-Util.toKMB(<span class="hljs-number">1000</span>); <span class="hljs-comment">// '1k'</span>
-Util.toKMB(<span class="hljs-number">1000000</span>); <span class="hljs-comment">// '1m'</span>
-Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comment">// '1.2b'</span></code></pre>
-				<pre><code class="language-js">Util.fromKMB(<span class="hljs-string">'5'</span>); <span class="hljs-comment">// 5</span>
-Util.fromKMB(<span class="hljs-string">'1k'</span>); <span class="hljs-comment">// 1000</span>
-Util.fromKMB(<span class="hljs-string">'1m'</span>); <span class="hljs-comment">// 1000000</span>
-Util.fromKMB(<span class="hljs-string">'1.2b'</span>); <span class="hljs-comment">// 1200000000</span></code></pre>
+				<pre><code class="language-js">Util.toKMB(<span class="hljs-number">5</span>); <span class="hljs-comment">// &#x27;5&#x27;</span>
+Util.toKMB(<span class="hljs-number">1000</span>); <span class="hljs-comment">// &#x27;1k&#x27;</span>
+Util.toKMB(<span class="hljs-number">1000000</span>); <span class="hljs-comment">// &#x27;1m&#x27;</span>
+Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comment">// &#x27;1.2b&#x27;</span></code></pre>
+				<pre><code class="language-js">Util.fromKMB(<span class="hljs-string">&#x27;5&#x27;</span>); <span class="hljs-comment">// 5</span>
+Util.fromKMB(<span class="hljs-string">&#x27;1k&#x27;</span>); <span class="hljs-comment">// 1000</span>
+Util.fromKMB(<span class="hljs-string">&#x27;1m&#x27;</span>); <span class="hljs-comment">// 1000000</span>
+Util.fromKMB(<span class="hljs-string">&#x27;1.2b&#x27;</span>); <span class="hljs-comment">// 1200000000</span></code></pre>
 				<a href="#planned-features" id="planned-features" style="color: inherit; text-decoration: none;">
 					<h2>Planned features</h2>
 				</a>
 				<ul>
-					<li>Ability to ping worlds?</li>
-					<li>CrystalMathLabs</li>
-					<li>Simulating: killing monsters, opening clue scrolls, pets (like in osbot)</li>
-					<li>Quests (e.g. containing all wiki data on quests)</li>
-					<li>fetch wiki page by item ID?</li>
+					<li>  Ability to ping worlds?</li>
+					<li>  CrystalMathLabs</li>
+					<li>  Simulating: killing monsters, opening clue scrolls, pets (like in osbot)</li>
+					<li>  Quests (e.g. containing all wiki data on quests)</li>
+					<li>  fetch wiki page by item ID?</li>
 				</ul>
 			</div>
 		</div>
@@ -679,6 +679,5 @@ Util.fromKMB(<span class="hljs-string">'1.2b'</span>); <span class="hljs-comment
 </footer>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
