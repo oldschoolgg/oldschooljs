@@ -3,7 +3,7 @@ import { roll } from 'e';
 import { ItemBank } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import Monster from '../../../structures/Monster';
 
 const BarrowsTable = new LootTable();
 
@@ -51,7 +51,7 @@ const OtherTable = new LootTable()
 
 const NUMBER_OF_BROTHERS = 6;
 
-export class Barrows extends SimpleMonster {
+export class Barrows extends Monster {
 	public kill(quantity = 1): ItemBank {
 		const loot = new Bank();
 
@@ -82,9 +82,4 @@ export class Barrows extends SimpleMonster {
 }
 
 // Uses NPC id for Dharoks
-export default new Barrows({
-	id: 1673,
-	name: 'Barrows',
-	table: new LootTable().add(BarrowsTable).add(OtherTable),
-	aliases: ['barrows']
-});
+export default new Barrows({ id: 1673, name: 'Barrows', aliases: ['barrows'] });
