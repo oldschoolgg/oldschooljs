@@ -1,6 +1,7 @@
 import { Bank } from '../dist';
 import { ReturnedLootItem } from '../dist/meta/types';
 import LootTable from '../dist/structures/LootTable';
+import { itemID, resolveNameBank } from '../dist/util';
 
 const TestLootTable = new LootTable().add('Toolkit');
 
@@ -89,5 +90,29 @@ describe('Bank Class', () => {
 		bank.add({});
 
 		expect(bank.amount(1)).toBe(1);
+	});
+
+	test('has', () => {
+		let source = resolveNameBank({
+			Coal: 100,
+			'Monkey nuts': 100,
+			Ruby: 100
+		});
+		const bank = new Bank(source);
+
+		expect(bank.has('Coal')).toBe(true);
+		expect(bank.has('Ruby')).toBe(true);
+		expect(bank.has(itemID('Monkey nuts'))).toBe(true);
+
+		expect(bank.has(itemID('Emerald'))).toBe(false);
+		expect(bank.has('Emerald')).toBe(false);
+
+		expect(bank.has(['Coal'])).toBe(true);
+		expect(bank.has(['Coal', 'Ruby', 'Monkey nuts'])).toBe(true);
+		expect(bank.has(['Emerald'])).toBe(false);
+		expect(bank.has(['Coal', 'Ruby', 'Monkey nuts', 'Emerald'])).toBe(false);
+
+		expect(bank.has(source)).toBe(true);
+		expect(bank.has({ Emerald: 1 })).toBe(false);
 	});
 });

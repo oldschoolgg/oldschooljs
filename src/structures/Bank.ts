@@ -4,6 +4,7 @@ import { BankItem, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
 	addItemToBank,
+	bankHasAllItemsFromBank,
 	multiplyBank,
 	removeBankFromBank,
 	removeItemFromBank,
@@ -109,6 +110,18 @@ export default class Bank {
 	public multiply(multiplier: number): this {
 		this.bank = multiplyBank(this.bank, multiplier);
 		return this;
+	}
+
+	public has(items: string | number | (string | number)[] | ItemBank) {
+		if (Array.isArray(items)) {
+			return items.every((item) => this.amount(item) > 0);
+		}
+
+		if (typeof items === 'string' || typeof items === 'number') {
+			return this.amount(items) > 0;
+		}
+
+		return bankHasAllItemsFromBank(this.bank, items);
 	}
 
 	public values(): ItemBank {
