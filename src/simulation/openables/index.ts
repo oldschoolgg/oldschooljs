@@ -10,7 +10,7 @@ const openablesObject = {
 	GrandHallowedCoffin
 };
 
-const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [
+const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [
 	openable.id,
 	openable
 ]);

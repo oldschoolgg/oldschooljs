@@ -51,5 +51,5 @@ export default new SimpleMonster({
 	id: 2540,
 	name: 'H.A.M. Member',
 	pickpocketTable: MaleHamMemberTable,
-	aliases: ['ham member male', 'ham member female', 'ham male', 'ham female']
+	aliases: ['ham member male', 'ham member female', 'ham male', 'ham female', 'h.a.m. member']
 });

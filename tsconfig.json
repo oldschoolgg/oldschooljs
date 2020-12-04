@@ -7,10 +7,11 @@
 		"declarationMap": true,
 		"removeComments": false,
 		"outDir": "./dist",
-		"types": ["node"],
 		"target": "ES6",
 		"resolveJsonModule": true,
-		"esModuleInterop": true
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"lib": ["DOM", "ESNext"]
 	},
 	"include": ["./src/**/*"]
 }

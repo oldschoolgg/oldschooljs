@@ -7,5 +7,5 @@ import fetch from 'node-fetch';
  */
 export default async function getDom(link: string): Promise<DOMWindow> {
 	const html: string = await fetch(link).then((res): Promise<string> => res.text());
-	return new (await import('jsdom').then(jsdom => jsdom.JSDOM))(html).window;
+	return new (await import('jsdom').then((jsdom) => jsdom.JSDOM))(html).window;
 }

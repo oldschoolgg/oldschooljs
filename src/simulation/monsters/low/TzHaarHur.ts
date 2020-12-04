@@ -13,5 +13,5 @@ export default new SimpleMonster({
 	id: 2161,
 	name: 'TzHaar-Hur',
 	pickpocketTable: TzHaarHurTable,
-	aliases: ['tzhaarhur', 'tzhaar hur']
+	aliases: ['tzhaarhur', 'tzhaar hur', 'tzhaar-hur']
 });

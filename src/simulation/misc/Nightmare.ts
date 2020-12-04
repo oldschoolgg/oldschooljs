@@ -110,7 +110,7 @@ class NightmareClass {
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];
 
-		const parsedTeam = options.team.map(teamMember => ({
+		const parsedTeam = options.team.map((teamMember) => ({
 			...teamMember,
 			percentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp)),
 			scaledPercentDamage: Math.floor(
