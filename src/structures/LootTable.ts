@@ -193,7 +193,7 @@ export default class LootTable {
 				items = items.concat(
 					item.item
 						.roll()
-						.map(item => this.generateResultItem(item))
+						.map((item) => this.generateResultItem(item))
 						.flat()
 				);
 			}

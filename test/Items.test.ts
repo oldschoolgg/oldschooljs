@@ -1,5 +1,3 @@
-import test from 'tape';
-
 import { Items } from '../dist';
 import { Item } from '../dist/meta/types';
 
@@ -56,66 +54,60 @@ function checkItems(): void {
 	for (const [itemName, itemID] of expectedIDTuple) {
 		const item = Items.get(itemName);
 		if (!item) {
-			console.error(`*ERROR*: ${itemName} doesnt exist?`);
-			continue;
+			fail(`*ERROR*: ${itemName} doesnt exist?`);
 		}
 		if (item.id !== itemID) {
-			console.error(
-				`*ERROR*: ${itemName} has the wrong item ID! Is[${item.id}] ShouldBe[${itemID}]`
-			);
-			continue;
+			fail(`*ERROR*: ${itemName} has the wrong item ID! Is[${item.id}] ShouldBe[${itemID}]`);
 		}
-		console.log(`${itemName} has the right ID!`);
 	}
 }
 
-test('Pre-fetch checks', t => {
-	checkItems();
-	t.end();
-});
+describe('Items', () => {
+	beforeAll(() => {
+		checkItems();
+	});
 
-test('Fetching Item by ID', async t => {
-	t.plan(6);
+	test.concurrent(
+		'Fetching Item by ID',
+		async (done) => {
+			expect.assertions(6);
 
-	const [tbow, superStr, dragonDagger, coins] = [
-		Items.get(20997),
-		Items.get(2440),
-		Items.get('dragon dagger(p++)'),
-		Items.get('Coins')
-	];
+			const [tbow, superStr, dragonDagger, coins] = [
+				Items.get(20997),
+				Items.get(2440),
+				Items.get('dragon dagger(p++)'),
+				Items.get('Coins')
+			];
 
-	if (!tbow) return t.fail('Missing item.');
-	t.equal(tbow.id, 20997, 'Expected Twisted bow id to be 20997');
-	t.equal(tbow.name, 'Twisted bow', 'Expected Twisted bow name to be correct');
+			if (!tbow) return done.fail('Missing item.');
+			expect(tbow.id).toBe(20997);
+			expect(tbow.name).toBe('Twisted bow');
 
-	if (!superStr) return t.fail('Missing item.');
-	t.equal(superStr.id, 2440);
+			if (!superStr) return done.fail('Missing item.');
+			expect(superStr.id).toBe(2440);
 
-	if (!dragonDagger) return t.fail('Missing item.');
-	t.equal(dragonDagger.id, 5698, 'Expected Dragon dagger(p++) to return 5699');
-	t.equal(
-		dragonDagger.name,
-		'Dragon dagger(p++)',
-		'Expected Dragon dagger(p++) name to be correct'
+			if (!dragonDagger) return done.fail('Missing item.');
+			expect(dragonDagger.id).toBe(5698);
+			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
+
+			if (!coins) return done.fail('Missing item.');
+			expect(coins.id).toBe(995);
+		},
+		60000
 	);
 
-	if (!coins) return t.fail('Missing item.');
-	t.equal(coins.id, 995);
-});
+	test.concurrent.each(["Zulrah's scales", 'Belladonna seed'])(
+		'Duplicate/Stacked item counts',
+		(itemName) => {
+			const itemArr = Items.filter((i) => i.name === itemName).array();
+			expect(itemArr.length !== 1).toBeFalsy();
 
-test('Duplicate/Stacked item counts', async t => {
-	checkItems();
-	for (const itemName of ["Zulrah's scales", 'Belladonna seed']) {
-		const itemArr = Items.filter(i => i.name === itemName).array();
-		if (itemArr.length !== 1) {
-			throw `Should be only 1x ${itemName}. Was: ${itemArr.map(i => i.id)}`;
-		}
+			const item = itemArr[0] as Item | undefined;
 
-		const item = itemArr[0] as Item | undefined;
-
-		if (!item || !item.tradeable || !item.highalch) {
-			throw `Invalid item for ${itemName}?`;
-		}
-	}
-	t.end();
+			if (!item || !item.tradeable || !item.highalch) {
+				fail(`Invalid item for ${itemName}?`);
+			}
+		},
+		60000
+	);
 });

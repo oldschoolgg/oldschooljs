@@ -13,6 +13,6 @@
 	"rules": {
 		// TODO: Eventually enable this and fix.
 		"@typescript-eslint/no-explicit-any": "off",
-		"simple-import-sort/sort": "error"
+		"simple-import-sort/imports": "error"
 	}
 }

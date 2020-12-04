@@ -54,7 +54,7 @@ const monstersObject = {
 	...SpecialMonsters
 };
 
-const allMonsters: [number, Monster][] = Object.values(monstersObject).map(monster => [
+const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster) => [
 	monster.id,
 	monster
 ]);
