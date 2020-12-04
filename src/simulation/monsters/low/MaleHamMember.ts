@@ -49,7 +49,7 @@ const MaleHamMemberTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 2540,
-	name: 'H.A.M. Member',
+	name: 'Male H.A.M. Member',
 	pickpocketTable: MaleHamMemberTable,
-	aliases: ['ham member male', 'ham member female', 'ham male', 'ham female', 'h.a.m. member']
+	aliases: ['ham member male', 'ham male', 'male h.a.m. member']
 });

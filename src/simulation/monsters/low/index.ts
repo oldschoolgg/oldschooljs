@@ -33,6 +33,7 @@ import Dwarf from './Dwarf';
 import Elf from './Elf';
 import ElfWarrior from './ElfWarrior';
 import Farmer from './Farmer';
+import FemaleHamMember from './FemaleHamMember';
 import FireGiant from './FireGiant';
 import FossilIslandWyvernAncient from './FossilIslandWyvernAncient';
 import FossilIslandWyvernLongTailed from './FossilIslandWyvernLongTailed';
@@ -46,7 +47,6 @@ import Goblin from './Goblin';
 import GreaterDemon from './GreaterDemon';
 import Guard from './Guard';
 import GuardDog from './GuardDog';
-import HamMember from './HamMember';
 import Hellhound from './Hellhound';
 import Hero from './Hero';
 import HillGiant from './HillGiant';
@@ -59,6 +59,7 @@ import Lizard from './Lizard';
 import Lizardman from './Lizardman';
 import LizardmanShaman from './LizardmanShaman';
 import LocustRider from './LocustRider';
+import MaleHamMember from './MaleHamMember';
 import Man from './Man';
 import MasterFarmer from './MasterFarmer';
 import Minotaur from './Minotaur';
@@ -179,7 +180,8 @@ export default {
 	Farmer,
 	FremennikCitizen,
 	Gnome,
-	HamMember,
+	MaleHamMember,
+	FemaleHamMember,
 	Hero,
 	KnightOfArdougne,
 	MasterFarmer,

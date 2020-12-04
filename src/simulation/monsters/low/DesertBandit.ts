@@ -8,7 +8,7 @@ const DesertBanditTable = new LootTable()
 	.tertiary(257_211, 'Rocky');
 
 export default new SimpleMonster({
-	id: 2283,
+	id: 690,
 	name: 'Desert Bandit',
 	pickpocketTable: DesertBanditTable,
 	aliases: ['desert bandit']

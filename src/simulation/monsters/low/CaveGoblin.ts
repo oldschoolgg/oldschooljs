@@ -19,7 +19,7 @@ const CaveGoblinTable = new LootTable()
 	.tertiary(257_211, 'Rocky');
 
 export default new SimpleMonster({
-	id: 2283,
+	id: 6434,
 	name: 'Cave goblin',
 	pickpocketTable: CaveGoblinTable,
 	aliases: ['cave goblin']
