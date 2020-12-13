@@ -1,8 +1,10 @@
 import Collection from '../../structures/Collection';
+import Openable from '../../structures/Openable';
 import BrimstoneChest from './BrimstoneChest';
 import Casket from './Casket';
 import CrystalChest from './CrystalChest';
 import ElvenCrystalChest from './ElvenCrystalChest';
+import GrandHallowedCoffin from './GrandHallowedCoffin';
 import GrubbyChest from './GrubbyChest';
 import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
 import LarransChest from './LarransChest';
@@ -16,6 +18,7 @@ import SinisterChest from './SinisterChest';
 const openablesObject = {
 	LuckyImp,
 	MysteryBox,
+	GrandHallowedCoffin,
 	BronzeHAMChest,
 	IronHAMChest,
 	SilverHAMChest,
