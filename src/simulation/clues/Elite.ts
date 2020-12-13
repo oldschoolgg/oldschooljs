@@ -1,16 +1,17 @@
+import { randInt, roll } from 'e';
+
+import { ItemBank } from '../../meta/types';
+import Bank from '../../structures/Bank';
+import Clue from '../../structures/Clue';
+import LootTable from '../../structures/LootTable';
 import {
-	GildedTable,
-	PrayerPageTable,
-	FirelighterTable,
-	GiveHalfKeyTable,
 	BlessingTable,
+	FirelighterTable,
+	GildedTable,
+	GiveHalfKeyTable,
+	PrayerPageTable,
 	TeleportScrollTable
 } from './General';
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
-import { ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
-import { rand, roll } from '../../util/util';
 
 export const Elite3rdageTable = new LootTable()
 	.add('3rd age range coif')
@@ -27,7 +28,7 @@ export const Elite3rdageTable = new LootTable()
 	.add('3rd age plateskirt')
 	.add('3rd age kiteshield')
 	.add('3rd age longsword')
-	.add('3rd age druidic cloak')
+	.add('3rd age cloak')
 	.add('3rd age wand')
 	.add('3rd age bow');
 
@@ -112,6 +113,7 @@ export const EliteRareTable = new LootTable()
 	.add("Uri's hat")
 	.add('Giant boot')
 	.add("Rangers' tunic")
+	.add('Monocle')
 	.add(EliteMegaRareTable)
 	.add(EliteTuxedoTable);
 
@@ -158,10 +160,10 @@ export const EliteClueTable = new LootTable()
 
 export class EliteCasket extends Clue {
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = rand(4, 6);
+			const numberOfRolls = randInt(4, 6);
 
 			if (roll(5)) loot.add('Clue scroll (master)');
 
@@ -174,4 +176,4 @@ export class EliteCasket extends Clue {
 	}
 }
 
-export default new EliteCasket();
+export default new EliteCasket({ table: EliteClueTable });

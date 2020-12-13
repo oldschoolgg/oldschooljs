@@ -1,7 +1,8 @@
-import LootTable from '../../../structures/LootTable';
-import Loot from '../../../structures/Loot';
+import { roll } from 'e';
+
 import { ItemBank } from '../../../meta/types';
-import { roll } from '../../../util/util';
+import Bank from '../../../structures/Bank';
+import LootTable from '../../../structures/LootTable';
 import Monster from '../../../structures/Monster';
 
 const BarrowsTable = new LootTable();
@@ -36,7 +37,7 @@ const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail"
-].map(item => BarrowsTable.add(item));
+].map((item) => BarrowsTable.add(item));
 
 const OtherTable = new LootTable()
 	.add('Coins', [2, 760], 380)
@@ -52,7 +53,7 @@ const NUMBER_OF_BROTHERS = 6;
 
 export class Barrows extends Monster {
 	public kill(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			if (roll(34)) loot.add('Clue scroll (elite)');
@@ -69,7 +70,7 @@ export class Barrows extends Monster {
 						barrowsItem = BarrowsTable.roll()[0];
 					}
 					barrowsItemsThisKill.add(barrowsItem.item);
-					loot.add(barrowsItem);
+					loot.add([barrowsItem]);
 				} else {
 					loot.add(OtherTable.roll());
 				}

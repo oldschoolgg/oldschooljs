@@ -31,7 +31,7 @@ export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 
-export const mappedBossNames = [
+export const mappedBossNames: [string, string][] = [
 	['abyssalSire', 'Abyssal Sire'],
 	['alchemicalHydra', 'Alchemical Hydra'],
 	['barrowsChests', 'Barrows Chests'],
@@ -78,7 +78,7 @@ export const mappedBossNames = [
 	['zulrah', 'Zulrah']
 ];
 
-export const bossNameMap: Map<string, string> = new Map(mappedBossNames as [string, string][]);
+export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
 
 // Hiscores
 
@@ -122,13 +122,3 @@ export const ErrorDescriptions: Record<string, string> = {
 };
 
 export const OSRS_BOX_BASE_URL = `https://www.osrsbox.com/osrsbox-db`;
-
-export const enum Time {
-	Millisecond = 1,
-	Second = 1000,
-	Minute = 1000 * 60,
-	Hour = 1000 * 60 * 60,
-	Day = 1000 * 60 * 60 * 24,
-	Month = 1000 * 60 * 60 * 24 * 31,
-	Year = 1000 * 60 * 60 * 24 * 365
-}

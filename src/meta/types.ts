@@ -1,3 +1,4 @@
+import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -15,16 +16,17 @@ export interface MonsterOptions {
 	combatLevel?: number;
 	hitpoints?: number;
 	aliases?: string[];
+	allItems?: number[];
 }
 
-export type AccountType =
-	| 'normal'
-	| 'ironman'
-	| 'ultimate'
-	| 'hardcore'
-	| 'deadman'
-	| 'seasonal'
-	| undefined;
+export enum AccountType {
+	Normal = 'normal',
+	Ironman = 'ironman',
+	Ultimate = 'ultimate',
+	Hardcore = 'hardcore',
+	Deadman = 'deadman',
+	Seasonal = 'seasonal'
+}
 
 export interface Player {
 	bossRecords: BossRecords;
@@ -57,12 +59,13 @@ export interface SkillsScore {
 	thieving: SkillScore;
 	slayer: SkillScore;
 	farming: SkillScore;
-	runecrafting: SkillScore;
+	runecraft: SkillScore;
 	hunter: SkillScore;
 	construction: SkillScore;
 }
 
 export interface BossRecords {
+	obor: MinigameScore;
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
 	barrowsChests: MinigameScore;
@@ -90,6 +93,7 @@ export interface BossRecords {
 	kreeArra: MinigameScore;
 	krilTsutsaroth: MinigameScore;
 	mimic: MinigameScore;
+	nightmare: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
@@ -157,7 +161,7 @@ export interface ItemRequirements {
 	thieving: number;
 	slayer: number;
 	farming: number;
-	runecrafting: number;
+	runecraft: number;
 	hunter: number;
 	construction: number;
 	combat: number;
@@ -182,7 +186,7 @@ export interface ItemEquipment {
 	magic_damage: number;
 	prayer: number;
 	slot: EquipmentSlot;
-	requirements: ItemRequirements | null;
+	requirements: Partial<ItemRequirements> | null;
 }
 
 export enum EquipmentSlot {
@@ -231,13 +235,13 @@ export interface Item {
 	 */
 	name: string;
 	/**
-	 * If the item is a members-only.
-	 */
-	members: boolean;
-	/**
 	 * If the item has incomplete wiki data.
 	 */
 	incomplete: boolean;
+	/**
+	 * If the item is a members-only.
+	 */
+	members: boolean;
 	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
@@ -332,17 +336,10 @@ export interface Item {
 	wiki_url: string | null;
 	equipment: ItemEquipment | null;
 	weapon: ItemWeapon | null;
-}
-
-export interface PartialItem {
 	/**
-	 * Unique OSRS item ID number.
+	 * The stacked variant item IDs for this item, if any.
 	 */
-	id: number;
-	/**
-	 * Name of the item.
-	 */
-	name: string;
+	stackedVariants?: { qty: number; id: number }[];
 }
 
 export interface NewsItem {
@@ -406,11 +403,11 @@ export interface PollResult {
 }
 
 export interface ItemBank {
-	[key: number]: number;
+	[key: string]: number;
 }
 
-export interface StringKeyedBank {
-	[key: string]: number;
+export interface LootBank {
+	[key: string]: Bank;
 }
 
 export interface SimpleTableItem<T> {
@@ -421,6 +418,11 @@ export interface SimpleTableItem<T> {
 export interface ReturnedLootItem {
 	item: number;
 	quantity: number;
+}
+
+export interface BankItem {
+	id: number;
+	qty: number;
 }
 
 export interface LootTableItem {
@@ -452,6 +454,7 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	farmingLevel?: number;
 }
 
 export interface OpenableOptions {
@@ -468,4 +471,8 @@ export interface OpenableOpenOptions {
 
 export interface LootTableOptions {
 	limit?: number;
+}
+
+export interface ClueOptions {
+	table: LootTable;
 }

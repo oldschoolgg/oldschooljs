@@ -1,24 +1,36 @@
-import Monster from './Monster';
-import { MonsterOptions, ItemBank, MonsterKillOptions } from '../meta/types';
-import LootTable from './LootTable';
-import Loot from './Loot';
+import { roll } from 'e';
+
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { roll, getBrimKeyChanceFromCBLevel } from '../util/util';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { getBrimKeyChanceFromCBLevel } from '../util/util';
+import Bank from './Bank';
+import LootTable from './LootTable';
+import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
-	table: LootTable;
+	table?: LootTable;
+	pickpocketTable?: LootTable;
 }
 
 export default class SimpleMonster extends Monster {
-	public table: LootTable;
+	public table?: LootTable;
+	public pickpocketTable?: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
-		super(options);
+		let allItems: number[] = [];
+		if (options.table) {
+			allItems = allItems.concat(options.table.allItems);
+		}
+		if (options.pickpocketTable) {
+			allItems = allItems.concat(options.pickpocketTable.allItems);
+		}
+		super({ ...options, allItems: allItems });
 		this.table = options.table;
+		this.pickpocketTable = options.pickpocketTable;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.

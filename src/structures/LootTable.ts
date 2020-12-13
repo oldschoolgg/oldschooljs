@@ -1,5 +1,6 @@
-import { rand, roll } from '../util/util';
-import { LootTableItem, OneInItems, ReturnedLootItem, LootTableOptions } from '../meta/types';
+import { randFloat, randInt, roll } from 'e';
+
+import { LootTableItem, LootTableOptions, OneInItems, ReturnedLootItem } from '../meta/types';
 import itemID from '../util/itemID';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
@@ -14,6 +15,7 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
+	public allItems: number[];
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -23,41 +25,80 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = lootTableOptions.limit;
+		this.allItems = [];
 	}
 
 	private resolveName(name: string): number {
 		return itemID(name);
 	}
 
-	public oneIn(chance: number, item: string | LootTable, quantity: number | number[] = 1): this {
+	private addToAllItems(
+		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
+	): void {
+		if (Array.isArray(items)) {
+			for (const item of items) {
+				this.addToAllItems(item);
+			}
+			return;
+		}
+
+		if (items instanceof LootTable) {
+			this.allItems = Array.from(
+				new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems))
+			);
+			return;
+		}
+
+		if (typeof items === 'number') {
+			if (this.allItems.includes(items)) return;
+			this.allItems.push(items);
+		} else {
+			this.addToAllItems(items.item);
+		}
+	}
+
+	public oneIn(
+		chance: number,
+		item: LootTable | number | string,
+		quantity: number | number[] = 1
+	): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.oneInItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			chance,
 			quantity
 		});
+
+		this.addToAllItems(resolved);
 
 		return this;
 	}
 
 	public tertiary(
 		chance: number,
-		item: string | LootTable,
+		item: LootTable | number | string,
 		quantity: number | number[] = 1
 	): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.tertiaryItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			chance,
 			quantity
 		});
 
+		this.addToAllItems(resolved);
+
 		return this;
 	}
 
-	public every(item: string | LootTable, quantity: number | number[] = 1): this {
+	public every(item: LootTable | number | string, quantity: number | number[] = 1): this {
+		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.everyItems.push({
-			item: typeof item === 'string' ? this.resolveName(item) : item,
+			item: resolved,
 			quantity
 		});
+
+		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -77,8 +118,10 @@ export default class LootTable {
 			const newItems = [];
 			const _item = item as [string, (number | number[])?][];
 			for (const itemToAdd of _item) {
+				const resolvedId = this.resolveName(itemToAdd[0]);
+				this.addToAllItems(resolvedId);
 				newItems.push({
-					item: this.resolveName(itemToAdd[0]),
+					item: resolvedId,
 					quantity: this.determineQuantity(itemToAdd[1]) || 1
 				});
 			}
@@ -88,6 +131,8 @@ export default class LootTable {
 
 		this.length += 1;
 		this.totalWeight += weight;
+
+		this.addToAllItems(item);
 
 		this.table.push({
 			item,
@@ -99,8 +144,8 @@ export default class LootTable {
 	}
 
 	public roll(): ReturnedLootItem[] {
-		// Random number between 1 and the total weighting
-		const randomWeight = rand(1, this.limit || this.totalWeight);
+		// Random float between 0 and the total weighting
+		const randomWeight = randFloat(0, this.limit || this.totalWeight);
 
 		// The index of the item that will be used.
 		let result;
@@ -148,7 +193,7 @@ export default class LootTable {
 				items = items.concat(
 					item.item
 						.roll()
-						.map(item => this.generateResultItem(item))
+						.map((item) => this.generateResultItem(item))
 						.flat()
 				);
 			}
@@ -174,7 +219,7 @@ export default class LootTable {
 
 	protected determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
-			return rand(quantity[0], quantity[1]);
+			return randInt(quantity[0], quantity[1]);
 		} else {
 			return quantity;
 		}

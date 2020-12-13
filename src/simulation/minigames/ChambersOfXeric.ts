@@ -1,12 +1,13 @@
-import Minigame from '../../structures/Minigame';
-import { addArrayOfNumbers, randFloat, roll, JSONClone } from '../../util/util';
+import { randFloat, roll, Time } from 'e';
+
+import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
+import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
-import { ReturnedLootItem, ItemBank, SimpleTableItem } from '../../meta/types';
-import Loot from '../../structures/Loot';
-import { resolveNameBank } from '../../util/bank';
+import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
+import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { Time } from '../../constants';
+import { addArrayOfNumbers, convertLootBanksToItemBanks, JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -221,21 +222,19 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
+		const teamPoints = addArrayOfNumbers(options.team.map((val) => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
 
-		const lootResult: {
-			[key: string]: Loot;
-		} = {};
+		const lootResult: LootBank = {};
 
 		// This table is used to pick which team member gets the unique(s).
 		const uniqueDeciderTable = new SimpleTable<string>();
 
 		for (const teamMember of options.team) {
 			// Give every team member a Loot.
-			lootResult[teamMember.id] = new Loot();
+			lootResult[teamMember.id] = new Bank();
 
 			// If the team and team member is elligible for dust, roll for this user.
 			if (elligibleForDust && teamMember.canReceiveDust && roll(400)) {
@@ -255,7 +254,7 @@ export class ChambersOfXericClass extends Minigame {
 		for (const uniqueItem of uniqueLoot) {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
-			lootResult[receipientID].add(uniqueItem);
+			lootResult[receipientID].add([uniqueItem]);
 			uniqueDeciderTable.delete(receipientID);
 		}
 
@@ -264,7 +263,7 @@ export class ChambersOfXericClass extends Minigame {
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
 			const pointsOfThisMember = options.team.find(
-				member => member.id === leftOverRecipient.item
+				(member) => member.id === leftOverRecipient.item
 			).personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
@@ -273,13 +272,7 @@ export class ChambersOfXericClass extends Minigame {
 			}
 		}
 
-		// Convert everyones loot to ItemBanks.
-		const result: { [key: string]: ItemBank } = {};
-		for (const [id, loot] of Object.entries(lootResult)) {
-			result[id] = loot.values();
-		}
-
-		return result;
+		return convertLootBanksToItemBanks(lootResult);
 	}
 }
 

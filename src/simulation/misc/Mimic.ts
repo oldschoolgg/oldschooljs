@@ -1,7 +1,7 @@
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
 import { ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
+import Bank from '../../structures/Bank';
+import Clue from '../../structures/Clue';
+import LootTable from '../../structures/LootTable';
 
 type MimicClueTier = 'master' | 'elite';
 
@@ -56,7 +56,7 @@ export const MasterMimicTable = new LootTable()
 
 class MimicCasket extends Clue {
 	public open(tier: MimicClueTier = 'master', quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 		for (let i = 0; i < quantity; i++) {
 			loot.add(
 				tier.toLowerCase() === 'elite' ? EliteMimicTable.roll() : MasterMimicTable.roll()
@@ -66,4 +66,4 @@ class MimicCasket extends Clue {
 	}
 }
 
-export default new MimicCasket();
+export default new MimicCasket({ table: MasterMimicTable });

@@ -1,4 +1,3 @@
-import Openable from '../../structures/Openable';
 import Collection from '../../structures/Collection';
 import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
 import Casket from './Casket';
@@ -13,6 +12,7 @@ import LarransChest from './LarransChest';
 import SeedPack from './SeedPack';
 import MysteryBox from './MysteryBox';
 import LuckyImp from './LuckyImp';
+import MysteryBox from './MysteryBox';
 
 const openablesObject = {
 	LuckyImp,
@@ -33,7 +33,7 @@ const openablesObject = {
 	SeedPack
 };
 
-const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [
+const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [
 	openable.id,
 	openable
 ]);

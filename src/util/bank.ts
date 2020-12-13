@@ -1,4 +1,4 @@
-import { ItemBank, StringKeyedBank, ReturnedLootItem } from '../meta/types';
+import { ItemBank, ReturnedLootItem } from '../meta/types';
 import itemID from './itemID';
 
 /**
@@ -38,11 +38,11 @@ export function bankFromLootTableOutput(tableOutput: ReturnedLootItem[]): ItemBa
  * Transforms a string-based bank to an ID-based bank
  * @param nameBank A string-based bank to convert
  */
-export function resolveNameBank(nameBank: StringKeyedBank): ItemBank {
-	const newBank: ItemBank = {};
+export function resolveNameBank<T>(nameBank: Record<string, T>): Record<string, T> {
+	const newBank: Record<string, T> = {};
 
-	for (const [name, number] of Object.entries(nameBank)) {
-		newBank[itemID(name)] = number;
+	for (const [name, val] of Object.entries(nameBank)) {
+		newBank[itemID(name)] = val;
 	}
 
 	return newBank;
@@ -152,4 +152,14 @@ export function multiplyBank(bank: ItemBank, times: number): ItemBank {
 		newBank[parseInt(itemID)] *= times;
 	}
 	return newBank;
+}
+
+export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank): number {
+	let has = 0;
+	for (const itemID of Object.keys(bankItemsToHave).map((i) => parseInt(i))) {
+		if (bankHasItem(bank, itemID)) {
+			has++;
+		}
+	}
+	return has;
 }

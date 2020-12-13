@@ -1,5 +1,6 @@
 {
 	"parser": "@typescript-eslint/parser", // Specifies the ESLint parser
+	"plugins": ["simple-import-sort"],
 	"extends": [
 		"plugin:@typescript-eslint/recommended", // Uses the recommended rules from the @typescript-eslint/eslint-plugin
 		"prettier/@typescript-eslint", // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
@@ -11,6 +12,7 @@
 	},
 	"rules": {
 		// TODO: Eventually enable this and fix.
-		"@typescript-eslint/no-explicit-any": "off"
+		"@typescript-eslint/no-explicit-any": "off",
+		"simple-import-sort/imports": "error"
 	}
 }

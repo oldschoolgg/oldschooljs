@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import HerbDropTable from '../../subtables/HerbDropTable';
-import RareSeedTable from '../../subtables/RareSeedTable';
 import { GemTable } from '../../subtables/RareDropTable';
+import RareSeedTable from '../../subtables/RareSeedTable';
 
 const CaveKrakenTable = new LootTable({ limit: 400 })
 

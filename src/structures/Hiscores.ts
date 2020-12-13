@@ -1,10 +1,10 @@
 import fetch from 'node-fetch';
 
-import OSError from './OldSchoolJSError';
-import { ACCOUNT_TYPES, hiscoreURLs, Errors } from '../constants';
-import { isValidUsername, resolvePlayerFromHiscores, convertXPtoLVL } from '../util/util';
-import Player from './Player';
+import { ACCOUNT_TYPES, Errors, hiscoreURLs } from '../constants';
 import { AccountType, SkillsScore } from '../meta/types';
+import { convertXPtoLVL, isValidUsername, resolvePlayerFromHiscores } from '../util/util';
+import OSError from './OldSchoolJSError';
+import Player from './Player';
 
 export interface GetOptions {
 	type?: AccountType;
@@ -19,7 +19,7 @@ const defaultGetOptions = {
 class Hiscores {
 	public async fetch(
 		username: string,
-		options: GetOptions = { type: 'normal', virtualLevels: false }
+		options: GetOptions = { type: AccountType.Normal, virtualLevels: false }
 	): Promise<Player> {
 		const mergedOptions = { ...defaultGetOptions, ...options };
 		if (!isValidUsername(username)) throw new OSError(Errors.INVALID_USERNAME);

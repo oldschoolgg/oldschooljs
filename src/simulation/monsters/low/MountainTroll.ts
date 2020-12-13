@@ -1,8 +1,8 @@
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
-import HerbDropTable from '../../subtables/HerbDropTable';
 import CommonSeedDropTable from '../../subtables/CommonSeedDropTable';
+import HerbDropTable from '../../subtables/HerbDropTable';
+import { GemTable } from '../../subtables/RareDropTable';
 
 const MountainTrollTable = new LootTable({ limit: 128 })
 	.every('Big bones')

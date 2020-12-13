@@ -1,23 +1,22 @@
 {
 	"name": "oldschooljs",
-	"version": "1.2.1",
+	"version": "1.5.4",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/gc/oldschooljs.git"
+		"url": "git+https://github.com/oldschoolgg/oldschooljs.git"
 	},
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"test": "npm run test:run",
-		"test:run": "yarn build && ts-node test/suite",
+		"test:run": "yarn build && jest",
 		"test:lint": "eslint --ext ts src",
-		"test:coverage": "nyc npm run test:run --reporter=lcov --reporter=text --reporter=text-summary --reporter=cobertura --all",
-		"test:coverage:report": "nyc report --reporter=lcov --reporter=cobertura",
+		"test:coverage": "npm run test:run --coverage",
 		"deeptest": "yarn build && ts-node test/deepsuite",
-		"lint": "eslint --ext ts src --fix",
+		"lint": "eslint --ext ts src test --fix && prettier --check \"{src,test}/**/*.{ts,json}\" --write",
 		"build": "tsc -p .",
 		"dev": "tsc --watch -p .",
 		"prepareData": "npm run build && npm run prepareData:run",
@@ -26,28 +25,33 @@
 		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
+		"e": "^0.1.3",
 		"jsdom": "^16.0.1",
 		"node-fetch": "^2.6.0"
 	},
 	"devDependencies": {
-		"@types/jsdom": "^12.2.4",
-		"@types/node": "^14.0.6",
+		"@types/jest": "^26.0.15",
+		"@types/jsdom": "^16.2.5",
+		"@types/node": "^14.14.8",
 		"@types/node-fetch": "^2.5.4",
-		"@types/tape": "^4.2.33",
-		"@typescript-eslint/eslint-plugin": "^2.14.0",
-		"@typescript-eslint/parser": "^2.14.0",
-		"eslint": "^6.8.0",
-		"eslint-config-bamboo": "^3.0.0",
-		"eslint-config-prettier": "^6.9.0",
+		"@typescript-eslint/eslint-plugin": "^4.8.1",
+		"@typescript-eslint/parser": "^4.8.1",
+		"eslint": "^7.13.0",
+		"eslint-config-bamboo": "^5.1.0",
+		"eslint-config-prettier": "^6.15.0",
 		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-simple-import-sort": "^6.0.0",
 		"husky": "^4.2.1",
+		"jest": "^26.6.3",
+		"jest-circus": "^26.6.3",
 		"nyc": "^15.0.1",
-		"prettier": "^1.19.1",
-		"pretty-quick": "^2.0.1",
-		"tape": "^5.0.1",
-		"ts-node": "^8.5.4",
-		"typedoc": "^0.17.7",
-		"typescript": "^3.7.4"
+		"prettier": "^2.1.2",
+		"pretty-quick": "^3.1.0",
+		"ts-jest": "^26.4.4",
+		"ts-node": "^9.0.0",
+		"ts-toolbelt": "^8.0.7",
+		"typedoc": "^0.19.2",
+		"typescript": "^4.0.5"
 	},
 	"husky": {
 		"hooks": {

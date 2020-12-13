@@ -1,8 +1,9 @@
-import LootTable from '../../structures/LootTable';
-import Clue from '../../structures/Clue';
+import { randInt } from 'e';
+
 import { ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
-import { rand } from '../../util/util';
+import Bank from '../../structures/Bank';
+import Clue from '../../structures/Clue';
+import LootTable from '../../structures/LootTable';
 
 export const RareTable = new LootTable()
 	.add('Black 2h sword')
@@ -90,9 +91,9 @@ export const BeginnerClueTable = new LootTable().add(StandardTable, 1, 11).add(U
 
 export class BeginnerCasket extends Clue {
 	public open(quantity = 1): ItemBank {
-		const loot = new Loot();
+		const loot = new Bank();
 		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = rand(1, 3);
+			const numberOfRolls = randInt(1, 3);
 
 			for (let i = 0; i < numberOfRolls; i++) {
 				loot.add(BeginnerClueTable.roll());
@@ -102,4 +103,4 @@ export class BeginnerCasket extends Clue {
 	}
 }
 
-export default new BeginnerCasket();
+export default new BeginnerCasket({ table: BeginnerClueTable });
