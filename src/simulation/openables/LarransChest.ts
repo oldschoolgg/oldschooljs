@@ -1,6 +1,6 @@
+import { Bank } from '../..';
+import { ItemBank, OpenableOpenOptions } from '../../meta/types';
 import LootTable from '../../structures/LootTable';
-import { OpenableOpenOptions, ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import clone from '../../util/clone';
 import { LarransBigChestBonus, LarransSmallChestBonus } from './BonusOpenables';
@@ -67,7 +67,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 		options: OpenableOpenOptions = { fishLvl: 99, chestSize: 'big' }
 	): ItemBank {
 		let tempTable;
-		const loot = new Loot();
+		const loot = new Bank();
 		const tier = options.chestSize ?? 'big';
 		const fishLvl = options.fishLvl ?? 99;
 

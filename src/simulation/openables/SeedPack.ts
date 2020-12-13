@@ -1,8 +1,9 @@
+import { randInt, roll } from 'e';
+
+import { Bank } from '../..';
+import { ItemBank, OpenableOpenOptions } from '../../meta/types';
 import LootTable from '../../structures/LootTable';
-import { OpenableOpenOptions, ItemBank } from '../../meta/types';
-import Loot from '../../structures/Loot';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import { rand, roll } from '../../util/util';
 
 const LowSeedPackTable = new LootTable()
 	.add('Potato seed', [8, 12], 2)
@@ -82,7 +83,7 @@ const SeedPackTable = new LootTable()
 export class SeedPackOpenable extends SimpleOpenable {
 	public open(quantity = 1, options: OpenableOpenOptions = { seedTier: '5' }): ItemBank {
 		const tempTable = new LootTable();
-		const loot = new Loot();
+		const loot = new Bank();
 		const tier = options.seedTier ?? '5';
 
 		//Roll amount variables
@@ -93,7 +94,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 		switch (tier) {
 			case '1': {
 				high = 0;
-				medium = rand(1, 3);
+				medium = randInt(1, 3);
 				low = 6 - medium;
 				break;
 			}
@@ -101,26 +102,26 @@ export class SeedPackOpenable extends SimpleOpenable {
 				if (roll(11)) {
 					high = 1;
 				}
-				medium = rand(2, 3);
+				medium = randInt(2, 3);
 				low = 7 - medium - high;
 				break;
 			}
 			case '3': {
-				high = rand(0, 1);
-				medium = rand(2, 4);
+				high = randInt(0, 1);
+				medium = randInt(2, 4);
 				low = 8 - medium - high;
 				break;
 			}
 			case '4': {
-				high = rand(1, 2);
-				medium = rand(3, 5);
+				high = randInt(1, 2);
+				medium = randInt(3, 5);
 				low = 9 - medium - high;
 				break;
 			}
 			case '5':
 			default: {
-				high = rand(1, 3);
-				medium = rand(4, 6);
+				high = randInt(1, 3);
+				medium = randInt(4, 6);
 				low = 10 - medium - high;
 				break;
 			}

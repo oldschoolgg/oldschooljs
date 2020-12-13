@@ -1,18 +1,17 @@
 import Collection from '../../structures/Collection';
-import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
+import BrimstoneChest from './BrimstoneChest';
 import Casket from './Casket';
 import CrystalChest from './CrystalChest';
 import ElvenCrystalChest from './ElvenCrystalChest';
 import GrubbyChest from './GrubbyChest';
-import MuddyChest from './MuddyChest';
-import OgreCoffin from './OgreCoffin';
-import SinisterChest from './SinisterChest';
-import BrimstoneChest from './BrimstoneChest';
+import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
 import LarransChest from './LarransChest';
-import SeedPack from './SeedPack';
-import MysteryBox from './MysteryBox';
 import LuckyImp from './LuckyImp';
+import MuddyChest from './MuddyChest';
 import MysteryBox from './MysteryBox';
+import OgreCoffin from './OgreCoffin';
+import SeedPack from './SeedPack';
+import SinisterChest from './SinisterChest';
 
 const openablesObject = {
 	LuckyImp,
