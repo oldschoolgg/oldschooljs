@@ -14,7 +14,8 @@ const openablesObject = {
 	GrandHallowedCoffin,
 	NestBoxEmpty,
 	NestBoxRing,
-	NestBoxSeeds
+	NestBoxSeeds,
+	GiantEggSacFull
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [

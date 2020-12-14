@@ -1,10 +1,10 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import { EMPTY_BIRD_NEST_ID } from './../../constants';
 
-// itemID 5075 = Bird nest empty
 const NestBoxRingTable = new LootTable()
 	// source: https://oldschool.runescape.wiki/w/Bird_nest
-	.every(5075)
+	.every(EMPTY_BIRD_NEST_ID)
 	.add('Sapphire ring', 1, 40)
 	.add('Gold ring', 1, 35)
 	.add('Emerald ring', 1, 15)

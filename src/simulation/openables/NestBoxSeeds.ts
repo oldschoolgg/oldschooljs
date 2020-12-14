@@ -1,10 +1,10 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import { EMPTY_BIRD_NEST_ID } from './../../constants';
 
-// itemID 5075 = Bird nest empty
 const NestBoxSeedsTable = new LootTable()
 	// source: https://oldschool.runescape.wiki/w/Bird_nest
-	.every(5075)
+	.every(EMPTY_BIRD_NEST_ID)
 	.add('Acorn', 1, 1389)
 	.add('Apple tree seed', 1, 1169)
 	.add('Willow seed', 1, 928)

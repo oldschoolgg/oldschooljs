@@ -1,8 +1,8 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
+import { EMPTY_BIRD_NEST_ID } from './../../constants';
 
-// itemID 5075 = Bird nest empty
-const NestBoxEmptyTable = new LootTable().every(5075);
+const NestBoxEmptyTable = new LootTable().every(EMPTY_BIRD_NEST_ID);
 
 export default new SimpleOpenable({
 	id: 12792,
