@@ -93,7 +93,7 @@ describe('Bank Class', () => {
 	});
 
 	test('has', () => {
-		let source = resolveNameBank({
+		const source = resolveNameBank({
 			Coal: 100,
 			'Monkey nuts': 100,
 			Ruby: 100
