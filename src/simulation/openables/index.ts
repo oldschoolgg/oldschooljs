@@ -1,5 +1,6 @@
 import Collection from '../../structures/Collection';
 import Openable from '../../structures/Openable';
+import GiantEggSacFull from './GiantEggSacFull';
 import GrandHallowedCoffin from './GrandHallowedCoffin';
 import LuckyImp from './LuckyImp';
 import MysteryBox from './MysteryBox';
