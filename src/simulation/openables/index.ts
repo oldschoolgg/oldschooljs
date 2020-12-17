@@ -4,11 +4,17 @@ import GiantEggSacFull from './GiantEggSacFull';
 import GrandHallowedCoffin from './GrandHallowedCoffin';
 import LuckyImp from './LuckyImp';
 import MysteryBox from './MysteryBox';
+import NestBoxEmpty from './NestBoxEmpty';
+import NestBoxRing from './NestBoxRing';
+import NestBoxSeeds from './NestBoxSeeds';
 
 const openablesObject = {
 	LuckyImp,
 	MysteryBox,
 	GrandHallowedCoffin,
+	NestBoxEmpty,
+	NestBoxRing,
+	NestBoxSeeds,
 	GiantEggSacFull
 };
 
