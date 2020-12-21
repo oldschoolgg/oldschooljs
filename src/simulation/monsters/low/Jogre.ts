@@ -6,6 +6,7 @@ import { GemTable } from '../../subtables/RareDropTable';
 
 export const JogreTable = new LootTable({ limit: 129 })
 	.tertiary(5000, 'Jogre champion scroll')
+	.tertiary(129, 'Clue scroll (medium)')
 	.every('Jogre bones')
 
 	// Weapons
@@ -35,5 +36,5 @@ export default new SimpleMonster({
 	id: 2094,
 	name: 'Jogre',
 	table: JogreTable,
-	aliases: ['Jogre']
+	aliases: ['jogre']
 });

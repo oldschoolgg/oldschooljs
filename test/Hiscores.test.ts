@@ -69,4 +69,4 @@ test('Hiscores', async () => {
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
 	expect(virtualMagnaboy.skills.fletching.level).toBe(99);
-});
+}, 30_000);
