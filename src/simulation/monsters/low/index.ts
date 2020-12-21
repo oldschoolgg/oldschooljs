@@ -30,6 +30,7 @@ import DesertBandit from './DesertBandit';
 import Drake from './Drake';
 import DustDevil from './DustDevil';
 import Dwarf from './Dwarf';
+import EarthWarrior from './EarthWarrior';
 import Elf from './Elf';
 import ElfWarrior from './ElfWarrior';
 import Farmer from './Farmer';
@@ -42,6 +43,7 @@ import FossilIslandWyvernTaloned from './FossilIslandWyvernTaloned';
 import FremennikCitizen from './FremennikCitizen';
 import Gargoyle from './Gargoyle';
 import Ghost from './Ghost';
+import Ghoul from './Ghoul';
 import Gnome from './Gnome';
 import Goblin from './Goblin';
 import GreaterDemon from './GreaterDemon';
@@ -50,8 +52,11 @@ import GuardDog from './GuardDog';
 import Hellhound from './Hellhound';
 import Hero from './Hero';
 import HillGiant from './HillGiant';
+import Hobgoblin from './Hobgoblin';
 import Icefiend from './Icefiend';
+import Imp from './Imp';
 import IronDragon from './IronDragon';
+import Jogre from './Jogre';
 import KalphiteWorker from './KalphiteWorker';
 import KnightOfArdougne from './KnightOfArdougne';
 import Kurask from './Kurask';
@@ -193,5 +198,10 @@ export default {
 	PrifddinasElf,
 	PollnivnianBandit,
 	WarriorWoman,
-	AlKharidWarrior
+	AlKharidWarrior,
+	Ghoul,
+	EarthWarrior,
+	Imp,
+	Jogre,
+	Hobgoblin
 };
