@@ -19,7 +19,7 @@ class Polls extends Collection<string, Poll> {
 
 	public async fetchYear(year: number = getDate().year, cache = true): Promise<Poll[]> {
 		const { document } = await getDom(
-			`http://services.runescape.com/m=poll/oldschool/archive.ws?year=${year}`
+			`http://secure.runescape.com/m=poll/oldschool/archive?year=${year}`
 		);
 
 		const pages = [];
@@ -30,7 +30,7 @@ class Polls extends Collection<string, Poll> {
 
 		for (const link of links) {
 			const poll = await this.fetchPageContent(
-				`http://services.runescape.com/m=poll/oldschool/${link}`,
+				`http://secure.runescape.com/m=poll/oldschool/${link}`,
 				year
 			);
 			if (cache) this.set(poll.url, poll);
