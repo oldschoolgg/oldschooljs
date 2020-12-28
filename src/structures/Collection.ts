@@ -219,6 +219,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 */
 	public findKey(
 		fn: (value: V, key: K, collection: this) => boolean,
+		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 		thisArg?: any
 	): K | undefined {
 		if (typeof thisArg !== 'undefined') fn = fn.bind(thisArg);

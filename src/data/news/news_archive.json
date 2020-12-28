@@ -9538,5 +9538,95 @@
 		"month": 11,
 		"day": 23,
 		"date": 1606089600000
+	},
+	{
+		"title": "Twisted Tales - Getting Ahead Launch",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-10-22/GettingAheadSmallThumb.jpg",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/twisted-tales---getting-ahead-launch?oldschool=1",
+		"year": 2020,
+		"month": 11,
+		"day": 25,
+		"date": 1606262400000
+	},
+	{
+		"title": "Settings Rework and the last of Poll 73",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-01/thumbnailsmall%20(1).png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/settings-rework-and-the-last-of-poll-73?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 2,
+		"date": 1606867200000
+	},
+	{
+		"title": "Gielinor Gazette: December 2020",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-07/December_small_thumb.jpg",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/gielinor-gazette-december-2020?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 7,
+		"date": 1607299200000
+	},
+	{
+		"title": "Steam Beta Announcement",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-07/Steam-small-thumb.png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/steam-beta-announcement?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 7,
+		"date": 1607299200000
+	},
+	{
+		"title": "Fishing Skill Boss: Tempoross Poll Blog",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-01/fsbthumbnailsmall.png",
+		"category": "Dev Blogs",
+		"link": "https://secure.runescape.com/m=news/fishing-skill-boss-tempoross-poll-blog?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 8,
+		"date": 1607385600000
+	},
+	{
+		"title": "Christmas 2020",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-08/thumbnailsmall%20(2).png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/christmas-2020?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 9,
+		"date": 1607472000000
+	},
+	{
+		"title": "A Kingdom Divided & Arceuus Spellbook Rework Poll Blog",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-10/thumbnailsmall4.png",
+		"category": "Dev Blogs",
+		"link": "https://secure.runescape.com/m=news/a-kingdom-divided--arceuus-spellbook-rework-poll-blog?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 14,
+		"date": 1607904000000
+	},
+	{
+		"title": "World Crashes Update",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-16/thumbnailsmall.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/world-crashes-update?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 16,
+		"date": 1608076800000
+	},
+	{
+		"title": "Shove Special Attack Changes",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-17/thumbnailsmall.png",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/shove-special-attack-changes?oldschool=1",
+		"year": 2020,
+		"month": 12,
+		"day": 18,
+		"date": 1608249600000
 	}
 ]
