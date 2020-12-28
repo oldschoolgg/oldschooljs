@@ -1,5 +1,6 @@
 import { objectEntries, randArrItem } from 'e';
 
+import { Items } from '..';
 import { BankItem, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
@@ -112,7 +113,7 @@ export default class Bank {
 		return this;
 	}
 
-	public has(items: string | number | (string | number)[] | ItemBank) {
+	public has(items: string | number | (string | number)[] | ItemBank): boolean {
 		if (Array.isArray(items)) {
 			return items.every((item) => this.amount(item) > 0);
 		}
@@ -126,5 +127,22 @@ export default class Bank {
 
 	public values(): ItemBank {
 		return this.bank;
+	}
+
+	public toString(): string {
+		const entries = Object.entries(this.bank);
+		if (entries.length === 0) {
+			return `No items`;
+		}
+		const res = [];
+		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {
+			res.push(`${qty.toLocaleString()}x ${Items.get(Number(id))?.name ?? 'Unknown item'}`);
+		}
+
+		return res.join(', ');
+	}
+
+	public get length(): number {
+		return Object.keys(this.bank).length;
 	}
 }

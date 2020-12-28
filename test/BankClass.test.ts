@@ -115,4 +115,16 @@ describe('Bank Class', () => {
 		expect(bank.has(source)).toBe(true);
 		expect(bank.has({ Emerald: 1 })).toBe(false);
 	});
+
+	test('toString', () => {
+		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
+		expect(bank.toString()).toEqual('20,000x Ruby, 5,000x Egg, 20x Coal, 1x Emerald');
+		expect(bank.length).toEqual(4);
+		bank.add('3rd age platebody', 2);
+		expect(bank.toString()).toEqual(
+			'20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald'
+		);
+		expect(bank.length).toEqual(5);
+		expect(new Bank().toString()).toEqual('No items');
+	});
 });
