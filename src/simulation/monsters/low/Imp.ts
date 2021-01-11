@@ -7,6 +7,8 @@ export const ImpTable = new LootTable()
 	.every('Ashes')
 	.add('Black bead', 1, 5)
 	.add('Red bead', 1, 5)
+	.add('White bead', 1, 5)
+	.add('Yellow bead', 1, 5)
 	.add('Bronze bolts', 1, 8)
 	.add('Blue wizard hat', 1, 8)
 
@@ -39,7 +41,7 @@ export const ImpTable = new LootTable()
 	.add('Cadava berries', 1, 4)
 	.add('Grain', 1, 3)
 	.add("Chef's hat", 1, 2)
-	.add('Flier', 1, 2)
+	.add('Flyer', 1, 2)
 	.add('Potion', 1, 1);
 
 export default new SimpleMonster({
