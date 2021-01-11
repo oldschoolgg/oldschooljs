@@ -41,7 +41,7 @@ export const ImpTable = new LootTable()
 	.add('Cadava berries', 1, 4)
 	.add('Grain', 1, 3)
 	.add("Chef's hat", 1, 2)
-	.add('Flier', 1, 2)
+	.add('Flyer', 1, 2)
 	.add('Potion', 1, 1);
 
 export default new SimpleMonster({
