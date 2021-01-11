@@ -7,6 +7,8 @@ export const ImpTable = new LootTable()
 	.every('Ashes')
 	.add('Black bead', 1, 5)
 	.add('Red bead', 1, 5)
+	.add('White bead', 1, 5)
+	.add('Yellow bead', 1, 5)
 	.add('Bronze bolts', 1, 8)
 	.add('Blue wizard hat', 1, 8)
 
