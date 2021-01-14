@@ -9628,5 +9628,35 @@
 		"month": 12,
 		"day": 18,
 		"date": 1608249600000
+	},
+	{
+		"title": "Soul Wars And 20th Anniversary Event",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2021/newsposts/2021-01-05/thumbnailsmall.jpg",
+		"category": "Game Updates",
+		"link": "https://secure.runescape.com/m=news/soul-wars-and-20th-anniversary-event?oldschool=1",
+		"year": 2021,
+		"month": 1,
+		"day": 6,
+		"date": 1609891200000
+	},
+	{
+		"title": "Soul Wars - Changes and Feedback",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2021/newsposts/2021-01-07/thumbnailsmall.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/soul-wars---changes-and-feedback?oldschool=1",
+		"year": 2021,
+		"month": 1,
+		"day": 7,
+		"date": 1609977600000
+	},
+	{
+		"title": "Item Duplication Reports",
+		"image": "https://cdn.runescape.com/assets/img/external/oldschool/2020/newsposts/2020-12-16/thumbnailsmall.png",
+		"category": "Community",
+		"link": "https://secure.runescape.com/m=news/item-duplication-reports?oldschool=1",
+		"year": 2021,
+		"month": 1,
+		"day": 11,
+		"date": 1610323200000
 	}
 ]
