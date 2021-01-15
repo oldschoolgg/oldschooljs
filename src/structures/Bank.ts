@@ -1,7 +1,7 @@
 import { objectEntries, randArrItem } from 'e';
 
 import { Items } from '..';
-import { BankItem, ItemBank, ReturnedLootItem } from '../meta/types';
+import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
 	addItemToBank,
@@ -123,6 +123,30 @@ export default class Bank {
 		}
 
 		return bankHasAllItemsFromBank(this.bank, items);
+	}
+
+	public items(): [Item, number][] {
+		const arr: [Item, number][] = [];
+		for (const [key, val] of Object.entries(this.bank)) {
+			arr.push([Items.get(parseInt(key)), val]);
+		}
+		return arr;
+	}
+
+	public forEach(fn: (item: Item, quantity: number) => unknown): void {
+		for (const item of this.items()) {
+			fn(...item);
+		}
+	}
+
+	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
+		const result = new Bank();
+		for (const item of this.items()) {
+			if (fn(...item)) {
+				result.add(item[0].id, item[1]);
+			}
+		}
+		return result;
 	}
 
 	public values(): ItemBank {

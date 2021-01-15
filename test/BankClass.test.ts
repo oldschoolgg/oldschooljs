@@ -1,5 +1,5 @@
-import { Bank } from '../dist';
-import { ReturnedLootItem } from '../dist/meta/types';
+import { Bank, Items } from '../dist';
+import { Item, ReturnedLootItem } from '../dist/meta/types';
 import LootTable from '../dist/structures/LootTable';
 import { itemID, resolveNameBank } from '../dist/util';
 
@@ -27,7 +27,6 @@ describe('Bank Class', () => {
 
 		bank.add({ Coal: 1, Emerald: 1, Ruby: 1 });
 		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10000 });
-		console.log(bank.bank);
 		expect(bank.bank).toEqual({ 1603: 1 });
 	});
 
@@ -131,5 +130,44 @@ describe('Bank Class', () => {
 		);
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual('No items');
+	});
+
+	test('.items()', () => {
+		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
+		const actual = bank.items();
+		const expected = [
+			[Items.get('Coal'), 20],
+			[Items.get('Egg'), 5000],
+			[Items.get('Emerald'), 1],
+			[Items.get('Ruby'), 20_000]
+		];
+		expect(actual).toEqual(expect.arrayContaining(expected));
+		expect(expected).toEqual(expect.arrayContaining(actual));
+	});
+
+	test('.forEach()', () => {
+		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
+		const mockCallback = jest.fn(() => null);
+		bank.forEach(mockCallback);
+		expect(mockCallback).toHaveBeenCalledTimes(bank.length);
+		expect(mockCallback).toHaveBeenCalledWith(Items.get('Coal'), 20);
+	});
+
+	test('.filter()', () => {
+		const baseBank = resolveNameBank({
+			Coal: 20,
+			Egg: 5000,
+			Emerald: 1,
+			Ruby: 20_000,
+			Toolkit: 1
+		});
+		const bank = new Bank(baseBank);
+		const cb = jest.fn((item: Item) => item.tradeable);
+		const filtered = bank.filter(cb);
+		expect(cb).toHaveBeenCalledTimes(bank.length);
+		expect(cb).toHaveBeenCalledWith(Items.get('Coal'), 20);
+		expect(filtered.length).toEqual(bank.length - 1);
+		expect(filtered.amount('Toolkit')).toEqual(0);
+		expect(bank.amount('Toolkit')).toEqual(1);
 	});
 });
