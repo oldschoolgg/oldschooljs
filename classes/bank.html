@@ -99,7 +99,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#add" class="tsd-kind-icon">add</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#amount" class="tsd-kind-icon">amount</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#filter" class="tsd-kind-icon">filter</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#foreach" class="tsd-kind-icon">for<wbr>Each</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#has" class="tsd-kind-icon">has</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#items" class="tsd-kind-icon">items</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#multiply" class="tsd-kind-icon">multiply</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#random" class="tsd-kind-icon">random</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="bank.html#remove" class="tsd-kind-icon">remove</a></li>
@@ -122,7 +125,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L17">src/structures/Bank.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L17">src/structures/Bank.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -144,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">bank<span class="tsd-signature-symbol">:</span> <a href="../interfaces/itembank.html" class="tsd-signature-type">ItemBank</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L17">src/structures/Bank.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L17">src/structures/Bank.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +164,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L145">src/structures/Bank.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L169">src/structures/Bank.ts:169</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -181,7 +184,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L27">src/structures/Bank.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L27">src/structures/Bank.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -207,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L23">src/structures/Bank.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L23">src/structures/Bank.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -221,6 +224,94 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="filter" class="tsd-anchor"></a>
+					<h3>filter</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">filter<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bank.html" class="tsd-signature-type">Bank</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L142">src/structures/Bank.ts:142</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fn: <span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>item: <a href="../interfaces/item.html" class="tsd-signature-type">Item</a></h5>
+														</li>
+														<li>
+															<h5>quantity: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="bank.html" class="tsd-signature-type">Bank</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="foreach" class="tsd-anchor"></a>
+					<h3>for<wbr>Each</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">for<wbr>Each<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L136">src/structures/Bank.ts:136</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fn: <span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">unknown</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>item<span class="tsd-signature-symbol">: </span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a>, quantity<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>item: <a href="../interfaces/item.html" class="tsd-signature-type">Item</a></h5>
+														</li>
+														<li>
+															<h5>quantity: <span class="tsd-signature-type">number</span></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">unknown</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="has" class="tsd-anchor"></a>
 					<h3>has</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -230,7 +321,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L116">src/structures/Bank.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L116">src/structures/Bank.ts:116</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -244,6 +335,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="items" class="tsd-anchor"></a>
+					<h3>items</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">items<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L128">src/structures/Bank.ts:128</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">[</span><a href="../interfaces/item.html" class="tsd-signature-type">Item</a><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="multiply" class="tsd-anchor"></a>
 					<h3>multiply</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
@@ -253,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L111">src/structures/Bank.ts:111</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L111">src/structures/Bank.ts:111</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -276,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L104">src/structures/Bank.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L104">src/structures/Bank.ts:104</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/bankitem.html" class="tsd-signature-type">BankItem</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
@@ -293,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L64">src/structures/Bank.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L64">src/structures/Bank.ts:64</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -319,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L132">src/structures/Bank.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L156">src/structures/Bank.ts:156</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -336,7 +444,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/4e36492/src/structures/Bank.ts#L128">src/structures/Bank.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/oldschoolgg/oldschooljs/blob/153bce8/src/structures/Bank.ts#L152">src/structures/Bank.ts:152</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/itembank.html" class="tsd-signature-type">ItemBank</a></h4>
@@ -376,7 +484,16 @@
 								<a href="bank.html#amount" class="tsd-kind-icon">amount</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bank.html#filter" class="tsd-kind-icon">filter</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bank.html#foreach" class="tsd-kind-icon">for<wbr>Each</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="bank.html#has" class="tsd-kind-icon">has</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="bank.html#items" class="tsd-kind-icon">items</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="bank.html#multiply" class="tsd-kind-icon">multiply</a>
