@@ -1,4 +1,3 @@
-import { objectEntries } from 'e';
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
