@@ -21,6 +21,7 @@ import CaveGoblin from './CaveGoblin';
 import CaveHorror from './CaveHorror';
 import CaveKraken from './CaveKraken';
 import CaveSlime from './CaveSlime';
+import ChaosDruid from './ChaosDruid';
 import Cow from './Cow';
 import CrawlingHand from './CrawlingHand';
 import Dagannoth from './Dagannoth';
@@ -203,5 +204,6 @@ export default {
 	EarthWarrior,
 	Imp,
 	Jogre,
-	Hobgoblin
+	Hobgoblin,
+	ChaosDruid
 };
