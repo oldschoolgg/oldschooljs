@@ -93,6 +93,7 @@ import SteelDragon from './SteelDragon';
 import Suqah from './Suqah';
 import Turoth from './Turoth';
 import TzHaarHur from './TzHaarHur';
+import Unicorn from './Unicorn';
 import Vyre from './Vyre';
 import WarriorWoman from './WarriorWoman';
 import Wolf from './Wolf';
@@ -205,5 +206,6 @@ export default {
 	Imp,
 	Jogre,
 	Hobgoblin,
-	ChaosDruid
+	ChaosDruid,
+	Unicorn
 };
