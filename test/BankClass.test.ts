@@ -219,6 +219,10 @@ describe('Bank Class', () => {
 		expect(bank.fits(b7)).toEqual(1);
 		expect(b7.fits(bank)).toEqual(0);
 
+		const b8 = new Bank().add('Coal', 100).add('Ruby', 100);
+		expect(b8.fits(new Bank().add('Coal', 100).add('Ruby', 1))).toEqual(1);
+		expect(b8.fits(new Bank().add('Coal', 500).add('Ruby', 1))).toEqual(0);
+
 		expect(bank.fits(new Bank())).toEqual(0);
 	});
 });

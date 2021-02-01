@@ -145,12 +145,10 @@ export default class Bank {
 
 	public fits(bank: Bank): number {
 		const items = bank.items();
-		let fits = 0;
-		for (const [item, qty] of items) {
-			const fitsThisItem = Math.floor(this.amount(item.id) / qty);
-			if (fitsThisItem < fits || fits === 0) fits = fitsThisItem;
-		}
-		return fits;
+		const divisions = items
+			.map(([item, qty]) => Math.floor(this.amount(item.id) / qty))
+			.sort((a, b) => a - b);
+		return divisions[0] ?? 0;
 	}
 
 	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
