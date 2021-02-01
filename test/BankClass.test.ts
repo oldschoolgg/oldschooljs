@@ -1,7 +1,7 @@
 import { Bank, Items } from '../dist';
 import { Item, ReturnedLootItem } from '../dist/meta/types';
 import LootTable from '../dist/structures/LootTable';
-import { itemID, resolveNameBank } from '../dist/util';
+import { itemID, multiplyBank, resolveNameBank } from '../dist/util';
 
 const TestLootTable = new LootTable().add('Toolkit');
 
@@ -169,5 +169,56 @@ describe('Bank Class', () => {
 		expect(filtered.length).toEqual(bank.length - 1);
 		expect(filtered.amount('Toolkit')).toEqual(0);
 		expect(bank.amount('Toolkit')).toEqual(1);
+	});
+
+	test('.clone()', () => {
+		const baseBank = resolveNameBank({
+			Coal: 20,
+			Egg: 5000,
+			Emerald: 1,
+			Ruby: 20_000,
+			Toolkit: 1
+		});
+		const bank = new Bank(baseBank);
+		const cloned = bank.clone();
+		cloned.remove('Coal', 20);
+		expect(cloned.amount('Coal')).toEqual(0);
+		expect(bank.amount('Coal')).toEqual(20);
+	});
+
+	test('.fits()', () => {
+		const baseBank = resolveNameBank({
+			Coal: 20,
+			Egg: 5000,
+			Emerald: 1,
+			Ruby: 20_000,
+			Toolkit: 1
+		});
+		const bank = new Bank(baseBank);
+		expect(bank.fits(bank)).toEqual(1);
+
+		const b1 = new Bank(multiplyBank(bank.bank, 2));
+		expect(b1.fits(bank)).toEqual(2);
+
+		const b2 = new Bank(resolveNameBank({ Coal: 1 }));
+		expect(bank.fits(b2)).toEqual(20);
+
+		const b3 = new Bank(resolveNameBank({ Coal: 1, Emerald: 5 }));
+		expect(bank.fits(b3)).toEqual(0);
+
+		const b4 = new Bank(resolveNameBank({ Coal: 1, Ruby: 10_000 }));
+		expect(bank.fits(b4)).toEqual(2);
+
+		const b5 = new Bank(resolveNameBank({ Coal: 1, 'Twisted bow': 5 }));
+		expect(bank.fits(b5)).toEqual(0);
+
+		const b6 = new Bank(resolveNameBank({ Coal: 10, Ruby: 10_000 }));
+		expect(bank.fits(b6)).toEqual(2);
+
+		const b7 = new Bank(resolveNameBank({ Coal: 11, Ruby: 10_000 }));
+		expect(bank.fits(b7)).toEqual(1);
+		expect(b7.fits(bank)).toEqual(0);
+
+		expect(bank.fits(new Bank())).toEqual(0);
 	});
 });

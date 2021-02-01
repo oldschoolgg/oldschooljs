@@ -139,6 +139,20 @@ export default class Bank {
 		}
 	}
 
+	public clone(): Bank {
+		return new Bank(this.bank);
+	}
+
+	public fits(bank: Bank): number {
+		const items = bank.items();
+		let fits = 0;
+		for (const [item, qty] of items) {
+			const fitsThisItem = Math.floor(this.amount(item.id) / qty);
+			if (fitsThisItem < fits || fits === 0) fits = fitsThisItem;
+		}
+		return fits;
+	}
+
 	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
