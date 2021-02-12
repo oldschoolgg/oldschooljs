@@ -122,6 +122,7 @@ describe('Bank Class', () => {
 
 	test('toString', () => {
 		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
+		bank.add('Twisted bow', 0);
 		expect(bank.toString()).toEqual('20,000x Ruby, 5,000x Egg, 20x Coal, 1x Emerald');
 		expect(bank.length).toEqual(4);
 		bank.add('3rd age platebody', 2);

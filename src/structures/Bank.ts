@@ -23,6 +23,7 @@ export default class Bank {
 	}
 
 	public addItem(item: number, quantity = 1): this {
+		if (quantity < 1) return this;
 		if (this.bank[item]) this.bank[item] += quantity;
 		else this.bank[item] = quantity;
 		return this;
