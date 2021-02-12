@@ -4,11 +4,9 @@ import { Items } from '..';
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
-	addItemToBank,
 	bankHasAllItemsFromBank,
 	multiplyBank,
 	removeBankFromBank,
-	removeItemFromBank,
 	resolveNameBank
 } from '../util';
 import itemID from '../util/itemID';
@@ -24,23 +22,40 @@ export default class Bank {
 		return this.bank[typeof item === 'string' ? itemID(item) : item] ?? 0;
 	}
 
+	public addItem(item: number, quantity = 1): this {
+		if (this.bank[item]) this.bank[item] += quantity;
+		else this.bank[item] = quantity;
+		return this;
+	}
+
+	public removeItem(item: number, quantity = 1): this {
+		const currentValue = this.bank[item];
+
+		if (typeof currentValue === 'undefined') return this;
+		if (currentValue - quantity <= 0) {
+			delete this.bank[item];
+		} else {
+			this.bank[item] = currentValue - quantity;
+		}
+
+		return this;
+	}
+
 	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+		// Bank.add(123);
+		if (typeof item === 'number') {
+			return this.addItem(item, quantity);
+		}
+
 		if (Array.isArray(item)) {
-			for (const _item of item) this.add(_item.item, _item.quantity);
+			for (const _item of item) this.addItem(_item.item, _item.quantity);
 			return this;
 		}
 
 		// Bank.add('Twisted bow');
 		// Bank.add('Twisted bow', 5);
 		if (typeof item === 'string') {
-			this.bank = addItemToBank(this.bank, itemID(item), quantity);
-			return this;
-		}
-
-		// Bank.add(123);
-		if (typeof item === 'number') {
-			this.bank = addItemToBank(this.bank, item, quantity);
-			return this;
+			return this.addItem(itemID(item), quantity);
 		}
 
 		if (item instanceof Bank) {
@@ -73,14 +88,12 @@ export default class Bank {
 		// Bank.remove('Twisted bow');
 		// Bank.remove('Twisted bow', 5);
 		if (typeof item === 'string') {
-			this.bank = removeItemFromBank(this.bank, itemID(item), quantity);
-			return this;
+			return this.removeItem(itemID(item), quantity);
 		}
 
 		// Bank.remove(123);
 		if (typeof item === 'number') {
-			this.bank = removeItemFromBank(this.bank, item, quantity);
-			return this;
+			return this.removeItem(item, quantity);
 		}
 
 		if (item instanceof Bank) {
@@ -140,7 +153,7 @@ export default class Bank {
 	}
 
 	public clone(): Bank {
-		return new Bank(this.bank);
+		return new Bank({ ...this.bank });
 	}
 
 	public fits(bank: Bank): number {
