@@ -146,6 +146,17 @@ describe('Bank Class', () => {
 		expect(expected).toEqual(expect.arrayContaining(actual));
 	});
 
+	test('dont mutate', () => {
+		const base = resolveNameBank({ Coal: 5 });
+		const bank = new Bank(base);
+		bank.add('Coal', 500);
+		bank.add('Egg', 100);
+		expect(Object.keys(base).length).toEqual(1);
+		const testBank = new Bank(base);
+		expect(testBank.amount('Coal')).toEqual(5);
+		expect(testBank.amount('Egg')).toEqual(0);
+	});
+
 	test('.forEach()', () => {
 		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
 		const mockCallback = jest.fn(() => null);
