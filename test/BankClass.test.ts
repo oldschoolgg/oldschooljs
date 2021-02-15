@@ -237,4 +237,35 @@ describe('Bank Class', () => {
 
 		expect(bank.fits(new Bank())).toEqual(0);
 	});
+
+	test('resolving initial bank', () => {
+		const baseBank = {
+			Coal: 20,
+			Egg: 5000,
+			Emerald: 1,
+			Ruby: 20_000,
+			Toolkit: 1
+		};
+		const idVersion = resolveNameBank(baseBank);
+		const bank = new Bank(baseBank);
+		expect(bank.amount('Coal')).toEqual(20);
+		expect(bank.bank).toEqual(idVersion);
+		expect(bank.has(idVersion)).toBeTruthy();
+
+		const otherBank = new Bank(idVersion);
+		expect(otherBank.amount('Coal')).toEqual(20);
+		expect(otherBank.bank).toEqual(bank.bank);
+		expect(otherBank.has(idVersion)).toBeTruthy();
+
+		const mixed = {
+			Coal: 20,
+			[itemID('Egg')]: 100
+		};
+		const rawMixed = { [itemID('Coal')]: 20, [itemID('Egg')]: 100 };
+		const mixedBank = new Bank(mixed);
+		expect(mixedBank.amount('Coal')).toEqual(20);
+		expect(mixedBank.amount('Egg')).toEqual(100);
+		expect(mixedBank.bank).toEqual(rawMixed);
+		expect(mixedBank.has(rawMixed)).toBeTruthy();
+	});
 });

@@ -49,6 +49,22 @@ export function resolveNameBank<T>(nameBank: Record<string, T>): Record<string, 
 }
 
 /**
+ * Resolves a bank which uses item names or item IDs.
+ * @param bank A bank to resolve
+ */
+export function resolveBank(bank: Record<string, number>): ItemBank {
+	const newBank: ItemBank = {};
+
+	for (const [nameOrID, val] of Object.entries(bank)) {
+		const int = parseInt(nameOrID);
+		const id = isNaN(int) ? itemID(nameOrID) : int;
+		newBank[id] = val;
+	}
+
+	return newBank;
+}
+
+/**
  * Checks if a bank includes an amount or more of an item
  * @param itemBank A NumberKeyed bank
  * @param itemID The item ID to check for

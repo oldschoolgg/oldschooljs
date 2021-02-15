@@ -7,6 +7,7 @@ import {
 	bankHasAllItemsFromBank,
 	multiplyBank,
 	removeBankFromBank,
+	resolveBank,
 	resolveNameBank
 } from '../util';
 import itemID from '../util/itemID';
@@ -15,7 +16,7 @@ export default class Bank {
 	public bank: ItemBank;
 
 	constructor(initialBank?: ItemBank) {
-		this.bank = initialBank ? { ...initialBank } : {};
+		this.bank = initialBank ? resolveBank(initialBank) : {};
 	}
 
 	public amount(item: string | number): number {
