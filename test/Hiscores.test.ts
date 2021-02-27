@@ -42,7 +42,7 @@ test('Hiscores', async () => {
 	expect(zulu.minigames.bountyHunterRogue.rank > 1).toBe(true);
 	expect(zulu.minigames.bountyHunterRogue.score).toBe(3);
 
-	expect(zulu.minigames.LMS.score).toBe(507);
+	expect(zulu.minigames.LMS.score).toBe(504);
 
 	expect(magnaboy.clues.all.score).toBe(157);
 
