@@ -18,7 +18,7 @@ test('Hiscores', async () => {
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
 	expect(lynxTitan.skills.overall.xp).toBe(4600000000);
-	expect(lynxTitan.clues.all.score >= 22).toBe(true);
+	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
