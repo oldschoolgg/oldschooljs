@@ -11,7 +11,21 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
-const USELESS_ITEMS = [617, 8890, 6964, 2513, 19492, 11071, 11068, 21284, 24735];
+const USELESS_ITEMS = [
+	617,
+	8890,
+	6964,
+	2513,
+	19492,
+	11071,
+	11068,
+	21284,
+	24735,
+	21913,
+	4703,
+	4561,
+	2425
+];
 
 class Items extends Collection<number, Item> {
 	public get(item: ItemResolvable): Item | undefined {

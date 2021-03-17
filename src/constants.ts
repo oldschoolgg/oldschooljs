@@ -27,7 +27,7 @@ export const SKILLS = [
 	'construction'
 ];
 
-export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS'];
+export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'soulWars'];
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
 
@@ -122,3 +122,5 @@ export const ErrorDescriptions: Record<string, string> = {
 };
 
 export const OSRS_BOX_BASE_URL = `https://www.osrsbox.com/osrsbox-db`;
+
+export const EMPTY_BIRD_NEST_ID = 5075;

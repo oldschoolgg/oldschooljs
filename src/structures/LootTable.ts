@@ -28,6 +28,20 @@ export default class LootTable {
 		this.allItems = [];
 	}
 
+	public clone(): LootTable {
+		const newTable = new LootTable();
+		newTable.table = [...this.table];
+		newTable.oneInItems = [...this.oneInItems];
+		newTable.tertiaryItems = [...this.tertiaryItems];
+		newTable.everyItems = [...this.everyItems];
+		newTable.length = this.length;
+		newTable.totalWeight = this.totalWeight;
+		newTable.limit = this.limit;
+		newTable.allItems = [...this.allItems];
+
+		return newTable;
+	}
+
 	private resolveName(name: string): number {
 		return itemID(name);
 	}

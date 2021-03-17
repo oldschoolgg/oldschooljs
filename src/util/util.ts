@@ -45,12 +45,14 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 
 	accumulativeIndex += CLUES.length;
 
-	resolvedPlayer.minigames[MINIGAMES[2]] = {
-		rank: Number(data[accumulativeIndex][0]),
-		score: Number(data[accumulativeIndex][1])
-	};
+	for (let i = 0; i < 2; i++) {
+		resolvedPlayer.minigames[MINIGAMES[i + 2]] = {
+			rank: Number(data[i + accumulativeIndex][0]),
+			score: Number(data[i + accumulativeIndex][1])
+		};
+	}
 
-	accumulativeIndex += 1;
+	accumulativeIndex += 2;
 
 	for (let i = 0; i < mappedBossNames.length; i++) {
 		if (!data[i + accumulativeIndex]) continue;

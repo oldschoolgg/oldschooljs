@@ -115,6 +115,7 @@ export interface MinigamesScore {
 	bountyHunter: MinigameScore;
 	bountyHunterRogue: MinigameScore;
 	LMS: MinigameScore;
+	soulWars: MinigameScore;
 }
 
 export interface CluesScore {

@@ -18,7 +18,7 @@ test('Hiscores', async () => {
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
 	expect(lynxTitan.skills.overall.xp).toBe(4600000000);
-	expect(lynxTitan.clues.all.score >= 22).toBe(true);
+	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
@@ -42,7 +42,7 @@ test('Hiscores', async () => {
 	expect(zulu.minigames.bountyHunterRogue.rank > 1).toBe(true);
 	expect(zulu.minigames.bountyHunterRogue.score).toBe(3);
 
-	expect(zulu.minigames.LMS.score).toBe(507);
+	expect(zulu.minigames.LMS.score).toBe(504);
 
 	expect(magnaboy.clues.all.score).toBe(157);
 
@@ -69,4 +69,4 @@ test('Hiscores', async () => {
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
 	expect(virtualMagnaboy.skills.fletching.level).toBe(99);
-});
+}, 30_000);

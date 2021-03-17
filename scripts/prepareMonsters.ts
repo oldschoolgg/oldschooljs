@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import fetch from 'node-fetch';
 import { writeFileSync } from 'fs';
+import fetch from 'node-fetch';
+
 import { Monsters } from '../dist';
 import {
-	MonsterData,
 	MonsterAttackType,
 	MonsterAttribute,
+	MonsterData,
 	MonsterSlayerMaster
 } from '../dist/meta/monsterData';
 
@@ -64,9 +65,9 @@ async function prepareMonsters(): Promise<void> {
 		`https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/monsters-complete.json`
 	).then((res): Promise<any> => res.json());
 
-	const monIDs = new Set(Monsters.map(mon => mon.id));
+	const monIDs = new Set(Monsters.map((mon) => mon.id));
 
-	for (const mon of Object.values(allMonsters).filter(mon => monIDs.has(mon.id))) {
+	for (const mon of Object.values(allMonsters).filter((mon) => monIDs.has(mon.id))) {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
 		// @ts-ignore
 		delete mon.drops;
@@ -95,20 +96,20 @@ async function prepareMonsters(): Promise<void> {
 			magicLevel: mon.magic_level,
 			rangedLevel: mon.ranged_level,
 
-			attackStab: mon.attack_stab,
-			attackSlash: mon.attack_slash,
-			attackCrush: mon.attack_crush,
-			attackMagic: mon.attack_magic,
-			attackRanged: mon.attack_ranged,
-			defenceStab: mon.defence_stab,
-			defenceSlash: mon.defence_slash,
-			defenceCrush: mon.defence_crush,
-			defenceMagic: mon.defence_magic,
-			defenceRanged: mon.defence_ranged,
-			attackAccuracy: mon.attack_accuracy,
-			meleeStrength: mon.melee_strength,
-			rangedStrength: mon.ranged_strength,
-			magicDamage: mon.magic_damage,
+			attackStab: mon.attack_stab ?? 0,
+			attackSlash: mon.attack_slash ?? 0,
+			attackCrush: mon.attack_crush ?? 0,
+			attackMagic: mon.attack_magic ?? 0,
+			attackRanged: mon.attack_ranged ?? 0,
+			defenceStab: mon.defence_stab ?? 0,
+			defenceSlash: mon.defence_slash ?? 0,
+			defenceCrush: mon.defence_crush ?? 0,
+			defenceMagic: mon.defence_magic ?? 0,
+			defenceRanged: mon.defence_ranged ?? 0,
+			attackAccuracy: mon.attack_accuracy ?? 0,
+			meleeStrength: mon.melee_strength ?? 0,
+			rangedStrength: mon.ranged_strength ?? 0,
+			magicDamage: mon.magic_damage ?? 0,
 
 			isSlayerMonster: mon.slayer_monster,
 			slayerLevelRequired: mon.slayer_level ?? 0,
