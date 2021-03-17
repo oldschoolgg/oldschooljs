@@ -1,7 +1,6 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
-/* Gem loots */
 // TODO: check back for wiki drop table update from another one in the repo
 const GemTable = new LootTable()
 	.add('Sapphire necklace', 1, 4)

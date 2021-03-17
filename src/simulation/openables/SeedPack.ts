@@ -86,7 +86,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 		const loot = new Bank();
 		const tier = options.seedTier ?? '5';
 
-		//Roll amount variables
+		// Roll amount variables
 		let high = 0;
 		let medium = 0;
 		let low = 0;
@@ -126,11 +126,11 @@ export class SeedPackOpenable extends SimpleOpenable {
 				break;
 			}
 		}
-		//Low seed roll
+		// Low seed roll
 		tempTable.every(LowSeedPackTable, low);
-		//Medium seed roll
+		// Medium seed roll
 		tempTable.every(MediumSeedPackTable, medium);
-		//High seed roll
+		// High seed roll
 		tempTable.every(HighSeedPackTable, high);
 
 		for (let i = 0; i < quantity; i++) {

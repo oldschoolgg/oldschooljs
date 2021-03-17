@@ -8,7 +8,6 @@ const BoneTable = new LootTable({ limit: 10000 })
 	.add('Ourg bones', 1, 375);
 
 const OgreCoffinTable = new LootTable()
-	/* Bone roll */
 	.every(BoneTable)
 
 	/* Loot roll */

@@ -2,10 +2,9 @@ import { Bank } from '../..';
 import { ItemBank, OpenableOpenOptions } from '../../meta/types';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import clone from '../../util/clone';
 import { LarransBigChestBonus, LarransSmallChestBonus } from './BonusOpenables';
 
-//TODO check wiki for more accurate results in future
+// TODO: check wiki for more accurate results in future
 const LarransSmallChestTable = new LootTable()
 	.add('Uncut diamond', 21, 5)
 	.add('Uncut ruby', [24, 29], 5)
@@ -72,7 +71,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 		const fishLvl = options.fishLvl ?? 99;
 
 		if (tier.toLowerCase() === 'big') {
-			tempTable = clone(LarransBigChestTable);
+			tempTable = LarransBigChestTable.clone();
 
 			for (const fish of LarransBigChestBonus) {
 				if (typeof fish.req === 'number') {
@@ -86,7 +85,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 				}
 			}
 		} else {
-			tempTable = clone(LarransSmallChestTable);
+			tempTable = LarransSmallChestTable.clone();
 
 			for (const fish of LarransSmallChestBonus) {
 				if (typeof fish.req === 'number') {

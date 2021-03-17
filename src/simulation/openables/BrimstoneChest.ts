@@ -2,7 +2,6 @@ import { Bank } from '../..';
 import { ItemBank, OpenableOpenOptions } from '../../meta/types';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import clone from '../../util/clone';
 import { BrimstoneChestBonus } from './BonusOpenables';
 
 const BrimstoneChestTable = new LootTable()
@@ -38,7 +37,7 @@ const BrimstoneChestTable = new LootTable()
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
 	public open(quantity = 1, options: OpenableOpenOptions = { fishLvl: 99 }): ItemBank {
-		const tempTable = clone(BrimstoneChestTable);
+		const tempTable = BrimstoneChestTable.clone();
 		const loot = new Bank();
 
 		const fishLvl = options.fishLvl ?? 99;
