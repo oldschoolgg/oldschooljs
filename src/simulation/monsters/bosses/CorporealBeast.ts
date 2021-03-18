@@ -56,6 +56,7 @@ const CorporealBeastTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(200, 'Clue scroll (elite)')
+	.tertiary(1000, 'Jar of spirits')
 	.tertiary(5000, 'Pet dark core');
 
 export default new SimpleMonster({
