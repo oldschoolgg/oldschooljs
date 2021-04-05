@@ -64,6 +64,7 @@ export const mappedBossNames: [string, string][] = [
 	['sarachnis', 'Sarachnis'],
 	['scorpia', 'Scorpia'],
 	['skotizo', 'Skotizo'],
+	['tempoross', 'Tempoross'],
 	['theGauntlet', 'The Gauntlet'],
 	['theCorruptedGauntlet', 'The Corrupted Gauntlet'],
 	['theatreofBlood', 'Theatre of Blood'],
