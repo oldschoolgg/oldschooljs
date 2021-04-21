@@ -96,9 +96,7 @@ const UniqueTable = new LootTable()
 
 	.add('Elder maul', 1, 2)
 	.add('Kodai insignia', 1, 2)
-	.add('Twisted bow', 1, 2)
-
-	.tertiary(53, 'Olmlet');
+	.add('Twisted bow', 1, 2);
 
 const cmTeamTimes = [
 	[1, Time.Hour + Time.Minute * 10],
@@ -255,6 +253,9 @@ export class ChambersOfXericClass extends Minigame {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
 			lootResult[receipientID].add([uniqueItem]);
+			if (roll(53)) {
+				lootResult[receipientID].add('Olmlet');
+			}
 			uniqueDeciderTable.delete(receipientID);
 		}
 
