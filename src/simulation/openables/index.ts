@@ -1,21 +1,38 @@
 import Collection from '../../structures/Collection';
 import Openable from '../../structures/Openable';
-import GiantEggSacFull from './GiantEggSacFull';
+import BrimstoneChest from './BrimstoneChest';
+import Casket from './Casket';
+import CrystalChest from './CrystalChest';
+import ElvenCrystalChest from './ElvenCrystalChest';
 import GrandHallowedCoffin from './GrandHallowedCoffin';
+import GrubbyChest from './GrubbyChest';
+import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
+import LarransChest from './LarransChest';
 import LuckyImp from './LuckyImp';
+import MuddyChest from './MuddyChest';
 import MysteryBox from './MysteryBox';
-import NestBoxEmpty from './NestBoxEmpty';
-import NestBoxRing from './NestBoxRing';
-import NestBoxSeeds from './NestBoxSeeds';
+import OgreCoffin from './OgreCoffin';
+import SeedPack from './SeedPack';
+import SinisterChest from './SinisterChest';
 
 const openablesObject = {
 	LuckyImp,
 	MysteryBox,
 	GrandHallowedCoffin,
-	NestBoxEmpty,
-	NestBoxRing,
-	NestBoxSeeds,
-	GiantEggSacFull
+	BronzeHAMChest,
+	IronHAMChest,
+	SilverHAMChest,
+	SteelHAMChest,
+	Casket,
+	CrystalChest,
+	ElvenCrystalChest,
+	GrubbyChest,
+	MuddyChest,
+	OgreCoffin,
+	SinisterChest,
+	BrimstoneChest,
+	LarransChest,
+	SeedPack
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [

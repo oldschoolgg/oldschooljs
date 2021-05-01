@@ -2,6 +2,9 @@ import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
 
+type ChestSize = 'big' | 'small';
+type SeedTier = '1' | '2' | '3' | '4' | '5';
+
 export interface SimpleLootItem {
 	id: string;
 	dropRate: number;
@@ -461,8 +464,11 @@ export interface OpenableOptions {
 	aliases: string[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface OpenableOpenOptions {}
+export interface OpenableOpenOptions {
+	fishLvl?: number;
+	seedTier?: SeedTier;
+	chestSize?: ChestSize;
+}
 
 export interface LootTableOptions {
 	limit?: number;
