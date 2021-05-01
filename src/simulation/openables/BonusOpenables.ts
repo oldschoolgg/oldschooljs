@@ -1,15 +1,11 @@
 import { SkillsEnum } from './../../constants';
-export class BonusOpenables {
-	public item: string;
-	public qty: number | [number, number];
-	public weight: number;
-	public skill: SkillsEnum;
-	public req: number | [number, number];
-	public constructor() {
-		this.qty = 0;
-		this.weight = 1;
-		this.req = 1;
-	}
+
+export interface BonusOpenables {
+	item: string;
+	qty: number | [number, number];
+	weight: number;
+	skill: SkillsEnum;
+	req: number | [number, number];
 }
 
 export const BrimstoneChestBonus: BonusOpenables[] = [
