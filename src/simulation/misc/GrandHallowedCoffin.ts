@@ -1,7 +1,6 @@
 import LootTable from '../../structures/LootTable';
-import SimpleOpenable from '../../structures/SimpleOpenable';
 
-const GrandHallowedCoffin = new LootTable()
+export const GrandHallowedCoffin = new LootTable()
 	.every('Hallowed mark', [8, 10])
 	.tertiary(200, 'Ring of endurance (uncharged)')
 	.add('Rune 2h sword')
@@ -14,10 +13,3 @@ const GrandHallowedCoffin = new LootTable()
 	.add('Sanfew serum(4)', [1, 2])
 	.add('Ranarr seed', [1, 2])
 	.add('Coins', [17_500, 25_000]);
-
-export default new SimpleOpenable({
-	id: 38838,
-	name: 'Grand Hallowed Coffin',
-	aliases: ['grand hallowed coffin'],
-	table: GrandHallowedCoffin
-});
