@@ -239,6 +239,10 @@ export class ChambersOfXericClass extends Minigame {
 				lootResult[teamMember.id].add('Metamorphic dust');
 			}
 
+			if (elligibleForDust && roll(75)) {
+				lootResult[teamMember.id].add('Twisted ancestral colour kit');
+			}
+
 			// If the team member can receive an Ancient Tablet, roll for this user.
 			if (teamMember.canReceiveAncientTablet && roll(10)) {
 				lootResult[teamMember.id].add('Ancient tablet');
