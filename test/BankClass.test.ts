@@ -267,5 +267,22 @@ describe('Bank Class', () => {
 		expect(mixedBank.amount('Egg')).toEqual(100);
 		expect(mixedBank.bank).toEqual(rawMixed);
 		expect(mixedBank.has(rawMixed)).toBeTruthy();
+
+		const base = {
+			'Bandos chestplate': 4,
+			'Bandos tassets': 1,
+			'Helm of neitiznot': 2,
+			'Justiciar faceguard': 1,
+			'Dragon scimitar': 1,
+			'3rd age amulet': 1,
+			'Occult necklace': 1,
+			'Ancestral robe top': 1,
+			'Ancestral robe bottom': 1,
+			'Dragonfire shield': 1,
+			'Amulet of glory': 1,
+			'Blade of saeldor': 0
+		};
+
+		expect(new Bank(base).bank).toEqual(resolveNameBank(base));
 	});
 });
