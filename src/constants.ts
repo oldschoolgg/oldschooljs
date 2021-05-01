@@ -147,5 +147,6 @@ export enum SkillsEnum {
 	Strength = 'strength',
 	Ranged = 'ranged',
 	Magic = 'magic',
-	Hitpoints = 'hitpoints'
+	Hitpoints = 'hitpoints',
+	Slayer = 'slayer'
 }
