@@ -13,6 +13,10 @@ import MysteryBox from './MysteryBox';
 import OgreCoffin from './OgreCoffin';
 import SeedPack from './SeedPack';
 import SinisterChest from './SinisterChest';
+import NestBoxEmpty from './NestBoxEmpty';
+import NestBoxRing from './NestBoxRing';
+import NestBoxSeeds from './NestBoxSeeds';
+import GiantEggSacFull from './GiantEggSacFull';
 
 const openablesObject = {
 	LuckyImp,
@@ -30,7 +34,11 @@ const openablesObject = {
 	SinisterChest,
 	BrimstoneChest,
 	LarransChest,
-	SeedPack
+	SeedPack,
+	NestBoxEmpty,
+	NestBoxRing,
+	NestBoxSeeds,
+	GiantEggSacFull
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [
