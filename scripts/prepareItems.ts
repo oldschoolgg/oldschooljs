@@ -34,7 +34,7 @@ export default async function prepareItems(): Promise<void> {
 
 		const price = allPrices[item.id];
 		if (price) {
-			item.price = (price.highTime + price.lowTime) / 2;
+			item.price = Math.max(0, (price.high + price.low) / 2);
 		} else {
 			item.price = 0;
 		}

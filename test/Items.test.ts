@@ -94,7 +94,7 @@ describe('Items', () => {
 			if (!dragonDagger) return done.fail('Missing item.');
 			expect(dragonDagger.id).toBe(5698);
 			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
-			expect(dragonDagger.price).toBeGreaterThan(1);
+			expect(dragonDagger.price).toBeLessThan(22_000);
 
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
