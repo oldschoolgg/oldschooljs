@@ -341,6 +341,10 @@ export interface Item {
 	 * The stacked variant item IDs for this item, if any.
 	 */
 	stackedVariants?: { qty: number; id: number }[];
+	/**
+	 * The OSRS Wiki market price for this item, 0 if untradeable or has no price.
+	 */
+	price: number;
 }
 
 export interface NewsItem {

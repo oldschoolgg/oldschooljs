@@ -86,6 +86,7 @@ describe('Items', () => {
 			if (!tbow) return done.fail('Missing item.');
 			expect(tbow.id).toBe(20997);
 			expect(tbow.name).toBe('Twisted bow');
+			expect(tbow.price).toBeGreaterThan(900_000_000);
 
 			if (!superStr) return done.fail('Missing item.');
 			expect(superStr.id).toBe(2440);
@@ -93,9 +94,11 @@ describe('Items', () => {
 			if (!dragonDagger) return done.fail('Missing item.');
 			expect(dragonDagger.id).toBe(5698);
 			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
+			expect(dragonDagger.price).toBeGreaterThan(1);
 
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
+			expect(coins.price).toEqual(1);
 		},
 		60000
 	);
