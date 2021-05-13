@@ -166,12 +166,16 @@ export default class Bank {
 		return divisions[0] ?? 0;
 	}
 
-	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
+	public filter(fn: (item: Item, quantity: number) => boolean, mutate = false): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
 			if (fn(...item)) {
 				result.add(item[0].id, item[1]);
 			}
+		}
+		if (mutate) {
+			this.bank = result.bank;
+			return this;
 		}
 		return result;
 	}

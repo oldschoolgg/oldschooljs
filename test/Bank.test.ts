@@ -1,3 +1,4 @@
+import Bank from '../dist/structures/Bank';
 import {
 	addArrayToBank,
 	addBanks,
@@ -230,5 +231,19 @@ describe('Bank', () => {
 		const bankToHave2 = { 1: 4, 3: 8 };
 
 		expect(numItemsBankHasInBank(sourceBank2, bankToHave2)).toEqual(1);
+	});
+
+	test('mutate filter', () => {
+		const bank = new Bank({
+			Toolkit: 2,
+			'Ammo Mould': 4,
+			Candle: 1
+		});
+		expect(bank.length).toEqual(3);
+		const empty = bank.filter(() => false);
+		expect(bank.length).toEqual(3);
+		expect(empty.length).toEqual(0);
+		bank.filter((item) => item.name === 'Candle', true);
+		expect(bank.length).toEqual(1);
 	});
 });
