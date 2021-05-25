@@ -1,7 +1,7 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
-import HerbDropTable from '../../subtables/HerbDropTable';
-import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
+import HerbDropTable from '../../../subtables/HerbDropTable';
+import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
 const ChaosElementalMinorTable = new LootTable()
 	.add('Anchovy pizza', 3)

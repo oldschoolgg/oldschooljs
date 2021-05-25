@@ -1,6 +1,6 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
-import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
+import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
 const ScorpiaUniqueTable = new LootTable().add('Odium shard 3').add('Malediction shard 3');
 
