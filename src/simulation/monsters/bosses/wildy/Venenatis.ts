@@ -1,5 +1,5 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const VenenatisTable = new LootTable()
 	.tertiary(100, 'Clue scroll (elite)')

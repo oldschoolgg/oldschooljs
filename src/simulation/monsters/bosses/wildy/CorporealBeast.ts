@@ -1,6 +1,6 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
-import { GemTable } from '../../subtables/RareDropTable';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
+import { GemTable } from '../../../subtables/RareDropTable';
 
 const SigilTable = new LootTable()
 	.add('Spectral sigil', 1, 3)

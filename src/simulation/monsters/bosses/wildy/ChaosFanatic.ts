@@ -1,7 +1,6 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
-import RareDropTable, { GemTable } from '../../subtables/RareDropTable';
-
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
+import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 const ChaosFanaticUniqueTable = new LootTable().add('Odium shard 1').add('Malediction shard 1');
 
 const ChaosFanaticTable = new LootTable()

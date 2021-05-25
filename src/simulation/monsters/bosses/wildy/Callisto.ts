@@ -1,9 +1,9 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const CallistoTable = new LootTable()
-
 	.every('Big bones')
+
 	.tertiary(400, 'Long bone')
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, 'Callisto cub')

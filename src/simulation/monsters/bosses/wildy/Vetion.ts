@@ -1,5 +1,5 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const SkeletonHellhoundTable = new LootTable()
 	.every('Bones')

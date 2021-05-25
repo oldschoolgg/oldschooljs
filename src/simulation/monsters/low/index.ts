@@ -103,7 +103,7 @@ import YanilleWatchman from './YanilleWatchman';
 import Zombie from './Zombie';
 import Zygomite from './Zygomite';
 
-export default {
+export const allLowMonsters = {
 	AberrantSpectre,
 	Dagannoth,
 	Guard,
