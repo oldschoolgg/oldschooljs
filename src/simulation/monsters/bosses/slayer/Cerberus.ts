@@ -1,6 +1,6 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
-import RareDropTable from '../../subtables/RareDropTable';
+import LootTable from '../../../../structures/LootTable';
+import SimpleMonster from '../../../../structures/SimpleMonster';
+import RareDropTable from '../../../subtables/RareDropTable';
 
 const CerberusUniqueTable = new LootTable()
 	.add('Primordial crystal')
