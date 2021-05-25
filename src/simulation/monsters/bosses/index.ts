@@ -1,4 +1,3 @@
-import Cerberus from './Cerberus';
 import CommanderZilyana from './CommanderZilyana';
 import DagannothPrime from './DagannothPrime';
 import DagannothRex from './DagannothRex';
@@ -10,13 +9,13 @@ import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
 import Obor from './Obor';
 import Sarachnis from './Sarachnis';
+import { allSlayerBosses } from './slayer';
 import Vorkath from './Vorkath';
 import { allWildyBosses } from './wildy';
 import CorporealBeast from './wildy/CorporealBeast';
 import Zulrah from './Zulrah';
 
 export const allBosses = {
-	Cerberus,
 	CorporealBeast,
 	DagannothPrime,
 	DagannothRex,
@@ -31,5 +30,6 @@ export const allBosses = {
 	GeneralGraardor,
 	Kreearra,
 	KrilTsutsaroth,
-	...allWildyBosses
+	...allWildyBosses,
+	...allSlayerBosses
 };
