@@ -8,6 +8,7 @@ import Ankou from './a-f/Ankou';
 import ArmadylianGuard from './a-f/ArmadylianGuard';
 import AsynShade from './a-f/AsynShade';
 import Aviansie from './a-f/Aviansie';
+import BabyBlackDragon from './a-f/BabyBlackDragon';
 import BabyBlueDragon from './a-f/BabyBlueDragon';
 import BabyGreenDragon from './a-f/BabyGreenDragon';
 import BabyRedDragon from './a-f/BabyRedDragon';
@@ -28,6 +29,7 @@ import Bloodveld from './a-f/Bloodveld';
 import BlueDragon from './a-f/BlueDragon';
 import BrineRat from './a-f/BrineRat';
 import BronzeDragon from './a-f/BronzeDragon';
+import BrutalBlackDragon from './a-f/BrutalBlackDragon';
 import BrutalBlueDragon from './a-f/BrutalBlueDragon';
 import BrutalGreenDragon from './a-f/BrutalGreenDragon';
 import BrutalRedDragon from './a-f/BrutalRedDragon';
@@ -258,6 +260,8 @@ import ZombieRat from './t-z/ZombieRat';
 import Zygomite from './t-z/Zygomite';
 
 export const allLowMonsters = {
+	BrutalBlackDragon,
+	BabyBlackDragon,
 	ArmadylianGuard,
 	BlackKnight,
 	DarkWarrior,
