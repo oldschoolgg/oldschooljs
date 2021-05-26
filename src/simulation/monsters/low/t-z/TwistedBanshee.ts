@@ -41,13 +41,7 @@ export const TwistedBansheeTable = new LootTable()
 	/* Subtables */
 	.add(HerbDropTable, 1, 68)
 	.add(RareSeedTable, 1, 26)
-	.add(GemTable, 1, 4)
-
-	/* Catacombs tertiary */
-	.tertiary(260, 'Ancient shard', 1)
-	.tertiary(391, 'Dark totem base', 1)
-	.tertiary(391, 'Dark totem middle', 1)
-	.tertiary(391, 'Dark totem top', 1);
+	.add(GemTable, 1, 4);
 
 export default new SimpleMonster({
 	id: 7272,
