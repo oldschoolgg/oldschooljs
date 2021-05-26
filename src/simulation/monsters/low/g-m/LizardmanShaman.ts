@@ -1,6 +1,6 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
-import NotedHerbTable from '../../../subtables/NotedHerbTable';
+import { NotedHerbTable } from '../../../subtables/NotedHerbTable';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 

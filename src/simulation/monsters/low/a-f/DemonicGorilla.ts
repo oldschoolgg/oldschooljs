@@ -1,6 +1,6 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
-import NotedHerbTable from '../../../subtables/NotedHerbTable';
+import { NotedHerbTable } from '../../../subtables/NotedHerbTable';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
@@ -29,7 +29,6 @@ const DemonicGorillaTable = new LootTable({ limit: 500 })
 	.add('Runite bolts', [100, 150], 25)
 
 	/* Herbs */
-	// TODO: multiply drop by quantity instead of rolling the table again
 	.add(NotedHerbTable, [7, 13], 18)
 
 	/* Seeds */
