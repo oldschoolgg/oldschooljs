@@ -1,5 +1,6 @@
 import Callisto from './Callisto';
 import ChaosElemental from './ChaosElemental';
+import ChaosFanatic from './ChaosFanatic';
 import CorporealBeast from './CorporealBeast';
 import CrazyArchaeologist from './CrazyArchaeologist';
 import KingBlackDragon from './KingBlackDragon';
@@ -15,5 +16,6 @@ export const allWildyBosses = {
 	Scorpia,
 	Venenatis,
 	Vetion,
-	CorporealBeast
+	CorporealBeast,
+	ChaosFanatic
 };
