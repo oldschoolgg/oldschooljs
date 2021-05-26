@@ -6,7 +6,7 @@ import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 const FireGiantTable = new LootTable()
 	.every('Big bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Steel axe', 1, 3)
 	.add('Mithril sq shield', 1, 2)
 	.add('Fire battlestaff', 1, 1)

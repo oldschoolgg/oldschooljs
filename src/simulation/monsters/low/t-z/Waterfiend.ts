@@ -10,7 +10,7 @@ const WaterfiendTable = new LootTable()
 	/* Pre-roll */
 	.oneIn(3000, 'Mist battlestaff')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Staff of water', 1, 6)
 	.add('Water battlestaff', 1, 4)
 	.add('Adamant chainbody', 1, 2)

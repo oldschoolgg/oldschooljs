@@ -7,7 +7,7 @@ const RuneDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Runite bar')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune platebody', 1, 9)
 	.add('Rune longsword', 1, 8)
 	.add('Rune mace', 1, 7)

@@ -6,7 +6,7 @@ import RareDropTable from '../../../subtables/RareDropTable';
 const SkeletalWyvernTable = new LootTable()
 	.every('Wyvern bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Earth battlestaff', 1, 4)
 	.add('Battlestaff', 10, 3)
 	.add('Rune axe', 1, 3)

@@ -6,7 +6,7 @@ import { GemTable } from '../../../subtables/RareDropTable';
 const BasiliskTable = new LootTable()
 	.every('Bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Mithril axe', 1, 3)
 	.add('Steel battleaxe', 1, 3)
 	.add('Mithril spear', 1, 2)

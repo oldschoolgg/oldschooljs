@@ -9,7 +9,7 @@ const DBHerbTable = new LootTable().add(HerbDropTable, 1, 4).add(HerbDropTable, 
 const DarkBeastTable = new LootTable()
 	.every('Big bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Black battleaxe', 1, 3)
 	.add('Adamant sq shield', 1, 1)
 	.add('Rune chainbody', 1, 1)

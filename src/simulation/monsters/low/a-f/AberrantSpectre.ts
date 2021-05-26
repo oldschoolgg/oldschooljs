@@ -11,7 +11,7 @@ const AberrantSpectreHerbTable = new LootTable()
 
 const AberrantSpectreTable = new LootTable({ limit: 128 })
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Steel axe', 1, 3)
 	.add('Mithril kiteshield', 1, 1)
 	.add('Lava battlestaff', 1, 1)

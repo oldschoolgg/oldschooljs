@@ -23,7 +23,7 @@ const DrakeTable = new LootTable()
 	.oneIn(2000, 'Dragon thrownaxe', [100, 200])
 	.oneIn(2000, 'Dragon knife', [100, 200])
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune full helm', 1, 3)
 	.add("Red d'hide body", 1, 2)
 	.add("Black d'hide vambraces", 1, 1)

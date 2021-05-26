@@ -6,7 +6,7 @@ import UsefulHerbTable from '../../../subtables/UsefulHerbTable';
 const BasiliskKnightTable = new LootTable({ limit: 52 })
 	.every('Big bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune axe', 1, 2)
 	.add('Adamant platelegs', 1, 1)
 	.add('Adamant kiteshield', 1, 1)

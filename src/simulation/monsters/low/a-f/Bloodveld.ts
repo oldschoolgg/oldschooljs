@@ -6,7 +6,7 @@ import { GemTable } from '../../../subtables/RareDropTable';
 const BloodveldTable = new LootTable()
 	.every('Bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Steel axe', 1, 4)
 	.add('Steel full helm', 1, 4)
 	.add('Steel scimitar', 1, 2)

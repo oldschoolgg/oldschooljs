@@ -8,7 +8,7 @@ const DustDevilTable = new LootTable()
 	.oneIn(4000, 'Dust battlestaff')
 	.oneIn(32_768, 'Dragon chainbody')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Adamant axe', 1, 3)
 	.add('Rune dagger', 1, 2)
 	.add("Red d'hide vambraces", 1, 2)

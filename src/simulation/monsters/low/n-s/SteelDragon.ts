@@ -6,7 +6,7 @@ const SteelDragonTable = new LootTable({ limit: 128 })
 	.every('Dragon bones')
 	.every('Steel bar', 5)
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune dart(p)', 12, 7)
 	.add('Rune mace', 1, 4)
 	.add('Rune knife', 7, 3)

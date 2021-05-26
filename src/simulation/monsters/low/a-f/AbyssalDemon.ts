@@ -6,7 +6,7 @@ import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 const AbyssalDemonTable = new LootTable()
 	.every('Ashes')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Black sword', 1, 4)
 	.add('Steel battleaxe', 1, 3)
 	.add('Black axe', 1, 2)

@@ -6,7 +6,7 @@ import RareSeedTable from '../../../subtables/RareSeedTable';
 const DagannothTable = new LootTable()
 	.every('Bones')
 
-	/*Weapons*/
+	/* Weapons*/
 	.add('Iron spear', 1, 6)
 	.add('Bronze spear', 1, 5)
 	.add('Mithril spear', 1, 1)

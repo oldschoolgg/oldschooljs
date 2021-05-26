@@ -7,7 +7,7 @@ const AdamantDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Adamantite bar', 2)
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Adamant platebody', 1, 9)
 	.add('Rune mace', 1, 7)
 	.add('Rune scimitar', 1, 7)

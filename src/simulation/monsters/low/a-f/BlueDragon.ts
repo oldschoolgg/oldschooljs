@@ -7,7 +7,7 @@ const BlueDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Blue dragonhide')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Steel platelegs', 1, 4)
 	.add('Mithril axe', 1, 3)
 	.add('Steel battleaxe', 1, 3)

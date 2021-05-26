@@ -16,7 +16,7 @@ const HydraTable = new LootTable()
 	.oneIn(6000, 'Dragon thrownaxe', [200, 400])
 	.oneIn(6001, 'Dragon knife', [200, 400])
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Fire battlestaff', 1, 5)
 	.add('Water battlestaff', 1, 5)
 	.add("Black d'hide chaps", 1, 3)

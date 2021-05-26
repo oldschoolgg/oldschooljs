@@ -6,7 +6,7 @@ import { GemTable } from '../../../subtables/RareDropTable';
 const ElfWarriorTable = new LootTable()
 	.every('Bones')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add("Green d'hide body", 1, 4)
 	.add("Green d'hide chaps", 1, 3)
 	.add('Mithril spear', 1, 2)

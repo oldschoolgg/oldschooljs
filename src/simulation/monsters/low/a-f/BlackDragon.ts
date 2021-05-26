@@ -6,7 +6,7 @@ const BlackDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Black dragonhide')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Mithril 2h sword', 1, 4)
 	.add('Mithril axe', 1, 3)
 	.add('Mithril battleaxe', 1, 3)

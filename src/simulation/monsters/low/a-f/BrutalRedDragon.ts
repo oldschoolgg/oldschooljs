@@ -6,7 +6,7 @@ const BrutalRedDragonTable = new LootTable()
 	.every('Dragon bones')
 	.every('Red dragonhide', 2)
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune hasta', 1, 10)
 	.add('Adamant platelegs', 1, 7)
 	.add('Adamant full helm', 1, 5)

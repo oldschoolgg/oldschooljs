@@ -8,7 +8,7 @@ import RareDropTable from '../../../subtables/RareDropTable';
 const ZygomiteTable = new LootTable()
 	.every('Ashes')
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Steel axe', 1, 10)
 	.add('Steel 2h sword', 1, 10)
 	.add('Mithril full helm', 1, 5)
