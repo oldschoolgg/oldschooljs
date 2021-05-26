@@ -5,6 +5,7 @@ import AdamantDragon from './a-f/AdamantDragon';
 import AlKharidWarrior from './a-f/AlKharidWarrior';
 import AncientZygomite from './a-f/AncientZygomite';
 import Ankou from './a-f/Ankou';
+import ArmadylianGuard from './a-f/ArmadylianGuard';
 import AsynShade from './a-f/AsynShade';
 import Aviansie from './a-f/Aviansie';
 import BabyBlueDragon from './a-f/BabyBlueDragon';
@@ -22,6 +23,7 @@ import BlackBear from './a-f/BlackBear';
 import BlackDemon from './a-f/BlackDemon';
 import BlackDragon from './a-f/BlackDragon';
 import BlackGuard from './a-f/BlackGuard';
+import BlackKnight from './a-f/BlackKnight';
 import Bloodveld from './a-f/Bloodveld';
 import BlueDragon from './a-f/BlueDragon';
 import BrineRat from './a-f/BrineRat';
@@ -52,6 +54,8 @@ import Dagannoth from './a-f/Dagannoth';
 import DagannothSpawn from './a-f/DagannothSpawn';
 import DaganothFledgeling from './a-f/DaganothFledgeling';
 import DarkBeast from './a-f/DarkBeast';
+import DarkWarrior from './a-f/DarkWarrior';
+import DeadlyRedSpider from './a-f/DeadlyRedSpider';
 import DeathWing from './a-f/DeathWing';
 import DemonicGorilla from './a-f/DemonicGorilla';
 import DesertBandit from './a-f/DesertBandit';
@@ -66,9 +70,11 @@ import DustDevil from './a-f/DustDevil';
 import Dwarf from './a-f/Dwarf';
 import DwarfGangMember from './a-f/DwarfGangMember';
 import EarthWarrior from './a-f/EarthWarrior';
+import ElderChaosDruid from './a-f/ElderChaosDruid';
 import Elf from './a-f/Elf';
 import ElfArcher from './a-f/ElfArcher';
 import ElfWarrior from './a-f/ElfWarrior';
+import Ent from './a-f/Ent';
 import Farmer from './a-f/Farmer';
 import FemaleHamMember from './a-f/FemaleHamMember';
 import FeralVampyre from './a-f/FeralVampyre';
@@ -97,6 +103,7 @@ import GreenDragon from './g-m/GreenDragon';
 import GrizzlyBear from './g-m/GrizzlyBear';
 import GrizzlyBearCub from './g-m/GrizzlyBearCub';
 import Guard from './g-m/Guard';
+import GuardBandit from './g-m/GuardBandit';
 import GuardDog from './g-m/GuardDog';
 import HarpieBugSwarm from './g-m/HarpieBugSwarm';
 import Hellhound from './g-m/Hellhound';
@@ -126,6 +133,7 @@ import Killerwatt from './g-m/Killerwatt';
 import KingScorpion from './g-m/KingScorpion';
 import KnightOfArdougne from './g-m/KnightOfArdougne';
 import Kurask from './g-m/Kurask';
+import LavaDragon from './g-m/LavaDragon';
 import LesserDemon from './g-m/LesserDemon';
 import Lizard from './g-m/Lizard';
 import Lizardman from './g-m/Lizardman';
@@ -134,7 +142,9 @@ import LizardmanShaman from './g-m/LizardmanShaman';
 import LoarShade from './g-m/LoarShade';
 import Lobstrosity from './g-m/Lobstrosity';
 import LocustRider from './g-m/LocustRider';
+import MagicAxe from './g-m/MagicAxe';
 import MaleHamMember from './g-m/MaleHamMember';
+import Mammoth from './g-m/Mammoth';
 import Man from './g-m/Man';
 import MasterFarmer from './g-m/MasterFarmer';
 import MenaphiteThug from './g-m/MenaphiteThug';
@@ -159,6 +169,7 @@ import Otherworldlybeing from './n-s/Otherworldlybeing';
 import Paladin from './n-s/Paladin';
 import Penguin from './n-s/Penguin';
 import PhrinShade from './n-s/PhrinShade';
+import Pirate from './n-s/Pirate';
 import PitScorpion from './n-s/PitScorpion';
 import PoisonScorpion from './n-s/PoisonScorpion';
 import PollnivnianBandit from './n-s/PollnivnianBandit';
@@ -173,6 +184,17 @@ import ReanimatedScorpion from './n-s/ReanimatedScorpion';
 import ReanimatedTroll from './n-s/ReanimatedTroll';
 import ReanimatedTzHaar from './n-s/ReanimatedTzHaar';
 import RedDragon from './n-s/RedDragon';
+import RevenantCyclops from './n-s/RevenantCyclops';
+import RevenantDarkBeast from './n-s/RevenantDarkBeast';
+import RevenantDemon from './n-s/RevenantDemon';
+import RevenantDragon from './n-s/RevenantDragon';
+import RevenantGoblin from './n-s/RevenantGoblin';
+import RevenantHellhound from './n-s/RevenantHellhound';
+import RevenantHobgoblin from './n-s/RevenantHobgoblin';
+import RevenantImp from './n-s/RevenantImp';
+import RevenantKnight from './n-s/RevenantKnight';
+import RevenantOrk from './n-s/RevenantOrk';
+import RevenantPyrefiend from './n-s/RevenantPyrefiend';
 import RiylShade from './n-s/RiylShade';
 import Rockslug from './n-s/Rockslug';
 import Rogue from './n-s/Rogue';
@@ -236,6 +258,28 @@ import ZombieRat from './t-z/ZombieRat';
 import Zygomite from './t-z/Zygomite';
 
 export const allLowMonsters = {
+	ArmadylianGuard,
+	BlackKnight,
+	DarkWarrior,
+	DeadlyRedSpider,
+	ElderChaosDruid,
+	Ent,
+	RevenantCyclops,
+	RevenantPyrefiend,
+	RevenantOrk,
+	RevenantKnight,
+	RevenantImp,
+	RevenantHobgoblin,
+	RevenantHellhound,
+	RevenantGoblin,
+	RevenantDragon,
+	RevenantDemon,
+	RevenantDarkBeast,
+	Pirate,
+	Mammoth,
+	MagicAxe,
+	LavaDragon,
+	GuardBandit,
 	DagannothSpawn,
 	FeralVampyre,
 	FeverSpider,

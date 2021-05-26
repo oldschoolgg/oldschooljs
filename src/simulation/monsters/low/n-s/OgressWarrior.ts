@@ -54,5 +54,5 @@ export default new SimpleMonster({
 	id: 7990,
 	name: 'Ogress Warrior',
 	table: OgressWarriorTable,
-	aliases: ['ogress Warrior']
+	aliases: ['ogress warrior']
 });
