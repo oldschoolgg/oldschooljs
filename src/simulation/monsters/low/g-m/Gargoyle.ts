@@ -2,7 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const GargoyleTable = new LootTable()
+export const GargoylePreTable = new LootTable()
 	.oneIn(256, 'Granite maul')
 	.oneIn(512, 'Mystic robe top (dark)')
 
@@ -34,7 +34,10 @@ const GargoyleTable = new LootTable()
 	.add('Coins', 10000, 5)
 
 	/* RDT */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const GargoyleTable = new LootTable()
+	.every(GargoylePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

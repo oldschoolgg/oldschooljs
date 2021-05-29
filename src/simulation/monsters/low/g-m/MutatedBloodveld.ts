@@ -2,9 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
-const MutatedBloodveldTable = new LootTable()
-	.every('Bones')
-
+export const MutatedBloodveldPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Mithril full helm', 1, 8)
 	.add('Mithril battleaxe', 1, 6)
@@ -38,7 +36,11 @@ const MutatedBloodveldTable = new LootTable()
 
 	/* Rare and Gem drop table */
 	.add(RareDropTable, 1, 3)
-	.add(GemTable, 1, 2)
+	.add(GemTable, 1, 2);
+
+const MutatedBloodveldTable = new LootTable()
+	.every('Bones')
+	.every(MutatedBloodveldPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')

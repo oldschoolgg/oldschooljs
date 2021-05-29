@@ -3,11 +3,13 @@ import Monster from '../../structures/Monster';
 import { allBosses } from './bosses';
 import { allLowMonsters } from './low';
 import { specialBosses } from './special';
+import { allSuperiorMonsters } from './superiorMonsters';
 
 const monstersObject = {
 	...allBosses,
 	...allLowMonsters,
-	...specialBosses
+	...specialBosses,
+	...allSuperiorMonsters
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster) => [

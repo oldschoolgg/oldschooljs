@@ -3,9 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const BasiliskTable = new LootTable()
-	.every('Bones')
-
+export const BasiliskPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Mithril axe', 1, 3)
 	.add('Steel battleaxe', 1, 3)
@@ -35,7 +33,11 @@ const BasiliskTable = new LootTable()
 	.add('Coins', 440, 1)
 
 	/* RDT */
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const BasiliskTable = new LootTable()
+	.every('Bones')
+	.every(BasiliskPreTable)
 
 	/* Tertiary */
 	.tertiary(2000, 'Basilisk head');

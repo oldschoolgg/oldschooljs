@@ -2,9 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-export const PyrefiendTable = new LootTable()
-	.every('Ashes')
-
+export const PyrefiendPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Steel axe', 1, 4)
 	.add('Steel full helm', 1, 4)
@@ -31,7 +29,11 @@ export const PyrefiendTable = new LootTable()
 	.add('Jug of wine', 1, 2)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 3)
+	.add(GemTable, 1, 3);
+
+const PyrefiendTable = new LootTable()
+	.every('Ashes')
+	.every(PyrefiendPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (medium)');

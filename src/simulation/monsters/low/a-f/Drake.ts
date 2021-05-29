@@ -14,12 +14,10 @@ const DrakeNotedHerbTable = new LootTable()
 	.add('Grimy lantadyme', [1, 3], 6)
 	.add('Grimy torstol', [1, 3], 6);
 
-const DrakeTable = new LootTable()
-	.every('Drake bones')
-
+export const DrakePreTable = new LootTable()
 	/* Pre-roll */
-	.oneIn(2560, "Drake's tooth")
-	.oneIn(2560, "Drake's claw")
+	.oneIn(512, "Drake's tooth")
+	.oneIn(512, "Drake's claw")
 	.oneIn(2000, 'Dragon thrownaxe', [100, 200])
 	.oneIn(2000, 'Dragon knife', [100, 200])
 
@@ -50,8 +48,12 @@ const DrakeTable = new LootTable()
 	.add('Diamond', [3, 6], 4)
 	.add('Swordfish', [1, 2], 4)
 
-	/* RDT */
-	.add(GemTable, 1, 1)
+	/* Rdt */
+	.add(GemTable, 1, 1);
+
+const DrakeTable = new LootTable()
+	.every('Drake bones')
+	.every(DrakePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');

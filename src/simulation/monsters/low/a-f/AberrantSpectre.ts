@@ -9,9 +9,8 @@ const AberrantSpectreHerbTable = new LootTable()
 	.add(HerbDropTable, 2, 11)
 	.add(HerbDropTable, 3, 4);
 
-const AberrantSpectreTable = new LootTable({ limit: 128 })
-
-	/* Weapons and armour */
+export const AberrantSpectrePreTable = new LootTable({ limit: 128 })
+	/*Weapons and armour */
 	.add('Steel axe', 1, 3)
 	.add('Mithril kiteshield', 1, 1)
 	.add('Lava battlestaff', 1, 1)
@@ -28,8 +27,11 @@ const AberrantSpectreTable = new LootTable({ limit: 128 })
 	/* Coins */
 	.add('Coins', 460, 1)
 
-	/* RDT */
-	.add(GemTable, 1, 5)
+	/* Rdt */
+	.add(GemTable, 1, 5);
+
+const AberrantSpectreTable = new LootTable()
+	.every(AberrantSpectrePreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');
@@ -38,5 +40,5 @@ export default new SimpleMonster({
 	id: 2,
 	name: 'Aberrant Spectre',
 	table: AberrantSpectreTable,
-	aliases: ['aberrant', 'aberrant spectre', 'spectres']
+	aliases: ['aberrant', 'aberrant spectre']
 });

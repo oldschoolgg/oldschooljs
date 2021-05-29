@@ -2,11 +2,10 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
+
 const SmokeDevilHerbTable = new LootTable().add(HerbDropTable, 1, 2).add(HerbDropTable, 2, 1);
 
-const SmokeDevilTable = new LootTable({ limit: 128 })
-	.every('Ashes')
-
+export const SmokeDevilPreTable = new LootTable({ limit: 128 })
 	/* Weapons and armor */
 	.add('Adamant battleaxe', 1, 3)
 	.add('Rune dagger', 1, 3)
@@ -49,7 +48,11 @@ const SmokeDevilTable = new LootTable({ limit: 128 })
 
 	/* RDT */
 	.add(RareDropTable, 1, 4)
-	.add(GemTable, 1, 4)
+	.add(GemTable, 1, 4);
+
+const SmokeDevilTable = new LootTable()
+	.every('Ashes')
+	.every(SmokeDevilPreTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')

@@ -3,9 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const BloodveldTable = new LootTable()
-	.every('Bones')
-
+export const BloodveldPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Steel axe', 1, 4)
 	.add('Steel full helm', 1, 4)
@@ -52,7 +50,11 @@ const BloodveldTable = new LootTable()
 	.add('Gold ore', 1, 2)
 
 	/* RDT */
-	.add(GemTable, 1, 4)
+	.add(GemTable, 1, 4);
+
+const BloodveldTable = new LootTable()
+	.every('Bones')
+	.every(BloodveldPreTable)
 
 	/* Tertiary */
 	.tertiary(256, 'Clue scroll (hard)')

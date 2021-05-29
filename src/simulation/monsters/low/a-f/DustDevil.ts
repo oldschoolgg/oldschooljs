@@ -3,11 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const DustDevilTable = new LootTable()
-	.every('Bones')
-	.oneIn(4000, 'Dust battlestaff')
-	.oneIn(32_768, 'Dragon chainbody')
-
+export const DustDevilPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Adamant axe', 1, 3)
 	.add('Rune dagger', 1, 2)
@@ -18,6 +14,8 @@ const DustDevilTable = new LootTable()
 	.add('Mystic air staff', 1, 1)
 	.add('Mystic earth staff', 1, 1)
 	.add('Dragon dagger', 1, 1)
+	.oneIn(4000, 'Dust battlestaff')
+	.oneIn(32768, 'Dragon chainbody')
 
 	/* Runes and ammunition */
 	.add('Dust rune', 200, 10)
@@ -40,6 +38,8 @@ const DustDevilTable = new LootTable()
 
 	/* RDT */
 	.add(GemTable, 1, 8);
+
+const DustDevilTable = new LootTable().every('Bones').every(DustDevilPreTable);
 
 export default new SimpleMonster({
 	id: 423,

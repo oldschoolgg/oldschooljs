@@ -3,9 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
-const AbyssalDemonTable = new LootTable()
-	.every('Ashes')
-
+export const AbyssalDemonPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Black sword', 1, 4)
 	.add('Steel battleaxe', 1, 3)
@@ -14,7 +12,7 @@ const AbyssalDemonTable = new LootTable()
 	.add('Rune chainbody', 1, 1)
 	.add('Rune med helm', 1, 1)
 	.oneIn(512, 'Abyssal whip')
-	.oneIn(32768, 'Abyssal dagger')
+	.oneIn(32_768, 'Abyssal dagger')
 
 	/* Runes */
 	.add('Air rune', 50, 8)
@@ -43,7 +41,11 @@ const AbyssalDemonTable = new LootTable()
 	.add('Defence potion(3)', 1, 1)
 
 	.add(RareDropTable, 1, 2)
-	.add(GemTable, 1, 5)
+	.add(GemTable, 1, 5);
+
+const AbyssalDemonTable = new LootTable()
+	.every('Ashes')
+	.every(AbyssalDemonPreTable)
 
 	/* Tertiary */
 	.tertiary(25, 'Ensouled abyssal head')
