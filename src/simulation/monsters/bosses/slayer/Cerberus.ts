@@ -58,5 +58,5 @@ export default new SimpleMonster({
 	id: 5862,
 	name: 'Cerberus',
 	table: CerberusTable,
-	aliases: ['cerb', 'cerberus']
+	aliases: ['cerb', 'cerberus', 'hellhound boss']
 });

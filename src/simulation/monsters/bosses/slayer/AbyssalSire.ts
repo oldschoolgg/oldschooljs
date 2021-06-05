@@ -69,5 +69,5 @@ export default new SimpleMonster({
 	id: 5886,
 	name: 'Abyssal Sire',
 	table: AbyssalSireTable,
-	aliases: ['abbysal sire', 'abby sire', 'abyssal sire']
+	aliases: ['abbysal sire', 'abby sire', 'abyssal sire', 'sire', 'abyssal demon boss']
 });

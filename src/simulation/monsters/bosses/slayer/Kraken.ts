@@ -61,5 +61,5 @@ export default new SimpleMonster({
 	id: 494,
 	name: 'Kraken',
 	table: KrakenTable,
-	aliases: ['kraken']
+	aliases: ['kraken', 'cave kraken boss']
 });

@@ -51,5 +51,5 @@ export default new SimpleMonster({
 	id: 936,
 	name: 'Mountain Troll',
 	table: MountainTrollTable,
-	aliases: ['mountain troll']
+	aliases: ['mountain troll', 'troll', 'trolls']
 });

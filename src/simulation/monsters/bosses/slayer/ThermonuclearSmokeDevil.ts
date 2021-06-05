@@ -67,5 +67,5 @@ export default new SimpleMonster({
 	id: 499,
 	name: 'Thermonuclear smoke devil',
 	table: ThermonuclearSmokeDevilTable,
-	aliases: ['thermonuclear smoke devil']
+	aliases: ['thermonuclear smoke devil', 'thermy', 'smoke devil boss']
 });
