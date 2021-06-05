@@ -35,5 +35,5 @@ export default new SimpleMonster({
 	id: 3234,
 	name: 'Feral Vampyre',
 	table: FeralVampyreTable,
-	aliases: ['feral vampyre']
+	aliases: ['feral vampyre', 'vampyres']
 });

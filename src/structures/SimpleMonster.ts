@@ -32,6 +32,9 @@ export default class SimpleMonster extends Monster {
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
 		const loot = new Bank();
 
+		// TODO: For monsters with different drop rates on/off task
+		// Just nuke any uniques they got at the rare rate, and roll the better rate.
+
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.
 			if (options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar) {
