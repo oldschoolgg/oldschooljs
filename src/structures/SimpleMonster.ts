@@ -1,19 +1,21 @@
 import { roll } from 'e';
 
-import { MonsterSlayerMaster } from '../meta/monsterData';
-import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { getBrimKeyChanceFromCBLevel } from '../util/util';
+import { MonsterSlayerMaster, SlayerDropsOverride } from '../meta/monsterData';
+import {ItemBank, MonsterKillOptions, MonsterOptions, OnTaskKillOverride} from '../meta/types';
+import {getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotalChanceFromHP} from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
 
 interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
+	onTaskTable?: LootTable;
 	pickpocketTable?: LootTable;
 }
 
 export default class SimpleMonster extends Monster {
 	public table?: LootTable;
+	public onTaskTable?: LootTable;
 	public pickpocketTable?: LootTable;
 
 	constructor(options: SimpleMonsterOptions) {
@@ -24,16 +26,15 @@ export default class SimpleMonster extends Monster {
 		if (options.pickpocketTable) {
 			allItems = allItems.concat(options.pickpocketTable.allItems);
 		}
+
 		super({ ...options, allItems: allItems });
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
+		this.onTaskTable = options.onTaskTable;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
 		const loot = new Bank();
-
-		// TODO: For monsters with different drop rates on/off task
-		// Just nuke any uniques they got at the rare rate, and roll the better rate.
 
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.
@@ -42,9 +43,26 @@ export default class SimpleMonster extends Monster {
 					loot.add('Brimstone key');
 				}
 			}
-
-			loot.add(this.table.roll());
+			if (options.onSlayerTask && this.name.toLowerCase() === 'gargoyle' && roll(150)) {
+				loot.add('Brittle key');
+			}
+			if (options.inCatacombs) {
+				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
+					loot.add('Ancient shard');
+				}
+				if (roll(getTotalChanceFromHP(this.data.hitpoints))) {
+					// Always drop Dark totem base and bot will transmog accordingly.
+					loot.add('Dark totem base');
+				}
+			}
+			if (options.onSlayerTask && this.onTaskTable) {
+				loot.add(this.onTaskTable.roll());
+			} else {
+				loot.add(this.table.roll());
+			}
 		}
+
+
 
 		return loot.values();
 	}

@@ -5,15 +5,29 @@ import { NotedHerbTable } from '../../../subtables/NotedHerbTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-export const HydraPreTable = new LootTable()
-	/* Pre-roll Averaged to make it easier */
-	.oneIn(900, "Hydra's eye")
-	.oneIn(900, "Hydra's heart")
-	.oneIn(900, "Hydra's fang")
-	.oneIn(3000, 'Hydra tail')
-	.oneIn(6000, 'Dragon thrownaxe', [200, 400])
-	.oneIn(6001, 'Dragon knife', [200, 400])
+const HydraOffTaskUniqueTable = new LootTable()
+	.oneIn(1_801, "Hydra's eye")
+	/* We're only rolling the eye, bot will transmog.
+	* it should be 1801 x 3 if you wanted to randomly assign
+	.oneIn(1_801, "Hydra's heart")
+	.oneIn(1_801, "Hydra's fang")
+ 	*/
+	.oneIn(5_001, 'Hydra tail')
+	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
+	.oneIn(10_001, 'Dragon knife', [200, 400]);
 
+const HydraOnTaskUniqueTable = new LootTable()
+	.oneIn(1_801, "Hydra's eye")
+	/* We're only rolling the eye, bot will transmog.
+	* it should be 1801 x 3 if you wanted to randomly assign
+	.oneIn(1_801, "Hydra's heart")
+	.oneIn(1_801, "Hydra's fang")
+ 	*/
+	.oneIn(5_001, 'Hydra tail')
+	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
+	.oneIn(10_001, 'Dragon knife', [200, 400]);
+
+export const HydraPreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Fire battlestaff', 1, 5)
 	.add('Water battlestaff', 1, 5)
@@ -60,6 +74,18 @@ export const HydraPreTable = new LootTable()
 const HydraTable = new LootTable()
 	.every('Hydra bones')
 	.every(HydraPreTable)
+	// Uniques are also tertiary, so this is ok:
+	.every(HydraOffTaskUniqueTable)
+
+	/* Tertiary */
+	.tertiary(128, 'Clue scroll (hard)')
+	.tertiary(512, 'Clue scroll (elite)');
+
+const HydraOnTaskTable = new LootTable()
+	.every('Hydra bones')
+	.every(HydraPreTable)
+	// Uniques are also tertiary, so this is ok:
+	.every(HydraOnTaskUniqueTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')
@@ -69,5 +95,6 @@ export default new SimpleMonster({
 	id: 8609,
 	name: 'Hydra',
 	table: HydraTable,
+	onTaskTable: HydraOnTaskTable,
 	aliases: ['hydra']
 });

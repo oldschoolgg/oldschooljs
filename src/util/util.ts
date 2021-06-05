@@ -174,3 +174,10 @@ export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string
 
 	return result;
 }
+
+export function getAncientShardChanceFromHP(hitpoints: number): number {
+	return Math.round((500 - hitpoints) / 3);
+}
+export function getTotalChanceFromHP(hitpoints: number): number {
+	return 500 - hitpoints;
+}
