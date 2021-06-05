@@ -13,6 +13,7 @@ import Polls from './structures/Polls';
 import Wiki from './structures/Wiki';
 import Worlds from './structures/Worlds';
 import * as Util from './util/';
+import { MonsterKillOptions } from './meta/types'
 
 export {
 	Items,
@@ -29,5 +30,6 @@ export {
 	Minigames,
 	Openables,
 	Bank,
-	constants
+	constants,
+	MonsterKillOptions
 };
