@@ -102,5 +102,5 @@ export default new SimpleMonster({
 	id: 8615,
 	name: 'Alchemical Hydra',
 	table: AlchemicalHydraTable,
-	aliases: ['alchemical hydra']
+	aliases: ['alchemical hydra', 'hydra boss']
 });
