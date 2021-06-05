@@ -1,6 +1,7 @@
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import { MonsterSlayerMaster } from './monsterData';
+import SimpleMonster from "../structures/SimpleMonster";
 
 type ChestSize = 'big' | 'small';
 type SeedTier = '1' | '2' | '3' | '4' | '5';
@@ -459,6 +460,10 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	/**
+	 * If monster is eligible for superior, pass the LootTable.
+	 */
+	hasSuperiors?: SimpleMonster;
 	farmingLevel?: number;
 }
 

@@ -66,7 +66,11 @@ export default class SimpleMonster extends Monster {
 				}
 			}
 			if (options.onSlayerTask && this.onTaskTable) {
-				loot.add(this.onTaskTable.roll());
+				if(options.hasSuperiors && roll(200)) {
+					loot.add(options.hasSuperiors.table.roll());
+				} else {
+					loot.add(this.onTaskTable.roll());
+				}
 			} else {
 				loot.add(this.table.roll());
 			}
