@@ -80,8 +80,10 @@ const NormalTable = new LootTable()
 const NormalUniqueTable = new LootTable()
 	.add(NormalTable)
 	.oneIn(181, "Hydra's eye")
+	/* This should be x3 if they were all in the loop.
 	.oneIn(181, "Hydra's fang")
 	.oneIn(181, "Hydra's heart")
+	 */
 	.oneIn(513, 'Hydra tail')
 	.oneIn(1001, "Hydra's claw")
 	.oneIn(2000, 'Dragon thrownaxe', [500, 1000])
