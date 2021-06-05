@@ -75,9 +75,6 @@ export default class SimpleMonster extends Monster {
 				loot.add(this.table.roll());
 			}
 		}
-
-
-
 		return loot.values();
 	}
 }
