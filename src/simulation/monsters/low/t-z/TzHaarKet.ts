@@ -31,5 +31,5 @@ export default new SimpleMonster({
 	id: 2173,
 	name: 'TzHaar-Ket',
 	table: TzHaarKetTable,
-	aliases: ['tzhaar-ket']
+	aliases: ['tzhaar-ket', 'tzhaar']
 });

@@ -40,5 +40,5 @@ export default new SimpleMonster({
 	id: 2,
 	name: 'Aberrant Spectre',
 	table: AberrantSpectreTable,
-	aliases: ['aberrant', 'aberrant spectre']
+	aliases: ['aberrant', 'aberrant spectre', 'abby specs']
 });

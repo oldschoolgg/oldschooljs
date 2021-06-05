@@ -46,5 +46,5 @@ export default new SimpleMonster({
 	id: 412,
 	name: 'Gargoyle',
 	table: GargoyleTable,
-	aliases: ['gargoyle', 'garg']
+	aliases: ['gargoyle', 'garg', 'gargs']
 });
