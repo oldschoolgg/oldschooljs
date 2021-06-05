@@ -35,6 +35,16 @@ export default class SimpleMonster extends Monster {
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
 		const loot = new Bank();
+		if (options.onSlayerTask) {
+			console.log('On slayer task');
+		}
+		if (options.onSlayerTask && this.onTaskTable) {
+			console.log('On task table');
+			console.log(this.onTaskTable);
+		} else {
+			console.log('Off task table');
+			//console.log(this.table);
+		}
 
 		for (let i = 0; i < quantity; i++) {
 			// If on-task, and slayer master is konar, roll a brimstone key.
