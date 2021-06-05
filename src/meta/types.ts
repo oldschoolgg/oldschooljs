@@ -1,7 +1,7 @@
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
+import SimpleMonster from '../structures/SimpleMonster';
 import { MonsterSlayerMaster } from './monsterData';
-import SimpleMonster from "../structures/SimpleMonster";
 
 type ChestSize = 'big' | 'small';
 type SeedTier = '1' | '2' | '3' | '4' | '5';

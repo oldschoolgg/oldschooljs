@@ -2,7 +2,11 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotalChanceFromHP } from '../util/util';
+import {
+	getAncientShardChanceFromHP,
+	getBrimKeyChanceFromCBLevel,
+	getTotalChanceFromHP
+} from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
@@ -66,7 +70,7 @@ export default class SimpleMonster extends Monster {
 				}
 			}
 			if (options.onSlayerTask && this.onTaskTable) {
-				if(options.hasSuperiors && roll(200)) {
+				if (options.hasSuperiors && roll(200)) {
 					loot.add(options.hasSuperiors.table.roll());
 				} else {
 					loot.add(this.onTaskTable.roll());

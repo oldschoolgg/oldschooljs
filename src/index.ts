@@ -1,4 +1,6 @@
 import * as constants from './constants';
+import { MonsterSlayerMaster } from './meta/monsterData';
+import { MonsterKillOptions } from './meta/types';
 import * as Clues from './simulation/clues';
 import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
@@ -13,8 +15,6 @@ import Polls from './structures/Polls';
 import Wiki from './structures/Wiki';
 import Worlds from './structures/Worlds';
 import * as Util from './util/';
-import { MonsterKillOptions } from './meta/types';
-import { MonsterSlayerMaster } from './meta/monsterData';
 
 export {
 	Items,
