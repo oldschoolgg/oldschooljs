@@ -13,7 +13,8 @@ import Polls from './structures/Polls';
 import Wiki from './structures/Wiki';
 import Worlds from './structures/Worlds';
 import * as Util from './util/';
-import { MonsterKillOptions } from './meta/types'
+import { MonsterKillOptions } from './meta/types';
+import { MonsterSlayerMaster } from './meta/monsterData';
 
 export {
 	Items,
@@ -31,5 +32,6 @@ export {
 	Openables,
 	Bank,
 	constants,
-	MonsterKillOptions
+	MonsterKillOptions,
+	MonsterSlayerMaster
 };
