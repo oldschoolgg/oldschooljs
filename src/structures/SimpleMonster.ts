@@ -1,8 +1,8 @@
 import { roll } from 'e';
 
-import { MonsterSlayerMaster, SlayerDropsOverride } from '../meta/monsterData';
-import {ItemBank, MonsterKillOptions, MonsterOptions, OnTaskKillOverride} from '../meta/types';
-import {getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotalChanceFromHP} from '../util/util';
+import { MonsterSlayerMaster } from '../meta/monsterData';
+import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotalChanceFromHP } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
