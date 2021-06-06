@@ -68,6 +68,7 @@ export const mappedBossNames: [string, string][] = [
 	['theGauntlet', 'The Gauntlet'],
 	['theCorruptedGauntlet', 'The Corrupted Gauntlet'],
 	['theatreofBlood', 'Theatre of Blood'],
+	['theatreofBloodHard', 'Theatre of Blood: Hard Mode'],
 	['thermonuclearSmokeDevil', 'Thermonuclear Smoke Devil'],
 	['tzKalZuk', 'TzKal-Zuk'],
 	['tzTokJad', 'TzTok-Jad'],
