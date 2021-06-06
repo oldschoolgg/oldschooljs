@@ -177,6 +177,7 @@ import PoisonScorpion from './n-s/PoisonScorpion';
 import PollnivnianBandit from './n-s/PollnivnianBandit';
 import Porazdir from './n-s/Porazdir';
 import PrifddinasElf from './n-s/PrifddinasElf';
+import PriffRabbit from './n-s/PriffRabbit';
 import Pyrefiend from './n-s/Pyrefiend';
 import Rat from './n-s/Rat';
 import ReanimatedAbyssal from './n-s/ReanimatedAbyssal';
@@ -519,5 +520,6 @@ export const allLowMonsters = {
 	Hobgoblin,
 	ChaosDruid,
 	Unicorn,
-	MenaphiteThug
+	MenaphiteThug,
+	PriffRabbit
 };
