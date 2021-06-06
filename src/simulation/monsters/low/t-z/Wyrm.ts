@@ -4,13 +4,21 @@ import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-export const WyrmPreTable = new LootTable({ limit: 76 })
+const WyrmOnTaskUniqueTable = new LootTable()
 	/* Pre-roll*/
-	.oneIn(2000, 'Dragon sword')
-	.oneIn(2000, 'Dragon harpoon')
-	.oneIn(2000, 'Dragon knife', [75, 150])
-	.oneIn(2000, 'Dragon thrownaxe', [75, 150])
+	.oneIn(2_000, 'Dragon sword')
+	.oneIn(2_000, 'Dragon harpoon')
+	.oneIn(2_000, 'Dragon knife', [75, 150])
+	.oneIn(2_000, 'Dragon thrownaxe', [75, 150]);
 
+const WyrmOffTaskUniqueTable = new LootTable()
+	/* Pre-roll*/
+	.oneIn(10_000, 'Dragon sword')
+	.oneIn(10_000, 'Dragon harpoon')
+	.oneIn(10_000, 'Dragon knife', [75, 150])
+	.oneIn(10_000, 'Dragon thrownaxe', [75, 150]);
+
+export const WyrmPreTable = new LootTable({ limit: 76 })
 	/* Weapons and armour */
 	.add("Red d'hide chaps", 1, 3)
 	.add('Adamant axe', 1, 2)
@@ -46,6 +54,15 @@ export const WyrmPreTable = new LootTable({ limit: 76 })
 
 const WyrmTable = new LootTable()
 	.every('Wyrm bones')
+	.every(WyrmOffTaskUniqueTable)
+	.every(WyrmPreTable)
+
+	/* Tertiary */
+	.tertiary(256, 'Clue scroll (hard)');
+
+const WyrmOnTaskTable = new LootTable()
+	.every('Wyrm bones')
+	.every(WyrmOnTaskUniqueTable)
 	.every(WyrmPreTable)
 
 	/* Tertiary */
@@ -55,5 +72,6 @@ export default new SimpleMonster({
 	id: 8610,
 	name: 'Wyrm',
 	table: WyrmTable,
+	onTaskTable: WyrmOnTaskTable,
 	aliases: ['wyrm']
 });
