@@ -72,7 +72,7 @@ export default class SimpleMonster extends Monster {
 			if (options.onSlayerTask) {
 				if (options.hasSuperiors && roll(200)) {
 					// track number of superiors with this item.
-					loot.add({ [420] : 1 })
+					loot.add({ [420] : 1 });
 					loot.add(options.hasSuperiors.table.roll());
 				} else if (this.onTaskTable) {
 					loot.add(this.onTaskTable.roll());
