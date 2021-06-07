@@ -5,7 +5,7 @@ import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
 import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
-	getTotalChanceFromHP
+	getTotemChanceFromHP
 } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
@@ -64,7 +64,7 @@ export default class SimpleMonster extends Monster {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}
-				if (roll(getTotalChanceFromHP(this.data.hitpoints))) {
+				if (roll(getTotemChanceFromHP(this.data.hitpoints))) {
 					// Always drop Dark totem base and bot will transmog accordingly.
 					loot.add('Dark totem base');
 				}
