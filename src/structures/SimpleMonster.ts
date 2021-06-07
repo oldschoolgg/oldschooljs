@@ -76,6 +76,8 @@ export default class SimpleMonster extends Monster {
 					loot.add(options.hasSuperiors.table.roll());
 				} else if (this.onTaskTable) {
 					loot.add(this.onTaskTable.roll());
+				} else {
+					loot.add(this.table.roll());
 				}
 			} else {
 				loot.add(this.table.roll());
