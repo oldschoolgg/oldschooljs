@@ -71,7 +71,7 @@ export default class Bank {
 			return this.add(item.bank);
 		}
 
-		const firstKey: string | undefined = Object.keys(item)?.[0];
+		const firstKey: string | undefined = Object.keys(item)[0];
 		if (firstKey === undefined) {
 			return this;
 		}

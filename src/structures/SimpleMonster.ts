@@ -37,7 +37,7 @@ export default class SimpleMonster extends Monster {
 
 		if (canGetKey) {
 			for (let i = 0; i < quantity; i++) {
-				if (canGetKey && roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
+				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
 				}
 			}
