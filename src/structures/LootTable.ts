@@ -161,7 +161,7 @@ export default class LootTable {
 	public roll(quantity = 1): Bank {
 		const loot = new Bank();
 
-		for (let i = 0; i < quantity; i++) {
+		outerLoop: for (let i = 0; i < quantity; i++) {
 			// The items that are rolled.
 			for (const item of this.everyItems) {
 				this.addResultToLoot(item, loot);
@@ -174,7 +174,7 @@ export default class LootTable {
 			for (const { chance, item, quantity } of this.oneInItems) {
 				if (roll(chance)) {
 					this.addResultToLoot({ item, quantity }, loot);
-					return;
+					continue outerLoop;
 				}
 			}
 
