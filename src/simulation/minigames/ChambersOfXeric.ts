@@ -1,6 +1,6 @@
 import { randFloat, roll, Time } from 'e';
 
-import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
+import { ItemBank, LootBank, SimpleTableItem } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import Minigame from '../../structures/Minigame';
@@ -162,16 +162,16 @@ export class ChambersOfXericClass extends Minigame {
 		return completionTime <= Time.Hour + Time.Minute * 20;
 	}
 
-	public rollLootFromChances(chances: number[]): ReturnedLootItem[] {
-		let loot: ReturnedLootItem[] = [];
+	public rollLootFromChances(chances: number[]): Bank {
+		let rolls = 0;
 
 		for (const chance of chances) {
 			if (randFloat(0, 100) < chance) {
-				loot = loot.concat(UniqueTable.roll());
+				rolls++;
 			}
 		}
 
-		return loot;
+		return UniqueTable.roll(rolls);
 	}
 
 	// We're rolling 2 non-unique loots based off a number of personal points.
@@ -253,10 +253,12 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// For every unique item received, add it to someones loot.
-		for (const uniqueItem of uniqueLoot) {
+		while (uniqueLoot.length > 0) {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
-			lootResult[receipientID].add([uniqueItem]);
+			const uniqueItem = uniqueLoot.random();
+			lootResult[receipientID].add(uniqueItem.id, 1);
+			uniqueLoot.remove(uniqueItem.id, 1);
 			if (roll(53)) {
 				lootResult[receipientID].add('Olmlet');
 			}

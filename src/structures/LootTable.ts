@@ -1,7 +1,8 @@
 import { randFloat, randInt, roll } from 'e';
 
-import { LootTableItem, LootTableOptions, OneInItems, ReturnedLootItem } from '../meta/types';
+import { LootTableItem, LootTableOptions, OneInItems } from '../meta/types';
 import itemID from '../util/itemID';
+import Bank from './Bank';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
@@ -157,78 +158,69 @@ export default class LootTable {
 		return this;
 	}
 
-	public roll(): ReturnedLootItem[] {
-		// Random float between 0 and the total weighting
-		const randomWeight = randFloat(0, this.limit || this.totalWeight);
+	public roll(quantity = 1): Bank {
+		const loot = new Bank();
 
-		// The index of the item that will be used.
-		let result;
-		let weight = 0;
-
-		for (let i = 0; i < this.table.length; i++) {
-			const item = this.table[i];
-
-			weight += item.weight;
-			if (randomWeight <= weight) {
-				result = i;
-				break;
+		for (let i = 0; i < quantity; i++) {
+			// The items that are rolled.
+			for (const item of this.everyItems) {
+				this.addResultToLoot(item, loot);
 			}
-		}
 
-		const chosenItem = this.table[result];
-
-		// The items that are rolled.
-		let items: ReturnedLootItem[] = [];
-		for (const item of this.everyItems) {
-			items = items.concat(this.generateResultItem(item));
-		}
-
-		for (const { chance, item, quantity } of this.tertiaryItems) {
-			if (roll(chance)) items = items.concat(this.generateResultItem({ item, quantity }));
-		}
-
-		for (const { chance, item, quantity } of this.oneInItems) {
-			if (roll(chance)) {
-				items = items.concat(this.generateResultItem({ item, quantity }));
-				return items;
+			for (const { chance, item, quantity } of this.tertiaryItems) {
+				if (roll(chance)) this.addResultToLoot({ item, quantity }, loot);
 			}
+
+			for (const { chance, item, quantity } of this.oneInItems) {
+				if (roll(chance)) {
+					this.addResultToLoot({ item, quantity }, loot);
+					return;
+				}
+			}
+
+			// Random float between 0 and the total weighting
+			const randomWeight = randFloat(0, this.limit || this.totalWeight);
+
+			// The index of the item that will be used.
+			let result;
+			let weight = 0;
+
+			for (let i = 0; i < this.table.length; i++) {
+				const item = this.table[i];
+
+				weight += item.weight;
+				if (randomWeight <= weight) {
+					result = i;
+					break;
+				}
+			}
+
+			const chosenItem = this.table[result];
+			this.addResultToLoot(chosenItem, loot);
 		}
 
-		return chosenItem == undefined ? items : items.concat(this.generateResultItem(chosenItem));
+		return loot;
 	}
 
-	private generateResultItem(item: LootTableItem): ReturnedLootItem[] {
-		// If the chosen item is a loot table, the result is a roll of that table.
-		if (item.item instanceof LootTable) {
-			const quantity = this.determineQuantity(item.quantity);
-			let items: ReturnedLootItem[] = [];
+	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
+		if (!result) return;
+		const { item, quantity } = result;
 
-			for (let i = 0; i < quantity; i++) {
-				items = items.concat(
-					item.item
-						.roll()
-						.map((item) => this.generateResultItem(item))
-						.flat()
-				);
+		if (Array.isArray(item)) {
+			for (const singleItem of item) {
+				this.addResultToLoot(singleItem, loot);
 			}
-
-			return items;
+			return;
 		}
 
-		if (Array.isArray(item.item)) {
-			const items = [];
-			for (const singleItem of item.item) {
-				items.push(this.generateResultItem(singleItem)[0]);
-			}
-			return items;
+		const qty = this.determineQuantity(quantity);
+
+		if (item instanceof LootTable) {
+			loot.add(item.roll(qty));
+			return;
 		}
 
-		return [
-			{
-				item: item.item,
-				quantity: this.determineQuantity(item.quantity)
-			}
-		];
+		loot.add(item, qty);
 	}
 
 	protected determineQuantity(quantity: number | number[]): number {
