@@ -1,7 +1,7 @@
 import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { ItemBank, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { MonsterKillOptions, MonsterOptions } from '../meta/types';
 import { getBrimKeyChanceFromCBLevel } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
@@ -29,20 +29,20 @@ export default class SimpleMonster extends Monster {
 		this.pickpocketTable = options.pickpocketTable;
 	}
 
-	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
-		const loot = new Bank();
+	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
+		const loot = this.table.roll(quantity);
 
-		for (let i = 0; i < quantity; i++) {
-			// If on-task, and slayer master is konar, roll a brimstone key.
-			if (options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar) {
-				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
+		const canGetKey =
+			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+
+		if (canGetKey) {
+			for (let i = 0; i < quantity; i++) {
+				if (canGetKey && roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
 				}
 			}
-
-			loot.add(this.table.roll());
 		}
 
-		return loot.values();
+		return loot;
 	}
 }

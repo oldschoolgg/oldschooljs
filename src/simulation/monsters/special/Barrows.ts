@@ -1,6 +1,5 @@
 import { roll } from 'e';
 
-import { ItemBank } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import Monster from '../../../structures/Monster';
@@ -52,7 +51,7 @@ const OtherTable = new LootTable()
 const NUMBER_OF_BROTHERS = 6;
 
 export class Barrows extends Monster {
-	public kill(quantity = 1): ItemBank {
+	public kill(quantity = 1): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -65,19 +64,19 @@ export class Barrows extends Monster {
 			for (let x = 0; x < NUMBER_OF_BROTHERS + 1; x++) {
 				// 1 in (450 - (58 * Number of Brothers Killed))
 				if (roll(450 - 58 * NUMBER_OF_BROTHERS)) {
-					let barrowsItem = BarrowsTable.roll()[0];
-					while (barrowsItemsThisKill.has(barrowsItem.item)) {
-						barrowsItem = BarrowsTable.roll()[0];
+					let [barrowsItem] = BarrowsTable.roll().items()[0];
+					while (barrowsItemsThisKill.has(barrowsItem.id)) {
+						[barrowsItem] = BarrowsTable.roll().items()[0];
 					}
-					barrowsItemsThisKill.add(barrowsItem.item);
-					loot.add([barrowsItem]);
+					barrowsItemsThisKill.add(barrowsItem.id);
+					loot.add(barrowsItem.id);
 				} else {
 					loot.add(OtherTable.roll());
 				}
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 

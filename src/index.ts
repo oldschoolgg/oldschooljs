@@ -7,6 +7,7 @@ import Openables from './simulation/openables/index';
 import Bank from './structures/Bank';
 import Hiscores from './structures/Hiscores';
 import Items from './structures/Items';
+import LootTable from './structures/LootTable';
 import News from './structures/News';
 import Player from './structures/Player';
 import Polls from './structures/Polls';
@@ -29,5 +30,6 @@ export {
 	Minigames,
 	Openables,
 	Bank,
-	constants
+	constants,
+	LootTable
 };
