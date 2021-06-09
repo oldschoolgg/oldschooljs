@@ -76,5 +76,5 @@ export default new SimpleMonster({
 	id: 3162,
 	name: `Kree'arra`,
 	table: KreearraTable,
-	aliases: ['arma', 'armadyl', 'kree', "kree'arra"]
+	aliases: ['arma', 'armadyl', 'kree', "kree'arra", 'bird person']
 });

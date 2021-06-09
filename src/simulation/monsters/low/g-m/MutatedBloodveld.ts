@@ -50,5 +50,5 @@ export default new SimpleMonster({
 	id: 7276,
 	name: 'Mutated Bloodveld',
 	table: MutatedBloodveldTable,
-	aliases: ['mutated bloodveld']
+	aliases: ['mutated bloodveld', 'thicc bois', 'thicc boi', 'mutated velds']
 });

@@ -80,5 +80,5 @@ export default new SimpleMonster({
 	name: 'Drake',
 	table: DrakeTable,
 	onTaskTable: DrakeOnTaskTable,
-	aliases: ['drake']
+	aliases: ['drake', 'fire hippos']
 });

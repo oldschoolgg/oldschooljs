@@ -49,5 +49,5 @@ export default new SimpleMonster({
 	id: 2075,
 	name: 'Fire Giant',
 	table: FireGiantTable,
-	aliases: ['fire giant', 'fire g']
+	aliases: ['fire giant', 'fire g', 'fires']
 });

@@ -64,5 +64,5 @@ export default new SimpleMonster({
 	id: 484,
 	name: 'Bloodveld',
 	table: BloodveldTable,
-	aliases: ['bloodveld']
+	aliases: ['bloodveld', 'veld', 'velds', 'thicc boi jr']
 });
