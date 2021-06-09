@@ -73,5 +73,5 @@ export default new SimpleMonster({
 	name: 'Wyrm',
 	table: WyrmTable,
 	onTaskTable: WyrmOnTaskTable,
-	aliases: ['wyrm',' wurms', 'worms', 'wyrms', 'worm', 'wurm']
+	aliases: ['wyrm', 'wurms', 'worms', 'wyrms', 'worm', 'wurm']
 });
