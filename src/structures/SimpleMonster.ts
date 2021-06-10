@@ -41,7 +41,6 @@ export default class SimpleMonster extends Monster {
 		const canGetKey =
 			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 
-
 		for (let i = 0; i < quantity; i++) {
 			if (canGetKey) {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
@@ -68,11 +67,14 @@ export default class SimpleMonster extends Monster {
 					loot.add({ [420] : 1 });
 					loot.add(options.hasSuperiors.table.roll());
 				} else if (this.onTaskTable) {
+					// Roll the monster's "on-task" table.
 					loot.add(this.onTaskTable.roll());
 				} else {
+					// Monster doesn't have a unique on-slayer table
 					loot.add(this.table.roll());
 				}
 			} else {
+				// Not on slayer task
 				loot.add(this.table.roll());
 			}
 		}
