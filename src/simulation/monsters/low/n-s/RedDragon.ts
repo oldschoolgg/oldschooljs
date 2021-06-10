@@ -48,5 +48,5 @@ export default new SimpleMonster({
 	id: 247,
 	name: 'Red Dragon',
 	table: RedDragonTable,
-	aliases: ['red dragon']
+	aliases: ['red dragon', 'red drags']
 });

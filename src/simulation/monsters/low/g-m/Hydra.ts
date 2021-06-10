@@ -7,22 +7,14 @@ import RareSeedTable from '../../../subtables/RareSeedTable';
 
 const HydraOffTaskUniqueTable = new LootTable()
 	.oneIn(1_801, "Hydra's eye")
-	/* We're only rolling the eye, bot will transmog.
-	* it should be 1801 x 3 if you wanted to randomly assign
-	.oneIn(1_801, "Hydra's heart")
-	.oneIn(1_801, "Hydra's fang")
- 	*/
+
 	.oneIn(5_001, 'Hydra tail')
 	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
 	.oneIn(10_001, 'Dragon knife', [200, 400]);
 
 const HydraOnTaskUniqueTable = new LootTable()
 	.oneIn(1_801, "Hydra's eye")
-	/* We're only rolling the eye, bot will transmog.
-	* it should be 1801 x 3 if you wanted to randomly assign
-	.oneIn(1_801, "Hydra's heart")
-	.oneIn(1_801, "Hydra's fang")
- 	*/
+
 	.oneIn(5_001, 'Hydra tail')
 	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
 	.oneIn(10_001, 'Dragon knife', [200, 400]);
@@ -74,7 +66,7 @@ export const HydraPreTable = new LootTable()
 const HydraTable = new LootTable()
 	.every('Hydra bones')
 	.every(HydraPreTable)
-	// Uniques are also tertiary, so this is ok:
+
 	.every(HydraOffTaskUniqueTable)
 
 	/* Tertiary */
@@ -84,7 +76,7 @@ const HydraTable = new LootTable()
 const HydraOnTaskTable = new LootTable()
 	.every('Hydra bones')
 	.every(HydraPreTable)
-	// Uniques are also tertiary, so this is ok:
+
 	.every(HydraOnTaskUniqueTable)
 
 	/* Tertiary */

@@ -47,5 +47,5 @@ export default new SimpleMonster({
 	id: 252,
 	name: 'Black Dragon',
 	table: BlackDragonTable,
-	aliases: ['black dragon']
+	aliases: ['black dragon', 'black drags']
 });

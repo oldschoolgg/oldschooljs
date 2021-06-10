@@ -7,5 +7,5 @@ export default new SimpleMonster({
 	id: 241,
 	name: 'Baby blue Dragon',
 	table: BabyBlueDragonTable,
-	aliases: ['baby blue dragon']
+	aliases: ['baby blue dragon', 'baby blue drags']
 });

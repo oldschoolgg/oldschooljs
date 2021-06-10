@@ -62,8 +62,9 @@ export default class SimpleMonster extends Monster {
 			}
 			if (options.onSlayerTask) {
 				if (options.hasSuperiors && roll(200)) {
-					// track number of superiors with this item.
+					// Superiors always drop totem piece in catacombs.
 					if (options.inCatacombs) loot.add('Dark totem base');
+					// track number of superiors with this item (Distillator).
 					loot.add({ [420] : 1 });
 					loot.add(options.hasSuperiors.table.roll());
 				} else if (this.onTaskTable) {
