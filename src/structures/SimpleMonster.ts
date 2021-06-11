@@ -102,7 +102,6 @@ export default class SimpleMonster extends Monster {
 				}
 			}
 		}
-
 		return loot;
 	}
 }
