@@ -44,23 +44,23 @@ export default class SimpleMonster extends Monster {
 		if (options.onSlayerTask)
 		{
 			// Only do the slow way if we're on task.
-			if (options.inCatacombs) {
-				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
-					loot.add('Ancient shard');
-				}
-				if (roll(getTotemChanceFromHP(this.data.hitpoints))) {
-					// Always drop Dark totem base and bot will transmog accordingly.
-					loot.add('Dark totem base');
-				}
-			}
-			if (canGetKey) {
-				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
-					loot.add('Brimstone key');
-				}
-			}
 			for (let i = 0; i < quantity; i++) {
 				if (this.name.toLowerCase() === 'gargoyle' && roll(150)) {
 					loot.add('Brittle key');
+				}
+				if (options.inCatacombs) {
+					if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
+						loot.add('Ancient shard');
+					}
+					if (roll(getTotemChanceFromHP(this.data.hitpoints))) {
+						// Always drop Dark totem base and bot will transmog accordingly.
+						loot.add('Dark totem base');
+					}
+				}
+				if (canGetKey) {
+					if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
+						loot.add('Brimstone key');
+					}
 				}
 				if (options.hasSuperiors && roll(200)) {
 					// Superiors always drop totem piece in catacombs.
