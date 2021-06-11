@@ -49,5 +49,5 @@ export default new SimpleMonster({
 	id: 8,
 	name: 'Nechryael',
 	table: NechryaelTable,
-	aliases: ['nechryael', 'nech']
+	aliases: ['nechryael', 'nech', 'nechs']
 });

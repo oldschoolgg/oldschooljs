@@ -45,5 +45,5 @@ export default new SimpleMonster({
 	id: 423,
 	name: 'Dust Devil',
 	table: DustDevilTable,
-	aliases: ['dust devil']
+	aliases: ['dust devil', 'dusty', 'dusties']
 });

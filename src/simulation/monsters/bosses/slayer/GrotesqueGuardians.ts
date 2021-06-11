@@ -67,5 +67,5 @@ export default new SimpleMonster({
 	id: 7851,
 	name: 'Grotesque Guardians',
 	table: GrotesqueGuardiansTable,
-	aliases: ['grotesque guardians']
+	aliases: ['grotesque guardians', 'ggs', 'dawn', 'dusk', 'gargoyle boss', 'rocky bois']
 });

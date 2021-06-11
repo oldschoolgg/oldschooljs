@@ -14,13 +14,21 @@ const DrakeNotedHerbTable = new LootTable()
 	.add('Grimy lantadyme', [1, 3], 6)
 	.add('Grimy torstol', [1, 3], 6);
 
-export const DrakePreTable = new LootTable()
+const DrakeOnTaskUniqueTable = new LootTable()
 	/* Pre-roll */
 	.oneIn(512, "Drake's tooth")
 	.oneIn(512, "Drake's claw")
-	.oneIn(2000, 'Dragon thrownaxe', [100, 200])
-	.oneIn(2000, 'Dragon knife', [100, 200])
+	.oneIn(2_000, 'Dragon thrownaxe', [100, 200])
+	.oneIn(2_000, 'Dragon knife', [100, 200]);
 
+const DrakeOffTaskUniqueTable = new LootTable()
+	/* Pre-roll */
+	.oneIn(2_560, "Drake's tooth")
+	.oneIn(2_560, "Drake's claw")
+	.oneIn(10_000, 'Dragon thrownaxe', [100, 200])
+	.oneIn(10_000, 'Dragon knife', [100, 200]);
+
+export const DrakePreTable = new LootTable()
 	/* Weapons and armour */
 	.add('Rune full helm', 1, 3)
 	.add("Red d'hide body", 1, 2)
@@ -54,6 +62,15 @@ export const DrakePreTable = new LootTable()
 const DrakeTable = new LootTable()
 	.every('Drake bones')
 	.every(DrakePreTable)
+	.every(DrakeOffTaskUniqueTable)
+
+	/* Tertiary */
+	.tertiary(128, 'Clue scroll (hard)');
+
+const DrakeOnTaskTable = new LootTable()
+	.every('Drake bones')
+	.every(DrakePreTable)
+	.every(DrakeOnTaskUniqueTable)
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');
@@ -62,5 +79,6 @@ export default new SimpleMonster({
 	id: 8612,
 	name: 'Drake',
 	table: DrakeTable,
-	aliases: ['drake']
+	onTaskTable: DrakeOnTaskTable,
+	aliases: ['drake', 'fire hippos']
 });

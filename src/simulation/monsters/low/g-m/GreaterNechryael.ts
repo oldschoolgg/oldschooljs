@@ -48,5 +48,5 @@ export default new SimpleMonster({
 	id: 7278,
 	name: 'Greater Nechryael',
 	table: GreaterNechryaelTable,
-	aliases: ['greater nechryael', 'greater nech']
+	aliases: ['greater nechryael', 'greater nech', 'greater nechs', 'g nechs']
 });

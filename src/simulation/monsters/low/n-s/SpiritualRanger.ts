@@ -36,5 +36,5 @@ export default new SimpleMonster({
 	id: 2211,
 	name: 'Spiritual Ranger',
 	table: SpiritualRangerTable,
-	aliases: ['spiritual ranger']
+	aliases: ['spiritual ranger', 'spiritual creatures']
 });

@@ -42,5 +42,5 @@ export default new SimpleMonster({
 	id: 2025,
 	name: 'Greater Demon',
 	table: GreaterDemonTable,
-	aliases: ['greater demon', 'greater']
+	aliases: ['greater demon', 'greater', 'greaters']
 });

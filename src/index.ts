@@ -1,4 +1,6 @@
 import * as constants from './constants';
+import { MonsterSlayerMaster } from './meta/monsterData';
+import { MonsterKillOptions } from './meta/types';
 import * as Clues from './simulation/clues';
 import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
@@ -30,6 +32,8 @@ export {
 	Minigames,
 	Openables,
 	Bank,
+	LootTable,
 	constants,
-	LootTable
+	MonsterKillOptions,
+	MonsterSlayerMaster
 };

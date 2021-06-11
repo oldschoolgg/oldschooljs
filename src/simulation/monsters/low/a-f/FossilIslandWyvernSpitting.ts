@@ -61,5 +61,5 @@ export default new SimpleMonster({
 	id: 7794,
 	name: 'Spitting Wyvern',
 	table: SpittingWyvernTable,
-	aliases: ['spitting wyvern', 'spitting']
+	aliases: ['spitting wyvern', 'spitting', 'fossil island wyverns']
 });

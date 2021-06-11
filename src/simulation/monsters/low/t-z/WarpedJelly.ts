@@ -41,5 +41,5 @@ export default new SimpleMonster({
 	id: 7277,
 	name: 'Warped Jelly',
 	table: WarpedJellyTable,
-	aliases: ['warped jelly']
+	aliases: ['warped jelly', 'mouldy jelly', 'moldy jello']
 });

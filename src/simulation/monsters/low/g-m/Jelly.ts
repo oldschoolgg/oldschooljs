@@ -37,5 +37,5 @@ export default new SimpleMonster({
 	id: 437,
 	name: 'Jelly',
 	table: JellyTable,
-	aliases: ['jelly']
+	aliases: ['jelly', 'jello']
 });
