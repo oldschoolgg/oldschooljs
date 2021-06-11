@@ -45,5 +45,5 @@ export default new SimpleMonster({
 	id: 5293,
 	name: 'Elf Warrior',
 	table: ElfWarriorTable,
-	aliases: ['elf warrior', 'elves', 'elf']
+	aliases: ['elf warrior', 'elves']
 });
