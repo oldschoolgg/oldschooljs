@@ -41,16 +41,10 @@ export default class SimpleMonster extends Monster {
 		const canGetKey =
 			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 
-		for (let i = 0; i < quantity; i++) {
-			if (canGetKey) {
-				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
-					loot.add('Brimstone key');
-				}
-			}
-			if (options.onSlayerTask && this.name.toLowerCase() === 'gargoyle' && roll(150)) {
-				loot.add('Brittle key');
-			}
-			if (options.inCatacombs) {
+
+		if (options.inCatacombs) {
+			for (let i = 0; i < quantity; i++)
+			{
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}
@@ -59,7 +53,22 @@ export default class SimpleMonster extends Monster {
 					loot.add('Dark totem base');
 				}
 			}
-			if (options.onSlayerTask) {
+		}
+		if (canGetKey) {
+			for (let i = 0; i < quantity; i++)
+			{
+				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
+					loot.add('Brimstone key');
+				}
+			}
+		}
+		if (options.onSlayerTask)
+		{
+			// Only do the slow way if we're on task.
+			for (let i = 0; i < quantity; i++) {
+				if (this.name.toLowerCase() === 'gargoyle' && roll(150)) {
+					loot.add('Brittle key');
+				}
 				if (options.hasSuperiors && roll(200)) {
 					// Superiors always drop totem piece in catacombs.
 					if (options.inCatacombs) loot.add('Dark totem base');
@@ -73,10 +82,10 @@ export default class SimpleMonster extends Monster {
 					// Monster doesn't have a unique on-slayer table
 					loot.add(this.table.roll());
 				}
-			} else {
-				// Not on slayer task
-				loot.add(this.table.roll());
 			}
+		} else {
+			// More efficient for the +kill command.
+			loot.add(this.table.roll(quantity));
 		}
 
 		return loot;
