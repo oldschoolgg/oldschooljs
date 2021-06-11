@@ -241,7 +241,7 @@ import UndeadCow from './t-z/UndeadCow';
 import UndeadDruid from './t-z/UndeadDruid';
 import UndeadOne from './t-z/UndeadOne';
 import Unicorn from './t-z/Unicorn';
-import UriumShade from "./t-z/UriumShade";
+import UriumShade from './t-z/UriumShade';
 import VampyreJuvinate from './t-z/VampyreJuvinate';
 import Vyre from './t-z/Vyre';
 import Vyrewatch from './t-z/Vyrewatch';
