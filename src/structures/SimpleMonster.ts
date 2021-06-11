@@ -41,10 +41,10 @@ export default class SimpleMonster extends Monster {
 		const canGetKey =
 			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 
-
-		if (options.inCatacombs) {
-			for (let i = 0; i < quantity; i++)
-			{
+		if (options.onSlayerTask)
+		{
+			// Only do the slow way if we're on task.
+			if (options.inCatacombs) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}
@@ -53,18 +53,11 @@ export default class SimpleMonster extends Monster {
 					loot.add('Dark totem base');
 				}
 			}
-		}
-		if (canGetKey) {
-			for (let i = 0; i < quantity; i++)
-			{
+			if (canGetKey) {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
 				}
 			}
-		}
-		if (options.onSlayerTask)
-		{
-			// Only do the slow way if we're on task.
 			for (let i = 0; i < quantity; i++) {
 				if (this.name.toLowerCase() === 'gargoyle' && roll(150)) {
 					loot.add('Brittle key');
@@ -86,6 +79,28 @@ export default class SimpleMonster extends Monster {
 		} else {
 			// More efficient for the +kill command.
 			loot.add(this.table.roll(quantity));
+
+			//This code duplication is more efficient
+			if (options.inCatacombs) {
+				for (let i = 0; i < quantity; i++)
+				{
+					if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
+						loot.add('Ancient shard');
+					}
+					if (roll(getTotemChanceFromHP(this.data.hitpoints))) {
+						// Always drop Dark totem base and bot will transmog accordingly.
+						loot.add('Dark totem base');
+					}
+				}
+			}
+			if (canGetKey) {
+				for (let i = 0; i < quantity; i++)
+				{
+					if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
+						loot.add('Brimstone key');
+					}
+				}
+			}
 		}
 
 		return loot;
