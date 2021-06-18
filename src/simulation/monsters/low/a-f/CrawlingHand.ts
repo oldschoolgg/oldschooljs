@@ -24,7 +24,8 @@ export const CrawlingHandPreTable = new LootTable()
 
 const CrawlingHandTable = new LootTable()
 	.every('Bones')
-	.tertiary(500, 'Crawling hand', 1)
+	// 7975 is the correct Crawling hand item
+	.tertiary(500, 7975, 1)
 	.every(CrawlingHandPreTable);
 
 export default new SimpleMonster({

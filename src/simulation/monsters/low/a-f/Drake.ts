@@ -16,17 +16,17 @@ const DrakeNotedHerbTable = new LootTable()
 
 const DrakeOnTaskUniqueTable = new LootTable()
 	/* Pre-roll */
-	.oneIn(512, "Drake's tooth")
-	.oneIn(512, "Drake's claw")
 	.oneIn(2_000, 'Dragon thrownaxe', [100, 200])
-	.oneIn(2_000, 'Dragon knife', [100, 200]);
+	.oneIn(2_000, 'Dragon knife', [100, 200])
+	.oneIn(512, "Drake's tooth")
+	.oneIn(512, "Drake's claw");
 
 const DrakeOffTaskUniqueTable = new LootTable()
 	/* Pre-roll */
-	.oneIn(2_560, "Drake's tooth")
-	.oneIn(2_560, "Drake's claw")
 	.oneIn(10_000, 'Dragon thrownaxe', [100, 200])
-	.oneIn(10_000, 'Dragon knife', [100, 200]);
+	.oneIn(10_000, 'Dragon knife', [100, 200])
+	.oneIn(2_560, "Drake's tooth")
+	.oneIn(2_560, "Drake's claw");
 
 export const DrakePreTable = new LootTable()
 	/* Weapons and armour */
