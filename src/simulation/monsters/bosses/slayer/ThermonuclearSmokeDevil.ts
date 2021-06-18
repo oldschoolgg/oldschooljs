@@ -61,6 +61,7 @@ const ThermonuclearSmokeDevilTable = new LootTable()
 	/* Tertiary */
 	.tertiary(96, 'Clue scroll (hard)')
 	.tertiary(500, 'Clue scroll (elite)')
+	.tertiary(2000, 'Jar of smoke')
 	.tertiary(3000, 'Pet smoke devil');
 
 export default new SimpleMonster({
