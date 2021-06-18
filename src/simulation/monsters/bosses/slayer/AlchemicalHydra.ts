@@ -78,13 +78,16 @@ const NormalTable = new LootTable()
 	.add(RareDropTable, 1, 1);
 
 const NormalUniqueTable = new LootTable()
-	.add(NormalTable)
-	.oneIn(181, "Hydra's eye")
-
-	.oneIn(513, 'Hydra tail')
-	.oneIn(1001, "Hydra's claw")
+	.every(NormalTable)
 	.oneIn(2000, 'Dragon thrownaxe', [500, 1000])
-	.oneIn(2001, 'Dragon knife', [500, 1000]);
+	.oneIn(2000, 'Dragon knife', [500, 1000])
+	.oneIn(1000, "Hydra's claw")
+	.oneIn(512, 'Hydra tail')
+	.oneIn(512, 'Hydra leather')
+	.oneIn(180, "Hydra's eye")
+	// These are so they show on the drop table, it's okay if they're rolled.
+	.oneIn(1_000_000, "Hydra's fang")
+	.oneIn(1_000_000, "Hydra's heart");
 
 const AlchemicalHydraTable = new LootTable()
 	.every(NormalUniqueTable)

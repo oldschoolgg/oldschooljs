@@ -49,5 +49,5 @@ export default new SimpleMonster({
 	id: 2919,
 	name: 'Mithril Dragon',
 	table: MithrilDragonTable,
-	aliases: ['mithril dragon', 'mith dragon']
+	aliases: ['mithril dragon', 'mith dragon', 'mith drags', 'mithril dragons']
 });

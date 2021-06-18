@@ -3,6 +3,10 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
+const AncientWyvernTreeSeedTable = new LootTable()
+	.add('Mahogany seed', 1, 2)
+	.add('Magic seed', 1, 1);
+
 const AncientWyvernTable = new LootTable()
 	.every('Wyvern bones')
 	.oneIn(600, 'Granite longsword')
@@ -34,6 +38,10 @@ const AncientWyvernTable = new LootTable()
 
 	/* Seeds */
 	.add(TreeHerbSeedTable, 1, 4)
+	.add('Seaweed spore', [16, 24], 2)
+	.add('Ranarr seed', [2, 3], 1)
+	.add('Yew seed', 1, 2)
+	.add(AncientWyvernTreeSeedTable, 1, 2)
 
 	/* Materials 41/128 */
 	.add('Adamantite bar', 3, 12)

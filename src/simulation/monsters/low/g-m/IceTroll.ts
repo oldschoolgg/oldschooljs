@@ -2,40 +2,38 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
+import UncommonSeedDropTable from '../../../subtables/UncommonSeedDropTable';
 
 const IceTrollTable = new LootTable()
 	.every('Big bones')
 
 	/* Weapons and armour */
-	.add('Adamant kiteshield', 1, 8)
-	.add('Black platebody', 1, 4)
-	.add('Adamant axe', 1, 2)
-	.add('Black warhammer', 1, 1)
-	.add('Mithril platebody', 1, 1)
-	.add('Rune battleaxe', 1, 1)
+	.add('Adamant full helm', 1, 10)
+	.add('Steel platebody', 1, 10)
+	.add('Mithril warhammer', 1, 5)
+	.add('Adamant axe', 1, 5)
+	.add('Rune kiteshield', 1, 2)
+	.add('Granite shield', 1, 1)
+	.add('Rune warhammer', 1, 1)
 
 	/* Runes */
-	.add('Blood rune', 2, 8)
-	.add('Blood rune', 5, 5)
-	.add('Law rune', 4, 3)
-	.add('Death rune', 15, 1)
-	.add('Water rune', 65, 1)
+	.add('Earth rune', [8, 14], 10)
+	.add('Earth rune', [12, 36], 10)
+	.add('Nature rune', [4, 12], 5)
+	.add('Law rune', [4, 8], 5)
 
 	/* Herbs */
-	.add(HerbDropTable, 1, 18)
-
-	/* Coins */
-	.add('Coins', 30, 29)
-	.add('Coins', 136, 25)
-	.add('Coins', 200, 10)
-	.add('Coins', 20, 4)
+	.add(HerbDropTable, 1, 2)
+	.add(UncommonSeedDropTable, 1, 11)
 
 	/* Other */
-	.add('Lobster', 6, 3)
-	.add('Raw tuna', 4, 2)
+	.add('Coins', 200, 20)
+	.add('Raw shark', [2, 8], 10)
+	.add('Seaweed', [3, 9], 10)
+	.add('Ball of wool', [18, 42], 10)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 8)
+	.add(GemTable, 1, 1)
 
 	/* Tertiary */
 	.tertiary(20, 'Ensouled troll head')

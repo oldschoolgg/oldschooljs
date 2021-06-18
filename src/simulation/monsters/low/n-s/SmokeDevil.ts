@@ -62,5 +62,5 @@ export default new SimpleMonster({
 	id: 498,
 	name: 'Smoke Devil',
 	table: SmokeDevilTable,
-	aliases: ['smoke devil']
+	aliases: ['smoke devil', 'smokeys', 'smokies', 'smoke devils']
 });
