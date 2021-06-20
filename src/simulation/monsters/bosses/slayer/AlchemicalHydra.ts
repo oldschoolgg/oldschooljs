@@ -3,6 +3,11 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
+const AlchemicalHydraBrimstoneRingTable = new LootTable()
+	.add("Hydra's eye")
+	.add("Hydra's fang")
+	.add("Hydra's heart");
+
 const RuneArmourTable = new LootTable()
 	.every('Rune platebody')
 	.add('Rune platelegs')
@@ -84,10 +89,7 @@ const NormalUniqueTable = new LootTable()
 	.oneIn(1000, "Hydra's claw")
 	.oneIn(512, 'Hydra tail')
 	.oneIn(512, 'Hydra leather')
-	.oneIn(180, "Hydra's eye")
-	// These are so they show on the drop table, it's okay if they're rolled.
-	.oneIn(1_000_000, "Hydra's fang")
-	.oneIn(1_000_000, "Hydra's heart");
+	.oneIn(180, AlchemicalHydraBrimstoneRingTable);
 
 const AlchemicalHydraTable = new LootTable()
 	.every(NormalUniqueTable)
