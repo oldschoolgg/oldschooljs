@@ -6,17 +6,17 @@ import RareSeedTable from '../../../subtables/RareSeedTable';
 
 const WyrmOnTaskUniqueTable = new LootTable()
 	/* Pre-roll*/
-	.oneIn(2_000, 'Dragon sword')
-	.oneIn(2_000, 'Dragon harpoon')
 	.oneIn(2_000, 'Dragon knife', [75, 150])
-	.oneIn(2_000, 'Dragon thrownaxe', [75, 150]);
+	.oneIn(2_000, 'Dragon thrownaxe', [75, 150])
+	.oneIn(2_000, 'Dragon sword')
+	.oneIn(2_000, 'Dragon harpoon');
 
 const WyrmOffTaskUniqueTable = new LootTable()
 	/* Pre-roll*/
-	.oneIn(10_000, 'Dragon sword')
-	.oneIn(10_000, 'Dragon harpoon')
 	.oneIn(10_000, 'Dragon knife', [75, 150])
-	.oneIn(10_000, 'Dragon thrownaxe', [75, 150]);
+	.oneIn(10_000, 'Dragon thrownaxe', [75, 150])
+	.oneIn(10_000, 'Dragon sword')
+	.oneIn(10_000, 'Dragon harpoon');
 
 export const WyrmPreTable = new LootTable({ limit: 76 })
 	/* Weapons and armour */

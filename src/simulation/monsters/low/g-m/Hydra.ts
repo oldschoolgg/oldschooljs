@@ -5,19 +5,22 @@ import { NotedHerbTable } from '../../../subtables/NotedHerbTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-const HydraOffTaskUniqueTable = new LootTable()
-	.oneIn(1_801, "Hydra's eye")
+const HydraBrimstoneRingTable = new LootTable()
+	.add("Hydra's eye")
+	.add("Hydra's fang")
+	.add("Hydra's heart");
 
-	.oneIn(5_001, 'Hydra tail')
+const HydraOffTaskUniqueTable = new LootTable()
 	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
-	.oneIn(10_001, 'Dragon knife', [200, 400]);
+	.oneIn(10_000, 'Dragon knife', [200, 400])
+	.oneIn(5_000, 'Hydra tail')
+	.oneIn(1_800, HydraBrimstoneRingTable);
 
 const HydraOnTaskUniqueTable = new LootTable()
-	.oneIn(1_801, "Hydra's eye")
-
-	.oneIn(5_001, 'Hydra tail')
-	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])
-	.oneIn(10_001, 'Dragon knife', [200, 400]);
+	.oneIn(2_000, 'Dragon thrownaxe', [200, 400])
+	.oneIn(2_000, 'Dragon knife', [200, 400])
+	.oneIn(1_000, 'Hydra tail')
+	.oneIn(360, HydraBrimstoneRingTable);
 
 export const HydraPreTable = new LootTable()
 	/* Weapons and armour */
