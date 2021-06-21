@@ -5,6 +5,8 @@ import { GemTable } from '../../../subtables/RareDropTable';
 export const MinotaurTable = new LootTable({ limit: 101 })
 	.every('Bones')
 
+	.oneIn(33, 'Right skull half')
+
 	.tertiary(50, 'Ensouled minotaur head')
 	.tertiary(60, 'Clue scroll (beginner)')
 	.tertiary(101, 'Clue scroll (easy)')

@@ -7,6 +7,8 @@ import { GemTable } from '../../../subtables/RareDropTable';
 const AnkouTable = new LootTable({ limit: 100 })
 	.every('Bones')
 
+	.oneIn(33, 'Left skull half')
+
 	/* Weapons and armor */
 	.add('Black knife', 1, 1)
 	.add('Black robe', 1, 1)
