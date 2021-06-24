@@ -56,7 +56,7 @@ for (const [id, item] of Object.entries(items)) {
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, item);
 	const cleanName = cleanString(item.name);
-	if (!itemNameMap.has(cleanName)) itemNameMap.set(cleanName, numID);
+	if (!itemNameMap.has(cleanName) || (!items[itemNameMap.get(cleanName)].tradeable && item.tradeable)) itemNameMap.set(cleanName, numID);
 }
 
 export default itemsExport;
