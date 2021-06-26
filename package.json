@@ -15,7 +15,6 @@
 		"test:run": "yarn build && jest",
 		"test:lint": "eslint --ext ts src",
 		"test:coverage": "npm run test:run --coverage",
-		"deeptest": "yarn build && ts-node test/deepsuite",
 		"lint": "eslint --ext ts src test --fix && prettier --check \"{src,test}/**/*.{ts,json}\" --write",
 		"build": "tsc -p .",
 		"dev": "tsc --watch -p .",
