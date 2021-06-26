@@ -207,4 +207,12 @@ export default class Bank {
 	public get length(): number {
 		return Object.keys(this.bank).length;
 	}
+
+	public value(): number {
+		let value = 0;
+		for (const [item, quantity] of this.items()) {
+			value += item.price * quantity;
+		}
+		return value;
+	}
 }
