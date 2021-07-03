@@ -3,7 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-export const NechryaelPreTable = new LootTable({ limit: 116 })
+export const NechryaelPreTable = new LootTable()
 	/* Weapons and armor */
 	.add('Adamant platelegs', 1, 8)
 	.add('Rune 2h sword', 1, 8)
