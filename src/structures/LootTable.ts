@@ -178,13 +178,8 @@ export default class LootTable {
 				}
 			}
 
-			const adjustedLimit =
-				this.limit !== undefined && this.limit > this.totalWeight
-					? this.limit
-					: this.totalWeight;
-
 			// Random float between 0 and the total weighting
-			const randomWeight = randFloat(0, adjustedLimit);
+			const randomWeight = randFloat(0, this.limit || this.totalWeight);
 
 			// The index of the item that will be used.
 			let result;
