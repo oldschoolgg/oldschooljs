@@ -1,6 +1,6 @@
 import _items from '../data/items/item_data.json';
 import { Item, ItemID } from '../meta/types';
-import { cleanString } from '../util/util';
+import { cleanString } from '../util/cleanString';
 import Collection from './Collection';
 const items = _items as Record<string, Item>;
 

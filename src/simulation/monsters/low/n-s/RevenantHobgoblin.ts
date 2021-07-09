@@ -1,24 +1,9 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
-
-const UniqueTable = new LootTable()
-	.add('Amulet of avarice', 1, 2)
-	.add("Craw's bow (u)", 1, 1)
-	.add("Thammaron's sceptre (u)", 1, 1)
-	.add("Viggora's chainmace (u)", 1, 1);
+import { makeRevTable } from '../../../../util';
 
 export const RevenantHobgoblinTable = new LootTable()
 	.every('Revenant ether', [1, 8])
-	.oneIn(12_560, UniqueTable)
-
-	/* Ancient statuettes */
-	.oneIn(2093, 'Ancient emblem')
-	.oneIn(2512, 'Ancient totem')
-	.oneIn(3140, 'Ancient statuette')
-	.oneIn(4187, 'Ancient crystal')
-	.oneIn(6280, 'Ancient medallion')
-	.oneIn(12_560, 'Ancient effigy')
-	.oneIn(12_560, 'Ancient relic')
 
 	/* Weapons and armour */
 	.add('Bracelet of ethereum (uncharged)', 1, 15)
@@ -61,5 +46,14 @@ export default new SimpleMonster({
 	id: 7933,
 	name: 'Revenant hobgoblin',
 	table: RevenantHobgoblinTable,
-	aliases: ['revenant hobgoblin']
+	aliases: ['revenant hobgoblin'],
+	customKillLogic: makeRevTable({
+		seeds: [3140, 1727],
+		uniqueTable: [12_560, 6908],
+		ancientEmblem: [2093, 6908],
+		ancientTotem: [3140, 1727],
+		ancientCrystal: [4186, 2302],
+		ancientStatuette: [6280, 3454],
+		topThree: [12_560, 6908]
+	})
 });
