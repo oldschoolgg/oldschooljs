@@ -176,7 +176,7 @@ export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string
 }
 
 export function getAncientShardChanceFromHP(hitpoints: number): number {
-	return Math.round((500 - hitpoints) / 3);
+	return Math.round((500 - hitpoints) / 1.5);
 }
 export function getTotemChanceFromHP(hitpoints: number): number {
 	return 500 - hitpoints;
