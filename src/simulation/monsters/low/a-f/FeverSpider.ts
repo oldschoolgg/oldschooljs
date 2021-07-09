@@ -1,7 +1,7 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
-const FeverSpiderTable = new LootTable({ limit: 128 }).add('Grimy kwuarm', 8);
+const FeverSpiderTable = new LootTable({ limit: 120 }).add('Grimy kwuarm', 10);
 
 export default new SimpleMonster({
 	id: 626,

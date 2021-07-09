@@ -3,7 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import CommonSeedDropTable from '../../../subtables/CommonSeedDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const HerbTable = new LootTable({ limit: 128 })
+const HerbTable = new LootTable()
 	.add('Grimy guam leaf', 1, 10)
 	.add('Grimy marrentill', 1, 10)
 	.add('Grimy tarromin', 1, 5)
