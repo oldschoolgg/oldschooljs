@@ -18,5 +18,9 @@ export default abstract class Monster {
 		this.aliases = options.aliases ?? [];
 		this.data = monsterData[this.id];
 		this.allItems = options.allItems;
+		const pluralName = this.name.toLowerCase() + 's';
+		if (!this.aliases.includes(pluralName)) {
+			this.aliases.push(pluralName);
+		}
 	}
 }
