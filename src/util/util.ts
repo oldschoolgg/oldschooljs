@@ -8,7 +8,7 @@ import {
 	LootBank,
 	MonsterKillOptions
 } from '../meta/types';
-import Bank from '../structures/Bank';
+import type Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import Player from '../structures/Player';
 
