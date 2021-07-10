@@ -465,6 +465,7 @@ export interface MonsterKillOptions {
 	 */
 	hasSuperiors?: SimpleMonster;
 	farmingLevel?: number;
+	skulled?: boolean;
 }
 
 export interface OpenableOptions {
@@ -486,3 +487,5 @@ export interface LootTableOptions {
 export interface ClueOptions {
 	table: LootTable;
 }
+
+export type CustomKillLogic = (options: MonsterKillOptions, currentLoot: Bank) => void;
