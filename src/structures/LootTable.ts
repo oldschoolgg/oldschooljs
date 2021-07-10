@@ -123,6 +123,9 @@ export default class LootTable {
 		quantity: number[] | number = 1,
 		weight = 1
 	): this {
+		if (this.limit && weight + this.totalWeight > this.limit) {
+			throw new Error('Loot table total weight exceeds limit');
+		}
 		if (typeof item === 'string') {
 			return this.add(this.resolveName(item), quantity, weight);
 		}
