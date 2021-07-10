@@ -50,9 +50,6 @@ export default class SimpleMonster extends Monster {
 					loot.add('Brimstone key');
 				}
 			}
-			if (options.onSlayerTask && this.name.toLowerCase() === 'gargoyle' && roll(150)) {
-				loot.add('Brittle key');
-			}
 			if (options.inCatacombs) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
@@ -63,13 +60,7 @@ export default class SimpleMonster extends Monster {
 				}
 			}
 			if (options.onSlayerTask) {
-				if (options.hasSuperiors && roll(200)) {
-					// Superiors always drop totem piece in catacombs.
-					if (options.inCatacombs) loot.add('Dark totem base');
-					// track number of superiors with this item (Distillator).
-					loot.add({ [420]: 1 });
-					loot.add(options.hasSuperiors.table.roll());
-				} else if (this.onTaskTable) {
+				if (this.onTaskTable) {
 					// Roll the monster's "on-task" table.
 					loot.add(this.onTaskTable.roll());
 				} else {
