@@ -208,14 +208,17 @@ export function makeRevTable(table: RevTable): CustomKillLogic {
 		const index = options.skulled ? 1 : 0;
 		if (roll(table.uniqueTable[index])) {
 			currentLoot.add(revsUniqueTable.roll());
+			return;
 		}
 
 		if (roll(table.seeds[index])) {
 			currentLoot.add('Yew seed', randInt(2, 7));
+			return;
 		}
 
 		if (roll(table.seeds[index])) {
 			currentLoot.add('Magic seed', randInt(2, 7));
+			return;
 		}
 
 		for (const [key, itemName] of [
@@ -229,6 +232,7 @@ export function makeRevTable(table: RevTable): CustomKillLogic {
 		] as const) {
 			if (roll(table[key][index])) {
 				currentLoot.add(itemName);
+				return;
 			}
 		}
 	};
