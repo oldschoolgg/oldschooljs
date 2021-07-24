@@ -86,7 +86,7 @@ describe('Items', () => {
 			if (!tbow) return done.fail('Missing item.');
 			expect(tbow.id).toBe(20997);
 			expect(tbow.name).toBe('Twisted bow');
-			expect(tbow.price).toBeGreaterThan(900_000_000);
+			expect(tbow.price).toBeGreaterThan(800_000_000);
 
 			if (!superStr) return done.fail('Missing item.');
 			expect(superStr.id).toBe(2440);

@@ -11,7 +11,7 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
-const USELESS_ITEMS = [
+export const USELESS_ITEMS = [
 	617,
 	8890,
 	6964,
