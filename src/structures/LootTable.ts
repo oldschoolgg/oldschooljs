@@ -75,13 +75,15 @@ export default class LootTable {
 	public oneIn(
 		chance: number,
 		item: LootTable | number | string,
-		quantity: number | number[] = 1
+		quantity: number | number[] = 1,
+		multiply = false
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.oneInItems.push({
 			item: resolved,
 			chance,
-			quantity
+			quantity,
+			multiply
 		});
 
 		this.addToAllItems(resolved);
@@ -92,13 +94,15 @@ export default class LootTable {
 	public tertiary(
 		chance: number,
 		item: LootTable | number | string,
-		quantity: number | number[] = 1
+		quantity: number | number[] = 1,
+		multiply = false
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.tertiaryItems.push({
 			item: resolved,
 			chance,
-			quantity
+			quantity,
+			multiply
 		});
 
 		this.addToAllItems(resolved);
@@ -106,11 +110,16 @@ export default class LootTable {
 		return this;
 	}
 
-	public every(item: LootTable | number | string, quantity: number | number[] = 1): this {
+	public every(
+		item: LootTable | number | string,
+		quantity: number | number[] = 1,
+		multiply = false
+	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.everyItems.push({
 			item: resolved,
-			quantity
+			quantity,
+			multiply
 		});
 
 		this.addToAllItems(resolved);
@@ -121,13 +130,14 @@ export default class LootTable {
 	public add(
 		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
-		weight = 1
+		weight = 1,
+		multiply = false
 	): this {
 		if (this.limit && weight + this.totalWeight > this.limit) {
 			throw new Error('Loot table total weight exceeds limit');
 		}
 		if (typeof item === 'string') {
-			return this.add(this.resolveName(item), quantity, weight);
+			return this.add(this.resolveName(item), quantity, weight, multiply);
 		}
 
 		// If its an array, but not a LootTableItem[] array.
@@ -144,7 +154,7 @@ export default class LootTable {
 				});
 			}
 
-			return this.add(newItems, quantity, weight);
+			return this.add(newItems, quantity, weight, multiply);
 		}
 
 		this.length += 1;
@@ -155,7 +165,8 @@ export default class LootTable {
 		this.table.push({
 			item,
 			weight,
-			quantity
+			quantity,
+			multiply
 		});
 
 		return this;
@@ -170,13 +181,13 @@ export default class LootTable {
 				this.addResultToLoot(item, loot);
 			}
 
-			for (const { chance, item, quantity } of this.tertiaryItems) {
-				if (roll(chance)) this.addResultToLoot({ item, quantity }, loot);
+			for (const { chance, item, quantity, multiply } of this.tertiaryItems) {
+				if (roll(chance)) this.addResultToLoot({ item, quantity, multiply }, loot);
 			}
 
-			for (const { chance, item, quantity } of this.oneInItems) {
+			for (const { chance, item, quantity, multiply } of this.oneInItems) {
 				if (roll(chance)) {
-					this.addResultToLoot({ item, quantity }, loot);
+					this.addResultToLoot({ item, quantity, multiply }, loot);
 					continue outerLoop;
 				}
 			}
@@ -207,7 +218,7 @@ export default class LootTable {
 
 	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
 		if (!result) return;
-		const { item, quantity } = result;
+		const { item, quantity, multiply } = result;
 
 		if (Array.isArray(item)) {
 			for (const singleItem of item) {
@@ -219,7 +230,8 @@ export default class LootTable {
 		const qty = this.determineQuantity(quantity);
 
 		if (item instanceof LootTable) {
-			loot.add(item.roll(qty));
+			if (multiply) loot.add(item.roll(1).multiply(qty));
+			else loot.add(item.roll(qty));
 			return;
 		}
 

@@ -435,6 +435,7 @@ export interface LootTableItem {
 	item: number | LootTable | LootTableItem[];
 	weight?: number;
 	quantity: number | number[];
+	multiply?: boolean;
 }
 
 export interface OneInItems extends LootTableItem {
