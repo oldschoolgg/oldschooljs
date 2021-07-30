@@ -40,12 +40,25 @@ const BasiliskKnightTable = new LootTable()
 	.tertiary(256, 'Mystic hat (light)')
 	.tertiary(400, 'Long bone')
 	.tertiary(1000, 'Basilisk head')
-	.tertiary(3000, 'Basilisk jaw')
+	.tertiary(5000, 'Basilisk jaw')
+	.tertiary(5013, 'Curved bone');
+
+const BasiliskKnightOnTaskTable = new LootTable()
+	.every('Big bones')
+	.every(BasiliskKnightPreTable)
+
+	/* Tertiary */
+	.tertiary(192, 'Clue scroll (hard)')
+	.tertiary(256, 'Mystic hat (light)')
+	.tertiary(400, 'Long bone')
+	.tertiary(1000, 'Basilisk head')
+	.tertiary(1000, 'Basilisk jaw')
 	.tertiary(5013, 'Curved bone');
 
 export default new SimpleMonster({
 	id: 9293,
 	name: 'Basilisk Knight',
 	table: BasiliskKnightTable,
+	onTaskTable: BasiliskKnightOnTaskTable,
 	aliases: ['basilisk knight', 'bas knight']
 });

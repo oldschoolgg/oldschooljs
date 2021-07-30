@@ -179,6 +179,7 @@ import Porazdir from './n-s/Porazdir';
 import PrifddinasElf from './n-s/PrifddinasElf';
 import PriffRabbit from './n-s/PriffRabbit';
 import Pyrefiend from './n-s/Pyrefiend';
+import Pyrelord from './n-s/Pyrelord';
 import Rat from './n-s/Rat';
 import ReanimatedAbyssal from './n-s/ReanimatedAbyssal';
 import ReanimatedDog from './n-s/ReanimatedDog';
@@ -240,6 +241,7 @@ import UndeadCow from './t-z/UndeadCow';
 import UndeadDruid from './t-z/UndeadDruid';
 import UndeadOne from './t-z/UndeadOne';
 import Unicorn from './t-z/Unicorn';
+import UriumShade from './t-z/UriumShade';
 import VampyreJuvinate from './t-z/VampyreJuvinate';
 import Vyre from './t-z/Vyre';
 import Vyrewatch from './t-z/Vyrewatch';
@@ -339,6 +341,7 @@ export const allLowMonsters = {
 	ReanimatedAbyssal,
 	ReanimatedElf,
 	Pyrefiend,
+	Pyrelord,
 	Porazdir,
 	Ogre,
 	OgressShaman,
@@ -365,6 +368,7 @@ export const allLowMonsters = {
 	UndeadCow,
 	UndeadDruid,
 	UndeadOne,
+	UriumShade,
 	WhiteWolf,
 	WildDog,
 	Zogre,

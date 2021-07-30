@@ -1,5 +1,6 @@
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
+import SimpleMonster from '../structures/SimpleMonster';
 import { MonsterSlayerMaster } from './monsterData';
 
 type ChestSize = 'big' | 'small';
@@ -459,7 +460,12 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	/**
+	 * If monster is eligible for superior, pass the LootTable.
+	 */
+	hasSuperiors?: SimpleMonster;
 	farmingLevel?: number;
+	skulled?: boolean;
 }
 
 export interface OpenableOptions {
@@ -481,3 +487,5 @@ export interface LootTableOptions {
 export interface ClueOptions {
 	table: LootTable;
 }
+
+export type CustomKillLogic = (options: MonsterKillOptions, currentLoot: Bank) => void;

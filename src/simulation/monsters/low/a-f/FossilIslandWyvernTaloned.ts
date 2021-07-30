@@ -31,6 +31,8 @@ const TalonedWyvernTable = new LootTable()
 
 	/* Seeds */
 	.add(TreeHerbSeedTable, 1, 1)
+	.add('Seaweed spore', 12, 2)
+	.add('Ranarr seed', 1, 2)
 
 	/* Resources */
 	.add('Pure essence', 150, 8)

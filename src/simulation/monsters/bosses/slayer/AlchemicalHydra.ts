@@ -3,6 +3,11 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
+const AlchemicalHydraBrimstoneRingTable = new LootTable()
+	.add("Hydra's eye")
+	.add("Hydra's fang")
+	.add("Hydra's heart");
+
 const RuneArmourTable = new LootTable()
 	.every('Rune platebody')
 	.add('Rune platelegs')
@@ -78,14 +83,13 @@ const NormalTable = new LootTable()
 	.add(RareDropTable, 1, 1);
 
 const NormalUniqueTable = new LootTable()
-	.add(NormalTable)
-	.oneIn(181, "Hydra's eye")
-	.oneIn(181, "Hydra's fang")
-	.oneIn(181, "Hydra's heart")
-	.oneIn(513, 'Hydra tail')
-	.oneIn(1001, "Hydra's claw")
+	.every(NormalTable)
 	.oneIn(2000, 'Dragon thrownaxe', [500, 1000])
-	.oneIn(2001, 'Dragon knife', [500, 1000]);
+	.oneIn(2000, 'Dragon knife', [500, 1000])
+	.oneIn(1000, "Hydra's claw")
+	.oneIn(512, 'Hydra tail')
+	.oneIn(512, 'Hydra leather')
+	.oneIn(180, AlchemicalHydraBrimstoneRingTable);
 
 const AlchemicalHydraTable = new LootTable()
 	.every(NormalUniqueTable)
@@ -102,5 +106,5 @@ export default new SimpleMonster({
 	id: 8615,
 	name: 'Alchemical Hydra',
 	table: AlchemicalHydraTable,
-	aliases: ['alchemical hydra']
+	aliases: ['alchemical hydra', 'hydra boss']
 });

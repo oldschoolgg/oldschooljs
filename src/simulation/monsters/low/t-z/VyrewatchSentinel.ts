@@ -62,5 +62,5 @@ export default new SimpleMonster({
 	id: 9756,
 	name: 'Vyrewatch Sentinel',
 	table: VyrewatchSentinelTable,
-	aliases: ['vyrewatch sentinel']
+	aliases: ['vyrewatch sentinel', 'bat people', 'bat person']
 });
