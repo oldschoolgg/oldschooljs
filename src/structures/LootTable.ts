@@ -219,7 +219,7 @@ export default class LootTable {
 	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
 		if (!result) return;
 		const { item, quantity, options } = result;
-		const { multiply } = options;
+		const multiply = options?.multiply;
 
 		if (Array.isArray(item)) {
 			for (const singleItem of item) {
