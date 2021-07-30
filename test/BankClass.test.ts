@@ -1,6 +1,5 @@
-import { Bank, Items } from '../dist';
+import { Bank, Items, LootTable } from '../dist';
 import { Item, ReturnedLootItem } from '../dist/meta/types';
-import LootTable from '../dist/structures/LootTable';
 import { itemID, multiplyBank, resolveNameBank } from '../dist/util';
 
 const TestLootTable = new LootTable().add('Toolkit');

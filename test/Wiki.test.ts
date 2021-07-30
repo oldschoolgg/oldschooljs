@@ -1,6 +1,7 @@
 import { Wiki } from '../dist';
 
 describe('Wiki', () => {
+	jest.setTimeout(20_000);
 	test('Searching', async () => {
 		expect.assertions(2);
 
