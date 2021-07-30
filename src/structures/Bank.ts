@@ -8,7 +8,7 @@ import {
 	removeBankFromBank,
 	resolveBank,
 	resolveNameBank
-} from '../util';
+} from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 

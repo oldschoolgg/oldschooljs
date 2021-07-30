@@ -1,7 +1,7 @@
 import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
-import { MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
 import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
@@ -15,12 +15,14 @@ interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
 	onTaskTable?: LootTable;
 	pickpocketTable?: LootTable;
+	customKillLogic?: CustomKillLogic;
 }
 
 export default class SimpleMonster extends Monster {
 	public table?: LootTable;
 	public onTaskTable?: LootTable;
 	public pickpocketTable?: LootTable;
+	public customKillLogic?: CustomKillLogic;
 
 	constructor(options: SimpleMonsterOptions) {
 		let allItems: number[] = [];
@@ -34,6 +36,7 @@ export default class SimpleMonster extends Monster {
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
 		this.onTaskTable = options.onTaskTable;
+		this.customKillLogic = options.customKillLogic;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
@@ -76,6 +79,9 @@ export default class SimpleMonster extends Monster {
 			} else {
 				// Not on slayer task
 				loot.add(this.table.roll());
+			}
+			if (this.customKillLogic) {
+				this.customKillLogic(options, loot);
 			}
 		}
 		return loot;

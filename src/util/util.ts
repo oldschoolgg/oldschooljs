@@ -1,5 +1,15 @@
+import { randInt, roll } from 'e';
+
 import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
-import { DateYearMonth, ItemBank, LootBank } from '../meta/types';
+import {
+	CustomKillLogic,
+	DateYearMonth,
+	ItemBank,
+	LootBank,
+	MonsterKillOptions
+} from '../meta/types';
+import type Bank from '../structures/Bank';
+import LootTable from '../structures/LootTable';
 import Player from '../structures/Player';
 
 export function resolvePlayerFromHiscores(csvData: string): Player {
@@ -72,14 +82,6 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
  */
 export function isValidUsername(username: string): boolean {
 	return !!username.match('^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$');
-}
-
-/**
- * Removes all whitespace, and uppercases it. Used for comparisons.
- * @param str The string to clean.
- */
-export function cleanString(str: string): string {
-	return str.replace(/\s/g, '').toUpperCase();
 }
 
 /**
@@ -176,8 +178,62 @@ export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string
 }
 
 export function getAncientShardChanceFromHP(hitpoints: number): number {
-	return Math.round((500 - hitpoints) / 3);
+	return Math.round((500 - hitpoints) / 1.5);
 }
+
 export function getTotemChanceFromHP(hitpoints: number): number {
 	return 500 - hitpoints;
+}
+
+export interface RevTable {
+	uniqueTable: RevTableItem;
+	ancientEmblem: RevTableItem;
+	ancientTotem: RevTableItem;
+	ancientCrystal: RevTableItem;
+	ancientStatuette: RevTableItem;
+	topThree: RevTableItem;
+	seeds: RevTableItem;
+}
+
+type RevTableItem = [number, number];
+
+export const revsUniqueTable = new LootTable()
+	.add('Amulet of avarice', 1, 2)
+	.add("Craw's bow (u)", 1, 1)
+	.add("Thammaron's sceptre (u)", 1, 1)
+	.add("Viggora's chainmace (u)", 1, 1);
+
+export function makeRevTable(table: RevTable): CustomKillLogic {
+	return (options: MonsterKillOptions, currentLoot: Bank) => {
+		const index = options.skulled ? 1 : 0;
+		if (roll(table.uniqueTable[index])) {
+			currentLoot.add(revsUniqueTable.roll());
+			return;
+		}
+
+		if (roll(table.seeds[index])) {
+			currentLoot.add('Yew seed', randInt(2, 7));
+			return;
+		}
+
+		if (roll(table.seeds[index])) {
+			currentLoot.add('Magic seed', randInt(2, 7));
+			return;
+		}
+
+		for (const [key, itemName] of [
+			['ancientEmblem', 'Ancient emblem'],
+			['ancientTotem', 'Ancient totem'],
+			['ancientCrystal', 'Ancient crystal'],
+			['ancientStatuette', 'Ancient statuette'],
+			['topThree', 'Ancient medallion'],
+			['topThree', 'Ancient effigy'],
+			['topThree', 'Ancient relic']
+		] as const) {
+			if (roll(table[key][index])) {
+				currentLoot.add(itemName);
+				return;
+			}
+		}
+	};
 }
