@@ -1,6 +1,6 @@
 import { roll } from 'e';
 
-import { ItemBank, MonsterKillOptions } from '../../../meta/types';
+import { MonsterKillOptions } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/Monster';
@@ -65,7 +65,7 @@ const MainTable = new LootTable()
 	.add('Redwood tree seed', 1, 1);
 
 export class Hespori extends SimpleMonster {
-	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): ItemBank {
+	public kill(quantity = 1, options: MonsterKillOptions = { farmingLevel: 99 }): Bank {
 		const loot = new Bank();
 		const farmingLvl = options.farmingLevel ?? 99;
 
@@ -73,7 +73,7 @@ export class Hespori extends SimpleMonster {
 			loot.add(MainTable.roll());
 			if (roll(7000 - farmingLvl * 25)) loot.add('Tangleroot');
 		}
-		return loot.values();
+		return loot;
 	}
 }
 

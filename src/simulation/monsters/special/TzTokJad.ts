@@ -1,11 +1,11 @@
 import { roll } from 'e';
 
-import { ItemBank, MonsterKillOptions } from '../../../meta/types';
+import { MonsterKillOptions } from '../../../meta/types';
 import Bank from '../../../structures/Bank';
 import Monster from '../../../structures/Monster';
 
 export class TzTokJadClass extends Monster {
-	public kill(quantity = 1, options: MonsterKillOptions = {}): ItemBank {
+	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -16,7 +16,7 @@ export class TzTokJadClass extends Monster {
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 

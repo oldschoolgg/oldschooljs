@@ -1,3 +1,5 @@
+import Bank from '../dist/structures/Bank';
+import Items from '../dist/structures/Items';
 import {
 	addArrayToBank,
 	addBanks,
@@ -230,5 +232,45 @@ describe('Bank', () => {
 		const bankToHave2 = { 1: 4, 3: 8 };
 
 		expect(numItemsBankHasInBank(sourceBank2, bankToHave2)).toEqual(1);
+	});
+
+	test('mutate filter', () => {
+		const bank = new Bank({
+			Toolkit: 2,
+			'Ammo Mould': 4,
+			Candle: 1
+		});
+		expect(bank.length).toEqual(3);
+		const empty = bank.filter(() => false);
+		expect(bank.length).toEqual(3);
+		expect(empty.length).toEqual(0);
+		bank.filter((item) => item.name === 'Candle', true);
+		expect(bank.length).toEqual(1);
+	});
+
+	test('value', () => {
+		const bank = new Bank({
+			Toolkit: 2
+		});
+		expect(bank.value()).toEqual(0);
+		const runePlatebody = Items.get('Rune platebody');
+		const bank2 = new Bank({
+			'Rune platebody': 10
+		});
+		expect(runePlatebody.price).toBeGreaterThan(25_000);
+		expect(bank2.value()).toEqual(runePlatebody.price * 10);
+		const bank3 = new Bank({
+			'Rune platebody': 10,
+			'Rune platelegs': 10,
+			'Rune boots': 10,
+			Toolkit: 1,
+			'Abyssal book': 10000
+		});
+		expect(runePlatebody.price).toBeGreaterThan(25_000);
+		expect(bank3.value()).toEqual(
+			runePlatebody.price * 10 +
+				Items.get('Rune platelegs').price * 10 +
+				Items.get('Rune boots').price * 10
+		);
 	});
 });

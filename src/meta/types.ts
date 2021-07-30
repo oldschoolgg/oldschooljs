@@ -1,5 +1,6 @@
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
+import SimpleMonster from '../structures/SimpleMonster';
 import { MonsterSlayerMaster } from './monsterData';
 
 type ChestSize = 'big' | 'small';
@@ -341,6 +342,10 @@ export interface Item {
 	 * The stacked variant item IDs for this item, if any.
 	 */
 	stackedVariants?: { qty: number; id: number }[];
+	/**
+	 * The OSRS Wiki market price for this item, 0 if untradeable or has no price.
+	 */
+	price: number;
 }
 
 export interface NewsItem {
@@ -455,7 +460,12 @@ export interface MonsterKillOptions {
 	 * This is the assigner of this task, if on a task.
 	 */
 	slayerMaster?: MonsterSlayerMaster;
+	/**
+	 * If monster is eligible for superior, pass the LootTable.
+	 */
+	hasSuperiors?: SimpleMonster;
 	farmingLevel?: number;
+	skulled?: boolean;
 }
 
 export interface OpenableOptions {
@@ -477,3 +487,5 @@ export interface LootTableOptions {
 export interface ClueOptions {
 	table: LootTable;
 }
+
+export type CustomKillLogic = (options: MonsterKillOptions, currentLoot: Bank) => void;
