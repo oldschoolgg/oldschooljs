@@ -1,6 +1,6 @@
 import { randFloat, randInt, roll } from 'e';
 
-import { LootTableItem, LootTableOptions, OneInItems } from '../meta/types';
+import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from '../meta/types';
 import itemID from '../util/itemID';
 import Bank from './Bank';
 
@@ -76,14 +76,14 @@ export default class LootTable {
 		chance: number,
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		multiply = false
+		options?: LootTableMoreOptions
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.oneInItems.push({
 			item: resolved,
 			chance,
 			quantity,
-			multiply
+			options
 		});
 
 		this.addToAllItems(resolved);
@@ -95,14 +95,14 @@ export default class LootTable {
 		chance: number,
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		multiply = false
+		options?: LootTableMoreOptions
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.tertiaryItems.push({
 			item: resolved,
 			chance,
 			quantity,
-			multiply
+			options
 		});
 
 		this.addToAllItems(resolved);
@@ -113,13 +113,13 @@ export default class LootTable {
 	public every(
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		multiply = false
+		options?: LootTableMoreOptions
 	): this {
 		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
 		this.everyItems.push({
 			item: resolved,
 			quantity,
-			multiply
+			options
 		});
 
 		this.addToAllItems(resolved);
@@ -131,13 +131,13 @@ export default class LootTable {
 		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
 		weight = 1,
-		multiply = false
+		options?: LootTableMoreOptions
 	): this {
 		if (this.limit && weight + this.totalWeight > this.limit) {
 			throw new Error('Loot table total weight exceeds limit');
 		}
 		if (typeof item === 'string') {
-			return this.add(this.resolveName(item), quantity, weight, multiply);
+			return this.add(this.resolveName(item), quantity, weight, options);
 		}
 
 		// If its an array, but not a LootTableItem[] array.
@@ -154,7 +154,7 @@ export default class LootTable {
 				});
 			}
 
-			return this.add(newItems, quantity, weight, multiply);
+			return this.add(newItems, quantity, weight, options);
 		}
 
 		this.length += 1;
@@ -166,7 +166,7 @@ export default class LootTable {
 			item,
 			weight,
 			quantity,
-			multiply
+			options
 		});
 
 		return this;
@@ -181,13 +181,13 @@ export default class LootTable {
 				this.addResultToLoot(item, loot);
 			}
 
-			for (const { chance, item, quantity, multiply } of this.tertiaryItems) {
-				if (roll(chance)) this.addResultToLoot({ item, quantity, multiply }, loot);
+			for (const { chance, item, quantity, options } of this.tertiaryItems) {
+				if (roll(chance)) this.addResultToLoot({ item, quantity, options }, loot);
 			}
 
-			for (const { chance, item, quantity, multiply } of this.oneInItems) {
+			for (const { chance, item, quantity, options } of this.oneInItems) {
 				if (roll(chance)) {
-					this.addResultToLoot({ item, quantity, multiply }, loot);
+					this.addResultToLoot({ item, quantity, options }, loot);
 					continue outerLoop;
 				}
 			}
@@ -218,7 +218,8 @@ export default class LootTable {
 
 	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
 		if (!result) return;
-		const { item, quantity, multiply } = result;
+		const { item, quantity, options } = result;
+		const { multiply } = options;
 
 		if (Array.isArray(item)) {
 			for (const singleItem of item) {
