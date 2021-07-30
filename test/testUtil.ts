@@ -1,5 +1,4 @@
-import { Items } from '../dist';
-import { ItemBank } from '../dist/meta/types';
+import { Bank, Items } from '../dist';
 
 export function withinThreshold(source: number, target: number, epsilon = 5): boolean {
 	if (source === target) return true;
@@ -9,9 +8,10 @@ export function withinThreshold(source: number, target: number, epsilon = 5): bo
 export function checkThreshold(
 	done: jest.DoneCallback,
 	expectedRates: Record<string, number>,
-	result: ItemBank,
+	_result: Bank,
 	numberDone: number
 ): void {
+	const result = _result.bank;
 	for (const [name, qty] of Object.entries(expectedRates)) {
 		const item = Items.get(name);
 		if (!item) return done.fail(`Missing item: ${name}`);
