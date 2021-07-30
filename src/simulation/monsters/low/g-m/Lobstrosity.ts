@@ -16,16 +16,15 @@ export const LobstrosityTable = new LootTable()
 	.add('Death rune', 10, 5)
 
 	/* Noted herbs */
-	.add(NotedHerbTable, 2, 3)
+	.add(NotedHerbTable, 2, 11)
 
 	/* Un-noted herbs */
 	.add(HerbDropTable, 2, 14)
 
 	/* Seeds */
 	.add(UncommonSeedDropTable, 2, 4)
-	.every('Seaweed spore', 5)
 	.add(RareSeedTable, 1, 5)
-	.every('Seaweed spore', 5)
+	.add('Seaweed spore', 5, 6)
 
 	/* Other */
 	.add('Coins', 1000, 9)
