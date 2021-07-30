@@ -14,15 +14,15 @@ jobs:
         steps:
             - name: Checkout Project
               uses: actions/checkout@v2
-            - name: Use Node.js 13
+            - name: Use Node.js 14.17.3
               uses: actions/setup-node@v1
               with:
-                  node-version: 13
+                  node-version: 14.17.3
             - name: Restore CI Cache
               uses: actions/cache@v1
               with:
                   path: node_modules
-                  key: ${{ runner.os }}-10-${{ hashFiles('**/yarn.lock') }}
+                  key: ${{ runner.os }}-14.17.3-${{ hashFiles('**/yarn.lock') }}
             - name: Install Dependencies
               run: yarn
             - name: Test Docs
