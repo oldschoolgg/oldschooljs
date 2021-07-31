@@ -60,13 +60,16 @@ export const mappedBossNames: [string, string][] = [
 	['krilTsutsaroth', "K'ril Tsutsaroth"],
 	['mimic', 'Mimic'],
 	['nightmare', 'The Nightmare'],
+	['phosanisNightmare', "Phosani's Nightmare"],
 	['obor', 'Obor'],
 	['sarachnis', 'Sarachnis'],
 	['scorpia', 'Scorpia'],
 	['skotizo', 'Skotizo'],
+	['tempoross', 'Tempoross'],
 	['theGauntlet', 'The Gauntlet'],
 	['theCorruptedGauntlet', 'The Corrupted Gauntlet'],
 	['theatreofBlood', 'Theatre of Blood'],
+	['theatreofBloodHard', 'Theatre of Blood: Hard Mode'],
 	['thermonuclearSmokeDevil', 'Thermonuclear Smoke Devil'],
 	['tzKalZuk', 'TzKal-Zuk'],
 	['tzTokJad', 'TzTok-Jad'],
@@ -124,3 +127,29 @@ export const ErrorDescriptions: Record<string, string> = {
 export const OSRS_BOX_BASE_URL = `https://www.osrsbox.com/osrsbox-db`;
 
 export const EMPTY_BIRD_NEST_ID = 5075;
+
+export enum SkillsEnum {
+	Agility = 'agility',
+	Cooking = 'cooking',
+	Fishing = 'fishing',
+	Mining = 'mining',
+	Smithing = 'smithing',
+	Woodcutting = 'woodcutting',
+	Firemaking = 'firemaking',
+	Runecraft = 'runecraft',
+	Crafting = 'crafting',
+	Prayer = 'prayer',
+	Fletching = 'fletching',
+	Farming = 'farming',
+	Herblore = 'herblore',
+	Thieving = 'thieving',
+	Hunter = 'hunter',
+	Construction = 'construction',
+	Attack = 'attack',
+	Defence = 'defence',
+	Strength = 'strength',
+	Ranged = 'ranged',
+	Magic = 'magic',
+	Hitpoints = 'hitpoints',
+	Slayer = 'slayer'
+}

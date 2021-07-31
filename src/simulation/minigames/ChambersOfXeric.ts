@@ -1,6 +1,6 @@
 import { randFloat, roll, Time } from 'e';
 
-import { ItemBank, LootBank, ReturnedLootItem, SimpleTableItem } from '../../meta/types';
+import { ItemBank, LootBank, SimpleTableItem } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import Minigame from '../../structures/Minigame';
@@ -96,9 +96,7 @@ const UniqueTable = new LootTable()
 
 	.add('Elder maul', 1, 2)
 	.add('Kodai insignia', 1, 2)
-	.add('Twisted bow', 1, 2)
-
-	.tertiary(53, 'Olmlet');
+	.add('Twisted bow', 1, 2);
 
 const cmTeamTimes = [
 	[1, Time.Hour + Time.Minute * 10],
@@ -164,16 +162,16 @@ export class ChambersOfXericClass extends Minigame {
 		return completionTime <= Time.Hour + Time.Minute * 20;
 	}
 
-	public rollLootFromChances(chances: number[]): ReturnedLootItem[] {
-		let loot: ReturnedLootItem[] = [];
+	public rollLootFromChances(chances: number[]): Bank {
+		let rolls = 0;
 
 		for (const chance of chances) {
 			if (randFloat(0, 100) < chance) {
-				loot = loot.concat(UniqueTable.roll());
+				rolls++;
 			}
 		}
 
-		return loot;
+		return UniqueTable.roll(rolls);
 	}
 
 	// We're rolling 2 non-unique loots based off a number of personal points.
@@ -241,6 +239,10 @@ export class ChambersOfXericClass extends Minigame {
 				lootResult[teamMember.id].add('Metamorphic dust');
 			}
 
+			if (elligibleForDust && roll(75)) {
+				lootResult[teamMember.id].add('Twisted ancestral colour kit');
+			}
+
 			// If the team member can receive an Ancient Tablet, roll for this user.
 			if (teamMember.canReceiveAncientTablet && roll(10)) {
 				lootResult[teamMember.id].add('Ancient tablet');
@@ -251,10 +253,15 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// For every unique item received, add it to someones loot.
-		for (const uniqueItem of uniqueLoot) {
+		while (uniqueLoot.length > 0) {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
-			lootResult[receipientID].add([uniqueItem]);
+			const uniqueItem = uniqueLoot.random();
+			lootResult[receipientID].add(uniqueItem.id, 1);
+			uniqueLoot.remove(uniqueItem.id, 1);
+			if (roll(53)) {
+				lootResult[receipientID].add('Olmlet');
+			}
 			uniqueDeciderTable.delete(receipientID);
 		}
 

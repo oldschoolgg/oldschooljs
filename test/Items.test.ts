@@ -1,4 +1,4 @@
-import { Items } from '../dist';
+import { Items, Openables } from '../dist';
 import { Item } from '../dist/meta/types';
 
 const expectedIDTuple = [
@@ -63,6 +63,12 @@ function checkItems(): void {
 }
 
 describe('Items', () => {
+	test('All openables must have the ID of a real item', () => {
+		for (const openable of Openables.values()) {
+			expect(Items.get(openable.id)).toBeTruthy();
+		}
+	});
+
 	beforeAll(() => {
 		checkItems();
 	});
@@ -70,8 +76,6 @@ describe('Items', () => {
 	test.concurrent(
 		'Fetching Item by ID',
 		async (done) => {
-			expect.assertions(6);
-
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20997),
 				Items.get(2440),
@@ -82,6 +86,7 @@ describe('Items', () => {
 			if (!tbow) return done.fail('Missing item.');
 			expect(tbow.id).toBe(20997);
 			expect(tbow.name).toBe('Twisted bow');
+			expect(tbow.price).toBeGreaterThan(800_000_000);
 
 			if (!superStr) return done.fail('Missing item.');
 			expect(superStr.id).toBe(2440);
@@ -89,9 +94,11 @@ describe('Items', () => {
 			if (!dragonDagger) return done.fail('Missing item.');
 			expect(dragonDagger.id).toBe(5698);
 			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
+			expect(dragonDagger.price).toBeLessThan(22_000);
 
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
+			expect(coins.price).toEqual(1);
 		},
 		60000
 	);

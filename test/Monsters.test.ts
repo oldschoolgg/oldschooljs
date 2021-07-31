@@ -1,5 +1,4 @@
 import { Monsters } from '../dist';
-import { ItemBank } from '../dist/meta/types';
 import Bank from '../dist/structures/Bank';
 import LootTable from '../dist/structures/LootTable';
 import Monster from '../dist/structures/Monster';
@@ -54,34 +53,27 @@ describe('Monsters', () => {
 			.add(quantityTable, 100)
 			.add(emptyTable);
 
-		public kill(quantity = 1): ItemBank {
+		public kill(quantity = 1): Bank {
 			const loot = new Bank();
 
 			for (let i = 0; i < quantity; i++) {
 				const roll = this.table.roll();
-				const barDrop = roll.find((item) => item.item === 2353);
-				const otherBarDrop = roll.find((item) => item.item === 2351);
+				const barDrop = roll.amount('Iron bar');
+				const otherBarDrop = roll.amount('Steel bar');
 
-				const dragonClaws = roll.find((item) => item.item === 13652);
-
-				if (otherBarDrop && otherBarDrop.quantity !== barDrop?.quantity) {
-					throw new Error('Should drop array items at once');
+				if (otherBarDrop !== barDrop) {
+					throw new Error('Should drop equal amount');
 				}
 
-				if (
-					dragonClaws &&
-					roll
-						.filter((i) => i.item === 13652)
-						.map((item) => item.quantity)
-						.reduce((a, b) => a + b, 0) !== 100
-				) {
-					throw new Error('should always drop 100 at a time');
+				const dragonClawsAmount = roll.amount('Dragon claws');
+				if (dragonClawsAmount !== 0 && dragonClawsAmount !== 100) {
+					throw new Error('Dragon claws amount must be 0 or 100');
 				}
 
 				loot.add(roll);
 			}
 
-			return loot.values();
+			return loot;
 		}
 	}
 

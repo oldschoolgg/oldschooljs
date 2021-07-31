@@ -1,6 +1,5 @@
 import { objectEntries, randArrItem } from 'e';
 
-import { Items } from '..';
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
 	addBanks,
@@ -9,8 +8,9 @@ import {
 	removeBankFromBank,
 	resolveBank,
 	resolveNameBank
-} from '../util';
+} from '../util/bank';
 import itemID from '../util/itemID';
+import Items from './Items';
 
 export default class Bank {
 	public bank: ItemBank;
@@ -43,7 +43,14 @@ export default class Bank {
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+	public add(
+		item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined,
+		quantity = 1
+	): Bank {
+		if (!item) {
+			return this;
+		}
+
 		// Bank.add(123);
 		if (typeof item === 'number') {
 			return this.addItem(item, quantity);
@@ -64,7 +71,7 @@ export default class Bank {
 			return this.add(item.bank);
 		}
 
-		const firstKey = Object.keys(item)[0];
+		const firstKey: string | undefined = Object.keys(item)[0];
 		if (firstKey === undefined) {
 			return this;
 		}
@@ -166,12 +173,16 @@ export default class Bank {
 		return divisions[0] ?? 0;
 	}
 
-	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
+	public filter(fn: (item: Item, quantity: number) => boolean, mutate = false): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
 			if (fn(...item)) {
 				result.add(item[0].id, item[1]);
 			}
+		}
+		if (mutate) {
+			this.bank = result.bank;
+			return this;
 		}
 		return result;
 	}
@@ -195,5 +206,13 @@ export default class Bank {
 
 	public get length(): number {
 		return Object.keys(this.bank).length;
+	}
+
+	public value(): number {
+		let value = 0;
+		for (const [item, quantity] of this.items()) {
+			value += item.price * quantity;
+		}
+		return value;
 	}
 }

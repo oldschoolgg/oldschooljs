@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "1.7.4",
+	"version": "1.9.7",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -15,7 +15,6 @@
 		"test:run": "yarn build && jest",
 		"test:lint": "eslint --ext ts src",
 		"test:coverage": "npm run test:run --coverage",
-		"deeptest": "yarn build && ts-node test/deepsuite",
 		"lint": "eslint --ext ts src test --fix && prettier --check \"{src,test}/**/*.{ts,json}\" --write",
 		"build": "tsc -p .",
 		"dev": "tsc --watch -p .",
@@ -25,33 +24,33 @@
 		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
-		"e": "^0.2.0",
-		"jsdom": "^16.0.1",
+		"e": "^0.2.1",
+		"jsdom": "^16.6.0",
 		"node-fetch": "^2.6.0"
 	},
 	"devDependencies": {
-		"@types/jest": "^26.0.15",
+		"@types/jest": "^26.0.24",
 		"@types/jsdom": "^16.2.5",
-		"@types/node": "^14.14.8",
-		"@types/node-fetch": "^2.5.4",
+		"@types/node": "^14.17.3",
+		"@types/node-fetch": "^2.5.12",
 		"@typescript-eslint/eslint-plugin": "^4.8.1",
 		"@typescript-eslint/parser": "^4.8.1",
-		"eslint": "^7.13.0",
+		"eslint": "^7.31.0",
 		"eslint-config-bamboo": "^5.1.0",
 		"eslint-config-prettier": "^6.15.0",
-		"eslint-plugin-prettier": "^3.1.2",
-		"eslint-plugin-simple-import-sort": "^6.0.0",
-		"husky": "^4.2.1",
+		"eslint-plugin-prettier": "^3.4.0",
+		"eslint-plugin-simple-import-sort": "^6.0.1",
+		"husky": "^4.3.8",
 		"jest": "^26.6.3",
 		"jest-circus": "^26.6.3",
 		"nyc": "^15.0.1",
 		"prettier": "^2.1.2",
-		"pretty-quick": "^3.1.0",
-		"ts-jest": "^26.4.4",
-		"ts-node": "^9.0.0",
-		"ts-toolbelt": "^8.0.7",
+		"pretty-quick": "^3.1.1",
+		"ts-jest": "^26.5.6",
+		"ts-node": "^9.1.1",
+		"ts-toolbelt": "^8.4.0",
 		"typedoc": "^0.19.2",
-		"typescript": "^4.0.5"
+		"typescript": "^4.3.5"
 	},
 	"husky": {
 		"hooks": {

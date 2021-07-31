@@ -56,7 +56,7 @@ export function resolveBank(bank: Record<string, number>): ItemBank {
 	const newBank: ItemBank = {};
 
 	for (const [nameOrID, val] of Object.entries(bank)) {
-		const int = parseInt(nameOrID);
+		const int = Number(nameOrID);
 		const id = isNaN(int) ? itemID(nameOrID) : int;
 		newBank[id] = val;
 	}

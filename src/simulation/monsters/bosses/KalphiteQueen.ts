@@ -63,7 +63,7 @@ const KalphiteQueenTable = new LootTable({ limit: 256 })
 	.add('Weapon poison(++)', 5, 10)
 	.add('Cactus spine', 10, 6)
 
-	/* Rdt */
+	/* RDT */
 	.add(RareDropTable, 1, 2)
 
 	/* Tertiary */
