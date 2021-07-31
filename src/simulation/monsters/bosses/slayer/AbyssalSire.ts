@@ -35,7 +35,7 @@ const AbyssalSireTable = new LootTable()
 	.add(HerbSubTable, 1, 5)
 
 	/* Seeds */
-	.add(TreeHerbSeedTable, 2, 5)
+	.add(TreeHerbSeedTable, 2, 5, { multiply: true })
 
 	/* Materials */
 	.add('Coal', [380, 420], 6)
@@ -60,7 +60,7 @@ const AbyssalSireTable = new LootTable()
 	.oneIn(100, 'Unsired')
 
 	/* Rare drop table */
-	.add(RareDropTable, 2, 3)
+	.add(RareDropTable, 2, 3, { multiply: true })
 
 	/* Tertiary */
 	.tertiary(180, 'Clue scroll (elite)');

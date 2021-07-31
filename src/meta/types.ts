@@ -431,10 +431,15 @@ export interface BankItem {
 	qty: number;
 }
 
+export interface LootTableMoreOptions {
+	multiply?: boolean;
+}
+
 export interface LootTableItem {
 	item: number | LootTable | LootTableItem[];
 	weight?: number;
 	quantity: number | number[];
+	options?: LootTableMoreOptions;
 }
 
 export interface OneInItems extends LootTableItem {
