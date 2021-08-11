@@ -2,8 +2,6 @@ import { Hiscores } from '../dist';
 import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
-	expect.assertions(38);
-
 	const [lynxTitan, zulu, magnaboy, leaguesmagnaboy, virtualMagnaboy] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),
@@ -22,7 +20,6 @@ test('Hiscores', async () => {
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
-	expect(zulu.bossRecords.giantMole.score).toBe(1222);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
 	expect(zulu.bossRecords.commanderZilyana.score).toBe(1082);
