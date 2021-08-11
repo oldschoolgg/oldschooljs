@@ -42,9 +42,16 @@ const GargoyleTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)');
 
+const GargoyleOnTaskTable = new LootTable()
+	.every(GargoyleTable)
+
+	/* Brittle key can only drop on task */
+	.tertiary(150, 'Brittle key');
+
 export default new SimpleMonster({
 	id: 412,
 	name: 'Gargoyle',
 	table: GargoyleTable,
+	onTaskTable: GargoyleOnTaskTable,
 	aliases: ['gargoyle', 'garg', 'gargs']
 });
