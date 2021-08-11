@@ -77,21 +77,25 @@
 				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Hiscores } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
 
 <span class="hljs-keyword">const</span> lynxTitan = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">&#x27;Lynx Titan&#x27;</span>);
-<span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">&#x27;Iron Hyger&#x27;</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;ironman&#x27;</span> });</code></pre>
+<span class="hljs-keyword">const</span> ironHyger = <span class="hljs-keyword">await</span> Hiscores.fetch(<span class="hljs-string">&#x27;Iron Hyger&#x27;</span>, { <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;ironman&#x27;</span> });
+</code></pre>
 				<a href="#items" id="items" style="color: inherit; text-decoration: none;">
 					<h2>Items</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Items } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#getting-an-item-by-id" id="getting-an-item-by-id" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by ID</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBow = Items.get(<span class="hljs-number">20997</span>);
-<span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);</code></pre>
+<span class="hljs-keyword">if</span> (twistedBow) <span class="hljs-built_in">console</span>.log(twistedBow);
+</code></pre>
 				<a href="#getting-an-item-by-name" id="getting-an-item-by-name" style="color: inherit; text-decoration: none;">
 					<h4>Getting an Item by Name</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> dragonDagger = Items.get(<span class="hljs-string">&#x27;dragon dagger(p++)&#x27;</span>);
-<span class="hljs-keyword">if</span> (dragonDagger) <span class="hljs-built_in">console</span>.log(dragonDagger);</code></pre>
+<span class="hljs-keyword">if</span> (dragonDagger) <span class="hljs-built_in">console</span>.log(dragonDagger);
+</code></pre>
 				<a href="#find-items-by-any-properties" id="find-items-by-any-properties" style="color: inherit; text-decoration: none;">
 					<h4>Find items by any properties</h4>
 				</a>
@@ -100,30 +104,36 @@
 
 <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> item <span class="hljs-keyword">of</span> dragonItems.values()) {
     <span class="hljs-built_in">console</span>.log(item.name);
-}</code></pre>
+}
+</code></pre>
 				<a href="#monster-killing-simulator" id="monster-killing-simulator" style="color: inherit; text-decoration: none;">
 					<h2>Monster Killing Simulator</h2>
 				</a>
 				<p>Allows you to simulate killing monsters. The loot is returned in an object, where the key is the item ID and the quantity is the value.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Monsters } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#simulating-100-kills-of-every-monster" id="simulating-100-kills-of-every-monster" style="color: inherit; text-decoration: none;">
 					<h4>Simulating 100 Kills of every Monster</h4>
 				</a>
-				<pre><code class="language-js">Monsters.map(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.kill(<span class="hljs-number">100</span>));</code></pre>
+				<pre><code class="language-js">Monsters.map(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.kill(<span class="hljs-number">100</span>));
+</code></pre>
 				<a href="#simulating-100-corp-beast-kills" id="simulating-100-corp-beast-kills" style="color: inherit; text-decoration: none;">
 					<h4>Simulating 100 Corp beast kills</h4>
 				</a>
 				<pre><code class="language-js">Monsters.CorporealBeast.kill(<span class="hljs-number">100</span>);
 Monsters.find(<span class="hljs-function"><span class="hljs-params">monster</span> =&gt;</span> monster.name.aliases.includes(<span class="hljs-string">&#x27;corp&#x27;</span>)).kill(<span class="hljs-number">100</span>);
-Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);</code></pre>
+Monsters.get(<span class="hljs-number">319</span>).kill(<span class="hljs-number">100</span>);
+</code></pre>
 				<a href="#clue-scroll-simulating" id="clue-scroll-simulating" style="color: inherit; text-decoration: none;">
 					<h2>Clue Scroll Simulating</h2>
 				</a>
 				<p>Allows you to simulate opening clue scroll caskets. The rewards are returned in a format containing the item ID and the quantity.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Clues } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Clues.Beginner.open(<span class="hljs-number">1</span>));
 <span class="hljs-built_in">console</span>.log(Clues.Master.open(<span class="hljs-number">5</span>));
-<span class="hljs-built_in">console</span>.log(Clues.Elite.open());</code></pre>
+<span class="hljs-built_in">console</span>.log(Clues.Elite.open());
+</code></pre>
 				<a href="#banks" id="banks" style="color: inherit; text-decoration: none;">
 					<h2>Banks</h2>
 				</a>
@@ -142,7 +152,8 @@ bank
   .add(lootTable.roll())
   .add(CorporealBeast.kill());
 
-<span class="hljs-built_in">console</span>.log(bank.values());</code></pre>
+<span class="hljs-built_in">console</span>.log(bank.values());
+</code></pre>
 				<a href="#loot-tables" id="loot-tables" style="color: inherit; text-decoration: none;">
 					<h2>Loot Tables</h2>
 				</a>
@@ -155,11 +166,13 @@ bank
     .oneIn(<span class="hljs-number">585</span>, SigilTable)
     .tertiary(<span class="hljs-number">5000</span>, <span class="hljs-string">&#x27;Pet dark core&#x27;</span>);
 
-CorporealBeastTable.roll();</code></pre>
+CorporealBeastTable.roll();
+</code></pre>
 				<a href="#news" id="news" style="color: inherit; text-decoration: none;">
 					<h2>News</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { News } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { News } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<p>Be careful with <em>fetching</em> news articles too often, as the website will ratelimit you after roughly 30 requests in a short period. Whenever a fetch is done, the <code>News</code> collection will have any new articles cached.</p>
 				<p>Rather than fetching articles on demand, you may want to</p>
 				<a href="#fetch-recent-news-articles" id="fetch-recent-news-articles" style="color: inherit; text-decoration: none;">
@@ -167,99 +180,117 @@ CorporealBeastTable.roll();</code></pre>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> recentArticles = <span class="hljs-keyword">await</span> News.fetchRecent();
 
-<span class="hljs-keyword">const</span> mostRecentArticle = recentArticles.first();</code></pre>
+<span class="hljs-keyword">const</span> mostRecentArticle = recentArticles.first();
+</code></pre>
 				<a href="#get-news-articles-for-a-specific-month" id="get-news-articles-for-a-specific-month" style="color: inherit; text-decoration: none;">
 					<h4>Get news articles for a specific month</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> monthOfArticles = <span class="hljs-keyword">await</span> News.filter(<span class="hljs-function"><span class="hljs-params">article</span> =&gt;</span> article.year === <span class="hljs-number">2018</span> &amp;&amp; article.month === <span class="hljs-number">12</span>);
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);</code></pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);
+</code></pre>
 				<a href="#fetch-news-articles-for-a-specific-month" id="fetch-news-articles-for-a-specific-month" style="color: inherit; text-decoration: none;">
 					<h4>Fetch news articles for a specific month</h4>
 				</a>
 				<p>This will <em>fetch</em> news articles for a specific month, i.e it wont be cached. In most cases you can just use <code>News.filter()</code> instead of this.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> monthOfArticles = <span class="hljs-keyword">await</span> News.fetchMonth({ <span class="hljs-attr">year</span>: <span class="hljs-number">2018</span>, <span class="hljs-attr">month</span>: <span class="hljs-number">12</span> });
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);</code></pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There were <span class="hljs-subst">${monthOfArticles.size}</span> articles in that month.`</span>);
+</code></pre>
 				<a href="#list-every-available-news-article" id="list-every-available-news-article" style="color: inherit; text-decoration: none;">
 					<h4>List every available news article</h4>
 				</a>
 				<p>If you want this to be up to 100% up to date, you need to call <code>News.fetchNewArticles()</code> to fetch newly released articles that aren&#39;t cached by oldschooljs.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> article <span class="hljs-keyword">of</span> News.values()) {
     <span class="hljs-built_in">console</span>.log(article);
-}</code></pre>
+}
+</code></pre>
 				<a href="#worlds" id="worlds" style="color: inherit; text-decoration: none;">
 					<h2>Worlds</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Worlds } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Worlds } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#fetch-and-cache-all-worlds" id="fetch-and-cache-all-worlds" style="color: inherit; text-decoration: none;">
 					<h4>Fetch and cache all worlds</h4>
 				</a>
 				<p>You <strong>must</strong> call this atleast once to be able to use <code>Worlds</code>. To keep worlds up to date, fetching once at startup and then once every few days is enough. If you need an up to date playercount of worlds, you can call it more often or on demand.</p>
-				<pre><code class="language-js"><span class="hljs-keyword">await</span> Worlds.fetch();</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">await</span> Worlds.fetch();
+</code></pre>
 				<a href="#getting-a-particular-world" id="getting-a-particular-world" style="color: inherit; text-decoration: none;">
 					<h4>Getting a particular world</h4>
 				</a>
 				<p>You can use either form of numbering, giving <code>301</code> and <code>1</code> will both give you World 1.</p>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> worldOne = Worlds.get(<span class="hljs-number">301</span>);
-<span class="hljs-keyword">const</span> worldTwo = Worlds.get(<span class="hljs-number">2</span>);</code></pre>
+<span class="hljs-keyword">const</span> worldTwo = Worlds.get(<span class="hljs-number">2</span>);
+</code></pre>
 				<a href="#filtering-worlds" id="filtering-worlds" style="color: inherit; text-decoration: none;">
 					<h4>Filtering Worlds</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> australianWorlds = Worlds.filter(<span class="hljs-function"><span class="hljs-params">world</span> =&gt;</span> world.location === <span class="hljs-string">&#x27;Australia&#x27;</span>);
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There are <span class="hljs-subst">${australianWorlds.size}</span> Australian Worlds!`</span>);</code></pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`There are <span class="hljs-subst">${australianWorlds.size}</span> Australian Worlds!`</span>);
+</code></pre>
 				<a href="#iterating-over-worlds" id="iterating-over-worlds" style="color: inherit; text-decoration: none;">
 					<h4>Iterating over worlds</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> world <span class="hljs-keyword">of</span> Worlds.values()) {
     <span class="hljs-built_in">console</span>.log(world);
-}</code></pre>
+}
+</code></pre>
 				<a href="#wiki" id="wiki" style="color: inherit; text-decoration: none;">
 					<h2>Wiki</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Wiki } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Wiki } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#searching-for-pages" id="searching-for-pages" style="color: inherit; text-decoration: none;">
 					<h4>Searching for pages</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> searchResults = <span class="hljs-keyword">await</span> Wiki.search(<span class="hljs-string">&#x27;Twisted bow&#x27;</span>);
 <span class="hljs-keyword">if</span> (searchResults.length === <span class="hljs-number">0</span>) <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;Found no results&#x27;</span>);
-<span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);</code></pre>
+<span class="hljs-keyword">else</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);
+</code></pre>
 				<a href="#picking-random-pages" id="picking-random-pages" style="color: inherit; text-decoration: none;">
 					<h4>Picking random pages</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> randomPages = <span class="hljs-keyword">await</span> Wiki.random(<span class="hljs-number">10</span>);
 
-<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);</code></pre>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Search found these pages: <span class="hljs-subst">${searchResults.map(page =&gt; page.title)}</span>`</span>);
+</code></pre>
 				<a href="#fetch-page-by-id" id="fetch-page-by-id" style="color: inherit; text-decoration: none;">
 					<h4>Fetch page by ID</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> twistedBowPage = <span class="hljs-keyword">await</span> Wiki.fetchPage(<span class="hljs-number">82098</span>);
 
-<span class="hljs-built_in">console</span>.log(twistedBowPage);</code></pre>
+<span class="hljs-built_in">console</span>.log(twistedBowPage);
+</code></pre>
 				<a href="#polls" id="polls" style="color: inherit; text-decoration: none;">
 					<h2>Polls</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Polls } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Polls } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#iterating-over-worlds-1" id="iterating-over-worlds-1" style="color: inherit; text-decoration: none;">
 					<h4>Iterating over worlds</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> poll <span class="hljs-keyword">of</span> Polls.values()) {
     <span class="hljs-built_in">console</span>.log(poll.title);
-}</code></pre>
+}
+</code></pre>
 				<a href="#getting-all-polls-in-a-year" id="getting-all-polls-in-a-year" style="color: inherit; text-decoration: none;">
 					<h4>Getting all polls in a year</h4>
 				</a>
 				<pre><code class="language-js"><span class="hljs-keyword">const</span> pollsFrom2013 = Polls.filter(<span class="hljs-function"><span class="hljs-params">poll</span> =&gt;</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(poll.datePosted).getFullYear() === <span class="hljs-number">2013</span>);
-<span class="hljs-built_in">console</span>.log(pollsFrom2013.size);</code></pre>
+<span class="hljs-built_in">console</span>.log(pollsFrom2013.size);
+</code></pre>
 				<a href="#utilities" id="utilities" style="color: inherit; text-decoration: none;">
 					<h2>Utilities</h2>
 				</a>
-				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Util } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;</code></pre>
+				<pre><code class="language-js"><span class="hljs-keyword">import</span> { Util } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;oldschooljs&#x27;</span>;
+</code></pre>
 				<a href="#checking-if-a-username-is-valid" id="checking-if-a-username-is-valid" style="color: inherit; text-decoration: none;">
 					<h4>Checking if a username is valid</h4>
 				</a>
-				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Util.isValidUsername(username)); <span class="hljs-comment">// true</span></code></pre>
+				<pre><code class="language-js"><span class="hljs-built_in">console</span>.log(Util.isValidUsername(username)); <span class="hljs-comment">// true</span>
+</code></pre>
 				<a href="#converting-numbers-to-and-from-kmb-syntax" id="converting-numbers-to-and-from-kmb-syntax" style="color: inherit; text-decoration: none;">
 					<h4>Converting numbers to and from KMB syntax</h4>
 				</a>
@@ -267,11 +298,13 @@ CorporealBeastTable.roll();</code></pre>
 				<pre><code class="language-js">Util.toKMB(<span class="hljs-number">5</span>); <span class="hljs-comment">// &#x27;5&#x27;</span>
 Util.toKMB(<span class="hljs-number">1000</span>); <span class="hljs-comment">// &#x27;1k&#x27;</span>
 Util.toKMB(<span class="hljs-number">1000000</span>); <span class="hljs-comment">// &#x27;1m&#x27;</span>
-Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comment">// &#x27;1.2b&#x27;</span></code></pre>
+Util.toKMB(<span class="hljs-number">1200000000</span>); <span class="hljs-comment">// &#x27;1.2b&#x27;</span>
+</code></pre>
 				<pre><code class="language-js">Util.fromKMB(<span class="hljs-string">&#x27;5&#x27;</span>); <span class="hljs-comment">// 5</span>
 Util.fromKMB(<span class="hljs-string">&#x27;1k&#x27;</span>); <span class="hljs-comment">// 1000</span>
 Util.fromKMB(<span class="hljs-string">&#x27;1m&#x27;</span>); <span class="hljs-comment">// 1000000</span>
-Util.fromKMB(<span class="hljs-string">&#x27;1.2b&#x27;</span>); <span class="hljs-comment">// 1200000000</span></code></pre>
+Util.fromKMB(<span class="hljs-string">&#x27;1.2b&#x27;</span>); <span class="hljs-comment">// 1200000000</span>
+</code></pre>
 				<a href="#planned-features" id="planned-features" style="color: inherit; text-decoration: none;">
 					<h2>Planned features</h2>
 				</a>
