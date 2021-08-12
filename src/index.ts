@@ -1,7 +1,4 @@
 import * as constants from './constants';
-import { MonsterSlayerMaster } from './meta/monsterData';
-import { MonsterKillOptions } from './meta/types';
-import * as Types from './meta/types';
 import * as Clues from './simulation/clues';
 import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
@@ -39,9 +36,9 @@ export {
 	Bank,
 	LootTable,
 	constants,
-	MonsterKillOptions,
-	MonsterSlayerMaster,
-	Types,
 	Monster,
 	SimpleMonster
 };
+
+export * from './meta/monsterData';
+export * from './meta/types';
