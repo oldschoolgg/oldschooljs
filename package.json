@@ -11,7 +11,6 @@
 	},
 	"scripts": {
 		"prepublishOnly": "npm run build",
-		"prepublish": "npm run build",
 		"test": "npm run test:run",
 		"test:run": "yarn build && jest",
 		"test:lint": "eslint --ext ts src",
@@ -63,8 +62,5 @@
 		"runescape",
 		"oldschool",
 		"oldschoolrs"
-	],
-	"files": [
-		"dist/*"
 	]
 }
