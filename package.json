@@ -62,5 +62,9 @@
 		"runescape",
 		"oldschool",
 		"oldschoolrs"
+	],
+	"files": [
+		"src/*",
+		"tsconfig.json"
 	]
 }
