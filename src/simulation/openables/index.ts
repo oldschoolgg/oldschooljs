@@ -7,6 +7,20 @@ import ElvenCrystalChest from './ElvenCrystalChest';
 import GiantEggSacFull from './GiantEggSacFull';
 import GrubbyChest from './GrubbyChest';
 import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
+import {
+	BabyImpling,
+	CrystalImpling,
+	DragonImpling,
+	EarthImpling,
+	EclecticImpling,
+	EssenceImpling,
+	GourmetImpling,
+	LuckyImpling,
+	MagpieImpling,
+	NatureImpling,
+	NinjaImpling,
+	YoungImpling
+} from './Implings';
 import LarransChest from './LarransChest';
 import LuckyImp from './LuckyImp';
 import MuddyChest from './MuddyChest';
@@ -38,7 +52,19 @@ const openablesObject = {
 	SinisterChest,
 	BrimstoneChest,
 	LarransChest,
-	SeedPack
+	SeedPack,
+	BabyImpling,
+	YoungImpling,
+	GourmetImpling,
+	EarthImpling,
+	EssenceImpling,
+	EclecticImpling,
+	NatureImpling,
+	MagpieImpling,
+	NinjaImpling,
+	CrystalImpling,
+	DragonImpling,
+	LuckyImpling
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [
