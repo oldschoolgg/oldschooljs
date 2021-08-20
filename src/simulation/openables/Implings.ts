@@ -1,4 +1,3 @@
-import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 import { EasyClueTable } from '../clues/Easy';
@@ -144,7 +143,7 @@ export const EssenceImpling = new SimpleOpenable({
 export const EclecticImpling = new SimpleOpenable({
 	id: 11248,
 	name: 'Eclectic impling',
-	aliases: ['eclectic impling', 'eclectic imp'],
+	aliases: ['eclectic impling', 'eclectic imp', 'ecl'],
 	table: new LootTable()
 		.add('Mithril pickaxe')
 		.add('Curry leaf')
@@ -165,6 +164,7 @@ export const EclecticImpling = new SimpleOpenable({
 		.oneIn(100, 'Wild pie')
 		.oneIn(100, 'Watermelon seed', 3)
 		.oneIn(100, 'Diamond')
+		.tertiary(25, 'Clue scroll (medium)')
 });
 
 export const NatureImpling = new SimpleOpenable({
@@ -278,7 +278,7 @@ export const CrystalImpling = new SimpleOpenable({
 export const DragonImpling = new SimpleOpenable({
 	id: 11256,
 	name: 'Dragon impling',
-	aliases: ['dragon impling', 'dragon imp'],
+	aliases: ['dragon impling', 'dragon imp', 'dimp'],
 	table: new LootTable()
 		.add('Dragonstone bolt tips', [10, 30])
 		.add('Dragonstone bolt tips', 36)
@@ -299,12 +299,13 @@ export const DragonImpling = new SimpleOpenable({
 		.add('Magic seed', 1)
 		.add('Snapdragon seed', 6)
 		.add('Summer pie', 15)
+		.tertiary(50, 'Clue scroll (elite)')
 });
 
 export const LuckyImpling = new SimpleOpenable({
 	id: 19732,
 	name: 'Lucky impling',
-	aliases: ['lucky impling', 'lucky imp'],
+	aliases: ['lucky impling', 'lucky imp', 'lucky', 'luckys'],
 	table: new LootTable()
 		.add(EasyClueTable)
 		.add(MediumClueTable)
