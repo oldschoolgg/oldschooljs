@@ -22,7 +22,6 @@ import {
 	YoungImpling
 } from './Implings';
 import LarransChest from './LarransChest';
-import LuckyImp from './LuckyImp';
 import MuddyChest from './MuddyChest';
 import MysteryBox from './MysteryBox';
 import NestBoxEmpty from './NestBoxEmpty';
@@ -33,7 +32,6 @@ import SeedPack from './SeedPack';
 import SinisterChest from './SinisterChest';
 
 const openablesObject = {
-	LuckyImp,
 	MysteryBox,
 	NestBoxEmpty,
 	NestBoxRing,
