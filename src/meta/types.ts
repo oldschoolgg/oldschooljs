@@ -26,7 +26,8 @@ export enum AccountType {
 	Ultimate = 'ultimate',
 	Hardcore = 'hardcore',
 	Deadman = 'deadman',
-	Seasonal = 'seasonal'
+	Seasonal = 'seasonal',
+	Tournament = 'tournament'
 }
 
 export interface Player {

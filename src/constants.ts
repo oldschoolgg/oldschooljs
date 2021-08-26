@@ -1,4 +1,4 @@
-export const BASE_API_URL = 'http://services.runescape.com';
+export const BASE_API_URL = 'https://services.runescape.com';
 
 export const SKILLS = [
 	'overall',
@@ -95,7 +95,8 @@ export const hiscoreURLs: Record<string, string> = {
 	ultimate: hiscoreURL('hiscore_oldschool_ultimate'),
 	hardcore: hiscoreURL('hiscore_oldschool_hardcore_ironman'),
 	deadman: hiscoreURL('hiscore_oldschool_deadman'),
-	seasonal: hiscoreURL('hiscore_oldschool_seasonal')
+	seasonal: hiscoreURL('hiscore_oldschool_seasonal'),
+	tournament: hiscoreURL('hiscore_oldschool_tournament')
 };
 
 export const ACCOUNT_TYPES: string[] = [
@@ -104,7 +105,8 @@ export const ACCOUNT_TYPES: string[] = [
 	'ultimate',
 	'hardcore',
 	'deadman',
-	'seasonal'
+	'seasonal',
+	'tournament'
 ];
 
 // Errors
