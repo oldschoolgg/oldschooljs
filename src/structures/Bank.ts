@@ -2,7 +2,6 @@ import { objectEntries, randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
-	addBanks,
 	bankHasAllItemsFromBank,
 	multiplyBank,
 	removeBankFromBank,
@@ -79,7 +78,9 @@ export default class Bank {
 		if (isNaN(Number(firstKey))) {
 			this.add(resolveNameBank(item));
 		} else {
-			this.bank = addBanks([item, this.bank]);
+			for (const [itemID, quantity] of Object.entries(item)) {
+				this.addItem(parseInt(itemID), quantity);
+			}
 		}
 
 		return this;
