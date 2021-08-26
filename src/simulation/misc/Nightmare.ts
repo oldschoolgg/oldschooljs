@@ -87,6 +87,14 @@ const nonMvpTertiary = new LootTable()
 class NightmareClass {
 	hp = 2400;
 
+	allItems: number[] = [
+		...NonUniqueTable.table.map((i) => i.item),
+		...GearTable.table.map((i) => Number(i.item)),
+		...OrbTable.table.map((i) => Number(i.item)),
+		...mvpTertiary.allItems,
+		...nonMvpTertiary.allItems
+	];
+
 	public rollNonUniqueLoot(percentage: number, isMvp: boolean): [number, number] {
 		const { item } = NonUniqueTable.roll();
 

@@ -81,4 +81,9 @@ export class Barrows extends Monster {
 }
 
 // Uses NPC id for Dharoks
-export default new Barrows({ id: 1673, name: 'Barrows', aliases: ['barrows'] });
+export default new Barrows({
+	id: 1673,
+	name: 'Barrows',
+	aliases: ['barrows'],
+	allItems: [...BarrowsTable.allItems, ...OtherTable.allItems]
+});

@@ -112,7 +112,7 @@ export class ChambersOfXericClass extends Minigame {
 	id = 1;
 	aliases = ['raids', 'cox'];
 	name = 'Chambers of Xeric';
-
+	allItems: number[] = [...UniqueTable.allItems, ...NonUniqueTable.table.map((i) => i.item)];
 	maxRoll = 570_000 * (1 / 8675);
 
 	/**

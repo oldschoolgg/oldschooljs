@@ -2,14 +2,12 @@ import { Hiscores } from '../dist';
 import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
-	const [lynxTitan, zulu, magnaboy, leaguesmagnaboy, virtualMagnaboy] = await Promise.all([
+	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),
 		Hiscores.fetch('Magnaboy'),
-		Hiscores.fetch('Magnaboy', {
-			type: AccountType.Seasonal
-		}),
-		Hiscores.fetch('Magnaboy', { virtualLevels: true })
+		Hiscores.fetch('Magnaboy', { virtualLevels: true }),
+		Hiscores.fetch('Faux', { virtualLevels: true, type: AccountType.Tournament })
 	]);
 
 	expect(lynxTitan.username).toBe('Lynx Titan');
@@ -60,10 +58,13 @@ test('Hiscores', async () => {
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
 
-	expect(leaguesmagnaboy.username).toBe('Magnaboy');
-	expect(leaguesmagnaboy.skills.overall.level > 1).toBe(true);
-
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
 	expect(virtualMagnaboy.skills.fletching.level).toBe(99);
+
+	// DMM Tourny
+	expect(dmmTournyFaux.username).toEqual('Faux');
+	// Dont die Faux
+	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
+	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
 }, 30_000);
