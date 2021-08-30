@@ -9,26 +9,28 @@ import { MediumClueTable } from '../clues/Medium';
 export const BabyImpling = new SimpleOpenable({
 	id: 11238,
 	name: 'Baby impling jar',
-	aliases: ['baby impling', 'baby imp'],
+	aliases: ['baby impling', 'baby imp', 'baby'],
 	table: new LootTable()
-		.add('Chisel', 1, 1)
-		.add('Thread', 1, 1)
-		.add('Needle', 1, 1)
-		.add('Knife', 1, 1)
-		.add('Cheese', 1, 1)
-		.add('Hammer', 1, 1)
-		.add('Ball of wool', 1, 1)
-		.add('Anchovies', 1, 1)
-		.oneIn(100, 'Spice')
-		.oneIn(100, 'Flax')
-		.oneIn(100, 'Mud pie')
-		.oneIn(100, 'Seaweed')
-		.oneIn(100, 'Air talisman')
-		.oneIn(100, 'Silver bar')
-		.oneIn(100, 'Sapphire')
-		.oneIn(100, 'Hard leather')
-		.oneIn(100, 'Lobster')
-		.oneIn(100, 'Soft clay')
+		.add('Chisel', 1, 10)
+		.add('Thread', 1, 10)
+		.add('Needle', 1, 10)
+		.add('Knife', 1, 10)
+		.add('Cheese', 1, 10)
+		.add('Hammer', 1, 10)
+		.add('Ball of wool', 1, 10)
+		.add('Anchovies', 1, 10)
+		// 'Nothing' drop:
+		.add(new LootTable(), 1, 10)
+		.add('Spice')
+		.add('Flax')
+		.add('Mud pie')
+		.add('Seaweed')
+		.add('Air talisman')
+		.add('Silver bar')
+		.add('Sapphire')
+		.add('Hard leather')
+		.add('Lobster')
+		.add('Soft clay')
 		.tertiary(50, 'Clue scroll (beginner)')
 		.tertiary(100, 'Clue scroll (easy)')
 });
@@ -36,26 +38,27 @@ export const BabyImpling = new SimpleOpenable({
 export const YoungImpling = new SimpleOpenable({
 	id: 11240,
 	name: 'Young impling',
-	aliases: ['young impling', 'young imp'],
+	aliases: ['young impling', 'young imp', 'young'],
 	table: new LootTable()
-		.add('Steel nails', 1, 1)
-		.add('Lockpick', 1, 1)
-		.add('Pure essence', 1, 1)
-		.add('Tuna', 1, 1)
-		.add('Chocolate slice', 1, 1)
-		.add('Steel axe', 1, 1)
-		.add('Meat pizza', 1, 1)
-		.add('Bow string', 1, 1)
-		.oneIn(100, 'Snape grass')
-		.oneIn(100, 'Soft clay')
-		.oneIn(100, 'Studded chaps')
-		.oneIn(100, 'Steel full helm')
-		.oneIn(100, 'Oak plank')
-		.oneIn(100, 'Defence potion(3)')
-		.oneIn(100, 'Mithril bar')
-		.oneIn(100, 'Yew longbow')
-		.oneIn(100, 'Garden pie')
-		.oneIn(100, 'Jangerberries')
+		.add('Steel nails', 1, 10)
+		.add('Lockpick', 1, 10)
+		.add('Pure essence', 1, 10)
+		.add('Tuna', 1, 10)
+		.add('Chocolate slice', 1, 10)
+		.add('Steel axe', 1, 10)
+		.add('Meat pizza', 1, 10)
+		.add('Coal', 1, 10)
+		.add('Bow string', 1, 10)
+		.add('Snape grass')
+		.add('Soft clay')
+		.add('Studded chaps')
+		.add('Steel full helm')
+		.add('Oak plank')
+		.add('Defence potion(3)')
+		.add('Mithril bar')
+		.add('Yew longbow')
+		.add('Garden pie')
+		.add('Jangerberries')
 		.tertiary(25, 'Clue scroll (beginner)')
 		.tertiary(50, 'Clue scroll (easy)')
 });
@@ -63,7 +66,7 @@ export const YoungImpling = new SimpleOpenable({
 export const GourmetImpling = new SimpleOpenable({
 	id: 11242,
 	name: 'Gourmet impling',
-	aliases: ['gourmet impling', 'gourmet imp'],
+	aliases: ['gourmet impling', 'gourmet imp', 'gourmet'],
 	table: new LootTable()
 		.add('Tuna', 1, 20)
 		.add('Bass', 1, 10)
@@ -89,120 +92,120 @@ export const GourmetImpling = new SimpleOpenable({
 export const EarthImpling = new SimpleOpenable({
 	id: 11244,
 	name: 'Earth impling',
-	aliases: ['earth impling', 'earth imp'],
+	aliases: ['earth impling', 'earth imp', 'earth'],
 	table: new LootTable()
-		.add('Fire talisman')
-		.add('Earth talisman')
-		.add('Earth tiara')
-		.add('Earth rune', 32)
-		.add('Mithril ore')
-		.add('Bucket of sand', 4)
-		.add('Unicorn horn')
-		.add('Compost', 6)
-		.add('Gold ore')
-		.oneIn(100, 'Steel bar')
-		.oneIn(100, 'Mithril pickaxe')
-		.oneIn(100, 'Wildblood seed', 2)
-		.oneIn(100, 'Jangerberry seed', 2)
-		.oneIn(100, 'Supercompost', 2)
-		.oneIn(100, 'Mithril ore', 3)
-		.oneIn(100, 'Harralander seed', 2)
-		.oneIn(100, 'Coal', 6)
-		.oneIn(100, 'Emerald', 2)
-		.oneIn(100, 'Ruby')
+		.add('Fire talisman', 1, 10)
+		.add('Earth talisman', 1, 10)
+		.add('Earth tiara', 1, 10)
+		.add('Earth rune', 32, 10)
+		.add('Mithril ore', 1, 10)
+		.add('Bucket of sand', 4, 10)
+		.add('Unicorn horn', 1, 10)
+		.add('Compost', 6, 10)
+		.add('Gold ore', 1, 10)
+		.add('Steel bar')
+		.add('Mithril pickaxe')
+		.add('Wildblood seed', 2)
+		.add('Jangerberry seed', 2)
+		.add('Supercompost', 2)
+		.add('Mithril ore', 3)
+		.add('Harralander seed', 2)
+		.add('Coal', 6)
+		.add('Emerald', 2)
+		.add('Ruby')
 		.tertiary(100, 'Clue scroll (medium)')
 });
 
 export const EssenceImpling = new SimpleOpenable({
 	id: 11246,
 	name: 'Essence impling',
-	aliases: ['essence impling', 'essence imp'],
+	aliases: ['essence impling', 'essence imp', 'essence'],
 	table: new LootTable()
-		.add('Pure essence', 20)
-		.add('Water rune', 30)
-		.add('Air rune', 30)
-		.add('Fire rune', 50)
-		.add('Mind rune', 25)
-		.add('Body rune', 28)
-		.add('Chaos rune', 4)
-		.add('Cosmic rune', 4)
-		.add('Mind talisman')
-		.oneIn(100, 'Pure essence', 35)
-		.oneIn(100, 'Lava rune', 4)
-		.oneIn(100, 'Mud rune', 4)
-		.oneIn(100, 'Smoke rune', 4)
-		.oneIn(100, 'Steam rune', 4)
-		.oneIn(100, 'Death rune', 13)
-		.oneIn(100, 'Law rune', 13)
-		.oneIn(100, 'Blood rune', 7)
-		.oneIn(100, 'Soul rune', 11)
-		.oneIn(100, 'Nature rune', 13)
+		.add('Pure essence', 20, 10)
+		.add('Water rune', 30, 10)
+		.add('Air rune', 30, 10)
+		.add('Fire rune', 50, 10)
+		.add('Mind rune', 25, 10)
+		.add('Body rune', 28, 10)
+		.add('Chaos rune', 4, 10)
+		.add('Cosmic rune', 4, 10)
+		.add('Mind talisman', 1, 10)
+		.add('Pure essence', 35)
+		.add('Lava rune', 4)
+		.add('Mud rune', 4)
+		.add('Smoke rune', 4)
+		.add('Steam rune', 4)
+		.add('Death rune', 13)
+		.add('Law rune', 13)
+		.add('Blood rune', 7)
+		.add('Soul rune', 11)
+		.add('Nature rune', 13)
 		.tertiary(50, 'Clue scroll (medium)')
 });
 
 export const EclecticImpling = new SimpleOpenable({
 	id: 11248,
 	name: 'Eclectic impling',
-	aliases: ['eclectic impling', 'eclectic imp', 'ecl'],
+	aliases: ['eclectic impling', 'eclectic imp', 'ecl', 'eclectic'],
 	table: new LootTable()
-		.add('Mithril pickaxe')
-		.add('Curry leaf')
-		.add('Snape grass')
-		.add('Air rune', [30, 58])
-		.add('Oak plank', 4)
-		.add('Empty candle lantern')
-		.add('Gold ore')
-		.add('Gold bar', 5)
-		.add('Unicorn horn')
-		.oneIn(100, 'Adamant kiteshield')
-		.oneIn(100, "Blue d'hide chaps")
-		.oneIn(100, 'Red spiky vambraces')
-		.oneIn(100, 'Rune dagger')
-		.oneIn(100, 'Battlestaff')
-		.oneIn(100, 'Adamantite ore', 10)
-		.oneIn(100, "Slayer's respite", 2)
-		.oneIn(100, 'Wild pie')
-		.oneIn(100, 'Watermelon seed', 3)
-		.oneIn(100, 'Diamond')
+		.add('Mithril pickaxe', 1, 10)
+		.add('Curry leaf', 1, 10)
+		.add('Snape grass', 1, 10)
+		.add('Air rune', [30, 58], 10)
+		.add('Oak plank', 4, 10)
+		.add('Empty candle lantern', 1, 10)
+		.add('Gold ore', 1, 10)
+		.add('Gold bar', 5, 10)
+		.add('Unicorn horn', 1, 10)
+		.add('Adamant kiteshield')
+		.add("Blue d'hide chaps")
+		.add('Red spiky vambraces')
+		.add('Rune dagger')
+		.add('Battlestaff')
+		.add('Adamantite ore', 10)
+		.add("Slayer's respite", 2)
+		.add('Wild pie')
+		.add('Watermelon seed', 3)
+		.add('Diamond')
 		.tertiary(25, 'Clue scroll (medium)')
 });
 
 export const NatureImpling = new SimpleOpenable({
 	id: 11250,
 	name: 'Nature impling',
-	aliases: ['nature impling', 'nature imp'],
+	aliases: ['nature impling', 'nature imp', 'nature'],
 	table: new LootTable()
-		.add('Limpwurt seed')
-		.add('Jangerberry seed')
-		.add('Belladonna seed')
-		.add('Harralander seed')
-		.add('Cactus spine')
-		.add('Magic logs')
-		.add('Tarromin', 4)
-		.add('Coconut')
-		.add('Irit seed')
-		.oneIn(100, 'Curry tree seed')
-		.oneIn(100, 'Orange tree seed')
-		.oneIn(100, 'Snapdragon')
-		.oneIn(100, 'Kwuarm seed')
-		.oneIn(100, 'Avantoe seed', 5)
-		.oneIn(100, 'Willow seed')
-		.oneIn(100, 'Torstol seed')
-		.oneIn(100, 'Ranarr seed')
-		.oneIn(100, 'Torstol', 2)
-		.oneIn(100, 'Dwarf weed seed')
+		.add('Limpwurt seed', 1, 10)
+		.add('Jangerberry seed', 1, 10)
+		.add('Belladonna seed', 1, 10)
+		.add('Harralander seed', 1, 10)
+		.add('Cactus spine', 1, 10)
+		.add('Magic logs', 1, 10)
+		.add('Tarromin', 1, 10)
+		.add('Coconut', 1, 10)
+		.add('Irit seed', 1, 10)
+		.add('Curry tree seed')
+		.add('Orange tree seed')
+		.add('Snapdragon')
+		.add('Kwuarm seed')
+		.add('Avantoe seed', 5)
+		.add('Willow seed')
+		.add('Torstol seed')
+		.add('Ranarr seed')
+		.add('Torstol', 2)
+		.add('Dwarf weed seed')
 		.tertiary(100, 'Clue scroll (hard)')
 });
 
 export const MagpieImpling = new SimpleOpenable({
 	id: 11252,
 	name: 'Magpie impling',
-	aliases: ['magpie impling', 'magpie imp'],
+	aliases: ['magpie impling', 'magpie imp', 'magpie'],
 	table: new LootTable()
 		.add('Black dragonhide', 6, 2)
-		.add('Diamond amulet', 3, 1)
-		.add('Amulet of power', 3, 1)
-		.add('Ring of forging', 3, 1)
+		.add('Diamond amulet', 3)
+		.add('Amulet of power', 3)
+		.add('Ring of forging', 3)
 		.add('Splitbark gauntlets')
 		.add('Mystic boots')
 		.add('Mystic gloves')
@@ -224,7 +227,7 @@ export const MagpieImpling = new SimpleOpenable({
 export const NinjaImpling = new SimpleOpenable({
 	id: 11254,
 	name: 'Ninja impling',
-	aliases: ['ninja impling', 'ninja imp'],
+	aliases: ['ninja impling', 'ninja imp', 'ninja'],
 	table: new LootTable()
 		.add('Snakeskin boots')
 		.add('Splitbark helm')
@@ -251,7 +254,7 @@ export const NinjaImpling = new SimpleOpenable({
 export const CrystalImpling = new SimpleOpenable({
 	id: 23768,
 	name: 'Crystal impling',
-	aliases: ['crystal impling', 'crystal imp'],
+	aliases: ['crystal impling', 'crystal imp', 'crystal'],
 	table: new LootTable()
 		.add('Amulet of power', [5, 7])
 		.add('Crystal acorn')
@@ -278,7 +281,7 @@ export const CrystalImpling = new SimpleOpenable({
 export const DragonImpling = new SimpleOpenable({
 	id: 11256,
 	name: 'Dragon impling',
-	aliases: ['dragon impling', 'dragon imp', 'dimp'],
+	aliases: ['dragon impling', 'dragon imp', 'dimp', 'dragon'],
 	table: new LootTable()
 		.add('Dragonstone bolt tips', [10, 30])
 		.add('Dragonstone bolt tips', 36)
