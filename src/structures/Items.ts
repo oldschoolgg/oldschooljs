@@ -24,7 +24,8 @@ export const USELESS_ITEMS = [
 	21913,
 	4703,
 	4561,
-	2425
+	2425,
+	4692
 ];
 
 class Items extends Collection<number, Item> {
