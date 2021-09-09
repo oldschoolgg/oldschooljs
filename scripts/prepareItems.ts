@@ -76,5 +76,25 @@ export default async function prepareItems(): Promise<void> {
 
 	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
 
+	const res: any = await fetch(
+		`https://api.github.com/repos/osrsbox/osrsbox-db/commits?path=/docs/items-complete.json`
+	).then((res) => res.json());
+
+	const removedItems: any = {};
+	for (const i of res.map((i: any) => i.sha)) {
+		const allOldItems: ItemCollection = await fetch(
+			`https://raw.githubusercontent.com/osrsbox/osrsbox-db/${i}/docs/items-complete.json`
+		).then((res): Promise<any> => res.json());
+		for (const t of Object.values(allOldItems)) {
+			t.name = t.name.trim();
+			if (!t.name) continue;
+			if (t.name.toLowerCase().includes('null')) continue;
+			if (allItems[t.id]) continue;
+			removedItems[t.id] = t;
+		}
+	}
+
+	writeFileSync('./src/data/items/removed_items.json', JSON.stringify(removedItems, null, 4));
+
 	console.log('Prepared items.');
 }
