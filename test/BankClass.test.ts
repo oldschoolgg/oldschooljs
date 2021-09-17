@@ -117,6 +117,8 @@ describe('Bank Class', () => {
 
 		expect(bank.has(source)).toBe(true);
 		expect(bank.has({ Emerald: 1 })).toBe(false);
+		expect(bank.has(bank)).toBe(true);
+		expect(bank.has(bank.clone().add('Egg'))).toBe(false);
 	});
 
 	test('toString', () => {

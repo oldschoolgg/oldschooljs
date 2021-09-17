@@ -136,13 +136,17 @@ export default class Bank {
 		return this;
 	}
 
-	public has(items: string | number | (string | number)[] | ItemBank): boolean {
+	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (Array.isArray(items)) {
 			return items.every((item) => this.amount(item) > 0);
 		}
 
 		if (typeof items === 'string' || typeof items === 'number') {
 			return this.amount(items) > 0;
+		}
+
+		if (items instanceof Bank) {
+			return this.has(items.bank);
 		}
 
 		return bankHasAllItemsFromBank(this.bank, items);
