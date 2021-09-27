@@ -26,6 +26,7 @@ export default async function prepareItems(): Promise<void> {
 
 	const newItems = [];
 	const majorPriceChanges = [];
+	const ignoredPriceChanges = [];
 
 	for (const item of Object.values(allItems).filter(weirdItemFilter)) {
 		if (USELESS_ITEMS.includes(item.id)) continue;
@@ -58,7 +59,15 @@ export default async function prepareItems(): Promise<void> {
 		) {
 			majorPriceChanges.push([previousItem, item]);
 		}
-
+		//If difference is too big ignore the new price
+		if (
+			previousItem &&
+			item.tradeable &&
+			(item.price < previousItem.price / 20 || item.price > previousItem.price * 10)
+		) {
+			ignoredPriceChanges.push([previousItem, item]);
+			item.price = previousItem.price;
+		}
 		itemNameMap[item.id] = item;
 	}
 
@@ -70,6 +79,11 @@ export default async function prepareItems(): Promise<void> {
 	console.log(JSON.stringify(t));
 	console.log(
 		`Major price changes: ${majorPriceChanges
+			.map((ent) => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
+			.join(', ')}.`
+	);
+	console.log(
+		`Ignored price changes: ${ignoredPriceChanges
 			.map((ent) => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
 			.join(', ')}.`
 	);
