@@ -39,7 +39,7 @@ export default async function prepareItems(): Promise<void> {
 
 		const price = allPrices[item.id];
 		if (price) {
-			item.price = Math.max(0, (price.high + price.low) / 2);
+			item.price = Math.round(Math.max(0, (price.high + price.low) / 2));
 		} else {
 			item.price = 0;
 		}
@@ -48,6 +48,8 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		const previousItem = Items.get(item.id);
+		const tempItem = Object.assign({}, item);
+		const tempPrevItem = Object.assign({}, previousItem);
 		if (!previousItem) {
 			newItems.push(item);
 		}
@@ -57,16 +59,16 @@ export default async function prepareItems(): Promise<void> {
 			item.tradeable &&
 			(previousItem.price > item.price * 3 || previousItem.price < item.price / 3)
 		) {
-			majorPriceChanges.push([previousItem, item]);
+			majorPriceChanges.push([previousItem, tempItem]);
 		}
 		//If difference is too big ignore the new price
 		if (
 			previousItem &&
 			item.tradeable &&
-			(item.price < previousItem.price / 20 || item.price > previousItem.price * 10)
+			(item.price < previousItem.price / 20 || item.price > previousItem.price * 15)
 		) {
-			ignoredPriceChanges.push([previousItem, item]);
-			item.price = previousItem.price;
+			ignoredPriceChanges.push([previousItem, tempItem]);
+			item.price = tempPrevItem.price;
 		}
 		itemNameMap[item.id] = item;
 	}
