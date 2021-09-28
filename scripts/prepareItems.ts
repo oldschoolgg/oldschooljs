@@ -67,6 +67,7 @@ export default async function prepareItems(): Promise<void> {
 			item.tradeable &&
 			(item.price < previousItem.price / 20 || item.price > previousItem.price * 15)
 		) {
+			majorPriceChanges.pop();
 			ignoredPriceChanges.push([previousItem, tempItem]);
 			item.price = tempPrevItem.price;
 		}
