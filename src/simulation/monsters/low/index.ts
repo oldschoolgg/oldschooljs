@@ -98,6 +98,7 @@ import GiantRat from './g-m/GiantRat';
 import GiantSeaSnake from './g-m/GiantSeaSnake';
 import GiantSpider from './g-m/GiantSpider';
 import Gnome from './g-m/Gnome';
+import Goat from './g-m/Goat';
 import Goblin from './g-m/Goblin';
 import GreaterDemon from './g-m/GreaterDemon';
 import GreaterNechryael from './g-m/GreaterNechryael';
@@ -503,6 +504,7 @@ export const allLowMonsters = {
 	Farmer,
 	FremennikCitizen,
 	Gnome,
+	Goat,
 	MaleHamMember,
 	FemaleHamMember,
 	Hero,
