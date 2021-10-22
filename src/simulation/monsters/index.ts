@@ -12,7 +12,7 @@ const monstersObject = {
 	...allSuperiorMonsters
 };
 
-const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster) => [
+const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [
 	monster.id,
 	monster
 ]);
