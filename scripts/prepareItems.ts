@@ -35,6 +35,9 @@ export default async function prepareItems(): Promise<void> {
 		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 		// @ts-ignore
 		delete item.wiki_exchange;
+		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+		// @ts-ignore
+		delete item['last_updated'];
 
 		const price = allPrices[item.id];
 		if (price) {
