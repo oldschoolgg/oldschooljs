@@ -29,7 +29,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.callisto.score).toBe(327);
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
-	expect(zulu.bossRecords.cerberus.score).toBe(7073);
+	expect(zulu.bossRecords.cerberus.score).toBe(7080);
 
 	expect(zulu.minigames.bountyHunter.rank > 1).toBe(true);
 	expect(zulu.minigames.bountyHunter.score).toBe(4);
