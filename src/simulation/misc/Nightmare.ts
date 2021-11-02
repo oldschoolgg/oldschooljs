@@ -1,4 +1,4 @@
-import { calcPercentOfNum, calcWhatPercent, percentChance, roll } from 'e';
+import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from 'e';
 import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
@@ -158,6 +158,11 @@ class NightmareClass {
 		const { item } = table.roll();
 
 		const [range] = ranges[item];
+
+		if (isPhosani) {
+			return [item, randInt(range[0], range[1])];
+		}
+
 		// If the quantity range of the item is 50-100, we
 		// give you 50 qty to start, then increase it.
 		let quantity = range[0];
