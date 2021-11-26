@@ -237,6 +237,7 @@ import Turoth from './t-z/Turoth';
 import TwistedBanshee from './t-z/TwistedBanshee';
 import TzHaarHur from './t-z/TzHaarHur';
 import TzHaarKet from './t-z/TzHaarKet';
+import { TzhaarXil } from './t-z/TzHaarXil';
 import UndeadChicken from './t-z/UndeadChicken';
 import UndeadCow from './t-z/UndeadCow';
 import UndeadDruid from './t-z/UndeadDruid';
@@ -527,5 +528,6 @@ export const allLowMonsters = {
 	ChaosDruid,
 	Unicorn,
 	MenaphiteThug,
-	PriffRabbit
+	PriffRabbit,
+	TzhaarXil
 };
