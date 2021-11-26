@@ -12,7 +12,7 @@ const TzHaarXilTable = new LootTable()
 	.add('Uncut ruby', 2)
 	.add('Uncut diamond');
 
-export const TzhaarXil = new SimpleMonster({
+export const TzHaarXil = new SimpleMonster({
 	id: 2168,
 	name: 'TzHaar-Xil',
 	table: TzHaarXilTable,
