@@ -2,7 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const HellhoundTable = new LootTable()
-	.every('Bones')
+	.every('Vile ashes')
 	.oneIn(32_768, 'Smouldering stone')
 	.tertiary(64, 'Clue scroll (hard)');
 

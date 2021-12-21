@@ -4,7 +4,7 @@ import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
 const LesserDemonTable = new LootTable()
-	.every('Ashes')
+	.every('Vile ashes')
 
 	/* Weapons and armor*/
 	.add('Steel full helm', 1, 4)
