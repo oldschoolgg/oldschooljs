@@ -9,7 +9,7 @@ const CerberusUniqueTable = new LootTable()
 	.add('Smouldering stone');
 
 const CerberusTable = new LootTable()
-	.every('Ashes')
+	.every('Infernal ashes')
 	.add(CerberusUniqueTable)
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2000, 'Jar of souls')

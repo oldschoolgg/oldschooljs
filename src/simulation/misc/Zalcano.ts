@@ -93,7 +93,7 @@ class ZalcanoClass {
 			const loot = new Bank();
 			loot.add(...this.rollNonUniqueLoot(teamMember.performancePercentage, teamMember.isMVP));
 			if (teamMember.isMVP) {
-				loot.add('Ashes');
+				loot.add('Infernal ashes');
 				loot.add('Crystal shard', 3);
 			} else {
 				loot.add('Crystal shard', 2);
