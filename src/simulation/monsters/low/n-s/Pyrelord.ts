@@ -32,7 +32,7 @@ export const PyrelordPreTable = new LootTable()
 	.add(GemTable, 1, 3);
 
 const PyrelordTable = new LootTable()
-	.every('Ashes')
+	.every('Fiendish ashes')
 	.every(PyrelordPreTable)
 
 	/* Tertiary */

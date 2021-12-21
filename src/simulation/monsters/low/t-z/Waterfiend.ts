@@ -6,6 +6,7 @@ import RareSeedTable from '../../../subtables/RareSeedTable';
 
 const WaterfiendTable = new LootTable()
 	.every('Water rune')
+	.every('Fiendish ashes')
 
 	/* Pre-roll */
 	.oneIn(3000, 'Mist battlestaff')
