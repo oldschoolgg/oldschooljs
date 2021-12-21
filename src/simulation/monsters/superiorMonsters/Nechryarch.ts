@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { NechryaelPreTable } from '../low/n-s/Nechryael';
 
 const NechryarchTable = new LootTable()
-	.every('Ashes')
+	.every('Malicious ashes')
 	.every(NechryaelPreTable, 3)
 	.tertiary(13, 'Clue scroll (hard)')
 
