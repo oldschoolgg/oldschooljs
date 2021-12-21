@@ -4,7 +4,7 @@ import HerbDropTable from '../../../subtables/HerbDropTable';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
 const BlackDemonTable = new LootTable()
-	.every('Ashes')
+	.every('Malicious ashes')
 
 	/* Weapons and armour */
 	.add('Black sword', 1, 4)
