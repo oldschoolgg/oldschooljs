@@ -1,5 +1,4 @@
 import { Hiscores } from '../dist';
-import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
 	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
@@ -7,7 +6,7 @@ test('Hiscores', async () => {
 		Hiscores.fetch('Zulu'),
 		Hiscores.fetch('Magnaboy'),
 		Hiscores.fetch('Magnaboy', { virtualLevels: true }),
-		Hiscores.fetch('Faux', { virtualLevels: true, type: AccountType.Tournament })
+		Hiscores.fetch('Faux', { virtualLevels: true })
 	]);
 
 	expect(lynxTitan.username).toBe('Lynx Titan');
