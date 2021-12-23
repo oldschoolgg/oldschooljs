@@ -1,4 +1,4 @@
-import LootTable from '../../../../structures/LootTable'
+import LootTable from '../../../../structures/LootTable';
 
 const StandardTable = new LootTable()
 	/* Armour and weaponry */
@@ -28,7 +28,6 @@ const StandardTable = new LootTable()
 	/* Other*/
 	.add('Battlestaff', [8, 12]);
 
-
 export const CorruptedGauntletTable = new LootTable()
 	.every('Crystal shard', [5, 9])
 	.every('Gauntlet cape')
@@ -36,7 +35,7 @@ export const CorruptedGauntletTable = new LootTable()
 	.add('Dragon halberd', [1, 2], 1.5)
 	.add('Coins', [75000, 150000])
 	.tertiary(20, 'Clue scroll (elite)')
-	.tertiary(50, 'Crystal weapon see')
+	.tertiary(50, 'Crystal weapon seed')
 	.tertiary(50, 'Crystal armour seed')
 	.tertiary(400, 'Enhanced crystal weapon seed')
 	.tertiary(800, 'Youngllef');
