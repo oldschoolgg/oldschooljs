@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { BloodveldPreTable } from '../low/a-f/Bloodveld';
 
 const InsatiableBloodveldTable = new LootTable()
-	.every('Bones')
+	.every('Vile ashes')
 	.every('Ensouled bloodveld head')
 	.every(BloodveldPreTable, 3)
 	.tertiary(26, 'Clue scroll (hard)')

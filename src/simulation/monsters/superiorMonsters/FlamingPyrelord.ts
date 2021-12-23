@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { PyrefiendPreTable } from '../low/n-s/Pyrefiend';
 
 const FlamingPyrelordTable = new LootTable()
-	.every('Ashes')
+	.every('Fiendish ashes')
 	.every(PyrefiendPreTable, 3)
 
 	/* Tertiary */

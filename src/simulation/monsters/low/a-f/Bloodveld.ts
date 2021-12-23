@@ -53,7 +53,7 @@ export const BloodveldPreTable = new LootTable()
 	.add(GemTable, 1, 4);
 
 const BloodveldTable = new LootTable()
-	.every('Bones')
+	.every('Vile ashes')
 	.every(BloodveldPreTable)
 
 	/* Tertiary */

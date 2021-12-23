@@ -44,7 +44,7 @@ export const AbyssalDemonPreTable = new LootTable()
 	.add(GemTable, 1, 5);
 
 const AbyssalDemonTable = new LootTable()
-	.every('Ashes')
+	.every('Abyssal ashes')
 	.every(AbyssalDemonPreTable)
 
 	/* Tertiary */

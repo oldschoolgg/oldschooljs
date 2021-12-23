@@ -39,7 +39,7 @@ export const NechryaelPreTable = new LootTable()
 	.add(GemTable, 1, 10);
 
 const NechryaelTable = new LootTable()
-	.every('Ashes')
+	.every('Malicious ashes')
 	.every(NechryaelPreTable)
 
 	/* Tertiary */

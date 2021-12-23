@@ -9,7 +9,7 @@ const AncientShardTable = new LootTable({ limit: 100 })
 	.add('Ancient shard', 5, 1);
 
 const SkotizoTable = new LootTable()
-	.every('Ashes')
+	.every('Infernal ashes')
 	.every('Clue scroll (hard)')
 	.every(AncientShardTable)
 
