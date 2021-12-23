@@ -9,7 +9,7 @@ const MinionUniqueTable = new LootTable()
 const MinionShardTable = new LootTable().add('Coins', [1_300, 1_400], 9).add(ShardTable, 1, 3);
 
 const MinionTable = new LootTable()
-	.every('Ashes')
+	.every('Malicious ashes')
 	.add(MinionUniqueTable, 1, 1)
 	.add(MinionShardTable, 1, 1)
 	.add('Steel dart', [95, 100], 8)
@@ -36,7 +36,7 @@ const UniqueTable = new LootTable()
 	.add(ShardTable, 1, 2);
 
 const KrilTsutsarothTable = new LootTable()
-	.every('Ashes')
+	.every('Infernal ashes')
 	.every(MinionTable, 2)
 	.every(ZaklnGritchMinionTable)
 	.add(UniqueTable, 1, 3)

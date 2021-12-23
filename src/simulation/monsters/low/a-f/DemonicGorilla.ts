@@ -13,7 +13,7 @@ const UniqueTable = new LootTable()
 	.add('Monkey tail', 1, 1);
 
 const DemonicGorillaTable = new LootTable({ limit: 500 })
-	.every('Ashes')
+	.every('Malicious ashes')
 
 	.add(UniqueTable, 1, 5)
 

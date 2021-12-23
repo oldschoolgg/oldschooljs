@@ -3,7 +3,7 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import { AbyssalDemonPreTable } from '../low/a-f/AbyssalDemon';
 
 const GreaterAbyssalDemonTable = new LootTable()
-	.every('Ashes')
+	.every('Abyssal ashes')
 	.every('Ensouled abyssal head')
 	.every(AbyssalDemonPreTable, 3)
 	.tertiary(13, 'Clue scroll (hard)')

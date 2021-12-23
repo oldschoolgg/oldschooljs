@@ -11,7 +11,7 @@ const HerbSubTable = new LootTable()
 	.add('Grimy lantadyme', 25, 7);
 
 const AbyssalSireTable = new LootTable()
-	.every('Ashes')
+	.every('Abyssal ashes')
 
 	/* Weapons and armour */
 	.add('Battlestaff', 10, 6)

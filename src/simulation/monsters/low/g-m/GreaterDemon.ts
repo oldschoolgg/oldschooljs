@@ -3,7 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import { GemTable } from '../../../subtables/RareDropTable';
 
 const GreaterDemonTable = new LootTable({ limit: 128 })
-	.every('Ashes')
+	.every('Vile ashes')
 
 	/* Weapons and armor */
 	.add('Steel 2h sword', 1, 4)

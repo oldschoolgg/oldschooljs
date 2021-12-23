@@ -4,7 +4,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 export const ImpTable = new LootTable()
 	.tertiary(5000, 'Imp champion scroll')
 	.tertiary(25, 'Ensouled imp head')
-	.every('Ashes')
+	.every('Fiendish ashes')
 	.add('Black bead', 1, 5)
 	.add('Red bead', 1, 5)
 	.add('White bead', 1, 5)

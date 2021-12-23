@@ -5,7 +5,7 @@ import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
 const GreaterNechryaelTable = new LootTable()
-	.every('Ashes')
+	.every('Malicious ashes')
 
 	/* Weapons and armor */
 	.add('Adamant kiteshield', 1, 7)
