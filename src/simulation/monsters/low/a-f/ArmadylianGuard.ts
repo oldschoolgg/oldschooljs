@@ -3,7 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-export const ArmadylianGuardTable = new LootTable()
+export const ArmadyleanGuardTable = new LootTable()
 	.every('Bones')
 
 	/* Weapons and armour */
@@ -37,7 +37,7 @@ export const ArmadylianGuardTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 6587,
-	name: 'Armadylian Guard',
-	table: ArmadylianGuardTable,
-	aliases: ['armadylian guard', 'arma guard']
+	name: 'Armadylean Guard',
+	table: ArmadyleanGuardTable,
+	aliases: ['armadylean guard', 'arma guard']
 });
