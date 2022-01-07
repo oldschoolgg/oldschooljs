@@ -78,7 +78,8 @@ export const mappedBossNames: [string, string][] = [
 	['vorkath', 'Vorkath'],
 	['wintertodt', 'Wintertodt'],
 	['zalcano', 'Zalcano'],
-	['zulrah', 'Zulrah']
+	['zulrah', 'Zulrah'],
+	['nex', 'Nex']
 ];
 
 export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
