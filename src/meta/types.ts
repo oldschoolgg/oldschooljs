@@ -95,6 +95,7 @@ export interface BossRecords {
 	kreeArra: MinigameScore;
 	krilTsutsaroth: MinigameScore;
 	mimic: MinigameScore;
+	nex: MinigameScore;
 	nightmare: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;

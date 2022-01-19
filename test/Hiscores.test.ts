@@ -19,7 +19,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
-	expect(zulu.bossRecords.commanderZilyana.score).toBe(1082);
+	expect(zulu.bossRecords.commanderZilyana.score).toBe(1083);
 
 	expect(zulu.bossRecords.zulrah.rank > 1).toBe(true);
 	expect(zulu.bossRecords.zulrah.score).toBe(2523);
@@ -29,6 +29,9 @@ test('Hiscores', async () => {
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
 	expect(zulu.bossRecords.cerberus.score).toBe(7080);
+
+	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
+	expect(zulu.bossRecords.nex.score).toBe(201);
 
 	expect(zulu.minigames.bountyHunter.rank > 1).toBe(true);
 	expect(zulu.minigames.bountyHunter.score).toBe(4);
@@ -56,6 +59,7 @@ test('Hiscores', async () => {
 	expect(magnaboy.minigames.bountyHunterRogue.score).toBe(2);
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
+	expect(magnaboy.bossRecords.nex.score).toBe(-1);
 
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
