@@ -1,16 +1,28 @@
+import { deepClone } from 'e';
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { Item } from '../dist/meta/types';
-import Items, { ItemCollection, USELESS_ITEMS } from '../dist/structures/Items';
-import weirdItemFilter from '../dist/util/weirdItemFilter';
+import Items, { USELESS_ITEMS } from '../dist/structures/Items';
 
 const itemNameMap: { [key: string]: Item } = {};
 
+interface RawItemCollection {
+	[index: string]: Item & {
+		duplicate: boolean;
+		noted: boolean;
+		placeholder: boolean;
+		linked_id_item: number | null;
+	};
+}
+
 export default async function prepareItems(): Promise<void> {
-	const allItems: ItemCollection = await fetch(
+	const removedItems = [];
+
+	const allItemsRaw: RawItemCollection = await fetch(
 		`https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/items-complete.json`
 	).then((res): Promise<any> => res.json());
+	const allItems = deepClone(allItemsRaw);
 
 	const allPrices = await fetch(`https://prices.runescape.wiki/api/v1/osrs/latest`, {
 		headers: {
@@ -27,17 +39,59 @@ export default async function prepareItems(): Promise<void> {
 	const newItems = [];
 	const majorPriceChanges = [];
 
-	for (const item of Object.values(allItems).filter(weirdItemFilter)) {
-		if (USELESS_ITEMS.includes(item.id)) continue;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete item.icon;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete item.wiki_exchange;
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore
-		delete item['last_updated'];
+	for (const item of Object.values(allItems)) {
+		if (
+			USELESS_ITEMS.includes(item.id) ||
+			item.duplicate === true ||
+			item.noted ||
+			item.linked_id_item ||
+			item.placeholder
+		) {
+			removedItems.push(item);
+			continue;
+		}
+
+		for (const delKey of [
+			'quest_item',
+			'placeholder',
+			'duplicate',
+			'last_updated',
+			'icon',
+			'noted',
+			'linked_id_item',
+			'linked_id_noted',
+			'linked_id_placeholder',
+			'stacked',
+			'quest_item',
+			'wiki_name',
+			'wiki_url',
+			'equipment',
+			'weapon'
+		]) {
+			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+			// @ts-ignore
+			delete item[delKey];
+		}
+
+		for (const boolKey of [
+			'incomplete',
+			'members',
+			'tradeable',
+			'tradeable_on_ge',
+			'stackable',
+			'noteable',
+			'equipable',
+			'equipable_by_player',
+			'equipable_weapon',
+			'weight',
+			'buy_limit',
+			'release_date',
+			'examine'
+		] as const) {
+			if (!item[boolKey]) {
+				delete item[boolKey];
+			}
+		}
 
 		const price = allPrices[item.id];
 		if (price) {
@@ -66,11 +120,7 @@ export default async function prepareItems(): Promise<void> {
 	}
 
 	console.log(`New Items: ${newItems.map((i) => `${i.name}[${i.id}]`).join(', ')}.`);
-	const t: Record<any, any> = {};
-	for (const i of newItems) {
-		t[i.id] = 1;
-	}
-	console.log(JSON.stringify(t));
+
 	console.log(
 		`Major price changes: ${majorPriceChanges
 			.map((ent) => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
