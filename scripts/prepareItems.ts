@@ -17,8 +17,6 @@ interface RawItemCollection {
 }
 
 export default async function prepareItems(): Promise<void> {
-	const removedItems = [];
-
 	const allItemsRaw: RawItemCollection = await fetch(
 		`https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/items-complete.json`
 	).then((res): Promise<any> => res.json());
