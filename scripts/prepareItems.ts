@@ -45,7 +45,6 @@ export default async function prepareItems(): Promise<void> {
 			item.linked_id_item ||
 			item.placeholder
 		) {
-			removedItems.push(item);
 			continue;
 		}
 
