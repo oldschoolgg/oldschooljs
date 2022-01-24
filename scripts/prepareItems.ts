@@ -59,11 +59,7 @@ export default async function prepareItems(): Promise<void> {
 			'linked_id_noted',
 			'linked_id_placeholder',
 			'stacked',
-			'quest_item',
-			'wiki_name',
-			'wiki_url',
-			'equipment',
-			'weapon'
+			'quest_item'
 		]) {
 			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
@@ -83,7 +79,11 @@ export default async function prepareItems(): Promise<void> {
 			'weight',
 			'buy_limit',
 			'release_date',
-			'examine'
+			'examine',
+			'wiki_name',
+			'wiki_url',
+			'equipment',
+			'weapon'
 		] as const) {
 			if (!item[boolKey]) {
 				delete item[boolKey];
