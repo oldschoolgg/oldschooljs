@@ -444,6 +444,7 @@ export interface OpenableOptions {
 	id: number;
 	name: string;
 	aliases: string[];
+	allItems?: number[];
 }
 
 export interface OpenableOpenOptions {

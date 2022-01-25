@@ -11,10 +11,12 @@ export default abstract class Openable {
 	public name: string;
 	public aliases: string[];
 	public abstract open(quantity: number, options: OpenableOpenOptions): ItemBank;
+	public allItems: number[];
 
 	constructor(options: OpenableOptions) {
 		this.id = options.id;
 		this.name = options.name;
 		this.aliases = options.aliases ?? [];
+		this.allItems = options.allItems ?? [];
 	}
 }
