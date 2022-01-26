@@ -12,7 +12,7 @@ export interface GetOptions {
 }
 
 const defaultGetOptions = {
-	type: 'normal',
+	type: AccountType.Normal,
 	virtualLevels: false
 };
 
@@ -38,7 +38,7 @@ class Hiscores {
 					return text;
 				}
 			)
-			.then(resolvePlayerFromHiscores)
+			.then((p) => resolvePlayerFromHiscores(p, mergedOptions.type))
 			.catch((err): never => {
 				throw err;
 			});
@@ -60,7 +60,8 @@ class Hiscores {
 			skills: data.skills,
 			minigames: data.minigames,
 			clues: data.clues,
-			bossRecords: data.bossRecords
+			bossRecords: data.bossRecords,
+			leaguePoints: data.leaguePoints
 		});
 	}
 }

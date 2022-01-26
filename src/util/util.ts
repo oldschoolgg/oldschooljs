@@ -2,6 +2,7 @@ import { randInt, roll } from 'e';
 
 import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
 import {
+	AccountType,
 	CustomKillLogic,
 	DateYearMonth,
 	ItemBank,
@@ -12,7 +13,7 @@ import type Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import Player from '../structures/Player';
 
-export function resolvePlayerFromHiscores(csvData: string): Player {
+export function resolvePlayerFromHiscores(csvData: string, accountType: AccountType): Player {
 	const data: string[][] = csvData
 		.trim()
 		.split('\n')
@@ -32,6 +33,13 @@ export function resolvePlayerFromHiscores(csvData: string): Player {
 			rank: Number(data[i][0]),
 			level: Number(data[i][1]),
 			xp: Number(data[i][2])
+		};
+	}
+
+	if (accountType === AccountType.Seasonal) {
+		resolvedPlayer.leaguePoints = {
+			rank: Number(data[accumulativeIndex + SKILLS.length][0]),
+			points: Number(data[accumulativeIndex + SKILLS.length][1])
 		};
 	}
 

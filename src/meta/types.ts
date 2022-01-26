@@ -37,6 +37,7 @@ export interface Player {
 	skills: SkillsScore;
 	minigames: MinigamesScore;
 	clues: CluesScore;
+	leaguePoints?: { rank: number; points: number };
 }
 
 export interface SkillsScore {
