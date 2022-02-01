@@ -1,5 +1,5 @@
 import { Items, Openables } from '../dist';
-import { Item } from '../dist/meta/types';
+import { EquipmentSlot, Item } from '../dist/meta/types';
 
 const expectedIDTuple = [
 	['Coins', 995],
@@ -94,7 +94,7 @@ describe('Items', () => {
 			if (!dragonDagger) return done.fail('Missing item.');
 			expect(dragonDagger.id).toBe(5698);
 			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
-			expect(dragonDagger.price).toBeLessThan(22_000);
+			expect(dragonDagger.price).toBeLessThan(26_000);
 
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
@@ -114,6 +114,30 @@ describe('Items', () => {
 			if (!item || !item.tradeable || !item.highalch) {
 				fail(`Invalid item for ${itemName}?`);
 			}
+		},
+		60000
+	);
+
+	test.concurrent(
+		'Equipment',
+		async () => {
+			const tbow = Items.get('Twisted bow');
+			expect(tbow.equipment.attack_ranged).toEqual(70);
+			expect(tbow.equipment.defence_crush).toEqual(0);
+			expect(tbow.equipment.slot).toEqual(EquipmentSlot.TwoHanded);
+			expect(tbow.wiki_name).toEqual('Twisted bow');
+			expect(tbow.equipable_weapon).toEqual(true);
+			expect(tbow.wiki_url).toEqual('https://oldschool.runescape.wiki/w/Twisted_bow');
+			expect(tbow.examine).toEqual(
+				'A mystical bow carved from the twisted remains of the Great Olm.'
+			);
+
+			const anglerHat = Items.get('Angler hat');
+			expect(anglerHat.equipment.slot).toEqual(EquipmentSlot.Head);
+			expect(anglerHat.equipable).toEqual(true);
+			expect(anglerHat.equipable_by_player).toEqual(true);
+			expect(anglerHat.equipable_weapon).toEqual(undefined);
+			expect(anglerHat.equipment.attack_ranged).toEqual(0);
 		},
 		60000
 	);

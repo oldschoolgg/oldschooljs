@@ -37,6 +37,7 @@ export interface Player {
 	skills: SkillsScore;
 	minigames: MinigamesScore;
 	clues: CluesScore;
+	leaguePoints?: { rank: number; points: number };
 }
 
 export interface SkillsScore {
@@ -95,6 +96,7 @@ export interface BossRecords {
 	kreeArra: MinigameScore;
 	krilTsutsaroth: MinigameScore;
 	mimic: MinigameScore;
+	nex: MinigameScore;
 	nightmare: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
@@ -240,59 +242,36 @@ export interface Item {
 	/**
 	 * If the item has incomplete wiki data.
 	 */
-	incomplete: boolean;
+	incomplete?: boolean;
 	/**
 	 * If the item is a members-only.
 	 */
-	members: boolean;
+	members?: boolean;
 	/**
 	 * If the item is tradeable (between players and on the GE).
 	 */
-	tradeable: boolean;
+	tradeable?: boolean;
 	/**
 	 * If the item is tradeable (only on GE).
 	 */
-	tradeable_on_ge: boolean;
+	tradeable_on_ge?: boolean;
 	/**
 	 * If the item is stackable (in inventory).
 	 */
-	stackable: boolean;
-	/**
-	 * If the item is stacked, indicated by the stack count.
-	 */
-	stacked: number | null;
-	/**
-	 * If the item is noted.
-	 */
-	noted: boolean;
+	stackable?: boolean;
 	/**
 	 * If the item is noteable.
 	 */
-	noteable: boolean;
-	/**
-	 * The linked ID of the actual item (if noted/placeholder).
-	 */
-	linked_id_item: number | null;
-	/**
-	 * The linked ID of an item in noted form.
-	 */
-	linked_id_noted: number | null;
-	/**
-	 * The linked ID of an item in placeholder form.
-	 */
-	linked_id_placeholder: number | null;
-	/**
-	 * If the item is a placeholder.
-	 */
-	placeholder: boolean;
+	noteable?: boolean;
 	/**
 	 * If the item is equipable (based on right-click menu entry).
 	 */
-	equipable: boolean;
+	equipable?: true;
 	/**
 	 * If the item is equipable by a player and is equipable in-game.
 	 */
-	equipable_by_player: boolean;
+	equipable_by_player?: true;
+	equipable_weapon?: true;
 	/**
 	 * The store price of an item.
 	 */
@@ -308,41 +287,29 @@ export interface Item {
 	/**
 	 * The weight (in kilograms) of the item.
 	 */
-	weight: number | null;
+	weight?: number;
 	/**
 	 * The GE buy limit of the item.
 	 */
-	buy_limit: number | null;
-	/**
-	 * If the item is associated with a quest.
-	 */
-	quest_item: boolean;
+	buy_limit?: number;
 	/**
 	 * Date the item was released (in ISO8601 format).
 	 */
-	release_date: string | null;
-	/**
-	 * If the item is a duplicate.
-	 */
-	duplicate?: boolean;
+	release_date?: string;
 	/**
 	 * The examine text for the item.
 	 */
-	examine: string | null;
+	examine?: string;
 	/**
 	 * The OSRS Wiki name for the item.
 	 */
-	wiki_name: string | null;
+	wiki_name?: string;
 	/**
 	 * The OSRS Wiki URL (possibly including anchor link).
 	 */
-	wiki_url: string | null;
-	equipment: ItemEquipment | null;
-	weapon: ItemWeapon | null;
-	/**
-	 * The stacked variant item IDs for this item, if any.
-	 */
-	stackedVariants?: { qty: number; id: number }[];
+	wiki_url?: string;
+	equipment?: ItemEquipment;
+	weapon?: ItemWeapon;
 	/**
 	 * The OSRS Wiki market price for this item, 0 if untradeable or has no price.
 	 */
@@ -478,6 +445,7 @@ export interface OpenableOptions {
 	id: number;
 	name: string;
 	aliases: string[];
+	allItems?: number[];
 }
 
 export interface OpenableOpenOptions {

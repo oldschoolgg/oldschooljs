@@ -59,6 +59,7 @@ export const mappedBossNames: [string, string][] = [
 	['kreeArra', "Kree'Arra"],
 	['krilTsutsaroth', "K'ril Tsutsaroth"],
 	['mimic', 'Mimic'],
+	['nex', 'Nex'],
 	['nightmare', 'The Nightmare'],
 	['phosanisNightmare', "Phosani's Nightmare"],
 	['obor', 'Obor'],

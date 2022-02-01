@@ -11,7 +11,7 @@ export default class SimpleOpenable extends Openable {
 	public table: LootTable;
 
 	constructor(options: SimpleOpenableOptions) {
-		super(options);
+		super({ ...options, allItems: options.table.allItems });
 		this.table = options.table;
 	}
 

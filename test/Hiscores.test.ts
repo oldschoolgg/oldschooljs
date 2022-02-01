@@ -1,4 +1,5 @@
 import { Hiscores } from '../dist';
+import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
 	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
@@ -19,7 +20,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
-	expect(zulu.bossRecords.commanderZilyana.score).toBe(1082);
+	expect(zulu.bossRecords.commanderZilyana.score).toBe(1083);
 
 	expect(zulu.bossRecords.zulrah.rank > 1).toBe(true);
 	expect(zulu.bossRecords.zulrah.score).toBe(2523);
@@ -29,6 +30,9 @@ test('Hiscores', async () => {
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
 	expect(zulu.bossRecords.cerberus.score).toBe(7080);
+
+	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
+	expect(zulu.bossRecords.nex.score).toBe(201);
 
 	expect(zulu.minigames.bountyHunter.rank > 1).toBe(true);
 	expect(zulu.minigames.bountyHunter.score).toBe(4);
@@ -56,14 +60,24 @@ test('Hiscores', async () => {
 	expect(magnaboy.minigames.bountyHunterRogue.score).toBe(2);
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
+	expect(magnaboy.bossRecords.nex.score).toBe(-1);
 
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
 	expect(virtualMagnaboy.skills.fletching.level).toBe(99);
+	expect(virtualMagnaboy.leaguePoints).toEqual(undefined);
 
 	// DMM Tourny
 	expect(dmmTournyFaux.username).toEqual('Faux');
 	// Dont die Faux
 	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
 	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
+
+	const leagues = await Hiscores.fetch('Magnaboy', { type: AccountType.Seasonal });
+	expect(leagues.leaguePoints?.points).toBeGreaterThan(6300);
+	expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
+
+	const leagues2 = await Hiscores.fetch('fk ezscape', { type: AccountType.Seasonal });
+	expect(leagues2.leaguePoints?.points).toBeGreaterThan(5210);
+	expect(leagues2.leaguePoints?.points).toBeLessThan(20_000);
 }, 30_000);

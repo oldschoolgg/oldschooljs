@@ -14,6 +14,7 @@ class Player {
 	public bossRecords: BossRecords;
 	public type: AccountType;
 	public clues: CluesScore;
+	public leaguePoints?: { rank: number; points: number };
 
 	public constructor(player: PlayerType) {
 		this.username = player.username;
@@ -22,6 +23,7 @@ class Player {
 		this.bossRecords = player.bossRecords;
 		this.type = player.type;
 		this.clues = player.clues;
+		this.leaguePoints = player.leaguePoints;
 	}
 
 	public get combatLevel(): number {
