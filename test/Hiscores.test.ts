@@ -78,6 +78,5 @@ test('Hiscores', async () => {
 	expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
 
 	const leagues2 = await Hiscores.fetch('fk ezscape', { type: AccountType.Seasonal });
-	expect(leagues2.leaguePoints?.points).toBeGreaterThan(5210);
-	expect(leagues2.leaguePoints?.points).toBeLessThan(20_000);
+	expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
 }, 30_000);

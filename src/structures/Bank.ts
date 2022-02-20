@@ -14,8 +14,12 @@ import Items from './Items';
 export default class Bank {
 	public bank: ItemBank;
 
-	constructor(initialBank?: ItemBank) {
-		this.bank = initialBank ? resolveBank(initialBank) : {};
+	constructor(initialBank?: ItemBank | Bank) {
+		this.bank = initialBank
+			? initialBank instanceof Bank
+				? { ...initialBank.bank }
+				: resolveBank(initialBank)
+			: {};
 	}
 
 	public amount(item: string | number): number {

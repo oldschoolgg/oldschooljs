@@ -273,4 +273,16 @@ describe('Bank', () => {
 				Items.get('Rune boots').price * 10
 		);
 	});
+
+	test('init from bank', () => {
+		const start: any = { 1: 1 };
+		const bank = new Bank(start);
+		const bankToTest = new Bank(bank);
+		delete start[1];
+		delete bank.bank[1];
+		start[2] = 1;
+		bank.bank[2] = 1;
+		expect(bankToTest.amount(1)).toEqual(1);
+		expect(bankToTest.length).toEqual(1);
+	});
 });
