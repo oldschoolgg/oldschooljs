@@ -11,8 +11,11 @@ import {
 import itemID from '../util/itemID';
 import Items from './Items';
 
+const frozenError = new Error(`Tried to mutate a frozen Bank.`);
+
 export default class Bank {
 	public bank: ItemBank;
+	public frozen = false;
 
 	constructor(initialBank?: ItemBank | Bank) {
 		this.bank = initialBank
@@ -22,11 +25,17 @@ export default class Bank {
 			: {};
 	}
 
+	public freeze() {
+		this.frozen = true;
+		Object.freeze(this.bank);
+	}
+
 	public amount(item: string | number): number {
 		return this.bank[typeof item === 'string' ? itemID(item) : item] ?? 0;
 	}
 
 	public addItem(item: number, quantity = 1): this {
+		if (this.frozen) throw frozenError;
 		if (quantity < 1) return this;
 		if (this.bank[item]) this.bank[item] += quantity;
 		else this.bank[item] = quantity;
@@ -34,6 +43,7 @@ export default class Bank {
 	}
 
 	public removeItem(item: number, quantity = 1): this {
+		if (this.frozen) throw frozenError;
 		const currentValue = this.bank[item];
 
 		if (typeof currentValue === 'undefined') return this;
@@ -136,6 +146,7 @@ export default class Bank {
 	}
 
 	public multiply(multiplier: number): this {
+		if (this.frozen) throw frozenError;
 		this.bank = multiplyBank(this.bank, multiplier);
 		return this;
 	}
@@ -190,6 +201,7 @@ export default class Bank {
 			}
 		}
 		if (mutate) {
+			if (this.frozen) throw frozenError;
 			this.bank = result.bank;
 			return this;
 		}

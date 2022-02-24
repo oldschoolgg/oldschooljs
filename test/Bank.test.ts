@@ -7,6 +7,7 @@ import {
 	bankFromLootTableOutput,
 	bankHasAllItemsFromBank,
 	bankHasItem,
+	itemID,
 	multiplyBank,
 	numItemsBankHasInBank,
 	removeBankFromBank,
@@ -276,13 +277,35 @@ describe('Bank', () => {
 
 	test('init from bank', () => {
 		const start: any = { 1: 1 };
-		const bank = new Bank(start);
+		let bank = new Bank(start);
 		const bankToTest = new Bank(bank);
 		delete start[1];
 		delete bank.bank[1];
 		start[2] = 1;
 		bank.bank[2] = 1;
+		bank = bank.multiply(100);
+		bank.bank = {};
 		expect(bankToTest.amount(1)).toEqual(1);
 		expect(bankToTest.length).toEqual(1);
+	});
+
+	test('frozen bank', () => {
+		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		bank.freeze();
+		try {
+			bank.bank[5] = 1;
+		} catch {}
+		expect(bank.length).toEqual(2);
+		expect(() => bank.add('Twisted bow')).toThrowError();
+		try {
+			bank.add('Twisted bow');
+		} catch {}
+		try {
+			bank.addItem(itemID('Twisted bow'));
+		} catch {}
+		try {
+			bank.remove(itemID('Twisted bow'));
+		} catch {}
+		expect(bank.amount('Twisted bow')).toEqual(73);
 	});
 });
