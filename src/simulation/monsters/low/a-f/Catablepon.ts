@@ -40,7 +40,10 @@ export const CatableponTable = new LootTable()
 	.add('Trout', 1, 2)
 
 	/* Gem drop table */
-	.add(GemTable, 1, 2);
+	.add(GemTable, 1, 2)
+
+	/* Tertiary */
+	.tertiary(101, 'Clue scroll (medium)');
 
 export default new SimpleMonster({
 	id: 2475,
