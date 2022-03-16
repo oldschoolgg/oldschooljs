@@ -55,7 +55,7 @@ const data: Record<string, [number[], number]> = {
 	'Zamorak brew(3)': [[1, 10], 5],
 	'Sanfew serum(3)': [[1, 11], 5],
 
-	Coins: [[2717, 2, 43_854], 2]
+	Coins: [[2717, 43_854], 2]
 };
 const nonUniqueItemRanges = resolveNameBank(data);
 
@@ -98,7 +98,7 @@ const phosaniData: Record<string, [number[], number]> = {
 	'Saradomin brew(3)': [[8, 15], 5],
 	'Zamorak brew(3)': [[1, 15], 5],
 
-	Coins: [[41_417, 2, 72_013], 2]
+	Coins: [[41_417, 72_013], 2]
 };
 const phosaniNonUniqueItemRanges = resolveNameBank(phosaniData);
 
