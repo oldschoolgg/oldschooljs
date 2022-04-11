@@ -4,9 +4,7 @@ import fetch from 'node-fetch';
 
 import { Item } from '../dist/meta/types';
 import Items, { USELESS_ITEMS } from '../dist/structures/Items';
-import _allPrices from '../src/data/items/item_data.json';
 
-const allPrices = _allPrices as any;
 const itemNameMap: { [key: string]: Item } = {};
 
 interface RawItemCollection {
@@ -37,6 +35,18 @@ export default async function prepareItems(): Promise<void> {
 		`https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json`
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
+
+	const allPrices = await fetch(`https://prices.runescape.wiki/api/v1/osrs/latest`, {
+		headers: {
+			'User-Agent': 'oldschooljs - @Magnaboy#7556'
+		}
+	})
+		.then((res): Promise<any> => res.json())
+		.then((res) => res.data);
+
+	if (!allPrices[20997]) {
+		throw new Error(`Failed to fetch prices`);
+	}
 
 	const newItems = [];
 	const majorPriceChanges = [];
@@ -89,19 +99,27 @@ export default async function prepareItems(): Promise<void> {
 			}
 		}
 
-		const price = (allPrices as any)[item.id]?.price;
+		const previousItem = Items.get(item.id);
+		if (!previousItem) {
+			newItems.push(item);
+		}
+
+		const price = allPrices[item.id];
 		if (price) {
-			item.price = price;
+			item.price = Math.max(0, (price.high + price.low) / 2);
+			if (
+				previousItem &&
+				item.price > 1000 &&
+				item.price > 3 * previousItem.price &&
+				previousItem.price !== 0
+			) {
+				item.price = previousItem.price;
+			}
 		} else {
 			item.price = 0;
 		}
 		if (item.id === 995) {
 			item.price = 1;
-		}
-
-		const previousItem = Items.get(item.id);
-		if (!previousItem) {
-			newItems.push(item);
 		}
 
 		if (
