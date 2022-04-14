@@ -70,7 +70,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 		};
 	}
 
-	accumulativeIndex += 2;
+	accumulativeIndex += 3;
 
 	for (let i = 0; i < mappedBossNames.length; i++) {
 		if (!data[i + accumulativeIndex]) continue;

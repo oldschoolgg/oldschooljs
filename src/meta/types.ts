@@ -120,6 +120,7 @@ export interface MinigamesScore {
 	bountyHunterRogue: MinigameScore;
 	LMS: MinigameScore;
 	soulWars: MinigameScore;
+	riftsClosed: MinigameScore;
 }
 
 export interface CluesScore {
