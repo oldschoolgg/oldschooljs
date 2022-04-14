@@ -63,7 +63,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 
 	accumulativeIndex += CLUES.length;
 
-	for (let i = 0; i < 2; i++) {
+	for (let i = 0; i < 3; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i + 2]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
