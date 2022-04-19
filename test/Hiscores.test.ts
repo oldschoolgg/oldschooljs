@@ -61,6 +61,7 @@ test('Hiscores', async () => {
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
 	expect(magnaboy.bossRecords.nex.score).toBe(-1);
+	expect(magnaboy.minigames.riftsClosed.score).toBe(-1);
 
 	expect(virtualMagnaboy.skills.firemaking.level).toBe(106);
 	expect(virtualMagnaboy.skills.cooking.level).toBe(100);
