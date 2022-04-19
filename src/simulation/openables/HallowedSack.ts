@@ -1,4 +1,5 @@
 import LootTable from '../../structures/LootTable';
+import SimpleOpenable from '../../structures/SimpleOpenable';
 
 const LowTierLootTable = new LootTable()
 	.add("Monk's robe top")
@@ -44,9 +45,6 @@ export const HallowedSackTable = new LootTable()
 export default new SimpleOpenable({
 	id: 24946,
 	name: 'Hallowed Sack',
-	aliases: [
-		'hallow sack',
-		'hallowed sack'
-	],
+	aliases: ['hallow sack', 'hallowed sack'],
 	table: HallowedSackTable
 });
