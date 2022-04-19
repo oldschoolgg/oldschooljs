@@ -66,6 +66,11 @@ const tertiaryTable = new LootTable()
 	.tertiary(1125, 'Zalcano shard');
 
 class ZalcanoClass {
+	allItems: number[] = [
+		...tertiaryTable.allItems,
+		...data.allItems
+	];
+	
 	public rollNonUniqueLoot(perfPercent: number, isMVP: boolean): [number, number] {
 		const { item } = NonUniqueTable.roll();
 
