@@ -1,6 +1,5 @@
 import { randInt, roll } from 'e';
 
-import { ItemBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
@@ -171,7 +170,7 @@ export const MasterClueTable = new LootTable()
 	.add(MasterRareTable, 1, 1);
 
 export class MasterCasket extends Clue {
-	public open(quantity = 1): ItemBank {
+	public open(quantity = 1): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -184,7 +183,7 @@ export class MasterCasket extends Clue {
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 
