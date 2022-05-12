@@ -99,6 +99,7 @@ describe('Items', () => {
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
 			expect(coins.price).toEqual(1);
+			expect(Items.get('Snowy knight').price).toEqual(0);
 		},
 		60000
 	);
