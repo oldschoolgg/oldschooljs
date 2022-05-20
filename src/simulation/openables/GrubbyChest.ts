@@ -58,8 +58,8 @@ const GrubbyChestTable = new LootTable()
 	.add('Grimy snapdragon', 10, 7)
 	.add('Grimy torstol', 5, 7)
 	.add('Coins', 10000, 9)
-	.tertiary('Orange egg sac', 1, 25)
-	.tertiary('Blue egg sac', 1, 25);
+	.tertiary(25, 'Orange egg sac', 1, 25)
+	.tertiary(25, 'Blue egg sac');
 
 export default new SimpleOpenable({
 	id: 23499,
