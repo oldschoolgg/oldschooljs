@@ -286,4 +286,14 @@ describe('Bank Class', () => {
 
 		expect(new Bank(base).bank).toEqual(resolveNameBank(base));
 	});
+
+	test('freeze bank', () => {
+		const bank = new Bank().add('Twisted bow').freeze();
+
+		expect(() => bank.add('Coal')).toThrow();
+		expect(() => (bank.bank[itemID('Coal')] = 1)).toThrow();
+		expect(() => delete bank.bank[itemID('Twisted bow')]).toThrow();
+
+		expect(bank.bank).toEqual({ [itemID('Twisted bow')]: 1 });
+	});
 });

@@ -1,4 +1,4 @@
-import { objectEntries, randArrItem } from 'e';
+import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
 import {
@@ -25,9 +25,10 @@ export default class Bank {
 			: {};
 	}
 
-	public freeze() {
+	public freeze(): this {
 		this.frozen = true;
 		Object.freeze(this.bank);
+		return this;
 	}
 
 	public amount(item: string | number): number {
@@ -139,7 +140,7 @@ export default class Bank {
 	}
 
 	public random(): BankItem | null {
-		const entries = objectEntries(this.bank);
+		const entries = Object.entries(this.bank);
 		if (entries.length === 0) return null;
 		const randomEntry = randArrItem(entries);
 		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
