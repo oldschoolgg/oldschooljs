@@ -1,4 +1,4 @@
-import { deepClone } from 'e';
+import { deepClone, increaseNumByPercent, reduceNumByPercent } from 'e';
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
@@ -29,6 +29,90 @@ function itemShouldntBeAdded(item: any) {
 export function moidLink(items: any[]) {
 	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map((i) => i.id).join(',')}`;
 }
+
+function getItem(name: string) {
+	const item = Items.get(name);
+	if (!item) throw new Error(`${name} doesnt exist`);
+	return item;
+}
+
+// Make these all worth 0gp. They're manipulated and fluctuate hugely constantly.
+const itemsToIgnorePrices = [
+	'Raw bird meat',
+	'Red feather',
+	'Yellow feather',
+	'Orange feather',
+	'Blue feather',
+	'Stripy feather',
+	'Ferret',
+	'Ruby harvest',
+	'Sapphire glacialis',
+	'Snowy knight',
+	'Black warlock',
+	'Kebbit claws',
+	'Barb-tail harpoon',
+	'Kebbit spike',
+	'Kebbit teeth',
+	'Damaged monkey tail',
+	'Monkey tail',
+	'Spotted kebbit fur',
+	'Dark kebbit fur',
+	'Dashing kebbit fur',
+	'Imp-in-a-box(2)',
+	'Swamp lizard',
+	'Orange salamander',
+	'Red salamander',
+	'Black salamander',
+	'Larupia fur',
+	'Tatty larupia fur',
+	'Graahk fur',
+	'Tatty graahk fur',
+	'Kyatt fur',
+	'Tatty kyatt fur',
+	'Raw rabbit',
+	'Rabbit foot',
+	'Polar kebbit fur',
+	'Raw beast meat',
+	'Common kebbit fur',
+	'Feldip weasel fur',
+	'Desert devil fur',
+	'Long kebbit spike',
+	'Fish food',
+	'Iron bolts (p+)',
+	'Cream boots',
+	'Brandy',
+	'Premade sgg',
+	'Spicy crunchies',
+	'Premade veg batta',
+	'Assorted flowers',
+	'Purple hat',
+	"Blood'n'tar snelm",
+	"Blood'n'tar snelm",
+	'Fremennik brown cloak',
+	'Fremennik brown shirt',
+	'Shirt',
+	'Steel arrow(p++)',
+	'Spider on shaft',
+	'Tribal mask',
+	'White dagger',
+	'Sandstone (5kg)',
+	'Egg and tomato',
+	'Minced meat',
+	'Bagged dead tree',
+	'Kitchen table',
+	'Teak bed ',
+	'Bandana eyepatch',
+	'Iron bolts (p+)',
+	'Elemental helmet',
+	'Butterfly net',
+	'Light orb',
+	'Steel hasta',
+	'Defence mix(2)',
+	'Arceuus banner',
+	'Yellow cape'
+]
+	.map(getItem)
+	.map((i) => i.id);
 
 export default async function prepareItems(): Promise<void> {
 	const allItemsRaw: RawItemCollection = await fetch(
@@ -113,13 +197,21 @@ export default async function prepareItems(): Promise<void> {
 		if (item.id === 995) {
 			item.price = 1;
 		}
+		if (itemsToIgnorePrices.includes(item.id)) {
+			item.price = 0;
+		}
 
+		if (previousItem && item.tradeable && previousItem.price < item.price / 100) {
+			majorPriceChanges.push([previousItem, item]);
+		}
+
+		// Dont change price if its only a <3% difference
 		if (
 			previousItem &&
-			item.tradeable &&
-			(previousItem.price > item.price * 10 || previousItem.price < item.price / 10)
+			item.price > reduceNumByPercent(previousItem?.price, 3) &&
+			item.price < increaseNumByPercent(previousItem?.price, 3)
 		) {
-			majorPriceChanges.push([previousItem, item]);
+			item.price = previousItem.price;
 		}
 
 		itemNameMap[item.id] = item;

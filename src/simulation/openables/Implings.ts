@@ -8,7 +8,7 @@ import { MediumClueTable } from '../clues/Medium';
 
 export const BabyImpling = new SimpleOpenable({
 	id: 11238,
-	name: 'Baby impling jar',
+	name: 'Baby impling',
 	aliases: ['baby impling', 'baby imp', 'baby'],
 	table: new LootTable()
 		.add('Chisel', 1, 10)

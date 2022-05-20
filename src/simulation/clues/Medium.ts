@@ -1,9 +1,9 @@
 import { randInt, roll } from 'e';
 
-import { ItemBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
+import { itemID } from '../../util';
 import { BlessingTable, PrayerPageTable, TeleportScrollTable } from './General';
 
 export const MediumUnicornTable = new LootTable()
@@ -182,7 +182,7 @@ export const MediumClueTable = new LootTable()
 	.add(MediumRareTable, 1, 1);
 
 export class MediumCasket extends Clue {
-	public open(quantity = 1): ItemBank {
+	public open(quantity = 1): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -195,8 +195,10 @@ export class MediumCasket extends Clue {
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 
-export default new MediumCasket({ table: MediumClueTable });
+const mediumCasket = new MediumCasket({ table: MediumClueTable });
+mediumCasket.allItems.push(itemID('Clue scroll (master)'));
+export default mediumCasket;

@@ -1,9 +1,9 @@
 import { randInt, roll } from 'e';
 
-import { ItemBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
+import { itemID } from '../../util';
 import { BlessingTable, FirelighterTable, PrayerPageTable, TeleportScrollTable } from './General';
 
 export const EasyChefTable = new LootTable().add('Golden apron').add("Golden chef's hat");
@@ -192,7 +192,7 @@ export const EasyStandardTable = new LootTable()
 export const EasyClueTable = new LootTable().add(EasyStandardTable, 1, 11).add(EasyRareTable, 1, 1);
 
 export class EasyCasket extends Clue {
-	public open(quantity = 1): ItemBank {
+	public open(quantity = 1): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -205,8 +205,10 @@ export class EasyCasket extends Clue {
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 
-export default new EasyCasket({ table: EasyClueTable });
+const easyCasket = new EasyCasket({ table: EasyClueTable });
+easyCasket.allItems.push(itemID('Clue scroll (master)'));
+export default easyCasket;

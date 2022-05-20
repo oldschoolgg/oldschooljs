@@ -1,9 +1,9 @@
 import { randInt, roll } from 'e';
 
-import { ItemBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
+import { itemID } from '../../util';
 import {
 	BlessingTable,
 	FirelighterTable,
@@ -214,7 +214,7 @@ export const HardStandardTable = new LootTable()
 export const HardClueTable = new LootTable().add(HardStandardTable, 1, 12).add(HardRareTable, 1, 1);
 
 export class HardCasket extends Clue {
-	public open(quantity = 1): ItemBank {
+	public open(quantity = 1): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
@@ -227,8 +227,10 @@ export class HardCasket extends Clue {
 			}
 		}
 
-		return loot.values();
+		return loot;
 	}
 }
 
-export default new HardCasket({ table: HardClueTable });
+const hardCasket = new HardCasket({ table: HardClueTable });
+hardCasket.allItems.push(itemID('Clue scroll (master)'));
+export default hardCasket;
