@@ -163,7 +163,7 @@ export class TheatreOfBloodClass {
 
 	public complete(_options: TheatreOfBloodOptions) {
 		const options = JSONClone(_options);
-		if (options.team.length >= 1 || options.team.length <= 5) {
+		if (options.team.length < 2 || options.team.length > 4) {
 			throw new Error('Only team sizes of 2-4 are supported in ToB');
 		}
 
