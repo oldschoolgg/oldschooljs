@@ -44,7 +44,7 @@ export default class SimpleTable<T> {
 		const randomWeight = randInt(1, this.totalWeight);
 
 		// The index of the item that will be used.
-		let result;
+		let result: number = -1;
 		let weight = 0;
 
 		for (let i = 0; i < this.table.length; i++) {

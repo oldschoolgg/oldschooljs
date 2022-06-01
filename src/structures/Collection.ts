@@ -185,6 +185,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		if (arr.length === 0 || !amount) return [];
 		const rand: K[] = Array.from({ length: amount });
 		arr = arr.slice();
+		// eslint-disable-next-line prefer-destructuring
 		for (let i = 0; i < amount; i++)
 			rand[i] = arr.splice(Math.floor(Math.random() * arr.length), 1)[0];
 		return rand;
@@ -338,6 +339,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		fn: (accumulator: any, value: V, key: K, collection: this) => T,
 		initialValue?: T
 	): T {
+		// eslint-disable-next-line @typescript-eslint/init-declarations
 		let accumulator!: T;
 
 		if (typeof initialValue !== 'undefined') {

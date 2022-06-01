@@ -39,7 +39,7 @@ class Wiki {
 		});
 
 		if (!results || !results.query) return [];
-		return results.query.pages.map(this.parseRawPage);
+		return results.query.pages.map((r: any) => this.parseRawPage(r));
 	}
 
 	public async search(query: string): Promise<WikiPage[]> {
@@ -58,7 +58,7 @@ class Wiki {
 
 		return results.query.pages
 			.sort((a: any, b: any) => a.index - b.index)
-			.map(this.parseRawPage);
+			.map((r: any) => this.parseRawPage(r));
 	}
 
 	private parseRawPage(rawPage: any): WikiPage {

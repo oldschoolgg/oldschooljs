@@ -18,6 +18,7 @@ const allMonsters: [number, Monster][] = Object.values(monstersObject).map((mons
 ]);
 
 class MonstersCollection extends Collection<number, Monster> {
+	// eslint-disable-next-line @typescript-eslint/no-useless-constructor
 	constructor(entries: [number, Monster][]) {
 		super(entries);
 	}

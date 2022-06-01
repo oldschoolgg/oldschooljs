@@ -283,6 +283,4 @@ export class ChambersOfXericClass extends Minigame {
 	}
 }
 
-const ChambersOfXeric = new ChambersOfXericClass();
-
-export default ChambersOfXeric;
+export const ChambersOfXeric = new ChambersOfXericClass();

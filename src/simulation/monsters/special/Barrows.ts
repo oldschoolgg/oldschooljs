@@ -66,7 +66,7 @@ export class Barrows extends Monster {
 				if (roll(450 - 58 * NUMBER_OF_BROTHERS)) {
 					let [barrowsItem] = BarrowsTable.roll().items()[0];
 					while (barrowsItemsThisKill.has(barrowsItem.id)) {
-						[barrowsItem] = BarrowsTable.roll().items()[0];
+						[[barrowsItem]] = BarrowsTable.roll().items();
 					}
 					barrowsItemsThisKill.add(barrowsItem.id);
 					loot.add(barrowsItem.id);

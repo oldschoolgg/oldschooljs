@@ -2,7 +2,6 @@ import * as constants from './constants';
 import { MonsterSlayerMaster } from './meta/monsterData';
 import { MonsterKillOptions } from './meta/types';
 import * as Clues from './simulation/clues';
-import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
 import Monsters from './simulation/monsters/index';
 import Openables from './simulation/openables/index';
@@ -24,7 +23,6 @@ export {
 	Hiscores,
 	Items,
 	LootTable,
-	Minigames,
 	Misc,
 	MonsterKillOptions,
 	Monsters,

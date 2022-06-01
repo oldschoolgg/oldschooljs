@@ -3,7 +3,7 @@ import getDom from '../util/getDom';
 import Collection from './Collection';
 
 class Worlds extends Collection<number, World> {
-	public async fetch(number?: number): Promise<World | undefined | void> {
+	public async fetch(number?: number): Promise<World | undefined> {
 		const dom = await getDom('http://oldschool.runescape.com/slu?order=WMLPA');
 
 		const CollectionOfElements = Array.from(
