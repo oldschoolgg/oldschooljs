@@ -11,7 +11,7 @@ import {
 import itemID from '../util/itemID';
 import Items from './Items';
 
-const frozenError = new Error(`Tried to mutate a frozen Bank.`);
+const frozenError = new Error('Tried to mutate a frozen Bank.');
 
 export default class Bank {
 	public bank: ItemBank;
@@ -216,7 +216,7 @@ export default class Bank {
 	public toString(): string {
 		const entries = Object.entries(this.bank);
 		if (entries.length === 0) {
-			return `No items`;
+			return 'No items';
 		}
 		const res = [];
 		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {

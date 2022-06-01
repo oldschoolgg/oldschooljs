@@ -49,7 +49,7 @@ const MasterFarmerTable = new LootTable()
 	.add('Cadantine seed', 1, 1 / 2976)
 	.add('Lantadyme seed', 1, 1 / 4167)
 	.add('Dwarf weed seed', 1, 1 / 6944)
-	.add('Torstol seed', 1, 1 / 10417)
+	.add('Torstol seed', 1, 1 / 10_417)
 
 	// Special
 	.add('Mushroom spore', 1, 1 / 400)

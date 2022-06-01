@@ -9,7 +9,7 @@ const LarransSmallChestTable = new LootTable()
 	.add('Uncut diamond', 21, 5)
 	.add('Uncut ruby', [24, 29], 5)
 	.add('Coal', [352, 443], 5)
-	.add('Coins', [74000, 75000], 4)
+	.add('Coins', [74_000, 75_000], 4)
 	.add('Gold ore', [100, 150], 4)
 	.add('Dragon arrowtips', [49, 182], 4)
 	.add('Iron ore', [300, 450], 3)
@@ -31,15 +31,15 @@ const LarransSmallChestTable = new LootTable()
 	.add('Pure essence', [3359, 5815], 1);
 
 const LarransBigChestTable = new LootTable()
-	.oneIn(256, `Dagon'hai hat`)
-	.oneIn(256, `Dagon'hai robe top`)
-	.oneIn(256, `Dagon'hai robe bottom`)
+	.oneIn(256, "Dagon'hai hat")
+	.oneIn(256, "Dagon'hai robe top")
+	.oneIn(256, "Dagon'hai robe bottom")
 	.add('Uncut diamond', [35, 45], 5)
 	.add('Uncut ruby', [35, 45], 5)
 	.add('Coal', [450, 650], 5)
 	.add('Gold ore', [150, 250], 4)
 	.add('Dragon arrowtips', [100, 250], 4)
-	.add('Coins', [75000, 175000], 3)
+	.add('Coins', [75_000, 175_000], 3)
 	.add('Iron ore', [500, 650], 3)
 	.add('Rune full helm', [3, 5], 3)
 	.add('Rune platebody', [2, 3], 3)
@@ -78,10 +78,8 @@ export class LarransChestOpenable extends SimpleOpenable {
 					if (fishLvl >= fish.req) {
 						tempTable.add(fish.item, fish.qty, fish.weight);
 					}
-				} else {
-					if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
-						tempTable.add(fish.item, fish.qty, fish.weight);
-					}
+				} else if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+					tempTable.add(fish.item, fish.qty, fish.weight);
 				}
 			}
 		} else {
@@ -92,10 +90,8 @@ export class LarransChestOpenable extends SimpleOpenable {
 					if (fishLvl >= fish.req) {
 						tempTable.add(fish.item, fish.qty, fish.weight);
 					}
-				} else {
-					if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
-						tempTable.add(fish.item, fish.qty, fish.weight);
-					}
+				} else if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+					tempTable.add(fish.item, fish.qty, fish.weight);
 				}
 			}
 		}
@@ -109,7 +105,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 }
 
 export default new LarransChestOpenable({
-	id: 23490,
+	id: 23_490,
 	name: "Larran's chest",
 	aliases: [
 		'larran big chest',

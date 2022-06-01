@@ -57,7 +57,7 @@ const SarachnisTable = new LootTable()
 	.add('Uncut diamond', [20, 30], 1)
 
 	/* Other */
-	.add('Coins', [17000, 25000], 6)
+	.add('Coins', [17_000, 25_000], 6)
 	.add('Dragon bones', [10, 15], 5)
 	.add('Egg potato', [5, 8], 5)
 	.add('Weapon poison(++)', [4, 6], 2)

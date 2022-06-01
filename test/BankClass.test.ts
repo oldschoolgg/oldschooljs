@@ -25,7 +25,7 @@ describe('Bank Class', () => {
 		expect(bank.bank).toEqual({});
 
 		bank.add({ Coal: 1, Emerald: 1, Ruby: 1 });
-		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10000 });
+		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10_000 });
 		expect(bank.bank).toEqual({ 1603: 1 });
 	});
 

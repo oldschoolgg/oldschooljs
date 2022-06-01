@@ -8,7 +8,7 @@ const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
 	.add('Uncut ruby', [25, 35], 5)
 	.add('Coal', [300, 500], 5)
-	.add('Coins', [50000, 150000], 5)
+	.add('Coins', [50_000, 150_000], 5)
 	.add('Gold ore', [100, 200], 4)
 	.add('Dragon arrowtips', [50, 200], 4)
 	.add('Iron ore', [350, 500], 3)
@@ -47,10 +47,8 @@ export class BrimstoneChestOpenable extends SimpleOpenable {
 				if (fishLvl >= fish.req) {
 					tempTable.add(fish.item, fish.qty, fish.weight);
 				}
-			} else {
-				if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
-					tempTable.add(fish.item, fish.qty, fish.weight);
-				}
+			} else if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
+				tempTable.add(fish.item, fish.qty, fish.weight);
 			}
 		}
 
@@ -63,7 +61,7 @@ export class BrimstoneChestOpenable extends SimpleOpenable {
 }
 
 export default new BrimstoneChestOpenable({
-	id: 23083,
+	id: 23_083,
 	name: 'Brimstone chest',
 	aliases: ['brimstone chest', 'brimstone'],
 	table: BrimstoneChestTable

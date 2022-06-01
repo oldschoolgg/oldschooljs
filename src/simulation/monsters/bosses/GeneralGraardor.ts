@@ -8,10 +8,10 @@ const GeneralGraardorArmorTable = new LootTable()
 	.add('Bandos boots');
 
 const MinionUniqueTable = new LootTable()
-	.add('Coins', [1_400, 1_500], 124)
+	.add('Coins', [1400, 1500], 124)
 	.add(GeneralGraardorArmorTable, 1, 3);
 
-const MinionShardTable = new LootTable().add('Coins', [1_400, 1_500], 9).add(ShardTable, 1, 3);
+const MinionShardTable = new LootTable().add('Coins', [1400, 1500], 9).add(ShardTable, 1, 3);
 
 const MinionTable = new LootTable()
 	.every('Bones')
@@ -23,7 +23,7 @@ const MinionTable = new LootTable()
 	.add('Shark', 2, 8)
 	.add('Chilli potato', 3, 8)
 	.add('Steel arrow', [95, 100], 7)
-	.add('Coins', [1_400, 1_500], 66)
+	.add('Coins', [1400, 1500], 66)
 	.add('Limpwurt root', 5, 8)
 	.add('Combat potion(3)', 1, 2)
 	.add('Super strength(3)', 1, 2)
@@ -60,7 +60,7 @@ const GeneralGraardorTable = new LootTable()
 	.add('Rune pickaxe', 1, 6)
 
 	/* Other */
-	.add('Coins', [19500, 20000], 28)
+	.add('Coins', [19_500, 20_000], 28)
 	.add('Grimy snapdragon', 3, 8)
 	.add('Snapdragon seed', 1, 8)
 	.add('Super restore(4)', 3, 8)

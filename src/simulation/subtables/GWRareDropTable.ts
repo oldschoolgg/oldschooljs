@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 
 const GWMegaRareTable = new LootTable()
-	.add('Coins', [19500, 20000], 113)
+	.add('Coins', [19_500, 20_000], 113)
 	.add('Rune spear', 1, 8)
 	.add('Shield left half', 1, 4)
 	.add('Dragon spear', 1, 3);
@@ -12,7 +12,7 @@ export const ShardTable = new LootTable()
 	.add('Godsword shard 3');
 
 export const GWGemTable = new LootTable()
-	.add('Coins', [19500, 20000], 63)
+	.add('Coins', [19_500, 20_000], 63)
 	.add('Uncut sapphire', 1, 32)
 	.add('Uncut emerald', 1, 16)
 	.add('Uncut ruby', 1, 8)
@@ -41,7 +41,7 @@ const GWRareDropTable = new LootTable()
 	.add('Rune sword', 1, 5)
 
 	/* Other */
-	.add('Coins', [19500, 20000], 20)
+	.add('Coins', [19_500, 20_000], 20)
 	.add('Loop half of key', 1, 21)
 	.add('Tooth half of key', 1, 20)
 	.add('Dragonstone', 1, 2)

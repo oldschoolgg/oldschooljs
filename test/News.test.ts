@@ -1,7 +1,7 @@
 import { News } from '../dist';
 
 describe('News', () => {
-	jest.setTimeout(60000);
+	jest.setTimeout(60_000);
 	test('Generic checks', async () => {
 		expect.assertions(1);
 

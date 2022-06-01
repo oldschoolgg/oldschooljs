@@ -32,7 +32,7 @@ export default class SimpleMonster extends Monster {
 		if (options.pickpocketTable) {
 			allItems = allItems.concat(options.pickpocketTable.allItems);
 		}
-		super({ ...options, allItems: allItems });
+		super({ ...options, allItems });
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
 		this.onTaskTable = options.onTaskTable;

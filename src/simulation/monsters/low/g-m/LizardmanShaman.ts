@@ -35,7 +35,7 @@ const LizardmanShamanTable = new LootTable({ limit: 500 })
 	.add(TreeHerbSeedTable, 1, 10)
 
 	/* Other */
-	.add('Coins', [100, 6_000], 70)
+	.add('Coins', [100, 6000], 70)
 	.add('Lizardman fang', [10, 14], 38)
 	.add('Chilli potato', 2, 30)
 	.add("Xeric's talisman(inert)", 1, 4)

@@ -89,7 +89,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
  * @param username The username to check.
  */
 export function isValidUsername(username: string): boolean {
-	return !!username.match('^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$');
+	return Boolean(username.match('^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$'));
 }
 
 /**
@@ -132,15 +132,14 @@ function round(number: number): string {
 }
 
 export function toKMB(number: number): string {
-	if (number > 999999999 || number < -999999999) {
-		return round(number / 1000000000) + 'b';
-	} else if (number > 999999 || number < -999999) {
-		return round(number / 1000000) + 'm';
+	if (number > 999_999_999 || number < -999_999_999) {
+		return `${round(number / 1_000_000_000)}b`;
+	} else if (number > 999_999 || number < -999_999) {
+		return `${round(number / 1_000_000)}m`;
 	} else if (number > 999 || number < -999) {
-		return round(number / 1000) + 'k';
-	} else {
-		return round(number);
+		return `${round(number / 1000)}k`;
 	}
+	return round(number);
 }
 
 export function fromKMB(number: string): number {
@@ -163,9 +162,8 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	// https://twitter.com/JagexKieren/status/1083781544135847936
 	if (combatLevel < 100) {
 		return Math.round(0.2 * (combatLevel - 100) ** 2 + 100);
-	} else {
-		return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 	}
+	return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 }
 
 export function addArrayOfNumbers(arr: number[]): number {

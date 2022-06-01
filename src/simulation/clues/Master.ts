@@ -26,7 +26,7 @@ export const MasterSubAnkouOutfitTable = new LootTable()
 	.add('Ankou socks');
 
 export const MasterAnkouOutfitTable = new LootTable()
-	.add('Coins', [15000, 30000], 2)
+	.add('Coins', [15_000, 30_000], 2)
 	.add(MasterSubAnkouOutfitTable);
 
 export const MasterSubMummyOutfitTable = new LootTable()
@@ -37,7 +37,7 @@ export const MasterSubMummyOutfitTable = new LootTable()
 	.add("Mummy's feet");
 
 export const MasterMummyOutfitTable = new LootTable()
-	.add('Coins', [15000, 30000], 2)
+	.add('Coins', [15_000, 30_000], 2)
 	.add(MasterSubMummyOutfitTable);
 
 export const MasterSubDragonOrnTable = new LootTable()
@@ -45,7 +45,7 @@ export const MasterSubDragonOrnTable = new LootTable()
 	.add('Dragon platebody ornament kit', 1, 2);
 
 export const MasterDragonOrnTable = new LootTable()
-	.add('Coins', [15000, 30000], 9)
+	.add('Coins', [15_000, 30_000], 9)
 	.add(MasterSubDragonOrnTable);
 
 export const Master3rdageTable = new LootTable()
@@ -136,7 +136,7 @@ export const MasterSeedTable = new LootTable()
 	.add('Palm tree seed', [1, 2]);
 
 export const MasterStandardTable = new LootTable()
-	.add('Coins', [20000, 35000])
+	.add('Coins', [20_000, 35_000])
 	.add('Manta ray', [15, 25])
 	.add('Nature rune', [100, 200])
 	.add('Death rune', [100, 200])

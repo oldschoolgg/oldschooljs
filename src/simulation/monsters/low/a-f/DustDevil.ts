@@ -15,7 +15,7 @@ export const DustDevilPreTable = new LootTable()
 	.add('Mystic earth staff', 1, 1)
 	.add('Dragon dagger', 1, 1)
 	.oneIn(4000, 'Dust battlestaff')
-	.oneIn(32768, 'Dragon chainbody')
+	.oneIn(32_768, 'Dragon chainbody')
 
 	/* Runes and ammunition */
 	.add('Dust rune', 200, 10)

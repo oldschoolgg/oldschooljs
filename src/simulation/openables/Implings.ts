@@ -7,7 +7,7 @@ import { MasterClueTable } from '../clues/Master';
 import { MediumClueTable } from '../clues/Medium';
 
 export const BabyImpling = new SimpleOpenable({
-	id: 11238,
+	id: 11_238,
 	name: 'Baby impling',
 	aliases: ['baby impling', 'baby imp', 'baby'],
 	table: new LootTable()
@@ -36,7 +36,7 @@ export const BabyImpling = new SimpleOpenable({
 });
 
 export const YoungImpling = new SimpleOpenable({
-	id: 11240,
+	id: 11_240,
 	name: 'Young impling',
 	aliases: ['young impling', 'young imp', 'young'],
 	table: new LootTable()
@@ -64,7 +64,7 @@ export const YoungImpling = new SimpleOpenable({
 });
 
 export const GourmetImpling = new SimpleOpenable({
-	id: 11242,
+	id: 11_242,
 	name: 'Gourmet impling',
 	aliases: ['gourmet impling', 'gourmet imp', 'gourmet'],
 	table: new LootTable()
@@ -90,7 +90,7 @@ export const GourmetImpling = new SimpleOpenable({
 });
 
 export const EarthImpling = new SimpleOpenable({
-	id: 11244,
+	id: 11_244,
 	name: 'Earth impling',
 	aliases: ['earth impling', 'earth imp', 'earth'],
 	table: new LootTable()
@@ -117,7 +117,7 @@ export const EarthImpling = new SimpleOpenable({
 });
 
 export const EssenceImpling = new SimpleOpenable({
-	id: 11246,
+	id: 11_246,
 	name: 'Essence impling',
 	aliases: ['essence impling', 'essence imp', 'essence'],
 	table: new LootTable()
@@ -144,7 +144,7 @@ export const EssenceImpling = new SimpleOpenable({
 });
 
 export const EclecticImpling = new SimpleOpenable({
-	id: 11248,
+	id: 11_248,
 	name: 'Eclectic impling',
 	aliases: ['eclectic impling', 'eclectic imp', 'ecl', 'eclectic'],
 	table: new LootTable()
@@ -171,7 +171,7 @@ export const EclecticImpling = new SimpleOpenable({
 });
 
 export const NatureImpling = new SimpleOpenable({
-	id: 11250,
+	id: 11_250,
 	name: 'Nature impling',
 	aliases: ['nature impling', 'nature imp', 'nature'],
 	table: new LootTable()
@@ -198,7 +198,7 @@ export const NatureImpling = new SimpleOpenable({
 });
 
 export const MagpieImpling = new SimpleOpenable({
-	id: 11252,
+	id: 11_252,
 	name: 'Magpie impling',
 	aliases: ['magpie impling', 'magpie imp', 'magpie'],
 	table: new LootTable()
@@ -225,7 +225,7 @@ export const MagpieImpling = new SimpleOpenable({
 });
 
 export const NinjaImpling = new SimpleOpenable({
-	id: 11254,
+	id: 11_254,
 	name: 'Ninja impling',
 	aliases: ['ninja impling', 'ninja imp', 'ninja'],
 	table: new LootTable()
@@ -252,7 +252,7 @@ export const NinjaImpling = new SimpleOpenable({
 });
 
 export const CrystalImpling = new SimpleOpenable({
-	id: 23768,
+	id: 23_768,
 	name: 'Crystal impling',
 	aliases: ['crystal impling', 'crystal imp', 'crystal'],
 	table: new LootTable()
@@ -279,7 +279,7 @@ export const CrystalImpling = new SimpleOpenable({
 });
 
 export const DragonImpling = new SimpleOpenable({
-	id: 11256,
+	id: 11_256,
 	name: 'Dragon impling',
 	aliases: ['dragon impling', 'dragon imp', 'dimp', 'dragon'],
 	table: new LootTable()
@@ -306,7 +306,7 @@ export const DragonImpling = new SimpleOpenable({
 });
 
 export const LuckyImpling = new SimpleOpenable({
-	id: 19732,
+	id: 19_732,
 	name: 'Lucky impling',
 	aliases: ['lucky impling', 'lucky imp', 'lucky', 'luckys'],
 	table: new LootTable()

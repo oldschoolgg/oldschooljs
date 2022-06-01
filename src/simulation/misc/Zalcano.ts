@@ -109,4 +109,5 @@ class ZalcanoClass {
 }
 
 const Zalcano = new ZalcanoClass();
+
 export default Zalcano;

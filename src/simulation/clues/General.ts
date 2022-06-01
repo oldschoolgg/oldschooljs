@@ -73,5 +73,5 @@ export const BlessingTable = new LootTable()
 	.add('Honourable blessing')
 	.add('War blessing')
 	.add('Ancient blessing')
-	.add('Coins', [10000, 15000], 7)
+	.add('Coins', [10_000, 15_000], 7)
 	.add('Purple sweets', [8, 12], 7);

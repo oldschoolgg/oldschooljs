@@ -82,7 +82,7 @@ class Polls extends Collection<string, Poll> {
 					if (voteOption.includes('skip')) voteOption = 'skip';
 					const result = row.querySelector('td:nth-of-type(3)').textContent;
 					questionResults.push({
-						voteOption: voteOption,
+						voteOption,
 						percentOfTotal: parseFloat(result.split('%')[0]),
 						voteCount: parseInt(result.split('(')[1].split(' ')[0])
 					});

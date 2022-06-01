@@ -14,7 +14,7 @@ const SpikedTurothTable = new LootTable()
 	.tertiary(826, 'Imbued heart');
 
 export default new SimpleMonster({
-	id: 10397,
+	id: 10_397,
 	name: 'Spiked Turoth',
 	table: SpikedTurothTable,
 	aliases: ['spiked turoth']

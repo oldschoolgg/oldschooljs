@@ -21,7 +21,7 @@ class Worlds extends Collection<number, World> {
 				!columns[4].textContent
 			) {
 				continue;
-				//throw new Error('World element is missing text content.');
+				// throw new Error('World element is missing text content.');
 			}
 
 			const worldNumber = parseInt(columns[0].textContent.replace(/\D/g, '')) + 300;

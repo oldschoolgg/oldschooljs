@@ -58,7 +58,7 @@ const KalphiteQueenTable = new LootTable({ limit: 256 })
 	/* Other */
 	.add('Wine of zamorak', 60, 20)
 	.add('Potato cactus', 100, 16)
-	.add('Coins', [15000, 20000], 10)
+	.add('Coins', [15_000, 20_000], 10)
 	.add('Grapes', 100, 10)
 	.add('Weapon poison(++)', 5, 10)
 	.add('Cactus spine', 10, 6)

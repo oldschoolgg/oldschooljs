@@ -77,4 +77,5 @@ class OpenablesCollection extends Collection<number, Openable> {
 }
 
 const Openables = Object.assign(new OpenablesCollection(allMonsters), openablesObject);
+
 export default Openables;

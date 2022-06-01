@@ -72,7 +72,7 @@ const AncientWyvernTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(350, 'Clue scroll (elite)')
-	.tertiary(10000, 'Wyvern visage');
+	.tertiary(10_000, 'Wyvern visage');
 
 export default new SimpleMonster({
 	id: 7795,

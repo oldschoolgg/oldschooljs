@@ -16,7 +16,7 @@ describe('Worlds', () => {
 		expect(australianWorlds.size > 14).toBeTruthy();
 	});
 
-	jest.setTimeout(60000);
+	jest.setTimeout(60_000);
 	test('Single world should be correct', () => {
 		expect.assertions(3);
 

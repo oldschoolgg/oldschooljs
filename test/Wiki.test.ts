@@ -25,7 +25,7 @@ describe('Wiki', () => {
 	test('Fetching by ID', async () => {
 		expect.assertions(1);
 
-		const twistedBowPage = await Wiki.fetchPage(82098);
+		const twistedBowPage = await Wiki.fetchPage(82_098);
 		if (!twistedBowPage) return fail('Failed to fetch page');
 		expect(twistedBowPage.title).toEqual('Twisted bow');
 	});

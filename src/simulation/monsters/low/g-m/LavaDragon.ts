@@ -51,7 +51,7 @@ export const LavaDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(250, 'Clue scroll (elite)')
-	.tertiary(10000, 'Draconic visage');
+	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
 	id: 6593,

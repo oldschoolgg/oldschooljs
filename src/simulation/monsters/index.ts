@@ -24,4 +24,5 @@ class MonstersCollection extends Collection<number, Monster> {
 }
 
 const Monsters = Object.assign(new MonstersCollection(allMonsters), monstersObject);
+
 export default Monsters;

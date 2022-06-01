@@ -18,22 +18,22 @@ import Worlds from './structures/Worlds';
 import * as Util from './util/';
 
 export {
-	Items,
-	Hiscores,
-	Player,
-	Util,
-	Worlds,
-	News,
-	Wiki,
-	Polls,
-	Clues,
-	Misc,
-	Monsters,
-	Minigames,
-	Openables,
 	Bank,
-	LootTable,
+	Clues,
 	constants,
+	Hiscores,
+	Items,
+	LootTable,
+	Minigames,
+	Misc,
 	MonsterKillOptions,
-	MonsterSlayerMaster
+	Monsters,
+	MonsterSlayerMaster,
+	News,
+	Openables,
+	Player,
+	Polls,
+	Util,
+	Wiki,
+	Worlds
 };

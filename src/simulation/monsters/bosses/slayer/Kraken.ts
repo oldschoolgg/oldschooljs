@@ -36,7 +36,7 @@ const KrakenTable = new LootTable()
 	.add('Runite bar', 2, 1)
 
 	/* Other */
-	.add('Coins', [10000, 19999], 15)
+	.add('Coins', [10_000, 19_999], 15)
 	.add('Shark', 5, 7)
 	.add('Pirate boots', 1, 4)
 	.add('Sanfew serum(4)', 2, 4)

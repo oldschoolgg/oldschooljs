@@ -12,7 +12,7 @@ const DragonStoneArmorTable = new LootTable()
 /* Key half roll */
 const coinsKeyHalfTable = new LootTable()
 	.every('Uncut dragonstone')
-	.every('Coins', [10000, 15000])
+	.every('Coins', [10_000, 15_000])
 	.add('Tooth half of key', 1, 1)
 	.add('Loop half of key', 1, 1);
 
@@ -31,7 +31,7 @@ const dragonItemTable = new LootTable()
 	.add('Shield left half', 1, 1);
 
 const ElvenCrystalChestTable = new LootTable()
-	.oneIn(10000, 'Uncut onyx')
+	.oneIn(10_000, 'Uncut onyx')
 	.oneIn(500, DragonStoneArmorTable)
 	.add(coinsKeyHalfTable, 1, 64)
 	.add(
@@ -54,7 +54,7 @@ const ElvenCrystalChestTable = new LootTable()
 	.add(
 		[
 			['Uncut dragonstone', 1],
-			['Coins', [30000, 50000]],
+			['Coins', [30_000, 50_000]],
 			['Crystal shard', [8, 13]]
 		],
 		1,
@@ -124,7 +124,7 @@ const ElvenCrystalChestTable = new LootTable()
 	.add(dragonItemTable, 1, 3);
 
 export default new SimpleOpenable({
-	id: 23951,
+	id: 23_951,
 	name: 'Elven crystal chest',
 	aliases: [
 		'elven crystal chest',

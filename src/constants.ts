@@ -127,7 +127,7 @@ export const ErrorDescriptions: Record<string, string> = {
 	ITEM_NOT_FOUND: 'No item with the provided ID/Name could be found.'
 };
 
-export const OSRS_BOX_BASE_URL = `https://www.osrsbox.com/osrsbox-db`;
+export const OSRS_BOX_BASE_URL = 'https://www.osrsbox.com/osrsbox-db';
 
 export const EMPTY_BIRD_NEST_ID = 5075;
 

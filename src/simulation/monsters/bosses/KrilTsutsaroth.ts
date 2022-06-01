@@ -3,10 +3,10 @@ import SimpleMonster from '../../../structures/SimpleMonster';
 import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
 const MinionUniqueTable = new LootTable()
-	.add('Coins', [1_300, 1_400], 124)
+	.add('Coins', [1300, 1400], 124)
 	.add('Zamorakian spear', 1, 3);
 
-const MinionShardTable = new LootTable().add('Coins', [1_300, 1_400], 9).add(ShardTable, 1, 3);
+const MinionShardTable = new LootTable().add('Coins', [1300, 1400], 9).add(ShardTable, 1, 3);
 
 const MinionTable = new LootTable()
 	.every('Malicious ashes')
@@ -16,7 +16,7 @@ const MinionTable = new LootTable()
 	.add('Death rune', [5, 10], 8)
 	.add('Blood rune', [5, 10], 8)
 	.add('Steel arrow', [95, 100], 7)
-	.add('Coins', [1_300, 1_400], 66)
+	.add('Coins', [1300, 1400], 66)
 	.add('Shark', 3, 8)
 	.add('Tuna potato', 2, 8)
 	.add('Wine of zamorak', [5, 10], 8)
@@ -41,7 +41,7 @@ const KrilTsutsarothTable = new LootTable()
 	.every(ZaklnGritchMinionTable)
 	.add(UniqueTable, 1, 3)
 	.tertiary(250, 'Clue scroll (elite)')
-	.tertiary(5000, `Pet k'ril tsutsaroth`)
+	.tertiary(5000, "Pet k'ril tsutsaroth")
 
 	/* Weapons and armour */
 	.add('Adamant arrow(p++)', [295, 300], 8)
@@ -69,7 +69,7 @@ const KrilTsutsarothTable = new LootTable()
 	)
 
 	/* Other */
-	.add('Coins', [19500, 20000], 33)
+	.add('Coins', [19_500, 20_000], 33)
 	.add('Grimy lantadyme', 10, 8)
 	.add('Lantadyme seed', 3, 8)
 	.add('Death rune', [120, 125], 8)
@@ -80,7 +80,7 @@ const KrilTsutsarothTable = new LootTable()
 
 export default new SimpleMonster({
 	id: 3129,
-	name: `K'ril Tsutsaroth`,
+	name: "K'ril Tsutsaroth",
 	table: KrilTsutsarothTable,
 	aliases: ['kril', 'zammy', 'zamorak', "k'ril tsutsaroth"]
 });

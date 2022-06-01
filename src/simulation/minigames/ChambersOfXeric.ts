@@ -207,7 +207,7 @@ export class ChambersOfXericClass extends Minigame {
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =
 			typeof options.timeToComplete === 'number' &&
-			options.challengeMode === true &&
+			options.challengeMode &&
 			this.elligibleForDust(options.team.length, options.timeToComplete);
 
 		if (elligibleForDust) {
@@ -284,4 +284,5 @@ export class ChambersOfXericClass extends Minigame {
 }
 
 const ChambersOfXeric = new ChambersOfXericClass();
+
 export default ChambersOfXeric;

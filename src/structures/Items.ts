@@ -2,6 +2,7 @@ import _items from '../data/items/item_data.json';
 import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/cleanString';
 import Collection from './Collection';
+
 const items = _items as Record<string, Item>;
 
 export const itemNameMap: Map<string, number> = new Map();
@@ -16,12 +17,12 @@ export const USELESS_ITEMS = [
 	8890,
 	6964,
 	2513,
-	19492,
-	11071,
-	11068,
-	21284,
-	24735,
-	21913,
+	19_492,
+	11_071,
+	11_068,
+	21_284,
+	24_735,
+	21_913,
 	4703,
 	4561,
 	2425,

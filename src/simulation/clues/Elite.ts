@@ -123,7 +123,7 @@ export const EliteSeedTable = new LootTable()
 	.add('Palm tree seed');
 
 export const EliteStandardTable = new LootTable()
-	.add('Coins', [20000, 30000])
+	.add('Coins', [20_000, 30_000])
 	.add('Tuna potato', [15, 20])
 	.add('Summer pie', [15, 20])
 	.add('Law rune', [50, 75])

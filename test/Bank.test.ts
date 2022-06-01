@@ -105,7 +105,7 @@ describe('Bank', () => {
 		const bankToHave = resolveNameBank({
 			'Fire rune': 1000,
 			'Air rune': 1,
-			'Chaos rune': 101010
+			'Chaos rune': 101_010
 		});
 
 		const bankThatShouldntHave = resolveNameBank({
@@ -115,10 +115,10 @@ describe('Bank', () => {
 		});
 
 		const bankThatShouldHave = resolveNameBank({
-			'Fire rune': 104200,
-			'Air rune': 43432,
-			'Chaos rune': 121010,
-			'Death rune': 121010
+			'Fire rune': 104_200,
+			'Air rune': 43_432,
+			'Chaos rune': 121_010,
+			'Death rune': 121_010
 		});
 
 		expect(bankHasAllItemsFromBank(bankThatShouldHave, bankToHave)).toBeTruthy();
@@ -265,7 +265,7 @@ describe('Bank', () => {
 			'Rune platelegs': 10,
 			'Rune boots': 10,
 			Toolkit: 1,
-			'Abyssal book': 10000
+			'Abyssal book': 10_000
 		});
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(

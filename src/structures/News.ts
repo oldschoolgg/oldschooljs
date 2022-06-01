@@ -6,7 +6,7 @@ import Collection from './Collection';
 
 const newsArchive = _newsArchive as NewsItem[];
 
-const BASE_URL = `https://secure.runescape.com/m=news/archive?oldschool=1`;
+const BASE_URL = 'https://secure.runescape.com/m=news/archive?oldschool=1';
 
 interface NewsPageContent {
 	content: string;
@@ -45,12 +45,11 @@ class News extends Collection<string, NewsItem> {
 				year: year - 1,
 				month: 12
 			};
-		} else {
-			return {
-				year,
-				month: month - 1
-			};
 		}
+		return {
+			year,
+			month: month - 1
+		};
 	}
 
 	public async fetchNewArticles(

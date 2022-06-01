@@ -265,4 +265,5 @@ class NightmareClass {
 }
 
 const Nightmare = new NightmareClass();
+
 export default Nightmare;

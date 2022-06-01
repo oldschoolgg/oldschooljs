@@ -15,7 +15,7 @@ const ColossalHydraTable = new LootTable()
 	.tertiary(160, 'Imbued heart');
 
 export default new SimpleMonster({
-	id: 10402,
+	id: 10_402,
 	name: 'Colossal Hydra',
 	table: ColossalHydraTable,
 	aliases: ['colossal hydra']

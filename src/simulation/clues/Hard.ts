@@ -69,7 +69,7 @@ export const HardRareTable = new LootTable()
 	.add('Amulet of glory (t4)')
 	.add('Pith helmet')
 	.add('Explorer backpack')
-	.add(19912) // Zombie head
+	.add(19_912) // Zombie head
 	.add('Nunchaku')
 	.add('Cyclops head')
 	.add('Dragon boots ornament kit')

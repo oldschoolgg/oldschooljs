@@ -7,6 +7,7 @@ class Wiki {
 	private searchOptions: { [index: string]: string } = {
 		'-incategory': ['Slang_dictionary', 'Disambiguation'].join('|')
 	};
+
 	private commonPageAPIOptions = {
 		action: 'query',
 		format: 'json',

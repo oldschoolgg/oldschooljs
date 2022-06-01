@@ -31,7 +31,7 @@ export const GargoylePreTable = new LootTable()
 	/* Coins */
 	.add('Coins', [400, 800], 28)
 	.add('Coins', [500, 1000], 20)
-	.add('Coins', 10000, 5)
+	.add('Coins', 10_000, 5)
 
 	/* RDT */
 	.add(GemTable, 1, 5);

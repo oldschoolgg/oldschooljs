@@ -65,7 +65,7 @@ const NormalTable = new LootTable()
 	.add(TreeHerbSeedTable, 1, 2)
 
 	/* Other */
-	.add('Coins', [40000, 60000], 10)
+	.add('Coins', [40_000, 60_000], 10)
 	.add('Shark', [2, 4], 7)
 	.add(
 		[
@@ -77,7 +77,7 @@ const NormalTable = new LootTable()
 	)
 	.add('Dragon bones', 30, 6)
 	.add('Crystal key', 1, 1)
-	.oneIn(202, 'Coins', [5550, 25550])
+	.oneIn(202, 'Coins', [5550, 25_550])
 
 	/* Rare drop table */
 	.add(RareDropTable, 1, 1);

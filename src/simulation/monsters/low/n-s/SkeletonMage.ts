@@ -7,7 +7,7 @@ export const SkeletonMageTable = new LootTable()
 	.every('ashes')
 	.tertiary(5000, 'Skeleton champion scroll')
 	.tertiary(128, 'Clue scroll (medium)')
-	//TODO: Check for updated drop rates in future.
+	// TODO: Check for updated drop rates in future.
 	/* Weapons and armour */
 	.add('Pink skirt', 1, 8)
 	.add('Battlestaff', 1, 1)

@@ -25,7 +25,7 @@ export function checkThreshold(
 		const item = Items.get(parseInt(itemID));
 		if (!item) return done.fail(`Missing item with ID: ${itemID}`);
 
-		const id = item.id;
+		const { id } = item;
 		const expectedRate = expectedRates[id];
 		if (!expectedRate) continue;
 

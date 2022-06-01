@@ -5,4 +5,4 @@ import Hard from './Hard';
 import Master from './Master';
 import Medium from './Medium';
 
-export { Beginner, Easy, Medium, Hard, Elite, Master };
+export { Beginner, Easy, Elite, Hard, Master, Medium };

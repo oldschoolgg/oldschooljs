@@ -142,7 +142,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 }
 
 export default new SeedPackOpenable({
-	id: 22993,
+	id: 22_993,
 	name: 'Seed pack',
 	aliases: ['seed pack'],
 	table: SeedPackTable

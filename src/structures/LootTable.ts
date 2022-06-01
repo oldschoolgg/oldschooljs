@@ -242,8 +242,7 @@ export default class LootTable {
 	protected determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
 			return randInt(quantity[0], quantity[1]);
-		} else {
-			return quantity;
 		}
+		return quantity;
 	}
 }

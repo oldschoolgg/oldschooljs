@@ -15,7 +15,7 @@ const BrutalBlackDragonTable = new LootTable()
 	/* Unique */
 	.add(UniqueTable, 1, 1)
 
-	/*Weapons and armour */
+	/* Weapons and armour */
 	.add('Rune hasta', 1, 10)
 	.add('Rune platelegs', 1, 7)
 	.add('Rune full helm', 2, 6)
@@ -61,7 +61,7 @@ const BrutalBlackDragonTable = new LootTable()
 	.tertiary(20, 'Ensouled dragon head')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(250, 'Clue scroll (elite)')
-	.tertiary(10000, 'Draconic visage');
+	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
 	id: 7275,
