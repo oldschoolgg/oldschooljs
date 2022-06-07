@@ -94,6 +94,7 @@ import Ghost from './g-m/Ghost';
 import Ghoul from './g-m/Ghoul';
 import GiantBat from './g-m/GiantBat';
 import GiantCryptSpider from './g-m/GiantCryptSpider';
+import GiantFrog from './g-m/GiantFrog';
 import GiantRat from './g-m/GiantRat';
 import GiantSeaSnake from './g-m/GiantSeaSnake';
 import GiantSpider from './g-m/GiantSpider';
@@ -127,6 +128,7 @@ import IronDragon from './g-m/IronDragon';
 import Jackal from './g-m/Jackal';
 import Jelly from './g-m/Jelly';
 import Jogre from './g-m/Jogre';
+import JubblyBird from './g-m/JubblyBird';
 import JungleHorror from './g-m/JungleHorror';
 import JungleWolf from './g-m/JungleWolf';
 import KalphiteGuardian from './g-m/KalphiteGuardian';
@@ -531,5 +533,7 @@ export const allLowMonsters = {
 	MenaphiteThug,
 	PriffRabbit,
 	TzHaarXil,
-	TzHaarMej
+	TzHaarMej,
+	GiantFrog,
+	JubblyBird
 };
