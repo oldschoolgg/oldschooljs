@@ -2,14 +2,9 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
-const KreearraArmorTable = new LootTable()
-	.add('Armadyl helmet')
-	.add('Armadyl chestplate')
-	.add('Armadyl chainskirt');
+const KreearraArmorTable = new LootTable().add('Armadyl helmet').add('Armadyl chestplate').add('Armadyl chainskirt');
 
-const MinionUniqueTable = new LootTable()
-	.add('Coins', [1000, 1100], 124)
-	.add(KreearraArmorTable, 1, 3);
+const MinionUniqueTable = new LootTable().add('Coins', [1000, 1100], 124).add(KreearraArmorTable, 1, 3);
 
 const MinionShardTable = new LootTable().add('Coins', [1000, 1100], 9).add(ShardTable, 1, 3);
 

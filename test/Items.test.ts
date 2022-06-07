@@ -75,7 +75,7 @@ describe('Items', () => {
 
 	test.concurrent(
 		'Fetching Item by ID',
-		async (done) => {
+		async done => {
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20_997),
 				Items.get(2440),
@@ -106,8 +106,8 @@ describe('Items', () => {
 
 	test.concurrent.each(["Zulrah's scales", 'Belladonna seed'])(
 		'Duplicate/Stacked item counts',
-		(itemName) => {
-			const itemArr = Items.filter((i) => i.name === itemName).array();
+		itemName => {
+			const itemArr = Items.filter(i => i.name === itemName).array();
 			expect(itemArr.length !== 1).toBeFalsy();
 
 			const item = itemArr[0] as Item | undefined;
@@ -129,9 +129,7 @@ describe('Items', () => {
 			expect(tbow.wiki_name).toEqual('Twisted bow');
 			expect(tbow.equipable_weapon).toEqual(true);
 			expect(tbow.wiki_url).toEqual('https://oldschool.runescape.wiki/w/Twisted_bow');
-			expect(tbow.examine).toEqual(
-				'A mystical bow carved from the twisted remains of the Great Olm.'
-			);
+			expect(tbow.examine).toEqual('A mystical bow carved from the twisted remains of the Great Olm.');
 
 			const anglerHat = Items.get('Angler hat');
 			expect(anglerHat.equipment.slot).toEqual(EquipmentSlot.Head);

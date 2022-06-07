@@ -1,9 +1,7 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
-const SkeletonHellhoundTable = new LootTable()
-	.every('Bones')
-	.oneIn(5000, 'Skeleton champion scroll');
+const SkeletonHellhoundTable = new LootTable().every('Bones').oneIn(5000, 'Skeleton champion scroll');
 
 const VetionTable = new LootTable()
 	.every('Big bones')

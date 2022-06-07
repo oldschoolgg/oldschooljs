@@ -3,9 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
-const AncientWyvernTreeSeedTable = new LootTable()
-	.add('Mahogany seed', 1, 2)
-	.add('Magic seed', 1, 1);
+const AncientWyvernTreeSeedTable = new LootTable().add('Mahogany seed', 1, 2).add('Magic seed', 1, 1);
 
 const AncientWyvernTable = new LootTable()
 	.every('Wyvern bones')

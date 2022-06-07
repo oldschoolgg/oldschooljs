@@ -171,19 +171,18 @@ export class TheatreOfBloodClass {
 		const penaltyForDeath = 4;
 		const maxPointsTeamCanGet = options.team.length * maxPointsPerPerson;
 
-		const parsedTeam: ParsedMember[] = _options.team.map((t) => ({
+		const parsedTeam: ParsedMember[] = _options.team.map(t => ({
 			id: t.id,
 			deaths: t.deaths,
 			numDeaths: t.deaths.length,
 			points: maxPointsPerPerson - t.deaths.length * penaltyForDeath
 		}));
 
-		const teamPoints = sumArr(parsedTeam.map((val) => val.points));
+		const teamPoints = sumArr(parsedTeam.map(val => val.points));
 
-		const totalDeaths = sumArr(parsedTeam.map((i) => i.numDeaths));
+		const totalDeaths = sumArr(parsedTeam.map(i => i.numDeaths));
 
-		const percentBaseChanceOfUnique =
-			(options.hardMode ? 13 : 11) * (teamPoints / maxPointsTeamCanGet);
+		const percentBaseChanceOfUnique = (options.hardMode ? 13 : 11) * (teamPoints / maxPointsTeamCanGet);
 
 		const purpleReceived = percentChance(percentBaseChanceOfUnique);
 		const purpleRecipient = purpleReceived ? this.uniqueDecide(parsedTeam) : null;

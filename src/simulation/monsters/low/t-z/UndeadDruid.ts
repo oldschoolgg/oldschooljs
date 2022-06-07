@@ -9,10 +9,7 @@ const TatteredPageTable = new LootTable()
 	.add('Tattered sun page')
 	.add('Tattered temple page');
 
-const HerbHerbDropTable = new LootTable()
-	.add(HerbDropTable, 1, 1)
-	.add(HerbDropTable, 2, 1)
-	.add(HerbDropTable, 3, 1);
+const HerbHerbDropTable = new LootTable().add(HerbDropTable, 1, 1).add(HerbDropTable, 2, 1).add(HerbDropTable, 3, 1);
 
 export const UndeadDruidTable = new LootTable()
 	.every('Bones')

@@ -1,9 +1,7 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
-const OnyxBoltTipTable = new LootTable()
-	.add('Onyx bolt tips', [1, 4], 1)
-	.add('Onyx bolt tips', 20, 1);
+const OnyxBoltTipTable = new LootTable().add('Onyx bolt tips', [1, 4], 1).add('Onyx bolt tips', 20, 1);
 
 const TzHaarKetTable = new LootTable()
 	/* Weapons and armour */

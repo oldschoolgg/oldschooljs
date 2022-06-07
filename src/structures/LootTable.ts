@@ -47,9 +47,7 @@ export default class LootTable {
 		return itemID(name);
 	}
 
-	private addToAllItems(
-		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
-	): void {
+	private addToAllItems(items: number | number[] | LootTable | LootTableItem | LootTableItem[]): void {
 		if (Array.isArray(items)) {
 			for (const item of items) {
 				this.addToAllItems(item);
@@ -58,9 +56,7 @@ export default class LootTable {
 		}
 
 		if (items instanceof LootTable) {
-			this.allItems = Array.from(
-				new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems))
-			);
+			this.allItems = Array.from(new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems)));
 			return;
 		}
 

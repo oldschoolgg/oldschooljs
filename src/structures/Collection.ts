@@ -81,8 +81,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @returns {Array}
 	 */
 	public keyArray(): K[] {
-		if (!this._keyArray || this._keyArray.length !== this.size)
-			this._keyArray = [...this.keys()];
+		if (!this._keyArray || this._keyArray.length !== this.size) this._keyArray = [...this.keys()];
 		return this._keyArray;
 	}
 
@@ -165,10 +164,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		if (typeof amount === 'undefined') return arr[Math.floor(Math.random() * arr.length)];
 		if (arr.length === 0 || !amount) return [];
 		arr = arr.slice();
-		return Array.from(
-			{ length: amount },
-			(): V => arr.splice(Math.floor(Math.random() * arr.length), 1)[0]
-		);
+		return Array.from({ length: amount }, (): V => arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
 	}
 
 	/**
@@ -186,8 +182,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		const rand: K[] = Array.from({ length: amount });
 		arr = arr.slice();
 		// eslint-disable-next-line prefer-destructuring
-		for (let i = 0; i < amount; i++)
-			rand[i] = arr.splice(Math.floor(Math.random() * arr.length), 1)[0];
+		for (let i = 0; i < amount; i++) rand[i] = arr.splice(Math.floor(Math.random() * arr.length), 1)[0];
 		return rand;
 	}
 
@@ -335,10 +330,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @returns {*}
 	 * @example collection.reduce((acc, guild) => acc + guild.memberCount, 0);
 	 */
-	public reduce<T>(
-		fn: (accumulator: any, value: V, key: K, collection: this) => T,
-		initialValue?: T
-	): T {
+	public reduce<T>(fn: (accumulator: any, value: V, key: K, collection: this) => T, initialValue?: T): T {
 		// eslint-disable-next-line @typescript-eslint/init-declarations
 		let accumulator!: T;
 
@@ -452,10 +444,8 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @example collection.sort((userA, userB) => userA.createdTimestamp - userB.createdTimestamp);
 	 */
 	public sort(
-		compareFunction: (firstValue: V, secondValue: V, firstKey: K, secondKey: K) => number = (
-			x,
-			y
-		): number => Number(x > y) || Number(x === y) - 1
+		compareFunction: (firstValue: V, secondValue: V, firstKey: K, secondKey: K) => number = (x, y): number =>
+			Number(x > y) || Number(x === y) - 1
 	): this {
 		const entries = [...this.entries()];
 		entries.sort((a, b): number => compareFunction(a[1], b[1], a[0], b[0]));

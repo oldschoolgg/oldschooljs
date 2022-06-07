@@ -18,21 +18,16 @@ class Polls extends Collection<string, Poll> {
 	}
 
 	public async fetchYear(year: number = getDate().year, cache = true): Promise<Poll[]> {
-		const { document } = await getDom(
-			`http://secure.runescape.com/m=poll/oldschool/archive?year=${year}`
-		);
+		const { document } = await getDom(`http://secure.runescape.com/m=poll/oldschool/archive?year=${year}`);
 
 		const pages = [];
 
-		const links = (Array.from(
-			document.querySelectorAll('.td80percent > a')
-		) as HTMLAnchorElement[]).map((link: HTMLAnchorElement): string => link.href);
+		const links = (Array.from(document.querySelectorAll('.td80percent > a')) as HTMLAnchorElement[]).map(
+			(link: HTMLAnchorElement): string => link.href
+		);
 
 		for (const link of links) {
-			const poll = await this.fetchPageContent(
-				`http://secure.runescape.com/m=poll/oldschool/${link}`,
-				year
-			);
+			const poll = await this.fetchPageContent(`http://secure.runescape.com/m=poll/oldschool/${link}`, year);
 			if (cache) this.set(poll.url, poll);
 			pages.push(poll);
 		}
@@ -53,16 +48,11 @@ class Polls extends Collection<string, Poll> {
 			.join(' ');
 
 		const totalVotes = parseInt(
-			(document.querySelector('.widescrollWrapper b') as HTMLElement).textContent.split(
-				': '
-			)[1]
+			(document.querySelector('.widescrollWrapper b') as HTMLElement).textContent.split(': ')[1]
 		);
 
 		const datePosted = new Date(
-			document
-				.querySelector('.widescroll-content > h2')
-				.textContent.split(' (')[1]
-				.split(')')[0]
+			document.querySelector('.widescroll-content > h2').textContent.split(' (')[1].split(')')[0]
 		).getTime();
 
 		const questions = [];

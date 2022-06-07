@@ -2,7 +2,7 @@ import { Clues } from '../dist';
 import { checkThreshold } from './testUtil';
 
 describe('Clues', () => {
-	test.concurrent('Beginner Clues', (done) => {
+	test.concurrent('Beginner Clues', done => {
 		const expectedRates = {
 			'Mole slippers': 180,
 			'Shoulder parrot': 180,
@@ -22,7 +22,7 @@ describe('Clues', () => {
 		return checkThreshold(done, expectedRates, loot, number);
 	});
 
-	test.concurrent('Easy Clues', (done) => {
+	test.concurrent('Easy Clues', done => {
 		const expectedRates = {
 			'Amulet of magic (t)': 360 / 3,
 			'Wooden shield (g)': 1404 / 3,
@@ -56,7 +56,7 @@ describe('Clues', () => {
 		return checkThreshold(done, expectedRates, loot, number);
 	});
 
-	test.concurrent('Medium Clues', (done) => {
+	test.concurrent('Medium Clues', done => {
 		const expectedRates = {
 			'Clue scroll (master)': 30,
 			'Ranger boots': 1133 / 4,
@@ -79,7 +79,7 @@ describe('Clues', () => {
 		return checkThreshold(done, expectedRates, loot, number);
 	});
 
-	test.concurrent('Hard Clues', (done) => {
+	test.concurrent('Hard Clues', done => {
 		const expectedRates = {
 			'Clue scroll (master)': 15,
 			'Ancient page 2': 650 / 5,
@@ -112,7 +112,7 @@ describe('Clues', () => {
 		return checkThreshold(done, expectedRates, loot, number);
 	});
 
-	test.concurrent('Elite Clues', (done) => {
+	test.concurrent('Elite Clues', done => {
 		const expectedRates = {
 			'Clue scroll (master)': 5,
 			'Dragon full helm ornament kit': 1250 / 5,
@@ -137,7 +137,7 @@ describe('Clues', () => {
 		return checkThreshold(done, expectedRates, loot, number);
 	});
 
-	test.concurrent('Master Clues', (done) => {
+	test.concurrent('Master Clues', done => {
 		const expectedRates = {
 			'Occult ornament kit': 851 / 6,
 			'Arceuus hood': 851 / 6,

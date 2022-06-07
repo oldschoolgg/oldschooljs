@@ -5,10 +5,7 @@ import { NotedHerbTable } from '../../../subtables/NotedHerbTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-const HydraBrimstoneRingTable = new LootTable()
-	.add("Hydra's eye")
-	.add("Hydra's fang")
-	.add("Hydra's heart");
+const HydraBrimstoneRingTable = new LootTable().add("Hydra's eye").add("Hydra's fang").add("Hydra's heart");
 
 const HydraOffTaskUniqueTable = new LootTable()
 	.oneIn(10_000, 'Dragon thrownaxe', [200, 400])

@@ -14,10 +14,7 @@ const monstersObject = {
 	...CreatureCreation
 };
 
-const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [
-	monster.id,
-	monster
-]);
+const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [monster.id, monster]);
 
 class MonstersCollection extends Collection<number, Monster> {
 	// eslint-disable-next-line @typescript-eslint/no-useless-constructor

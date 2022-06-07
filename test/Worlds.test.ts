@@ -12,7 +12,7 @@ describe('Worlds', () => {
 		expect(Worlds.size >= 180).toBeTruthy();
 
 		// There should be more than 14 Australian Worlds.
-		const australianWorlds = Worlds.filter((world) => world.location === 'Australia');
+		const australianWorlds = Worlds.filter(world => world.location === 'Australia');
 		expect(australianWorlds.size > 14).toBeTruthy();
 	});
 

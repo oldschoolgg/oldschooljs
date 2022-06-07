@@ -2,9 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable, { GemTable } from '../../../subtables/RareDropTable';
 
-const CrazyArchaeologistUniqueTable = new LootTable()
-	.add('Odium shard 2')
-	.add('Malediction shard 2');
+const CrazyArchaeologistUniqueTable = new LootTable().add('Odium shard 2').add('Malediction shard 2');
 
 const CrazyArchaeologistTable = new LootTable()
 	.every('Bones')

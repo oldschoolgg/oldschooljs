@@ -21,7 +21,7 @@ describe('Monsters', () => {
 
 	beforeAll(async () => {
 		for (const monster of Monsters.values()) {
-			if (!monster.aliases.some((alias) => alias === monster.name.toLowerCase())) {
+			if (!monster.aliases.some(alias => alias === monster.name.toLowerCase())) {
 				throw `${monster.name} should have its name as an alias.`;
 			}
 			// Make sure all aliases are lowercase
@@ -33,8 +33,7 @@ describe('Monsters', () => {
 				currentAliases.add(alias);
 			}
 
-			if (currentMonIDs.has(monster.id))
-				throw `${monster.name} has the same ID as another monster.`;
+			if (currentMonIDs.has(monster.id)) throw `${monster.name} has the same ID as another monster.`;
 			currentMonIDs.add(monster.id);
 		}
 	});
@@ -77,7 +76,7 @@ describe('Monsters', () => {
 		}
 	}
 
-	test('Test Monster', (done) => {
+	test('Test Monster', done => {
 		const TesterMonster = new TestMonsterClass({ id: 1, name: 'Test' });
 
 		const number = 500_000;

@@ -1,14 +1,7 @@
 import { randFloat, randInt, roll } from 'e';
 
 import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
-import {
-	AccountType,
-	CustomKillLogic,
-	DateYearMonth,
-	ItemBank,
-	LootBank,
-	MonsterKillOptions
-} from '../meta/types';
+import { AccountType, CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from '../meta/types';
 import type Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import Player from '../structures/Player';

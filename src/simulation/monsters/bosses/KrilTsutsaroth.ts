@@ -2,9 +2,7 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
-const MinionUniqueTable = new LootTable()
-	.add('Coins', [1300, 1400], 124)
-	.add('Zamorakian spear', 1, 3);
+const MinionUniqueTable = new LootTable().add('Coins', [1300, 1400], 124).add('Zamorakian spear', 1, 3);
 
 const MinionShardTable = new LootTable().add('Coins', [1300, 1400], 9).add(ShardTable, 1, 3);
 

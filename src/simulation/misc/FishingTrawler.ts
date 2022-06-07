@@ -85,7 +85,7 @@ export function FishingTrawler(fishingLevel: number, hasEliteArd: boolean, bank?
 
 	loot.add(JunkTable.roll());
 
-	const ableToFish = trawlerFish.filter((i) => fishingLevel >= i.level);
+	const ableToFish = trawlerFish.filter(i => fishingLevel >= i.level);
 	let possibleFish = ableToFish.slice(Math.max(ableToFish.length - 5, 0)).reverse();
 
 	let xp = 0;
@@ -95,9 +95,7 @@ export function FishingTrawler(fishingLevel: number, hasEliteArd: boolean, bank?
 	for (let i = 0; i < len; i++) {
 		const fishToGive = possibleFish[0];
 
-		let qty = Math.floor(
-			randomVariation((ableToFish.indexOf(fishToGive) + 1) * multiplier, 50)
-		);
+		let qty = Math.floor(randomVariation((ableToFish.indexOf(fishToGive) + 1) * multiplier, 50));
 		// 50% Extra fish for having elite diary
 		if (hasEliteArd) {
 			qty = Math.floor(qty * 1.5);
@@ -109,7 +107,7 @@ export function FishingTrawler(fishingLevel: number, hasEliteArd: boolean, bank?
 		loot.add(fishToGive.id, qty);
 
 		// Cant get same fish twice in 1 trawler
-		possibleFish = possibleFish.filter((i) => i !== fishToGive);
+		possibleFish = possibleFish.filter(i => i !== fishToGive);
 		if (roll(3)) break;
 	}
 

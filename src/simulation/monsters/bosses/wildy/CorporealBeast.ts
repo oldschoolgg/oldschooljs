@@ -2,10 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const SigilTable = new LootTable()
-	.add('Spectral sigil', 1, 3)
-	.add('Arcane sigil', 1, 3)
-	.add('Elysian sigil', 1, 1);
+const SigilTable = new LootTable().add('Spectral sigil', 1, 3).add('Arcane sigil', 1, 3).add('Elysian sigil', 1, 1);
 
 const CorporealBeastTable = new LootTable()
 

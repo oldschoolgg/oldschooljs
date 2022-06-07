@@ -6,9 +6,7 @@ class Worlds extends Collection<number, World> {
 	public async fetch(number?: number): Promise<World | undefined> {
 		const dom = await getDom('http://oldschool.runescape.com/slu?order=WMLPA');
 
-		const CollectionOfElements = Array.from(
-			dom.window.document.getElementsByClassName('server-list__row')
-		);
+		const CollectionOfElements = Array.from(dom.window.document.getElementsByClassName('server-list__row'));
 
 		for (const WorldRow of CollectionOfElements) {
 			const columns = Array.from(WorldRow.children);

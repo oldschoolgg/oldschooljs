@@ -56,9 +56,7 @@ class Wiki {
 
 		if (!results || !results.query || !results.query.pages) return [];
 
-		return results.query.pages
-			.sort((a: any, b: any) => a.index - b.index)
-			.map((r: any) => this.parseRawPage(r));
+		return results.query.pages.sort((a: any, b: any) => a.index - b.index).map((r: any) => this.parseRawPage(r));
 	}
 
 	private parseRawPage(rawPage: any): WikiPage {

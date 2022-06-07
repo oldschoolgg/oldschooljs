@@ -1,13 +1,7 @@
 import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import {
-	bankHasAllItemsFromBank,
-	multiplyBank,
-	removeBankFromBank,
-	resolveBank,
-	resolveNameBank
-} from '../util/bank';
+import { bankHasAllItemsFromBank, multiplyBank, removeBankFromBank, resolveBank, resolveNameBank } from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 
@@ -57,10 +51,7 @@ export default class Bank {
 		return this;
 	}
 
-	public add(
-		item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined,
-		quantity = 1
-	): Bank {
+	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined, quantity = 1): Bank {
 		if (!item) {
 			return this;
 		}
@@ -101,10 +92,7 @@ export default class Bank {
 		return this;
 	}
 
-	public remove(
-		item: string | number | ReturnedLootItem[] | ItemBank | Bank,
-		quantity = 1
-	): Bank {
+	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
 		if (Array.isArray(item)) {
 			for (const _item of item) this.remove(_item.item, _item.quantity);
 			return this;
@@ -154,7 +142,7 @@ export default class Bank {
 
 	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (Array.isArray(items)) {
-			return items.every((item) => this.amount(item) > 0);
+			return items.every(item => this.amount(item) > 0);
 		}
 
 		if (typeof items === 'string' || typeof items === 'number') {
@@ -188,9 +176,7 @@ export default class Bank {
 
 	public fits(bank: Bank): number {
 		const items = bank.items();
-		const divisions = items
-			.map(([item, qty]) => Math.floor(this.amount(item.id) / qty))
-			.sort((a, b) => a - b);
+		const divisions = items.map(([item, qty]) => Math.floor(this.amount(item.id) / qty)).sort((a, b) => a - b);
 		return divisions[0] ?? 0;
 	}
 

@@ -4,13 +4,7 @@ import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
 import { itemID } from '../../util';
-import {
-	BlessingTable,
-	FirelighterTable,
-	GildedTable,
-	PrayerPageTable,
-	TeleportScrollTable
-} from './General';
+import { BlessingTable, FirelighterTable, GildedTable, PrayerPageTable, TeleportScrollTable } from './General';
 
 export const Hard3rdageTable = new LootTable()
 	.add('3rd age range coif')

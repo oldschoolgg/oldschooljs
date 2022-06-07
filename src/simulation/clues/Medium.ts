@@ -6,9 +6,7 @@ import LootTable from '../../structures/LootTable';
 import { itemID } from '../../util';
 import { BlessingTable, PrayerPageTable, TeleportScrollTable } from './General';
 
-export const MediumUnicornTable = new LootTable()
-	.add('White unicorn mask')
-	.add('Black unicorn mask');
+export const MediumUnicornTable = new LootTable().add('White unicorn mask').add('Black unicorn mask');
 
 export const MediumElegantTable = new LootTable()
 	.add('Purple elegant shirt')
@@ -134,13 +132,9 @@ export const MediumSubFirelighterTable = new LootTable()
 	.add('Purple firelighter', [4, 9])
 	.add('White firelighter', [4, 9]);
 
-export const MediumFirelighterTable = new LootTable()
-	.add('Gnomish firelighter')
-	.add(MediumSubFirelighterTable, 1, 9);
+export const MediumFirelighterTable = new LootTable().add('Gnomish firelighter').add(MediumSubFirelighterTable, 1, 9);
 
-export const MediumAmuletTable = new LootTable()
-	.add('Strength amulet (t)')
-	.add('Amulet of power', 1, 9);
+export const MediumAmuletTable = new LootTable().add('Strength amulet (t)').add('Amulet of power', 1, 9);
 
 export const MediumBowTable = new LootTable().add('Yew comp bow').add('Yew longbow', 1, 9);
 
@@ -177,9 +171,7 @@ export const MediumStandardTable = new LootTable()
 	.add(MediumAmuletTable)
 	.add(MediumBowTable);
 
-export const MediumClueTable = new LootTable()
-	.add(MediumStandardTable, 1, 10)
-	.add(MediumRareTable, 1, 1);
+export const MediumClueTable = new LootTable().add(MediumStandardTable, 1, 10).add(MediumRareTable, 1, 1);
 
 export class MediumCasket extends Clue {
 	public open(quantity = 1): Bank {

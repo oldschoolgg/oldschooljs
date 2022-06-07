@@ -6,10 +6,7 @@ const GWMegaRareTable = new LootTable()
 	.add('Shield left half', 1, 4)
 	.add('Dragon spear', 1, 3);
 
-export const ShardTable = new LootTable()
-	.add('Godsword shard 1')
-	.add('Godsword shard 2')
-	.add('Godsword shard 3');
+export const ShardTable = new LootTable().add('Godsword shard 1').add('Godsword shard 2').add('Godsword shard 3');
 
 export const GWGemTable = new LootTable()
 	.add('Coins', [19_500, 20_000], 63)

@@ -65,10 +65,7 @@ const openablesObject = {
 	LuckyImpling
 };
 
-const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [
-	openable.id,
-	openable
-]);
+const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
 
 class OpenablesCollection extends Collection<number, Openable> {
 	// eslint-disable-next-line @typescript-eslint/no-useless-constructor

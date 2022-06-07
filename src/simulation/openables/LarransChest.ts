@@ -61,10 +61,7 @@ const LarransBigChestTable = new LootTable()
 const LarransChestTable = new LootTable().add(LarransSmallChestTable).add(LarransBigChestTable);
 
 export class LarransChestOpenable extends SimpleOpenable {
-	public open(
-		quantity = 1,
-		options: OpenableOpenOptions = { fishLvl: 99, chestSize: 'big' }
-	): ItemBank {
+	public open(quantity = 1, options: OpenableOpenOptions = { fishLvl: 99, chestSize: 'big' }): ItemBank {
 		let tempTable: LootTable = LarransBigChestTable.clone();
 		const loot = new Bank();
 		const tier = options.chestSize ?? 'big';

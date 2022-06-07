@@ -2,14 +2,9 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
-const GeneralGraardorArmorTable = new LootTable()
-	.add('Bandos chestplate')
-	.add('Bandos tassets')
-	.add('Bandos boots');
+const GeneralGraardorArmorTable = new LootTable().add('Bandos chestplate').add('Bandos tassets').add('Bandos boots');
 
-const MinionUniqueTable = new LootTable()
-	.add('Coins', [1400, 1500], 124)
-	.add(GeneralGraardorArmorTable, 1, 3);
+const MinionUniqueTable = new LootTable().add('Coins', [1400, 1500], 124).add(GeneralGraardorArmorTable, 1, 3);
 
 const MinionShardTable = new LootTable().add('Coins', [1400, 1500], 9).add(ShardTable, 1, 3);
 
@@ -32,9 +27,7 @@ const MinionTable = new LootTable()
 
 const StrongsackMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Kebab', 1, 1);
 const SteelwillMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Beer', 1, 1);
-const GrimspikeMinionTable = new LootTable({ limit: 6 })
-	.every(MinionTable)
-	.add('Right eye patch', 1, 1);
+const GrimspikeMinionTable = new LootTable({ limit: 6 }).every(MinionTable).add('Right eye patch', 1, 1);
 
 const UniqueTable = new LootTable()
 	.add(GeneralGraardorArmorTable, 1, 4)

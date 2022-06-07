@@ -4,10 +4,7 @@ import HerbDropTable from '../../../subtables/HerbDropTable';
 import { GemTable } from '../../../subtables/RareDropTable';
 import RareSeedTable from '../../../subtables/RareSeedTable';
 
-const TurothHerbTable = new LootTable()
-	.add(HerbDropTable, 1, 15)
-	.add(HerbDropTable, 2, 10)
-	.add(HerbDropTable, 3, 6);
+const TurothHerbTable = new LootTable().add(HerbDropTable, 1, 15).add(HerbDropTable, 2, 10).add(HerbDropTable, 3, 6);
 
 export const TurothPreTable = new LootTable({ limit: 128 })
 	/* Weapons and armour */

@@ -12,9 +12,5 @@ test('Chambers Of Xeric', async () => {
 		855_000 * (1 / 8675) - maxRoll
 	]);
 
-	expect(ChambersOfXeric.determineUniqueChancesFromTeamPoints(73_000_000)).toEqual([
-		maxRoll,
-		maxRoll,
-		maxRoll
-	]);
+	expect(ChambersOfXeric.determineUniqueChancesFromTeamPoints(73_000_000)).toEqual([maxRoll, maxRoll, maxRoll]);
 });

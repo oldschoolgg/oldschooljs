@@ -3,15 +3,9 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
-const AlchemicalHydraBrimstoneRingTable = new LootTable()
-	.add("Hydra's eye")
-	.add("Hydra's fang")
-	.add("Hydra's heart");
+const AlchemicalHydraBrimstoneRingTable = new LootTable().add("Hydra's eye").add("Hydra's fang").add("Hydra's heart");
 
-const RuneArmourTable = new LootTable()
-	.every('Rune platebody')
-	.add('Rune platelegs')
-	.add('Rune plateskirt');
+const RuneArmourTable = new LootTable().every('Rune platebody').add('Rune platelegs').add('Rune plateskirt');
 
 const NotedHerbsTable = new LootTable()
 	.add('Grimy avantoe', [10, 15], 4)

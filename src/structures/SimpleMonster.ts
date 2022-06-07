@@ -2,11 +2,7 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import {
-	getAncientShardChanceFromHP,
-	getBrimKeyChanceFromCBLevel,
-	getTotemChanceFromHP
-} from '../util/util';
+import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
@@ -41,8 +37,7 @@ export default class SimpleMonster extends Monster {
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
-		const canGetKey =
-			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 
 		for (let i = 0; i < quantity; i++) {
 			if (canGetKey) {

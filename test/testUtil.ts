@@ -32,9 +32,7 @@ export function checkThreshold(
 		const effectiveRate = numberDone / qty;
 
 		if (!withinThreshold(effectiveRate, expectedRate, 10)) {
-			return done.fail(
-				`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`
-			);
+			return done.fail(`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`);
 		}
 	}
 	return done();

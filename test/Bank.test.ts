@@ -245,7 +245,7 @@ describe('Bank', () => {
 		const empty = bank.filter(() => false);
 		expect(bank.length).toEqual(3);
 		expect(empty.length).toEqual(0);
-		bank.filter((item) => item.name === 'Candle', true);
+		bank.filter(item => item.name === 'Candle', true);
 		expect(bank.length).toEqual(1);
 	});
 
@@ -269,9 +269,7 @@ describe('Bank', () => {
 		});
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(
-			runePlatebody.price * 10 +
-				Items.get('Rune platelegs').price * 10 +
-				Items.get('Rune boots').price * 10
+			runePlatebody.price * 10 + Items.get('Rune platelegs').price * 10 + Items.get('Rune boots').price * 10
 		);
 	});
 

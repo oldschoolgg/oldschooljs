@@ -38,7 +38,7 @@ class Hiscores {
 					return text;
 				}
 			)
-			.then((p) => resolvePlayerFromHiscores(p, mergedOptions.type))
+			.then(p => resolvePlayerFromHiscores(p, mergedOptions.type))
 			.catch((err): never => {
 				throw err;
 			});

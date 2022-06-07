@@ -9,10 +9,7 @@ const LogTable = new LootTable()
 	.add('Yew logs', 2, 2)
 	.add('Magic logs', 2, 1);
 
-export const EntTable = new LootTable()
-	.tertiary(256, 'Bird nest')
-	.add(LogTable, 1, 1)
-	.add(LogTable, 2, 1);
+export const EntTable = new LootTable().tertiary(256, 'Bird nest').add(LogTable, 1, 1).add(LogTable, 2, 1);
 
 export default new SimpleMonster({
 	id: 6594,

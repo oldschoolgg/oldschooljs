@@ -126,13 +126,6 @@ const ElvenCrystalChestTable = new LootTable()
 export default new SimpleOpenable({
 	id: 23_951,
 	name: 'Elven crystal chest',
-	aliases: [
-		'elven crystal chest',
-		'elven chest',
-		'enhanced',
-		'enhanced crystal chest',
-		'elven chest',
-		'elven'
-	],
+	aliases: ['elven crystal chest', 'elven chest', 'enhanced', 'enhanced crystal chest', 'elven chest', 'elven'],
 	table: ElvenCrystalChestTable
 });
