@@ -1,6 +1,7 @@
 import Collection from '../../structures/Collection';
 import Monster from '../../structures/Monster';
 import { allBosses } from './bosses';
+import { CreatureCreation } from './CreatureCreation';
 import { allLowMonsters } from './low';
 import { specialBosses } from './special';
 import { allSuperiorMonsters } from './superiorMonsters';
@@ -9,7 +10,8 @@ const monstersObject = {
 	...allBosses,
 	...allLowMonsters,
 	...specialBosses,
-	...allSuperiorMonsters
+	...allSuperiorMonsters,
+	...CreatureCreation
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [

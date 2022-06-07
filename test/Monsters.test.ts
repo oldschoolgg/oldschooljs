@@ -103,4 +103,11 @@ describe('Monsters', () => {
 		const loot = TesterMonster.kill(number);
 		return checkThreshold(done, expectedRates, loot, number);
 	});
+	test('Duplicate IDs', () => {
+		const ids: number[] = [];
+		for (const monster of Monsters.values()) {
+			if (ids.includes(monster.id)) throw new Error(`${monster.id} is duplicated`);
+			ids.push(monster.id);
+		}
+	});
 });
