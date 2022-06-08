@@ -327,6 +327,7 @@ export interface NewsItem {
 	day: number;
 	date: number;
 }
+export type NewsItemWithDOM = NewsItem & { dom: Document };
 
 export interface DateYearMonth {
 	year: number;
@@ -365,6 +366,8 @@ export interface Poll {
 	questions: PollQuestion[];
 	url: string;
 }
+
+export type PollWithDOM = Poll & { dom: Document };
 
 export interface PollQuestion {
 	question: string;

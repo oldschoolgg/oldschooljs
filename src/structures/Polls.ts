@@ -1,13 +1,13 @@
 import _pollArchive from '../data/polls/poll_archive.json';
-import { Poll } from '../meta/types';
+import { PollWithDOM } from '../meta/types';
 import getDom from '../util/getDom';
 import { getDate } from '../util/util';
 import Collection from './Collection';
 
-const pollArchive = _pollArchive as Poll[];
+const pollArchive = _pollArchive as PollWithDOM[];
 
-class Polls extends Collection<string, Poll> {
-	public async fetchNew(): Promise<Poll[]> {
+class Polls extends Collection<string, PollWithDOM> {
+	public async fetchNew(): Promise<PollWithDOM[]> {
 		const newPolls = [];
 		const pollsOfThisYear = await this.fetchYear(2019, false);
 		for (const poll of pollsOfThisYear) {
@@ -17,7 +17,7 @@ class Polls extends Collection<string, Poll> {
 		return newPolls;
 	}
 
-	public async fetchYear(year: number = getDate().year, cache = true): Promise<Poll[]> {
+	public async fetchYear(year: number = getDate().year, cache = true): Promise<PollWithDOM[]> {
 		const { document } = await getDom(`http://secure.runescape.com/m=poll/oldschool/archive?year=${year}`);
 
 		const pages = [];
@@ -84,7 +84,7 @@ class Polls extends Collection<string, Poll> {
 			questions.push({ question: questionText, results: questionResults });
 		}
 
-		const poll: Poll = { title, description, datePosted, totalVotes, questions, year, url };
+		const poll: PollWithDOM = { title, description, datePosted, totalVotes, questions, year, url, dom: document };
 
 		return poll;
 	}

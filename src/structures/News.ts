@@ -1,10 +1,10 @@
 import _newsArchive from '../data/news/news_archive.json';
-import { DateYearMonth, NewsItem } from '../meta/types';
+import { DateYearMonth, NewsItemWithDOM } from '../meta/types';
 import getDom from '../util/getDom';
 import { getDate } from '../util/util';
 import Collection from './Collection';
 
-const newsArchive = _newsArchive as NewsItem[];
+const newsArchive = _newsArchive as NewsItemWithDOM[];
 
 const BASE_URL = 'https://secure.runescape.com/m=news/archive?oldschool=1';
 
@@ -13,8 +13,8 @@ interface NewsPageContent {
 	description: string;
 }
 
-class News extends Collection<string, NewsItem> {
-	public async fetchRecent(): Promise<NewsItem[]> {
+class News extends Collection<string, NewsItemWithDOM> {
+	public async fetchRecent(): Promise<NewsItemWithDOM[]> {
 		return this.fetchMonth(getDate());
 	}
 
@@ -37,7 +37,7 @@ class News extends Collection<string, NewsItem> {
 		};
 	}
 
-	private decrementDate({ year, month }: DateYearMonth): DateYearMonth {
+	public decrementDate({ year, month }: DateYearMonth): DateYearMonth {
 		if (month === 1) {
 			return {
 				year: year - 1,
@@ -50,7 +50,7 @@ class News extends Collection<string, NewsItem> {
 		};
 	}
 
-	public async fetchNewArticles(date: DateYearMonth = getDate()): Promise<NewsItem[] | undefined> {
+	public async fetchNewArticles(date: DateYearMonth = getDate()): Promise<NewsItemWithDOM[] | undefined> {
 		let articles = [
 			...(await this.fetchMonth(date, false)),
 			...(await this.fetchMonth(this.decrementDate(date), false))
@@ -61,7 +61,7 @@ class News extends Collection<string, NewsItem> {
 			return undefined;
 		}
 
-		const newArticles: NewsItem[] = [];
+		const newArticles: NewsItemWithDOM[] = [];
 
 		// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
 		while (!articles.some((article): boolean => this.some((_article): boolean => article.link === _article.link))) {
@@ -82,8 +82,8 @@ class News extends Collection<string, NewsItem> {
 		return newArticles;
 	}
 
-	public async fetchMonth({ year, month }: DateYearMonth, cache = true, pageNumber = 1): Promise<NewsItem[]> {
-		let newsArticlesCollection: NewsItem[] = [];
+	public async fetchMonth({ year, month }: DateYearMonth, cache = true, pageNumber = 1): Promise<NewsItemWithDOM[]> {
+		let newsArticlesCollection: NewsItemWithDOM[] = [];
 
 		const { document: dom } = await getDom(this.generateNewsURL(year, month, pageNumber));
 
@@ -108,7 +108,7 @@ class News extends Collection<string, NewsItem> {
 				throw new Error('News article is missing a required element.');
 			}
 
-			const newsItem: NewsItem = {
+			const newsItem: NewsItemWithDOM = {
 				title,
 				image,
 				category,
@@ -116,7 +116,8 @@ class News extends Collection<string, NewsItem> {
 				year,
 				month,
 				day: parseInt(date.split('-')[2]),
-				date: Date.parse(date)
+				date: Date.parse(date),
+				dom
 			};
 
 			if (cache) {
