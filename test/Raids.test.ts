@@ -1,4 +1,4 @@
-import ChambersOfXeric from '../dist/simulation/minigames/ChambersOfXeric';
+import { ChambersOfXeric } from '../dist/simulation/misc';
 
 test('Chambers Of Xeric', async () => {
 	expect.assertions(3);

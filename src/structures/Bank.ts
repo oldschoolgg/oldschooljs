@@ -1,7 +1,7 @@
 import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import { bankHasAllItemsFromBank, multiplyBank, removeBankFromBank, resolveBank, resolveNameBank } from '../util/bank';
+import { bankHasAllItemsFromBank, multiplyBank, resolveBank, resolveNameBank } from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 
@@ -30,15 +30,13 @@ export default class Bank {
 	}
 
 	public addItem(item: number, quantity = 1): this {
-		if (this.frozen) throw frozenError;
 		if (quantity < 1) return this;
 		if (this.bank[item]) this.bank[item] += quantity;
 		else this.bank[item] = quantity;
 		return this;
 	}
 
-	public removeItem(item: number, quantity = 1): this {
-		if (this.frozen) throw frozenError;
+	public removeItem(item: number | string, quantity = 1): this {
 		const currentValue = this.bank[item];
 
 		if (typeof currentValue === 'undefined') return this;
@@ -52,6 +50,8 @@ export default class Bank {
 	}
 
 	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined, quantity = 1): Bank {
+		if (this.frozen) throw frozenError;
+
 		if (!item) {
 			return this;
 		}
@@ -93,10 +93,7 @@ export default class Bank {
 	}
 
 	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
-		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, _item.quantity);
-			return this;
-		}
+		if (this.frozen) throw frozenError;
 
 		// Bank.remove('Twisted bow');
 		// Bank.remove('Twisted bow', 5);
@@ -110,7 +107,11 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			return this.remove(item.bank);
+			for (const [key, value] of Object.entries(item.bank)) {
+				this.removeItem(key, value);
+				if (this.length === 0) break;
+			}
+			return this;
 		}
 
 		const firstKey = Object.keys(item)[0];
@@ -118,10 +119,15 @@ export default class Bank {
 			return this;
 		}
 
+		if (Array.isArray(item)) {
+			for (const _item of item) this.remove(_item.item, _item.quantity);
+			return this;
+		}
+
 		if (isNaN(Number(firstKey))) {
 			this.remove(resolveNameBank(item));
 		} else {
-			this.bank = removeBankFromBank(this.bank, item);
+			return this.remove(new Bank(item));
 		}
 
 		return this;
