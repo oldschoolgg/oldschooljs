@@ -180,13 +180,17 @@ describe('Bank', () => {
 	});
 
 	test('multiply bank items', () => {
-		expect.assertions(1);
-
 		const bank = { 1: 2, 3: 4 };
-
 		const expected = { 1: 4, 3: 8 };
-
 		expect(multiplyBank(bank, 2)).toEqual(expected);
+	});
+
+	test('multiply bank items, excluded', () => {
+		const bank = new Bank().add('Coal', 100).add('Trout', 100).add('Egg', 100).add('Bones', 100);
+		const expected = new Bank().add('Coal', 200).add('Trout', 100).add('Egg', 100).add('Bones', 200);
+		expect(bank.multiply(2, ['Trout', 'Egg'].map(itemID))).toEqual(expected);
+		expect(bank.amount('Coal')).toEqual(200);
+		expect(bank.amount('Egg')).toEqual(100);
 	});
 
 	test('numItemsBankHasInBank', () => {

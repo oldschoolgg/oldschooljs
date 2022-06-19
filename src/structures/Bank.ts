@@ -1,7 +1,7 @@
 import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import { bankHasAllItemsFromBank, multiplyBank, resolveBank, resolveNameBank } from '../util/bank';
+import { bankHasAllItemsFromBank, resolveBank, resolveNameBank } from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 
@@ -140,9 +140,12 @@ export default class Bank {
 		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
 	}
 
-	public multiply(multiplier: number): this {
+	public multiply(multiplier: number, itemsToNotMultiply?: number[]): this {
 		if (this.frozen) throw frozenError;
-		this.bank = multiplyBank(this.bank, multiplier);
+		for (const itemID of Object.keys(this.bank).map(Number)) {
+			if (itemsToNotMultiply?.includes(itemID)) continue;
+			this.bank[itemID] *= multiplier;
+		}
 		return this;
 	}
 
