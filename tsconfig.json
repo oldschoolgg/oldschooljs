@@ -1,7 +1,7 @@
 {
 	"extends": "@oldschoolgg/eslint-config",
 	"compilerOptions": {
-		"strictNullChecks": false,
+		"strictNullChecks": true,
 		"sourceMap": true,
 		"declaration": true,
 		"declarationMap": true,

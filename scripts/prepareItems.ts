@@ -182,6 +182,8 @@ export default async function prepareItems(): Promise<void> {
 				delete item[boolKey];
 			}
 		}
+		if (item.lowalch === null) delete item.lowalch 
+		if (item.highalch === null) delete item.highalch 
 
 		const previousItem = Items.get(item.id);
 		if (!previousItem) {

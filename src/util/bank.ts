@@ -2,24 +2,6 @@ import { ItemBank, ReturnedLootItem } from '../meta/types';
 import itemID from './itemID';
 
 /**
- * Joins an array of banks together
- * @param arrayOfBanks An array of number-keyed banks
- */
-export function addBanks(arrayOfBanks: readonly Partial<ItemBank>[]): ItemBank {
-	const newBank: Partial<ItemBank> = {};
-
-	for (const bank of arrayOfBanks) {
-		for (const [itemID, quantity] of Object.entries(bank)) {
-			const numID = parseInt(itemID);
-			if (newBank[numID]) newBank[numID] += quantity;
-			else newBank[numID] = quantity;
-		}
-	}
-
-	return newBank;
-}
-
-/**
  * Generate a bank based on loot table output
  * @param tableOutput
  */

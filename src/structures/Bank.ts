@@ -165,7 +165,7 @@ export default class Bank {
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
 		for (const [key, val] of Object.entries(this.bank)) {
-			arr.push([Items.get(parseInt(key)), val]);
+			arr.push([Items.get(parseInt(key))!, val]);
 		}
 		return arr;
 	}

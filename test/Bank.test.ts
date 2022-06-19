@@ -2,7 +2,6 @@ import Bank from '../dist/structures/Bank';
 import Items from '../dist/structures/Items';
 import {
 	addArrayToBank,
-	addBanks,
 	addItemToBank,
 	bankFromLootTableOutput,
 	bankHasAllItemsFromBank,
@@ -57,38 +56,6 @@ describe('Bank', () => {
 			67: 2
 		};
 		expect(bankFromLootTableOutput(lootItems)).toEqual(expected);
-	});
-
-	test('join a number of banks', () => {
-		expect.assertions(1);
-		const banks = [
-			{
-				45: 9,
-				14: 4,
-				36: 1
-			},
-			{
-				1: 2,
-				4: 4,
-				36: 5
-			},
-			{
-				1: 3,
-				8: 4,
-				87: 1
-			}
-		];
-		const expected = {
-			1: 5,
-			4: 4,
-			8: 4,
-			14: 4,
-			36: 6,
-			45: 9,
-			87: 1
-		};
-
-		expect(addBanks(banks)).toEqual(expected);
 	});
 
 	test('bank contains item', () => {
@@ -197,7 +164,7 @@ describe('Bank', () => {
 
 		const expected = { 1: 2, 3: 4 };
 
-		expect(addBanks([bank, bank2])).toEqual(expected);
+		expect(new Bank(bank).add(bank2).bank).toEqual(expected);
 	});
 
 	test('add array of items to bank', () => {

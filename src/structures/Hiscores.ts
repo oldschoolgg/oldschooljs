@@ -56,7 +56,7 @@ class Hiscores {
 
 		return new Player({
 			username,
-			type: options.type,
+			type: options.type ?? AccountType.Normal,
 			skills: data.skills,
 			minigames: data.minigames,
 			clues: data.clues,
