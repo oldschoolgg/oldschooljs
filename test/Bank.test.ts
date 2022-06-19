@@ -225,7 +225,7 @@ describe('Bank', () => {
 			Toolkit: 2
 		});
 		expect(bank.value()).toEqual(0);
-		const runePlatebody = Items.get('Rune platebody');
+		const runePlatebody = Items.get('Rune platebody')!;
 		const bank2 = new Bank({
 			'Rune platebody': 10
 		});
@@ -240,7 +240,7 @@ describe('Bank', () => {
 		});
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(
-			runePlatebody.price * 10 + Items.get('Rune platelegs').price * 10 + Items.get('Rune boots').price * 10
+			runePlatebody.price * 10 + Items.get('Rune platelegs')!.price * 10 + Items.get('Rune boots')!.price * 10
 		);
 	});
 

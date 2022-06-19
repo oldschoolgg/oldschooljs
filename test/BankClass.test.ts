@@ -173,7 +173,7 @@ describe('Bank Class', () => {
 			Toolkit: 1
 		});
 		const bank = new Bank(baseBank);
-		const cb = jest.fn((item: Item) => item.tradeable);
+		const cb = jest.fn((item: Item) => Boolean(item.tradeable));
 		const filtered = bank.filter(cb);
 		expect(cb).toHaveBeenCalledTimes(bank.length);
 		expect(cb).toHaveBeenCalledWith(Items.get('Coal'), 20);

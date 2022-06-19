@@ -99,7 +99,7 @@ describe('Items', () => {
 			if (!coins) return done.fail('Missing item.');
 			expect(coins.id).toBe(995);
 			expect(coins.price).toEqual(1);
-			expect(Items.get('Snowy knight').price).toEqual(0);
+			expect(Items.get('Snowy knight')!.price).toEqual(0);
 		},
 		60_000
 	);
@@ -122,21 +122,21 @@ describe('Items', () => {
 	test.concurrent(
 		'Equipment',
 		async () => {
-			const tbow = Items.get('Twisted bow');
-			expect(tbow.equipment.attack_ranged).toEqual(70);
-			expect(tbow.equipment.defence_crush).toEqual(0);
-			expect(tbow.equipment.slot).toEqual(EquipmentSlot.TwoHanded);
+			const tbow = Items.get('Twisted bow')!;
+			expect(tbow.equipment!.attack_ranged).toEqual(70);
+			expect(tbow.equipment!.defence_crush).toEqual(0);
+			expect(tbow.equipment!.slot).toEqual(EquipmentSlot.TwoHanded);
 			expect(tbow.wiki_name).toEqual('Twisted bow');
 			expect(tbow.equipable_weapon).toEqual(true);
 			expect(tbow.wiki_url).toEqual('https://oldschool.runescape.wiki/w/Twisted_bow');
 			expect(tbow.examine).toEqual('A mystical bow carved from the twisted remains of the Great Olm.');
 
-			const anglerHat = Items.get('Angler hat');
-			expect(anglerHat.equipment.slot).toEqual(EquipmentSlot.Head);
+			const anglerHat = Items.get('Angler hat')!;
+			expect(anglerHat.equipment!.slot).toEqual(EquipmentSlot.Head);
 			expect(anglerHat.equipable).toEqual(true);
 			expect(anglerHat.equipable_by_player).toEqual(true);
 			expect(anglerHat.equipable_weapon).toEqual(undefined);
-			expect(anglerHat.equipment.attack_ranged).toEqual(0);
+			expect(anglerHat.equipment!.attack_ranged).toEqual(0);
 		},
 		60_000
 	);
