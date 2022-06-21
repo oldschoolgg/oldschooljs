@@ -147,29 +147,6 @@ const itemsToIgnorePrices = [
 
 const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'weapon'];
 
-const copyItems = [
-	{
-		toBeReplaced: [
-			9044,
-			9045,
-			9046,
-			9048,
-			9049,
-			9050,
-			9051,
-			13_074,
-			13_075,
-			13_076,
-			13_077,
-			13_078,
-			16_176,
-			21_445,
-			21_446
-		],
-		toReplaceWith: 26_950
-	}
-];
-
 export default async function prepareItems(): Promise<void> {
 	const allItemsRaw: RawItemCollection = await fetch(
 		'https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json'
@@ -196,18 +173,11 @@ export default async function prepareItems(): Promise<void> {
 		.filter(notEmpty);
 
 	for (let item of Object.values(allItems)) {
-		if (itemShouldntBeAdded(item)) continue;
-
-		const replaceItem = copyItems.find(i => i.toBeReplaced.includes(item.id));
-		if (replaceItem) {
-			console.log(
-				`Replacing ${item.name} (${item.id}) with ${allItems[replaceItem.toReplaceWith].name} (${
-					replaceItem.toReplaceWith
-				})`
-			);
-			item = { ...allItems[replaceItem.toReplaceWith], id: item.id };
+		if (item.name.includes("Pharaoh's sceptre")) {
+			console.log(itemShouldntBeAdded(item), item.name, item.id);
 		}
 
+		if (itemShouldntBeAdded(item)) continue;
 		for (const delKey of [
 			'quest_item',
 			'placeholder',
@@ -305,6 +275,10 @@ export default async function prepareItems(): Promise<void> {
 			if (item.name !== previousItem.name) {
 				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
+		}
+
+		if (item.name === "Pharaoh's sceptre") {
+			item = { ...allItems[26_950], id: item.id };
 		}
 
 		itemNameMap[item.id] = item;

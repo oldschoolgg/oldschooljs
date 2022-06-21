@@ -138,12 +138,18 @@ describe('Items', () => {
 			expect(anglerHat.equipable_weapon).toEqual(undefined);
 			expect(anglerHat.equipment!.attack_ranged).toEqual(0);
 
-			const scep = Items.get("Pharaoh's sceptre")!;
-			expect(scep.id).toEqual(9044);
-			expect(scep.equipable_by_player).toEqual(true);
-			expect(scep.equipable_weapon).toEqual(true);
-			expect(scep.equipable).toEqual(true);
-			expect(scep.equipment?.slot).toEqual(EquipmentSlot.Weapon);
+			const scep = Items.get(26_950);
+			expect(scep).toEqual(undefined);
+
+			const scep2 = Items.get("Pharaoh's sceptre")!;
+			expect(scep2.name).toEqual("Pharaoh's sceptre");
+			expect(scep2.id).toEqual(9044);
+			expect(scep2.equipable_by_player).toEqual(true);
+			expect(scep2.equipable_weapon).toEqual(true);
+			expect(scep2.equipable).toEqual(true);
+			expect(scep2.equipment?.slot).toEqual(EquipmentSlot.Weapon);
+
+			expect(Items.filter(i => i.name === "Pharaoh's sceptre").size).toEqual(1);
 		},
 		60_000
 	);
