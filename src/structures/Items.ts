@@ -3,6 +3,7 @@ import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/cleanString';
 import Collection from './Collection';
 
+// @ts-ignore asdf
 const items = _items as Record<string, Item>;
 
 export const itemNameMap: Map<string, number> = new Map();

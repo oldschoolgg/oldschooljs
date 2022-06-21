@@ -1,8 +1,8 @@
 {
-	"extends": "eslint-config-bamboo",
+	"extends": "@oldschoolgg/eslint-config",
 	"compilerOptions": {
 		"sourceMap": false,
 		"declaration": false,
-		"types": ["node", "tape"]
+		"types": ["node"]
 	}
 }
