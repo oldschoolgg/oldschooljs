@@ -173,10 +173,6 @@ export default async function prepareItems(): Promise<void> {
 		.filter(notEmpty);
 
 	for (let item of Object.values(allItems)) {
-		if (item.name.includes("Pharaoh's sceptre")) {
-			console.log(itemShouldntBeAdded(item), item.name, item.id);
-		}
-
 		if (itemShouldntBeAdded(item)) continue;
 		for (const delKey of [
 			'quest_item',
@@ -278,7 +274,7 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		if (item.name === "Pharaoh's sceptre") {
-			item = { ...allItems[26_950], id: item.id };
+			item = { ...allItems[26_950], id: item.id, price: item.price };
 		}
 
 		itemNameMap[item.id] = item;
