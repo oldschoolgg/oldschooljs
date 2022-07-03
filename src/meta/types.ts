@@ -1,5 +1,6 @@
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
+import NewLootTable from '../structures/NewLootTable';
 import SimpleMonster from '../structures/SimpleMonster';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -408,7 +409,7 @@ export interface LootTableMoreOptions {
 }
 
 export interface LootTableItem {
-	item: number | LootTable | LootTableItem[];
+	item: number | LootTable | NewLootTable | LootTableItem[];
 	weight?: number;
 	quantity: number | number[];
 	options?: LootTableMoreOptions;

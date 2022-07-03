@@ -1,15 +1,15 @@
-import { randFloat, randInt, roll } from 'e';
+import { randInt, roll } from 'e';
 
 import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from '../meta/types';
 import itemID from '../util/itemID';
 import Bank from './Bank';
-import NewLootTable from './NewLootTable';
+import LootTable from './LootTable';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
 }
 
-export default class LootTable {
+export default class NewLootTable {
 	public length: number;
 	public table: LootTableItem[];
 	public totalWeight: number;
@@ -18,6 +18,7 @@ export default class LootTable {
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
 	public allItems: number[];
+	public premadeTable: number[] = [];
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -30,8 +31,8 @@ export default class LootTable {
 		this.allItems = [];
 	}
 
-	public clone(): LootTable {
-		const newTable = new LootTable();
+	public clone(): NewLootTable {
+		const newTable = new NewLootTable();
 		newTable.table = [...this.table];
 		newTable.oneInItems = [...this.oneInItems];
 		newTable.tertiaryItems = [...this.tertiaryItems];
@@ -48,7 +49,7 @@ export default class LootTable {
 		return itemID(name);
 	}
 
-	private addToAllItems(items: number | number[] | LootTable | NewLootTable | LootTableItem | LootTableItem[]): void {
+	private addToAllItems(items: number | number[] | NewLootTable | LootTable | LootTableItem | LootTableItem[]): void {
 		if (Array.isArray(items)) {
 			for (const item of items) {
 				this.addToAllItems(item);
@@ -71,7 +72,7 @@ export default class LootTable {
 
 	public oneIn(
 		chance: number,
-		item: LootTable | number | string,
+		item: NewLootTable | number | string,
 		quantity: number | number[] = 1,
 		options?: LootTableMoreOptions
 	): this {
@@ -90,7 +91,7 @@ export default class LootTable {
 
 	public tertiary(
 		chance: number,
-		item: LootTable | number | string,
+		item: NewLootTable | number | string,
 		quantity: number | number[] = 1,
 		options?: LootTableMoreOptions
 	): this {
@@ -108,7 +109,7 @@ export default class LootTable {
 	}
 
 	public every(
-		item: LootTable | number | string,
+		item: NewLootTable | number | string,
 		quantity: number | number[] = 1,
 		options?: LootTableMoreOptions
 	): this {
@@ -125,7 +126,7 @@ export default class LootTable {
 	}
 
 	public add(
-		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
+		item: NewLootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
 		weight = 1,
 		options?: LootTableMoreOptions
@@ -158,13 +159,16 @@ export default class LootTable {
 		this.totalWeight += weight;
 
 		this.addToAllItems(item);
-
-		this.table.push({
+		const tableItem = {
 			item,
 			weight,
 			quantity,
 			options
-		});
+		};
+		this.table.push(tableItem);
+		for (let i = 0; i < weight; i++) {
+			this.premadeTable.push(this.table.indexOf(tableItem));
+		}
 
 		return this;
 	}
@@ -173,7 +177,6 @@ export default class LootTable {
 		const loot = new Bank();
 
 		outerLoop: for (let i = 0; i < quantity; i++) {
-			// The items that are rolled.
 			for (const item of this.everyItems) {
 				this.addResultToLoot(item, loot);
 			}
@@ -189,25 +192,8 @@ export default class LootTable {
 				}
 			}
 
-			// Random float between 0 and the total weighting
-			const randomWeight = randFloat(0, this.limit || this.totalWeight);
-
-			// The index of the item that will be used.
-			let result: number = -1;
-			let weight = 0;
-
-			for (let i = 0; i < this.table.length; i++) {
-				const item = this.table[i]!;
-
-				weight += item.weight!;
-				if (randomWeight <= weight) {
-					result = i;
-					break;
-				}
-			}
-
-			const chosenItem = this.table[result];
-			this.addResultToLoot(chosenItem, loot);
+			const chosenItem = randInt(0, this.totalWeight);
+			this.addResultToLoot(this.table[chosenItem], loot);
 		}
 
 		return loot;
@@ -216,7 +202,6 @@ export default class LootTable {
 	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
 		if (!result) return;
 		const { item, quantity, options } = result;
-		const multiply = options?.multiply;
 
 		if (Array.isArray(item)) {
 			for (const singleItem of item) {
@@ -228,7 +213,7 @@ export default class LootTable {
 		const qty = this.determineQuantity(quantity);
 
 		if (item instanceof NewLootTable || item instanceof LootTable) {
-			if (multiply) loot.add(item.roll(1).multiply(qty));
+			if (options?.multiply) loot.add(item.roll(1).multiply(qty));
 			else loot.add(item.roll(qty));
 			return;
 		}
