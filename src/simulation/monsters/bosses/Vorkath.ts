@@ -50,7 +50,7 @@ const VorkathTable = new LootTable()
 	.add('Snapdragon seed')
 	.add('Torstol seed')
 	.add('Adamantite ore', [10, 30], 7)
-	.add('Coins', [20000, 81000], 5)
+	.add('Coins', [20_000, 81_000], 5)
 	.add('Grapes', [250, 300], 5)
 	.add('Magic logs', 50, 5)
 	.add('Manta ray', [35, 55], 4)
@@ -61,7 +61,7 @@ const VorkathTable = new LootTable()
 
 const TotalVorkathTable = new LootTable()
 	.every(VorkathTable, 2)
-	.tertiary(50, 21907) // Vorkath's head, exists twice, this is the head with 50k worth
+	.tertiary(50, 21_907) // Vorkath's head, exists twice, this is the head with 50k worth
 	.tertiary(65, 'Clue scroll (elite)')
 	.tertiary(1000, 'Dragonbone necklace')
 	.tertiary(3000, 'Jar of decay')

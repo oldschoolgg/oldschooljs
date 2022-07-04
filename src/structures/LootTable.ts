@@ -12,7 +12,7 @@ export default class LootTable {
 	public length: number;
 	public table: LootTableItem[];
 	public totalWeight: number;
-	public limit: number;
+	public limit?: number;
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
@@ -47,9 +47,7 @@ export default class LootTable {
 		return itemID(name);
 	}
 
-	private addToAllItems(
-		items: number | number[] | LootTable | LootTableItem | LootTableItem[]
-	): void {
+	private addToAllItems(items: number | number[] | LootTable | LootTableItem | LootTableItem[]): void {
 		if (Array.isArray(items)) {
 			for (const item of items) {
 				this.addToAllItems(item);
@@ -58,9 +56,7 @@ export default class LootTable {
 		}
 
 		if (items instanceof LootTable) {
-			this.allItems = Array.from(
-				new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems))
-			);
+			this.allItems = Array.from(new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems)));
 			return;
 		}
 
@@ -150,7 +146,7 @@ export default class LootTable {
 				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
-					quantity: this.determineQuantity(itemToAdd[1]) || 1
+					quantity: this.determineQuantity(itemToAdd[1]!) || 1
 				});
 			}
 
@@ -196,13 +192,13 @@ export default class LootTable {
 			const randomWeight = randFloat(0, this.limit || this.totalWeight);
 
 			// The index of the item that will be used.
-			let result;
+			let result: number = -1;
 			let weight = 0;
 
 			for (let i = 0; i < this.table.length; i++) {
-				const item = this.table[i];
+				const item = this.table[i]!;
 
-				weight += item.weight;
+				weight += item.weight!;
 				if (randomWeight <= weight) {
 					result = i;
 					break;
@@ -242,8 +238,7 @@ export default class LootTable {
 	protected determineQuantity(quantity: number | number[]): number {
 		if (Array.isArray(quantity)) {
 			return randInt(quantity[0], quantity[1]);
-		} else {
-			return quantity;
 		}
+		return quantity;
 	}
 }

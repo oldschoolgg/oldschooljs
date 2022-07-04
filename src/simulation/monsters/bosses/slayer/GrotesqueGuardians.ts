@@ -43,9 +43,9 @@ const NormalUniqueTable = new LootTable()
 	.add('Runite bar', [3, 5], 3)
 
 	/* Other */
-	.add('Coins', [10000, 20000], 10)
+	.add('Coins', [10_000, 20_000], 10)
 	.add('Chaos rune', [100, 150], 8)
-	.add('Coins', 25000, 5)
+	.add('Coins', 25_000, 5)
 	.add('Crystal key', 1, 5)
 	.add('Chaos rune', [60, 100], 5)
 	.add('Dragon dart tip', [15, 25], 4)

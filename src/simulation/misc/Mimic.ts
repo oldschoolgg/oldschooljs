@@ -58,9 +58,7 @@ class MimicCasket extends Clue {
 	public open(tier: MimicClueTier = 'master', quantity = 1): ItemBank {
 		const loot = new Bank();
 		for (let i = 0; i < quantity; i++) {
-			loot.add(
-				tier.toLowerCase() === 'elite' ? EliteMimicTable.roll() : MasterMimicTable.roll()
-			);
+			loot.add(tier.toLowerCase() === 'elite' ? EliteMimicTable.roll() : MasterMimicTable.roll());
 		}
 		return loot.values();
 	}

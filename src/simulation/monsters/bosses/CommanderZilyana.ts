@@ -2,11 +2,9 @@ import LootTable from '../../../structures/LootTable';
 import SimpleMonster from '../../../structures/SimpleMonster';
 import GWRareDropTable, { GWGemTable, ShardTable } from '../../subtables/GWRareDropTable';
 
-const MinionUniqueTable = new LootTable()
-	.add('Coins', [1_400, 1_500], 124)
-	.add('Saradomin sword', 1, 3);
+const MinionUniqueTable = new LootTable().add('Coins', [1400, 1500], 124).add('Saradomin sword', 1, 3);
 
-const MinionShardTable = new LootTable().add('Coins', [1_300, 1_400], 9).add(ShardTable, 1, 3);
+const MinionShardTable = new LootTable().add('Coins', [1300, 1400], 9).add(ShardTable, 1, 3);
 
 const MinionTable = new LootTable()
 	.every('Bones')
@@ -17,7 +15,7 @@ const MinionTable = new LootTable()
 	.add('Law rune', [5, 10], 8)
 	.add('Monkfish', 3, 8)
 	.add('Summer pie', 1, 8)
-	.add('Coins', [1_300, 1_400], 62)
+	.add('Coins', [1300, 1400], 62)
 	.add('Grimy ranarr weed', 1, 8)
 	.add('Unicorn horn', 6, 8)
 	.add('Snape grass', 5, 7)
@@ -64,7 +62,7 @@ const CommanderZilyanaTable = new LootTable()
 	)
 
 	/* Other */
-	.add('Coins', [19500, 20000], 27)
+	.add('Coins', [19_500, 20_000], 27)
 	.add('Diamond', 6, 8)
 	.add('Law rune', [95, 100], 8)
 	.add('Grimy ranarr weed', 5, 8)

@@ -2,11 +2,7 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import {
-	getAncientShardChanceFromHP,
-	getBrimKeyChanceFromCBLevel,
-	getTotemChanceFromHP
-} from '../util/util';
+import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
@@ -32,7 +28,7 @@ export default class SimpleMonster extends Monster {
 		if (options.pickpocketTable) {
 			allItems = allItems.concat(options.pickpocketTable.allItems);
 		}
-		super({ ...options, allItems: allItems });
+		super({ ...options, allItems });
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
 		this.onTaskTable = options.onTaskTable;
@@ -41,8 +37,7 @@ export default class SimpleMonster extends Monster {
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
-		const canGetKey =
-			options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 
 		for (let i = 0; i < quantity; i++) {
 			if (canGetKey) {
@@ -65,11 +60,11 @@ export default class SimpleMonster extends Monster {
 					loot.add(this.onTaskTable.roll());
 				} else {
 					// Monster doesn't have a unique on-slayer table
-					loot.add(this.table.roll());
+					loot.add(this.table?.roll());
 				}
 			} else {
 				// Not on slayer task
-				loot.add(this.table.roll());
+				loot.add(this.table?.roll());
 			}
 			if (this.customKillLogic) {
 				this.customKillLogic(options, loot);

@@ -114,10 +114,7 @@ const GearTable = new SimpleTable<string>()
 	.add("Inquisitor's plateskirt", 2)
 	.add('Nightmare staff', 3);
 
-const OrbTable = new SimpleTable<string>()
-	.add('Eldritch orb')
-	.add('Volatile orb')
-	.add('Harmonised orb');
+const OrbTable = new SimpleTable<string>().add('Eldritch orb').add('Volatile orb').add('Harmonised orb');
 
 const mvpTertiary = new LootTable()
 	.tertiary(190, 'Clue scroll (elite)')
@@ -140,18 +137,14 @@ class NightmareClass {
 	hp = 2400;
 
 	allItems: number[] = [
-		...NonUniqueTable.table.map((i) => i.item),
-		...GearTable.table.map((i) => Number(i.item)),
-		...OrbTable.table.map((i) => Number(i.item)),
+		...NonUniqueTable.table.map(i => i.item),
+		...GearTable.table.map(i => Number(i.item)),
+		...OrbTable.table.map(i => Number(i.item)),
 		...mvpTertiary.allItems,
 		...nonMvpTertiary.allItems
 	];
 
-	public rollNonUniqueLoot(
-		percentage: number,
-		isMvp: boolean,
-		isPhosani: boolean
-	): [number, number] {
+	public rollNonUniqueLoot(percentage: number, isMvp: boolean, isPhosani: boolean): [number, number] {
 		const [table, ranges] = isPhosani
 			? [PhosaniNonUniqueTable, phosaniNonUniqueItemRanges]
 			: [NonUniqueTable, nonUniqueItemRanges];
@@ -182,12 +175,10 @@ class NightmareClass {
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];
 
-		const parsedTeam = options.team.map((teamMember) => ({
+		const parsedTeam = options.team.map(teamMember => ({
 			...teamMember,
 			percentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp)),
-			scaledPercentDamage: Math.floor(
-				calcWhatPercent(teamMember.damageDone, this.hp / options.team.length)
-			),
+			scaledPercentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp / options.team.length)),
 			mvp: mvp === teamMember
 		}));
 
@@ -243,20 +234,12 @@ class NightmareClass {
 		for (const teamMember of parsedTeam) {
 			if (Object.keys(lootResult[teamMember.id].bank).length === 0) {
 				lootResult[teamMember.id].add(
-					...this.rollNonUniqueLoot(
-						teamMember.scaledPercentDamage,
-						teamMember.mvp,
-						options.isPhosani
-					)
+					...this.rollNonUniqueLoot(teamMember.scaledPercentDamage, teamMember.mvp, options.isPhosani)
 				);
 			}
 			lootResult[teamMember.id].add(teamMember.mvp ? 'Big bones' : 'Bones');
 			lootResult[teamMember.id].add(
-				options.isPhosani
-					? phosaniTertiary.roll()
-					: teamMember.mvp
-					? mvpTertiary.roll()
-					: nonMvpTertiary.roll()
+				options.isPhosani ? phosaniTertiary.roll() : teamMember.mvp ? mvpTertiary.roll() : nonMvpTertiary.roll()
 			);
 		}
 
@@ -265,4 +248,5 @@ class NightmareClass {
 }
 
 const Nightmare = new NightmareClass();
+
 export default Nightmare;

@@ -57,7 +57,7 @@ const TalonedWyvernTable = new LootTable()
 	.tertiary(88, 'Unidentified large fossil')
 	.tertiary(118, 'Clue scroll (hard)')
 	.tertiary(350, 'Unidentified rare fossil')
-	.tertiary(12000, 'Wyvern visage');
+	.tertiary(12_000, 'Wyvern visage');
 
 export default new SimpleMonster({
 	id: 7793,

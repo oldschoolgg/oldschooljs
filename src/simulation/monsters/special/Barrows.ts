@@ -36,7 +36,7 @@ const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail"
-].map((item) => BarrowsTable.add(item));
+].map(item => BarrowsTable.add(item));
 
 const OtherTable = new LootTable()
 	.add('Coins', [2, 760], 380)
@@ -66,7 +66,7 @@ export class Barrows extends Monster {
 				if (roll(450 - 58 * NUMBER_OF_BROTHERS)) {
 					let [barrowsItem] = BarrowsTable.roll().items()[0];
 					while (barrowsItemsThisKill.has(barrowsItem.id)) {
-						[barrowsItem] = BarrowsTable.roll().items()[0];
+						[[barrowsItem]] = BarrowsTable.roll().items();
 					}
 					barrowsItemsThisKill.add(barrowsItem.id);
 					loot.add(barrowsItem.id);

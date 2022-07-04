@@ -49,7 +49,7 @@ const BryophytaTable = new LootTable()
 	.add('Steel bar', 25, 3)
 
 	/* Other */
-	.add('Coins', 10000, 5)
+	.add('Coins', 10_000, 5)
 	.add('Coins', 8000, 2)
 	.add("Bryophyta's essence", 1, 1)
 

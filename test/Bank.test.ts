@@ -2,7 +2,6 @@ import Bank from '../dist/structures/Bank';
 import Items from '../dist/structures/Items';
 import {
 	addArrayToBank,
-	addBanks,
 	addItemToBank,
 	bankFromLootTableOutput,
 	bankHasAllItemsFromBank,
@@ -59,38 +58,6 @@ describe('Bank', () => {
 		expect(bankFromLootTableOutput(lootItems)).toEqual(expected);
 	});
 
-	test('join a number of banks', () => {
-		expect.assertions(1);
-		const banks = [
-			{
-				45: 9,
-				14: 4,
-				36: 1
-			},
-			{
-				1: 2,
-				4: 4,
-				36: 5
-			},
-			{
-				1: 3,
-				8: 4,
-				87: 1
-			}
-		];
-		const expected = {
-			1: 5,
-			4: 4,
-			8: 4,
-			14: 4,
-			36: 6,
-			45: 9,
-			87: 1
-		};
-
-		expect(addBanks(banks)).toEqual(expected);
-	});
-
 	test('bank contains item', () => {
 		expect.assertions(4);
 		const bank = { 1: 2, 3: 4 };
@@ -105,7 +72,7 @@ describe('Bank', () => {
 		const bankToHave = resolveNameBank({
 			'Fire rune': 1000,
 			'Air rune': 1,
-			'Chaos rune': 101010
+			'Chaos rune': 101_010
 		});
 
 		const bankThatShouldntHave = resolveNameBank({
@@ -115,10 +82,10 @@ describe('Bank', () => {
 		});
 
 		const bankThatShouldHave = resolveNameBank({
-			'Fire rune': 104200,
-			'Air rune': 43432,
-			'Chaos rune': 121010,
-			'Death rune': 121010
+			'Fire rune': 104_200,
+			'Air rune': 43_432,
+			'Chaos rune': 121_010,
+			'Death rune': 121_010
 		});
 
 		expect(bankHasAllItemsFromBank(bankThatShouldHave, bankToHave)).toBeTruthy();
@@ -197,7 +164,7 @@ describe('Bank', () => {
 
 		const expected = { 1: 2, 3: 4 };
 
-		expect(addBanks([bank, bank2])).toEqual(expected);
+		expect(new Bank(bank).add(bank2).bank).toEqual(expected);
 	});
 
 	test('add array of items to bank', () => {
@@ -213,13 +180,17 @@ describe('Bank', () => {
 	});
 
 	test('multiply bank items', () => {
-		expect.assertions(1);
-
 		const bank = { 1: 2, 3: 4 };
-
 		const expected = { 1: 4, 3: 8 };
-
 		expect(multiplyBank(bank, 2)).toEqual(expected);
+	});
+
+	test('multiply bank items, excluded', () => {
+		const bank = new Bank().add('Coal', 100).add('Trout', 100).add('Egg', 100).add('Bones', 100);
+		const expected = new Bank().add('Coal', 200).add('Trout', 100).add('Egg', 100).add('Bones', 200);
+		expect(bank.multiply(2, ['Trout', 'Egg'].map(itemID))).toEqual(expected);
+		expect(bank.amount('Coal')).toEqual(200);
+		expect(bank.amount('Egg')).toEqual(100);
 	});
 
 	test('numItemsBankHasInBank', () => {
@@ -245,7 +216,7 @@ describe('Bank', () => {
 		const empty = bank.filter(() => false);
 		expect(bank.length).toEqual(3);
 		expect(empty.length).toEqual(0);
-		bank.filter((item) => item.name === 'Candle', true);
+		bank.filter(item => item.name === 'Candle', true);
 		expect(bank.length).toEqual(1);
 	});
 
@@ -254,7 +225,7 @@ describe('Bank', () => {
 			Toolkit: 2
 		});
 		expect(bank.value()).toEqual(0);
-		const runePlatebody = Items.get('Rune platebody');
+		const runePlatebody = Items.get('Rune platebody')!;
 		const bank2 = new Bank({
 			'Rune platebody': 10
 		});
@@ -265,13 +236,11 @@ describe('Bank', () => {
 			'Rune platelegs': 10,
 			'Rune boots': 10,
 			Toolkit: 1,
-			'Abyssal book': 10000
+			'Abyssal book': 10_000
 		});
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(
-			runePlatebody.price * 10 +
-				Items.get('Rune platelegs').price * 10 +
-				Items.get('Rune boots').price * 10
+			runePlatebody.price * 10 + Items.get('Rune platelegs')!.price * 10 + Items.get('Rune boots')!.price * 10
 		);
 	});
 

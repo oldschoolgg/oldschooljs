@@ -14,7 +14,7 @@ const ShadowWyrmTable = new LootTable()
 	.tertiary(724, 'Imbued heart');
 
 export default new SimpleMonster({
-	id: 10398,
+	id: 10_398,
 	name: 'Shadow Wyrm',
 	table: ShadowWyrmTable,
 	aliases: ['shadow wyrm']

@@ -38,7 +38,7 @@ class Hiscores {
 					return text;
 				}
 			)
-			.then((p) => resolvePlayerFromHiscores(p, mergedOptions.type))
+			.then(p => resolvePlayerFromHiscores(p, mergedOptions.type))
 			.catch((err): never => {
 				throw err;
 			});
@@ -56,7 +56,7 @@ class Hiscores {
 
 		return new Player({
 			username,
-			type: options.type,
+			type: options.type ?? AccountType.Normal,
 			skills: data.skills,
 			minigames: data.minigames,
 			clues: data.clues,

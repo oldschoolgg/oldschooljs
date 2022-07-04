@@ -25,7 +25,7 @@ describe('Bank Class', () => {
 		expect(bank.bank).toEqual({});
 
 		bank.add({ Coal: 1, Emerald: 1, Ruby: 1 });
-		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10000 });
+		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10_000 });
 		expect(bank.bank).toEqual({ 1603: 1 });
 	});
 
@@ -127,9 +127,7 @@ describe('Bank Class', () => {
 		expect(bank.toString()).toEqual('20,000x Ruby, 5,000x Egg, 20x Coal, 1x Emerald');
 		expect(bank.length).toEqual(4);
 		bank.add('3rd age platebody', 2);
-		expect(bank.toString()).toEqual(
-			'20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald'
-		);
+		expect(bank.toString()).toEqual('20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald');
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual('No items');
 	});
@@ -175,7 +173,7 @@ describe('Bank Class', () => {
 			Toolkit: 1
 		});
 		const bank = new Bank(baseBank);
-		const cb = jest.fn((item: Item) => item.tradeable);
+		const cb = jest.fn((item: Item) => Boolean(item.tradeable));
 		const filtered = bank.filter(cb);
 		expect(cb).toHaveBeenCalledTimes(bank.length);
 		expect(cb).toHaveBeenCalledWith(Items.get('Coal'), 20);

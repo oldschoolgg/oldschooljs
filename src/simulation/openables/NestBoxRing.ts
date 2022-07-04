@@ -12,7 +12,7 @@ const NestBoxRingTable = new LootTable()
 	.add('Diamond ring');
 
 export default new SimpleOpenable({
-	id: 12794,
+	id: 12_794,
 	name: 'Nest box (ring)',
 	aliases: ['nest box (ring)', 'ring nest box', 'nest box ring'],
 	table: NestBoxRingTable

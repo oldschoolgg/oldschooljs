@@ -1,4 +1,4 @@
-import { deepClone, increaseNumByPercent, reduceNumByPercent } from 'e';
+import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from 'e';
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
@@ -27,7 +27,7 @@ function itemShouldntBeAdded(item: any) {
 }
 
 export function moidLink(items: any[]) {
-	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map((i) => i.id).join(',')}`;
+	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map(i => i.id).join(',')}`;
 }
 
 function getItem(name: string) {
@@ -96,7 +96,6 @@ const itemsToIgnorePrices = [
 	'Tribal mask',
 	'White dagger',
 	'Sandstone (5kg)',
-	'Egg and tomato',
 	'Minced meat',
 	'Bagged dead tree',
 	'Kitchen table',
@@ -109,38 +108,72 @@ const itemsToIgnorePrices = [
 	'Steel hasta',
 	'Defence mix(2)',
 	'Arceuus banner',
-	'Yellow cape'
+	'Yellow cape',
+	'Iron spear(p+)',
+	'Egg and tomato',
+	"Druid's robe top",
+	'Bronze thrownaxe',
+	'Steel thrownaxe',
+	'Iron javelin(p)',
+	'Black longsword',
+	"Premade s'y crunch",
+	'Redberry pie',
+	'Serum 207 (2)',
+	'Fremennik red shirt',
+	'Dwellberry seed',
+	'Iron javelin(p++)',
+	'Steel knife(p+)',
+	'Mithril dagger(p++)',
+	'Thatch spar dense',
+	'Villager armband',
+	'Sliced mushrooms',
+	'Raw fish pie',
+	"Blue d'hide chaps (g)",
+	'Oak armchair',
+	'Teak armchair',
+	'Beer barrel',
+	'Carved oak bench',
+	'Carved teak bench',
+	'Oak stock',
+	'Oak toy box',
+	'Teak magic wardrobe',
+	'Oak armour case',
+	'Roast beast meat',
+	"Relicym's mix(2)",
+	'Antidote+ mix(1)'
 ]
 	.map(getItem)
-	.map((i) => i.id);
+	.map(i => i.id);
+
+const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'weapon'];
 
 export default async function prepareItems(): Promise<void> {
 	const allItemsRaw: RawItemCollection = await fetch(
-		`https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json`
+		'https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json'
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
 
-	const allPrices = await fetch(`https://prices.runescape.wiki/api/v1/osrs/latest`, {
+	const allPrices = await fetch('https://prices.runescape.wiki/api/v1/osrs/latest', {
 		headers: {
 			'User-Agent': 'oldschooljs - @Magnaboy#7556'
 		}
 	})
 		.then((res): Promise<any> => res.json())
-		.then((res) => res.data);
+		.then(res => res.data);
 
-	if (!allPrices[20997]) {
-		throw new Error(`Failed to fetch prices`);
+	if (!allPrices[20_997]) {
+		throw new Error('Failed to fetch prices');
 	}
 
 	const newItems = [];
 	const majorPriceChanges = [];
 	const deletedItems = Object.values(allPrices)
-		.filter((i) => !itemShouldntBeAdded(i))
-		.filter((i: any) => !(allItems as any)[i.id]);
+		.filter(i => !itemShouldntBeAdded(i))
+		.filter((i: any) => !(allItems as any)[i.id])
+		.filter(notEmpty);
 
-	for (const item of Object.values(allItems)) {
+	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
-
 		for (const delKey of [
 			'quest_item',
 			'placeholder',
@@ -182,6 +215,8 @@ export default async function prepareItems(): Promise<void> {
 				delete item[boolKey];
 			}
 		}
+		if (item.lowalch === null) delete item.lowalch;
+		if (item.highalch === null) delete item.highalch;
 
 		const previousItem = Items.get(item.id);
 		if (!previousItem) {
@@ -190,28 +225,56 @@ export default async function prepareItems(): Promise<void> {
 
 		const price = allPrices[item.id];
 		if (price) {
-			item.price = Math.max(0, (price.high + price.low) / 2);
+			item.price = Math.max(0, ((price.high as number) + (price.low as number)) / 2);
 		} else {
 			item.price = 0;
 		}
 		if (item.id === 995) {
 			item.price = 1;
 		}
-		if (itemsToIgnorePrices.includes(item.id)) {
+		if (itemsToIgnorePrices.includes(item.id) || !item.tradeable) {
 			item.price = 0;
 		}
 
-		if (previousItem && item.tradeable && previousItem.price < item.price / 100) {
+		// If major price increase, just dont fucking change it.
+		if (previousItem && item.tradeable && previousItem.price < item.price / 20) {
 			majorPriceChanges.push([previousItem, item]);
+			item.price = previousItem.price;
 		}
 
-		// Dont change price if its only a <3% difference
+		// Dont change price if its only a <10% difference and price is less than 100k
 		if (
+			previousItem &&
+			item.price > reduceNumByPercent(previousItem?.price, 10) &&
+			item.price < increaseNumByPercent(previousItem?.price, 10) &&
+			item.price < 100_000
+		) {
+			item.price = previousItem.price;
+		} else if (
+			// Ignore <3% changes in any way
 			previousItem &&
 			item.price > reduceNumByPercent(previousItem?.price, 3) &&
 			item.price < increaseNumByPercent(previousItem?.price, 3)
 		) {
 			item.price = previousItem.price;
+		}
+
+		if (previousItem) {
+			for (const key of keysToWarnIfRemovedOrAdded) {
+				if (!item[key] && Boolean(previousItem?.[key])) {
+					console.warn(`WARNING: ${item.name} (${item.id}) had ${key} removed`);
+				}
+				if (!previousItem[key] && Boolean(item?.[key])) {
+					console.warn(`WARNING: ${item.name} (${item.id}) had ${key} added`);
+				}
+			}
+			if (item.name !== previousItem.name) {
+				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
+			}
+		}
+
+		if (item.name === "Pharaoh's sceptre") {
+			item = { ...allItems[26_950], id: item.id, price: item.price };
 		}
 
 		itemNameMap[item.id] = item;
@@ -221,8 +284,8 @@ export default async function prepareItems(): Promise<void> {
 	console.log(`Deleted Items: ${moidLink(deletedItems)}.`);
 
 	console.log(
-		`Major price changes: ${majorPriceChanges
-			.map((ent) => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
+		`Major price changes NOT changed: ${majorPriceChanges
+			.map(ent => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
 			.join(', ')}.`
 	);
 

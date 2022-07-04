@@ -2,7 +2,6 @@ import * as constants from './constants';
 import { MonsterSlayerMaster } from './meta/monsterData';
 import { MonsterKillOptions } from './meta/types';
 import * as Clues from './simulation/clues';
-import Minigames from './simulation/minigames';
 import * as Misc from './simulation/misc';
 import Monsters from './simulation/monsters/index';
 import Openables from './simulation/openables/index';
@@ -18,22 +17,21 @@ import Worlds from './structures/Worlds';
 import * as Util from './util/';
 
 export {
-	Items,
-	Hiscores,
-	Player,
-	Util,
-	Worlds,
-	News,
-	Wiki,
-	Polls,
-	Clues,
-	Misc,
-	Monsters,
-	Minigames,
-	Openables,
 	Bank,
-	LootTable,
+	Clues,
 	constants,
+	Hiscores,
+	Items,
+	LootTable,
+	Misc,
 	MonsterKillOptions,
-	MonsterSlayerMaster
+	Monsters,
+	MonsterSlayerMaster,
+	News,
+	Openables,
+	Player,
+	Polls,
+	Util,
+	Wiki,
+	Worlds
 };

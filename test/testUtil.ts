@@ -25,16 +25,14 @@ export function checkThreshold(
 		const item = Items.get(parseInt(itemID));
 		if (!item) return done.fail(`Missing item with ID: ${itemID}`);
 
-		const id = item.id;
+		const { id } = item;
 		const expectedRate = expectedRates[id];
 		if (!expectedRate) continue;
 
 		const effectiveRate = numberDone / qty;
 
 		if (!withinThreshold(effectiveRate, expectedRate, 10)) {
-			return done.fail(
-				`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`
-			);
+			return done.fail(`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`);
 		}
 	}
 	return done();

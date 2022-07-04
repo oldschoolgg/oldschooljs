@@ -1,9 +1,7 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
-const SkeletonHellhoundTable = new LootTable()
-	.every('Bones')
-	.oneIn(5000, 'Skeleton champion scroll');
+const SkeletonHellhoundTable = new LootTable().every('Bones').oneIn(5000, 'Skeleton champion scroll');
 
 const VetionTable = new LootTable()
 	.every('Big bones')
@@ -47,7 +45,7 @@ const VetionTable = new LootTable()
 	.add('Grimy ranarr weed', 100, 4)
 
 	/* Other */
-	.add('Coins', [15000, 19999], 76)
+	.add('Coins', [15_000, 19_999], 76)
 	.add(
 		[
 			['Dark crab', 8],

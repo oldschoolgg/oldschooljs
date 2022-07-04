@@ -1,20 +1,20 @@
 import _newsArchive from '../data/news/news_archive.json';
-import { DateYearMonth, NewsItem } from '../meta/types';
+import { DateYearMonth, NewsItemWithDOM } from '../meta/types';
 import getDom from '../util/getDom';
 import { getDate } from '../util/util';
 import Collection from './Collection';
 
-const newsArchive = _newsArchive as NewsItem[];
+const newsArchive = _newsArchive as NewsItemWithDOM[];
 
-const BASE_URL = `https://secure.runescape.com/m=news/archive?oldschool=1`;
+const BASE_URL = 'https://secure.runescape.com/m=news/archive?oldschool=1';
 
 interface NewsPageContent {
 	content: string;
 	description: string;
 }
 
-class News extends Collection<string, NewsItem> {
-	public async fetchRecent(): Promise<NewsItem[]> {
+class News extends Collection<string, NewsItemWithDOM> {
+	public async fetchRecent(): Promise<NewsItemWithDOM[]> {
 		return this.fetchMonth(getDate());
 	}
 
@@ -29,9 +29,7 @@ class News extends Collection<string, NewsItem> {
 
 		const content: string = contentEl.textContent.trim();
 
-		const description: string = (dom.querySelector(
-			'head meta'
-		) as HTMLMetaElement).content.trim();
+		const description: string = (dom.querySelector('head meta') as HTMLMetaElement).content.trim();
 
 		return {
 			content,
@@ -39,51 +37,37 @@ class News extends Collection<string, NewsItem> {
 		};
 	}
 
-	private decrementDate({ year, month }: DateYearMonth): DateYearMonth {
+	public decrementDate({ year, month }: DateYearMonth): DateYearMonth {
 		if (month === 1) {
 			return {
 				year: year - 1,
 				month: 12
 			};
-		} else {
-			return {
-				year,
-				month: month - 1
-			};
 		}
+		return {
+			year,
+			month: month - 1
+		};
 	}
 
-	public async fetchNewArticles(
-		date: DateYearMonth = getDate()
-	): Promise<NewsItem[] | undefined> {
+	public async fetchNewArticles(date: DateYearMonth = getDate()): Promise<NewsItemWithDOM[] | undefined> {
 		let articles = [
 			...(await this.fetchMonth(date, false)),
 			...(await this.fetchMonth(this.decrementDate(date), false))
 		];
 
 		// If every article in the last 2 months of news is already in News, return.
-		if (
-			articles.every((article): boolean =>
-				this.some((_article): boolean => _article.link === article.link)
-			)
-		) {
+		if (articles.every((article): boolean => this.some((_article): boolean => _article.link === article.link))) {
 			return undefined;
 		}
 
-		const newArticles: NewsItem[] = [];
+		const newArticles: NewsItemWithDOM[] = [];
 
 		// If the fetched articles doesn't contain all of the missing articles, keep fetching more.
-		while (
-			!articles.some((article): boolean =>
-				this.some((_article): boolean => article.link === _article.link)
-			)
-		) {
+		while (!articles.some((article): boolean => this.some((_article): boolean => article.link === _article.link))) {
 			// Decrement the date by 1 month, and then fetch the previous month.
 			const newDate = this.decrementDate(date);
-			const nextMonth = await this.fetchMonth(
-				{ year: newDate.year, month: newDate.month },
-				false
-			);
+			const nextMonth = await this.fetchMonth({ year: newDate.year, month: newDate.month }, false);
 			if (!nextMonth) throw new Error('Unexpected error');
 			articles = [...articles, ...nextMonth];
 		}
@@ -98,12 +82,8 @@ class News extends Collection<string, NewsItem> {
 		return newArticles;
 	}
 
-	public async fetchMonth(
-		{ year, month }: DateYearMonth,
-		cache = true,
-		pageNumber = 1
-	): Promise<NewsItem[]> {
-		let newsArticlesCollection: NewsItem[] = [];
+	public async fetchMonth({ year, month }: DateYearMonth, cache = true, pageNumber = 1): Promise<NewsItemWithDOM[]> {
+		let newsArticlesCollection: NewsItemWithDOM[] = [];
 
 		const { document: dom } = await getDom(this.generateNewsURL(year, month, pageNumber));
 
@@ -117,23 +97,18 @@ class News extends Collection<string, NewsItem> {
 			const title = titleEl.textContent;
 			const link = titleEl.href;
 
-			const image = (article.getElementsByClassName(
-				'news-list-article__figure-img'
-			)[0] as HTMLImageElement).src;
+			const image = (article.getElementsByClassName('news-list-article__figure-img')[0] as HTMLImageElement).src;
 
-			const date = (article.getElementsByClassName(
-				'news-list-article__date'
-			)[0] as HTMLTimeElement).dateTime;
+			const date = (article.getElementsByClassName('news-list-article__date')[0] as HTMLTimeElement).dateTime;
 
-			const category = article.getElementsByClassName('news-list-article__category')[0]
-				.textContent;
+			const category = article.getElementsByClassName('news-list-article__category')[0].textContent;
 
 			if (!title || !date || !category || !link || !year || !month) {
 				// TODO
 				throw new Error('News article is missing a required element.');
 			}
 
-			const newsItem: NewsItem = {
+			const newsItem: NewsItemWithDOM = {
 				title,
 				image,
 				category,
@@ -141,7 +116,8 @@ class News extends Collection<string, NewsItem> {
 				year,
 				month,
 				day: parseInt(date.split('-')[2]),
-				date: Date.parse(date)
+				date: Date.parse(date),
+				dom
 			};
 
 			if (cache) {

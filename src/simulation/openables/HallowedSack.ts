@@ -43,7 +43,7 @@ export const HallowedSackTable = new LootTable()
 	.every(HighTierLootTable, 2);
 
 export default new SimpleOpenable({
-	id: 24946,
+	id: 24_946,
 	name: 'Hallowed Sack',
 	aliases: ['hallow sack', 'hallowed sack'],
 	table: HallowedSackTable

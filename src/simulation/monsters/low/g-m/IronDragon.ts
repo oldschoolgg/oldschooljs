@@ -43,7 +43,7 @@ const IronDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(128, 'Clue scroll (hard)')
-	.tertiary(10000, 'Draconic visage');
+	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
 	id: 272,

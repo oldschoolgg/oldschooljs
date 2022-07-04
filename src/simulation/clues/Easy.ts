@@ -146,9 +146,7 @@ export const EasyRareTable = new LootTable()
 	.add(EasyCapeTable)
 	.add(EasyElegantTable, 1, 6);
 
-export const EasyAmuletTable = new LootTable()
-	.add('Amulet of magic (t)')
-	.add('Amulet of magic', 1, 9);
+export const EasyAmuletTable = new LootTable().add('Amulet of magic (t)').add('Amulet of magic', 1, 9);
 
 export const EasyBlessingsTable = new LootTable().add(BlessingTable).add('Coins', [3000, 7000], 2);
 

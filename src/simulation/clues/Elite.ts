@@ -114,16 +114,13 @@ export const EliteRareTable = new LootTable()
 	.add('Giant boot')
 	.add("Rangers' tunic")
 	.add('Monocle')
-	.add(EliteMegaRareTable)
+	.add(EliteMegaRareTable, 1, 2)
 	.add(EliteTuxedoTable);
 
-export const EliteSeedTable = new LootTable()
-	.add('Magic seed')
-	.add('Yew seed')
-	.add('Palm tree seed');
+export const EliteSeedTable = new LootTable().add('Magic seed').add('Yew seed').add('Palm tree seed');
 
 export const EliteStandardTable = new LootTable()
-	.add('Coins', [20000, 30000])
+	.add('Coins', [20_000, 30_000])
 	.add('Tuna potato', [15, 20])
 	.add('Summer pie', [15, 20])
 	.add('Law rune', [50, 75])
@@ -154,9 +151,7 @@ export const EliteStandardTable = new LootTable()
 	.add(TeleportScrollTable, 1, 2)
 	.add(BlessingTable);
 
-export const EliteClueTable = new LootTable()
-	.add(EliteStandardTable, 1, 24)
-	.add(EliteRareTable, 1, 1);
+export const EliteClueTable = new LootTable().add(EliteStandardTable, 1, 24).add(EliteRareTable, 1, 1);
 
 export class EliteCasket extends Clue {
 	public open(quantity = 1): Bank {

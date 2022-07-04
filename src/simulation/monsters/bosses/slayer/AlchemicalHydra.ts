@@ -3,15 +3,9 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 import RareDropTable from '../../../subtables/RareDropTable';
 import TreeHerbSeedTable from '../../../subtables/TreeHerbSeedTable';
 
-const AlchemicalHydraBrimstoneRingTable = new LootTable()
-	.add("Hydra's eye")
-	.add("Hydra's fang")
-	.add("Hydra's heart");
+const AlchemicalHydraBrimstoneRingTable = new LootTable().add("Hydra's eye").add("Hydra's fang").add("Hydra's heart");
 
-const RuneArmourTable = new LootTable()
-	.every('Rune platebody')
-	.add('Rune platelegs')
-	.add('Rune plateskirt');
+const RuneArmourTable = new LootTable().every('Rune platebody').add('Rune platelegs').add('Rune plateskirt');
 
 const NotedHerbsTable = new LootTable()
 	.add('Grimy avantoe', [10, 15], 4)
@@ -65,7 +59,7 @@ const NormalTable = new LootTable()
 	.add(TreeHerbSeedTable, 1, 2)
 
 	/* Other */
-	.add('Coins', [40000, 60000], 10)
+	.add('Coins', [40_000, 60_000], 10)
 	.add('Shark', [2, 4], 7)
 	.add(
 		[
@@ -77,7 +71,7 @@ const NormalTable = new LootTable()
 	)
 	.add('Dragon bones', 30, 6)
 	.add('Crystal key', 1, 1)
-	.oneIn(202, 'Coins', [5550, 25550])
+	.oneIn(202, 'Coins', [5550, 25_550])
 
 	/* Rare drop table */
 	.add(RareDropTable, 1, 1);

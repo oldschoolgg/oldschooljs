@@ -1,5 +1,6 @@
+import { readFileSync, writeFileSync } from 'fs';
+
 import { Polls } from '../dist';
-import { writeFileSync, readFileSync } from 'fs';
 
 const currentPolls = JSON.parse(readFileSync('./src/data/polls/poll_archive.json').toString());
 

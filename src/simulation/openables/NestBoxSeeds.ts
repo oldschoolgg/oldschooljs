@@ -33,7 +33,7 @@ const NestBoxSeedsTable = new LootTable()
 	.add('Redwood tree seed', 1, 1);
 
 export default new SimpleOpenable({
-	id: 12793,
+	id: 12_793,
 	name: 'Nest box (seeds)',
 	aliases: ['nest box (seeds)', 'seeds nest box', 'nest box seeds', 'seed nest box'],
 	table: NestBoxSeedsTable

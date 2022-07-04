@@ -43,7 +43,7 @@ const MithrilDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(350, 'Clue scroll (elite)')
-	.tertiary(10000, 'Draconic visage');
+	.tertiary(10_000, 'Draconic visage');
 
 export default new SimpleMonster({
 	id: 2919,

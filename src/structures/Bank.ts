@@ -1,17 +1,11 @@
 import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import {
-	bankHasAllItemsFromBank,
-	multiplyBank,
-	removeBankFromBank,
-	resolveBank,
-	resolveNameBank
-} from '../util/bank';
+import { bankHasAllItemsFromBank, resolveBank, resolveNameBank } from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 
-const frozenError = new Error(`Tried to mutate a frozen Bank.`);
+const frozenError = new Error('Tried to mutate a frozen Bank.');
 
 export default class Bank {
 	public bank: ItemBank;
@@ -36,15 +30,13 @@ export default class Bank {
 	}
 
 	public addItem(item: number, quantity = 1): this {
-		if (this.frozen) throw frozenError;
 		if (quantity < 1) return this;
 		if (this.bank[item]) this.bank[item] += quantity;
 		else this.bank[item] = quantity;
 		return this;
 	}
 
-	public removeItem(item: number, quantity = 1): this {
-		if (this.frozen) throw frozenError;
+	public removeItem(item: number | string, quantity = 1): this {
 		const currentValue = this.bank[item];
 
 		if (typeof currentValue === 'undefined') return this;
@@ -57,10 +49,9 @@ export default class Bank {
 		return this;
 	}
 
-	public add(
-		item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined,
-		quantity = 1
-	): Bank {
+	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined, quantity = 1): Bank {
+		if (this.frozen) throw frozenError;
+
 		if (!item) {
 			return this;
 		}
@@ -101,14 +92,8 @@ export default class Bank {
 		return this;
 	}
 
-	public remove(
-		item: string | number | ReturnedLootItem[] | ItemBank | Bank,
-		quantity = 1
-	): Bank {
-		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, _item.quantity);
-			return this;
-		}
+	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+		if (this.frozen) throw frozenError;
 
 		// Bank.remove('Twisted bow');
 		// Bank.remove('Twisted bow', 5);
@@ -122,7 +107,11 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			return this.remove(item.bank);
+			for (const [key, value] of Object.entries(item.bank)) {
+				this.removeItem(key, value);
+				if (this.length === 0) break;
+			}
+			return this;
 		}
 
 		const firstKey = Object.keys(item)[0];
@@ -130,10 +119,15 @@ export default class Bank {
 			return this;
 		}
 
+		if (Array.isArray(item)) {
+			for (const _item of item) this.remove(_item.item, _item.quantity);
+			return this;
+		}
+
 		if (isNaN(Number(firstKey))) {
 			this.remove(resolveNameBank(item));
 		} else {
-			this.bank = removeBankFromBank(this.bank, item);
+			return this.remove(new Bank(item));
 		}
 
 		return this;
@@ -146,15 +140,18 @@ export default class Bank {
 		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
 	}
 
-	public multiply(multiplier: number): this {
+	public multiply(multiplier: number, itemsToNotMultiply?: number[]): this {
 		if (this.frozen) throw frozenError;
-		this.bank = multiplyBank(this.bank, multiplier);
+		for (const itemID of Object.keys(this.bank).map(Number)) {
+			if (itemsToNotMultiply?.includes(itemID)) continue;
+			this.bank[itemID] *= multiplier;
+		}
 		return this;
 	}
 
 	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (Array.isArray(items)) {
-			return items.every((item) => this.amount(item) > 0);
+			return items.every(item => this.amount(item) > 0);
 		}
 
 		if (typeof items === 'string' || typeof items === 'number') {
@@ -171,7 +168,7 @@ export default class Bank {
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
 		for (const [key, val] of Object.entries(this.bank)) {
-			arr.push([Items.get(parseInt(key)), val]);
+			arr.push([Items.get(parseInt(key))!, val]);
 		}
 		return arr;
 	}
@@ -188,9 +185,7 @@ export default class Bank {
 
 	public fits(bank: Bank): number {
 		const items = bank.items();
-		const divisions = items
-			.map(([item, qty]) => Math.floor(this.amount(item.id) / qty))
-			.sort((a, b) => a - b);
+		const divisions = items.map(([item, qty]) => Math.floor(this.amount(item.id) / qty)).sort((a, b) => a - b);
 		return divisions[0] ?? 0;
 	}
 
@@ -216,7 +211,7 @@ export default class Bank {
 	public toString(): string {
 		const entries = Object.entries(this.bank);
 		if (entries.length === 0) {
-			return `No items`;
+			return 'No items';
 		}
 		const res = [];
 		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {

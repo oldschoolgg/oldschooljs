@@ -4,13 +4,7 @@ import Bank from '../../structures/Bank';
 import Clue from '../../structures/Clue';
 import LootTable from '../../structures/LootTable';
 import { itemID } from '../../util';
-import {
-	BlessingTable,
-	FirelighterTable,
-	GildedTable,
-	PrayerPageTable,
-	TeleportScrollTable
-} from './General';
+import { BlessingTable, FirelighterTable, GildedTable, PrayerPageTable, TeleportScrollTable } from './General';
 
 export const Hard3rdageTable = new LootTable()
 	.add('3rd age range coif')
@@ -69,7 +63,7 @@ export const HardRareTable = new LootTable()
 	.add('Amulet of glory (t4)')
 	.add('Pith helmet')
 	.add('Explorer backpack')
-	.add(19912) // Zombie head
+	.add(19_912) // Zombie head
 	.add('Nunchaku')
 	.add('Cyclops head')
 	.add('Dragon boots ornament kit')

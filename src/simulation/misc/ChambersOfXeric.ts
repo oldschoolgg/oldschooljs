@@ -112,7 +112,7 @@ export class ChambersOfXericClass extends Minigame {
 	id = 1;
 	aliases = ['raids', 'cox'];
 	name = 'Chambers of Xeric';
-	allItems: number[] = [...UniqueTable.allItems, ...NonUniqueTable.table.map((i) => i.item)];
+	allItems: number[] = [...UniqueTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
 	maxRoll = 570_000 * (1 / 8675);
 
 	/**
@@ -207,7 +207,7 @@ export class ChambersOfXericClass extends Minigame {
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =
 			typeof options.timeToComplete === 'number' &&
-			options.challengeMode === true &&
+			options.challengeMode &&
 			this.elligibleForDust(options.team.length, options.timeToComplete);
 
 		if (elligibleForDust) {
@@ -220,7 +220,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = addArrayOfNumbers(options.team.map((val) => val.personalPoints));
+		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -256,7 +256,7 @@ export class ChambersOfXericClass extends Minigame {
 		while (uniqueLoot.length > 0) {
 			if (uniqueDeciderTable.table.length === 0) break;
 			const receipientID = uniqueDeciderTable.roll().item;
-			const uniqueItem = uniqueLoot.random();
+			const uniqueItem = uniqueLoot.random()!;
 			lootResult[receipientID].add(uniqueItem.id, 1);
 			uniqueLoot.remove(uniqueItem.id, 1);
 			if (roll(53)) {
@@ -269,9 +269,8 @@ export class ChambersOfXericClass extends Minigame {
 		// unique decider table, give them a non-unique roll.
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
-			const pointsOfThisMember = options.team.find(
-				(member) => member.id === leftOverRecipient.item
-			).personalPoints;
+			const pointsOfThisMember = options.team.find(member => member.id === leftOverRecipient.item)!
+				.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
 			for (const [itemID, quantity] of entries) {
@@ -283,5 +282,4 @@ export class ChambersOfXericClass extends Minigame {
 	}
 }
 
-const ChambersOfXeric = new ChambersOfXericClass();
-export default ChambersOfXeric;
+export const ChambersOfXeric = new ChambersOfXericClass();

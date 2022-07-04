@@ -1,5 +1,6 @@
-import { News } from '../dist';
 import { readFileSync, writeFileSync } from 'fs';
+
+import { News } from '../dist';
 
 const currentNews = JSON.parse(readFileSync('./src/data/news/news_archive.json').toString());
 
@@ -9,11 +10,7 @@ export default async function prepareNews(): Promise<void> {
 	if (newArticles) {
 		writeFileSync(
 			'./src/data/news/news_archive.json',
-			JSON.stringify(
-				[...currentNews, ...newArticles.sort((a, b) => a.date - b.date)],
-				null,
-				4
-			)
+			JSON.stringify([...currentNews, ...newArticles.sort((a, b) => a.date - b.date)], null, 4)
 		);
 	}
 	console.log('Prepared news.');

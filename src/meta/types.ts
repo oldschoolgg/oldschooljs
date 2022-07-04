@@ -216,10 +216,10 @@ export enum EquipmentSlot {
 
 export interface ItemWeaponStance {
 	combat_style: string;
-	attack_type: string;
-	attack_style: string;
+	attack_type: string | null;
+	attack_style: string | null;
 	experience: string;
-	boosts: string;
+	boosts: string | null;
 }
 
 export interface ItemWeapon {
@@ -280,11 +280,11 @@ export interface Item {
 	/**
 	 * The low alchemy value of the item (cost * 0.4).
 	 */
-	lowalch: number;
+	lowalch?: number;
 	/**
 	 * The high alchemy value of the item (cost * 0.6).
 	 */
-	highalch: number;
+	highalch?: number;
 	/**
 	 * The weight (in kilograms) of the item.
 	 */
@@ -327,6 +327,7 @@ export interface NewsItem {
 	day: number;
 	date: number;
 }
+export type NewsItemWithDOM = NewsItem & { dom: Document };
 
 export interface DateYearMonth {
 	year: number;
@@ -365,6 +366,8 @@ export interface Poll {
 	questions: PollQuestion[];
 	url: string;
 }
+
+export type PollWithDOM = Poll & { dom: Document };
 
 export interface PollQuestion {
 	question: string;

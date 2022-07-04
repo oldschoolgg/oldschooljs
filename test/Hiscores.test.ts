@@ -13,7 +13,7 @@ test('Hiscores', async () => {
 	expect(lynxTitan.username).toBe('Lynx Titan');
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
-	expect(lynxTitan.skills.overall.xp).toBe(4600000000);
+	expect(lynxTitan.skills.overall.xp).toBe(4_600_000_000);
 	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 

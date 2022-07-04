@@ -2,10 +2,7 @@ import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 import { GemTable } from '../../../subtables/RareDropTable';
 
-const SigilTable = new LootTable()
-	.add('Spectral sigil', 1, 3)
-	.add('Arcane sigil', 1, 3)
-	.add('Elysian sigil', 1, 1);
+const SigilTable = new LootTable().add('Spectral sigil', 1, 3).add('Arcane sigil', 1, 3).add('Elysian sigil', 1, 1);
 
 const CorporealBeastTable = new LootTable()
 
@@ -50,7 +47,7 @@ const CorporealBeastTable = new LootTable()
 	.add('White berries', 120, 17)
 	.add('Desert goat horn', 120, 17)
 	.add('Watermelon seed', 24, 15)
-	.add('Coins', [20000, 50000], 12)
+	.add('Coins', [20_000, 50_000], 12)
 	.add('Antidote++(4)', 40, 10)
 	.add('Ranarr seed', 10, 5)
 

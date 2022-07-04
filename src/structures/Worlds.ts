@@ -3,12 +3,10 @@ import getDom from '../util/getDom';
 import Collection from './Collection';
 
 class Worlds extends Collection<number, World> {
-	public async fetch(number?: number): Promise<World | undefined | void> {
+	public async fetch(number?: number): Promise<World | undefined> {
 		const dom = await getDom('http://oldschool.runescape.com/slu?order=WMLPA');
 
-		const CollectionOfElements = Array.from(
-			dom.window.document.getElementsByClassName('server-list__row')
-		);
+		const CollectionOfElements = Array.from(dom.window.document.getElementsByClassName('server-list__row'));
 
 		for (const WorldRow of CollectionOfElements) {
 			const columns = Array.from(WorldRow.children);
@@ -21,7 +19,7 @@ class Worlds extends Collection<number, World> {
 				!columns[4].textContent
 			) {
 				continue;
-				//throw new Error('World element is missing text content.');
+				// throw new Error('World element is missing text content.');
 			}
 
 			const worldNumber = parseInt(columns[0].textContent.replace(/\D/g, '')) + 300;

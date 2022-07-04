@@ -2,6 +2,8 @@ import _items from '../data/items/item_data.json';
 import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/cleanString';
 import Collection from './Collection';
+
+// @ts-ignore asdf
 const items = _items as Record<string, Item>;
 
 export const itemNameMap: Map<string, number> = new Map();
@@ -16,17 +18,37 @@ export const USELESS_ITEMS = [
 	8890,
 	6964,
 	2513,
-	19492,
-	11071,
-	11068,
-	21284,
-	24735,
-	21913,
+	19_492,
+	11_071,
+	11_068,
+	21_284,
+	24_735,
+	21_913,
 	4703,
 	4561,
 	2425,
 	4692,
-	3741
+	3741,
+
+	// Pharaoh's sceptres
+	9045,
+	9046,
+	9047,
+	9048,
+	9049,
+	9050,
+	9051,
+	13_074,
+	13_075,
+	13_076,
+	13_077,
+	13_078,
+	16_176,
+	21_445,
+	21_446,
+	26_948,
+	26_950,
+	26_945
 ];
 
 class Items extends Collection<number, Item> {

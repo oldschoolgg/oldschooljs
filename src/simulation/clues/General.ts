@@ -60,9 +60,7 @@ export const SubTeleportScrollTable = new LootTable()
 	.add('Charge dragonstone jewellery scroll', [5, 15])
 	.add('Iorwerth camp teleport', [5, 15]);
 
-export const TeleportScrollTable = new LootTable()
-	.add('Master scroll book (empty)')
-	.add(SubTeleportScrollTable, 1, 21);
+export const TeleportScrollTable = new LootTable().add('Master scroll book (empty)').add(SubTeleportScrollTable, 1, 21);
 
 export const GiveHalfKeyTable = new LootTable().add('Loop half of key').add('Tooth half of key');
 
@@ -73,5 +71,5 @@ export const BlessingTable = new LootTable()
 	.add('Honourable blessing')
 	.add('War blessing')
 	.add('Ancient blessing')
-	.add('Coins', [10000, 15000], 7)
+	.add('Coins', [10_000, 15_000], 7)
 	.add('Purple sweets', [8, 12], 7);

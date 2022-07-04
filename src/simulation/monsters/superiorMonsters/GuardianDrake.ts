@@ -14,7 +14,7 @@ const GuardianDrakeTable = new LootTable()
 	.tertiary(363, 'Imbued heart');
 
 export default new SimpleMonster({
-	id: 10400,
+	id: 10_400,
 	name: 'Guardian Drake',
 	table: GuardianDrakeTable,
 	aliases: ['guardian drake']

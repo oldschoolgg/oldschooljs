@@ -25,9 +25,7 @@ export const MasterSubAnkouOutfitTable = new LootTable()
 	.add('Ankou gloves')
 	.add('Ankou socks');
 
-export const MasterAnkouOutfitTable = new LootTable()
-	.add('Coins', [15000, 30000], 2)
-	.add(MasterSubAnkouOutfitTable);
+export const MasterAnkouOutfitTable = new LootTable().add('Coins', [15_000, 30_000], 2).add(MasterSubAnkouOutfitTable);
 
 export const MasterSubMummyOutfitTable = new LootTable()
 	.add("Mummy's head")
@@ -36,17 +34,13 @@ export const MasterSubMummyOutfitTable = new LootTable()
 	.add("Mummy's hands")
 	.add("Mummy's feet");
 
-export const MasterMummyOutfitTable = new LootTable()
-	.add('Coins', [15000, 30000], 2)
-	.add(MasterSubMummyOutfitTable);
+export const MasterMummyOutfitTable = new LootTable().add('Coins', [15_000, 30_000], 2).add(MasterSubMummyOutfitTable);
 
 export const MasterSubDragonOrnTable = new LootTable()
 	.add('Dragon kiteshield ornament kit')
 	.add('Dragon platebody ornament kit', 1, 2);
 
-export const MasterDragonOrnTable = new LootTable()
-	.add('Coins', [15000, 30000], 9)
-	.add(MasterSubDragonOrnTable);
+export const MasterDragonOrnTable = new LootTable().add('Coins', [15_000, 30_000], 9).add(MasterSubDragonOrnTable);
 
 export const Master3rdageTable = new LootTable()
 	.add('3rd age range coif')
@@ -136,7 +130,7 @@ export const MasterSeedTable = new LootTable()
 	.add('Palm tree seed', [1, 2]);
 
 export const MasterStandardTable = new LootTable()
-	.add('Coins', [20000, 35000])
+	.add('Coins', [20_000, 35_000])
 	.add('Manta ray', [15, 25])
 	.add('Nature rune', [100, 200])
 	.add('Death rune', [100, 200])
@@ -165,9 +159,7 @@ export const MasterStandardTable = new LootTable()
 	.add(GiveHalfKeyTable)
 	.add(BlessingTable);
 
-export const MasterClueTable = new LootTable()
-	.add(MasterStandardTable, 1, 22)
-	.add(MasterRareTable, 1, 1);
+export const MasterClueTable = new LootTable().add(MasterStandardTable, 1, 22).add(MasterRareTable, 1, 1);
 
 export class MasterCasket extends Clue {
 	public open(quantity = 1): Bank {

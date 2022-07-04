@@ -33,7 +33,7 @@ export interface MonsterData {
 	releaseDate: string | null;
 	combatLevel: number;
 	hitpoints: number;
-	maxHit: number;
+	maxHit: number | null;
 	attackType: MonsterAttackType[];
 	attackSpeed: number | null;
 	aggressive: boolean;

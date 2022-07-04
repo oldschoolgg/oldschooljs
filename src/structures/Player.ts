@@ -1,11 +1,4 @@
-import {
-	AccountType,
-	BossRecords,
-	CluesScore,
-	MinigamesScore,
-	Player as PlayerType,
-	SkillsScore
-} from '../meta/types';
+import { AccountType, BossRecords, CluesScore, MinigamesScore, Player as PlayerType, SkillsScore } from '../meta/types';
 
 class Player {
 	public username: string;

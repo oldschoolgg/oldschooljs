@@ -37,7 +37,7 @@ const DemonicGorillaTable = new LootTable({ limit: 500 })
 	/* Other */
 	.add('Prayer potion(3)', 2, 40)
 	.add('Shark', [2, 3], 35)
-	.add('Coins', [5000, 10000], 25)
+	.add('Coins', [5000, 10_000], 25)
 	.add('Saradomin brew(2)', 1, 25)
 	.add('Javelin shaft', [750, 1250], 25)
 	.add('Rune javelin heads', [45, 55], 25)

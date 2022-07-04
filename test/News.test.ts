@@ -1,23 +1,19 @@
 import { News } from '../dist';
 
 describe('News', () => {
-	jest.setTimeout(60000);
+	jest.setTimeout(60_000);
 	test('Generic checks', async () => {
 		expect.assertions(1);
 
-		const firstPageNews = News.filter(
-			(article) => article.year === 2013 && article.month === 2
-		);
+		const firstPageNews = News.filter(article => article.year === 2013 && article.month === 2);
 
 		expect(firstPageNews.size).toEqual(12);
 	});
 
-	test('Single article check', (done) => {
+	test('Single article check', done => {
 		expect.assertions(4);
 
-		const article = News.find(
-			(article) => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream'
-		);
+		const article = News.find(article => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream');
 
 		if (!article) return fail('Missing article.');
 

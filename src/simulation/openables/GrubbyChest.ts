@@ -57,10 +57,10 @@ const GrubbyChestTable = new LootTable()
 	.add('Grimy ranarr weed', 10, 7)
 	.add('Grimy snapdragon', 10, 7)
 	.add('Grimy torstol', 5, 7)
-	.add('Coins', 10000, 9);
+	.add('Coins', 10_000, 9);
 
 export default new SimpleOpenable({
-	id: 23499,
+	id: 23_499,
 	name: 'Grubby chest',
 	aliases: ['grubby chest', 'grubby'],
 	table: GrubbyChestTable

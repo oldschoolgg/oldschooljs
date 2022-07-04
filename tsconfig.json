@@ -1,14 +1,13 @@
 {
-	"extends": "eslint-config-bamboo",
+	"extends": "@oldschoolgg/eslint-config",
 	"compilerOptions": {
-		"strictNullChecks": false,
+		"strictNullChecks": true,
 		"sourceMap": true,
 		"declaration": true,
 		"declarationMap": true,
 		"removeComments": false,
 		"outDir": "./dist",
 		"target": "ES6",
-		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"lib": ["DOM", "ESNext"]

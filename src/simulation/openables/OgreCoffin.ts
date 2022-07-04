@@ -1,7 +1,7 @@
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
 
-const BoneTable = new LootTable({ limit: 10000 })
+const BoneTable = new LootTable({ limit: 10_000 })
 	.add('Zogre bones', 1, 4996)
 	.add('Fayrg bones', 1, 1086)
 	.add('Raurg bones', 1, 766)
