@@ -1,4 +1,4 @@
-import { randFloat, roll, Time } from 'e';
+import { randFloat, roll, shuffleArr, Time } from 'e';
 
 import { ItemBank, LootBank, SimpleTableItem } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -7,7 +7,7 @@ import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { addArrayOfNumbers, convertLootBanksToItemBanks, JSONClone } from '../../util/util';
+import { addArrayOfNumbers, JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -197,11 +197,7 @@ export class ChambersOfXericClass extends Minigame {
 		return loot;
 	}
 
-	public complete(
-		_options: ChambersOfXericOptions
-	): {
-		[key: string]: ItemBank;
-	} {
+	public complete(_options: ChambersOfXericOptions): LootBank {
 		const options = JSONClone(_options);
 
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
@@ -278,7 +274,15 @@ export class ChambersOfXericClass extends Minigame {
 			}
 		}
 
-		return convertLootBanksToItemBanks(lootResult);
+		const onyxChance = options.team.length * 70;
+		for (const bank of shuffleArr(Object.values(lootResult))) {
+			if (roll(onyxChance)) {
+				bank.add('Onyx');
+				break;
+			}
+		}
+
+		return lootResult;
 	}
 }
 
