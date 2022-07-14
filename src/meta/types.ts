@@ -118,6 +118,7 @@ export interface BossRecords {
 export interface MinigamesScore {
 	bountyHunter: MinigameScore;
 	bountyHunterRogue: MinigameScore;
+	pvpArena: MinigameScore;
 	LMS: MinigameScore;
 	soulWars: MinigameScore;
 	riftsClosed: MinigameScore;

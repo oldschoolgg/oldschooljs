@@ -184,12 +184,6 @@ import PriffRabbit from './n-s/PriffRabbit';
 import Pyrefiend from './n-s/Pyrefiend';
 import Pyrelord from './n-s/Pyrelord';
 import Rat from './n-s/Rat';
-import ReanimatedAbyssal from './n-s/ReanimatedAbyssal';
-import ReanimatedDog from './n-s/ReanimatedDog';
-import ReanimatedElf from './n-s/ReanimatedElf';
-import ReanimatedScorpion from './n-s/ReanimatedScorpion';
-import ReanimatedTroll from './n-s/ReanimatedTroll';
-import ReanimatedTzHaar from './n-s/ReanimatedTzHaar';
 import RedDragon from './n-s/RedDragon';
 import RevenantCyclops from './n-s/RevenantCyclops';
 import RevenantDarkBeast from './n-s/RevenantDarkBeast';
@@ -341,10 +335,6 @@ export const allLowMonsters = {
 	SeaSnakeHatchling,
 	Rockslug,
 	RiylShade,
-	ReanimatedTzHaar,
-	ReanimatedTroll,
-	ReanimatedAbyssal,
-	ReanimatedElf,
 	Pyrefiend,
 	Pyrelord,
 	Porazdir,
@@ -381,8 +371,6 @@ export const allLowMonsters = {
 	Penguin,
 	PitScorpion,
 	PoisonScorpion,
-	ReanimatedDog,
-	ReanimatedScorpion,
 	Rooster,
 	Seagull,
 	ShadowSpider,

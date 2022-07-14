@@ -2,6 +2,14 @@ import { Hiscores } from '../dist';
 import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
+	const koru = await Hiscores.fetch('Koru');
+
+	expect(koru.minigames.pvpArena.rank).toBeGreaterThanOrEqual(1);
+	expect(koru.minigames.pvpArena.score).toBeGreaterThanOrEqual(4000);
+	expect(koru.bossRecords.commanderZilyana.score).toBeGreaterThanOrEqual(50);
+	expect(koru.bossRecords.dagannothPrime.score).toBeGreaterThanOrEqual(79);
+	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(268);
+
 	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),

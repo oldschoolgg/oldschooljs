@@ -25,13 +25,13 @@ export const SKILLS = [
 	'runecraft',
 	'hunter',
 	'construction'
-];
+] as const;
 
-export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'soulWars', 'riftsClosed'];
+export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'pvpArena', 'soulWars', 'riftsClosed'] as const;
 
-export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'];
+export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'] as const;
 
-export const mappedBossNames: [string, string][] = [
+export const mappedBossNames = [
 	['abyssalSire', 'Abyssal Sire'],
 	['alchemicalHydra', 'Alchemical Hydra'],
 	['barrowsChests', 'Barrows Chests'],
@@ -80,7 +80,7 @@ export const mappedBossNames: [string, string][] = [
 	['wintertodt', 'Wintertodt'],
 	['zalcano', 'Zalcano'],
 	['zulrah', 'Zulrah']
-];
+] as const;
 
 export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
 
@@ -100,7 +100,7 @@ export const hiscoreURLs: Record<string, string> = {
 	tournament: hiscoreURL('hiscore_oldschool_tournament')
 };
 
-export const ACCOUNT_TYPES: string[] = [
+export const ACCOUNT_TYPES = [
 	'normal',
 	'ironman',
 	'ultimate',
@@ -108,7 +108,7 @@ export const ACCOUNT_TYPES: string[] = [
 	'deadman',
 	'seasonal',
 	'tournament'
-];
+] as const;
 
 // Errors
 

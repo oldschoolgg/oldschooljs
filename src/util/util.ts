@@ -56,19 +56,21 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 
 	accumulativeIndex += CLUES.length;
 
-	for (let i = 0; i < 3; i++) {
-		resolvedPlayer.minigames[MINIGAMES[i + 2]] = {
+	for (let i = 0; i < 4; i++) {
+		const minigameKey = MINIGAMES[i + 2];
+		const minigameData = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
+		resolvedPlayer.minigames[minigameKey] = minigameData;
 	}
 
-	accumulativeIndex += 3;
+	accumulativeIndex += 4;
 
 	for (let i = 0; i < mappedBossNames.length; i++) {
 		if (!data[i + accumulativeIndex]) continue;
-
-		resolvedPlayer.bossRecords[mappedBossNames[i][0]] = {
+		const bossName = mappedBossNames[i][0];
+		resolvedPlayer.bossRecords[bossName] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
