@@ -42,8 +42,10 @@ const SkotizoTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(5, 'Clue scroll (elite)')
+	.tertiary(9, 'Ensouled demon head')
 	.tertiary(25, 'Dark claw')
 	.tertiary(65, 'Skotos')
+	.tertiary(42.67, 'Dark totem base')
 	.tertiary(128, 'Dark totem')
 	.tertiary(2500, 'Jar of darkness');
 
