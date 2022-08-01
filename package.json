@@ -27,7 +27,7 @@
 		"@oldschoolgg/eslint-config": "^1.2.5",
 		"e": "^0.2.1",
 		"jsdom": "^16.7.0",
-		"node-fetch": "^2.6.7"
+		"node-fetch": "^3.2.10"
 	},
 	"devDependencies": {
 		"@types/jest": "^26.0.24",
