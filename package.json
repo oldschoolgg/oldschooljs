@@ -24,8 +24,8 @@
 		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
 	},
 	"dependencies": {
-		"@oldschoolgg/eslint-config": "^1.2.5",
-		"e": "^0.2.1",
+		"@oldschoolgg/eslint-config": "^1.2.7",
+		"e": "^0.2.2",
 		"jsdom": "^16.7.0",
 		"node-fetch": "^2.6.7"
 	},
