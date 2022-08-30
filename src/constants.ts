@@ -72,6 +72,8 @@ export const mappedBossNames = [
 	['theatreofBlood', 'Theatre of Blood'],
 	['theatreofBloodHard', 'Theatre of Blood: Hard Mode'],
 	['thermonuclearSmokeDevil', 'Thermonuclear Smoke Devil'],
+	['tombsofAmascut', 'Tombs of Amascut'],
+	['tombsofAmascutExpert', 'Tombs of Amascut: Expert Mode'],
 	['tzKalZuk', 'TzKal-Zuk'],
 	['tzTokJad', 'TzTok-Jad'],
 	['venenatis', 'Venenatis'],
