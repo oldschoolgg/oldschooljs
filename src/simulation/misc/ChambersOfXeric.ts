@@ -81,7 +81,7 @@ const itemScales = resolveNameBank({
 const NonUniqueTable = new SimpleTable<number>();
 for (const itemID of Object.keys(itemScales)) NonUniqueTable.add(parseInt(itemID));
 
-const UniqueTable = new LootTable()
+export const CoXUniqueTable = new LootTable()
 	.add('Dexterous prayer scroll', 1, 20)
 	.add('Arcane prayer scroll', 1, 20)
 
@@ -112,7 +112,7 @@ export class ChambersOfXericClass extends Minigame {
 	id = 1;
 	aliases = ['raids', 'cox'];
 	name = 'Chambers of Xeric';
-	allItems: number[] = [...UniqueTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
+	allItems: number[] = [...CoXUniqueTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
 	maxRoll = 570_000 * (1 / 8675);
 
 	/**
@@ -171,7 +171,7 @@ export class ChambersOfXericClass extends Minigame {
 			}
 		}
 
-		return UniqueTable.roll(rolls);
+		return CoXUniqueTable.roll(rolls);
 	}
 
 	// We're rolling 2 non-unique loots based off a number of personal points.
