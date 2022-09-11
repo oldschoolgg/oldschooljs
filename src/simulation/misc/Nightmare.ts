@@ -96,7 +96,7 @@ const phosaniData: Record<string, [number[], number]> = {
 	'Prayer potion(3)': [[8, 15], 5],
 	'Sanfew serum(3)': [[6, 12], 5],
 	'Saradomin brew(3)': [[8, 15], 5],
-	'Zamorak brew(3)': [[1, 15], 5],
+	'Zamorak brew(3)': [[8, 15], 5],
 
 	Coins: [[41_417, 72_013], 2]
 };
