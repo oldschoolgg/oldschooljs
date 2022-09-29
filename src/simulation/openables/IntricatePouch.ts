@@ -25,11 +25,11 @@ const IntricatePouchTable = new LootTable()
 	.add('Dragon med helm', 1, 1)
 	.add('Pure essence', [500, 1000], 1)
 
-	/*Tertiary */
+	/* Tertiary */
 	.tertiary(10, 'Clue scroll (hard)');
 
 export default new SimpleOpenable({
-	id: 26908,
+	id: 26_908,
 	name: 'Intricate pouch',
 	aliases: ['intricate pouch', 'intri pouch', 'int pouch'],
 	table: IntricatePouchTable
