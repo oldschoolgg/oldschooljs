@@ -168,7 +168,9 @@ class NightmareClass {
 		return [item, quantity];
 	}
 
-	public kill(options: O.Readonly<NightmareOptions>): {
+	public kill(
+		options: O.Readonly<NightmareOptions>
+	): {
 		[key: string]: ItemBank;
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];

@@ -28,14 +28,16 @@ class Hiscores {
 		}
 
 		const data: Player = await fetch(hiscoreURLs[mergedOptions.type] + username)
-			.then(async (res): Promise<string> => {
-				if (res.status === 404) throw new OSError(Errors.ACCOUNT_NOT_FOUND);
-				if (!res.ok) throw new OSError(Errors.FAILED_REQUEST);
-				const text = await res.text();
-				// If the text response is HTML, it means the hiscores are down.
-				if (text.trim().startsWith('<')) throw new OSError(Errors.FAILED_REQUEST);
-				return text;
-			})
+			.then(
+				async (res): Promise<string> => {
+					if (res.status === 404) throw new OSError(Errors.ACCOUNT_NOT_FOUND);
+					if (!res.ok) throw new OSError(Errors.FAILED_REQUEST);
+					const text = await res.text();
+					// If the text response is HTML, it means the hiscores are down.
+					if (text.trim().startsWith('<')) throw new OSError(Errors.FAILED_REQUEST);
+					return text;
+				}
+			)
 			.then(p => resolvePlayerFromHiscores(p, mergedOptions.type))
 			.catch((err): never => {
 				throw err;

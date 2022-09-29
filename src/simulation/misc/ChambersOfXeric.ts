@@ -265,9 +265,8 @@ export class ChambersOfXericClass extends Minigame {
 		// unique decider table, give them a non-unique roll.
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
-			const pointsOfThisMember = options.team.find(
-				member => member.id === leftOverRecipient.item
-			)!.personalPoints;
+			const pointsOfThisMember = options.team.find(member => member.id === leftOverRecipient.item)!
+				.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
 			for (const [itemID, quantity] of entries) {
