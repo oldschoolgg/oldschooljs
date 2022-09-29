@@ -267,13 +267,10 @@ export default class Collection<K, V> extends Map<K, V> {
 	 */
 	public map<T>(fn: (value: V, key: K, collection: this) => T): T[] {
 		const iter = this.entries();
-		return Array.from(
-			{ length: this.size },
-			(): T => {
-				const [key, value] = iter.next().value;
-				return fn(value, key, this);
-			}
-		);
+		return Array.from({ length: this.size }, (): T => {
+			const [key, value] = iter.next().value;
+			return fn(value, key, this);
+		});
 	}
 
 	/**
@@ -342,7 +339,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		let first = true;
 		for (const [key, val] of this) {
 			if (first) {
-				accumulator = (val as unknown) as T;
+				accumulator = val as unknown as T;
 				first = false;
 				continue;
 			}
