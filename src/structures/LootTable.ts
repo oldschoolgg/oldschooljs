@@ -29,12 +29,26 @@ export default class LootTable {
 		this.allItems = [];
 	}
 
+	private cloneLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): OneInItems[] | LootTableItem[] {
+		const result = [];
+		for (const e of lootTableItem) {
+			if (typeof e.item === 'number') {
+				result.push({ ...e });
+			} else if (e.item instanceof LootTable) {
+				result.push({ ...e, item: e.item.clone() });
+			} else {
+				result.push({ ...e, item: this.cloneLootTableItems(e.item) });
+			}
+		}
+		return result;
+	}
+
 	public clone(): LootTable {
 		const newTable = new LootTable();
-		newTable.table = [...this.table];
-		newTable.oneInItems = [...this.oneInItems];
-		newTable.tertiaryItems = [...this.tertiaryItems];
-		newTable.everyItems = [...this.everyItems];
+		newTable.table = this.cloneLootTableItems(this.table);
+		newTable.oneInItems = this.cloneLootTableItems(this.oneInItems) as OneInItems[];
+		newTable.tertiaryItems = this.cloneLootTableItems(this.tertiaryItems) as OneInItems[];
+		newTable.everyItems = this.cloneLootTableItems(this.everyItems);
 		newTable.length = this.length;
 		newTable.totalWeight = this.totalWeight;
 		newTable.limit = this.limit;
