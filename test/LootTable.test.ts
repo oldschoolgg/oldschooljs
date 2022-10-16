@@ -1,6 +1,6 @@
+import { LootTableItem } from '../dist/meta/types';
 import LootTable from '../dist/structures/LootTable';
-import {itemID} from "../dist/util";
-import {LootTableItem} from "../dist/meta/types";
+import { itemID } from '../dist/util';
 
 test('LootTable', async () => {
 	const table1 = new LootTable().every('Coal').tertiary(1, 'Coal').add('Coal');
@@ -30,14 +30,14 @@ test('LootTableClone', async () => {
 	modifyObj2.item = [{ item: itemID('Anchovy pizza'), quantity: 1, weight: 1 }];
 
 	// Run the tests:
+
+	expect(mainTable.allItems).toEqual([526, 453, 440, 2353, 1891]);
+	expect(clonedTable.allItems).toEqual([526, 995, 440, 2353, 1985, 2297]);
 	expect(JSON.stringify(clonedTable)).toEqual(
-		'{"length":3,"table":[{"item":526,"weight":1,"quantity":1},{"item":{"length":4,"table":[{"item":995,"weight":1,"quantity":1},{"item":440,"weight":1,"quantity":1},{"item":2353,"weight":1,"quantity":1},{"item":1985,"weight":1,"quantity":1}],"totalWeight":4,"oneInItems":[],"tertiaryItems":[],"everyItems":[],"allItems":[453,440,2353,1985]},"weight":1,"quantity":1},{"item":[{"item":2297,"quantity":1,"weight":1}],"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[],"allItems":[526,453,440,2353,1891]}'
+		'{"length":3,"table":[{"item":526,"weight":1,"quantity":1},{"item":{"length":4,"table":[{"item":995,"weight":1,"quantity":1},{"item":440,"weight":1,"quantity":1},{"item":2353,"weight":1,"quantity":1},{"item":1985,"weight":1,"quantity":1}],"totalWeight":4,"oneInItems":[],"tertiaryItems":[],"everyItems":[]},"weight":1,"quantity":1},{"item":[{"item":2297,"quantity":1,"weight":1}],"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[]}'
 	);
 	expect(JSON.stringify(mainTable)).toEqual(
-		'{"length":3,"table":[{"item":526,"weight":1,"quantity":1},{"item":{"length":3,"table":[{"item":453,"weight":1,"quantity":1},{"item":440,"weight":1,"quantity":1},{"item":2353,"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[],"allItems":[453,440,2353]},"weight":1,"quantity":1},{"item":[{"item":1891,"quantity":1,"weight":1}],"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[],"allItems":[526,453,440,2353,1891]}'
+		'{"length":3,"table":[{"item":526,"weight":1,"quantity":1},{"item":{"length":3,"table":[{"item":453,"weight":1,"quantity":1},{"item":440,"weight":1,"quantity":1},{"item":2353,"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[]},"weight":1,"quantity":1},{"item":[{"item":1891,"quantity":1,"weight":1}],"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[]}'
 	);
 
-	console.log(JSON.stringify(mainTable));
-	console.log(JSON.stringify(clonedTable));
-
-})
+});

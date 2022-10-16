@@ -16,7 +16,6 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
-	public allItems: number[];
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -26,7 +25,6 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = lootTableOptions.limit;
-		this.allItems = [];
 	}
 
 	private cloneLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): OneInItems[] | LootTableItem[] {
@@ -43,6 +41,31 @@ export default class LootTable {
 		return result;
 	}
 
+	private getItemsFromLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): number[] {
+		const result = [];
+		for (const e of lootTableItem) {
+			if (typeof e.item === 'number') {
+				result.push(e.item);
+			} else if (e.item instanceof LootTable) {
+				result.push(...e.item.allItems);
+			} else {
+				result.push(...this.getItemsFromLootTableItems(e.item));
+			}
+		}
+		return result;
+	}
+
+	public get allItems() {
+		return Array.from(
+			new Set([
+				...this.getItemsFromLootTableItems(this.table),
+				...this.getItemsFromLootTableItems(this.oneInItems),
+				...this.getItemsFromLootTableItems(this.tertiaryItems),
+				...this.getItemsFromLootTableItems(this.everyItems)
+			])
+		);
+	}
+
 	public clone(): LootTable {
 		const newTable = new LootTable();
 		newTable.table = this.cloneLootTableItems(this.table);
@@ -52,34 +75,12 @@ export default class LootTable {
 		newTable.length = this.length;
 		newTable.totalWeight = this.totalWeight;
 		newTable.limit = this.limit;
-		newTable.allItems = [...this.allItems];
 
 		return newTable;
 	}
 
 	private resolveName(name: string): number {
 		return itemID(name);
-	}
-
-	private addToAllItems(items: number | number[] | LootTable | LootTableItem | LootTableItem[]): void {
-		if (Array.isArray(items)) {
-			for (const item of items) {
-				this.addToAllItems(item);
-			}
-			return;
-		}
-
-		if (items instanceof LootTable) {
-			this.allItems = Array.from(new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems)));
-			return;
-		}
-
-		if (typeof items === 'number') {
-			if (this.allItems.includes(items)) return;
-			this.allItems.push(items);
-		} else {
-			this.addToAllItems(items.item);
-		}
 	}
 
 	public oneIn(
@@ -95,8 +96,6 @@ export default class LootTable {
 			quantity,
 			options
 		});
-
-		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -115,8 +114,6 @@ export default class LootTable {
 			options
 		});
 
-		this.addToAllItems(resolved);
-
 		return this;
 	}
 
@@ -131,8 +128,6 @@ export default class LootTable {
 			quantity,
 			options
 		});
-
-		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -157,7 +152,6 @@ export default class LootTable {
 			const _item = item as [string, (number | number[])?][];
 			for (const itemToAdd of _item) {
 				const resolvedId = this.resolveName(itemToAdd[0]);
-				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
 					quantity: this.determineQuantity(itemToAdd[1]!) || 1
@@ -169,8 +163,6 @@ export default class LootTable {
 
 		this.length += 1;
 		this.totalWeight += weight;
-
-		this.addToAllItems(item);
 
 		this.table.push({
 			item,
