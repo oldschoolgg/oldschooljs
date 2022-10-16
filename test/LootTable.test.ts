@@ -39,5 +39,4 @@ test('LootTableClone', async () => {
 	expect(JSON.stringify(mainTable)).toEqual(
 		'{"length":3,"table":[{"item":526,"weight":1,"quantity":1},{"item":{"length":3,"table":[{"item":453,"weight":1,"quantity":1},{"item":440,"weight":1,"quantity":1},{"item":2353,"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[]},"weight":1,"quantity":1},{"item":[{"item":1891,"quantity":1,"weight":1}],"weight":1,"quantity":1}],"totalWeight":3,"oneInItems":[],"tertiaryItems":[],"everyItems":[]}'
 	);
-
 });

@@ -27,45 +27,6 @@ export default class LootTable {
 		this.limit = lootTableOptions.limit;
 	}
 
-	private cloneLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): OneInItems[] | LootTableItem[] {
-		const result = [];
-		for (const e of lootTableItem) {
-			if (typeof e.item === 'number') {
-				result.push({ ...e });
-			} else if (e.item instanceof LootTable) {
-				result.push({ ...e, item: e.item.clone() });
-			} else {
-				result.push({ ...e, item: this.cloneLootTableItems(e.item) });
-			}
-		}
-		return result;
-	}
-
-	private getItemsFromLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): number[] {
-		const result = [];
-		for (const e of lootTableItem) {
-			if (typeof e.item === 'number') {
-				result.push(e.item);
-			} else if (e.item instanceof LootTable) {
-				result.push(...e.item.allItems);
-			} else {
-				result.push(...this.getItemsFromLootTableItems(e.item));
-			}
-		}
-		return result;
-	}
-
-	public get allItems() {
-		return Array.from(
-			new Set([
-				...this.getItemsFromLootTableItems(this.table),
-				...this.getItemsFromLootTableItems(this.oneInItems),
-				...this.getItemsFromLootTableItems(this.tertiaryItems),
-				...this.getItemsFromLootTableItems(this.everyItems)
-			])
-		);
-	}
-
 	public clone(): LootTable {
 		const newTable = new LootTable();
 		newTable.table = this.cloneLootTableItems(this.table);
@@ -246,5 +207,44 @@ export default class LootTable {
 			return randInt(quantity[0], quantity[1]);
 		}
 		return quantity;
+	}
+
+	private cloneLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): OneInItems[] | LootTableItem[] {
+		const result = [];
+		for (const e of lootTableItem) {
+			if (typeof e.item === 'number') {
+				result.push({ ...e });
+			} else if (e.item instanceof LootTable) {
+				result.push({ ...e, item: e.item.clone() });
+			} else {
+				result.push({ ...e, item: this.cloneLootTableItems(e.item) });
+			}
+		}
+		return result;
+	}
+
+	private getItemsFromLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): number[] {
+		const result = [];
+		for (const { item } of lootTableItem) {
+			if (typeof item === 'number') {
+				result.push(item);
+			} else if (item instanceof LootTable) {
+				result.push(...item.allItems);
+			} else {
+				result.push(...this.getItemsFromLootTableItems(item));
+			}
+		}
+		return result;
+	}
+
+	public get allItems() {
+		return Array.from(
+			new Set([
+				...this.getItemsFromLootTableItems(this.table),
+				...this.getItemsFromLootTableItems(this.oneInItems),
+				...this.getItemsFromLootTableItems(this.tertiaryItems),
+				...this.getItemsFromLootTableItems(this.everyItems)
+			])
+		);
 	}
 }
