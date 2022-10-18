@@ -149,7 +149,7 @@ const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'w
 
 export default async function prepareItems(): Promise<void> {
 	const allItemsRaw: RawItemCollection = await fetch(
-		'https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json'
+		'https://raw.githubusercontent.com/ZappyScript/osrsbox-item-complete/main/items-complete.json'
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
 
