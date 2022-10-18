@@ -98,13 +98,18 @@ export interface BossRecords {
 	mimic: MinigameScore;
 	nex: MinigameScore;
 	nightmare: MinigameScore;
+	phosanisNightmare: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
+	tempoross: MinigameScore;
 	theGauntlet: MinigameScore;
 	theCorruptedGauntlet: MinigameScore;
 	theatreofBlood: MinigameScore;
+	theatreofBloodHard: MinigameScore;
 	thermonuclearSmokeDevil: MinigameScore;
+	tombsofAmascut: MinigameScore;
+	tombsofAmascutExpert: MinigameScore;
 	tzKalZuk: MinigameScore;
 	tzTokJad: MinigameScore;
 	venenatis: MinigameScore;
