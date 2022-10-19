@@ -274,7 +274,11 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		if (item.name === "Pharaoh's sceptre") {
-			item = { ...allItems[26_950], id: item.id, price: item.price };
+			item = {
+				...allItems[26_950],
+				id: item.id,
+				price: Math.max(0, ((price.high as number) + (price.low as number)) / 2)
+			};
 		}
 
 		itemNameMap[item.id] = item;
