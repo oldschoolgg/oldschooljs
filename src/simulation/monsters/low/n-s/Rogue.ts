@@ -3,7 +3,7 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const RogueTable = new LootTable()
 	// Weaponry
-	.add('Iron dagger(p)', 9, 1 / 128)
+	.add('Iron dagger(p)', 1, 1 / 128)
 
 	// Other
 	.add('Coins', [25, 40], 1 / 1.185)
