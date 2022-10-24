@@ -174,6 +174,14 @@ export default async function prepareItems(): Promise<void> {
 
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
+
+		if (item.name === "Pharaoh's sceptre") {
+			item = {
+				...allItems[26_950],
+				id: item.id
+			};
+		}
+
 		for (const delKey of [
 			'quest_item',
 			'placeholder',
@@ -271,14 +279,6 @@ export default async function prepareItems(): Promise<void> {
 			if (item.name !== previousItem.name) {
 				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
-		}
-
-		if (item.name === "Pharaoh's sceptre") {
-			item = {
-				...allItems[26_950],
-				id: item.id,
-				price: Math.max(0, ((price.high as number) + (price.low as number)) / 2)
-			};
 		}
 
 		itemNameMap[item.id] = item;
