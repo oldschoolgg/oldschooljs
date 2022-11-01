@@ -149,7 +149,7 @@ const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'w
 
 export default async function prepareItems(): Promise<void> {
 	const allItemsRaw: RawItemCollection = await fetch(
-		'https://raw.githubusercontent.com/Flipping-Utilities/osrsbox-db/master/docs/items-complete.json'
+		'https://raw.githubusercontent.com/ZappyScript/osrsbox-item-complete/main/items-complete.json'
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
 
@@ -174,6 +174,14 @@ export default async function prepareItems(): Promise<void> {
 
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
+
+		if (item.name === "Pharaoh's sceptre") {
+			item = {
+				...allItems[26_950],
+				id: item.id
+			};
+		}
+
 		for (const delKey of [
 			'quest_item',
 			'placeholder',
@@ -271,10 +279,6 @@ export default async function prepareItems(): Promise<void> {
 			if (item.name !== previousItem.name) {
 				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
-		}
-
-		if (item.name === "Pharaoh's sceptre") {
-			item = { ...allItems[26_950], id: item.id, price: item.price };
 		}
 
 		itemNameMap[item.id] = item;
