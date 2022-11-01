@@ -49,7 +49,7 @@ const SkotizoTable = new LootTable()
 	.tertiary(128, 'Dark totem base')
 	.tertiary(128, 'Dark totem base')
 	.tertiary(128, 'Dark totem')
-	.tertiary(2500, 'Jar of darkness');
+	.tertiary(200, 'Jar of darkness');
 
 export default new SimpleMonster({
 	id: 7286,
