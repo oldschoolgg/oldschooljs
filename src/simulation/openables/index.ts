@@ -21,6 +21,7 @@ import {
 	NinjaImpling,
 	YoungImpling
 } from './Implings';
+import IntricatePouch from './IntricatePouch';
 import LarransChest from './LarransChest';
 import MuddyChest from './MuddyChest';
 import MysteryBox from './MysteryBox';
@@ -28,6 +29,7 @@ import NestBoxEmpty from './NestBoxEmpty';
 import NestBoxRing from './NestBoxRing';
 import NestBoxSeeds from './NestBoxSeeds';
 import OgreCoffin from './OgreCoffin';
+import OrePack from './OrePack';
 import SeedPack from './SeedPack';
 import SinisterChest from './SinisterChest';
 
@@ -62,7 +64,9 @@ const openablesObject = {
 	NinjaImpling,
 	CrystalImpling,
 	DragonImpling,
-	LuckyImpling
+	LuckyImpling,
+	OrePack,
+	IntricatePouch
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
