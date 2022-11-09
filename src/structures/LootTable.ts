@@ -16,7 +16,6 @@ export default class LootTable {
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
-	public allItems: number[];
 
 	public constructor(lootTableOptions: LootTableOptions = {}) {
 		this.table = [];
@@ -26,46 +25,23 @@ export default class LootTable {
 		this.length = 0;
 		this.totalWeight = 0;
 		this.limit = lootTableOptions.limit;
-		this.allItems = [];
 	}
 
 	public clone(): LootTable {
 		const newTable = new LootTable();
-		newTable.table = [...this.table];
-		newTable.oneInItems = [...this.oneInItems];
-		newTable.tertiaryItems = [...this.tertiaryItems];
-		newTable.everyItems = [...this.everyItems];
+		newTable.table = this.cloneLootTableItems(this.table);
+		newTable.oneInItems = this.cloneLootTableItems(this.oneInItems) as OneInItems[];
+		newTable.tertiaryItems = this.cloneLootTableItems(this.tertiaryItems) as OneInItems[];
+		newTable.everyItems = this.cloneLootTableItems(this.everyItems);
 		newTable.length = this.length;
 		newTable.totalWeight = this.totalWeight;
 		newTable.limit = this.limit;
-		newTable.allItems = [...this.allItems];
 
 		return newTable;
 	}
 
 	private resolveName(name: string): number {
 		return itemID(name);
-	}
-
-	private addToAllItems(items: number | number[] | LootTable | LootTableItem | LootTableItem[]): void {
-		if (Array.isArray(items)) {
-			for (const item of items) {
-				this.addToAllItems(item);
-			}
-			return;
-		}
-
-		if (items instanceof LootTable) {
-			this.allItems = Array.from(new Set(this.allItems.concat(Array.isArray(items) ? items : items.allItems)));
-			return;
-		}
-
-		if (typeof items === 'number') {
-			if (this.allItems.includes(items)) return;
-			this.allItems.push(items);
-		} else {
-			this.addToAllItems(items.item);
-		}
 	}
 
 	public oneIn(
@@ -81,8 +57,6 @@ export default class LootTable {
 			quantity,
 			options
 		});
-
-		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -101,8 +75,6 @@ export default class LootTable {
 			options
 		});
 
-		this.addToAllItems(resolved);
-
 		return this;
 	}
 
@@ -117,8 +89,6 @@ export default class LootTable {
 			quantity,
 			options
 		});
-
-		this.addToAllItems(resolved);
 
 		return this;
 	}
@@ -143,7 +113,6 @@ export default class LootTable {
 			const _item = item as [string, (number | number[])?][];
 			for (const itemToAdd of _item) {
 				const resolvedId = this.resolveName(itemToAdd[0]);
-				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
 					quantity: this.determineQuantity(itemToAdd[1]!) || 1
@@ -155,8 +124,6 @@ export default class LootTable {
 
 		this.length += 1;
 		this.totalWeight += weight;
-
-		this.addToAllItems(item);
 
 		this.table.push({
 			item,
@@ -240,5 +207,44 @@ export default class LootTable {
 			return randInt(quantity[0], quantity[1]);
 		}
 		return quantity;
+	}
+
+	private cloneLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): OneInItems[] | LootTableItem[] {
+		const result = [];
+		for (const e of lootTableItem) {
+			if (typeof e.item === 'number') {
+				result.push({ ...e });
+			} else if (e.item instanceof LootTable) {
+				result.push({ ...e, item: e.item.clone() });
+			} else {
+				result.push({ ...e, item: this.cloneLootTableItems(e.item) });
+			}
+		}
+		return result;
+	}
+
+	private getItemsFromLootTableItems(lootTableItem: OneInItems[] | LootTableItem[]): number[] {
+		const result = [];
+		for (const { item } of lootTableItem) {
+			if (typeof item === 'number') {
+				result.push(item);
+			} else if (item instanceof LootTable) {
+				result.push(...item.allItems);
+			} else {
+				result.push(...this.getItemsFromLootTableItems(item));
+			}
+		}
+		return result;
+	}
+
+	public get allItems() {
+		return Array.from(
+			new Set([
+				...this.getItemsFromLootTableItems(this.table),
+				...this.getItemsFromLootTableItems(this.oneInItems),
+				...this.getItemsFromLootTableItems(this.tertiaryItems),
+				...this.getItemsFromLootTableItems(this.everyItems)
+			])
+		);
 	}
 }
