@@ -1,5 +1,5 @@
 import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from 'e';
-import { writeFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { Item } from '../dist/meta/types';
@@ -167,10 +167,7 @@ export default async function prepareItems(): Promise<void> {
 
 	const newItems = [];
 	const majorPriceChanges = [];
-	const deletedItems = Object.values(allPrices)
-		.filter(i => !itemShouldntBeAdded(i))
-		.filter((i: any) => !(allItems as any)[i.id])
-		.filter(notEmpty);
+	const previousItems = JSON.parse(readFileSync('./src/data/items/item_data.json', 'utf-8'));
 
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
@@ -283,6 +280,9 @@ export default async function prepareItems(): Promise<void> {
 
 		itemNameMap[item.id] = item;
 	}
+	const deletedItems = Object.values(previousItems)
+		.filter((i: any) => !(itemNameMap as any)[i.id])
+		.filter(notEmpty);
 
 	console.log(`New Items: ${moidLink(newItems)}.`);
 	console.log(`Deleted Items: ${moidLink(deletedItems)}.`);
