@@ -279,6 +279,10 @@ export default async function prepareItems(): Promise<void> {
 			if (item.name !== previousItem.name) {
 				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
+			item.price = previousItem.price;
+			if (item.equipment?.slot !== previousItem.equipment?.slot) {
+				console.log(`WARNING: ${previousItem.name} slot changed`);
+			}
 		}
 
 		itemNameMap[item.id] = item;
