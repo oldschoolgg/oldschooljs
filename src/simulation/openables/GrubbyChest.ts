@@ -42,6 +42,8 @@ const GrubbyChestTable = new LootTable()
 	/* Potion roll */
 	// TODO: check back for wiki drop table update in future (Written: 2020-07-20)
 	.every(PotionTable, 1)
+	.tertiary(25, 'Orange egg sac')
+	.tertiary(25, 'Blue egg sac')
 
 	/* Main roll */
 	.add('Grimy toadflax', 10, 7)
