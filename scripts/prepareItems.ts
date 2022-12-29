@@ -4,6 +4,18 @@ import fetch from 'node-fetch';
 
 import { Item } from '../dist/meta/types';
 import Items, { USELESS_ITEMS } from '../dist/structures/Items';
+import { itemID } from '../dist/util';
+
+const equipmentModifications = new Map();
+const equipmentModSrc = [
+	['Pink stained full helm', 'Bronze full helm'].map(itemID),
+	['Pink stained platebody', 'Bronze platebody'].map(itemID),
+	['Pink stained platelegs', 'Bronze platelegs'].map(itemID),
+	['Bulging sack', 'Red cape'].map(itemID)
+] as const;
+for (const [toChange, toCopy] of equipmentModSrc) {
+	equipmentModifications.set(toChange, toCopy);
+}
 
 const itemNameMap: { [key: string]: Item } = {};
 
@@ -282,6 +294,13 @@ export default async function prepareItems(): Promise<void> {
 			}
 		}
 
+		if (equipmentModifications.has(item.id)) {
+			const copyItem = Items.get(equipmentModifications.get(item.id)!)!;
+			item.equipment = copyItem.equipment;
+			item.equipable_by_player = copyItem.equipable_by_player;
+			item.equipable_weapon = copyItem.equipable_weapon;
+			item.equipable = copyItem.equipable;
+		}
 		itemNameMap[item.id] = item;
 	}
 	const deletedItems = Object.values(previousItems)
