@@ -28,10 +28,10 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
-	expect(zulu.bossRecords.commanderZilyana.score).toBe(1083);
+	expect(zulu.bossRecords.commanderZilyana.score).toBe(1084);
 
 	expect(zulu.bossRecords.zulrah.rank > 1).toBe(true);
-	expect(zulu.bossRecords.zulrah.score).toBe(2523);
+	expect(zulu.bossRecords.zulrah.score).toBe(2527);
 
 	expect(zulu.bossRecords.callisto.rank > 1).toBe(true);
 	expect(zulu.bossRecords.callisto.score).toBe(327);
