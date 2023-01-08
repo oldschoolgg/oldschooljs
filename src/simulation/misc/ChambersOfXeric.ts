@@ -1,6 +1,6 @@
 import { randFloat, roll, shuffleArr, Time } from 'e';
 
-import { ItemBank, LootBank, SimpleTableItem } from '../../meta/types';
+import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import Minigame from '../../structures/Minigame';
@@ -177,7 +177,7 @@ export class ChambersOfXericClass extends Minigame {
 	// We're rolling 2 non-unique loots based off a number of personal points.
 	public rollNonUniqueLoot(personalPoints: number): ItemBank {
 		// First, pick which items we will be giving them, without giving a duplicate.
-		const items: SimpleTableItem<number>[] = [];
+		const items: number[] = [];
 		while (items.length < 2) {
 			const rolledItem = NonUniqueTable.roll();
 			if (!items.includes(rolledItem)) items.push(rolledItem);
@@ -186,8 +186,8 @@ export class ChambersOfXericClass extends Minigame {
 		// Now return an ItemBank of these 2 items, the quantity is [points / scale].
 		// With a minimum of 1.
 		const loot: ItemBank = {
-			[items[0].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[0].item])),
-			[items[1].item]: Math.max(1, Math.floor(personalPoints / itemScales[items[1].item]))
+			[items[0]]: Math.max(1, Math.floor(personalPoints / itemScales[items[0]])),
+			[items[1]]: Math.max(1, Math.floor(personalPoints / itemScales[items[1]]))
 		};
 
 		if (roll(12)) {
@@ -251,7 +251,7 @@ export class ChambersOfXericClass extends Minigame {
 		// For every unique item received, add it to someones loot.
 		while (uniqueLoot.length > 0) {
 			if (uniqueDeciderTable.table.length === 0) break;
-			const receipientID = uniqueDeciderTable.roll().item;
+			const receipientID = uniqueDeciderTable.roll();
 			const uniqueItem = uniqueLoot.random()!;
 			lootResult[receipientID].add(uniqueItem.id, 1);
 			uniqueLoot.remove(uniqueItem.id, 1);

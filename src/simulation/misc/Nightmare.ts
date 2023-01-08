@@ -148,7 +148,7 @@ class NightmareClass {
 		const [table, ranges] = isPhosani
 			? [PhosaniNonUniqueTable, phosaniNonUniqueItemRanges]
 			: [NonUniqueTable, nonUniqueItemRanges];
-		const { item } = table.roll();
+		const item = table.roll();
 
 		const [range] = ranges[item];
 
@@ -190,11 +190,11 @@ class NightmareClass {
 
 		if (options.isPhosani) {
 			if (roll(200)) {
-				lootResult[options.team[0].id].add(GearTable.roll().item);
+				lootResult[options.team[0].id].add(GearTable.roll());
 			}
 
 			if (roll(1000)) {
-				lootResult[options.team[0].id].add(OrbTable.roll().item);
+				lootResult[options.team[0].id].add(OrbTable.roll());
 			}
 		} else {
 			// Construct a weighted table, where the weighting is the percent of the total HP that the team member has damaged,
@@ -207,25 +207,25 @@ class NightmareClass {
 			}
 
 			function giveWeightedDrop(item: string): void {
-				const { item: recipient } = WeightedUniqueTable.roll();
+				const recipient = WeightedUniqueTable.roll();
 				lootResult[recipient].add(item);
 			}
 
 			if (roll(120)) {
-				giveWeightedDrop(GearTable.roll().item);
+				giveWeightedDrop(GearTable.roll());
 			}
 
 			if (roll(600)) {
-				giveWeightedDrop(OrbTable.roll().item);
+				giveWeightedDrop(OrbTable.roll());
 			}
 
 			const secondRollChance = Math.min(75, parsedTeam.length - 5);
 			if (secondRollChance > 0 && percentChance(secondRollChance)) {
 				if (roll(600)) {
-					giveWeightedDrop(OrbTable.roll().item);
+					giveWeightedDrop(OrbTable.roll());
 				}
 				if (roll(120)) {
-					giveWeightedDrop(GearTable.roll().item);
+					giveWeightedDrop(GearTable.roll());
 				}
 			}
 		}
