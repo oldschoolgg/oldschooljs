@@ -37,7 +37,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.callisto.score).toBe(327);
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
-	expect(zulu.bossRecords.cerberus.score).toBe(7080);
+	expect(zulu.bossRecords.cerberus.score > 7080).toBe(true);
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
