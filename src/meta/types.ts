@@ -68,7 +68,6 @@ export interface SkillsScore {
 }
 
 export interface BossRecords {
-	obor: MinigameScore;
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
 	barrowsChests: MinigameScore;
@@ -99,6 +98,8 @@ export interface BossRecords {
 	nex: MinigameScore;
 	nightmare: MinigameScore;
 	phosanisNightmare: MinigameScore;
+	obor: MinigameScore;
+	phantomMuspah: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
