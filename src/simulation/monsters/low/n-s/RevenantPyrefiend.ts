@@ -48,7 +48,7 @@ export default new SimpleMonster({
 	aliases: ['revenant pyrefiend'],
 	customKillLogic: makeRevTable({
 		seeds: [3140, 1727],
-		uniqueTable: [12_560, 6908],
+		uniqueTable: [8373, 4605],
 		ancientEmblem: [2093, 6908],
 		ancientTotem: [3140, 1727],
 		ancientCrystal: [4186, 2302],
