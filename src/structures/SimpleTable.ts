@@ -39,7 +39,7 @@ export default class SimpleTable<T> {
 		return this;
 	}
 
-	public roll(): SimpleTableItem<T> {
+	public roll(): SimpleTableItem<T>['item'] {
 		// Random number between 1 and the total weighting
 		const randomWeight = randInt(1, this.totalWeight);
 
@@ -57,6 +57,6 @@ export default class SimpleTable<T> {
 			}
 		}
 
-		return this.table[result];
+		return this.table[result].item;
 	}
 }

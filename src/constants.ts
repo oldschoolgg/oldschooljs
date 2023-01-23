@@ -1,3 +1,5 @@
+import { BossRecords } from './meta/types';
+
 export const BASE_API_URL = 'https://services.runescape.com';
 
 export const SKILLS = [
@@ -31,7 +33,7 @@ export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'pvpArena'
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'] as const;
 
-export const mappedBossNames = [
+export const mappedBossNames: [keyof BossRecords, string][] = [
 	['abyssalSire', 'Abyssal Sire'],
 	['alchemicalHydra', 'Alchemical Hydra'],
 	['barrowsChests', 'Barrows Chests'],
@@ -63,6 +65,7 @@ export const mappedBossNames = [
 	['nightmare', 'The Nightmare'],
 	['phosanisNightmare', "Phosani's Nightmare"],
 	['obor', 'Obor'],
+	['phantomMuspah', 'Phantom Muspah'],
 	['sarachnis', 'Sarachnis'],
 	['scorpia', 'Scorpia'],
 	['skotizo', 'Skotizo'],
@@ -82,9 +85,9 @@ export const mappedBossNames = [
 	['wintertodt', 'Wintertodt'],
 	['zalcano', 'Zalcano'],
 	['zulrah', 'Zulrah']
-] as const;
+];
 
-export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
+export const bossNameMap: Map<keyof BossRecords, string> = new Map(mappedBossNames);
 
 // Hiscores
 

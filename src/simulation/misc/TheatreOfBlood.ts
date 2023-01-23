@@ -158,7 +158,7 @@ export class TheatreOfBloodClass {
 			table.add(member, member.points);
 		}
 
-		return table.roll().item;
+		return table.roll();
 	}
 
 	public complete(_options: TheatreOfBloodOptions) {
