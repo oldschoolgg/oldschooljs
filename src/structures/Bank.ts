@@ -49,7 +49,7 @@ export default class Bank {
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | undefined, quantity = 1): Bank {
+	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw frozenError;
 
 		if (!item) {
@@ -74,6 +74,11 @@ export default class Bank {
 
 		if (item instanceof Bank) {
 			return this.add(item.bank);
+		}
+
+		if ('id' in item) {
+			const _item = item as Item;
+			return this.addItem(_item.id, quantity);
 		}
 
 		const firstKey: string | undefined = Object.keys(item)[0];
@@ -231,5 +236,17 @@ export default class Bank {
 			value += item.price * quantity;
 		}
 		return value;
+	}
+
+	public equals(otherBank: Bank): boolean {
+		if (this.length !== otherBank.length) return false;
+		for (const [item, quantity] of this.items()) {
+			if (otherBank.amount(item.id) !== quantity) return false;
+		}
+		return JSON.stringify(this.bank) === JSON.stringify(otherBank.bank);
+	}
+
+	public difference(otherBank: Bank): Bank {
+		return this.clone().remove(otherBank).add(otherBank.clone().remove(this));
 	}
 }

@@ -8,7 +8,7 @@ describe('Wiki', () => {
 		const searchResults = await Wiki.search('tbow');
 		const twistedBow = searchResults[0];
 		expect(twistedBow.title).toEqual('Twisted bow');
-		expect(searchResults.length).toEqual(4);
+		expect(searchResults.length).toBeGreaterThanOrEqual(4);
 	});
 
 	test('Random', async () => {

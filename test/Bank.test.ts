@@ -179,6 +179,18 @@ describe('Bank', () => {
 		expect(addArrayToBank(bank, items)).toEqual(expected);
 	});
 
+	test('add item to bank', () => {
+		const bank = new Bank();
+
+		const item = Items.get('Twisted bow')!;
+		bank.add(item);
+
+		expect(bank.equals(new Bank().add('Twisted bow'))).toBeTruthy();
+		bank.add(item);
+
+		expect(bank.equals(new Bank().add('Twisted bow', 2))).toBeTruthy();
+	});
+
 	test('multiply bank items', () => {
 		const bank = { 1: 2, 3: 4 };
 		const expected = { 1: 4, 3: 8 };
@@ -276,5 +288,30 @@ describe('Bank', () => {
 			bank.remove(itemID('Twisted bow'));
 		} catch {}
 		expect(bank.amount('Twisted bow')).toEqual(73);
+	});
+
+	test('equals', () => {
+		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		expect(bank.equals(new Bank())).toEqual(false);
+		expect(bank.equals(new Bank().add('Twisted bow', 73).add('Egg', 4))).toEqual(false);
+		expect(bank.equals(new Bank().add('Twisted bow', 73).add('Egg', 5).add('Coal'))).toEqual(false);
+		expect(bank.equals(new Bank().add('Twisted bow', 73).add('Egg', 5))).toEqual(true);
+
+		const bank2 = new Bank().add('Twisted bow');
+		expect(bank2.equals(new Bank())).toEqual(false);
+		expect(bank2.equals(new Bank().add('Coal'))).toEqual(false);
+		expect(bank2.equals(new Bank().add('Twisted bow', 2))).toEqual(false);
+		expect(bank2.equals(new Bank().add('Twisted bow', 1).add('Coal'))).toEqual(false);
+		expect(bank2.equals(bank2)).toEqual(true);
+	});
+
+	test('difference', () => {
+		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		expect(bank.difference(new Bank()).equals(bank)).toBeTruthy();
+
+		const bank2 = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		expect(
+			bank2.difference(new Bank().add('Twisted bow', 72).add('Egg', 5)).equals(new Bank().add('Twisted bow', 1))
+		).toBeTruthy();
 	});
 });
