@@ -1,11 +1,12 @@
-import { AccountType, BossRecords, CluesScore, MinigamesScore, Player as PlayerType, SkillsScore } from '../meta/types';
+import { hiscoreURLs } from '../constants';
+import { BossRecords, CluesScore, MinigamesScore, Player as PlayerType, SkillsScore } from '../meta/types';
 
 class Player {
 	public username: string;
 	public skills: SkillsScore;
 	public minigames: MinigamesScore;
 	public bossRecords: BossRecords;
-	public type: AccountType;
+	public type: keyof typeof hiscoreURLs;
 	public clues: CluesScore;
 	public leaguePoints?: { rank: number; points: number };
 

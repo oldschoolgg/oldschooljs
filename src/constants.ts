@@ -95,25 +95,29 @@ function hiscoreURL(type: string): string {
 	return `${BASE_API_URL}/m=${type}/index_lite.ws?player=`;
 }
 
-export const hiscoreURLs: Record<string, string> = {
+export const hiscoreURLs = {
 	normal: hiscoreURL('hiscore_oldschool'),
 	ironman: hiscoreURL('hiscore_oldschool_ironman'),
 	ultimate: hiscoreURL('hiscore_oldschool_ultimate'),
 	hardcore: hiscoreURL('hiscore_oldschool_hardcore_ironman'),
 	deadman: hiscoreURL('hiscore_oldschool_deadman'),
 	seasonal: hiscoreURL('hiscore_oldschool_seasonal'),
-	tournament: hiscoreURL('hiscore_oldschool_tournament')
-};
+	tournament: hiscoreURL('hiscore_oldschool_tournament'),
+	skiller: hiscoreURL('hiscore_oldschool_skiller'),
+	skiller_defence: hiscoreURL('hiscore_oldschool_skiller_defence')
+} as const;
 
-export const ACCOUNT_TYPES = [
+export const ACCOUNT_TYPES: (keyof typeof hiscoreURLs)[] = [
 	'normal',
 	'ironman',
 	'ultimate',
 	'hardcore',
 	'deadman',
 	'seasonal',
-	'tournament'
-] as const;
+	'tournament',
+	'skiller',
+	'skiller_defence'
+];
 
 // Errors
 
