@@ -1,3 +1,4 @@
+import { hiscoreURLs } from '../constants';
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import SimpleMonster from '../structures/SimpleMonster';
@@ -20,20 +21,10 @@ export interface MonsterOptions {
 	allItems?: number[];
 }
 
-export enum AccountType {
-	Normal = 'normal',
-	Ironman = 'ironman',
-	Ultimate = 'ultimate',
-	Hardcore = 'hardcore',
-	Deadman = 'deadman',
-	Seasonal = 'seasonal',
-	Tournament = 'tournament'
-}
-
 export interface Player {
 	bossRecords: BossRecords;
 	username: string;
-	type: AccountType;
+	type: keyof typeof hiscoreURLs;
 	skills: SkillsScore;
 	minigames: MinigamesScore;
 	clues: CluesScore;
@@ -68,7 +59,6 @@ export interface SkillsScore {
 }
 
 export interface BossRecords {
-	obor: MinigameScore;
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
 	barrowsChests: MinigameScore;
@@ -99,6 +89,8 @@ export interface BossRecords {
 	nex: MinigameScore;
 	nightmare: MinigameScore;
 	phosanisNightmare: MinigameScore;
+	obor: MinigameScore;
+	phantomMuspah: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;

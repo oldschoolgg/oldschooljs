@@ -1,3 +1,5 @@
+import { BossRecords } from './meta/types';
+
 export const BASE_API_URL = 'https://services.runescape.com';
 
 export const SKILLS = [
@@ -31,7 +33,7 @@ export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'pvpArena'
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'] as const;
 
-export const mappedBossNames = [
+export const mappedBossNames: [keyof BossRecords, string][] = [
 	['abyssalSire', 'Abyssal Sire'],
 	['alchemicalHydra', 'Alchemical Hydra'],
 	['barrowsChests', 'Barrows Chests'],
@@ -63,6 +65,7 @@ export const mappedBossNames = [
 	['nightmare', 'The Nightmare'],
 	['phosanisNightmare', "Phosani's Nightmare"],
 	['obor', 'Obor'],
+	['phantomMuspah', 'Phantom Muspah'],
 	['sarachnis', 'Sarachnis'],
 	['scorpia', 'Scorpia'],
 	['skotizo', 'Skotizo'],
@@ -82,9 +85,9 @@ export const mappedBossNames = [
 	['wintertodt', 'Wintertodt'],
 	['zalcano', 'Zalcano'],
 	['zulrah', 'Zulrah']
-] as const;
+];
 
-export const bossNameMap: Map<string, string> = new Map(mappedBossNames);
+export const bossNameMap: Map<keyof BossRecords, string> = new Map(mappedBossNames);
 
 // Hiscores
 
@@ -92,25 +95,29 @@ function hiscoreURL(type: string): string {
 	return `${BASE_API_URL}/m=${type}/index_lite.ws?player=`;
 }
 
-export const hiscoreURLs: Record<string, string> = {
+export const hiscoreURLs = {
 	normal: hiscoreURL('hiscore_oldschool'),
 	ironman: hiscoreURL('hiscore_oldschool_ironman'),
 	ultimate: hiscoreURL('hiscore_oldschool_ultimate'),
 	hardcore: hiscoreURL('hiscore_oldschool_hardcore_ironman'),
 	deadman: hiscoreURL('hiscore_oldschool_deadman'),
 	seasonal: hiscoreURL('hiscore_oldschool_seasonal'),
-	tournament: hiscoreURL('hiscore_oldschool_tournament')
-};
+	tournament: hiscoreURL('hiscore_oldschool_tournament'),
+	skiller: hiscoreURL('hiscore_oldschool_skiller'),
+	skiller_defence: hiscoreURL('hiscore_oldschool_skiller_defence')
+} as const;
 
-export const ACCOUNT_TYPES = [
+export const ACCOUNT_TYPES: (keyof typeof hiscoreURLs)[] = [
 	'normal',
 	'ironman',
 	'ultimate',
 	'hardcore',
 	'deadman',
 	'seasonal',
-	'tournament'
-] as const;
+	'tournament',
+	'skiller',
+	'skiller_defence'
+];
 
 // Errors
 

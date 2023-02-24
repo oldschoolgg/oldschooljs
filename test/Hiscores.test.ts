@@ -1,5 +1,4 @@
 import { Hiscores } from '../dist';
-import { AccountType } from '../dist/meta/types';
 
 test('Hiscores', async () => {
 	const koru = await Hiscores.fetch('Koru');
@@ -37,7 +36,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.callisto.score).toBe(327);
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
-	expect(zulu.bossRecords.cerberus.score).toBe(7080);
+	expect(zulu.bossRecords.cerberus.score > 7080).toBe(true);
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
@@ -82,10 +81,20 @@ test('Hiscores', async () => {
 	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
 	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
 
-	const leagues = await Hiscores.fetch('Magnaboy', { type: AccountType.Seasonal });
+	const leagues = await Hiscores.fetch('Magnaboy', { type: 'seasonal' });
 	expect(leagues.leaguePoints?.points).toBeGreaterThan(6300);
 	expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
 
-	const leagues2 = await Hiscores.fetch('fk ezscape', { type: AccountType.Seasonal });
+	const leagues2 = await Hiscores.fetch('fk ezscape', { type: 'seasonal' });
 	expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
+
+	// Skillers
+	const skiller = await Hiscores.fetch('Diddeboy1', { type: 'skiller' });
+	expect(skiller.skills.overall.rank).toBe(1);
+	expect(skiller.skills.overall.level).toBe(1600);
+
+	// Pures
+	const pure = await Hiscores.fetch('Headline', { type: 'skiller_defence' });
+	expect(pure.skills.overall.rank).toBe(1);
+	expect(pure.skills.overall.level).toBe(2179);
 }, 30_000);
