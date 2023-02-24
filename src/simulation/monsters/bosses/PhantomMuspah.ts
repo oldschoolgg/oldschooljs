@@ -74,7 +74,7 @@ const NormalPhantomMuspahTable = new LootTable()
 	.add(RareDropTable, 1, 5);
 
 const TotalPhantomMuspahTable = new LootTable()
-	//If venator shard drops, delete other drops on that kill
+	// If venator shard drops, delete other drops on that kill
 	.every(UniquePhantomMuspahTable, 1)
 	.every(new LootTable().add(NormalPhantomMuspahTable, 1, 7).add(FoodAndPotions, 1, 2), 1)
 	.every(NormalPhantomMuspahTable)
@@ -84,7 +84,7 @@ const TotalPhantomMuspahTable = new LootTable()
 	.tertiary(2500, 'Muphin');
 
 export default new SimpleMonster({
-	id: 12082,
+	id: 12_082,
 	name: 'Phantom Muspah',
 	table: TotalPhantomMuspahTable,
 	aliases: ['phantom muspah', 'muspah', 'money slug']

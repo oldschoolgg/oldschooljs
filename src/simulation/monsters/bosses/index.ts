@@ -18,6 +18,7 @@ import Vorkath from './Vorkath';
 import { allWildyBosses } from './wildy';
 import CorporealBeast from './wildy/CorporealBeast';
 import Zulrah from './Zulrah';
+
 export const allBosses = {
 	CorporealBeast,
 	DagannothPrime,
