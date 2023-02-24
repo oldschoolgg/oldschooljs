@@ -10,6 +10,7 @@ import KalphiteQueen from './KalphiteQueen';
 import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
 import Obor from './Obor';
+import PhantomMuspah from './PhantomMuspah';
 import Sarachnis from './Sarachnis';
 import Skotizo from './Skotizo';
 import { allSlayerBosses } from './slayer';
@@ -17,7 +18,6 @@ import Vorkath from './Vorkath';
 import { allWildyBosses } from './wildy';
 import CorporealBeast from './wildy/CorporealBeast';
 import Zulrah from './Zulrah';
-
 export const allBosses = {
 	CorporealBeast,
 	DagannothPrime,
@@ -36,6 +36,7 @@ export const allBosses = {
 	Bryophyta,
 	Skotizo,
 	DerangedArchaeologist,
+	PhantomMuspah,
 	...allWildyBosses,
 	...allSlayerBosses
 };
