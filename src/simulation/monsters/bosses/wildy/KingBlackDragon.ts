@@ -9,7 +9,7 @@ const KingBlackDragonTable = new LootTable()
 	.tertiary(129, 'Kbd heads')
 	.tertiary(3000, 'Prince black dragon')
 	.tertiary(5000, 'Draconic visage')
-	.oneIn(1500, 'Dragon pickaxe')
+	.oneIn(1000, 'Dragon pickaxe')
 
 	/* Weapons and armour */
 	.add('Rune longsword', 1, 10)
@@ -18,7 +18,6 @@ const KingBlackDragonTable = new LootTable()
 	.add('Dragon med helm', 1, 1)
 
 	/* Runes and ammunition */
-
 	.add('Air rune', 300, 10)
 	.add('Iron arrow', 690, 10)
 	.add('Runite bolts', [10, 20], 10)
