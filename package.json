@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "2.1.94",
+	"version": "2.2.3",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Worlds, Items, News & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -12,7 +12,8 @@
 	"scripts": {
 		"prepublishOnly": "npm run build",
 		"test": "npm run test:run",
-		"test:run": "yarn build && jest",
+		"test:unit": "jest",
+		"test:run": "yarn build && yarn test:unit",
 		"test:lint": "eslint --ext ts src && prettier --check \"{src,test}/**/*.{json}\" ",
 		"test:coverage": "npm run test:run --coverage",
 		"lint": "eslint --ext ts src test scripts --fix && prettier --check \"{src,test}/**/*.json\" --write",
