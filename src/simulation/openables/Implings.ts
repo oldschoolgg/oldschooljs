@@ -217,6 +217,7 @@ export const MagpieImpling = new SimpleOpenable({
 		.add('Runite bar', 2)
 		.add('Diamond', 4)
 		.add('Pineapple seed')
+		.add('Ring of recoil', 3)
 		.add('Loop half of key')
 		.add('Tooth half of key')
 		.add('Snapdragon seed')
