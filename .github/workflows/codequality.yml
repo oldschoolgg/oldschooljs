@@ -25,11 +25,7 @@ jobs:
             - name: Install Dependencies
               run: yarn
             - name: Run ESLint
-              uses: icrawl/action-eslint@v1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  job-name: ESLint
+              uses: yarn test:lint
 
     Typescript:
         name: Typescript
