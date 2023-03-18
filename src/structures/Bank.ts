@@ -5,7 +5,7 @@ import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from '../
 import itemID from '../util/itemID';
 import Items from './Items';
 
-const frozenError = new Error('Tried to mutate a frozen Bank.');
+const frozenErrorStr = 'Tried to mutate a frozen Bank.';
 
 export default class Bank {
 	public bank: ItemBank = {};
@@ -50,7 +50,7 @@ export default class Bank {
 	}
 
 	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
-		if (this.frozen) throw frozenError;
+		if (this.frozen) throw new Error(frozenErrorStr);
 
 		if (!item) {
 			return this;
@@ -98,7 +98,7 @@ export default class Bank {
 	}
 
 	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
-		if (this.frozen) throw frozenError;
+		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.remove('Twisted bow');
 		// Bank.remove('Twisted bow', 5);
@@ -146,7 +146,7 @@ export default class Bank {
 	}
 
 	public multiply(multiplier: number, itemsToNotMultiply?: number[]): this {
-		if (this.frozen) throw frozenError;
+		if (this.frozen) throw new Error(frozenErrorStr);
 		for (const itemID of Object.keys(this.bank).map(Number)) {
 			if (itemsToNotMultiply?.includes(itemID)) continue;
 			this.bank[itemID] *= multiplier;
@@ -202,7 +202,7 @@ export default class Bank {
 			}
 		}
 		if (mutate) {
-			if (this.frozen) throw frozenError;
+			if (this.frozen) throw new Error(frozenErrorStr);
 			this.bank = result.bank;
 			return this;
 		}
