@@ -1,7 +1,9 @@
-import { Monsters } from '../dist';
-import Bank from '../dist/structures/Bank';
-import LootTable from '../dist/structures/LootTable';
-import Monster from '../dist/structures/Monster';
+import { beforeAll, describe, test } from 'vitest';
+
+import { Monsters } from '../src';
+import Bank from '../src/structures/Bank';
+import LootTable from '../src/structures/LootTable';
+import Monster from '../src/structures/Monster';
 import { checkThreshold } from './testUtil';
 
 describe('Monsters', () => {
@@ -76,7 +78,7 @@ describe('Monsters', () => {
 		}
 	}
 
-	test('Test Monster', done => {
+	test('Test Monster', () => {
 		const TesterMonster = new TestMonsterClass({ id: 1, name: 'Test' });
 
 		const number = 500_000;
@@ -100,7 +102,7 @@ describe('Monsters', () => {
 			'Rune crossbow': TesterMonster.table.length * 100
 		};
 		const loot = TesterMonster.kill(number);
-		return checkThreshold(done, expectedRates, loot, number);
+		return checkThreshold(expectedRates, loot, number);
 	});
 	test('Duplicate IDs', () => {
 		const ids: number[] = [];
