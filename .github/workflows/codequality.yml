@@ -45,5 +45,4 @@ jobs:
             - name: Install Dependencies
               run: yarn
             - name: Run TSC
-              uses: icrawl/action-tsc@v1
               run: yarn build
