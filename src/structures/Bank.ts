@@ -1,22 +1,22 @@
 import { randArrItem } from 'e';
 
 import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import { bankHasAllItemsFromBank, resolveBank, resolveNameBank } from '../util/bank';
+import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from '../util/bank';
 import itemID from '../util/itemID';
 import Items from './Items';
 
 const frozenError = new Error('Tried to mutate a frozen Bank.');
 
 export default class Bank {
-	public bank: ItemBank;
+	public bank: ItemBank = {};
 	public frozen = false;
 
 	constructor(initialBank?: ItemBank | Bank) {
-		this.bank = initialBank
-			? initialBank instanceof Bank
-				? { ...initialBank.bank }
-				: resolveBank(initialBank)
-			: {};
+		if (initialBank) {
+			this.bank = JSON.parse(
+				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank))
+			);
+		}
 	}
 
 	public freeze(): this {
@@ -207,10 +207,6 @@ export default class Bank {
 			return this;
 		}
 		return result;
-	}
-
-	public values(): ItemBank {
-		return this.bank;
 	}
 
 	public toString(): string {

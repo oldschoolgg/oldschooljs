@@ -161,10 +161,6 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 }
 
-export function addArrayOfNumbers(arr: number[]): number {
-	return arr.reduce((a, b) => a + b, 0);
-}
-
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));
 }
@@ -172,7 +168,7 @@ export function JSONClone<O>(object: O): O {
 export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
 	const result: { [key: string]: ItemBank } = {};
 	for (const [id, loot] of Object.entries(lootResult)) {
-		result[id] = loot.values();
+		result[id] = {...loot.bank};
 	}
 
 	return result;

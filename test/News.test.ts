@@ -1,7 +1,8 @@
-import { News } from '../dist';
+import { describe, expect, test } from 'vitest';
+
+import { News } from '../src';
 
 describe('News', () => {
-	jest.setTimeout(60_000);
 	test('Generic checks', async () => {
 		expect.assertions(1);
 
@@ -10,20 +11,18 @@ describe('News', () => {
 		expect(firstPageNews.size).toEqual(12);
 	});
 
-	test('Single article check', done => {
+	test('Single article check', () => {
 		expect.assertions(4);
 
 		const article = News.find(article => article.title === 'GameBlast15 | Friday 12:00 UTC | Live Stream');
 
-		if (!article) return fail('Missing article.');
+		if (!article) throw new Error('Missing article.');
 
-		Promise.all([
-			expect(article.category).toEqual('Website'),
-			expect(article.link).toEqual(
-				'https://secure.runescape.com/m=news/gameblast15--friday-1200-utc--live-stream?oldschool=1'
-			),
-			expect(article.year).toEqual(2015),
-			expect(article.month).toEqual(2)
-		]).then(() => done());
+		expect(article.category).toEqual('Website');
+		expect(article.link).toEqual(
+			'https://secure.runescape.com/m=news/gameblast15--friday-1200-utc--live-stream?oldschool=1'
+		);
+		expect(article.year).toEqual(2015);
+		expect(article.month).toEqual(2);
 	});
 });

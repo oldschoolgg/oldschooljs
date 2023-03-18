@@ -1,4 +1,4 @@
-import { randFloat, roll, shuffleArr, Time } from 'e';
+import { randFloat, roll, shuffleArr, sumArr, Time } from 'e';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -7,7 +7,7 @@ import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { addArrayOfNumbers, JSONClone } from '../../util/util';
+import {  JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -216,7 +216,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
+		const teamPoints = sumArr(options.team.map(val => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);

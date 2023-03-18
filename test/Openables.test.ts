@@ -1,5 +1,7 @@
-import { Openables } from '../dist';
-import { itemID } from '../dist/util';
+import { describe, expect, test } from 'vitest';
+
+import { Openables } from '../src';
+import { itemID } from '../src/util';
 
 describe('Openables', () => {
 	test('allItems', () => {

@@ -161,3 +161,12 @@ export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank)
 	}
 	return has;
 }
+
+export function fasterResolveBank(bank: ItemBank) {
+	const firstKey = Object.keys(bank)[0];
+	if (!isNaN(Number(firstKey))) {
+		return bank;
+	}
+
+	return resolveBank(bank);
+}

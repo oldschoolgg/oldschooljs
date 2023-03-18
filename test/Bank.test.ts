@@ -1,5 +1,7 @@
-import Bank from '../dist/structures/Bank';
-import Items from '../dist/structures/Items';
+import { describe, expect, test } from 'vitest';
+
+import Bank from '../src/structures/Bank';
+import Items from '../src/structures/Items';
 import {
 	addArrayToBank,
 	addItemToBank,
@@ -12,7 +14,7 @@ import {
 	removeBankFromBank,
 	removeItemFromBank,
 	resolveNameBank
-} from '../dist/util';
+} from '../src/util';
 
 describe('Bank', () => {
 	test('convert string bank to number bank', () => {
@@ -199,6 +201,7 @@ describe('Bank', () => {
 
 	test('multiply bank items, excluded', () => {
 		const bank = new Bank().add('Coal', 100).add('Trout', 100).add('Egg', 100).add('Bones', 100);
+		bank.add(undefined);
 		const expected = new Bank().add('Coal', 200).add('Trout', 100).add('Egg', 100).add('Bones', 200);
 		expect(bank.multiply(2, ['Trout', 'Egg'].map(itemID))).toEqual(expected);
 		expect(bank.amount('Coal')).toEqual(200);
@@ -287,11 +290,22 @@ describe('Bank', () => {
 		try {
 			bank.remove(itemID('Twisted bow'));
 		} catch {}
+		try {
+			bank.multiply(5);
+		} catch {}
+		try {
+			bank.filter(() => true, true)
+		} catch { }
 		expect(bank.amount('Twisted bow')).toEqual(73);
 	});
 
 	test('equals', () => {
 		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		bank.add(undefined);
+		bank.add({});
+		bank.add(new Bank());
+		bank.remove({});
+		bank.remove(new Bank());
 		expect(bank.equals(new Bank())).toEqual(false);
 		expect(bank.equals(new Bank().add('Twisted bow', 73).add('Egg', 4))).toEqual(false);
 		expect(bank.equals(new Bank().add('Twisted bow', 73).add('Egg', 5).add('Coal'))).toEqual(false);
@@ -307,11 +321,24 @@ describe('Bank', () => {
 
 	test('difference', () => {
 		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		bank.add(undefined);
+		bank.add({});
+		bank.add(new Bank());
 		expect(bank.difference(new Bank()).equals(bank)).toBeTruthy();
 
 		const bank2 = new Bank().add('Twisted bow', 73).add('Egg', 5);
 		expect(
 			bank2.difference(new Bank().add('Twisted bow', 72).add('Egg', 5)).equals(new Bank().add('Twisted bow', 1))
 		).toBeTruthy();
+	});
+
+	test('invalid bank', () => {
+		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+	});
+
+	test('random', () => {
+		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
+		expect(bank.random()).toBeTruthy();
+		expect(new Bank().random()).toBeFalsy()
 	});
 });
