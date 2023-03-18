@@ -1,4 +1,6 @@
-import { Hiscores } from '../dist';
+import { expect, test } from 'vitest';
+
+import { Hiscores } from '../src';
 
 test('Hiscores', async () => {
 	const koru = await Hiscores.fetch('Koru');

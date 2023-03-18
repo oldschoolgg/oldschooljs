@@ -1,5 +1,5 @@
 {
-	"extends": "@oldschoolgg/eslint-config",
+	"extends": "@oldschoolgg/ts-config",
 	"compilerOptions": {
 		"strictNullChecks": true,
 		"sourceMap": true,

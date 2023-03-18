@@ -1,5 +1,7 @@
-import { Openables } from '../dist';
-import { itemID } from '../dist/util';
+import { describe, expect, test } from 'vitest';
+
+import { Openables } from '../src';
+import { itemID } from '../src/util';
 
 describe('Openables', () => {
 	test('allItems', () => {
@@ -12,7 +14,7 @@ describe('Openables', () => {
 	});
 	test('allItems', () => {
 		for (const [key, val] of Openables.entries()) {
-			if (!val.allItems.length) {
+			if (val.allItems.length === 0) {
 				console.error(`${key} has no allitems`);
 			}
 		}

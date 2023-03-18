@@ -1,7 +1,8 @@
-import { Wiki } from '../dist';
+import { describe, expect, test } from 'vitest';
+
+import { Wiki } from '../src';
 
 describe('Wiki', () => {
-	jest.setTimeout(20_000);
 	test('Searching', async () => {
 		expect.assertions(2);
 
@@ -25,7 +26,7 @@ describe('Wiki', () => {
 		expect.assertions(1);
 
 		const twistedBowPage = await Wiki.fetchPage(82_098);
-		if (!twistedBowPage) return fail('Failed to fetch page');
+		if (!twistedBowPage) throw new Error('Failed to fetch page');
 		expect(twistedBowPage.title).toEqual('Twisted bow');
 	});
 });
