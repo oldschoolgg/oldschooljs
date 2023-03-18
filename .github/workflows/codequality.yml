@@ -25,7 +25,7 @@ jobs:
             - name: Install Dependencies
               run: yarn
             - name: Run ESLint
-              uses: yarn test:lint
+              run: yarn test:lint
 
     Typescript:
         name: Typescript
