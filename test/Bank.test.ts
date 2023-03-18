@@ -294,8 +294,8 @@ describe('Bank', () => {
 			bank.multiply(5);
 		} catch {}
 		try {
-			bank.filter(() => true, true)
-		} catch { }
+			bank.filter(() => true, true);
+		} catch {}
 		expect(bank.amount('Twisted bow')).toEqual(73);
 	});
 
@@ -332,13 +332,9 @@ describe('Bank', () => {
 		).toBeTruthy();
 	});
 
-	test('invalid bank', () => {
-		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
-	});
-
 	test('random', () => {
 		const bank = new Bank().add('Twisted bow', 73).add('Egg', 5);
 		expect(bank.random()).toBeTruthy();
-		expect(new Bank().random()).toBeFalsy()
+		expect(new Bank().random()).toBeFalsy();
 	});
 });

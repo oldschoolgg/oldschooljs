@@ -168,7 +168,7 @@ export function JSONClone<O>(object: O): O {
 export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
 	const result: { [key: string]: ItemBank } = {};
 	for (const [id, loot] of Object.entries(lootResult)) {
-		result[id] = {...loot.bank};
+		result[id] = { ...loot.bank };
 	}
 
 	return result;

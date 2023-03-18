@@ -59,7 +59,7 @@ class MimicCasket extends Clue {
 		for (let i = 0; i < quantity; i++) {
 			loot.add(tier.toLowerCase() === 'elite' ? EliteMimicTable.roll() : MasterMimicTable.roll());
 		}
-		return loot
+		return loot;
 	}
 }
 

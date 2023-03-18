@@ -77,7 +77,7 @@ describe('Items', () => {
 
 	test.concurrent(
 		'Fetching Item by ID',
-		async done => {
+		async () => {
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20_997),
 				Items.get(2440),

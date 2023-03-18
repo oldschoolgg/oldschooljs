@@ -1,9 +1,10 @@
+import { beforeAll, describe, test } from 'vitest';
+
 import { Monsters } from '../src';
 import Bank from '../src/structures/Bank';
 import LootTable from '../src/structures/LootTable';
 import Monster from '../src/structures/Monster';
 import { checkThreshold } from './testUtil';
-import { beforeAll, describe, test } from 'vitest';
 
 describe('Monsters', () => {
 	const currentMonIDs = new Set();
@@ -77,7 +78,7 @@ describe('Monsters', () => {
 		}
 	}
 
-	test('Test Monster', done => {
+	test('Test Monster', () => {
 		const TesterMonster = new TestMonsterClass({ id: 1, name: 'Test' });
 
 		const number = 500_000;

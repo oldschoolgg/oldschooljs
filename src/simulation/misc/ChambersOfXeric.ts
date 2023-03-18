@@ -7,7 +7,7 @@ import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import {  JSONClone } from '../../util/util';
+import { JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -265,8 +265,9 @@ export class ChambersOfXericClass extends Minigame {
 		// unique decider table, give them a non-unique roll.
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
-			const pointsOfThisMember = options.team.find(member => member.id === leftOverRecipient.item)!
-				.personalPoints;
+			const pointsOfThisMember = options.team.find(
+				member => member.id === leftOverRecipient.item
+			)!.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
 			for (const [itemID, quantity] of entries) {

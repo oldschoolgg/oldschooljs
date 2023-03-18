@@ -97,7 +97,7 @@ export class LarransChestOpenable extends SimpleOpenable {
 			loot.add(tempTable.roll());
 		}
 
-		return loot
+		return loot;
 	}
 }
 

@@ -14,7 +14,7 @@ describe('Openables', () => {
 	});
 	test('allItems', () => {
 		for (const [key, val] of Openables.entries()) {
-			if (!val.allItems.length) {
+			if (val.allItems.length === 0) {
 				console.error(`${key} has no allitems`);
 			}
 		}

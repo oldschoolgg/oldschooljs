@@ -1,4 +1,4 @@
-import {  OpenableOpenOptions } from '../../meta/types';
+import { OpenableOpenOptions } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
@@ -56,7 +56,7 @@ export class BrimstoneChestOpenable extends SimpleOpenable {
 			loot.add(tempTable.roll());
 		}
 
-		return loot
+		return loot;
 	}
 }
 

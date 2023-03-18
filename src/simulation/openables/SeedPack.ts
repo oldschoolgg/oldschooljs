@@ -134,7 +134,7 @@ export class SeedPackOpenable extends SimpleOpenable {
 			loot.add(tempTable.roll());
 		}
 
-		return loot
+		return loot;
 	}
 }
 

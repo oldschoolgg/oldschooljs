@@ -83,9 +83,7 @@ class ZalcanoClass {
 		return [item, quantity];
 	}
 
-	public kill({
-		team
-	}: Readonly<ZalcanoOptions>): {
+	public kill({ team }: Readonly<ZalcanoOptions>): {
 		[key: string]: ItemBank;
 	} {
 		const lootResult: LootBank = {};
