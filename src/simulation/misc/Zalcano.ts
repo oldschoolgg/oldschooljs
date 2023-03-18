@@ -1,5 +1,4 @@
 import { calcPercentOfNum } from 'e';
-import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -86,7 +85,7 @@ class ZalcanoClass {
 
 	public kill({
 		team
-	}: O.Readonly<ZalcanoOptions>): {
+	}: Readonly<ZalcanoOptions>): {
 		[key: string]: ItemBank;
 	} {
 		const lootResult: LootBank = {};

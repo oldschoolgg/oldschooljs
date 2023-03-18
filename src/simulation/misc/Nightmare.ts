@@ -1,5 +1,4 @@
 import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from 'e';
-import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -169,7 +168,7 @@ class NightmareClass {
 	}
 
 	public kill(
-		options: O.Readonly<NightmareOptions>
+		options: Readonly<NightmareOptions>
 	): {
 		[key: string]: ItemBank;
 	} {
