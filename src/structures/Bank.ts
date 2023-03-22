@@ -52,18 +52,9 @@ export default class Bank {
 	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
-		if (!item) {
-			return this;
-		}
-
 		// Bank.add(123);
 		if (typeof item === 'number') {
 			return this.addItem(item, quantity);
-		}
-
-		if (Array.isArray(item)) {
-			for (const _item of item) this.addItem(_item.item, _item.quantity);
-			return this;
 		}
 
 		// Bank.add('Twisted bow');
@@ -74,6 +65,15 @@ export default class Bank {
 
 		if (item instanceof Bank) {
 			return this.add(item.bank);
+		}
+
+		if (!item) {
+			return this;
+		}
+
+		if (Array.isArray(item)) {
+			for (const _item of item) this.addItem(_item.item, _item.quantity);
+			return this;
 		}
 
 		if ('id' in item) {
