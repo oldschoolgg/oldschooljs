@@ -254,7 +254,7 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		// If major price increase, just dont fucking change it.
-		if (previousItem && item.tradeable && previousItem.price < item.price / 20) {
+		if (previousItem && item.tradeable && previousItem.price < item.price / 20 && previousItem.price !== 0) {
 			majorPriceChanges.push([previousItem, item]);
 			item.price = previousItem.price;
 		}

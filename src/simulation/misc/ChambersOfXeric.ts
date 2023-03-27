@@ -1,4 +1,4 @@
-import { randFloat, roll, shuffleArr, Time } from 'e';
+import { randFloat, roll, shuffleArr, sumArr, Time } from 'e';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -7,7 +7,7 @@ import Minigame from '../../structures/Minigame';
 import SimpleTable from '../../structures/SimpleTable';
 import { resolveNameBank } from '../../util/bank';
 import itemID from '../../util/itemID';
-import { addArrayOfNumbers, JSONClone } from '../../util/util';
+import { JSONClone } from '../../util/util';
 
 export interface TeamMember {
 	id: string;
@@ -216,7 +216,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = addArrayOfNumbers(options.team.map(val => val.personalPoints));
+		const teamPoints = sumArr(options.team.map(val => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -265,8 +265,9 @@ export class ChambersOfXericClass extends Minigame {
 		// unique decider table, give them a non-unique roll.
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
-			const pointsOfThisMember = options.team.find(member => member.id === leftOverRecipient.item)!
-				.personalPoints;
+			const pointsOfThisMember = options.team.find(
+				member => member.id === leftOverRecipient.item
+			)!.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
 			for (const [itemID, quantity] of entries) {
