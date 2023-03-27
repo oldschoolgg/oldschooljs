@@ -1,5 +1,7 @@
-import { Items, Openables } from '../dist';
-import { EquipmentSlot, Item } from '../dist/meta/types';
+import { beforeAll, describe, expect, test } from 'vitest';
+
+import { Items, Openables } from '../src';
+import { EquipmentSlot, Item } from '../src/meta/types';
 
 const expectedIDTuple = [
 	['Coins', 995],
@@ -54,10 +56,10 @@ function checkItems(): void {
 	for (const [itemName, itemID] of expectedIDTuple) {
 		const item = Items.get(itemName);
 		if (!item) {
-			fail(`*ERROR*: ${itemName} doesnt exist?`);
+			throw new Error(`*ERROR*: ${itemName} doesnt exist?`);
 		}
 		if (item.id !== itemID) {
-			fail(`*ERROR*: ${itemName} has the wrong item ID! Is[${item.id}] ShouldBe[${itemID}]`);
+			throw new Error(`*ERROR*: ${itemName} has the wrong item ID! Is[${item.id}] ShouldBe[${itemID}]`);
 		}
 	}
 }
@@ -75,7 +77,7 @@ describe('Items', () => {
 
 	test.concurrent(
 		'Fetching Item by ID',
-		async done => {
+		async () => {
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20_997),
 				Items.get(2440),
@@ -83,20 +85,20 @@ describe('Items', () => {
 				Items.get('Coins')
 			];
 
-			if (!tbow) return done.fail('Missing item.');
+			if (!tbow) throw new Error('Missing item.');
 			expect(tbow.id).toBe(20_997);
 			expect(tbow.name).toBe('Twisted bow');
 			expect(tbow.price).toBeGreaterThan(800_000_000);
 
-			if (!superStr) return done.fail('Missing item.');
+			if (!superStr) throw new Error('Missing item.');
 			expect(superStr.id).toBe(2440);
 
-			if (!dragonDagger) return done.fail('Missing item.');
+			if (!dragonDagger) throw new Error('Missing item.');
 			expect(dragonDagger.id).toBe(5698);
 			expect(dragonDagger.name).toBe('Dragon dagger(p++)');
 			expect(dragonDagger.price).toBeLessThan(26_000);
 
-			if (!coins) return done.fail('Missing item.');
+			if (!coins) throw new Error('Missing item.');
 			expect(coins.id).toBe(995);
 			expect(coins.price).toEqual(1);
 			expect(Items.get('Snowy knight')!.price).toEqual(0);

@@ -1,29 +1,24 @@
-import { Bank, Items } from '../dist';
+import { Bank, Items } from '../src';
 
 export function withinThreshold(source: number, target: number, epsilon = 5): boolean {
 	if (source === target) return true;
 	return Math.abs(source - target) < (epsilon / 100) * target;
 }
 
-export function checkThreshold(
-	done: jest.DoneCallback,
-	expectedRates: Record<string, number>,
-	_result: Bank,
-	numberDone: number
-): void {
+export function checkThreshold(expectedRates: Record<string, number>, _result: Bank, numberDone: number): void {
 	const result = _result.bank;
 	for (const [name, qty] of Object.entries(expectedRates)) {
 		const item = Items.get(name);
-		if (!item) return done.fail(`Missing item: ${name}`);
+		if (!item) throw new Error(`Missing item: ${name}`);
 		if (!result[item.id]) {
-			return done.fail(`Was no ${item.name}[${item.id}] in result, should have been.`);
+			throw new Error(`Was no ${item.name}[${item.id}] in result, should have been.`);
 		}
 		expectedRates[item.id.toString()] = qty;
 	}
 
 	for (const [itemID, qty] of Object.entries(result)) {
 		const item = Items.get(parseInt(itemID));
-		if (!item) return done.fail(`Missing item with ID: ${itemID}`);
+		if (!item) throw new Error(`Missing item with ID: ${itemID}`);
 
 		const { id } = item;
 		const expectedRate = expectedRates[id];
@@ -32,8 +27,7 @@ export function checkThreshold(
 		const effectiveRate = numberDone / qty;
 
 		if (!withinThreshold(effectiveRate, expectedRate, 10)) {
-			return done.fail(`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`);
+			throw new Error(`${item.name} wasn't within threshold. 1 in ${effectiveRate} instead of ${expectedRate}`);
 		}
 	}
-	return done();
 }

@@ -1,5 +1,4 @@
 import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from 'e';
-import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -168,9 +167,7 @@ class NightmareClass {
 		return [item, quantity];
 	}
 
-	public kill(
-		options: O.Readonly<NightmareOptions>
-	): {
+	public kill(options: Readonly<NightmareOptions>): {
 		[key: string]: ItemBank;
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];

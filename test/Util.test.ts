@@ -1,4 +1,6 @@
-import { Util } from '../dist';
+import { describe, expect, test } from 'vitest';
+
+import { Util } from '../src';
 
 describe('Utils', () => {
 	test('toKMB checks', async () => {
