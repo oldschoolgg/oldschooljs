@@ -1,4 +1,6 @@
-import LootTable from '../dist/structures/LootTable';
+import { expect, test } from 'vitest';
+
+import LootTable from '../src/structures/LootTable';
 
 test('LootTable', async () => {
 	const table1 = new LootTable().every('Coal').tertiary(1, 'Coal').add('Coal');

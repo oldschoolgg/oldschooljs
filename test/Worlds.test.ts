@@ -1,4 +1,6 @@
-import { Worlds } from '../dist';
+import { beforeAll, describe, expect, test } from 'vitest';
+
+import { Worlds } from '../src';
 
 describe('Worlds', () => {
 	beforeAll(async () => {
@@ -16,12 +18,11 @@ describe('Worlds', () => {
 		expect(australianWorlds.size > 14).toBeTruthy();
 	});
 
-	jest.setTimeout(60_000);
 	test('Single world should be correct', () => {
 		expect.assertions(3);
 
 		const WorldOne = Worlds.get(301);
-		if (!WorldOne) return fail('World One not found.');
+		if (!WorldOne) throw new Error('World One not found.');
 
 		expect(WorldOne.number).toEqual(301);
 		expect(WorldOne.location).toEqual('United States');
