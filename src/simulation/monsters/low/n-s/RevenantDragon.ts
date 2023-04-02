@@ -47,7 +47,7 @@ export default new SimpleMonster({
 	aliases: ['revenant dragon'],
 	customKillLogic: makeRevTable({
 		seeds: [2000, 1100],
-		uniqueTable: [8000, 4400],
+		uniqueTable: [5333, 2933],
 		ancientEmblem: [1333, 4400],
 		ancientTotem: [2000, 1100],
 		ancientCrystal: [2666, 1466],
