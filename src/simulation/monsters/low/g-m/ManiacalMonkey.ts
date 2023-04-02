@@ -21,7 +21,7 @@ export const ManiacalMonkeyTable = new LootTable()
 	.add('Rope', 1, 1);
 
 export default new SimpleMonster({
-	id: 6803,
+	id: 7118,
 	name: 'Maniacal monkey',
 	table: ManiacalMonkeyTable,
 	aliases: ['maniacal monkey', 'maniacal', 'mm']
