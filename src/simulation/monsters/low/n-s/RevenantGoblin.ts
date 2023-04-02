@@ -48,7 +48,7 @@ export default new SimpleMonster({
 	aliases: ['revenant goblin'],
 	customKillLogic: makeRevTable({
 		seeds: [7330, 1342],
-		uniqueTable: [29_320, 16_126],
+		uniqueTable: [19_467, 10_751],
 		ancientEmblem: [1626, 5368],
 		ancientTotem: [2440, 1342],
 		ancientCrystal: [3253, 1789],
