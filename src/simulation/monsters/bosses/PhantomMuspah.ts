@@ -84,7 +84,7 @@ const TotalPhantomMuspahTable = new LootTable()
 	.tertiary(2500, 'Muphin');
 
 export default new SimpleMonster({
-	id: 12_082,
+	id: 12_077,
 	name: 'Phantom Muspah',
 	table: TotalPhantomMuspahTable,
 	aliases: ['phantom muspah', 'muspah', 'money slug']
