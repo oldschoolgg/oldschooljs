@@ -68,6 +68,7 @@ export const GourmetImpling = new SimpleOpenable({
 	name: 'Gourmet impling',
 	aliases: ['gourmet impling', 'gourmet imp', 'gourmet'],
 	table: new LootTable()
+		.oneIn(500, 'Grubby key')
 		.add('Tuna', 1, 20)
 		.add('Bass', 1, 10)
 		.add('Curry', 1, 10)
@@ -78,7 +79,7 @@ export const GourmetImpling = new SimpleOpenable({
 		.add('Curry leaf', 1, 10)
 		.add('Ugthanki kebab')
 		.add('Lobster', 4)
-		.add('Shark', 4)
+		.add('Shark', 3)
 		.add('Fish pie')
 		.add("Chef's delight")
 		.add('Rainbow fish', 5)
