@@ -36,8 +36,7 @@ function itemShouldntBeAdded(item: any) {
 		item.linked_id_item ||
 		item.placeholder ||
 		item.name === 'Null' ||
-		item.wiki_name?.includes(' (Worn)') ||
-		item.id >= 27_645
+		item.wiki_name?.includes(' (Worn)')
 	);
 }
 
