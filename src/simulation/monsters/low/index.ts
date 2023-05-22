@@ -151,6 +151,7 @@ import MagicAxe from './g-m/MagicAxe';
 import MaleHamMember from './g-m/MaleHamMember';
 import Mammoth from './g-m/Mammoth';
 import Man from './g-m/Man';
+import ManiacalMonkey from './g-m/ManiacalMonkey';
 import MasterFarmer from './g-m/MasterFarmer';
 import MenaphiteThug from './g-m/MenaphiteThug';
 import Minotaur from './g-m/Minotaur';
@@ -523,5 +524,6 @@ export const allLowMonsters = {
 	TzHaarXil,
 	TzHaarMej,
 	GiantFrog,
-	JubblyBird
+	JubblyBird,
+	ManiacalMonkey
 };
