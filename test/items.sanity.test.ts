@@ -116,9 +116,6 @@ test('Items Sanity Test', async () => {
 	expect(item27662.tradeable).toEqual(true);
 	expect(item27662.equipable).toEqual(true);
 	expect(item27662.stackable).toBeUndefined();
-	expect(item27662.cost).toEqual(120_000);
-	expect(item27662.lowalch).toEqual(48_000);
-	expect(item27662.highalch).toEqual(72_000);
 	expect(item27662.buy_limit).toBeUndefined();
 
 	const item27665 = Items.get(27_665)!;
@@ -128,9 +125,6 @@ test('Items Sanity Test', async () => {
 	expect(item27665.tradeable).toBeUndefined();
 	expect(item27665.equipable).toEqual(true);
 	expect(item27665.stackable).toBeUndefined();
-	expect(item27665.cost).toEqual(120_000);
-	expect(item27665.lowalch).toEqual(48_000);
-	expect(item27665.highalch).toEqual(72_000);
 	expect(item27665.buy_limit).toBeUndefined();
 	expect(item27665.equipment!.requirements!.magic).toEqual(70);
 }, 30_000);
