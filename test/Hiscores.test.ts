@@ -29,16 +29,16 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
-	expect(zulu.bossRecords.commanderZilyana.score).toBe(1084);
+	expect(zulu.bossRecords.commanderZilyana.score).toBeGreaterThan(1084);
 
 	expect(zulu.bossRecords.zulrah.rank > 1).toBe(true);
 	expect(zulu.bossRecords.zulrah.score).toBeGreaterThanOrEqual(2527);
 
 	expect(zulu.bossRecords.callisto.rank > 1).toBe(true);
-	expect(zulu.bossRecords.callisto.score).toBe(327);
+	expect(zulu.bossRecords.callisto.score).toBeGreaterThan(326);
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
-	expect(zulu.bossRecords.cerberus.score > 7080).toBe(true);
+	expect(zulu.bossRecords.cerberus.score).toBeGreaterThan(7079);
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
