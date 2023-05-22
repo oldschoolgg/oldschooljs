@@ -61,9 +61,11 @@ export interface SkillsScore {
 export interface BossRecords {
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
+	artio: MinigameScore;
 	barrowsChests: MinigameScore;
 	bryophyta: MinigameScore;
 	callisto: MinigameScore;
+	calvarion: MinigameScore;
 	cerberus: MinigameScore;
 	chambersofXeric: MinigameScore;
 	chambersofXericChallengeMode: MinigameScore;
@@ -94,6 +96,7 @@ export interface BossRecords {
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
+	spindel: MinigameScore;
 	tempoross: MinigameScore;
 	theGauntlet: MinigameScore;
 	theCorruptedGauntlet: MinigameScore;

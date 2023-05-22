@@ -34,7 +34,10 @@ function itemShouldntBeAdded(item: any) {
 		item.duplicate === true ||
 		item.noted ||
 		item.linked_id_item ||
-		item.placeholder
+		item.placeholder ||
+		item.name === 'Null' ||
+		item.wiki_name?.includes(' (Worn)') ||
+		item.id >= 27_645
 	);
 }
 
@@ -160,6 +163,7 @@ const itemsToIgnorePrices = [
 const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'weapon'];
 
 export default async function prepareItems(): Promise<void> {
+	const messages: string[] = [];
 	const allItemsRaw: RawItemCollection = await fetch(
 		'https://raw.githubusercontent.com/ZappyScript/osrsbox-item-complete/main/items-complete.json'
 	).then((res): Promise<any> => res.json());
@@ -279,18 +283,18 @@ export default async function prepareItems(): Promise<void> {
 		if (previousItem) {
 			for (const key of keysToWarnIfRemovedOrAdded) {
 				if (!item[key] && Boolean(previousItem?.[key])) {
-					console.warn(`WARNING: ${item.name} (${item.id}) had ${key} removed`);
+					messages.push(`WARNING: ${item.name} (${item.id}) had ${key} removed`);
 				}
 				if (!previousItem[key] && Boolean(item?.[key])) {
-					console.warn(`WARNING: ${item.name} (${item.id}) had ${key} added`);
+					messages.push(`WARNING: ${item.name} (${item.id}) had ${key} added`);
 				}
 			}
 			if (item.name !== previousItem.name) {
-				console.warn(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
+				messages.push(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
 			item.price = previousItem.price;
 			if (item.equipment?.slot !== previousItem.equipment?.slot) {
-				console.log(`WARNING: ${previousItem.name} slot changed`);
+				messages.push(`WARNING: ${previousItem.name} slot changed`);
 			}
 		}
 
@@ -301,22 +305,53 @@ export default async function prepareItems(): Promise<void> {
 			item.equipable_weapon = copyItem.equipable_weapon;
 			item.equipable = copyItem.equipable;
 		}
-		itemNameMap[item.id] = item;
+		if (previousItem) {
+			item.price = previousItem.price;
+			item.cost = previousItem.cost;
+			item.lowalch = previousItem.lowalch;
+			item.highalch = previousItem.highalch;
+			item.wiki_url = previousItem.wiki_url;
+			item.wiki_name = previousItem.wiki_name;
+		}
+		if (previousItem) {
+			if (item.equipment?.requirements === null && previousItem.equipment?.requirements !== null) {
+				messages.push(
+					`WARNING: ${item.name} (${item.id}) had requirements removed: BEFORE[${JSON.stringify(
+						previousItem.equipment?.requirements
+					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`
+				);
+			} else if (
+				JSON.stringify(item.equipment?.requirements) !== JSON.stringify(previousItem.equipment?.requirements)
+			) {
+				messages.push(
+					`WARNING: ${item.name} (${item.id}) had requirements changed: BEFORE[${JSON.stringify(
+						previousItem.equipment?.requirements
+					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`
+				);
+			}
+		}
+
+		if (item.id < 27_499) {
+			itemNameMap[item.id] = previousItem;
+		} else {
+			itemNameMap[item.id] = item;
+		}
 	}
 	const deletedItems = Object.values(previousItems)
 		.filter((i: any) => !(itemNameMap as any)[i.id])
 		.filter(notEmpty);
 
-	console.log(`New Items: ${moidLink(newItems)}.`);
-	console.log(`Deleted Items: ${moidLink(deletedItems)}.`);
+	messages.push(`New Items: ${moidLink(newItems)}.`);
+	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
 
-	console.log(
+	messages.push(
 		`Major price changes NOT changed: ${majorPriceChanges
 			.map(ent => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
 			.join(', ')}.`
 	);
 
 	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
+	writeFileSync('./updates.txt', messages.join('\n'));
 
-	console.log('Prepared items.');
+	messages.push('Prepared items.');
 }
