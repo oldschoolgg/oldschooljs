@@ -10,6 +10,7 @@ import KalphiteQueen from './KalphiteQueen';
 import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
 import Obor from './Obor';
+import PhantomMuspah from './PhantomMuspah';
 import Sarachnis from './Sarachnis';
 import Skotizo from './Skotizo';
 import { allSlayerBosses } from './slayer';
@@ -36,6 +37,7 @@ export const allBosses = {
 	Bryophyta,
 	Skotizo,
 	DerangedArchaeologist,
+	PhantomMuspah,
 	...allWildyBosses,
 	...allSlayerBosses
 };
