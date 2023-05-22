@@ -20,8 +20,7 @@
 		"dev": "tsc --watch -p .",
 		"prepareData": "yarn build && yarn prepareData:run",
 		"prepareData:run": "ts-node scripts/prepare",
-		"prepmon": "yarn build && ts-node scripts/prepareMonsters.ts",
-		"docs": "typedoc --hideGenerator --excludeNotExported --exclude \"./src/simulation/**/*.ts\" \"./src/util/**/*.ts\" --mode file --out ./dist/ ./src/"
+		"prepmon": "yarn build && ts-node scripts/prepareMonsters.ts"
 	},
 	"dependencies": {
 		"deepmerge": "^4.2.2",
