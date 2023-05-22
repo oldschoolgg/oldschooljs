@@ -1,3 +1,4 @@
+import deepMerge from 'deepmerge';
 import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from 'e';
 import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
@@ -5,6 +6,7 @@ import fetch from 'node-fetch';
 import { Item } from '../dist/meta/types';
 import Items, { USELESS_ITEMS } from '../dist/structures/Items';
 import { itemID } from '../dist/util';
+import { itemChanges } from './manualItemChanges';
 
 const equipmentModifications = new Map();
 const equipmentModSrc = [
@@ -328,6 +330,10 @@ export default async function prepareItems(): Promise<void> {
 					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`
 				);
 			}
+		}
+
+		if (itemChanges[item.id]) {
+			item = deepMerge(item, itemChanges[item.id]) as any;
 		}
 
 		if (item.id < 27_499) {
