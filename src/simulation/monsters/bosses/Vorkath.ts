@@ -61,6 +61,7 @@ const VorkathTable = new LootTable()
 
 const TotalVorkathTable = new LootTable()
 	.every(VorkathTable, 2)
+	.tertiary(10, 'Scaly blue dragonhide')
 	.tertiary(50, 21_907) // Vorkath's head, exists twice, this is the head with 50k worth
 	.tertiary(65, 'Clue scroll (elite)')
 	.tertiary(1000, 'Dragonbone necklace')
