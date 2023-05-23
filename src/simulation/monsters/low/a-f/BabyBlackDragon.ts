@@ -1,7 +1,11 @@
 import LootTable from '../../../../structures/LootTable';
 import SimpleMonster from '../../../../structures/SimpleMonster';
 
-const BabyBlackDragon = new LootTable().every('Babydragon bones');
+const BabyBlackDragon = new LootTable()
+	.every('Babydragon bones')
+
+	/* Tertiary */
+	.tertiary(10, 'Scaly blue dragonhide');
 
 export default new SimpleMonster({
 	id: 1871,
