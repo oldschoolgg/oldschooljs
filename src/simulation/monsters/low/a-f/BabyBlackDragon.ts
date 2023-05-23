@@ -5,7 +5,7 @@ const BabyBlackDragon = new LootTable()
 	.every('Babydragon bones')
 
 	/* Tertiary */
-	.tertiary(10, 'Scaly blue dragonhide');
+	.tertiary(100, 'Scaly blue dragonhide');
 
 export default new SimpleMonster({
 	id: 1871,
