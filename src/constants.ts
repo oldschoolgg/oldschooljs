@@ -29,7 +29,16 @@ export const SKILLS = [
 	'construction'
 ] as const;
 
-export const MINIGAMES = ['bountyHunter', 'bountyHunterRogue', 'LMS', 'pvpArena', 'soulWars', 'riftsClosed'] as const;
+export const MINIGAMES = [
+	'bountyHunter',
+	'bountyHunterRogue',
+	'bountyHunterLegacy',
+	'bountyHunterLegacyRogue',
+	'LMS',
+	'pvpArena',
+	'soulWars',
+	'riftsClosed'
+] as const;
 
 export const CLUES = ['all', 'beginner', 'easy', 'medium', 'hard', 'elite', 'master'] as const;
 
