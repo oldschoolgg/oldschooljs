@@ -30,7 +30,6 @@ export enum MonsterAttackType {
 
 export interface MonsterData {
 	members: boolean;
-	releaseDate: string | null;
 	combatLevel: number;
 	hitpoints: number;
 	maxHit: number | null;
