@@ -45,7 +45,7 @@ export default class SimpleMonster extends Monster {
 					loot.add('Brimstone key');
 				}
 			}
-			if (options.inCatacombs) {
+			if (options.inCatacombs && this.data.hitpoints) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}

@@ -1,4 +1,4 @@
-import { hiscoreURLs } from '../constants';
+import { hiscoreURLs, MINIGAMES } from '../constants';
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import SimpleMonster from '../structures/SimpleMonster';
@@ -115,14 +115,7 @@ export interface BossRecords {
 	zulrah: MinigameScore;
 }
 
-export interface MinigamesScore {
-	bountyHunter: MinigameScore;
-	bountyHunterRogue: MinigameScore;
-	pvpArena: MinigameScore;
-	LMS: MinigameScore;
-	soulWars: MinigameScore;
-	riftsClosed: MinigameScore;
-}
+export type MinigamesScore = Record<(typeof MINIGAMES)[number], MinigameScore>;
 
 export interface CluesScore {
 	all: MinigameScore;

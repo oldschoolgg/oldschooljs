@@ -12,6 +12,7 @@ import BabyBlackDragon from './a-f/BabyBlackDragon';
 import BabyBlueDragon from './a-f/BabyBlueDragon';
 import BabyGreenDragon from './a-f/BabyGreenDragon';
 import BabyRedDragon from './a-f/BabyRedDragon';
+import Bandit from './a-f/Bandit';
 import Banshee from './a-f/Banshee';
 import Basilisk from './a-f/Basilisk';
 import BasiliskKnight from './a-f/BasiliskKnight';
@@ -265,6 +266,7 @@ import Zygomite from './t-z/Zygomite';
 export const allLowMonsters = {
 	BrutalBlackDragon,
 	BabyBlackDragon,
+	Bandit,
 	ArmadylianGuard,
 	BlackKnight,
 	DarkWarrior,
