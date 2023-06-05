@@ -7,7 +7,7 @@ const VetionUniqueTable = new LootTable()
 	.oneIn(196, "Skull of vet'ion")
 	.oneIn(256, 'Dragon 2h sword')
 	.oneIn(256, 'Dragon pickaxe')
-	.oneIn(360, 'Voidwalker blade')
+	.oneIn(360, 'Voidwaker blade')
 	.oneIn(512, 'Ring of the gods');
 
 const VetionSecondarySupplyTable = new LootTable({ limit: 18 })

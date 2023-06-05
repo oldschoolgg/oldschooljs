@@ -5,7 +5,7 @@ const CallistoUniqueTable = new LootTable()
 	.oneIn(196, 'Claws of callisto')
 	.oneIn(256, 'Dragon 2h sword')
 	.oneIn(256, 'Dragon pickaxe')
-	.oneIn(360, 'Voidwalker hilt')
+	.oneIn(360, 'Voidwaker hilt')
 	.oneIn(512, 'Tyrannical ring');
 
 const CallistoSecondarySupplyTable = new LootTable({ limit: 18 })

@@ -5,7 +5,7 @@ const VenenatisUniqueTable = new LootTable()
 	.oneIn(196, 'Fangs of venenatis')
 	.oneIn(256, 'Dragon 2h sword')
 	.oneIn(256, 'Dragon pickaxe')
-	.oneIn(360, 'Voidwalker gem')
+	.oneIn(360, 'Voidwaker gem')
 	.oneIn(512, 'Treasonous ring');
 
 const VenenatisSecondarySupplyTable = new LootTable({ limit: 18 })

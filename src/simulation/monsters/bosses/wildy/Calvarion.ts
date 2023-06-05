@@ -8,7 +8,7 @@ const CalvarionUniqueTable = new LootTable()
 	.oneIn(358, 'Dragon pickaxe')
 	.oneIn(618, "Skull of vet'ion")
 	.oneIn(716, 'Ring of the gods')
-	.oneIn(912, 'Voidwalker blade');
+	.oneIn(912, 'Voidwaker blade');
 
 const CalvarionSecondarySupplyTable = new LootTable({ limit: 18 })
 	.add('Blighted anglerfish', [5, 6], 1)

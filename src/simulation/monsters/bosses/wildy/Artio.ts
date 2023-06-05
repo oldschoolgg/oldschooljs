@@ -6,7 +6,7 @@ const ArtioUniqueTable = new LootTable()
 	.oneIn(358, 'Dragon pickaxe')
 	.oneIn(618, 'Claws of callisto')
 	.oneIn(716, 'Tyrannical ring')
-	.oneIn(912, 'Voidwalker hilt');
+	.oneIn(912, 'Voidwaker hilt');
 
 const ArtioSecondarySupplyTable = new LootTable({ limit: 18 })
 	.add('Blighted anglerfish', [5, 6], 1)
