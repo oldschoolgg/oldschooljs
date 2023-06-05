@@ -6,7 +6,7 @@ const SpindelUniqueTable = new LootTable()
 	.oneIn(358, 'Dragon pickaxe')
 	.oneIn(618, 'Fangs of venenatis')
 	.oneIn(716, 'Treasonous ring')
-	.oneIn(912, 'Voidwalker gem');
+	.oneIn(912, 'Voidwaker gem');
 
 const SpindelSecondarySupplyTable = new LootTable({ limit: 18 })
 	.add('Blighted anglerfish', [5, 6], 1)
