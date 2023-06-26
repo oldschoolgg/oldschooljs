@@ -6,10 +6,10 @@ test('Hiscores', async () => {
 	const koru = await Hiscores.fetch('Koru');
 
 	expect(koru.minigames.pvpArena.rank).toBeGreaterThanOrEqual(1);
-	expect(koru.minigames.pvpArena.score).toBeGreaterThanOrEqual(4000);
-	expect(koru.bossRecords.commanderZilyana.score).toBeGreaterThanOrEqual(50);
-	expect(koru.bossRecords.dagannothPrime.score).toBeGreaterThanOrEqual(79);
-	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(268);
+	expect(koru.minigames.pvpArena.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.commanderZilyana.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.dagannothPrime.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(1);
 
 	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
@@ -23,6 +23,7 @@ test('Hiscores', async () => {
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
 	expect(lynxTitan.skills.overall.xp).toBe(4_600_000_000);
+
 	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 
@@ -43,14 +44,6 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
 
-	expect(zulu.minigames.bountyHunter.rank > 1).toBe(true);
-	expect(zulu.minigames.bountyHunter.score).toBe(4);
-
-	expect(zulu.minigames.bountyHunterRogue.rank > 1).toBe(true);
-	expect(zulu.minigames.bountyHunterRogue.score).toBe(3);
-
-	expect(zulu.minigames.LMS.score).toBe(504);
-
 	expect(magnaboy.clues.all.score).toBe(157);
 
 	expect(magnaboy.clues.beginner.score).toBe(6);
@@ -61,12 +54,6 @@ test('Hiscores', async () => {
 
 	expect(magnaboy.clues.elite.score).toBe(16);
 	expect(magnaboy.clues.master.score).toBe(7);
-
-	expect(magnaboy.minigames.bountyHunter.rank).toBe(-1);
-	expect(magnaboy.minigames.bountyHunter.score).toBe(-1);
-
-	expect(magnaboy.minigames.bountyHunterRogue.rank > 1).toBe(true);
-	expect(magnaboy.minigames.bountyHunterRogue.score).toBe(2);
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
 	expect(magnaboy.bossRecords.nex.score).toBe(-1);

@@ -56,7 +56,7 @@ export default interface RawMonsterData {
 
 async function prepareMonsters(): Promise<void> {
 	const allMonsters: { [key: string]: RawMonsterData } = await fetch(
-		'https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/monsters-complete.json'
+		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json'
 	).then((res): Promise<any> => res.json());
 
 	const monIDs = new Set(Monsters.map(mon => mon.id));
@@ -67,7 +67,6 @@ async function prepareMonsters(): Promise<void> {
 
 		const newMonster: MonsterData = {
 			members: mon.members,
-			releaseDate: mon.release_date,
 			combatLevel: mon.combat_level,
 			hitpoints: mon.hitpoints,
 			maxHit: mon.max_hit,
