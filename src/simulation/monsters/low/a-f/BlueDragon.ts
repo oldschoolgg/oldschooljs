@@ -41,6 +41,7 @@ const BlueDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(50, 'Ensouled dragon head')
+	.tertiary(50, 'Scaly blue dragonhide')
 	.tertiary(128, 'Clue scroll (hard)');
 
 export default new SimpleMonster({
