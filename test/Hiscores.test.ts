@@ -78,7 +78,7 @@ test('Hiscores', async () => {
 	expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
 
 	// Skillers
-	const skiller = await Hiscores.fetch('Kylo Ren', { type: 'skiller' });
+	const skiller = await Hiscores.fetch('Jcw', { type: 'skiller' });
 	expect(skiller.skills.overall.rank).toBeLessThan(10);
 	expect(skiller.skills.overall.level).toBeGreaterThan(1500);
 	expect(skiller.skills.overall.level).toBeLessThan(1601);
