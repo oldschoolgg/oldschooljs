@@ -17,6 +17,9 @@ const SpindelSecondarySupplyTable = new LootTable({ limit: 18 })
 	.add('Super combat potion(2)', [2, 3], 1);
 
 const SpindelTable = new LootTable()
+	/* Unique table */
+	.every(SpindelUniqueTable)
+
 	/* Food and potions */
 	.add('Dark crab', 8, 5)
 	.add('Super restore(4)', 3, 5)
@@ -57,7 +60,7 @@ const SpindelTable = new LootTable()
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(2800, 'Venenatis spiderling');
 
-const SpindelTotalTable = new LootTable().every(SpindelSecondarySupplyTable).add(SpindelUniqueTable).add(SpindelTable);
+const SpindelTotalTable = new LootTable().every(SpindelSecondarySupplyTable).every(SpindelTable);
 
 export default new SimpleMonster({
 	id: 11_998,

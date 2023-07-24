@@ -17,6 +17,9 @@ const VenenatisSecondarySupplyTable = new LootTable({ limit: 18 })
 	.add('Super combat potion(2)', [2, 3], 1);
 
 const VenenatisTable = new LootTable()
+	/* Unique table */
+	.every(VenenatisUniqueTable)
+
 	/* Weapons and armour */
 	.add('Rune pickaxe', 3, 12)
 	.add('Rune knife', 150, 3)
@@ -58,9 +61,7 @@ const VenenatisTable = new LootTable()
 	.tertiary(5013, 'Curved bone');
 
 const VenenatisTotalTable = new LootTable()
-	.every(VenenatisSecondarySupplyTable)
-	.add(VenenatisUniqueTable)
-	.add(VenenatisTable);
+	.every(VenenatisSecondarySupplyTable).every(VenenatisTable);
 
 export default new SimpleMonster({
 	id: 6610,

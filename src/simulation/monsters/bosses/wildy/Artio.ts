@@ -19,6 +19,9 @@ const ArtioSecondarySupplyTable = new LootTable({ limit: 18 })
 const ArtioTable = new LootTable()
 	.every('Big bones')
 
+	/* Unique table */
+	.every(ArtioUniqueTable)
+
 	/* Food and potions */
 	.add('Dark crab', 9, 5)
 	.add('Super restore(4)', 3, 5)
@@ -64,7 +67,7 @@ const ArtioTable = new LootTable()
 	.tertiary(2800, 'Callisto cub')
 	.tertiary(5013, 'Curved bone');
 
-const ArtioTotalTable = new LootTable().every(ArtioSecondarySupplyTable).add(ArtioUniqueTable).add(ArtioTable);
+const ArtioTotalTable = new LootTable().every(ArtioSecondarySupplyTable).every(ArtioTable);
 
 export default new SimpleMonster({
 	id: 11_992,
