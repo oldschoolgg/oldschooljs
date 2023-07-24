@@ -60,8 +60,7 @@ const VenenatisTable = new LootTable()
 	.tertiary(2000, 'Venenatis spiderling')
 	.tertiary(5013, 'Curved bone');
 
-const VenenatisTotalTable = new LootTable()
-	.every(VenenatisSecondarySupplyTable).every(VenenatisTable);
+const VenenatisTotalTable = new LootTable().every(VenenatisSecondarySupplyTable).every(VenenatisTable);
 
 export default new SimpleMonster({
 	id: 6610,

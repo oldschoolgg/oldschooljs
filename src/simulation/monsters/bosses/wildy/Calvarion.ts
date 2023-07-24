@@ -69,8 +69,7 @@ const CalvarionTable = new LootTable()
 	.tertiary(5000, 'Skeleton champion scroll')
 	.tertiary(5013, 'Curved bone');
 
-const CalvarionTotalTable = new LootTable()
-	.every(CalvarionSecondarySupplyTable).every(CalvarionTable);
+const CalvarionTotalTable = new LootTable().every(CalvarionSecondarySupplyTable).every(CalvarionTable);
 
 export default new SimpleMonster({
 	id: 11_995,

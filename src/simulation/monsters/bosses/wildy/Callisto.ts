@@ -65,8 +65,7 @@ const CallistoTable = new LootTable()
 	.tertiary(2000, 'Callisto cub')
 	.tertiary(5013, 'Curved bone');
 
-const CallistoTotalTable = new LootTable()
-	.every(CallistoSecondarySupplyTable).every(CallistoTable);
+const CallistoTotalTable = new LootTable().every(CallistoSecondarySupplyTable).every(CallistoTable);
 
 export default new SimpleMonster({
 	id: 6503,
