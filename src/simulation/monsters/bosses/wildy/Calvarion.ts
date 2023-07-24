@@ -72,7 +72,7 @@ const CalvarionTable = new LootTable()
 const CalvarionTotalTable = new LootTable().every(CalvarionSecondarySupplyTable).every(CalvarionTable);
 
 export default new SimpleMonster({
-	id: 11_995,
+	id: 11_993,
 	name: "Calvar'ion",
 	table: CalvarionTotalTable,
 	aliases: ['calvarion', "calvar'ion", 'calvar']
