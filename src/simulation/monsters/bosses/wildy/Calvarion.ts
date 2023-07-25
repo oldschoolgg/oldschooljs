@@ -22,6 +22,9 @@ const CalvarionTable = new LootTable()
 	.every('Big bones')
 	.every(SkeletonHellhoundTable, 4)
 
+	/* Unique table */
+	.every(CalvarionUniqueTable)
+
 	/* Food and potions */
 	.add('Dark crab', 8, 5)
 	.add('Super restore(4)', 3, 5)
@@ -66,13 +69,10 @@ const CalvarionTable = new LootTable()
 	.tertiary(5000, 'Skeleton champion scroll')
 	.tertiary(5013, 'Curved bone');
 
-const CalvarionTotalTable = new LootTable()
-	.every(CalvarionSecondarySupplyTable)
-	.add(CalvarionUniqueTable)
-	.add(CalvarionTable);
+const CalvarionTotalTable = new LootTable().every(CalvarionSecondarySupplyTable).every(CalvarionTable);
 
 export default new SimpleMonster({
-	id: 11_995,
+	id: 11_993,
 	name: "Calvar'ion",
 	table: CalvarionTotalTable,
 	aliases: ['calvarion', "calvar'ion", 'calvar']

@@ -22,6 +22,9 @@ const VetionTable = new LootTable()
 	.every('Big bones')
 	.every(SkeletonHellhoundTable, 4)
 
+	/* Unique table */
+	.every(VetionUniqueTable)
+
 	/* Weapons and armour */
 	.add('Rune pickaxe', [1, 3], 12)
 	.add('Rune dart', [22, 150], 3)
@@ -64,7 +67,7 @@ const VetionTable = new LootTable()
 	.tertiary(5000, 'Skeleton champion scroll')
 	.tertiary(5013, 'Curved bone');
 
-const VetionTotalTable = new LootTable().every(VetionSecondarySupplyTable).add(VetionUniqueTable).add(VetionTable);
+const VetionTotalTable = new LootTable().every(VetionSecondarySupplyTable).every(VetionTable);
 
 export default new SimpleMonster({
 	id: 6611,

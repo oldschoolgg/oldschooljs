@@ -19,6 +19,9 @@ const CallistoSecondarySupplyTable = new LootTable({ limit: 18 })
 const CallistoTable = new LootTable()
 	.every('Big bones')
 
+	/* Unique table */
+	.every(CallistoUniqueTable)
+
 	/* Weapons and armour */
 	.add('Rune pickaxe', [1, 3], 12)
 	.add('Rune 2h sword', 1, 3)
@@ -62,10 +65,7 @@ const CallistoTable = new LootTable()
 	.tertiary(2000, 'Callisto cub')
 	.tertiary(5013, 'Curved bone');
 
-const CallistoTotalTable = new LootTable()
-	.every(CallistoSecondarySupplyTable)
-	.add(CallistoUniqueTable)
-	.add(CallistoTable);
+const CallistoTotalTable = new LootTable().every(CallistoSecondarySupplyTable).every(CallistoTable);
 
 export default new SimpleMonster({
 	id: 6503,
