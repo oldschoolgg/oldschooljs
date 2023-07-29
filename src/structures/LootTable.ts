@@ -12,7 +12,7 @@ export default class LootTable {
 	public length: number;
 	public table: LootTableItem[];
 	public totalWeight: number;
-	public limit: number;
+	public limit?: number;
 	public oneInItems: OneInItems[];
 	public tertiaryItems: OneInItems[];
 	public everyItems: LootTableItem[];
@@ -146,7 +146,7 @@ export default class LootTable {
 				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
-					quantity: this.determineQuantity(itemToAdd[1]) || 1
+					quantity: this.determineQuantity(itemToAdd[1]!) || 1
 				});
 			}
 
@@ -196,9 +196,9 @@ export default class LootTable {
 			let weight = 0;
 
 			for (let i = 0; i < this.table.length; i++) {
-				const item = this.table[i];
+				const item = this.table[i]!;
 
-				weight += item.weight;
+				weight += item.weight!;
 				if (randomWeight <= weight) {
 					result = i;
 					break;

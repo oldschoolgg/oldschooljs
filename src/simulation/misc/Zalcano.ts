@@ -1,5 +1,4 @@
 import { calcPercentOfNum } from 'e';
-import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -69,7 +68,7 @@ class ZalcanoClass {
 	allItems: number[] = [...tertiaryTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
 
 	public rollNonUniqueLoot(perfPercent: number, isMVP: boolean): [number, number] {
-		const { item } = NonUniqueTable.roll();
+		const item = NonUniqueTable.roll();
 
 		const [range] = nonUniqueItemRanges[item];
 		// If the quantity range of the item is 50-100, we
@@ -84,9 +83,7 @@ class ZalcanoClass {
 		return [item, quantity];
 	}
 
-	public kill({
-		team
-	}: O.Readonly<ZalcanoOptions>): {
+	public kill({ team }: Readonly<ZalcanoOptions>): {
 		[key: string]: ItemBank;
 	} {
 		const lootResult: LootBank = {};

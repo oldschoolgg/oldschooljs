@@ -1,14 +1,8 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { Monsters } from '../dist';
-import {
-	MonsterAttackType,
-	MonsterAttribute,
-	MonsterData,
-	MonsterSlayerMaster
-} from '../dist/meta/monsterData';
+import { MonsterAttackType, MonsterAttribute, MonsterData, MonsterSlayerMaster } from '../dist/meta/monsterData';
 
 const monsterMap: { [key: string]: MonsterData } = {};
 
@@ -62,19 +56,17 @@ export default interface RawMonsterData {
 
 async function prepareMonsters(): Promise<void> {
 	const allMonsters: { [key: string]: RawMonsterData } = await fetch(
-		`https://raw.githubusercontent.com/osrsbox/osrsbox-db/master/docs/monsters-complete.json`
+		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json'
 	).then((res): Promise<any> => res.json());
 
-	const monIDs = new Set(Monsters.map((mon) => mon.id));
+	const monIDs = new Set(Monsters.map(mon => mon.id));
 
-	for (const mon of Object.values(allMonsters).filter((mon) => monIDs.has(mon.id))) {
-		// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-		// @ts-ignore
+	for (const mon of Object.values(allMonsters).filter(mon => monIDs.has(mon.id))) {
+		// @ts-ignore ignore
 		delete mon.drops;
 
 		const newMonster: MonsterData = {
 			members: mon.members,
-			releaseDate: mon.release_date,
 			combatLevel: mon.combat_level,
 			hitpoints: mon.hitpoints,
 			maxHit: mon.max_hit,
@@ -120,16 +112,12 @@ async function prepareMonsters(): Promise<void> {
 		monsterMap[mon.id] = newMonster;
 
 		if (mon.name.toLowerCase() !== Monsters.get(mon.id)?.name.toLowerCase()) {
-			console.warn(
-				`Warning: Name of ${mon.name} does not match ${Monsters.get(mon.id)?.name}`
-			);
+			console.warn(`Warning: Name of ${mon.name} does not match ${Monsters.get(mon.id)?.name}`);
 		}
 	}
 
 	writeFileSync('./src/data/monsters_data.json', JSON.stringify(monsterMap, null, 4));
-	console.log(
-		'Prepared Monsters. Check any new monsters quickly to see that the data looks okay.'
-	);
+	console.log('Prepared Monsters. Check any new monsters quickly to see that the data looks okay.');
 }
 
 prepareMonsters();

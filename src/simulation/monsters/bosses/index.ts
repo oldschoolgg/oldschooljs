@@ -3,12 +3,14 @@ import CommanderZilyana from './CommanderZilyana';
 import DagannothPrime from './DagannothPrime';
 import DagannothRex from './DagannothRex';
 import DagannothSupreme from './DagannothSupreme';
+import DerangedArchaeologist from './DerangedArchaeologist';
 import GeneralGraardor from './GeneralGraardor';
 import GiantMole from './GiantMole';
 import KalphiteQueen from './KalphiteQueen';
 import Kreearra from './Kreearra';
 import KrilTsutsaroth from './KrilTsutsaroth';
 import Obor from './Obor';
+import PhantomMuspah from './PhantomMuspah';
 import Sarachnis from './Sarachnis';
 import Skotizo from './Skotizo';
 import { allSlayerBosses } from './slayer';
@@ -34,6 +36,8 @@ export const allBosses = {
 	KrilTsutsaroth,
 	Bryophyta,
 	Skotizo,
+	DerangedArchaeologist,
+	PhantomMuspah,
 	...allWildyBosses,
 	...allSlayerBosses
 };

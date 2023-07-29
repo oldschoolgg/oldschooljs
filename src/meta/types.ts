@@ -1,3 +1,4 @@
+import { hiscoreURLs, MINIGAMES } from '../constants';
 import Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import SimpleMonster from '../structures/SimpleMonster';
@@ -20,20 +21,10 @@ export interface MonsterOptions {
 	allItems?: number[];
 }
 
-export enum AccountType {
-	Normal = 'normal',
-	Ironman = 'ironman',
-	Ultimate = 'ultimate',
-	Hardcore = 'hardcore',
-	Deadman = 'deadman',
-	Seasonal = 'seasonal',
-	Tournament = 'tournament'
-}
-
 export interface Player {
 	bossRecords: BossRecords;
 	username: string;
-	type: AccountType;
+	type: keyof typeof hiscoreURLs;
 	skills: SkillsScore;
 	minigames: MinigamesScore;
 	clues: CluesScore;
@@ -68,12 +59,13 @@ export interface SkillsScore {
 }
 
 export interface BossRecords {
-	obor: MinigameScore;
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
+	artio: MinigameScore;
 	barrowsChests: MinigameScore;
 	bryophyta: MinigameScore;
 	callisto: MinigameScore;
+	calvarion: MinigameScore;
 	cerberus: MinigameScore;
 	chambersofXeric: MinigameScore;
 	chambersofXericChallengeMode: MinigameScore;
@@ -98,13 +90,21 @@ export interface BossRecords {
 	mimic: MinigameScore;
 	nex: MinigameScore;
 	nightmare: MinigameScore;
+	phosanisNightmare: MinigameScore;
+	obor: MinigameScore;
+	phantomMuspah: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
 	skotizo: MinigameScore;
+	spindel: MinigameScore;
+	tempoross: MinigameScore;
 	theGauntlet: MinigameScore;
 	theCorruptedGauntlet: MinigameScore;
 	theatreofBlood: MinigameScore;
+	theatreofBloodHard: MinigameScore;
 	thermonuclearSmokeDevil: MinigameScore;
+	tombsofAmascut: MinigameScore;
+	tombsofAmascutExpert: MinigameScore;
 	tzKalZuk: MinigameScore;
 	tzTokJad: MinigameScore;
 	venenatis: MinigameScore;
@@ -115,13 +115,7 @@ export interface BossRecords {
 	zulrah: MinigameScore;
 }
 
-export interface MinigamesScore {
-	bountyHunter: MinigameScore;
-	bountyHunterRogue: MinigameScore;
-	LMS: MinigameScore;
-	soulWars: MinigameScore;
-	riftsClosed: MinigameScore;
-}
+export type MinigamesScore = Record<(typeof MINIGAMES)[number], MinigameScore>;
 
 export interface CluesScore {
 	all: MinigameScore;
@@ -216,10 +210,10 @@ export enum EquipmentSlot {
 
 export interface ItemWeaponStance {
 	combat_style: string;
-	attack_type: string;
-	attack_style: string;
+	attack_type: string | null;
+	attack_style: string | null;
 	experience: string;
-	boosts: string;
+	boosts: string | null;
 }
 
 export interface ItemWeapon {
@@ -280,11 +274,11 @@ export interface Item {
 	/**
 	 * The low alchemy value of the item (cost * 0.4).
 	 */
-	lowalch: number;
+	lowalch?: number;
 	/**
 	 * The high alchemy value of the item (cost * 0.6).
 	 */
-	highalch: number;
+	highalch?: number;
 	/**
 	 * The weight (in kilograms) of the item.
 	 */

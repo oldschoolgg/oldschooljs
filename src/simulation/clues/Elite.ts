@@ -114,7 +114,7 @@ export const EliteRareTable = new LootTable()
 	.add('Giant boot')
 	.add("Rangers' tunic")
 	.add('Monocle')
-	.add(EliteMegaRareTable)
+	.add(EliteMegaRareTable, 1, 2)
 	.add(EliteTuxedoTable);
 
 export const EliteSeedTable = new LootTable().add('Magic seed').add('Yew seed').add('Palm tree seed');

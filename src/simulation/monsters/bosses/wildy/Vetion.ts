@@ -3,68 +3,75 @@ import SimpleMonster from '../../../../structures/SimpleMonster';
 
 const SkeletonHellhoundTable = new LootTable().every('Bones').oneIn(5000, 'Skeleton champion scroll');
 
+const VetionUniqueTable = new LootTable()
+	.oneIn(196, "Skull of vet'ion")
+	.oneIn(256, 'Dragon 2h sword')
+	.oneIn(256, 'Dragon pickaxe')
+	.oneIn(360, 'Voidwaker blade')
+	.oneIn(512, 'Ring of the gods');
+
+const VetionSecondarySupplyTable = new LootTable({ limit: 18 })
+	.add('Blighted anglerfish', [5, 6], 1)
+	.add('Blighted karambwan', [5, 6], 1)
+	.add('Blighted super restore(3)', [3, 4], 1)
+	.add('Blighted super restore(4)', [3, 4], 1)
+	.add('Ranging potion(2)', [2, 3], 1)
+	.add('Super combat potion(2)', [2, 3], 1);
+
 const VetionTable = new LootTable()
 	.every('Big bones')
 	.every(SkeletonHellhoundTable, 4)
-	.oneIn(512, 'Ring of the gods')
-	.tertiary(100, 'Clue scroll (elite)')
-	.tertiary(2000, "Vet'ion jr.")
-	.tertiary(400, 'Long bone')
-	.tertiary(5000, 'Skeleton champion scroll')
-	.tertiary(5013, 'Curved bone')
+
+	/* Unique table */
+	.every(VetionUniqueTable)
 
 	/* Weapons and armour */
-	.add('Rune pickaxe', 1, 48)
-	.add('Rune 2h sword', 1, 12)
-	.add('Ancient staff', 1, 12)
-	.add('Dragon pickaxe', 1, 3)
-	.add('Dragon 2h sword', 1, 2)
+	.add('Rune pickaxe', [1, 3], 12)
+	.add('Rune dart', [22, 150], 3)
+	.add('Rune knife', [22, 150], 3)
 
 	/* Runes and ammunition */
-	.add('Chaos rune', 400, 28)
-	.add('Death rune', 300, 28)
-	.add('Blood rune', 200, 28)
-	.add('Cannonball', 250, 16)
+	.add('Chaos rune', [135, 900], 7)
+	.add('Death rune', [105, 700], 7)
+	.add('Blood rune', [75, 500], 7)
+	.add('Cannonball', [82, 550], 4)
 
 	/* Materials */
-	.add(
-		[
-			['Uncut ruby', 20],
-			['Uncut diamond', 10]
-		],
-		1,
-		28
-	)
-	.add('Gold ore', 300, 24)
-	.add('Limpwurt root', 25, 20)
-	.add('Magic logs', 100, 20)
-	.add('Oak plank', 300, 20)
-	.add('Dragon bones', 100, 12)
-	.add('Uncut dragonstone', 1, 8)
-	.add('Mort myre fungus', 200, 8)
-	.add('Grimy ranarr weed', 100, 4)
+	.add('Gold ore', [101, 675], 6)
+	.add('Limpwurt root', [9, 60], 5)
+	.add('Wine of zamorak', [15, 100], 5)
+	.add('Magic logs', [33, 225], 5)
+	.add('Oak plank', [60, 400], 5)
+	.add('Uncut ruby', [11, 75], 4)
+	.add('Uncut diamond', [5, 35], 3)
+	.add('Dragon bones', [22, 150], 3)
+	.add('Uncut dragonstone', [1, 5], 2)
+	.add('Mort myre fungus', [67, 450], 2)
+	.add('Grimy ranarr weed', [15, 100], 1)
+	.add('Grimy dwarf weed', [6, 45], 1)
+	.add('Grimy snapdragon', [6, 45], 1)
+	.add('Grimy toadflax', [6, 45], 1)
 
 	/* Other */
-	.add('Coins', [15_000, 19_999], 76)
-	.add(
-		[
-			['Dark crab', 8],
-			['Super restore(4)', 3]
-		],
-		1,
-		40
-	)
-	.add('Sanfew serum(4)', 10, 20)
-	.add('Ogre coffin key', 10, 20)
-	.add('Supercompost', 100, 19)
-	.add('Dark fishing bait', 375, 4)
-	.add('Palm tree seed', 1, 4)
-	.add('Yew seed', 1, 4)
-	.add('Magic seed', 1, 4);
+	.add('Coins', [7500, 50_000], 21)
+	.add('Super restore(4)', [1, 10], 5)
+	.add('Sanfew serum(4)', [3, 20], 5)
+	.add('Dark crab', [7, 50], 5)
+	.add('Supercompost', [33, 225], 4)
+	.add('Blighted anglerfish', [6, 45], 1)
+
+	/* Tertiary */
+	.tertiary(100, 'Clue scroll (elite)')
+	.tertiary(400, 'Long bone')
+	.tertiary(2000, "Vet'ion jr.")
+	.tertiary(5000, 'Skeleton champion scroll')
+	.tertiary(5013, 'Curved bone');
+
+const VetionTotalTable = new LootTable().every(VetionSecondarySupplyTable).every(VetionTable);
 
 export default new SimpleMonster({
 	id: 6611,
 	name: "Vet'ion",
-	table: VetionTable,
+	table: VetionTotalTable,
 	aliases: ['vetion', "vet'ion", 'vet']
 });

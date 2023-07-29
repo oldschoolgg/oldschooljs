@@ -12,6 +12,7 @@ import BabyBlackDragon from './a-f/BabyBlackDragon';
 import BabyBlueDragon from './a-f/BabyBlueDragon';
 import BabyGreenDragon from './a-f/BabyGreenDragon';
 import BabyRedDragon from './a-f/BabyRedDragon';
+import Bandit from './a-f/Bandit';
 import Banshee from './a-f/Banshee';
 import Basilisk from './a-f/Basilisk';
 import BasiliskKnight from './a-f/BasiliskKnight';
@@ -151,6 +152,7 @@ import MagicAxe from './g-m/MagicAxe';
 import MaleHamMember from './g-m/MaleHamMember';
 import Mammoth from './g-m/Mammoth';
 import Man from './g-m/Man';
+import ManiacalMonkey from './g-m/ManiacalMonkey';
 import MasterFarmer from './g-m/MasterFarmer';
 import MenaphiteThug from './g-m/MenaphiteThug';
 import Minotaur from './g-m/Minotaur';
@@ -184,12 +186,6 @@ import PriffRabbit from './n-s/PriffRabbit';
 import Pyrefiend from './n-s/Pyrefiend';
 import Pyrelord from './n-s/Pyrelord';
 import Rat from './n-s/Rat';
-import ReanimatedAbyssal from './n-s/ReanimatedAbyssal';
-import ReanimatedDog from './n-s/ReanimatedDog';
-import ReanimatedElf from './n-s/ReanimatedElf';
-import ReanimatedScorpion from './n-s/ReanimatedScorpion';
-import ReanimatedTroll from './n-s/ReanimatedTroll';
-import ReanimatedTzHaar from './n-s/ReanimatedTzHaar';
 import RedDragon from './n-s/RedDragon';
 import RevenantCyclops from './n-s/RevenantCyclops';
 import RevenantDarkBeast from './n-s/RevenantDarkBeast';
@@ -270,6 +266,7 @@ import Zygomite from './t-z/Zygomite';
 export const allLowMonsters = {
 	BrutalBlackDragon,
 	BabyBlackDragon,
+	Bandit,
 	ArmadylianGuard,
 	BlackKnight,
 	DarkWarrior,
@@ -341,10 +338,6 @@ export const allLowMonsters = {
 	SeaSnakeHatchling,
 	Rockslug,
 	RiylShade,
-	ReanimatedTzHaar,
-	ReanimatedTroll,
-	ReanimatedAbyssal,
-	ReanimatedElf,
 	Pyrefiend,
 	Pyrelord,
 	Porazdir,
@@ -381,8 +374,6 @@ export const allLowMonsters = {
 	Penguin,
 	PitScorpion,
 	PoisonScorpion,
-	ReanimatedDog,
-	ReanimatedScorpion,
 	Rooster,
 	Seagull,
 	ShadowSpider,
@@ -535,5 +526,6 @@ export const allLowMonsters = {
 	TzHaarXil,
 	TzHaarMej,
 	GiantFrog,
-	JubblyBird
+	JubblyBird,
+	ManiacalMonkey
 };

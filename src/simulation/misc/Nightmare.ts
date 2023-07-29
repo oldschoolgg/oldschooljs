@@ -1,5 +1,4 @@
 import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from 'e';
-import { O } from 'ts-toolbelt';
 
 import { ItemBank, LootBank } from '../../meta/types';
 import Bank from '../../structures/Bank';
@@ -96,7 +95,7 @@ const phosaniData: Record<string, [number[], number]> = {
 	'Prayer potion(3)': [[8, 15], 5],
 	'Sanfew serum(3)': [[6, 12], 5],
 	'Saradomin brew(3)': [[8, 15], 5],
-	'Zamorak brew(3)': [[1, 15], 5],
+	'Zamorak brew(3)': [[8, 15], 5],
 
 	Coins: [[41_417, 72_013], 2]
 };
@@ -148,7 +147,7 @@ class NightmareClass {
 		const [table, ranges] = isPhosani
 			? [PhosaniNonUniqueTable, phosaniNonUniqueItemRanges]
 			: [NonUniqueTable, nonUniqueItemRanges];
-		const { item } = table.roll();
+		const item = table.roll();
 
 		const [range] = ranges[item];
 
@@ -168,9 +167,7 @@ class NightmareClass {
 		return [item, quantity];
 	}
 
-	public kill(
-		options: O.Readonly<NightmareOptions>
-	): {
+	public kill(options: Readonly<NightmareOptions>): {
 		[key: string]: ItemBank;
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];
@@ -190,11 +187,11 @@ class NightmareClass {
 
 		if (options.isPhosani) {
 			if (roll(200)) {
-				lootResult[options.team[0].id].add(GearTable.roll().item);
+				lootResult[options.team[0].id].add(GearTable.roll());
 			}
 
 			if (roll(1000)) {
-				lootResult[options.team[0].id].add(OrbTable.roll().item);
+				lootResult[options.team[0].id].add(OrbTable.roll());
 			}
 		} else {
 			// Construct a weighted table, where the weighting is the percent of the total HP that the team member has damaged,
@@ -207,25 +204,25 @@ class NightmareClass {
 			}
 
 			function giveWeightedDrop(item: string): void {
-				const { item: recipient } = WeightedUniqueTable.roll();
+				const recipient = WeightedUniqueTable.roll();
 				lootResult[recipient].add(item);
 			}
 
 			if (roll(120)) {
-				giveWeightedDrop(GearTable.roll().item);
+				giveWeightedDrop(GearTable.roll());
 			}
 
 			if (roll(600)) {
-				giveWeightedDrop(OrbTable.roll().item);
+				giveWeightedDrop(OrbTable.roll());
 			}
 
 			const secondRollChance = Math.min(75, parsedTeam.length - 5);
 			if (secondRollChance > 0 && percentChance(secondRollChance)) {
 				if (roll(600)) {
-					giveWeightedDrop(OrbTable.roll().item);
+					giveWeightedDrop(OrbTable.roll());
 				}
 				if (roll(120)) {
-					giveWeightedDrop(GearTable.roll().item);
+					giveWeightedDrop(GearTable.roll());
 				}
 			}
 		}

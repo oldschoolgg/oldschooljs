@@ -70,6 +70,7 @@ const KalphiteQueenTable = new LootTable({ limit: 256 })
 	.tertiary(20, 'Ensouled kalphite head')
 	.tertiary(100, 'Clue scroll (elite)')
 	.tertiary(128, 'Kq head')
+	.tertiary(400, 'Dragon pickaxe')
 	.tertiary(2000, 'Jar of sand')
 	.tertiary(3000, 'Kalphite princess');
 

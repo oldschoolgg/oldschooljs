@@ -38,21 +38,21 @@ class Polls extends Collection<string, PollWithDOM> {
 	public async fetchPageContent(url: string, year: number): Promise<any> {
 		const { document } = await getDom(url);
 
-		const title = document.querySelector('.widescroll-content > h2').textContent.split(' (')[0];
+		const title = document.querySelector('.widescroll-content > h2')!.textContent!.split(' (')[0];
 
-		const description = Array.from(document.querySelector('.widescroll-content').childNodes)
+		const description = Array.from(document.querySelector('.widescroll-content')!.childNodes)
 			.slice(0, 15)
-			.map((node): string => node.textContent.trim())
+			.map((node): string => node.textContent!.trim())
 			.filter((str): boolean => str.trim().length > 0)
 			.slice(1, -1)
 			.join(' ');
 
 		const totalVotes = parseInt(
-			(document.querySelector('.widescrollWrapper b') as HTMLElement).textContent.split(': ')[1]
+			(document.querySelector('.widescrollWrapper b') as HTMLElement).textContent!.split(': ')[1]
 		);
 
 		const datePosted = new Date(
-			document.querySelector('.widescroll-content > h2').textContent.split(' (')[1].split(')')[0]
+			document.querySelector('.widescroll-content > h2')!.textContent!.split(' (')[1].split(')')[0]
 		).getTime();
 
 		const questions = [];
@@ -60,7 +60,7 @@ class Polls extends Collection<string, PollWithDOM> {
 		const questionElements = Array.from(document.querySelectorAll('.question'));
 
 		for (const questionElement of questionElements) {
-			const questionText = questionElement.querySelector('b').textContent;
+			const questionText = questionElement.querySelector('b')!.textContent;
 			const questionResults = [];
 			const voteResultRowList = Array.from(
 				questionElement.querySelectorAll('table > tbody > tr')
@@ -68,9 +68,9 @@ class Polls extends Collection<string, PollWithDOM> {
 
 			for (const row of voteResultRowList) {
 				try {
-					let voteOption = row.querySelector('.shield').textContent.toLowerCase();
+					let voteOption = row.querySelector('.shield')!.textContent!.toLowerCase();
 					if (voteOption.includes('skip')) voteOption = 'skip';
-					const result = row.querySelector('td:nth-of-type(3)').textContent;
+					const result = row.querySelector('td:nth-of-type(3)')!.textContent!;
 					questionResults.push({
 						voteOption,
 						percentOfTotal: parseFloat(result.split('%')[0]),
@@ -81,7 +81,7 @@ class Polls extends Collection<string, PollWithDOM> {
 				}
 			}
 
-			questions.push({ question: questionText, results: questionResults });
+			questions.push({ question: questionText!, results: questionResults });
 		}
 
 		const poll: PollWithDOM = { title, description, datePosted, totalVotes, questions, year, url, dom: document };

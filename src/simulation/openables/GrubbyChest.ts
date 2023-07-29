@@ -21,7 +21,7 @@ const PotionTable = new LootTable()
 			['Super defence(2)', 1]
 		],
 		1,
-		2
+		8
 	)
 	.add(
 		[
@@ -29,35 +29,37 @@ const PotionTable = new LootTable()
 			['Ranging potion(2)', 1]
 		],
 		1,
-		2
+		8
 	)
-	.add('Super restore(3)', 2, 1)
-	.add('Prayer potion(3)', 2, 1);
+	.add('Prayer potion(3)', 2, 3)
+	.add('Super restore(3)', 2, 1);
 
 const GrubbyChestTable = new LootTable()
 	/* Food roll */
-	// TODO: check back for wiki drop table update in future (Written: 2020-07-20)
 	.every(FoodTable, 2)
 
 	/* Potion roll */
-	// TODO: check back for wiki drop table update in future (Written: 2020-07-20)
 	.every(PotionTable, 1)
 
 	/* Main roll */
-	.add('Grimy toadflax', 10, 7)
-	.add('Crystal key', 1, 6)
 	.add('Law rune', 200, 10)
 	.add('Death rune', 200, 10)
 	.add('Astral rune', 200, 10)
-	.add('Dragon dart tip', 50, 3)
-	.add('Dragon arrowtips', 100, 2)
 	.add('Blood rune', 200, 10)
-	.add('Dragon bones', 10, 6)
-	.add('Red dragonhide', 10, 6)
-	.add('Grimy ranarr weed', 10, 7)
+	.add('Grimy toadflax', 10, 8)
+	.add('Grimy ranarr weed', 10, 8)
+	.add('Coins', 10_000, 8)
 	.add('Grimy snapdragon', 10, 7)
 	.add('Grimy torstol', 5, 7)
-	.add('Coins', 10_000, 9);
+	.add('Crystal key', 1, 6)
+	.add('Dragon bones', 10, 6)
+	.add('Red dragonhide', 10, 6)
+	.add('Dragon dart tip', 50, 2)
+	.add('Dragon arrowtips', 100, 2)
+
+	/* Tertiary */
+	.tertiary(25, 'Orange egg sac')
+	.tertiary(25, 'Blue egg sac');
 
 export default new SimpleOpenable({
 	id: 23_499,

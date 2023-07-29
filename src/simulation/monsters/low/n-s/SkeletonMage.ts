@@ -5,33 +5,34 @@ import { GemTable } from '../../../subtables/RareDropTable';
 
 export const SkeletonMageTable = new LootTable()
 	.every('ashes')
-	.tertiary(5000, 'Skeleton champion scroll')
-	.tertiary(128, 'Clue scroll (medium)')
-	// TODO: Check for updated drop rates in future.
+
 	/* Weapons and armour */
-	.add('Pink skirt', 1, 8)
-	.add('Battlestaff', 1, 1)
+	.add('Pink skirt', 1, 2)
 
 	/* Runes */
-	.add('Mind rune', [7, 9], 8)
-	.add('Chaos rune', [2, 4], 6)
-	.add('Law rune', [2, 3], 4)
-	.add('Nature rune', [1, 3], 1)
+	.add('Mind rune', [7, 9], 12)
+	.add('Law rune', [2, 3], 12)
+	.add('Nature rune', [1, 3], 11)
+	.add('Chaos rune', [3, 4], 10)
 
 	/* Herbs */
-	.add(HerbDropTable, 1, 4)
+	.add(HerbDropTable, 1, 12)
 
 	/* Materials */
-	.add('Uncut opal', 1, 8)
-	.add('Pot of flour', 1, 8)
-	.add('Iron bar', [1, 2], 4)
+	.add('Uncut opal', 1, 10)
+	.add('Pot of flour', 1, 10)
+	.add('Iron bar', [1, 2], 5)
 
 	/* Other */
-	.add('Coins', [26, 54], 22)
-	.add('Big bones', [3, 4], 1)
+	.add('Coins', [25, 54], 33)
+	.add('Big bones', [2, 4], 6)
 
 	/* Gem drop table */
-	.add(GemTable);
+	.add(GemTable, 1, 5)
+
+	/* Tertiary */
+	.tertiary(128, 'Clue scroll (medium)')
+	.tertiary(5000, 'Skeleton champion scroll');
 
 export default new SimpleMonster({
 	id: 4319,

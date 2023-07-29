@@ -52,6 +52,7 @@ const BrutalBlueDragonTable = new LootTable()
 
 	/* Tertiary */
 	.tertiary(20, 'Ensouled dragon head')
+	.tertiary(33, 'Scaly blue dragonhide')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(750, 'Clue scroll (elite)')
 	.tertiary(10_000, 'Draconic visage');

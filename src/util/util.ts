@@ -1,12 +1,12 @@
 import { randFloat, randInt, roll } from 'e';
 
-import { CLUES, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
-import { AccountType, CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from '../meta/types';
+import { CLUES, hiscoreURLs, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
+import { CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from '../meta/types';
 import type Bank from '../structures/Bank';
 import LootTable from '../structures/LootTable';
 import Player from '../structures/Player';
 
-export function resolvePlayerFromHiscores(csvData: string, accountType: AccountType): Player {
+export function resolvePlayerFromHiscores(csvData: string, accountType: keyof typeof hiscoreURLs): Player {
 	const data: string[][] = csvData
 		.trim()
 		.split('\n')
@@ -29,7 +29,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 		};
 	}
 
-	if (accountType === AccountType.Seasonal) {
+	if (accountType === 'seasonal') {
 		resolvedPlayer.leaguePoints = {
 			rank: Number(data[accumulativeIndex + SKILLS.length][0]),
 			points: Number(data[accumulativeIndex + SKILLS.length][1])
@@ -38,14 +38,14 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 
 	accumulativeIndex += SKILLS.length + 1;
 
-	for (let i = 0; i < 2; i++) {
+	for (let i = 0; i < 4; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
 	}
 
-	accumulativeIndex += 2;
+	accumulativeIndex += 4;
 
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
@@ -56,19 +56,21 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: AccountT
 
 	accumulativeIndex += CLUES.length;
 
-	for (let i = 0; i < 3; i++) {
-		resolvedPlayer.minigames[MINIGAMES[i + 2]] = {
+	for (let i = 0; i < 4; i++) {
+		const minigameKey = MINIGAMES[i + 4];
+		const minigameData = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
+		resolvedPlayer.minigames[minigameKey] = minigameData;
 	}
 
-	accumulativeIndex += 3;
+	accumulativeIndex += 4;
 
 	for (let i = 0; i < mappedBossNames.length; i++) {
 		if (!data[i + accumulativeIndex]) continue;
-
-		resolvedPlayer.bossRecords[mappedBossNames[i][0]] = {
+		const bossName = mappedBossNames[i][0];
+		resolvedPlayer.bossRecords[bossName] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1])
 		};
@@ -159,10 +161,6 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 }
 
-export function addArrayOfNumbers(arr: number[]): number {
-	return arr.reduce((a, b) => a + b, 0);
-}
-
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));
 }
@@ -170,7 +168,7 @@ export function JSONClone<O>(object: O): O {
 export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
 	const result: { [key: string]: ItemBank } = {};
 	for (const [id, loot] of Object.entries(lootResult)) {
-		result[id] = loot.values();
+		result[id] = { ...loot.bank };
 	}
 
 	return result;

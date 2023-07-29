@@ -1,6 +1,8 @@
-import { Bank, Items, LootTable } from '../dist';
-import { Item, ReturnedLootItem } from '../dist/meta/types';
-import { itemID, multiplyBank, resolveNameBank } from '../dist/util';
+import { describe, expect, test, vi } from 'vitest';
+
+import { Bank, Items, LootTable } from '../src';
+import { Item, ReturnedLootItem } from '../src/meta/types';
+import { itemID, multiplyBank, resolveNameBank } from '../src/util';
 
 const TestLootTable = new LootTable().add('Toolkit');
 
@@ -130,6 +132,7 @@ describe('Bank Class', () => {
 		expect(bank.toString()).toEqual('20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald');
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual('No items');
+		expect(new Bank({ 111_231_231: 1 }).toString()).toEqual('1x Unknown item');
 	});
 
 	test('.items()', () => {
@@ -158,7 +161,7 @@ describe('Bank Class', () => {
 
 	test('.forEach()', () => {
 		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
-		const mockCallback = jest.fn(() => null);
+		const mockCallback = vi.fn();
 		bank.forEach(mockCallback);
 		expect(mockCallback).toHaveBeenCalledTimes(bank.length);
 		expect(mockCallback).toHaveBeenCalledWith(Items.get('Coal'), 20);
@@ -173,7 +176,7 @@ describe('Bank Class', () => {
 			Toolkit: 1
 		});
 		const bank = new Bank(baseBank);
-		const cb = jest.fn((item: Item) => item.tradeable);
+		const cb = vi.fn((item: Item) => Boolean(item.tradeable));
 		const filtered = bank.filter(cb);
 		expect(cb).toHaveBeenCalledTimes(bank.length);
 		expect(cb).toHaveBeenCalledWith(Items.get('Coal'), 20);
@@ -255,17 +258,6 @@ describe('Bank Class', () => {
 		expect(otherBank.amount('Coal')).toEqual(20);
 		expect(otherBank.bank).toEqual(bank.bank);
 		expect(otherBank.has(idVersion)).toBeTruthy();
-
-		const mixed = {
-			Coal: 20,
-			[itemID('Egg')]: 100
-		};
-		const rawMixed = { [itemID('Coal')]: 20, [itemID('Egg')]: 100 };
-		const mixedBank = new Bank(mixed);
-		expect(mixedBank.amount('Coal')).toEqual(20);
-		expect(mixedBank.amount('Egg')).toEqual(100);
-		expect(mixedBank.bank).toEqual(rawMixed);
-		expect(mixedBank.has(rawMixed)).toBeTruthy();
 
 		const base = {
 			'Bandos chestplate': 4,

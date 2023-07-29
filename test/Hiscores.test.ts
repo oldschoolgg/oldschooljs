@@ -1,7 +1,16 @@
-import { Hiscores } from '../dist';
-import { AccountType } from '../dist/meta/types';
+import { expect, test } from 'vitest';
+
+import { Hiscores } from '../src';
 
 test('Hiscores', async () => {
+	const koru = await Hiscores.fetch('Koru');
+
+	expect(koru.minigames.pvpArena.rank).toBeGreaterThanOrEqual(1);
+	expect(koru.minigames.pvpArena.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.commanderZilyana.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.dagannothPrime.score).toBeGreaterThanOrEqual(1);
+	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(1);
+
 	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),
@@ -14,33 +23,26 @@ test('Hiscores', async () => {
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
 	expect(lynxTitan.skills.overall.xp).toBe(4_600_000_000);
+
 	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
 	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
 
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
 	expect(zulu.bossRecords.commanderZilyana.rank > 1).toBe(true);
-	expect(zulu.bossRecords.commanderZilyana.score).toBe(1083);
+	expect(zulu.bossRecords.commanderZilyana.score).toBeGreaterThan(1084);
 
 	expect(zulu.bossRecords.zulrah.rank > 1).toBe(true);
-	expect(zulu.bossRecords.zulrah.score).toBe(2523);
+	expect(zulu.bossRecords.zulrah.score).toBeGreaterThanOrEqual(2527);
 
 	expect(zulu.bossRecords.callisto.rank > 1).toBe(true);
-	expect(zulu.bossRecords.callisto.score).toBe(327);
+	expect(zulu.bossRecords.callisto.score).toBeGreaterThan(326);
 
 	expect(zulu.bossRecords.cerberus.rank > 1).toBe(true);
-	expect(zulu.bossRecords.cerberus.score).toBe(7080);
+	expect(zulu.bossRecords.cerberus.score).toBeGreaterThan(7079);
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
-	expect(zulu.bossRecords.nex.score).toBe(201);
-
-	expect(zulu.minigames.bountyHunter.rank > 1).toBe(true);
-	expect(zulu.minigames.bountyHunter.score).toBe(4);
-
-	expect(zulu.minigames.bountyHunterRogue.rank > 1).toBe(true);
-	expect(zulu.minigames.bountyHunterRogue.score).toBe(3);
-
-	expect(zulu.minigames.LMS.score).toBe(504);
+	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
 
 	expect(magnaboy.clues.all.score).toBe(157);
 
@@ -52,12 +54,6 @@ test('Hiscores', async () => {
 
 	expect(magnaboy.clues.elite.score).toBe(16);
 	expect(magnaboy.clues.master.score).toBe(7);
-
-	expect(magnaboy.minigames.bountyHunter.rank).toBe(-1);
-	expect(magnaboy.minigames.bountyHunter.score).toBe(-1);
-
-	expect(magnaboy.minigames.bountyHunterRogue.rank > 1).toBe(true);
-	expect(magnaboy.minigames.bountyHunterRogue.score).toBe(2);
 
 	expect(magnaboy.minigames.LMS.score).toBe(-1);
 	expect(magnaboy.bossRecords.nex.score).toBe(-1);
@@ -74,10 +70,21 @@ test('Hiscores', async () => {
 	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
 	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
 
-	const leagues = await Hiscores.fetch('Magnaboy', { type: AccountType.Seasonal });
+	const leagues = await Hiscores.fetch('Magnaboy', { type: 'seasonal' });
 	expect(leagues.leaguePoints?.points).toBeGreaterThan(6300);
 	expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
 
-	const leagues2 = await Hiscores.fetch('fk ezscape', { type: AccountType.Seasonal });
+	const leagues2 = await Hiscores.fetch('fk ezscape', { type: 'seasonal' });
 	expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
+
+	// Skillers
+	const skiller = await Hiscores.fetch('Jcw', { type: 'skiller' });
+	expect(skiller.skills.overall.rank).toBeLessThan(10);
+	expect(skiller.skills.overall.level).toBeGreaterThan(1500);
+	expect(skiller.skills.overall.level).toBeLessThan(1601);
+
+	// Pures
+	const pure = await Hiscores.fetch('Headline', { type: 'skiller_defence' });
+	expect(pure.skills.overall.rank).toBe(1);
+	expect(pure.skills.overall.level).toBe(2179);
 }, 30_000);

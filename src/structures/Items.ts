@@ -3,6 +3,7 @@ import { Item, ItemID } from '../meta/types';
 import { cleanString } from '../util/cleanString';
 import Collection from './Collection';
 
+// @ts-ignore asdf
 const items = _items as Record<string, Item>;
 
 export const itemNameMap: Map<string, number> = new Map();
@@ -13,21 +14,15 @@ export interface ItemCollection {
 }
 
 export const USELESS_ITEMS = [
-	617,
-	8890,
-	6964,
-	2513,
-	19_492,
-	11_071,
-	11_068,
-	21_284,
-	24_735,
-	21_913,
-	4703,
-	4561,
-	2425,
-	4692,
-	3741
+	617, 8890, 6964, 2513, 19_492, 11_071, 11_068, 21_284, 24_735, 21_913, 4703, 4561, 2425, 4692, 3741,
+
+	// Pharaoh's sceptres
+	9045, 9046, 9047, 9048, 9049, 9050, 9051, 13_074, 13_075, 13_076, 13_077, 13_078, 16_176, 21_445, 21_446, 26_948,
+	26_950, 26_945,
+
+	// Removed items
+	10_639, 10_641, 10_644, 10_646, 10_647, 10_648, 10_649, 10_651, 10_652, 10_654, 10_657, 10_658, 10_659, 10_661,
+	27_794, 27_795, 27_796, 27_797, 27_798, 27_799, 27_800, 27_801
 ];
 
 class Items extends Collection<number, Item> {

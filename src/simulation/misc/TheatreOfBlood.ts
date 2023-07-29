@@ -68,7 +68,7 @@ export const TOBRooms: TOBRoom[] = [
 	}
 ];
 
-const UniqueTable = new LootTable()
+export const ToBUniqueTable = new LootTable()
 	.add('Scythe of vitur (uncharged)')
 	.add('Ghrazi rapier', 1, 2)
 	.add('Sanguinesti staff (uncharged)', 1, 2)
@@ -158,7 +158,7 @@ export class TheatreOfBloodClass {
 			table.add(member, member.points);
 		}
 
-		return table.roll().item;
+		return table.roll();
 	}
 
 	public complete(_options: TheatreOfBloodOptions) {
@@ -192,7 +192,7 @@ export class TheatreOfBloodClass {
 		for (const member of parsedTeam) {
 			if (member === purpleRecipient) {
 				lootResult[member.id] = new Bank().add(
-					options.hardMode ? HardModeUniqueTable.roll() : UniqueTable.roll()
+					options.hardMode ? HardModeUniqueTable.roll() : ToBUniqueTable.roll()
 				);
 			} else {
 				lootResult[member.id] = this.nonUniqueLoot(member, options.hardMode, member.deaths);

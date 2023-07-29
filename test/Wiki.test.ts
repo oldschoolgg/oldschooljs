@@ -1,15 +1,15 @@
-import { Wiki } from '../dist';
+import { describe, expect, test } from 'vitest';
+
+import { Wiki } from '../src';
 
 describe('Wiki', () => {
-	jest.setTimeout(20_000);
 	test('Searching', async () => {
 		expect.assertions(2);
 
 		const searchResults = await Wiki.search('tbow');
 		const twistedBow = searchResults[0];
 		expect(twistedBow.title).toEqual('Twisted bow');
-
-		expect(searchResults.length).toEqual(2);
+		expect(searchResults.length).toBeGreaterThanOrEqual(4);
 	});
 
 	test('Random', async () => {
@@ -26,7 +26,7 @@ describe('Wiki', () => {
 		expect.assertions(1);
 
 		const twistedBowPage = await Wiki.fetchPage(82_098);
-		if (!twistedBowPage) return fail('Failed to fetch page');
+		if (!twistedBowPage) throw new Error('Failed to fetch page');
 		expect(twistedBowPage.title).toEqual('Twisted bow');
 	});
 });
