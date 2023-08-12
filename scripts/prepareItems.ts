@@ -231,7 +231,7 @@ const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'w
 export default async function prepareItems(): Promise<void> {
 	const messages: string[] = [];
 	const allItemsRaw: RawItemCollection = await fetch(
-		'https://raw.githubusercontent.com/ZappyScript/osrsbox-item-complete/main/items-complete.json'
+		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json'
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
 
@@ -397,8 +397,11 @@ export default async function prepareItems(): Promise<void> {
 			}
 		}
 
-		if (previousItem.equipment?.requirements && !item.equipment?.requirements) {
-			item.equipment.requirements = previousItem.equipment.requirements;
+		if (previousItem?.equipment?.requirements && !item.equipment?.requirements) {
+			item.equipment = {
+				...item.equipment,
+				requirements: previousItem.equipment.requirements
+			};
 		}
 
 		if (itemChanges[item.id]) {
