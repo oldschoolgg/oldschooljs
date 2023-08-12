@@ -3,7 +3,7 @@ import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from 'e
 import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
-import { Item } from '../dist/meta/types';
+import { EquipmentSlot, Item } from '../dist/meta/types';
 import Items, { USELESS_ITEMS } from '../dist/structures/Items';
 import { itemID } from '../dist/util';
 import { itemChanges } from './manualItemChanges';
@@ -51,6 +51,54 @@ function getItem(name: string) {
 	if (!item) throw new Error(`${name} doesnt exist`);
 	return item;
 }
+
+const manualItems: Item[] = [
+	{
+		id: 28_329,
+		name: 'Ring of shadows',
+		members: true,
+		equipable: true,
+		equipable_by_player: true,
+		cost: 75_000,
+		lowalch: 30_000,
+		highalch: 45_000,
+		weight: 0.004,
+		release_date: '2023-07-26',
+		examine: 'A powerful ring used to see into other realms...',
+		wiki_name: 'Ring of shadows (uncharged)',
+		wiki_url: 'https://oldschool.runescape.wiki/w/Ring_of_shadows#Uncharged',
+		equipment: {
+			attack_stab: 4,
+			attack_slash: 4,
+			attack_crush: 4,
+			attack_magic: 5,
+			attack_ranged: 4,
+			defence_stab: 0,
+			defence_slash: 0,
+			defence_crush: 0,
+			defence_magic: 5,
+			defence_ranged: 0,
+			melee_strength: 2,
+			ranged_strength: 0,
+			magic_damage: 0,
+			prayer: 2,
+			slot: EquipmentSlot.Ring,
+			requirements: null
+		},
+		price: 0
+	},
+	{
+		id: 28_409,
+		name: 'Ancient lamp',
+		cost: 1,
+		weight: 0.1,
+		release_date: '2023-07-26',
+		examine: 'Good for rubbing.',
+		wiki_name: 'Ancient lamp',
+		wiki_url: 'https://oldschool.runescape.wiki/w/Ancient_lamp',
+		price: 0
+	}
+];
 
 // Make these all worth 0gp. They're manipulated and fluctuate hugely constantly.
 const itemsToIgnorePrices = [
@@ -332,13 +380,17 @@ export default async function prepareItems(): Promise<void> {
 			}
 		}
 
+		if (previousItem.equipment?.requirements && !item.equipment?.requirements) {
+			item.equipment.requirements = previousItem.equipment.requirements;
+		}
+
 		if (itemChanges[item.id]) {
 			item = deepMerge(item, itemChanges[item.id]) as any;
 		}
 
-		if (item.id < 27_499) {
-			itemNameMap[item.id] = previousItem;
-		} else {
+		itemNameMap[item.id] = item;
+
+		for (const item of manualItems) {
 			itemNameMap[item.id] = item;
 		}
 	}
