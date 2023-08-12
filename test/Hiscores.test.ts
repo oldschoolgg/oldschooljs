@@ -42,7 +42,7 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.cerberus.score).toBeGreaterThan(7079);
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
-	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 1000).toBe(true);
+	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 3000).toBe(true);
 
 	expect(magnaboy.clues.all.score).toBe(157);
 

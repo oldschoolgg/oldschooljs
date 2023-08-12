@@ -78,6 +78,7 @@ export interface BossRecords {
 	dagannothRex: MinigameScore;
 	dagannothSupreme: MinigameScore;
 	derangedArchaeologist: MinigameScore;
+	dukeSucellus: MinigameScore;
 	generalGraardor: MinigameScore;
 	giantMole: MinigameScore;
 	grotesqueGuardians: MinigameScore;
@@ -100,6 +101,8 @@ export interface BossRecords {
 	tempoross: MinigameScore;
 	theGauntlet: MinigameScore;
 	theCorruptedGauntlet: MinigameScore;
+	theLeviathan: MinigameScore;
+	theWhisperer: MinigameScore;
 	theatreofBlood: MinigameScore;
 	theatreofBloodHard: MinigameScore;
 	thermonuclearSmokeDevil: MinigameScore;
@@ -107,6 +110,7 @@ export interface BossRecords {
 	tombsofAmascutExpert: MinigameScore;
 	tzKalZuk: MinigameScore;
 	tzTokJad: MinigameScore;
+	vardorvis: MinigameScore;
 	venenatis: MinigameScore;
 	vetion: MinigameScore;
 	vorkath: MinigameScore;
