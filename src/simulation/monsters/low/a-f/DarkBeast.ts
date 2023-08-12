@@ -51,6 +51,7 @@ const DarkBeastTable = new LootTable()
 	.every(DarkBeastPreTable)
 
 	/* Tertiary */
+	.tertiary(24, 'Crystal shard')
 	.tertiary(128, 'Clue scroll (hard)')
 	.tertiary(400, 'Long bone')
 	.tertiary(1200, 'Clue scroll (elite)')
