@@ -97,6 +97,23 @@ const manualItems: Item[] = [
 		wiki_name: 'Ancient lamp',
 		wiki_url: 'https://oldschool.runescape.wiki/w/Ancient_lamp',
 		price: 0
+	},
+	{
+		id: 27_897,
+		name: 'Scaly blue dragonhide',
+		members: true,
+		tradeable: true,
+		tradeable_on_ge: true,
+		noteable: true,
+		cost: 100,
+		lowalch: 40,
+		highalch: 60,
+		weight: 3.175,
+		release_date: '2023-05-17',
+		examine: 'A scaled blue dragonhide.',
+		wiki_name: 'Scaly blue dragonhide',
+		wiki_url: 'https://oldschool.runescape.wiki/w/Scaly_blue_dragonhide',
+		price: 2011
 	}
 ];
 
