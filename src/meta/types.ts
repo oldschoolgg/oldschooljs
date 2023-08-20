@@ -441,6 +441,7 @@ export interface MonsterKillOptions {
 	hasSuperiors?: SimpleMonster;
 	farmingLevel?: number;
 	skulled?: boolean;
+	isAwakened?: boolean;
 }
 
 export interface OpenableOptions {

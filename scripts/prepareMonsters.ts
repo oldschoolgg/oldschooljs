@@ -116,6 +116,11 @@ async function prepareMonsters(): Promise<void> {
 		}
 	}
 
+	monsterMap[12_192] = { ...monsterMap[12_191] };
+	monsterMap[12_215] = { ...monsterMap[12_214] };
+	monsterMap[12_205] = { ...monsterMap[12_204] };
+	monsterMap[12_224] = { ...monsterMap[12_223] };
+
 	writeFileSync('./src/data/monsters_data.json', JSON.stringify(monsterMap, null, 4));
 	console.log('Prepared Monsters. Check any new monsters quickly to see that the data looks okay.');
 }
