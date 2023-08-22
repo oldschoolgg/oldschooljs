@@ -42,7 +42,16 @@ const ResourceTable = new LootTable()
 	.add('Emerald', [25, 38], 1)
 	.add('Ruby', [25, 38], 1)
 	.add('Onyx bolt tips', [90, 135], 1)
-	.add('Raw manta ray', [180, 270], 1);
+	.add('Raw manta ray', [180, 270], 1)
+
+	.add('Rune arrow', [54, 81], 8)
+	.add('Smoke rune', [300, 450], 8)
+	.add('Soul rune', [600, 900], 2)
+	.add('Bronze arrow', [63, 94], 1)
+	.add('Mithril arrow', [63, 94], 1)
+	.add('Adamant arrow', [63, 94], 1)
+	.add('Body rune', [180, 270], 1)
+	.add('Earth rune', [180, 270], 1);
 
 class TheLeviathanSingleton extends Monster {
 	public allItems: number[] = uniqueArr([
