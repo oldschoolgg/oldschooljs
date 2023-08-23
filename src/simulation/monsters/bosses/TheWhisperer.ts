@@ -5,8 +5,7 @@ import Bank from '../../../structures/Bank';
 import LootTable from '../../../structures/LootTable';
 import Monster from '../../../structures/Monster';
 import { itemID } from '../../../util';
-
-const VirtusTable = new LootTable().add('Virtus mask').add('Virtus robe top').add('Virtus robe bottom');
+import { VirtusTable } from '../../subtables/VirtusTable';
 
 const TradeableUniqueTable = new LootTable({ limit: 8 })
 	.add(VirtusTable, 1, 1)
