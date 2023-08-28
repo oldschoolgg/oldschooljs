@@ -1,11 +1,21 @@
-import { randFloat, randInt, roll } from 'e';
+import { randFloat, randInt, reduceNumByPercent, roll } from 'e';
 
 import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from '../meta/types';
 import itemID from '../util/itemID';
 import Bank from './Bank';
+import Items from './Items';
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
+}
+
+export interface LootTableRollOptions {
+	/**
+	 * Map<item_id, percentage>
+	 *
+	 * item_id droprate will be decreased by percentage%.
+	 */
+	tertiaryItemPercentageChanges?: Map<string, number>;
 }
 
 export default class LootTable {
@@ -168,8 +178,20 @@ export default class LootTable {
 		return this;
 	}
 
-	public roll(quantity = 1): Bank {
+	public roll(quantity = 1, options?: LootTableRollOptions): Bank {
 		const loot = new Bank();
+
+		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
+			? this.tertiaryItems.map(i => {
+					if (typeof i.item !== 'number') return i;
+					const change = options.tertiaryItemPercentageChanges?.get(Items.get(i.item)!.name);
+					if (!change) return i;
+					return {
+						...i,
+						chance: Math.ceil(reduceNumByPercent(i.chance, change))
+					};
+			  })
+			: this.tertiaryItems;
 
 		outerLoop: for (let i = 0; i < quantity; i++) {
 			// The items that are rolled.
@@ -177,8 +199,10 @@ export default class LootTable {
 				this.addResultToLoot(item, loot);
 			}
 
-			for (const { chance, item, quantity, options } of this.tertiaryItems) {
-				if (roll(chance)) this.addResultToLoot({ item, quantity, options }, loot);
+			for (const { chance, item, quantity, options } of effectiveTertiaryItems) {
+				if (roll(chance)) {
+					this.addResultToLoot({ item, quantity, options }, loot);
+				}
 			}
 
 			for (const { chance, item, quantity, options } of this.oneInItems) {

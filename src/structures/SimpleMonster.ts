@@ -57,14 +57,14 @@ export default class SimpleMonster extends Monster {
 			if (options.onSlayerTask) {
 				if (this.onTaskTable) {
 					// Roll the monster's "on-task" table.
-					loot.add(this.onTaskTable.roll());
+					loot.add(this.onTaskTable.roll(1, options.lootTableOptions));
 				} else {
 					// Monster doesn't have a unique on-slayer table
-					loot.add(this.table?.roll());
+					loot.add(this.table?.roll(1, options.lootTableOptions));
 				}
 			} else {
 				// Not on slayer task
-				loot.add(this.table?.roll());
+				loot.add(this.table?.roll(1, options.lootTableOptions));
 			}
 			if (this.customKillLogic) {
 				this.customKillLogic(options, loot);

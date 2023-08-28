@@ -1,6 +1,6 @@
 import { hiscoreURLs, MINIGAMES } from '../constants';
 import Bank from '../structures/Bank';
-import LootTable from '../structures/LootTable';
+import LootTable, { LootTableRollOptions } from '../structures/LootTable';
 import SimpleMonster from '../structures/SimpleMonster';
 import { MonsterSlayerMaster } from './monsterData';
 
@@ -442,6 +442,7 @@ export interface MonsterKillOptions {
 	farmingLevel?: number;
 	skulled?: boolean;
 	isAwakened?: boolean;
+	lootTableOptions?: LootTableRollOptions;
 }
 
 export interface OpenableOptions {
