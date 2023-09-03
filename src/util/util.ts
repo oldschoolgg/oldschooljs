@@ -36,7 +36,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 		};
 	}
 
-	accumulativeIndex += SKILLS.length + 1;
+	accumulativeIndex += SKILLS.length + 2;
 
 	for (let i = 0; i < 4; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
