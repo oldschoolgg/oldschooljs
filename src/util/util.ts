@@ -162,16 +162,16 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 }
 
 export function getLarranKeyChanceFromCBLevel(combatLevel: number): number | undefined {
-	let keyChance: number | undefined;
+	let keyChance: number | undefined = undefined;
   
 	if (combatLevel >= 1 && combatLevel <= 80) {
-	  keyChance = Math.round((1 / (0.0056 * combatLevel + 1/1972)) * 100) / 100;
+		keyChance = Math.round((1 / (0.0056 * combatLevel + 1/1972)) * 100) / 100;
 	} else if (combatLevel >= 81) {
-	  keyChance = Math.max(Math.round((1 / (0.0056 * combatLevel + 1/99)) * 100) / 100, 0.02);
+		keyChance = Math.max(Math.round((1 / (0.0056 * combatLevel + 1/99)) * 100) / 100, 0.02);
 	}
-  
+
 	return keyChance;
-  }
+}
   
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));

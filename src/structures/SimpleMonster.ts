@@ -2,7 +2,12 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getLarranKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
+import { 
+	getAncientShardChanceFromHP,
+	getBrimKeyChanceFromCBLevel,
+	getLarranKeyChanceFromCBLevel,
+	getTotemChanceFromHP
+} from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
