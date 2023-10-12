@@ -2,7 +2,7 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { 
+import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
 	getLarranKeyChanceFromCBLevel,
