@@ -52,7 +52,7 @@ const CallistoTable = new LootTable()
 	.add('Snapdragon seed', 8, 5)
 
 	/* Other */
-	.add('Coins',50_000, 21)
+	.add('Coins', 50_000, 21)
 	.add('Dark crab', 50, 5)
 	.add('Super restore(4)', 10, 5)
 	.add('Supercompost', 225, 4)
