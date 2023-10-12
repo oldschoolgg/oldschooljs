@@ -2,7 +2,7 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
+import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getLarranKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
@@ -37,12 +37,18 @@ export default class SimpleMonster extends Monster {
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
-		const canGetKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetLarranKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
 
 		for (let i = 0; i < quantity; i++) {
-			if (canGetKey) {
+			if (canGetBrimKey) {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
+				}
+			}
+			if (canGetLarranKey) {
+				if (roll(getLarranKeyChanceFromCBLevel(this.data.combatLevel))) {
+					loot.add("Larran's key");
 				}
 			}
 			if (options.inCatacombs && this.data.hitpoints) {
