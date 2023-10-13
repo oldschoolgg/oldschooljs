@@ -64,7 +64,7 @@ export default class SimpleMonster extends Monster {
 					loot.add("Larran's key");
 				}
 			}
-			if (options.inCatacombs && this.data.hitpoints) {
+			if (options.inCatacombs && this.data.hitpoints && !canGetLarranKey) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}
