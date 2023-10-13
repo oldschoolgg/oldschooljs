@@ -161,13 +161,21 @@ export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	return Math.max(Math.round((-1 / 5) * combatLevel + 120), 50);
 }
 
-export function getLarranKeyChanceFromCBLevel(combatLevel: number): number {
+export function getLarranKeyChanceFromCBLevel(combatLevel: number, slayerMonster: boolean): number {
+	let baseChance = 0;
+
 	if (combatLevel <= 80) {
-		return (3 / 10) * Math.pow(80 - combatLevel, 2) + 100;
+		baseChance = (3 / 10) * Math.pow(80 - combatLevel, 2) + 100;
 	} else if (combatLevel <= 350) {
-		return (-5 / 27) * combatLevel + 115;
+		baseChance = (-5 / 27) * combatLevel + 115;
+	} else {
+		baseChance = 50;
 	}
-	return 50;
+
+	// Reduce the base chance by 20% if slayerMonster is true
+	const adjustedChance = slayerMonster ? baseChance * 0.8 : baseChance;
+
+	return adjustedChance;
 }
 
 export function JSONClone<O>(object: O): O {
@@ -189,6 +197,11 @@ export function getAncientShardChanceFromHP(hitpoints: number): number {
 
 export function getTotemChanceFromHP(hitpoints: number): number {
 	return 500 - hitpoints;
+}
+
+export function getSlayersEnchantmentChanceFromHP(hitpoints: number): number {
+	let chanceHitpoints = Math.min(hitpoints, 300);
+	return Math.round(320 - (chanceHitpoints * 8) / 10);
 }
 
 export interface RevTable {

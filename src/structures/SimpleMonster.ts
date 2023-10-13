@@ -6,6 +6,7 @@ import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
 	getLarranKeyChanceFromCBLevel,
+	getSlayersEnchantmentChanceFromHP,
 	getTotemChanceFromHP
 } from '../util/util';
 import Bank from './Bank';
@@ -43,7 +44,9 @@ export default class SimpleMonster extends Monster {
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
 		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetSlayersEnchantment = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
 		const canGetLarranKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
+		const slayerMonster: boolean = Boolean(options.onSlayerTask && this.data.slayerLevelRequired > 1);
 
 		for (let i = 0; i < quantity; i++) {
 			if (canGetBrimKey) {
@@ -51,8 +54,13 @@ export default class SimpleMonster extends Monster {
 					loot.add('Brimstone key');
 				}
 			}
+			if (canGetSlayersEnchantment && this.data.hitpoints) {
+				if (roll(getSlayersEnchantmentChanceFromHP(this.data.hitpoints))) {
+					loot.add("Slayer's enchantment");
+				}
+			}
 			if (canGetLarranKey) {
-				if (roll(getLarranKeyChanceFromCBLevel(this.data.combatLevel))) {
+				if (roll(getLarranKeyChanceFromCBLevel(this.data.combatLevel, slayerMonster))) {
 					loot.add("Larran's key");
 				}
 			}
