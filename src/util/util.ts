@@ -224,7 +224,7 @@ export const revsUniqueTable = new LootTable()
 
 export function makeRevTable(table: RevTable): CustomKillLogic {
 	return (options: MonsterKillOptions, currentLoot: Bank) => {
-		const index = options.skulled ? 1 : 0;
+		const index = options.onSlayerTask ? 1 : 0;
 		if (roll(table.uniqueTable[index])) {
 			currentLoot.add(revsUniqueTable.roll());
 			return;
