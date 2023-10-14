@@ -3,6 +3,7 @@ import Monster from '../../structures/Monster';
 import { allBosses } from './bosses';
 import { CreatureCreation } from './CreatureCreation';
 import { allLowMonsters } from './low';
+import { CamdozaalGolems } from './low/camdozaalGolems';
 import { ReanimatedMonsters } from './low/reanimated';
 import { specialBosses } from './special';
 import { allSuperiorMonsters } from './superiorMonsters';
@@ -13,7 +14,8 @@ const monstersObject = {
 	...specialBosses,
 	...allSuperiorMonsters,
 	...CreatureCreation,
-	...ReanimatedMonsters
+	...ReanimatedMonsters,
+	...CamdozaalGolems
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [monster.id, monster]);
