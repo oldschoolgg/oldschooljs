@@ -61,7 +61,6 @@ class DukeSucellusSingleton extends Monster {
 		...ResourceTable.allItems,
 		...TradeableUniqueTable.allItems,
 		itemID("Awakener's orb"),
-		itemID('Frozen tablet'),
 		itemID('Ice quartz'),
 		itemID('Baron')
 	]);
@@ -75,8 +74,6 @@ class DukeSucellusSingleton extends Monster {
 				loot.add(TradeableUniqueTable.roll());
 			} else if (roll(48)) {
 				loot.add("Awakener's orb");
-			} else if (roll(25)) {
-				loot.add('Frozen tablet');
 			} else if (roll(200)) {
 				loot.add('Ice quartz');
 			} else if (roll(5)) {

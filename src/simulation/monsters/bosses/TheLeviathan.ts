@@ -59,7 +59,6 @@ class TheLeviathanSingleton extends Monster {
 		...ResourceTable.allItems,
 		...TradeableUniqueTable.allItems,
 		itemID("Awakener's orb"),
-		itemID('Scarred tablet'),
 		itemID('Smoke quartz'),
 		itemID("Lil'viathan")
 	]);
@@ -73,8 +72,6 @@ class TheLeviathanSingleton extends Monster {
 				loot.add(TradeableUniqueTable.roll());
 			} else if (roll(53)) {
 				loot.add("Awakener's orb");
-			} else if (roll(25)) {
-				loot.add('Scarred tablet');
 			} else if (roll(200)) {
 				loot.add('Smoke quartz');
 			} else if (roll(5)) {
