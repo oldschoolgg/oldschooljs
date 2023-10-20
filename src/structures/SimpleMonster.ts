@@ -2,7 +2,13 @@ import { roll } from 'e';
 
 import { MonsterSlayerMaster } from '../meta/monsterData';
 import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
-import { getAncientShardChanceFromHP, getBrimKeyChanceFromCBLevel, getTotemChanceFromHP } from '../util/util';
+import {
+	getAncientShardChanceFromHP,
+	getBrimKeyChanceFromCBLevel,
+	getLarranKeyChanceFromCBLevel,
+	getSlayersEnchantmentChanceFromHP,
+	getTotemChanceFromHP
+} from '../util/util';
 import Bank from './Bank';
 import LootTable from './LootTable';
 import Monster from './Monster';
@@ -37,15 +43,28 @@ export default class SimpleMonster extends Monster {
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
-		const canGetKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
+		const canGetSlayersEnchantment = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
+		const canGetLarranKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
+		const slayerMonster: boolean = Boolean(options.onSlayerTask && this.data.slayerLevelRequired > 1);
 
 		for (let i = 0; i < quantity; i++) {
-			if (canGetKey) {
+			if (canGetBrimKey) {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
 					loot.add('Brimstone key');
 				}
 			}
-			if (options.inCatacombs && this.data.hitpoints) {
+			if (canGetSlayersEnchantment && this.data.hitpoints) {
+				if (roll(getSlayersEnchantmentChanceFromHP(this.data.hitpoints))) {
+					loot.add("Slayer's enchantment");
+				}
+			}
+			if (canGetLarranKey) {
+				if (roll(getLarranKeyChanceFromCBLevel(this.data.combatLevel, slayerMonster))) {
+					loot.add("Larran's key");
+				}
+			}
+			if (options.inCatacombs && this.data.hitpoints && !canGetLarranKey) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add('Ancient shard');
 				}
