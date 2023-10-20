@@ -47,12 +47,12 @@ export default new SimpleMonster({
 	table: RevenantImpTable,
 	aliases: ['revenant imp'],
 	customKillLogic: makeRevTable({
-		seeds: [11_000, 6050],
-		uniqueTable: [29_333, 16_133],
-		ancientEmblem: [7333, 24_200],
-		ancientTotem: [11_000, 6050],
-		ancientCrystal: [14_666, 8066],
-		ancientStatuette: [22_000, 12_000],
-		topThree: [44_000, 24_200]
+		seeds: [6050, 6050],
+		uniqueTable: [161_334, 3226],
+		ancientEmblem: [24_200, 24_200],
+		ancientTotem: [6050, 6050],
+		ancientCrystal: [8067, 8067],
+		ancientStatuette: [12_100, 12_000],
+		topThree: [24_200, 24_200]
 	})
 });
