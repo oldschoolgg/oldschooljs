@@ -17,7 +17,7 @@ const FlawedGolem = new SimpleMonster({
 		.tertiary(16, 'Barronite shards', [6, 12])
 		.tertiary(200, 'Clue scroll (beginner)')
 		.tertiary(800, 'Barronite guard'),
-	aliases: ['Flawed Golem']
+	aliases: ['flawed golem']
 });
 
 const MindGolem = new SimpleMonster({
@@ -39,7 +39,7 @@ const MindGolem = new SimpleMonster({
 		.tertiary(7.5, 'Mind core')
 		.tertiary(100, 'Clue scroll (beginner)')
 		.tertiary(500, 'Barronite guard'),
-	aliases: ['Mind Golem']
+	aliases: ['mind golem']
 });
 
 const BodyGolem = new SimpleMonster({
@@ -61,7 +61,7 @@ const BodyGolem = new SimpleMonster({
 		.tertiary(7.5, 'Body core')
 		.tertiary(62, 'Clue scroll (beginner)')
 		.tertiary(250, 'Barronite guard'),
-	aliases: ['Body Golem']
+	aliases: ['body golem']
 });
 
 const ChaosGolem = new SimpleMonster({
@@ -83,7 +83,7 @@ const ChaosGolem = new SimpleMonster({
 		.tertiary(7.5, 'Chaos core')
 		.tertiary(100, 'Clue scroll (beginner)')
 		.tertiary(150, 'Barronite guard'),
-	aliases: ['Chaos Golem']
+	aliases: ['chaos golem']
 });
 
 export const CamdozaalGolems = { FlawedGolem, MindGolem, BodyGolem, ChaosGolem };
