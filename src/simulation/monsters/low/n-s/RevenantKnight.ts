@@ -47,12 +47,12 @@ export default new SimpleMonster({
 	table: RevenantKnightTable,
 	aliases: ['revenant knight'],
 	customKillLogic: makeRevTable({
-		seeds: [2000, 1100],
-		uniqueTable: [5333, 2933],
-		ancientEmblem: [1333, 4400],
-		ancientTotem: [2000, 1100],
-		ancientCrystal: [2666, 1466],
-		ancientStatuette: [4000, 2200],
-		topThree: [8000, 4400]
+		seeds: [1100, 1100],
+		uniqueTable: [2933, 587],
+		ancientEmblem: [4400, 4400],
+		ancientTotem: [1100, 1100],
+		ancientCrystal: [1467, 1467],
+		ancientStatuette: [2200, 2200],
+		topThree: [4400, 4400]
 	})
 });
