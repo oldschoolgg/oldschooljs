@@ -60,7 +60,6 @@ class TheWhispererSingleton extends Monster {
 		...ResourceTable.allItems,
 		...TradeableUniqueTable.allItems,
 		itemID("Awakener's orb"),
-		itemID('Sirenic tablet'),
 		itemID('Shadow quartz'),
 		itemID('Wisp')
 	]);
@@ -74,8 +73,6 @@ class TheWhispererSingleton extends Monster {
 				loot.add(TradeableUniqueTable.roll());
 			} else if (roll(34)) {
 				loot.add("Awakener's orb");
-			} else if (roll(25)) {
-				loot.add('Sirenic tablet');
 			} else if (roll(200)) {
 				loot.add('Shadow quartz');
 			} else if (roll(5)) {

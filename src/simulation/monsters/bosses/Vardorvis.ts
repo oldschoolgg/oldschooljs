@@ -59,7 +59,6 @@ class VardorvisSingleton extends Monster {
 		...ResourceTable.allItems,
 		...TradeableUniqueTable.allItems,
 		itemID("Awakener's orb"),
-		itemID('Strangled tablet'),
 		itemID('Blood quartz'),
 		itemID('Butch')
 	]);
@@ -73,8 +72,6 @@ class VardorvisSingleton extends Monster {
 				loot.add(TradeableUniqueTable.roll());
 			} else if (roll(48)) {
 				loot.add("Awakener's orb");
-			} else if (roll(25)) {
-				loot.add('Strangled tablet');
 			} else if (roll(200)) {
 				loot.add('Blood quartz');
 			} else if (roll(5)) {
