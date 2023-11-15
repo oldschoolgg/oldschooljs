@@ -115,15 +115,9 @@ const GearTable = new SimpleTable<string>()
 
 const OrbTable = new SimpleTable<string>().add('Eldritch orb').add('Volatile orb').add('Harmonised orb');
 
-const mvpTertiary = new LootTable()
-	.tertiary(190, 'Clue scroll (elite)')
-	.tertiary(1900, 'Jar of dreams')
-	.tertiary(3800, 'Little nightmare');
+const mvpTertiary = new LootTable().tertiary(190, 'Clue scroll (elite)').tertiary(1900, 'Jar of dreams');
 
-const nonMvpTertiary = new LootTable()
-	.tertiary(200, 'Clue scroll (elite)')
-	.tertiary(2000, 'Jar of dreams')
-	.tertiary(4000, 'Little nightmare');
+const nonMvpTertiary = new LootTable().tertiary(200, 'Clue scroll (elite)').tertiary(2000, 'Jar of dreams');
 
 const phosaniTertiary = new LootTable()
 	.tertiary(35, 'Clue scroll (elite)')
@@ -238,6 +232,13 @@ class NightmareClass {
 			lootResult[teamMember.id].add(
 				options.isPhosani ? phosaniTertiary.roll() : teamMember.mvp ? mvpTertiary.roll() : nonMvpTertiary.roll()
 			);
+			// Pet roll for The Nightmare
+			let petRoll = teamMember.mvp
+				? roll(Math.min(760 * options.team.length, 4000))
+				: roll(Math.min(800 * options.team.length, 4000));
+			if (petRoll) {
+				lootResult[teamMember.id].add('Little Nightmare');
+			}
 		}
 
 		return convertLootBanksToItemBanks(lootResult);
