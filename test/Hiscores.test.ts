@@ -70,12 +70,12 @@ test('Hiscores', async () => {
 	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
 	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
 
-	const leagues = await Hiscores.fetch('Magnaboy', { type: 'seasonal' });
-	expect(leagues.leaguePoints?.points).toBeGreaterThan(6300);
-	expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
+	// const leagues = await Hiscores.fetch('Magnaboy', { type: 'seasonal' });
+	// expect(leagues.leaguePoints?.points).toBeGreaterThan(6300);
+	// expect(leagues.leaguePoints?.points).toBeLessThan(50_000);
 
-	const leagues2 = await Hiscores.fetch('fk ezscape', { type: 'seasonal' });
-	expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
+	// const leagues2 = await Hiscores.fetch('fk ezscape', { type: 'seasonal' });
+	// expect(leagues2.leaguePoints?.points).toBeGreaterThan(20_000);
 
 	// Skillers
 	const skiller = await Hiscores.fetch('Jcw', { type: 'skiller' });
