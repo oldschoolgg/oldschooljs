@@ -233,12 +233,10 @@ class NightmareClass {
 				options.isPhosani ? phosaniTertiary.roll() : teamMember.mvp ? mvpTertiary.roll() : nonMvpTertiary.roll()
 			);
 			// Pet roll for The Nightmare
-			console.log(`options.team.length has: ${options.team.length}`);
 			if (!options.isPhosani) {
 				let petRoll = teamMember.mvp
 					? roll(Math.min(760 * options.team.length, 4000))
 					: roll(Math.min(800 * options.team.length, 4000));
-				console.log(`Team member ${[teamMember.id]} pet roll is: ${petRoll}`);
 				if (petRoll) {
 					lootResult[teamMember.id].add('Little Nightmare');
 				}
