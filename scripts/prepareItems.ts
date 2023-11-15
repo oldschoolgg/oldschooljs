@@ -414,12 +414,23 @@ export default async function prepareItems(): Promise<void> {
 			itemNameMap[item.id] = item;
 		}
 	}
-	const deletedItems = Object.values(previousItems)
+	const deletedItems: any[] = Object.values(previousItems)
 		.filter((i: any) => !(itemNameMap as any)[i.id])
 		.filter(notEmpty);
 
 	messages.push(`New Items: ${moidLink(newItems)}.`);
 	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
+	const sql = `SELECT 
+  ${deletedItems
+		.map(
+			item => `COUNT(*) FILTER (WHERE bank->>'${item.id}' IS NOT NULL) AS people_with_item_${item.id},
+  SUM((bank->>'${item.id}')::int) AS sum_item_${item.id},`
+		)
+		.join('\n')}
+
+FROM users;
+`;
+	messages.push(`${sql}`);
 
 	messages.push(
 		`Major price changes NOT changed: ${majorPriceChanges
