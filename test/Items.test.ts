@@ -102,6 +102,8 @@ describe('Items', () => {
 			expect(coins.id).toBe(995);
 			expect(coins.price).toEqual(1);
 			expect(Items.get('Snowy knight')!.price).toEqual(0);
+
+			expect(Items.get('Vial of blood')!.id).toEqual(22_446);
 		},
 		60_000
 	);
