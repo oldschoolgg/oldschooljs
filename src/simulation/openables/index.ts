@@ -29,7 +29,7 @@ import NestBoxEmpty from './NestBoxEmpty';
 import NestBoxRing from './NestBoxRing';
 import NestBoxSeeds from './NestBoxSeeds';
 import OgreCoffin from './OgreCoffin';
-import OrePack from './OrePack';
+import { GiantsFoundryOrePack, VolcanicMineOrePack } from './OrePack';
 import SeedPack from './SeedPack';
 import SinisterChest from './SinisterChest';
 
@@ -65,7 +65,8 @@ const openablesObject = {
 	CrystalImpling,
 	DragonImpling,
 	LuckyImpling,
-	OrePack,
+	VolcanicMineOrePack,
+	GiantsFoundryOrePack,
 	IntricatePouch
 };
 
