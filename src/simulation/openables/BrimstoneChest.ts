@@ -1,8 +1,10 @@
+import { percentChance, randInt, roll } from 'e';
+
 import { OpenableOpenOptions } from '../../meta/types';
 import Bank from '../../structures/Bank';
 import LootTable from '../../structures/LootTable';
 import SimpleOpenable from '../../structures/SimpleOpenable';
-import { BrimstoneChestBonus } from './BonusOpenables';
+import { BrimstoneChestFish, chanceOfFish } from './BonusOpenables';
 
 const BrimstoneChestTable = new LootTable()
 	.add('Uncut diamond', [25, 35], 5)
@@ -37,25 +39,29 @@ const BrimstoneChestTable = new LootTable()
 
 export class BrimstoneChestOpenable extends SimpleOpenable {
 	public open(quantity = 1, options: OpenableOpenOptions = { fishLvl: 99 }) {
-		const tempTable = BrimstoneChestTable.clone();
 		const loot = new Bank();
-
 		const fishLvl = options.fishLvl ?? 99;
 
-		for (const fish of BrimstoneChestBonus) {
-			if (typeof fish.req === 'number') {
-				if (fishLvl >= fish.req) {
-					tempTable.add(fish.item, fish.qty, fish.weight);
+		const lobster = BrimstoneChestFish.find(fish => fish.item === 'Raw lobster');
+		for (let i = 0; i < quantity; i++) {
+			if (roll(20)) {
+				let fishRolled = false;
+				for (const fish of BrimstoneChestFish) {
+					if (fishLvl >= fish.req) {
+						if (percentChance(chanceOfFish(fishLvl, fish.low, fish.high))) {
+							loot.add(fish.item, randInt(fish.qty[0], fish.qty[1]));
+							fishRolled = true;
+							break;
+						}
+					}
 				}
-			} else if (fishLvl >= fish.req[0] && fishLvl <= fish.req[1]) {
-				tempTable.add(fish.item, fish.qty, fish.weight);
+				if (!fishRolled) {
+					loot.add(lobster!.item, randInt(lobster!.qty[0], lobster!.qty[1]));
+				}
+			} else {
+				loot.add(BrimstoneChestTable.roll());
 			}
 		}
-
-		for (let i = 0; i < quantity; i++) {
-			loot.add(tempTable.roll());
-		}
-
 		return loot;
 	}
 }
