@@ -9,7 +9,7 @@ export interface FishDropTable {
 // Uses the skilling success rate formula: https://oldschool.runescape.wiki/w/Skilling_success_rate
 export function chanceOfFish(fishLvl: number, low: number, high: number) {
 	const num1: number = (low * (99 - fishLvl)) / 98;
-	const num2: number = (high.valueOf() * (fishLvl - 1)) / 98;
+	const num2: number = (high * (fishLvl - 1)) / 98;
 
 	const chanceOfSuccess = (num1 + num2 + 1) / 256;
 
