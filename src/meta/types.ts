@@ -96,6 +96,7 @@ export interface BossRecords {
 	phantomMuspah: MinigameScore;
 	sarachnis: MinigameScore;
 	scorpia: MinigameScore;
+	scurrius: MinigameScore;
 	skotizo: MinigameScore;
 	spindel: MinigameScore;
 	tempoross: MinigameScore;
