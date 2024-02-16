@@ -10,7 +10,7 @@ const ClueTable = new LootTable()
 const MysteryBoxTable = new LootTable()
 	.oneIn(256, 'Stale baguette')
 
-	.add('Genie lamp')
+	.add(2528) // Genie Lamp
 	.add('Cabbage')
 	.add('Diamond')
 	.add('Bucket')
