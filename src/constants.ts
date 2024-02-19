@@ -80,6 +80,7 @@ export const mappedBossNames: [keyof BossRecords, string][] = [
 	['phantomMuspah', 'Phantom Muspah'],
 	['sarachnis', 'Sarachnis'],
 	['scorpia', 'Scorpia'],
+	['scurrius', 'Scurrius'],
 	['skotizo', 'Skotizo'],
 	['spindel', 'Spindel'],
 	['tempoross', 'Tempoross'],
