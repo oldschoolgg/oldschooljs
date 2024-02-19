@@ -1,4 +1,4 @@
-import LootTable from "../../structures/LootTable";
+import LootTable from '../../structures/LootTable';
 
 const WildySlayerCaveTable = new LootTable()
 	.add('Blighted entangle sack', [1, 10], 69)
@@ -22,7 +22,7 @@ const WildySlayerCaveTable = new LootTable()
 	.add('Target teleport', 1, 1388)
 	.add('Magic shortbow scroll', 1, 3469)
 	.add('Ring of wealth scroll', 1, 3469)
-	.add('Trouver parchment', 2, 13875)
-	.add('Looting bag note', 1, 13875)
+	.add('Trouver parchment', 2, 13_875)
+	.add('Looting bag note', 1, 13_875);
 
 export default WildySlayerCaveTable;
