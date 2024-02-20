@@ -26,6 +26,7 @@ import BlackDemon from './a-f/BlackDemon';
 import BlackDragon from './a-f/BlackDragon';
 import BlackGuard from './a-f/BlackGuard';
 import BlackKnight from './a-f/BlackKnight';
+import BloodReaver from './a-f/BloodReaver';
 import Bloodveld from './a-f/Bloodveld';
 import BlueDragon from './a-f/BlueDragon';
 import BrineRat from './a-f/BrineRat';
@@ -264,6 +265,7 @@ import ZombieRat from './t-z/ZombieRat';
 import Zygomite from './t-z/Zygomite';
 
 export const allLowMonsters = {
+	BloodReaver,
 	BrutalBlackDragon,
 	BabyBlackDragon,
 	Bandit,
