@@ -1,8 +1,8 @@
-import { ErrorDescriptions, Errors } from '../constants';
+import { ErrorDescriptions, Errors } from "../constants";
 
 export default class OldSchoolJSError extends Error {
 	public code: Errors;
-	public description = '';
+	public description = "";
 
 	public constructor(code: Errors) {
 		super(code);

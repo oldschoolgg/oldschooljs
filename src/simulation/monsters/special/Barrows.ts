@@ -1,9 +1,9 @@
-import { roll } from 'e';
+import { roll } from "e";
 
-import { MonsterKillOptions } from '../../../meta/types';
-import Bank from '../../../structures/Bank';
-import LootTable from '../../../structures/LootTable';
-import Monster from '../../../structures/Monster';
+import { MonsterKillOptions } from "../../../meta/types";
+import Bank from "../../../structures/Bank";
+import LootTable from "../../../structures/LootTable";
+import Monster from "../../../structures/Monster";
 
 const BarrowsTable = new LootTable();
 
@@ -36,29 +36,29 @@ const BarrowsTable = new LootTable();
 	"Verac's helm",
 	"Verac's brassard",
 	"Verac's plateskirt",
-	"Verac's flail"
-].map(item => BarrowsTable.add(item));
+	"Verac's flail",
+].map((item) => BarrowsTable.add(item));
 
 const OtherTable = new LootTable()
-	.add('Coins', [2, 760], 380)
-	.add('Mind rune', [381, 504], 125)
-	.add('Chaos rune', [168, 210], 125)
-	.add('Death rune', [105, 124], 125)
-	.add('Bolt rack', [35, 40], 125)
-	.add('Blood rune', [55, 66], 125)
-	.add(new LootTable().add('Loop half of key').add('Tooth half of key'), 1, 6)
-	.add('Dragon med helm');
+	.add("Coins", [2, 760], 380)
+	.add("Mind rune", [381, 504], 125)
+	.add("Chaos rune", [168, 210], 125)
+	.add("Death rune", [105, 124], 125)
+	.add("Bolt rack", [35, 40], 125)
+	.add("Blood rune", [55, 66], 125)
+	.add(new LootTable().add("Loop half of key").add("Tooth half of key"), 1, 6)
+	.add("Dragon med helm");
 
-const ClueTable = new LootTable().tertiary(34, 'Clue scroll (elite)');
+const ClueTable = new LootTable().tertiary(34, "Clue scroll (elite)");
 
 const NUMBER_OF_BROTHERS = 6;
 
 export class Barrows extends Monster {
-	public kill(quantity = 1, options: MonsterKillOptions): Bank {
+	public kill(quantity = 1, options?: MonsterKillOptions): Bank {
 		const loot = new Bank();
 
 		for (let i = 0; i < quantity; i++) {
-			loot.add(ClueTable.roll(1, options.lootTableOptions));
+			loot.add(ClueTable.roll(1, options?.lootTableOptions));
 
 			// We use a set to track items received, you cannot get
 			// the same item twice per chest.
@@ -86,7 +86,7 @@ export class Barrows extends Monster {
 // Uses NPC id for Dharoks
 export default new Barrows({
 	id: 1673,
-	name: 'Barrows',
-	aliases: ['barrows'],
-	allItems: [...BarrowsTable.allItems, ...OtherTable.allItems]
+	name: "Barrows",
+	aliases: ["barrows"],
+	allItems: [...BarrowsTable.allItems, ...OtherTable.allItems],
 });

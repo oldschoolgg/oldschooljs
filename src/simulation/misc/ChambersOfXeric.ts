@@ -1,13 +1,13 @@
-import { randFloat, roll, shuffleArr, sumArr, Time } from 'e';
+import { Time, randFloat, roll, shuffleArr, sumArr } from "e";
 
-import { ItemBank, LootBank } from '../../meta/types';
-import Bank from '../../structures/Bank';
-import LootTable from '../../structures/LootTable';
-import Minigame from '../../structures/Minigame';
-import SimpleTable from '../../structures/SimpleTable';
-import { resolveNameBank } from '../../util/bank';
-import itemID from '../../util/itemID';
-import { JSONClone } from '../../util/util';
+import { ItemBank, LootBank } from "../../meta/types";
+import Bank from "../../structures/Bank";
+import LootTable from "../../structures/LootTable";
+import Minigame from "../../structures/Minigame";
+import SimpleTable from "../../structures/SimpleTable";
+import { resolveNameBank } from "../../util/bank";
+import itemID from "../../util/itemID";
+import { JSONClone } from "../../util/util";
 
 export interface TeamMember {
 	id: string;
@@ -42,61 +42,61 @@ export interface ChambersOfXericOptions {
 }
 
 const itemScales = resolveNameBank({
-	'Death rune': 36,
-	'Blood rune': 32,
-	'Soul rune': 20,
-	'Rune arrow': 14,
-	'Dragon arrow': 202,
-	'Grimy toadflax': 525,
-	'Grimy ranarr weed': 800,
-	'Grimy irit leaf': 162,
-	'Grimy avantoe': 234,
-	'Grimy kwuarm': 378,
-	'Grimy snapdragon': 1348,
-	'Grimy cadantine': 358,
-	'Grimy lantadyme': 249,
-	'Grimy dwarf weed': 201,
-	'Grimy torstol': 824,
-	'Silver ore': 20,
+	"Death rune": 36,
+	"Blood rune": 32,
+	"Soul rune": 20,
+	"Rune arrow": 14,
+	"Dragon arrow": 202,
+	"Grimy toadflax": 525,
+	"Grimy ranarr weed": 800,
+	"Grimy irit leaf": 162,
+	"Grimy avantoe": 234,
+	"Grimy kwuarm": 378,
+	"Grimy snapdragon": 1348,
+	"Grimy cadantine": 358,
+	"Grimy lantadyme": 249,
+	"Grimy dwarf weed": 201,
+	"Grimy torstol": 824,
+	"Silver ore": 20,
 	Coal: 20,
-	'Gold ore': 44,
-	'Mithril ore': 32,
-	'Adamantite ore': 167,
-	'Runite ore': 2093,
-	'Uncut sapphire': 189,
-	'Uncut emerald': 142,
-	'Uncut ruby': 250,
-	'Uncut diamond': 514,
-	'Lizardman fang': 28,
-	'Pure essence': 2,
+	"Gold ore": 44,
+	"Mithril ore": 32,
+	"Adamantite ore": 167,
+	"Runite ore": 2093,
+	"Uncut sapphire": 189,
+	"Uncut emerald": 142,
+	"Uncut ruby": 250,
+	"Uncut diamond": 514,
+	"Lizardman fang": 28,
+	"Pure essence": 2,
 	Saltpetre: 24,
-	'Teak plank': 100,
-	'Mahogany plank': 240,
+	"Teak plank": 100,
+	"Mahogany plank": 240,
 	Dynamite: 54,
 	// These 2 items are "special" but not really, they just only drop a max of 1.
-	'Torn prayer scroll': 999_999,
-	'Dark relic': 999_999
+	"Torn prayer scroll": 999_999,
+	"Dark relic": 999_999,
 });
 
 const NonUniqueTable = new SimpleTable<number>();
 for (const itemID of Object.keys(itemScales)) NonUniqueTable.add(parseInt(itemID));
 
 export const CoXUniqueTable = new LootTable()
-	.add('Dexterous prayer scroll', 1, 20)
-	.add('Arcane prayer scroll', 1, 20)
+	.add("Dexterous prayer scroll", 1, 20)
+	.add("Arcane prayer scroll", 1, 20)
 
-	.add('Twisted buckler', 1, 4)
-	.add('Dragon hunter crossbow', 1, 4)
+	.add("Twisted buckler", 1, 4)
+	.add("Dragon hunter crossbow", 1, 4)
 
 	.add("Dinh's bulwark", 1, 3)
-	.add('Ancestral hat', 1, 3)
-	.add('Ancestral robe top', 1, 3)
-	.add('Ancestral robe bottom', 1, 3)
-	.add('Dragon claws', 1, 3)
+	.add("Ancestral hat", 1, 3)
+	.add("Ancestral robe top", 1, 3)
+	.add("Ancestral robe bottom", 1, 3)
+	.add("Dragon claws", 1, 3)
 
-	.add('Elder maul', 1, 2)
-	.add('Kodai insignia', 1, 2)
-	.add('Twisted bow', 1, 2);
+	.add("Elder maul", 1, 2)
+	.add("Kodai insignia", 1, 2)
+	.add("Twisted bow", 1, 2);
 
 const cmTeamTimes = [
 	[1, Time.Hour + Time.Minute * 10],
@@ -105,14 +105,14 @@ const cmTeamTimes = [
 	[4, Time.Minute * 45],
 	[10, Time.Minute * 42],
 	[15, Time.Minute * 45],
-	[23, Time.Hour]
+	[23, Time.Hour],
 ];
 
 export class ChambersOfXericClass extends Minigame {
 	id = 1;
-	aliases = ['raids', 'cox'];
-	name = 'Chambers of Xeric';
-	allItems: number[] = [...CoXUniqueTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
+	aliases = ["raids", "cox"];
+	name = "Chambers of Xeric";
+	allItems: number[] = [...CoXUniqueTable.allItems, ...NonUniqueTable.table.map((i) => i.item)];
 	maxRoll = 570_000 * (1 / 8675);
 
 	/**
@@ -187,11 +187,11 @@ export class ChambersOfXericClass extends Minigame {
 		// With a minimum of 1.
 		const loot: ItemBank = {
 			[items[0]]: Math.max(1, Math.floor(personalPoints / itemScales[items[0]])),
-			[items[1]]: Math.max(1, Math.floor(personalPoints / itemScales[items[1]]))
+			[items[1]]: Math.max(1, Math.floor(personalPoints / itemScales[items[1]])),
 		};
 
 		if (roll(12)) {
-			loot[itemID('Clue scroll (elite)')] = 1;
+			loot[itemID("Clue scroll (elite)")] = 1;
 		}
 
 		return loot;
@@ -202,7 +202,7 @@ export class ChambersOfXericClass extends Minigame {
 
 		// Will only check for elligibility for dust if timeToComplete given, and challengeMode = true.
 		const elligibleForDust =
-			typeof options.timeToComplete === 'number' &&
+			typeof options.timeToComplete === "number" &&
 			options.challengeMode &&
 			this.elligibleForDust(options.team.length, options.timeToComplete);
 
@@ -216,7 +216,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = sumArr(options.team.map(val => val.personalPoints));
+		const teamPoints = sumArr(options.team.map((val) => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -232,16 +232,16 @@ export class ChambersOfXericClass extends Minigame {
 
 			// If the team and team member is elligible for dust, roll for this user.
 			if (elligibleForDust && teamMember.canReceiveDust && roll(400)) {
-				lootResult[teamMember.id].add('Metamorphic dust');
+				lootResult[teamMember.id].add("Metamorphic dust");
 			}
 
 			if (elligibleForDust && roll(75)) {
-				lootResult[teamMember.id].add('Twisted ancestral colour kit');
+				lootResult[teamMember.id].add("Twisted ancestral colour kit");
 			}
 
 			// If the team member can receive an Ancient Tablet, roll for this user.
 			if (teamMember.canReceiveAncientTablet && roll(10)) {
-				lootResult[teamMember.id].add('Ancient tablet');
+				lootResult[teamMember.id].add("Ancient tablet");
 			}
 
 			// Add this member to the "unique decider table", using their points as the weight.
@@ -256,7 +256,7 @@ export class ChambersOfXericClass extends Minigame {
 			lootResult[receipientID].add(uniqueItem.id, 1);
 			uniqueLoot.remove(uniqueItem.id, 1);
 			if (roll(53)) {
-				lootResult[receipientID].add('Olmlet');
+				lootResult[receipientID].add("Olmlet");
 			}
 			uniqueDeciderTable.delete(receipientID);
 		}
@@ -266,7 +266,7 @@ export class ChambersOfXericClass extends Minigame {
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
 			const pointsOfThisMember = options.team.find(
-				member => member.id === leftOverRecipient.item
+				(member) => member.id === leftOverRecipient.item,
 			)!.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
@@ -278,7 +278,7 @@ export class ChambersOfXericClass extends Minigame {
 		const onyxChance = options.team.length * 70;
 		for (const bank of shuffleArr(Object.values(lootResult))) {
 			if (roll(onyxChance)) {
-				bank.add('Onyx');
+				bank.add("Onyx");
 				break;
 			}
 		}

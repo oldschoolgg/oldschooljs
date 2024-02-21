@@ -1,9 +1,9 @@
-import { randFloat, randInt, reduceNumByPercent, roll } from 'e';
+import { randFloat, randInt, reduceNumByPercent, roll } from "e";
 
-import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from '../meta/types';
-import itemID from '../util/itemID';
-import Bank from './Bank';
-import Items from './Items';
+import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from "../meta/types";
+import itemID from "../util/itemID";
+import Bank from "./Bank";
+import Items from "./Items";
 
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
@@ -70,7 +70,7 @@ export default class LootTable {
 			return;
 		}
 
-		if (typeof items === 'number') {
+		if (typeof items === "number") {
 			if (this.allItems.includes(items)) return;
 			this.allItems.push(items);
 		} else {
@@ -82,14 +82,14 @@ export default class LootTable {
 		chance: number,
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		options?: LootTableMoreOptions
+		options?: LootTableMoreOptions,
 	): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === "string" ? this.resolveName(item) : item;
 		this.oneInItems.push({
 			item: resolved,
 			chance,
 			quantity,
-			options
+			options,
 		});
 
 		this.addToAllItems(resolved);
@@ -101,14 +101,14 @@ export default class LootTable {
 		chance: number,
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		options?: LootTableMoreOptions
+		options?: LootTableMoreOptions,
 	): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === "string" ? this.resolveName(item) : item;
 		this.tertiaryItems.push({
 			item: resolved,
 			chance,
 			quantity,
-			options
+			options,
 		});
 
 		this.addToAllItems(resolved);
@@ -119,13 +119,13 @@ export default class LootTable {
 	public every(
 		item: LootTable | number | string,
 		quantity: number | number[] = 1,
-		options?: LootTableMoreOptions
+		options?: LootTableMoreOptions,
 	): this {
-		const resolved = typeof item === 'string' ? this.resolveName(item) : item;
+		const resolved = typeof item === "string" ? this.resolveName(item) : item;
 		this.everyItems.push({
 			item: resolved,
 			quantity,
-			options
+			options,
 		});
 
 		this.addToAllItems(resolved);
@@ -137,12 +137,12 @@ export default class LootTable {
 		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
 		quantity: number[] | number = 1,
 		weight = 1,
-		options?: LootTableMoreOptions
+		options?: LootTableMoreOptions,
 	): this {
 		if (this.limit && weight + this.totalWeight > this.limit) {
-			throw new Error('Loot table total weight exceeds limit');
+			throw new Error("Loot table total weight exceeds limit");
 		}
-		if (typeof item === 'string') {
+		if (typeof item === "string") {
 			return this.add(this.resolveName(item), quantity, weight, options);
 		}
 
@@ -156,7 +156,7 @@ export default class LootTable {
 				this.addToAllItems(resolvedId);
 				newItems.push({
 					item: resolvedId,
-					quantity: this.determineQuantity(itemToAdd[1]!) || 1
+					quantity: this.determineQuantity(itemToAdd[1]!) || 1,
 				});
 			}
 
@@ -172,7 +172,7 @@ export default class LootTable {
 			item,
 			weight,
 			quantity,
-			options
+			options,
 		});
 
 		return this;
@@ -182,13 +182,13 @@ export default class LootTable {
 		const loot = new Bank();
 
 		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
-			? this.tertiaryItems.map(i => {
-					if (typeof i.item !== 'number') return i;
+			? this.tertiaryItems.map((i) => {
+					if (typeof i.item !== "number") return i;
 					const change = options.tertiaryItemPercentageChanges?.get(Items.get(i.item)!.name);
 					if (!change) return i;
 					return {
 						...i,
-						chance: Math.ceil(reduceNumByPercent(i.chance, change))
+						chance: Math.ceil(reduceNumByPercent(i.chance, change)),
 					};
 			  })
 			: this.tertiaryItems;
@@ -216,7 +216,7 @@ export default class LootTable {
 			const randomWeight = randFloat(0, this.limit || this.totalWeight);
 
 			// The index of the item that will be used.
-			let result: number = -1;
+			let result = -1;
 			let weight = 0;
 
 			for (let i = 0; i < this.table.length; i++) {

@@ -1,5 +1,5 @@
-import { ItemBank, ReturnedLootItem } from '../meta/types';
-import itemID from './itemID';
+import { ItemBank, ReturnedLootItem } from "../meta/types";
+import itemID from "./itemID";
 
 /**
  * Generate a bank based on loot table output
@@ -39,7 +39,7 @@ export function resolveBank(bank: Record<string, number>): ItemBank {
 
 	for (const [nameOrID, val] of Object.entries(bank)) {
 		const int = Number(nameOrID);
-		const id = isNaN(int) ? itemID(nameOrID) : int;
+		const id = Number.isNaN(int) ? itemID(nameOrID) : int;
 		newBank[id] = val;
 	}
 
@@ -53,7 +53,7 @@ export function resolveBank(bank: Record<string, number>): ItemBank {
  * @param quantity The quantity of items the bank should have. Defaults to 1
  */
 export function bankHasItem(itemBank: ItemBank, itemID: number, quantity = 1): boolean {
-	return typeof itemBank[itemID] === 'number' && itemBank[itemID] >= quantity;
+	return typeof itemBank[itemID] === "number" && itemBank[itemID] >= quantity;
 }
 
 /**
@@ -84,7 +84,7 @@ export function removeItemFromBank(bank: ItemBank, itemID: number, amountToRemov
 	const currentValue = bank[itemID];
 
 	// If they don't have this item in the bank, just return it.
-	if (typeof currentValue === 'undefined') return bank;
+	if (typeof currentValue === "undefined") return bank;
 
 	// If they will have 0 or less of this item afterwards, delete it entirely.
 	if (currentValue - amountToRemove <= 0) {
@@ -154,7 +154,7 @@ export function multiplyBank(bank: ItemBank, times: number): ItemBank {
 
 export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank): number {
 	let has = 0;
-	for (const itemID of Object.keys(bankItemsToHave).map(i => parseInt(i))) {
+	for (const itemID of Object.keys(bankItemsToHave).map((i) => parseInt(i))) {
 		if (bankHasItem(bank, itemID)) {
 			has++;
 		}
@@ -164,7 +164,7 @@ export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank)
 
 export function fasterResolveBank(bank: ItemBank) {
 	const firstKey = Object.keys(bank)[0];
-	if (!isNaN(Number(firstKey))) {
+	if (!Number.isNaN(Number(firstKey))) {
 		return bank;
 	}
 

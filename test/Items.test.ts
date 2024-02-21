@@ -117,7 +117,7 @@ describe('Items', () => {
 			const item = itemArr[0] as Item | undefined;
 
 			if (!item || !item.tradeable || !item.highalch) {
-				fail(`Invalid item for ${itemName}?`);
+				throw new Error(`Invalid item for ${itemName}?`);
 			}
 		},
 		60_000

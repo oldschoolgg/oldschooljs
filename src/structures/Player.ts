@@ -1,5 +1,5 @@
-import { hiscoreURLs } from '../constants';
-import { BossRecords, CluesScore, MinigamesScore, Player as PlayerType, SkillsScore } from '../meta/types';
+import { hiscoreURLs } from "../constants";
+import { BossRecords, CluesScore, MinigamesScore, Player as PlayerType, SkillsScore } from "../meta/types";
 
 class Player {
 	public username: string;

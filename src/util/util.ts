@@ -1,22 +1,22 @@
-import { randFloat, randInt, roll } from 'e';
+import { randFloat, randInt, roll } from "e";
 
-import { CLUES, hiscoreURLs, mappedBossNames, MINIGAMES, SKILLS } from '../constants';
-import { CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from '../meta/types';
-import type Bank from '../structures/Bank';
-import LootTable from '../structures/LootTable';
-import Player from '../structures/Player';
+import { CLUES, MINIGAMES, SKILLS, hiscoreURLs, mappedBossNames } from "../constants";
+import { CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
+import type Bank from "../structures/Bank";
+import LootTable from "../structures/LootTable";
+import Player from "../structures/Player";
 
 export function resolvePlayerFromHiscores(csvData: string, accountType: keyof typeof hiscoreURLs): Player {
 	const data: string[][] = csvData
 		.trim()
-		.split('\n')
-		.map((str): string[] => str.split(','));
+		.split("\n")
+		.map((str): string[] => str.split(","));
 
 	const resolvedPlayer: any = {
 		skills: {},
 		minigames: {},
 		clues: {},
-		bossRecords: {}
+		bossRecords: {},
 	};
 
 	let accumulativeIndex = 0;
@@ -25,14 +25,14 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 		resolvedPlayer.skills[SKILLS[i]] = {
 			rank: Number(data[i][0]),
 			level: Number(data[i][1]),
-			xp: Number(data[i][2])
+			xp: Number(data[i][2]),
 		};
 	}
 
-	if (accountType === 'seasonal') {
+	if (accountType === "seasonal") {
 		resolvedPlayer.leaguePoints = {
 			rank: Number(data[accumulativeIndex + SKILLS.length][0]),
-			points: Number(data[accumulativeIndex + SKILLS.length][1])
+			points: Number(data[accumulativeIndex + SKILLS.length][1]),
 		};
 	}
 
@@ -41,7 +41,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 	for (let i = 0; i < 4; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
-			score: Number(data[i + accumulativeIndex][1])
+			score: Number(data[i + accumulativeIndex][1]),
 		};
 	}
 
@@ -50,7 +50,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
-			score: Number(data[i + accumulativeIndex][1])
+			score: Number(data[i + accumulativeIndex][1]),
 		};
 	}
 
@@ -60,7 +60,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 		const minigameKey = MINIGAMES[i + 4];
 		const minigameData = {
 			rank: Number(data[i + accumulativeIndex][0]),
-			score: Number(data[i + accumulativeIndex][1])
+			score: Number(data[i + accumulativeIndex][1]),
 		};
 		resolvedPlayer.minigames[minigameKey] = minigameData;
 	}
@@ -72,7 +72,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 		const bossName = mappedBossNames[i][0];
 		resolvedPlayer.bossRecords[bossName] = {
 			rank: Number(data[i + accumulativeIndex][0]),
-			score: Number(data[i + accumulativeIndex][1])
+			score: Number(data[i + accumulativeIndex][1]),
 		};
 	}
 
@@ -84,7 +84,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
  * @param username The username to check.
  */
 export function isValidUsername(username: string): boolean {
-	return Boolean(username.match('^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$'));
+	return Boolean(username.match("^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$"));
 }
 
 /**
@@ -94,7 +94,7 @@ export function getDate(): DateYearMonth {
 	const currentTime = new Date();
 	return {
 		month: currentTime.getMonth() + 1,
-		year: currentTime.getFullYear()
+		year: currentTime.getFullYear(),
 	};
 }
 
@@ -138,16 +138,16 @@ export function toKMB(number: number): string {
 }
 
 export function fromKMB(number: string): number {
-	number = number.toLowerCase().replace(/,/g, '');
+	number = number.toLowerCase().replace(/,/g, "");
 	const [numberBefore, numberAfter] = number.split(/[.kmb]/g);
 
 	let newNum = numberBefore;
-	if (number.includes('b')) {
-		newNum += numberAfter + '0'.repeat(9).slice(numberAfter.length);
-	} else if (number.includes('m')) {
-		newNum += numberAfter + '0'.repeat(6).slice(numberAfter.length);
-	} else if (number.includes('k')) {
-		newNum += numberAfter + '0'.repeat(3).slice(numberAfter.length);
+	if (number.includes("b")) {
+		newNum += numberAfter + "0".repeat(9).slice(numberAfter.length);
+	} else if (number.includes("m")) {
+		newNum += numberAfter + "0".repeat(6).slice(numberAfter.length);
+	} else if (number.includes("k")) {
+		newNum += numberAfter + "0".repeat(3).slice(numberAfter.length);
 	}
 
 	return parseInt(newNum);
@@ -200,7 +200,7 @@ export function getTotemChanceFromHP(hitpoints: number): number {
 }
 
 export function getSlayersEnchantmentChanceFromHP(hitpoints: number): number {
-	let chanceHitpoints = Math.min(hitpoints, 300);
+	const chanceHitpoints = Math.min(hitpoints, 300);
 	return Math.round(320 - (chanceHitpoints * 8) / 10);
 }
 
@@ -217,7 +217,7 @@ export interface RevTable {
 type RevTableItem = [number, number];
 
 export const revsUniqueTable = new LootTable()
-	.add('Amulet of avarice', 1, 2)
+	.add("Amulet of avarice", 1, 2)
 	.add("Craw's bow (u)", 1, 1)
 	.add("Thammaron's sceptre (u)", 1, 1)
 	.add("Viggora's chainmace (u)", 1, 1);
@@ -231,23 +231,23 @@ export function makeRevTable(table: RevTable): CustomKillLogic {
 		}
 
 		if (roll(table.seeds[index])) {
-			currentLoot.add('Yew seed', randInt(2, 7));
+			currentLoot.add("Yew seed", randInt(2, 7));
 			return;
 		}
 
 		if (roll(table.seeds[index])) {
-			currentLoot.add('Magic seed', randInt(2, 7));
+			currentLoot.add("Magic seed", randInt(2, 7));
 			return;
 		}
 
 		for (const [key, itemName] of [
-			['ancientEmblem', 'Ancient emblem'],
-			['ancientTotem', 'Ancient totem'],
-			['ancientCrystal', 'Ancient crystal'],
-			['ancientStatuette', 'Ancient statuette'],
-			['topThree', 'Ancient medallion'],
-			['topThree', 'Ancient effigy'],
-			['topThree', 'Ancient relic']
+			["ancientEmblem", "Ancient emblem"],
+			["ancientTotem", "Ancient totem"],
+			["ancientCrystal", "Ancient crystal"],
+			["ancientStatuette", "Ancient statuette"],
+			["topThree", "Ancient medallion"],
+			["topThree", "Ancient effigy"],
+			["topThree", "Ancient relic"],
 		] as const) {
 			if (roll(table[key][index])) {
 				currentLoot.add(itemName);

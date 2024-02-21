@@ -8,28 +8,27 @@ on:
 
 jobs:
     test:
-        name: Node v${{ matrix.node_version }} - ${{ matrix.os }}
-        runs-on: ${{ matrix.os }}
-        strategy:
-            matrix:
-                node_version: [18]
-                os: [ubuntu-latest]
+        name: Tests
+        runs-on: ubuntu-latest
 
         steps:
             - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js ${{ matrix.node_version }}
-              uses: actions/setup-node@v2
+              uses: actions/checkout@v4
+
+            - name: Install NodeJS
+              uses: actions/setup-node@v4
               with:
-                  node-version: ${{ matrix.node_version }}
+                   cache: yarn
+                   node-version: 20
+
             - name: Restore CI Cache
-              uses: actions/cache@v1
+              uses: actions/cache@v3
               with:
                   path: node_modules
-                  key: ${{ runner.os }}-${{ matrix.node_version }}-${{ hashFiles(matrix.os == 'windows-latest' && '**\yarn.lock' || '**/yarn.lock') }}
+                  key: NODE-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
             - name: Install Dependencies
               run: yarn
-            - name: Build Project
-              run: yarn build
-            - name: Test
+
+            - name: Run Tests
               run: yarn test

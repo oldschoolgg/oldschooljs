@@ -1,31 +1,31 @@
 export enum MonsterAttribute {
-	Demon = 'demon',
-	Dragon = 'dragon',
-	Fiery = 'fiery',
-	Kalphite = 'kalphite',
-	Leafy = 'leafy',
-	Penance = 'penance',
-	Shade = 'shade',
-	Undead = 'undead',
-	Vampyre = 'vampyre',
-	Xerician = 'xerician'
+	Demon = "demon",
+	Dragon = "dragon",
+	Fiery = "fiery",
+	Kalphite = "kalphite",
+	Leafy = "leafy",
+	Penance = "penance",
+	Shade = "shade",
+	Undead = "undead",
+	Vampyre = "vampyre",
+	Xerician = "xerician",
 }
 
 export enum MonsterSlayerMaster {
-	Turael = 'turael',
-	Krystilia = 'krystilia',
-	Mazchna = 'mazchna',
-	Vannaka = 'vannaka',
-	Chaeldar = 'chaeldar',
-	Konar = 'konar',
-	Nieve = 'nieve',
-	Duradel = 'duradel'
+	Turael = "turael",
+	Krystilia = "krystilia",
+	Mazchna = "mazchna",
+	Vannaka = "vannaka",
+	Chaeldar = "chaeldar",
+	Konar = "konar",
+	Nieve = "nieve",
+	Duradel = "duradel",
 }
 
 export enum MonsterAttackType {
-	Melee = 'melee',
-	Magic = 'magic',
-	Range = 'range'
+	Melee = "melee",
+	Magic = "magic",
+	Range = "range",
 }
 
 export interface MonsterData {

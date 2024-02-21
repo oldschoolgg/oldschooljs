@@ -1,12 +1,12 @@
-import Collection from '../../structures/Collection';
-import Monster from '../../structures/Monster';
-import { allBosses } from './bosses';
-import { CreatureCreation } from './CreatureCreation';
-import { allLowMonsters } from './low';
-import { CamdozaalGolems } from './low/camdozaalGolems';
-import { ReanimatedMonsters } from './low/reanimated';
-import { specialBosses } from './special';
-import { allSuperiorMonsters } from './superiorMonsters';
+import Collection from "../../structures/Collection";
+import Monster from "../../structures/Monster";
+import { CreatureCreation } from "./CreatureCreation";
+import { allBosses } from "./bosses";
+import { allLowMonsters } from "./low";
+import { CamdozaalGolems } from "./low/camdozaalGolems";
+import { ReanimatedMonsters } from "./low/reanimated";
+import { specialBosses } from "./special";
+import { allSuperiorMonsters } from "./superiorMonsters";
 
 const monstersObject = {
 	...allBosses,
@@ -15,17 +15,12 @@ const monstersObject = {
 	...allSuperiorMonsters,
 	...CreatureCreation,
 	...ReanimatedMonsters,
-	...CamdozaalGolems
+	...CamdozaalGolems,
 };
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [monster.id, monster]);
 
-class MonstersCollection extends Collection<number, Monster> {
-	// eslint-disable-next-line @typescript-eslint/no-useless-constructor
-	constructor(entries: [number, Monster][]) {
-		super(entries);
-	}
-}
+class MonstersCollection extends Collection<number, Monster> {}
 
 const Monsters = Object.assign(new MonstersCollection(allMonsters), monstersObject);
 

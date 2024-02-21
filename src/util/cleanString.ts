@@ -3,5 +3,5 @@
  * @param str The string to clean.
  */
 export function cleanString(str: string): string {
-	return str.replace(/\s/g, '').toUpperCase();
+	return str.replace(/\s/g, "").toUpperCase();
 }
