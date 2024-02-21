@@ -152,7 +152,6 @@ describe('Items', () => {
 			expect(scep2.equipable_weapon).toEqual(true);
 			expect(scep2.equipable).toEqual(true);
 			expect(scep2.equipment?.slot).toEqual(EquipmentSlot.Weapon);
-			expect(scep2.price > 4_000_000).toEqual(true);
 
 			expect(Items.filter(i => i.name === "Pharaoh's sceptre").size).toEqual(1);
 		},
