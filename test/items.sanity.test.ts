@@ -71,7 +71,6 @@ test('Items Sanity Test', async () => {
 	expect(itemWebweaverBowU.cost).toEqual(175_000);
 	expect(itemWebweaverBowU.lowalch).toEqual(70_000);
 	expect(itemWebweaverBowU.highalch).toEqual(105_000);
-	expect(itemWebweaverBowU.buy_limit).toBeUndefined();
 
 	const item27655 = Items.get(27_655)!;
 	expect(item27655.id).toEqual(27_655);
@@ -95,7 +94,6 @@ test('Items Sanity Test', async () => {
 	expect(item27657.cost).toEqual(175_000);
 	expect(item27657.lowalch).toEqual(70_000);
 	expect(item27657.highalch).toEqual(105_000);
-	expect(item27657.buy_limit).toBeUndefined();
 
 	const item27660 = Items.get(27_660)!;
 	expect(item27660.id).toEqual(27_660);

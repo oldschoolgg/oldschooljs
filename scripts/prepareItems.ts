@@ -237,7 +237,7 @@ export default async function prepareItems(): Promise<void> {
 
 	const allPrices = await fetch('https://prices.runescape.wiki/api/v1/osrs/latest', {
 		headers: {
-			'User-Agent': 'oldschooljs - @Magnaboy#7556'
+			'User-Agent': 'oldschooljs - @magnaboy'
 		}
 	})
 		.then((res): Promise<any> => res.json())
@@ -358,7 +358,6 @@ export default async function prepareItems(): Promise<void> {
 			if (item.name !== previousItem.name) {
 				messages.push(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
 			}
-			item.price = previousItem.price;
 			if (item.equipment?.slot !== previousItem.equipment?.slot) {
 				messages.push(`WARNING: ${previousItem.name} slot changed`);
 			}
@@ -372,12 +371,18 @@ export default async function prepareItems(): Promise<void> {
 			item.equipable = copyItem.equipable;
 		}
 		if (previousItem) {
-			item.price = previousItem.price;
 			item.cost = previousItem.cost;
 			item.lowalch = previousItem.lowalch;
 			item.highalch = previousItem.highalch;
 			item.wiki_url = previousItem.wiki_url;
 			item.wiki_name = previousItem.wiki_name;
+			item.release_date = previousItem.release_date;
+			if (previousItem.equipment?.requirements) {
+				item.equipment = {
+					...item.equipment,
+					requirements: previousItem.equipment.requirements
+				};
+			}
 		}
 		if (previousItem) {
 			if (item.equipment?.requirements === null && previousItem.equipment?.requirements !== null) {
