@@ -274,7 +274,6 @@ export default async function prepareItems(): Promise<void> {
 			'stacked',
 			'quest_item'
 		]) {
-			// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 			// @ts-ignore
 			delete item[delKey];
 		}

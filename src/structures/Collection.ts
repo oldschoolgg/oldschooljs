@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-/* eslint-disable no-dupe-class-members */
 /**
  * A Map with additional utility methods.
  * @extends {Map}
@@ -181,7 +180,6 @@ export default class Collection<K, V> extends Map<K, V> {
 		if (arr.length === 0 || !amount) return [];
 		const rand: K[] = Array.from({ length: amount });
 		arr = arr.slice();
-		// eslint-disable-next-line prefer-destructuring
 		for (let i = 0; i < amount; i++) rand[i] = arr.splice(Math.floor(Math.random() * arr.length), 1)[0];
 		return rand;
 	}
@@ -213,11 +211,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @returns {*}
 	 * @example collection.findKey(user => user.username === 'Bob');
 	 */
-	public findKey(
-		fn: (value: V, key: K, collection: this) => boolean,
-		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-		thisArg?: any,
-	): K | undefined {
+	public findKey(fn: (value: V, key: K, collection: this) => boolean, thisArg?: any): K | undefined {
 		if (typeof thisArg !== "undefined") fn = fn.bind(thisArg);
 		for (const [key, val] of this) {
 			if (fn(val, key, this)) return key;
@@ -328,7 +322,6 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @example collection.reduce((acc, guild) => acc + guild.memberCount, 0);
 	 */
 	public reduce<T>(fn: (accumulator: any, value: V, key: K, collection: this) => T, initialValue?: T): T {
-		// eslint-disable-next-line @typescript-eslint/init-declarations
 		let accumulator!: T;
 
 		if (typeof initialValue !== "undefined") {
