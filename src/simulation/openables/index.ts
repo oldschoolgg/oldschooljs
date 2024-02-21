@@ -1,12 +1,12 @@
-import Collection from '../../structures/Collection';
-import Openable from '../../structures/Openable';
-import BrimstoneChest from './BrimstoneChest';
-import Casket from './Casket';
-import CrystalChest from './CrystalChest';
-import ElvenCrystalChest from './ElvenCrystalChest';
-import GiantEggSacFull from './GiantEggSacFull';
-import GrubbyChest from './GrubbyChest';
-import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from './HAMStoreRoomChests';
+import Collection from "../../structures/Collection";
+import Openable from "../../structures/Openable";
+import BrimstoneChest from "./BrimstoneChest";
+import Casket from "./Casket";
+import CrystalChest from "./CrystalChest";
+import ElvenCrystalChest from "./ElvenCrystalChest";
+import GiantEggSacFull from "./GiantEggSacFull";
+import GrubbyChest from "./GrubbyChest";
+import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from "./HAMStoreRoomChests";
 import {
 	BabyImpling,
 	CrystalImpling,
@@ -19,19 +19,19 @@ import {
 	MagpieImpling,
 	NatureImpling,
 	NinjaImpling,
-	YoungImpling
-} from './Implings';
-import IntricatePouch from './IntricatePouch';
-import LarransChest from './LarransChest';
-import MuddyChest from './MuddyChest';
-import MysteryBox from './MysteryBox';
-import NestBoxEmpty from './NestBoxEmpty';
-import NestBoxRing from './NestBoxRing';
-import NestBoxSeeds from './NestBoxSeeds';
-import OgreCoffin from './OgreCoffin';
-import { GiantsFoundryOrePack, VolcanicMineOrePack } from './OrePack';
-import SeedPack from './SeedPack';
-import SinisterChest from './SinisterChest';
+	YoungImpling,
+} from "./Implings";
+import IntricatePouch from "./IntricatePouch";
+import LarransChest from "./LarransChest";
+import MuddyChest from "./MuddyChest";
+import MysteryBox from "./MysteryBox";
+import NestBoxEmpty from "./NestBoxEmpty";
+import NestBoxRing from "./NestBoxRing";
+import NestBoxSeeds from "./NestBoxSeeds";
+import OgreCoffin from "./OgreCoffin";
+import { GiantsFoundryOrePack, VolcanicMineOrePack } from "./OrePack";
+import SeedPack from "./SeedPack";
+import SinisterChest from "./SinisterChest";
 
 const openablesObject = {
 	MysteryBox,
@@ -67,17 +67,12 @@ const openablesObject = {
 	LuckyImpling,
 	VolcanicMineOrePack,
 	GiantsFoundryOrePack,
-	IntricatePouch
+	IntricatePouch,
 };
 
-const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
+const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [openable.id, openable]);
 
-class OpenablesCollection extends Collection<number, Openable> {
-	// eslint-disable-next-line @typescript-eslint/no-useless-constructor
-	constructor(entries: [number, Openable][]) {
-		super(entries);
-	}
-}
+class OpenablesCollection extends Collection<number, Openable> {}
 
 const Openables = Object.assign(new OpenablesCollection(allMonsters), openablesObject);
 

@@ -43,7 +43,7 @@
 		"members": true,
 		"combatLevel": 96,
 		"hitpoints": 90,
-		"maxHit": 11,
+		"maxHit": 8,
 		"attackType": ["magic"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -1437,15 +1437,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 65,
 		"slayerXP": 105,
-		"assignableSlayerMasters": [
-			"krystilia",
-			"vannaka",
-			"chaeldar",
-			"konar",
-			"nieve",
-			"duradel",
-			"krystilia"
-		]
+		"assignableSlayerMasters": ["krystilia", "vannaka", "chaeldar", "konar", "nieve", "duradel", "krystilia"]
 	},
 	"426": {
 		"members": true,
@@ -3045,16 +3037,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 40,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"mazchna",
-			"vannaka",
-			"chaeldar",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel"]
 	},
 	"957": {
 		"members": true,
@@ -3094,16 +3077,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 90,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"mazchna",
-			"vannaka",
-			"chaeldar",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel"]
 	},
 	"959": {
 		"members": true,
@@ -3143,16 +3117,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 170,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"mazchna",
-			"vannaka",
-			"chaeldar",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel"]
 	},
 	"963": {
 		"members": true,
@@ -3192,16 +3157,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 535.5,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"mazchna",
-			"vannaka",
-			"chaeldar",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "mazchna", "vannaka", "chaeldar", "konar", "nieve", "duradel"]
 	},
 	"995": {
 		"members": true,
@@ -4988,7 +4944,7 @@
 		"attackSlash": 0,
 		"attackCrush": 0,
 		"attackMagic": 0,
-		"attackRanged": 0,
+		"attackRanged": 110,
 		"defenceStab": 12,
 		"defenceSlash": 14,
 		"defenceCrush": 13,
@@ -7894,7 +7850,7 @@
 		"poisonous": false,
 		"immuneToPoison": false,
 		"immuneToVenom": false,
-		"attributes": [],
+		"attributes": ["undead"],
 		"category": ["rats", "zombies"],
 		"examineText": "Overgrown undead vermin.",
 		"wikiName": "Zombie rat (1)",
@@ -9121,15 +9077,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 312,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"krystilia",
-			"mazchna",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"6587": {
 		"members": true,
@@ -9449,15 +9397,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 624,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"krystilia",
-			"mazchna",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"6615": {
 		"members": true,
@@ -9497,15 +9437,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 260,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"krystilia",
-			"mazchna",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"6618": {
 		"members": true,
@@ -11031,7 +10963,7 @@
 		"members": true,
 		"combatLevel": 169,
 		"hitpoints": 190,
-		"maxHit": 21,
+		"maxHit": 8,
 		"attackType": ["magic"],
 		"attackSpeed": 4,
 		"aggressive": true,
@@ -14185,15 +14117,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 518,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"krystilia",
-			"mazchna",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"11993": {
 		"members": true,
@@ -14233,15 +14157,7 @@
 		"isSlayerMonster": true,
 		"slayerLevelRequired": 1,
 		"slayerXP": 322.5,
-		"assignableSlayerMasters": [
-			"turael",
-			"spria",
-			"krystilia",
-			"mazchna",
-			"konar",
-			"nieve",
-			"duradel"
-		]
+		"assignableSlayerMasters": ["turael", "spria", "krystilia", "mazchna", "konar", "nieve", "duradel"]
 	},
 	"11998": {
 		"members": true,
@@ -14488,7 +14404,7 @@
 		"combatLevel": 798,
 		"hitpoints": 2700,
 		"maxHit": 86,
-		"attackType": ["melee", "magic"],
+		"attackType": ["melee", "ranged", "magic"],
 		"attackSpeed": null,
 		"aggressive": true,
 		"poisonous": false,
@@ -14528,7 +14444,7 @@
 		"combatLevel": 798,
 		"hitpoints": 2700,
 		"maxHit": 86,
-		"attackType": ["melee", "magic"],
+		"attackType": ["melee", "ranged", "magic"],
 		"attackSpeed": null,
 		"aggressive": true,
 		"poisonous": false,

@@ -1,11 +1,11 @@
-import LootTable from '../../../../structures/LootTable';
-import SimpleMonster from '../../../../structures/SimpleMonster';
+import LootTable from "../../../../structures/LootTable";
+import SimpleMonster from "../../../../structures/SimpleMonster";
 
-export const WhiteWolfTable = new LootTable().every('Wolf bones');
+export const WhiteWolfTable = new LootTable().every("Wolf bones");
 
 export default new SimpleMonster({
 	id: 108,
-	name: 'White Wolf',
+	name: "White Wolf",
 	table: WhiteWolfTable,
-	aliases: ['white wolf']
+	aliases: ["white wolf"],
 });

@@ -1,17 +1,17 @@
-import { roll } from 'e';
+import { roll } from "e";
 
-import { MonsterSlayerMaster } from '../meta/monsterData';
-import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from '../meta/types';
+import { MonsterSlayerMaster } from "../meta/monsterData";
+import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from "../meta/types";
 import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
 	getLarranKeyChanceFromCBLevel,
 	getSlayersEnchantmentChanceFromHP,
-	getTotemChanceFromHP
-} from '../util/util';
-import Bank from './Bank';
-import LootTable from './LootTable';
-import Monster from './Monster';
+	getTotemChanceFromHP,
+} from "../util/util";
+import Bank from "./Bank";
+import LootTable from "./LootTable";
+import Monster from "./Monster";
 
 interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
@@ -51,7 +51,7 @@ export default class SimpleMonster extends Monster {
 		for (let i = 0; i < quantity; i++) {
 			if (canGetBrimKey) {
 				if (roll(getBrimKeyChanceFromCBLevel(this.data.combatLevel))) {
-					loot.add('Brimstone key');
+					loot.add("Brimstone key");
 				}
 			}
 			if (canGetSlayersEnchantment && this.data.hitpoints) {
@@ -66,11 +66,11 @@ export default class SimpleMonster extends Monster {
 			}
 			if (options.inCatacombs && this.data.hitpoints && !canGetLarranKey) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
-					loot.add('Ancient shard');
+					loot.add("Ancient shard");
 				}
 				if (roll(getTotemChanceFromHP(this.data.hitpoints))) {
 					// Always drop Dark totem base and bot will transmog accordingly.
-					loot.add('Dark totem base');
+					loot.add("Dark totem base");
 				}
 			}
 			if (options.onSlayerTask) {

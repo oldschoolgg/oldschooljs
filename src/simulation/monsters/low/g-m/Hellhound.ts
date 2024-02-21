@@ -1,14 +1,14 @@
-import LootTable from '../../../../structures/LootTable';
-import SimpleMonster from '../../../../structures/SimpleMonster';
+import LootTable from "../../../../structures/LootTable";
+import SimpleMonster from "../../../../structures/SimpleMonster";
 
 const HellhoundTable = new LootTable()
-	.every('Vile ashes')
-	.oneIn(32_768, 'Smouldering stone')
-	.tertiary(64, 'Clue scroll (hard)');
+	.every("Vile ashes")
+	.oneIn(32_768, "Smouldering stone")
+	.tertiary(64, "Clue scroll (hard)");
 
 export default new SimpleMonster({
 	id: 104,
-	name: 'Hellhound',
+	name: "Hellhound",
 	table: HellhoundTable,
-	aliases: ['hellhound', 'hellh']
+	aliases: ["hellhound", "hellh"],
 });

@@ -1,7 +1,7 @@
-import { MonsterKillOptions } from '../../../meta/types';
-import Bank from '../../../structures/Bank';
-import Monster from '../../../structures/Monster';
-import { TheLeviathan } from './TheLeviathan';
+import { MonsterKillOptions } from "../../../meta/types";
+import Bank from "../../../structures/Bank";
+import Monster from "../../../structures/Monster";
+import { TheLeviathan } from "./TheLeviathan";
 
 class AwakenedTheLeviathanSingleton extends Monster {
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
@@ -11,6 +11,6 @@ class AwakenedTheLeviathanSingleton extends Monster {
 
 export const AwakenedTheLeviathan = new AwakenedTheLeviathanSingleton({
 	id: 12_215,
-	name: 'The Leviathan (Awakened)',
-	aliases: ['the leviathan (awakened)']
+	name: "The Leviathan (Awakened)",
+	aliases: ["the leviathan (awakened)"],
 });

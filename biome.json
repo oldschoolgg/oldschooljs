@@ -3,6 +3,9 @@
 	"organizeImports": {
 		"enabled": true
 	},
+	"files": {
+		"maxSize": 10000000
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
@@ -16,10 +19,16 @@
 			},
 			"style": {
 				"noNonNullAssertion": "warn",
-				"noParameterAssign": "off"
+				"noParameterAssign": "off",
+				"useExponentiationOperator": "off",
+				"noUselessElse": "off"
 			},
 			"correctness": {
-				"useExhaustiveDependencies": "warn"
+				"useExhaustiveDependencies": "warn",
+				"noUnnecessaryContinue": "warn"
+			},
+			"complexity": {
+				"noExtraBooleanCast": "warn"
 			}
 		}
 	},

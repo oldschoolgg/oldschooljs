@@ -378,6 +378,7 @@ export default async function prepareItems(): Promise<void> {
 			item.wiki_name = previousItem.wiki_name;
 			item.release_date = previousItem.release_date;
 			if (previousItem.equipment?.requirements) {
+				// @ts-ignore ignore
 				item.equipment = {
 					...item.equipment,
 					requirements: previousItem.equipment.requirements
@@ -403,6 +404,7 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		if (previousItem?.equipment?.requirements && !item.equipment?.requirements) {
+			// @ts-ignore ignore
 			item.equipment = {
 				...item.equipment,
 				requirements: previousItem.equipment.requirements

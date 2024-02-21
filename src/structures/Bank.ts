@@ -1,11 +1,11 @@
-import { randArrItem } from 'e';
+import { randArrItem } from "e";
 
-import { BankItem, Item, ItemBank, ReturnedLootItem } from '../meta/types';
-import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from '../util/bank';
-import itemID from '../util/itemID';
-import Items from './Items';
+import { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
+import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from "../util/bank";
+import itemID from "../util/itemID";
+import Items from "./Items";
 
-const frozenErrorStr = 'Tried to mutate a frozen Bank.';
+const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
 export default class Bank {
 	public bank: ItemBank = {};
@@ -14,7 +14,7 @@ export default class Bank {
 	constructor(initialBank?: ItemBank | Bank) {
 		if (initialBank) {
 			this.bank = JSON.parse(
-				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank))
+				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank)),
 			);
 		}
 	}
@@ -26,7 +26,7 @@ export default class Bank {
 	}
 
 	public amount(item: string | number): number {
-		return this.bank[typeof item === 'string' ? itemID(item) : item] ?? 0;
+		return this.bank[typeof item === "string" ? itemID(item) : item] ?? 0;
 	}
 
 	public addItem(item: number, quantity = 1): this {
@@ -39,7 +39,7 @@ export default class Bank {
 	public removeItem(item: number | string, quantity = 1): this {
 		const currentValue = this.bank[item];
 
-		if (typeof currentValue === 'undefined') return this;
+		if (typeof currentValue === "undefined") return this;
 		if (currentValue - quantity <= 0) {
 			delete this.bank[item];
 		} else {
@@ -53,13 +53,13 @@ export default class Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.add(123);
-		if (typeof item === 'number') {
+		if (typeof item === "number") {
 			return this.addItem(item, quantity);
 		}
 
 		// Bank.add('Twisted bow');
 		// Bank.add('Twisted bow', 5);
-		if (typeof item === 'string') {
+		if (typeof item === "string") {
 			return this.addItem(itemID(item), quantity);
 		}
 
@@ -76,7 +76,7 @@ export default class Bank {
 			return this;
 		}
 
-		if ('id' in item) {
+		if ("id" in item) {
 			const _item = item as Item;
 			return this.addItem(_item.id, quantity);
 		}
@@ -86,7 +86,7 @@ export default class Bank {
 			return this;
 		}
 
-		if (isNaN(Number(firstKey))) {
+		if (Number.isNaN(Number(firstKey))) {
 			this.add(resolveNameBank(item));
 		} else {
 			for (const [itemID, quantity] of Object.entries(item)) {
@@ -102,12 +102,12 @@ export default class Bank {
 
 		// Bank.remove('Twisted bow');
 		// Bank.remove('Twisted bow', 5);
-		if (typeof item === 'string') {
+		if (typeof item === "string") {
 			return this.removeItem(itemID(item), quantity);
 		}
 
 		// Bank.remove(123);
-		if (typeof item === 'number') {
+		if (typeof item === "number") {
 			return this.removeItem(item, quantity);
 		}
 
@@ -129,7 +129,7 @@ export default class Bank {
 			return this;
 		}
 
-		if (isNaN(Number(firstKey))) {
+		if (Number.isNaN(Number(firstKey))) {
 			this.remove(resolveNameBank(item));
 		} else {
 			return this.remove(new Bank(item));
@@ -156,10 +156,10 @@ export default class Bank {
 
 	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (Array.isArray(items)) {
-			return items.every(item => this.amount(item) > 0);
+			return items.every((item) => this.amount(item) > 0);
 		}
 
-		if (typeof items === 'string' || typeof items === 'number') {
+		if (typeof items === "string" || typeof items === "number") {
 			return this.amount(items) > 0;
 		}
 
@@ -212,14 +212,14 @@ export default class Bank {
 	public toString(): string {
 		const entries = Object.entries(this.bank);
 		if (entries.length === 0) {
-			return 'No items';
+			return "No items";
 		}
 		const res = [];
 		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {
-			res.push(`${qty.toLocaleString()}x ${Items.get(Number(id))?.name ?? 'Unknown item'}`);
+			res.push(`${qty.toLocaleString()}x ${Items.get(Number(id))?.name ?? "Unknown item"}`);
 		}
 
-		return res.join(', ');
+		return res.join(", ");
 	}
 
 	public get length(): number {

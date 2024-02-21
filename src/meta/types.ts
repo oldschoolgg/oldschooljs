@@ -1,11 +1,11 @@
-import { hiscoreURLs, MINIGAMES } from '../constants';
-import Bank from '../structures/Bank';
-import LootTable, { LootTableRollOptions } from '../structures/LootTable';
-import SimpleMonster from '../structures/SimpleMonster';
-import { MonsterSlayerMaster } from './monsterData';
+import { MINIGAMES, hiscoreURLs } from "../constants";
+import Bank from "../structures/Bank";
+import LootTable, { LootTableRollOptions } from "../structures/LootTable";
+import SimpleMonster from "../structures/SimpleMonster";
+import { MonsterSlayerMaster } from "./monsterData";
 
-type ChestSize = 'big' | 'small';
-type SeedTier = '1' | '2' | '3' | '4' | '5';
+type ChestSize = "big" | "small";
+type SeedTier = "1" | "2" | "3" | "4" | "5";
 
 export interface SimpleLootItem {
 	id: string;
@@ -195,18 +195,18 @@ export interface ItemEquipment {
 }
 
 export enum EquipmentSlot {
-	TwoHanded = '2h',
-	Ammo = 'ammo',
-	Body = 'body',
-	Cape = 'cape',
-	Feet = 'feet',
-	Hands = 'hands',
-	Head = 'head',
-	Legs = 'legs',
-	Neck = 'neck',
-	Ring = 'ring',
-	Shield = 'shield',
-	Weapon = 'weapon'
+	TwoHanded = "2h",
+	Ammo = "ammo",
+	Body = "body",
+	Cape = "cape",
+	Feet = "feet",
+	Hands = "hands",
+	Head = "head",
+	Legs = "legs",
+	Neck = "neck",
+	Ring = "ring",
+	Shield = "shield",
+	Weapon = "weapon",
 }
 
 /**
@@ -316,18 +316,6 @@ export interface Item {
 	price: number;
 }
 
-export interface NewsItem {
-	title: string;
-	link: string;
-	image?: string;
-	category: string;
-	month: number;
-	year: number;
-	day: number;
-	date: number;
-}
-export type NewsItemWithDOM = NewsItem & { dom: Document };
-
 export interface DateYearMonth {
 	year: number;
 	month: number;
@@ -344,39 +332,6 @@ export interface WikiPage {
 		title: string;
 		ns: number;
 	}[];
-}
-
-export type WorldLocation = 'Australia' | 'United Kingdom' | 'Germany' | 'United States';
-
-export interface World {
-	number: number;
-	players: number;
-	location: WorldLocation;
-	members: boolean;
-	activity: string;
-}
-
-export interface Poll {
-	title: string;
-	description: string;
-	datePosted: number;
-	totalVotes: number;
-	year: number;
-	questions: PollQuestion[];
-	url: string;
-}
-
-export type PollWithDOM = Poll & { dom: Document };
-
-export interface PollQuestion {
-	question: string;
-	results: PollResult[];
-}
-
-export interface PollResult {
-	voteOption: string;
-	percentOfTotal: number;
-	voteCount: number;
 }
 
 export interface ItemBank {

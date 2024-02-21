@@ -34,7 +34,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		 * @type {?Array}
 		 * @private
 		 */
-		Object.defineProperty(this, '_array', { value: null, writable: true, configurable: true });
+		Object.defineProperty(this, "_array", { value: null, writable: true, configurable: true });
 
 		/**
 		 * Cached array for the `keyArray()` method - will be reset to `null` whenever `set()` or `delete()` are called
@@ -42,10 +42,10 @@ export default class Collection<K, V> extends Map<K, V> {
 		 * @type {?Array}
 		 * @private
 		 */
-		Object.defineProperty(this, '_keyArray', {
+		Object.defineProperty(this, "_keyArray", {
 			value: null,
 			writable: true,
-			configurable: true
+			configurable: true,
 		});
 	}
 
@@ -94,7 +94,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public first(): V | undefined;
 	public first(amount: number): V[];
 	public first(amount?: number): V | V[] | undefined {
-		if (typeof amount === 'undefined') return this.values().next().value;
+		if (typeof amount === "undefined") return this.values().next().value;
 		if (amount < 0) return this.last(amount * -1);
 		amount = Math.min(this.size, amount);
 		const iter = this.values();
@@ -110,7 +110,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public firstKey(): K | undefined;
 	public firstKey(amount: number): K[];
 	public firstKey(amount?: number): K | K[] | undefined {
-		if (typeof amount === 'undefined') return this.keys().next().value;
+		if (typeof amount === "undefined") return this.keys().next().value;
 		if (amount < 0) return this.lastKey(amount * -1);
 		amount = Math.min(this.size, amount);
 		const iter = this.keys();
@@ -128,7 +128,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public last(amount: number): V[];
 	public last(amount?: number): V | V[] | undefined {
 		const arr = this.array();
-		if (typeof amount === 'undefined') return arr[arr.length - 1];
+		if (typeof amount === "undefined") return arr[arr.length - 1];
 		if (amount < 0) return this.first(amount * -1);
 		if (!amount) return [];
 		return arr.slice(-amount);
@@ -145,7 +145,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public lastKey(amount: number): K[];
 	public lastKey(amount?: number): K | K[] | undefined {
 		const arr = this.keyArray();
-		if (typeof amount === 'undefined') return arr[arr.length - 1];
+		if (typeof amount === "undefined") return arr[arr.length - 1];
 		if (amount < 0) return this.firstKey(amount * -1);
 		if (!amount) return [];
 		return arr.slice(-amount);
@@ -161,7 +161,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public random(amount: number): V[];
 	public random(amount?: number): V | V[] {
 		let arr = this.array();
-		if (typeof amount === 'undefined') return arr[Math.floor(Math.random() * arr.length)];
+		if (typeof amount === "undefined") return arr[Math.floor(Math.random() * arr.length)];
 		if (arr.length === 0 || !amount) return [];
 		arr = arr.slice();
 		return Array.from({ length: amount }, (): V => arr.splice(Math.floor(Math.random() * arr.length), 1)[0]);
@@ -177,7 +177,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	public randomKey(amount: number): K[];
 	public randomKey(amount?: number): K | K[] {
 		let arr = this.keyArray();
-		if (typeof amount === 'undefined') return arr[Math.floor(Math.random() * arr.length)];
+		if (typeof amount === "undefined") return arr[Math.floor(Math.random() * arr.length)];
 		if (arr.length === 0 || !amount) return [];
 		const rand: K[] = Array.from({ length: amount });
 		arr = arr.slice();
@@ -216,9 +216,9 @@ export default class Collection<K, V> extends Map<K, V> {
 	public findKey(
 		fn: (value: V, key: K, collection: this) => boolean,
 		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-		thisArg?: any
+		thisArg?: any,
 	): K | undefined {
-		if (typeof thisArg !== 'undefined') fn = fn.bind(thisArg);
+		if (typeof thisArg !== "undefined") fn = fn.bind(thisArg);
 		for (const [key, val] of this) {
 			if (fn(val, key, this)) return key;
 		}
@@ -331,7 +331,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		// eslint-disable-next-line @typescript-eslint/init-declarations
 		let accumulator!: T;
 
-		if (typeof initialValue !== 'undefined') {
+		if (typeof initialValue !== "undefined") {
 			accumulator = initialValue;
 			for (const [key, val] of this) accumulator = fn(accumulator, val, key, this);
 			return accumulator;
@@ -348,7 +348,7 @@ export default class Collection<K, V> extends Map<K, V> {
 
 		// No items iterated.
 		if (first) {
-			throw new TypeError('Reduce of empty collection with no initial value');
+			throw new TypeError("Reduce of empty collection with no initial value");
 		}
 
 		return accumulator;
@@ -442,7 +442,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 */
 	public sort(
 		compareFunction: (firstValue: V, secondValue: V, firstKey: K, secondKey: K) => number = (x, y): number =>
-			Number(x > y) || Number(x === y) - 1
+			Number(x > y) || Number(x === y) - 1,
 	): this {
 		const entries = [...this.entries()];
 		entries.sort((a, b): number => compareFunction(a[1], b[1], a[0], b[0]));

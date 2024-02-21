@@ -1,10 +1,10 @@
-import LootTable from '../../../../structures/LootTable';
-import SimpleMonster from '../../../../structures/SimpleMonster';
+import LootTable from "../../../../structures/LootTable";
+import SimpleMonster from "../../../../structures/SimpleMonster";
 
-export const BatTable = new LootTable().every('Bat bones');
+export const BatTable = new LootTable().every("Bat bones");
 export default new SimpleMonster({
 	id: 2827,
-	name: 'Bat',
+	name: "Bat",
 	table: BatTable,
-	aliases: ['bat']
+	aliases: ["bat"],
 });

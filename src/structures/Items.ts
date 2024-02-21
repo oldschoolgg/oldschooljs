@@ -1,7 +1,7 @@
-import _items from '../data/items/item_data.json';
-import { Item, ItemID } from '../meta/types';
-import { cleanString } from '../util/cleanString';
-import Collection from './Collection';
+import _items from "../data/items/item_data.json";
+import { Item, ItemID } from "../meta/types";
+import { cleanString } from "../util/cleanString";
+import Collection from "./Collection";
 
 // @ts-ignore asdf
 const items = _items as Record<string, Item>;
@@ -25,22 +25,22 @@ export const USELESS_ITEMS = [
 
 	// Removed items
 	10_639, 10_641, 10_644, 10_646, 10_647, 10_648, 10_649, 10_651, 10_652, 10_654, 10_657, 10_658, 10_659, 10_661,
-	27_794, 27_795, 27_796, 27_797, 27_798, 27_799, 27_800, 27_801
+	27_794, 27_795, 27_796, 27_797, 27_798, 27_799, 27_800, 27_801,
 ];
 
 class Items extends Collection<number, Item> {
 	public get(item: ItemResolvable): Item | undefined {
 		const id = this.resolveID(item);
-		if (typeof id === 'undefined') return undefined;
+		if (typeof id === "undefined") return undefined;
 		return super.get(id);
 	}
 
 	private resolveID(input: ItemResolvable): ItemID | undefined {
-		if (typeof input === 'number') {
+		if (typeof input === "number") {
 			return input;
 		}
 
-		if (typeof input === 'string') {
+		if (typeof input === "string") {
 			const cleanName = cleanString(input);
 			return itemNameMap.get(cleanName);
 		}

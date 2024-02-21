@@ -1,165 +1,165 @@
-import LootTable from '../../../structures/LootTable';
-import SimpleMonster from '../../../structures/SimpleMonster';
+import LootTable from "../../../structures/LootTable";
+import SimpleMonster from "../../../structures/SimpleMonster";
 
 const ReanimatedGoblin = new SimpleMonster({
 	id: 7018,
-	name: 'Reanimated Goblin',
+	name: "Reanimated Goblin",
 	table: new LootTable(),
-	aliases: ['reanimated goblin']
+	aliases: ["reanimated goblin"],
 });
 
 const ReanimatedMonkey = new SimpleMonster({
 	id: 7019,
-	name: 'Reanimated Monkey',
+	name: "Reanimated Monkey",
 	table: new LootTable(),
-	aliases: ['reanimated monkey']
+	aliases: ["reanimated monkey"],
 });
 
 const ReanimatedImp = new SimpleMonster({
 	id: 7020,
-	name: 'Reanimated Imp',
+	name: "Reanimated Imp",
 	table: new LootTable(),
-	aliases: ['reanimated imp']
+	aliases: ["reanimated imp"],
 });
 
 const ReanimatedMinotaur = new SimpleMonster({
 	id: 7021,
-	name: 'Reanimated Minotaur',
+	name: "Reanimated Minotaur",
 	table: new LootTable(),
-	aliases: ['reanimated minotaur']
+	aliases: ["reanimated minotaur"],
 });
 
 const ReanimatedScorpion = new SimpleMonster({
 	id: 7022,
-	name: 'Reanimated Scorpion',
+	name: "Reanimated Scorpion",
 	table: new LootTable(),
-	aliases: ['reanimated scorpion']
+	aliases: ["reanimated scorpion"],
 });
 
 const ReanimatedBear = new SimpleMonster({
 	id: 7023,
-	name: 'Reanimated Bear',
+	name: "Reanimated Bear",
 	table: new LootTable(),
-	aliases: ['reanimated bear']
+	aliases: ["reanimated bear"],
 });
 
 const ReanimatedUnicorn = new SimpleMonster({
 	id: 7024,
-	name: 'Reanimated Unicorn',
+	name: "Reanimated Unicorn",
 	table: new LootTable(),
-	aliases: ['reanimated unicorn']
+	aliases: ["reanimated unicorn"],
 });
 
 const ReanimatedDog = new SimpleMonster({
 	id: 7025,
-	name: 'Reanimated Dog',
+	name: "Reanimated Dog",
 	table: new LootTable(),
-	aliases: ['reanimated dog']
+	aliases: ["reanimated dog"],
 });
 
 const ReanimatedChaosDruid = new SimpleMonster({
 	id: 7026,
-	name: 'Reanimated Chaos Druid',
+	name: "Reanimated Chaos Druid",
 	table: new LootTable(),
-	aliases: ['reanimated chaos druid']
+	aliases: ["reanimated chaos druid"],
 });
 
 const ReanimatedGiant = new SimpleMonster({
 	id: 7027,
-	name: 'Reanimated Giant',
+	name: "Reanimated Giant",
 	table: new LootTable(),
-	aliases: ['reanimated giant']
+	aliases: ["reanimated giant"],
 });
 
 const ReanimatedOgre = new SimpleMonster({
 	id: 7028,
-	name: 'Reanimated Ogre',
+	name: "Reanimated Ogre",
 	table: new LootTable(),
-	aliases: ['reanimated ogre']
+	aliases: ["reanimated ogre"],
 });
 
 const ReanimatedElf = new SimpleMonster({
 	id: 7029,
-	name: 'Reanimated Elf',
+	name: "Reanimated Elf",
 	table: new LootTable(),
-	aliases: ['reanimated elf']
+	aliases: ["reanimated elf"],
 });
 
 const ReanimatedTroll = new SimpleMonster({
 	id: 7030,
-	name: 'Reanimated Troll',
+	name: "Reanimated Troll",
 	table: new LootTable(),
-	aliases: ['reanimated troll']
+	aliases: ["reanimated troll"],
 });
 
 const ReanimatedHorror = new SimpleMonster({
 	id: 7031,
-	name: 'Reanimated Horror',
+	name: "Reanimated Horror",
 	table: new LootTable(),
-	aliases: ['reanimated horror']
+	aliases: ["reanimated horror"],
 });
 
 const ReanimatedKalphite = new SimpleMonster({
 	id: 7032,
-	name: 'Reanimated Kalphite',
+	name: "Reanimated Kalphite",
 	table: new LootTable(),
-	aliases: ['reanimated kalphite']
+	aliases: ["reanimated kalphite"],
 });
 
 const ReanimatedDagannoth = new SimpleMonster({
 	id: 7033,
-	name: 'Reanimated Dagannoth',
+	name: "Reanimated Dagannoth",
 	table: new LootTable(),
-	aliases: ['reanimated dagannoth']
+	aliases: ["reanimated dagannoth"],
 });
 
 const ReanimatedBloodveld = new SimpleMonster({
 	id: 7034,
-	name: 'Reanimated Bloodveld',
+	name: "Reanimated Bloodveld",
 	table: new LootTable(),
-	aliases: ['reanimated bloodveld']
+	aliases: ["reanimated bloodveld"],
 });
 
 const ReanimatedTzhaar = new SimpleMonster({
 	id: 7035,
-	name: 'Reanimated Tzhaar',
+	name: "Reanimated Tzhaar",
 	table: new LootTable(),
-	aliases: ['reanimated tzhaar']
+	aliases: ["reanimated tzhaar"],
 });
 
 const ReanimatedDemon = new SimpleMonster({
 	id: 7036,
-	name: 'Reanimated Demon',
+	name: "Reanimated Demon",
 	table: new LootTable(),
-	aliases: ['reanimated demon']
+	aliases: ["reanimated demon"],
 });
 
 const ReanimatedHellhound = new SimpleMonster({
 	id: 11_463,
-	name: 'Reanimated Hellhound',
+	name: "Reanimated Hellhound",
 	table: new LootTable(),
-	aliases: ['reanimated hellhound']
+	aliases: ["reanimated hellhound"],
 });
 
 const ReanimatedAviansie = new SimpleMonster({
 	id: 7037,
-	name: 'Reanimated Aviansie',
+	name: "Reanimated Aviansie",
 	table: new LootTable(),
-	aliases: ['reanimated aviansie']
+	aliases: ["reanimated aviansie"],
 });
 
 const ReanimatedAbyssal = new SimpleMonster({
 	id: 7038,
-	name: 'Reanimated Abyssal',
+	name: "Reanimated Abyssal",
 	table: new LootTable(),
-	aliases: ['reanimated abyssal']
+	aliases: ["reanimated abyssal"],
 });
 
 const ReanimatedDragon = new SimpleMonster({
 	id: 7039,
-	name: 'Reanimated Dragon',
+	name: "Reanimated Dragon",
 	table: new LootTable(),
-	aliases: ['reanimated dragon']
+	aliases: ["reanimated dragon"],
 });
 
 export const ReanimatedMonsters = {
@@ -185,5 +185,5 @@ export const ReanimatedMonsters = {
 	ReanimatedHellhound,
 	ReanimatedAviansie,
 	ReanimatedAbyssal,
-	ReanimatedDragon
+	ReanimatedDragon,
 };
