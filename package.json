@@ -13,7 +13,7 @@
 		"prepublishOnly": "yarn build",
 		"test": "yarn test:run",
 		"test:unit": "vitest run --coverage",
-		"test:run": "yarn build && yarn test:unit",
+		"test:run": "yarn build && yarn test:lint && yarn test:unit",
 		"test:lint": "eslint \"{src,test}/**/*.ts\"",
 		"lint": "eslint --ext ts src test scripts --fix && prettier --check \"{src,test}/**/*.json\" --write",
 		"build": "tsc -p .",
