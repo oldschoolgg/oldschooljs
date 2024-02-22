@@ -200,7 +200,7 @@ export default class LootTable {
 				this.addResultToLoot(item, loot);
 			}
 
-			for (let { chance, item, quantity, options } of effectiveTertiaryItems) {
+			for (const { chance, item, quantity, options } of effectiveTertiaryItems) {
 				if (roll(chance)) {
 					this.addResultToLoot({ item, quantity, options }, loot);
 				}
