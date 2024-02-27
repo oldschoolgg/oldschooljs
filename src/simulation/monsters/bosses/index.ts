@@ -17,6 +17,7 @@ import KrilTsutsaroth from "./KrilTsutsaroth";
 import Obor from "./Obor";
 import PhantomMuspah from "./PhantomMuspah";
 import Sarachnis from "./Sarachnis";
+import Scurrius from "./Scurrius";
 import Skotizo from "./Skotizo";
 import { TheLeviathan } from "./TheLeviathan";
 import { TheWhisperer } from "./TheWhisperer";
@@ -54,6 +55,7 @@ export const allBosses = {
 	AwakenedTheLeviathan,
 	AwakenedTheWhisperer,
 	AwakenedVardorvis,
+	Scurrius,
 	...allWildyBosses,
 	...allSlayerBosses,
 };
