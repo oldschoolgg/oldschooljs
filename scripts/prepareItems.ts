@@ -234,7 +234,7 @@ const itemsToIgnorePrices = [
 
 const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'weapon'];
 
-export default async function prepareItems() {
+export default async function prepareItems(): Promise<void> {
 	const messages: string[] = [];
 	const allItemsRaw: RawItemCollection = await fetch(
 		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json'
@@ -454,6 +454,4 @@ FROM users;
 	writeFileSync('./updates.txt', messages.join('\n'));
 
 	messages.push('Prepared items.');
-
-	return itemNameMap;
 }
