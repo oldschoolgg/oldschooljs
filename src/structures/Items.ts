@@ -13,6 +13,10 @@ export interface ItemCollection {
 	[index: string]: Item;
 }
 
+export const DO_NOT_REMOVE = [
+	// Clue scrolls
+	2677, 2801, 2722, 12_073, 19_835, 23_182,
+];
 export const USELESS_ITEMS = [
 	617, 8890, 6964, 2513, 19_492, 11_071, 11_068, 21_284, 24_735, 21_913, 4703, 4561, 2425, 4692, 3741,
 
@@ -26,6 +30,15 @@ export const USELESS_ITEMS = [
 	// Removed items
 	10_639, 10_641, 10_644, 10_646, 10_647, 10_648, 10_649, 10_651, 10_652, 10_654, 10_657, 10_658, 10_659, 10_661,
 	27_794, 27_795, 27_796, 27_797, 27_798, 27_799, 27_800, 27_801,
+
+	// Clue scroll step that doesn't match regex
+	3550, 2793, 12_113,
+
+	// SOTE Quest Clues
+	23_814, 23_815, 23_816, 23_817,
+
+	// "New" Clue scroll base items with changed IDs. Removed for consistency.
+	10_184, 12_027,
 ];
 
 class Items extends Collection<number, Item> {
