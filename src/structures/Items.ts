@@ -37,7 +37,7 @@ export const USELESS_ITEMS = [
 	// SOTE Quest Clues
 	23_814, 23_815, 23_816, 23_817,
 
-	// "New" Clue scroll base items with changed IDs. Removed for consistency.
+	// Duplicate or Individual clue-step items that currently don't match the filtering regex:
 	10_184, 12_027,
 ];
 
