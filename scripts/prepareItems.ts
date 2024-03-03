@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { EquipmentSlot, Item } from '../dist/meta/types';
-import Items, { USELESS_ITEMS } from '../dist/structures/Items';
+import Items, { DO_NOT_REMOVE, USELESS_ITEMS } from '../dist/structures/Items';
 import { itemID } from '../dist/util';
 import { itemChanges } from './manualItemChanges';
 
@@ -30,7 +30,12 @@ interface RawItemCollection {
 	};
 }
 
+// This regex matches the nearly 600 individual clue-step items:
+const clueStepRegex = /^Clue scroll \((beginner|easy|medium|hard|elite|master)\) - .*$/;
+
 function itemShouldntBeAdded(item: any) {
+	if (DO_NOT_REMOVE.includes(item.id)) return false;
+
 	return (
 		USELESS_ITEMS.includes(item.id) ||
 		item.duplicate === true ||
@@ -38,7 +43,8 @@ function itemShouldntBeAdded(item: any) {
 		item.linked_id_item ||
 		item.placeholder ||
 		item.name === 'Null' ||
-		item.wiki_name?.includes(' (Worn)')
+		item.wiki_name?.includes(' (Worn)') ||
+		(item.wiki_name && clueStepRegex.exec(item.wiki_name))
 	);
 }
 
@@ -426,7 +432,7 @@ export default async function prepareItems(): Promise<void> {
 
 	messages.push(`New Items: ${moidLink(newItems)}.`);
 	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
-	const sql = `SELECT 
+	const sql = `SELECT
   ${deletedItems
 		.map(
 			item => `COUNT(*) FILTER (WHERE bank->>'${item.id}' IS NOT NULL) AS people_with_item_${item.id},
