@@ -32,7 +32,7 @@ export const USELESS_ITEMS = [
 	27_794, 27_795, 27_796, 27_797, 27_798, 27_799, 27_800, 27_801,
 
 	// Clue scrolls - Duplicate or individual step clues that don't match filter
-	3550, 2793, 12_113,	10_184, 12_027,
+	3550, 2793, 12_113, 10_184, 12_027,
 
 	// SOTE Quest Clues
 	23_814, 23_815, 23_816, 23_817,
