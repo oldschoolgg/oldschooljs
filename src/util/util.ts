@@ -38,14 +38,14 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 
 	accumulativeIndex += SKILLS.length + 2;
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 4; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1]),
 		};
 	}
 
-	accumulativeIndex += 5;
+	accumulativeIndex += 4;
 
 	for (let i = 0; i < CLUES.length; i++) {
 		resolvedPlayer.clues[CLUES[i]] = {
