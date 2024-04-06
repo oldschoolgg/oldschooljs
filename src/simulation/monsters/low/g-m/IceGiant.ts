@@ -3,6 +3,31 @@ import SimpleMonster from "../../../../structures/SimpleMonster";
 import { GemTable } from "../../../subtables/RareDropTable";
 import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 76)
+	.add("Blighted anglerfish", [1, 2], 101)
+	.add("Blighted manta ray", [1, 2], 101)
+	.add("Blighted karambwan", [1, 2], 152)
+	.add("Blighted teleport spell sack", [1, 10], 152)
+	.add("Blighted ancient spell sack", [1, 10], 152)
+	.add("Blighted vengeance spell sack", [1, 10], 152)
+	.add("Blighted super restore(4)", 1, 304)
+	.add("Revenant cave teleport", 1, 304)
+	.add("Dareeyak teleport (tablet)", 1, 1521)
+	.add("Wilderness crabs teleport", 1, 1521)
+	.add("Carrallanger teleport (tablet)", 1, 1521)
+	.add("Paddewwa teleport (tablet)", 1, 1521)
+	.add("Annakarl teleport (tablet)", 1, 1521)
+	.add("Lassar teleport (tablet)", 1, 1521)
+	.add("Kharyrll teleport (tablet)", 1, 1521)
+	.add("Senntisten teleport (tablet)", 1, 1521)
+	.add("Ghorrock teleport (tablet)", 1, 1521)
+	.add("Target teleport", 1, 1521)
+	.add("Magic shortbow scroll", 1, 3801)
+	.add("Ring of wealth scroll", 1, 3801)
+	.add("Trouver parchment", 2, 15_205)
+	.add("Looting bag note", 1, 15_205);
+
 const IceGiantTable = new LootTable()
 	.every("Big bones")
 
@@ -52,9 +77,12 @@ const IceGiantTable = new LootTable()
 	.tertiary(5000, "Giant champion scroll")
 	.tertiary(5013, "Curved bone");
 
+const IceGiantWildyCaveTable = new LootTable().every(IceGiantTable).tertiary(1.37, WildySlayerCaveTable);
+
 export default new SimpleMonster({
 	id: 2085,
 	name: "Ice giant",
 	table: IceGiantTable,
+	wildyCaveTable: IceGiantWildyCaveTable,
 	aliases: ["ice giant"],
 });

@@ -73,15 +73,17 @@ const AbyssalDemonTable = new LootTable()
 	.every(AbyssalDemonPreTable)
 
 	/* Tertiary */
-	.tertiary(1.25, WildySlayerCaveTable)
 	.tertiary(25, "Ensouled abyssal head")
 	.tertiary(128, "Clue scroll (hard)")
 	.tertiary(1200, "Clue scroll (elite)")
 	.tertiary(6000, "Abyssal head");
 
+const AbyssalDemonWildyCaveTable = new LootTable().every(AbyssalDemonTable).tertiary(1.25, WildySlayerCaveTable);
+
 export default new SimpleMonster({
 	id: 415,
 	name: "Abyssal Demon",
 	table: AbyssalDemonTable,
+	wildyCaveTable: AbyssalDemonWildyCaveTable,
 	aliases: ["abbys", "abby demon", "abby demons", "abyssal demons", "abyssal demon"],
 });

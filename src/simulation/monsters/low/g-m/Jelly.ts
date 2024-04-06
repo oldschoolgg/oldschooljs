@@ -2,6 +2,31 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import { GemTable } from "../../../subtables/RareDropTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 73)
+	.add("Blighted anglerfish", [1, 2], 97)
+	.add("Blighted manta ray", [1, 2], 97)
+	.add("Blighted karambwan", [1, 2], 146)
+	.add("Blighted teleport spell sack", [1, 10], 146)
+	.add("Blighted ancient spell sack", [1, 10], 146)
+	.add("Blighted vengeance spell sack", [1, 10], 146)
+	.add("Blighted super restore(4)", 1, 292)
+	.add("Revenant cave teleport", 1, 292)
+	.add("Dareeyak teleport (tablet)", 1, 1461)
+	.add("Wilderness crabs teleport", 1, 1461)
+	.add("Carrallanger teleport (tablet)", 1, 1461)
+	.add("Paddewwa teleport (tablet)", 1, 1461)
+	.add("Annakarl teleport (tablet)", 1, 1461)
+	.add("Lassar teleport (tablet)", 1, 1461)
+	.add("Kharyrll teleport (tablet)", 1, 1461)
+	.add("Senntisten teleport (tablet)", 1, 1461)
+	.add("Ghorrock teleport (tablet)", 1, 1461)
+	.add("Target teleport", 1, 1461)
+	.add("Magic shortbow scroll", 1, 3651)
+	.add("Ring of wealth scroll", 1, 3651)
+	.add("Trouver parchment", 2, 14_605)
+	.add("Looting bag note", 1, 14_605);
+
 export const JellyPreTable = new LootTable()
 	/* Weapons and armour */
 	.add("Steel battleaxe", 1, 11)
@@ -33,9 +58,12 @@ const JellyTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, "Clue scroll (hard)");
 
+const JellyWildyCaveTable = new LootTable().every(JellyTable).tertiary(1.32, WildySlayerCaveTable);
+
 export default new SimpleMonster({
 	id: 437,
 	name: "Jelly",
 	table: JellyTable,
+	wildyCaveTable: JellyWildyCaveTable,
 	aliases: ["jelly", "jello"],
 });

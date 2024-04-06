@@ -68,12 +68,14 @@ const AnkouTable = new LootTable({ limit: 100 })
 	.add(GemTable, 1, 2)
 
 	/* Tertiary */
-	.tertiary(1.51, WildySlayerCaveTable)
 	.tertiary(512, "Clue scroll (hard)");
+
+const AnkouWildyCaveTable = new LootTable().every(AnkouTable).tertiary(1.51, WildySlayerCaveTable);
 
 export default new SimpleMonster({
 	id: 2514,
 	name: "Ankou",
 	table: AnkouTable,
+	wildyCaveTable: AnkouWildyCaveTable,
 	aliases: ["ankou", "ank"],
 });
