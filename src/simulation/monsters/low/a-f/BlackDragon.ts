@@ -68,7 +68,10 @@ const BlackDragonTable = new LootTable()
 	.tertiary(500, "Clue scroll (elite)")
 	.tertiary(10_000, "Draconic visage");
 
-const BlackDragonWildyCaveTable = new LootTable().every(BlackDragonTable).tertiary(1.1, WildySlayerCaveTable);
+const BlackDragonWildyCaveTable = new LootTable()
+	.every(BlackDragonTable)
+	.add(WildySlayerCaveTable, 1, 91)
+	.add(new LootTable(), 1, 9);
 
 export default new SimpleMonster({
 	id: 252,

@@ -66,7 +66,10 @@ export const DustDevilPreTable = new LootTable()
 
 const DustDevilTable = new LootTable().every("Bones").every(DustDevilPreTable);
 
-const DustDevilWildyCaveTable = new LootTable().every(DustDevilTable).tertiary(1.56, WildySlayerCaveTable);
+const DustDevilWildyCaveTable = new LootTable()
+	.every(DustDevilTable)
+	.add(WildySlayerCaveTable, 1, 64)
+	.add(new LootTable(), 1, 36);
 
 export default new SimpleMonster({
 	id: 423,

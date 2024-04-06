@@ -77,7 +77,10 @@ const IceGiantTable = new LootTable()
 	.tertiary(5000, "Giant champion scroll")
 	.tertiary(5013, "Curved bone");
 
-const IceGiantWildyCaveTable = new LootTable().every(IceGiantTable).tertiary(1.37, WildySlayerCaveTable);
+const IceGiantWildyCaveTable = new LootTable()
+	.every(IceGiantTable)
+	.add(WildySlayerCaveTable, 1, 73)
+	.add(new LootTable(), 1, 27);
 
 export default new SimpleMonster({
 	id: 2085,

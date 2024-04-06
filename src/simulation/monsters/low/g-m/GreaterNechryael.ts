@@ -71,7 +71,8 @@ const GreaterNechryaelTable = new LootTable()
 
 const GreaterNechryaelWildyCaveTable = new LootTable()
 	.every(GreaterNechryaelTable)
-	.tertiary(1.09, WildySlayerCaveTable);
+	.add(WildySlayerCaveTable, 1, 92)
+	.add(new LootTable(), 1, 8);
 
 export default new SimpleMonster({
 	id: 7278,

@@ -66,7 +66,10 @@ const LesserDemonTable = new LootTable()
 	.tertiary(50, "Ensouled demon head")
 	.tertiary(5000, "Lesser demon champion scroll");
 
-const LesserDemonWildyCaveTable = new LootTable().every(LesserDemonTable).tertiary(1.56, WildySlayerCaveTable);
+const LesserDemonWildyCaveTable = new LootTable()
+	.every(LesserDemonTable)
+	.add(WildySlayerCaveTable, 1, 64)
+	.add(new LootTable(), 1, 36);
 
 export default new SimpleMonster({
 	id: 2005,

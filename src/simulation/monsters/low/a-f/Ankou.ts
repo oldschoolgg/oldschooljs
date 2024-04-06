@@ -70,7 +70,10 @@ const AnkouTable = new LootTable({ limit: 100 })
 	/* Tertiary */
 	.tertiary(512, "Clue scroll (hard)");
 
-const AnkouWildyCaveTable = new LootTable().every(AnkouTable).tertiary(1.51, WildySlayerCaveTable);
+const AnkouWildyCaveTable = new LootTable()
+	.every(AnkouTable)
+	.add(WildySlayerCaveTable, 1, 66)
+	.add(new LootTable(), 1, 34);
 
 export default new SimpleMonster({
 	id: 2514,

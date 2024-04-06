@@ -58,7 +58,10 @@ const JellyTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, "Clue scroll (hard)");
 
-const JellyWildyCaveTable = new LootTable().every(JellyTable).tertiary(1.32, WildySlayerCaveTable);
+const JellyWildyCaveTable = new LootTable()
+	.every(JellyTable)
+	.add(WildySlayerCaveTable, 1, 76)
+	.add(new LootTable(), 1, 24);
 
 export default new SimpleMonster({
 	id: 437,

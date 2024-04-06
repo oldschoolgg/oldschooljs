@@ -31,7 +31,10 @@ const HellhoundTable = new LootTable()
 	.oneIn(32_768, "Smouldering stone")
 	.tertiary(64, "Clue scroll (hard)");
 
-const HellhoundWildyCaveTable = new LootTable().every(HellhoundTable).tertiary(1.25, WildySlayerCaveTable);
+const HellhoundWildyCaveTable = new LootTable()
+	.every(HellhoundTable)
+	.add(WildySlayerCaveTable, 1, 85)
+	.add(new LootTable(), 1, 15);
 
 export default new SimpleMonster({
 	id: 104,

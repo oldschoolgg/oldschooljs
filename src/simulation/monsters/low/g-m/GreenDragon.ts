@@ -68,7 +68,10 @@ const GreenDragonTable = new LootTable()
 	.tertiary(35, "Ensouled dragon head")
 	.tertiary(128, "Clue scroll (hard)");
 
-const GreenDragonWildyCaveTable = new LootTable().every(GreenDragonTable).tertiary(1.61, WildySlayerCaveTable);
+const GreenDragonWildyCaveTable = new LootTable()
+	.every(GreenDragonTable)
+	.add(WildySlayerCaveTable, 1, 62)
+	.add(new LootTable(), 1, 38);
 
 export default new SimpleMonster({
 	id: 260,
