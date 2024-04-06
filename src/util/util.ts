@@ -57,7 +57,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 	accumulativeIndex += CLUES.length;
 
 	for (let i = 0; i < 5; i++) {
-		const minigameKey = MINIGAMES[i + 4];
+		const minigameKey = MINIGAMES[i + 5];
 		const minigameData = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1]),
