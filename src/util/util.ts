@@ -38,7 +38,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 
 	accumulativeIndex += SKILLS.length + 2;
 
-	for (let i = 0; i < 3; i++) {
+	for (let i = 0; i < 4; i++) {
 		resolvedPlayer.minigames[MINIGAMES[i]] = {
 			rank: Number(data[i + accumulativeIndex][0]),
 			score: Number(data[i + accumulativeIndex][1]),
@@ -65,7 +65,7 @@ export function resolvePlayerFromHiscores(csvData: string, accountType: keyof ty
 		resolvedPlayer.minigames[minigameKey] = minigameData;
 	}
 
-	accumulativeIndex += 5;
+	accumulativeIndex += 4;
 
 	for (let i = 0; i < mappedBossNames.length; i++) {
 		if (!data[i + accumulativeIndex]) continue;
