@@ -38,6 +38,7 @@ export const MINIGAMES = [
 	"pvpArena",
 	"soulWars",
 	"riftsClosed",
+	"colosseumGlory",
 ] as const;
 
 export const CLUES = ["all", "beginner", "easy", "medium", "hard", "elite", "master"] as const;
@@ -72,6 +73,7 @@ export const mappedBossNames: [keyof BossRecords, string][] = [
 	["kraken", "Kraken"],
 	["kreeArra", "Kree'Arra"],
 	["krilTsutsaroth", "K'ril Tsutsaroth"],
+	["lunarChests", "Lunar Chests"],
 	["mimic", "Mimic"],
 	["nex", "Nex"],
 	["nightmare", "The Nightmare"],
@@ -82,6 +84,7 @@ export const mappedBossNames: [keyof BossRecords, string][] = [
 	["scorpia", "Scorpia"],
 	["scurrius", "Scurrius"],
 	["skotizo", "Skotizo"],
+	["solHeredit", "Sol Heredit"],
 	["spindel", "Spindel"],
 	["tempoross", "Tempoross"],
 	["theGauntlet", "The Gauntlet"],

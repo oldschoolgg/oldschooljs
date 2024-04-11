@@ -88,6 +88,7 @@ export interface BossRecords {
 	kraken: MinigameScore;
 	kreeArra: MinigameScore;
 	krilTsutsaroth: MinigameScore;
+	lunarChests: MinigameScore;
 	mimic: MinigameScore;
 	nex: MinigameScore;
 	nightmare: MinigameScore;
@@ -98,6 +99,7 @@ export interface BossRecords {
 	scorpia: MinigameScore;
 	scurrius: MinigameScore;
 	skotizo: MinigameScore;
+	solHeredit: MinigameScore;
 	spindel: MinigameScore;
 	tempoross: MinigameScore;
 	theGauntlet: MinigameScore;
