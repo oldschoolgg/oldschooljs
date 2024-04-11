@@ -3,6 +3,31 @@ import SimpleMonster from "../../../../structures/SimpleMonster";
 import HerbDropTable from "../../../subtables/HerbDropTable";
 import RareDropTable, { GemTable } from "../../../subtables/RareDropTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 69)
+	.add("Blighted anglerfish", [1, 2], 93)
+	.add("Blighted manta ray", [1, 2], 93)
+	.add("Blighted karambwan", [1, 2], 139)
+	.add("Blighted teleport spell sack", [1, 10], 139)
+	.add("Blighted ancient ice sack", [1, 10], 139)
+	.add("Blighted vengeance sack", [1, 10], 139)
+	.add("Blighted super restore(4)", 1, 278)
+	.add("Revenant cave teleport", 1, 278)
+	.add("Dareeyak teleport", 1, 1388)
+	.add("Wilderness crabs teleport", 1, 1388)
+	.add("Carrallanger teleport", 1, 1388)
+	.add("Paddewwa teleport", 1, 1388)
+	.add("Annakarl teleport", 1, 1388)
+	.add("Lassar teleport", 1, 1388)
+	.add("Kharyrll teleport", 1, 1388)
+	.add("Senntisten teleport", 1, 1388)
+	.add("Ghorrock teleport", 1, 1388)
+	.add("Target teleport", 1, 1388)
+	.add("Magic shortbow scroll", 1, 3469)
+	.add("Ring of wealth scroll", 1, 3469)
+	.add("Trouver parchment", 2, 13_875)
+	.add("Looting bag note", 1, 13_875);
+
 export const AbyssalDemonPreTable = new LootTable()
 	/* Weapons and armour */
 	.add("Black sword", 1, 4)
@@ -53,9 +78,15 @@ const AbyssalDemonTable = new LootTable()
 	.tertiary(1200, "Clue scroll (elite)")
 	.tertiary(6000, "Abyssal head");
 
+const AbyssalDemonWildyCaveTable = new LootTable()
+	.every(AbyssalDemonTable)
+	.add(WildySlayerCaveTable, 1, 80)
+	.add(new LootTable(), 1, 20);
+
 export default new SimpleMonster({
 	id: 415,
 	name: "Abyssal Demon",
 	table: AbyssalDemonTable,
+	wildyCaveTable: AbyssalDemonWildyCaveTable,
 	aliases: ["abbys", "abby demon", "abby demons", "abyssal demons", "abyssal demon"],
 });

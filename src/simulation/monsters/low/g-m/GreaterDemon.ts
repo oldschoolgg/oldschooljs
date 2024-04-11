@@ -2,6 +2,31 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import { GemTable } from "../../../subtables/RareDropTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 82)
+	.add("Blighted anglerfish", [1, 2], 109)
+	.add("Blighted manta ray", [1, 2], 109)
+	.add("Blighted karambwan", [1, 2], 163)
+	.add("Blighted teleport spell sack", [1, 10], 163)
+	.add("Blighted ancient ice sack", [1, 10], 163)
+	.add("Blighted vengeance sack", [1, 10], 163)
+	.add("Blighted super restore(4)", 1, 326)
+	.add("Revenant cave teleport", 1, 326)
+	.add("Dareeyak teleport", 1, 1632)
+	.add("Wilderness crabs teleport", 1, 1632)
+	.add("Carrallanger teleport", 1, 1632)
+	.add("Paddewwa teleport", 1, 1632)
+	.add("Annakarl teleport", 1, 1632)
+	.add("Lassar teleport", 1, 1632)
+	.add("Kharyrll teleport", 1, 1632)
+	.add("Senntisten teleport", 1, 1632)
+	.add("Ghorrock teleport", 1, 1632)
+	.add("Target teleport", 1, 1632)
+	.add("Magic shortbow scroll", 1, 4081)
+	.add("Ring of wealth scroll", 1, 4081)
+	.add("Trouver parchment", 2, 16_324)
+	.add("Looting bag note", 1, 16_324);
+
 const GreaterDemonTable = new LootTable({ limit: 128 })
 	.every("Vile ashes")
 
@@ -38,9 +63,15 @@ const GreaterDemonTable = new LootTable({ limit: 128 })
 	.tertiary(40, "Ensouled demon head")
 	.tertiary(128, "Clue scroll (hard)");
 
+const GreaterDemonWildyCaveTable = new LootTable()
+	.every(GreaterDemonTable)
+	.add(WildySlayerCaveTable, 1, 68)
+	.add(new LootTable(), 1, 32);
+
 export default new SimpleMonster({
 	id: 2025,
 	name: "Greater Demon",
 	table: GreaterDemonTable,
+	wildyCaveTable: GreaterDemonWildyCaveTable,
 	aliases: ["greater demon", "greater", "greaters"],
 });

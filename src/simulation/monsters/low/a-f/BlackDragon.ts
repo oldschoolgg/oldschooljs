@@ -2,6 +2,31 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import RareDropTable, { GemTable } from "../../../subtables/RareDropTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 61)
+	.add("Blighted anglerfish", [1, 2], 81)
+	.add("Blighted manta ray", [1, 2], 81)
+	.add("Blighted karambwan", [1, 2], 122)
+	.add("Blighted teleport spell sack", [1, 10], 122)
+	.add("Blighted ancient ice sack", [1, 10], 122)
+	.add("Blighted vengeance sack", [1, 10], 122)
+	.add("Blighted super restore(4)", 1, 244)
+	.add("Revenant cave teleport", 1, 244)
+	.add("Dareeyak teleport", 1, 1220)
+	.add("Wilderness crabs teleport", 1, 1220)
+	.add("Carrallanger teleport", 1, 1220)
+	.add("Paddewwa teleport", 1, 1220)
+	.add("Annakarl teleport", 1, 1220)
+	.add("Lassar teleport", 1, 1220)
+	.add("Kharyrll teleport", 1, 1220)
+	.add("Senntisten teleport", 1, 1220)
+	.add("Ghorrock teleport", 1, 1220)
+	.add("Target teleport", 1, 1220)
+	.add("Magic shortbow scroll", 1, 3049)
+	.add("Ring of wealth scroll", 1, 3049)
+	.add("Trouver parchment", 2, 12_198)
+	.add("Looting bag note", 1, 12_198);
+
 const BlackDragonTable = new LootTable()
 	.every("Dragon bones")
 	.every("Black dragonhide")
@@ -43,9 +68,15 @@ const BlackDragonTable = new LootTable()
 	.tertiary(500, "Clue scroll (elite)")
 	.tertiary(10_000, "Draconic visage");
 
+const BlackDragonWildyCaveTable = new LootTable()
+	.every(BlackDragonTable)
+	.add(WildySlayerCaveTable, 1, 91)
+	.add(new LootTable(), 1, 9);
+
 export default new SimpleMonster({
 	id: 252,
 	name: "Black Dragon",
 	table: BlackDragonTable,
+	wildyCaveTable: BlackDragonWildyCaveTable,
 	aliases: ["black dragon", "black drags"],
 });

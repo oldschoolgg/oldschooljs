@@ -16,6 +16,7 @@ import Monster from "./Monster";
 interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
 	onTaskTable?: LootTable;
+	wildyCaveTable?: LootTable;
 	pickpocketTable?: LootTable;
 	customKillLogic?: CustomKillLogic;
 }
@@ -23,6 +24,7 @@ interface SimpleMonsterOptions extends MonsterOptions {
 export default class SimpleMonster extends Monster {
 	public table?: LootTable;
 	public onTaskTable?: LootTable;
+	public wildyCaveTable?: LootTable;
 	public pickpocketTable?: LootTable;
 	public customKillLogic?: CustomKillLogic;
 
@@ -38,14 +40,14 @@ export default class SimpleMonster extends Monster {
 		this.table = options.table;
 		this.pickpocketTable = options.pickpocketTable;
 		this.onTaskTable = options.onTaskTable;
+		this.wildyCaveTable = options.wildyCaveTable;
 		this.customKillLogic = options.customKillLogic;
 	}
 
 	public kill(quantity = 1, options: MonsterKillOptions = {}): Bank {
 		const loot = new Bank();
 		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
-		const canGetSlayersEnchantment = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
-		const canGetLarranKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
+		const wildySlayer = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
 		const slayerMonster: boolean = Boolean(options.onSlayerTask && this.data.slayerLevelRequired > 1);
 
 		for (let i = 0; i < quantity; i++) {
@@ -54,17 +56,15 @@ export default class SimpleMonster extends Monster {
 					loot.add("Brimstone key");
 				}
 			}
-			if (canGetSlayersEnchantment && this.data.hitpoints) {
+			if (wildySlayer && this.data.hitpoints) {
 				if (roll(getSlayersEnchantmentChanceFromHP(this.data.hitpoints))) {
 					loot.add("Slayer's enchantment");
 				}
-			}
-			if (canGetLarranKey) {
 				if (roll(getLarranKeyChanceFromCBLevel(this.data.combatLevel, slayerMonster))) {
 					loot.add("Larran's key");
 				}
 			}
-			if (options.inCatacombs && this.data.hitpoints && !canGetLarranKey) {
+			if (options.inCatacombs && this.data.hitpoints && !wildySlayer) {
 				if (roll(getAncientShardChanceFromHP(this.data.hitpoints))) {
 					loot.add("Ancient shard");
 				}
@@ -74,7 +74,10 @@ export default class SimpleMonster extends Monster {
 				}
 			}
 			if (options.onSlayerTask) {
-				if (this.onTaskTable) {
+				if (wildySlayer && this.wildyCaveTable) {
+					// Roll the monster's wildy slayer cave table
+					loot.add(this.wildyCaveTable.roll(1, options.lootTableOptions));
+				} else if (this.onTaskTable) {
 					// Roll the monster's "on-task" table.
 					loot.add(this.onTaskTable.roll(1, options.lootTableOptions));
 				} else {

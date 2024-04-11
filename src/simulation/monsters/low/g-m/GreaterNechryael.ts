@@ -4,6 +4,31 @@ import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 import RareSeedTable from "../../../subtables/RareSeedTable";
 
+const WildySlayerCaveTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 60)
+	.add("Blighted anglerfish", [1, 2], 80)
+	.add("Blighted manta ray", [1, 2], 80)
+	.add("Blighted karambwan", [1, 2], 121)
+	.add("Blighted teleport spell sack", [1, 10], 121)
+	.add("Blighted ancient ice sack", [1, 10], 121)
+	.add("Blighted vengeance sack", [1, 10], 121)
+	.add("Blighted super restore(4)", 1, 241)
+	.add("Revenant cave teleport", 1, 241)
+	.add("Dareeyak teleport", 1, 1207)
+	.add("Wilderness crabs teleport", 1, 1207)
+	.add("Carrallanger teleport", 1, 1207)
+	.add("Paddewwa teleport", 1, 1207)
+	.add("Annakarl teleport", 1, 1207)
+	.add("Lassar teleport", 1, 1207)
+	.add("Kharyrll teleport", 1, 1207)
+	.add("Senntisten teleport", 1, 1207)
+	.add("Ghorrock teleport", 1, 1207)
+	.add("Target teleport", 1, 1207)
+	.add("Magic shortbow scroll", 1, 3016)
+	.add("Ring of wealth scroll", 1, 3016)
+	.add("Trouver parchment", 2, 12_065)
+	.add("Looting bag note", 1, 12_065);
+
 const GreaterNechryaelTable = new LootTable()
 	.every("Malicious ashes")
 
@@ -44,9 +69,15 @@ const GreaterNechryaelTable = new LootTable()
 	/* Tertiary */
 	.tertiary(128, "Clue scroll (hard)");
 
+const GreaterNechryaelWildyCaveTable = new LootTable()
+	.every(GreaterNechryaelTable)
+	.add(WildySlayerCaveTable, 1, 92)
+	.add(new LootTable(), 1, 8);
+
 export default new SimpleMonster({
 	id: 7278,
 	name: "Greater Nechryael",
 	table: GreaterNechryaelTable,
+	wildyCaveTable: GreaterNechryaelWildyCaveTable,
 	aliases: ["greater nechryael", "greater nech", "greater nechs", "g nechs"],
 });
