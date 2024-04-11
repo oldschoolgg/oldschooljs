@@ -11,9 +11,10 @@ test('Hiscores', async () => {
 	expect(koru.bossRecords.dagannothPrime.score).toBeGreaterThanOrEqual(1);
 	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(1);
 
-	const [lynxTitan, zulu, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
+	const [lynxTitan, zulu, b0aty, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
 		Hiscores.fetch('Lynx Titan'),
 		Hiscores.fetch('Zulu'),
+		Hiscores.fetch('B0aty'),
 		Hiscores.fetch('Magnaboy'),
 		Hiscores.fetch('Magnaboy', { virtualLevels: true }),
 		Hiscores.fetch('Faux', { virtualLevels: true })
@@ -43,6 +44,10 @@ test('Hiscores', async () => {
 
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 3000).toBe(true);
+
+	expect(b0aty.minigames.bountyHunterLegacy.score).toEqual(8)
+	expect(b0aty.minigames.bountyHunterLegacyRogue.score).toEqual(7)
+	expect(b0aty.minigames.colosseumGlory.score).toBeGreaterThan(30_000);
 
 	expect(magnaboy.clues.all.score).toBe(157);
 
