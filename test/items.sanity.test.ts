@@ -3,6 +3,20 @@ import { expect, test } from 'vitest';
 import { Items } from '../src';
 
 test('Items Sanity Test', async () => {
+
+	const beginnerClue = Items.get('Clue scroll (beginner)');
+	expect(beginnerClue.id).toEqual(23_182);
+	const easyClue = Items.get('Clue scroll (easy)');
+	expect(easyClue.id).toEqual(2677);
+	const mediumClue = Items.get('Clue scroll (medium)');
+	expect(mediumClue.id).toEqual(2801);
+	const hardClue = Items.get('Clue scroll (hard)');
+	expect(hardClue.id).toEqual(2722);
+	const eliteClue = Items.get('Clue scroll (elite)');
+	expect(eliteClue.id).toEqual(12_073);
+	const masterClue = Items.get('Clue scroll (master)');
+	expect(masterClue.id).toEqual(19_835);
+
 	const item27624 = Items.get(27_624)!;
 	expect(item27624.id).toEqual(27_624);
 	expect(item27624.name).toEqual('Ancient sceptre');
