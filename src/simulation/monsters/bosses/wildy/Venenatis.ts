@@ -21,9 +21,13 @@ const VenenatisTable = new LootTable()
 	.every(VenenatisUniqueTable)
 
 	/* Weapons and armour */
-	.add("Rune pickaxe", 3, 12)
-	.add("Rune knife", 150, 3)
+	.add("Rune pickaxe", 5, 8)
+	.add("Rune knife", 150, 5)
 	.add("Rune dart", 150, 3)
+	.add("Mystic air staff", 4, 2)
+	.add("Rune platelegs", 4, 2)
+	.add("Rune sq shield", 4, 2)
+	.add("Dragon dagger", 6, 2)
 
 	/* Runes and ammunition */
 	.add("Chaos rune", 500, 7)
@@ -42,22 +46,23 @@ const VenenatisTable = new LootTable()
 	.add("Uncut dragonstone", 5, 2)
 	.add("Uncut ruby", 75, 1)
 	.add("Unicorn horn", 225, 1)
-	.add("Grimy ranarr weed", 50, 1)
+	.add("Grimy ranarr weed", 45, 1)
 	.add("Grimy snapdragon", 150, 1)
 	.add("Grimy toadflax", 45, 1)
 
 	/* Other */
-	.add("Coins", 50_000, 21)
+	.add("Coins", 50_000, 10)
 	.add("Super restore(4)", 10, 5)
 	.add("Dark crab", 50, 5)
 	.add("Supercompost", 225, 4)
 	.add("Antidote++(4)", 20, 3)
-	.add("Blighted anglerfish", 45, 1)
+	.add("Wilderness crabs teleport", 4, 3)
+	.add("Blighted anglerfish", 100, 1)
 
 	/* Tertiary */
 	.tertiary(100, "Clue scroll (elite)")
 	.tertiary(400, "Long bone")
-	.tertiary(2000, "Venenatis spiderling")
+	.tertiary(1500, "Venenatis spiderling")
 	.tertiary(5013, "Curved bone");
 
 const VenenatisTotalTable = new LootTable().every(VenenatisSecondarySupplyTable).every(VenenatisTable);
