@@ -26,9 +26,14 @@ const VetionTable = new LootTable()
 	.every(VetionUniqueTable)
 
 	/* Weapons and armour */
-	.add("Rune pickaxe", 3, 12)
+	.add("Rune pickaxe", 5, 8)
 	.add("Rune dart", 150, 3)
 	.add("Rune knife", 150, 3)
+	.add("Mystic fire staff", 4, 2)
+	.add("Mystic water staff", 4, 2)
+	.add("Mystic robe top", 4, 2)
+	.add("Mystic robe bottom", 4, 2)
+	.add("Rune full helm", 4, 2)
 
 	/* Runes and ammunition */
 	.add("Chaos rune", 900, 7)
@@ -53,17 +58,18 @@ const VetionTable = new LootTable()
 	.add("Grimy toadflax", 45, 1)
 
 	/* Other */
-	.add("Coins", 50_000, 21)
+	.add("Coins", 50_000, 10)
 	.add("Super restore(4)", 10, 5)
 	.add("Sanfew serum(4)", 20, 5)
 	.add("Dark crab", 50, 5)
 	.add("Supercompost", 225, 4)
-	.add("Blighted anglerfish", 45, 1)
+	.add("Wilderness crabs teleport", 4, 3)
+	.add("Blighted anglerfish", 100, 1)
 
 	/* Tertiary */
 	.tertiary(100, "Clue scroll (elite)")
 	.tertiary(400, "Long bone")
-	.tertiary(2000, "Vet'ion jr.")
+	.tertiary(1500, "Vet'ion jr.")
 	.tertiary(5000, "Skeleton champion scroll")
 	.tertiary(5013, "Curved bone");
 
