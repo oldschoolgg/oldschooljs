@@ -50,6 +50,7 @@ export const LavaDragonTable = new LootTable()
 	.add(GemTable, 1, 5)
 
 	/* Tertiary */
+	.tertiary(18, "Ensouled dragon head")
 	.tertiary(250, "Clue scroll (elite)")
 	.tertiary(10_000, "Draconic visage");
 

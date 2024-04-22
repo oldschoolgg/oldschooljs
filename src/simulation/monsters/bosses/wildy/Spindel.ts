@@ -26,7 +26,7 @@ const SpindelTable = new LootTable()
 
 	/* Weapons and armour */
 	.add("Rune pickaxe", 1, 12)
-	.add("Rune knife", 30, 3)
+	.add("Rune knife", 30, 5)
 	.add("Rune 2h sword", 1, 3)
 
 	/* Runes and ammunition */

@@ -23,8 +23,13 @@ const CallistoTable = new LootTable()
 	.every(CallistoUniqueTable)
 
 	/* Weapons and armour */
-	.add("Rune pickaxe", 3, 12)
-	.add("Rune 2h sword", 1, 3)
+	.add("Rune pickaxe", 5, 8)
+	.add("Rune 2h sword", 3, 3)
+	.add("Mystic earth staff", 4, 2)
+	.add("Mystic robe top", 4, 2)
+	.add("Mystic robe bottom", 4, 2)
+	.add("Rune kiteshield", 4, 2)
+	.add("Rune platebody", 4, 2)
 
 	/* Runes and ammunition */
 	.add("Blood rune", 500, 7)
@@ -52,17 +57,18 @@ const CallistoTable = new LootTable()
 	.add("Snapdragon seed", 8, 5)
 
 	/* Other */
-	.add("Coins", 50_000, 21)
+	.add("Coins", 50_000, 10)
 	.add("Dark crab", 50, 5)
 	.add("Super restore(4)", 10, 5)
 	.add("Supercompost", 225, 4)
 	.add("Dragon bones", 75, 3)
-	.add("Blighted anglerfish", 45, 1)
+	.add("Wilderness crabs teleport", 4, 3)
+	.add("Blighted anglerfish", 100, 1)
 
 	/* Tertiary */
 	.tertiary(100, "Clue scroll (elite)")
 	.tertiary(400, "Long bone")
-	.tertiary(2000, "Callisto cub")
+	.tertiary(1500, "Callisto cub")
 	.tertiary(5013, "Curved bone");
 
 const CallistoTotalTable = new LootTable().every(CallistoSecondarySupplyTable).every(CallistoTable);
