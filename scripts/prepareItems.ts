@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { EquipmentSlot, Item } from '../dist/meta/types';
-import Items, { DO_NOT_REMOVE, USELESS_ITEMS } from '../dist/structures/Items';
+import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from '../dist/structures/Items';
 import { itemID } from '../dist/util';
 import { itemChanges } from './manualItemChanges';
 
@@ -34,9 +34,10 @@ interface RawItemCollection {
 const clueStepRegex = /^Clue scroll \((beginner|easy|medium|hard|elite|master)\) - .*$/;
 
 function itemShouldntBeAdded(item: any) {
-	if (DO_NOT_REMOVE.includes(item.id)) return false;
+	if (CLUE_SCROLLS.includes(item.id)) return false;
 
 	return (
+		CLUE_SCROLL_NAMES.includes(item.name) && !CLUE_SCROLLS.includes(item.id) ||
 		USELESS_ITEMS.includes(item.id) ||
 		item.duplicate === true ||
 		item.noted ||
