@@ -19,13 +19,13 @@ export const CLUE_SCROLLS = [
 ];
 
 export const CLUE_SCROLL_NAMES: string[] = [
-	'Clue scroll (beginner)',
-	'Clue scroll (easy)',
-	'Clue scroll (medium)',
-	'Clue scroll (hard)',
-	'Clue scroll (elite)',
-	'Clue scroll (master)'
-]
+	"Clue scroll (beginner)",
+	"Clue scroll (easy)",
+	"Clue scroll (medium)",
+	"Clue scroll (hard)",
+	"Clue scroll (elite)",
+	"Clue scroll (master)",
+];
 
 export const USELESS_ITEMS = [
 	617, 8890, 6964, 2513, 19_492, 11_071, 11_068, 21_284, 24_735, 21_913, 4703, 4561, 2425, 4692, 3741,
