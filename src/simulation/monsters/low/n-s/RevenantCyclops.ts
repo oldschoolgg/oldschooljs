@@ -13,7 +13,7 @@ const SecondaryTable = new LootTable()
 	.add("Blighted super restore(4)", 1, 2980)
 	.add("Revenant cave teleport", 1, 2980);
 
-export const RevenantCyclopsPreTable = new LootTable()
+const RevenantCyclopsPreTable = new LootTable()
 	.every("Revenant ether", [2, 20])
 
 	/* Weapons and armour */
