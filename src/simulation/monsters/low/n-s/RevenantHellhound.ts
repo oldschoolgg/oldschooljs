@@ -2,44 +2,59 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import { makeRevTable } from "../../../../util";
 
-export const RevenantHellhoundTable = new LootTable()
-	.every("Revenant ether", [1, 10])
+const SecondaryTable = new LootTable()
+	.add("Blighted entangle sack", [1, 10], 12500)
+	.add("Blighted manta ray", [1, 2], 9370)
+	.add("Blighted anglerfish", [1, 2], 9370)
+	.add("Blighted ancient ice sack", [1, 10], 6250)
+	.add("Blighted teleport spell sack", [1, 10], 6250)
+	.add("Blighted vengeance sack", [1, 10], 6250)
+	.add("Blighted karambwan", [1, 2], 6250)
+	.add("Blighted super restore(4)", 1, 3130)
+	.add("Revenant cave teleport", 1, 3130);
+
+const RevenantHellhoundPreTable = new LootTable()
+	.every("Revenant ether", [2, 20])
 
 	/* Weapons and armour */
-	.add("Bracelet of ethereum (uncharged)", 1, 15)
-	.add("Battlestaff", 3, 5)
-	.add("Rune full helm", 1, 2)
-	.add("Rune platebody", 1, 2)
-	.add("Rune platelegs", 1, 2)
-	.add("Rune kiteshield", 1, 2)
-	.add("Rune warhammer", 1, 2)
-	.add("Dragon platelegs", 1, 1)
-	.add("Dragon plateskirt", 1, 1)
-	.add("Dragon dagger", 1, 1)
-	.add("Dragon longsword", 1, 1)
-	.oneIn(751, "Dragon med helm")
+	.add("Bracelet of ethereum (uncharged)", 1, 7820)
+	.add("Battlestaff", 4, 2610)
+	.add("Rune full helm", 2, 1040)
+	.add("Rune platebody", 2, 1040)
+	.add("Rune platelegs", 2, 1040)
+	.add("Rune kiteshield", 2, 1040)
+	.add("Rune warhammer", 2, 1040)
+	.add("Dragon dagger", 2, 522)
+	.add("Dragon longsword", 2, 522)
+	.add("Dragon platelegs", [1, 2], 261)
+	.add("Dragon plateskirt", [1, 2], 261)
 
 	/* Resources */
-	.add("Coal", [50, 100], 6)
-	.add("Adamantite bar", [8, 12], 6)
-	.add("Runite ore", [3, 6], 6)
-	.add("Runite bar", [3, 5], 6)
-	.add("Black dragonhide", [10, 15], 6)
-	.add("Mahogany plank", [15, 25], 5)
-	.add("Manta ray", [30, 50], 3)
-	.add("Yew logs", [60, 100], 3)
-	.add("Magic logs", [15, 25], 2)
-	.add("Uncut dragonstone", [5, 7], 1)
+	.add("Coal", [30, 60], 3130)
+	.add("Adamantite bar", [4, 6], 3130)
+	.add("Blighted manta ray", [10, 15], 2090)
+	.add("Runite ore", [2, 4], 2090)
+	.add("Black dragonhide", 4, 2090)
+	.add("Yew logs", [20, 40], 2090)
+	.add("Blighted super restore(4)", [1, 3], 1560)
+	.add("Runite bar", [2, 3], 1560)
+	.add("Mahogany plank", [8, 16], 1560)
+	.add("Magic logs", [8, 16], 1040)
+	.add("Uncut dragonstone", [2, 5], 522)
 
 	/* Other */
-	.add("Coins", [1, 226], 98)
-	.add("Revenant cave teleport", 1, 7)
-	.add("Super restore(4)", [3, 5], 4)
-	.add("Dragonstone bolt tips", [40, 70], 4)
-	.add("Onyx bolt tips", [5, 10], 4)
-	.add("Law rune", [80, 120], 3)
-	.add("Death rune", [60, 100], 3)
-	.add("Blood rune", [60, 100], 3);
+	.add("Coins", [1, 226], 47800)
+	.add("Revenant cave teleport", [1, 5], 2610)
+	.add("Law rune", [20, 45], 2610)
+	.add("Death rune", [30, 60], 2610)
+	.add("Blood rune", [50, 100], 2610)
+	.add("Dragonstone bolt tips", [20, 40], 1560)
+	.add("Onyx bolt tips", [3, 6], 1560);
+
+const RevenantHellhoundTable = new LootTable()
+	.every(RevenantHellhoundPreTable)
+	.add(SecondaryTable, 1, 625)
+	.add(new LootTable(), 1, 375);
 
 export default new SimpleMonster({
 	id: 7935,
