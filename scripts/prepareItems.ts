@@ -446,7 +446,7 @@ export default async function prepareItems(): Promise<void> {
 
 	const totalQtySql = `SELECT id, SUM(kv.value::int) AS total_quantity
 	FROM users, jsonb_each_text(bank::jsonb) AS kv(itemID, value)
-	WHERE itemID::int = ANY(ARRAY[${deletedItems.join(',')}]::int[])
+	WHERE itemID::int = ANY(ARRAY[${deletedItems.map(i => i.id).join(',')}]::int[])
 	GROUP BY id`;
 	messages.push(`------------------- Get Total Qty of Deleted Items----------------\n${totalQtySql}\n`);
 
