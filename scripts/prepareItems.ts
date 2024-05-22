@@ -318,7 +318,10 @@ export default async function prepareItems(): Promise<void> {
 
 		const price = allPrices[item.id];
 		if (price) {
-			item.price = Math.max(0, ((price.high as number) + (price.low as number)) / 2);
+			// Fix weird bug with prices: (high can be 1 and low 2.14b for example... blame Jamflex)
+			if (price.high < price.low) price.high = price.low;
+			// Calculate average of High + Low
+			item.price = Math.ceil(Math.max(0, ((price.high as number) + (price.low as number)) / 2));
 		} else {
 			item.price = 0;
 		}
@@ -329,9 +332,16 @@ export default async function prepareItems(): Promise<void> {
 			item.price = 0;
 		}
 
-		// If major price increase, just dont fucking change it.
-		if (previousItem && item.tradeable && previousItem.price < item.price / 20 && previousItem.price !== 0) {
-			majorPriceChanges.push([previousItem, item]);
+		let dontChange = false;
+		if (previousItem && item.tradeable) {
+			// If major price increase, just dont fucking change it.
+			if (previousItem.price < item.price / 20 && previousItem.price !== 0) dontChange = true;
+			// Prevent weird bug with expensive items: (An item with 2b val on GE had high = 1 & low = 100k)
+			if (item.price < previousItem.price / 10) dontChange = true;
+		}
+
+		if (dontChange) {
+			majorPriceChanges.push([previousItem, {...item}]);
 			item.price = previousItem.price;
 		}
 
@@ -433,6 +443,13 @@ export default async function prepareItems(): Promise<void> {
 
 	messages.push(`New Items: ${moidLink(newItems)}.`);
 	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
+
+	const totalQtySql = `SELECT id, SUM(kv.value::int) AS total_quantity
+	FROM users, jsonb_each_text(bank::jsonb) AS kv(itemID, value)
+	WHERE itemID::int = ANY(ARRAY[${deletedItems.join(',')}]::int[])
+	GROUP BY id`;
+	messages.push(`------------------- Get Total Qty of Deleted Items----------------\n${totalQtySql}\n`);
+
 	const sql = `SELECT
   ${deletedItems
 		.map(
