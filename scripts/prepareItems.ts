@@ -338,6 +338,8 @@ export default async function prepareItems(): Promise<void> {
 			if (previousItem.price < item.price / 20 && previousItem.price !== 0) dontChange = true;
 			// Prevent weird bug with expensive items: (An item with 2b val on GE had high = 1 & low = 100k)
 			if (item.price < previousItem.price / 10) dontChange = true;
+			// If price differs by 10000x just don't change it.
+			if (price && price.high / 10000 > price.low) dontChange = true;
 		}
 
 		if (dontChange) {
