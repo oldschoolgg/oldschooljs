@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from 'fs';
 import fetch from 'node-fetch';
 
 import { EquipmentSlot, Item } from '../dist/meta/types';
-import Items, { USELESS_ITEMS } from '../dist/structures/Items';
+import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from '../dist/structures/Items';
 import { itemID } from '../dist/util';
 import { itemChanges } from './manualItemChanges';
 
@@ -30,15 +30,22 @@ interface RawItemCollection {
 	};
 }
 
+// This regex matches the nearly 600 individual clue-step items:
+const clueStepRegex = /^Clue scroll \((beginner|easy|medium|hard|elite|master)\) - .*$/;
+
 function itemShouldntBeAdded(item: any) {
+	if (CLUE_SCROLLS.includes(item.id)) return false;
+
 	return (
+		CLUE_SCROLL_NAMES.includes(item.name) && !CLUE_SCROLLS.includes(item.id) ||
 		USELESS_ITEMS.includes(item.id) ||
 		item.duplicate === true ||
 		item.noted ||
 		item.linked_id_item ||
 		item.placeholder ||
 		item.name === 'Null' ||
-		item.wiki_name?.includes(' (Worn)')
+		item.wiki_name?.includes(' (Worn)') ||
+		(item.wiki_name && clueStepRegex.exec(item.wiki_name))
 	);
 }
 
@@ -311,7 +318,10 @@ export default async function prepareItems(): Promise<void> {
 
 		const price = allPrices[item.id];
 		if (price) {
-			item.price = Math.max(0, ((price.high as number) + (price.low as number)) / 2);
+			// Fix weird bug with prices: (high can be 1 and low 2.14b for example... blame Jamflex)
+			if (price.high < price.low) price.high = price.low;
+			// Calculate average of High + Low
+			item.price = Math.ceil(Math.max(0, ((price.high as number) + (price.low as number)) / 2));
 		} else {
 			item.price = 0;
 		}
@@ -322,9 +332,18 @@ export default async function prepareItems(): Promise<void> {
 			item.price = 0;
 		}
 
-		// If major price increase, just dont fucking change it.
-		if (previousItem && item.tradeable && previousItem.price < item.price / 20 && previousItem.price !== 0) {
-			majorPriceChanges.push([previousItem, item]);
+		let dontChange = false;
+		if (previousItem && item.tradeable) {
+			// If major price increase, just dont fucking change it.
+			if (previousItem.price < item.price / 20 && previousItem.price !== 0) dontChange = true;
+			// Prevent weird bug with expensive items: (An item with 2b val on GE had high = 1 & low = 100k)
+			if (item.price < previousItem.price / 10) dontChange = true;
+			// If price differs by 10000x just don't change it.
+			if (price && price.high / 10000 > price.low) dontChange = true;
+		}
+
+		if (dontChange) {
+			majorPriceChanges.push([previousItem, {...item}]);
 			item.price = previousItem.price;
 		}
 
@@ -426,7 +445,14 @@ export default async function prepareItems(): Promise<void> {
 
 	messages.push(`New Items: ${moidLink(newItems)}.`);
 	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
-	const sql = `SELECT 
+
+	const totalQtySql = `SELECT id, SUM(kv.value::int) AS total_quantity
+	FROM users, jsonb_each_text(bank::jsonb) AS kv(itemID, value)
+	WHERE itemID::int = ANY(ARRAY[${deletedItems.map(i => i.id).join(',')}]::int[])
+	GROUP BY id`;
+	messages.push(`------------------- Get Total Qty of Deleted Items----------------\n${totalQtySql}\n`);
+
+	const sql = `SELECT
   ${deletedItems
 		.map(
 			item => `COUNT(*) FILTER (WHERE bank->>'${item.id}' IS NOT NULL) AS people_with_item_${item.id},
