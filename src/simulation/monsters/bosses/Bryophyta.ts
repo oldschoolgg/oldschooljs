@@ -54,7 +54,7 @@ const BryophytaTable = new LootTable()
 	.add("Bryophyta's essence", 1, 1)
 
 	/* Tertiary */
-	.tertiary(16, "Mossy key")
+	.tertiary(16, "Mossy key", 1, { freeze: true })
 	.tertiary(400, "Long bone")
 	.tertiary(5000, "Giant champion scroll")
 	.tertiary(5013, "Curved bone");
