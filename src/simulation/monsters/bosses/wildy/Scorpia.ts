@@ -25,22 +25,22 @@ const ScorpiaTable = new LootTable()
 	.add("Dragon 2h sword", 1, 1)
 
 	/* Runes */
-	.add("Death rune", [100 - 150], 8)
-	.add("Blood rune", [100 - 150], 8)
-	.add("Chaos rune", [150 - 200], 8)
+	.add("Death rune", [100, 150], 8)
+	.add("Blood rune", [100, 150], 8)
+	.add("Chaos rune", [150, 200], 8)
 
 	/* Herbs */
-	.add("Grimy kwuarm", [10 - 15], 5)
-	.add("Grimy dwarf weed", [10 - 15], 5)
-	.add("Grimy torstol", [10 - 15], 5)
-	.add("Grimy snapdragon", [4 - 7], 5)
+	.add("Grimy kwuarm", [10, 15], 5)
+	.add("Grimy dwarf weed", [10, 15], 5)
+	.add("Grimy torstol", [10, 15], 5)
+	.add("Grimy snapdragon", [4, 7], 5)
 
 	/* Materials */
-	.add("Uncut ruby", [15 - 20], 6)
-	.add("Uncut diamond", [10 - 15], 4)
+	.add("Uncut ruby", [15, 20], 6)
+	.add("Uncut diamond", [10, 15], 4)
 	.add("Runite ore", 3, 4)
-	.add("Dragon javelin heads", [30 - 50], 4)
-	.add("Onyx bolt tips", [6 - 10], 2)
+	.add("Dragon javelin heads", [30, 50], 4)
+	.add("Onyx bolt tips", [6, 10], 2)
 
 	/* Other */
 	.add("Coins", [25_002, 34_962], 7)
