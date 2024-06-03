@@ -47,10 +47,10 @@ const MossGiantTable = new LootTable()
 	/* Gem drop table */
 	.add(GemTable, 1, 4)
 
-	/* Tertiary, Averaged mossy key */
+	/* Tertiary */
 	.tertiary(24, "Ensouled giant head")
 	.tertiary(45, "Clue scroll (beginner)")
-	.tertiary(55, "Mossy key")
+	.tertiary(150, "Mossy key")
 	.tertiary(400, "Long bone")
 	.tertiary(5000, "Giant champion scroll")
 	.tertiary(5013, "Curved bone");
