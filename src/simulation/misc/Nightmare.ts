@@ -122,15 +122,15 @@ const mvpTertiary = new LootTable()
 
 const nonMvpTertiary = new LootTable()
 	.tertiary(200, "Clue scroll (elite)")
-	.tertiary(2000, "Jar of dreams")
-	.tertiary(4000, "Little nightmare");
+	.tertiary(4000, "Little nightmare")
+	.tertiary(2000, "Jar of dreams");
 
 const phosaniTertiary = new LootTable()
 	.tertiary(35, "Clue scroll (elite)")
 	.tertiary(100, "Slepey tablet")
 	.tertiary(200, "Parasitic egg")
-	.tertiary(4000, "Jar of dreams")
-	.tertiary(1400, "Little nightmare");
+	.tertiary(1400, "Little nightmare")
+	.tertiary(4000, "Jar of dreams");
 
 class NightmareClass {
 	hp = 2400;
@@ -186,11 +186,11 @@ class NightmareClass {
 		}
 
 		if (options.isPhosani) {
-			if (roll(200)) {
+			if (roll(143)) {
 				lootResult[options.team[0].id].add(GearTable.roll());
 			}
 
-			if (roll(1000)) {
+			if (roll(533)) {
 				lootResult[options.team[0].id].add(OrbTable.roll());
 			}
 		} else {
@@ -208,20 +208,20 @@ class NightmareClass {
 				lootResult[recipient].add(item);
 			}
 
-			if (roll(120)) {
+			if (roll(84)) {
 				giveWeightedDrop(GearTable.roll());
 			}
 
-			if (roll(600)) {
+			if (roll(320)) {
 				giveWeightedDrop(OrbTable.roll());
 			}
 
 			const secondRollChance = Math.min(75, parsedTeam.length - 5);
 			if (secondRollChance > 0 && percentChance(secondRollChance)) {
-				if (roll(600)) {
+				if (roll(320)) {
 					giveWeightedDrop(OrbTable.roll());
 				}
-				if (roll(120)) {
+				if (roll(84)) {
 					giveWeightedDrop(GearTable.roll());
 				}
 			}
