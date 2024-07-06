@@ -1,6 +1,6 @@
 import { randInt } from "e";
 
-import { SimpleTableItem } from "../meta/types";
+import type { SimpleTableItem } from "../meta/types";
 
 export default class SimpleTable<T> {
 	public length: number;
@@ -26,7 +26,7 @@ export default class SimpleTable<T> {
 	}
 
 	public delete(item: T): this {
-		const tableItem = this.table.find((_tableItem) => _tableItem.item === item);
+		const tableItem = this.table.find(_tableItem => _tableItem.item === item);
 		if (!tableItem) {
 			throw `${item} doesn't exist in this SimpleTable.`;
 		}
@@ -34,7 +34,7 @@ export default class SimpleTable<T> {
 		this.length -= 1;
 		this.totalWeight -= tableItem.weight;
 
-		this.table = this.table.filter((_item) => _item !== tableItem);
+		this.table = this.table.filter(_item => _item !== tableItem);
 
 		return this;
 	}

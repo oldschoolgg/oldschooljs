@@ -1,6 +1,6 @@
 import { randInt, roll, uniqueArr } from "e";
 
-import { MonsterKillOptions } from "../../../meta/types";
+import type { MonsterKillOptions } from "../../../meta/types";
 import Bank from "../../../structures/Bank";
 import LootTable from "../../../structures/LootTable";
 import Monster from "../../../structures/Monster";

@@ -1,8 +1,8 @@
-import { writeFileSync } from 'fs';
-import fetch from 'node-fetch';
+import { writeFileSync } from "node:fs";
+import fetch from "node-fetch";
 
-import { Monsters } from '../dist';
-import { MonsterAttackType, MonsterAttribute, MonsterData, MonsterSlayerMaster } from '../dist/meta/monsterData';
+import { Monsters } from "../dist";
+import type { MonsterAttackType, MonsterAttribute, MonsterData, MonsterSlayerMaster } from "../dist/meta/monsterData";
 
 const monsterMap: { [key: string]: MonsterData } = {};
 
@@ -56,7 +56,7 @@ export default interface RawMonsterData {
 
 async function prepareMonsters(): Promise<void> {
 	const allMonsters: { [key: string]: RawMonsterData } = await fetch(
-		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json'
+		"https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json",
 	).then((res): Promise<any> => res.json());
 
 	const monIDs = new Set(Monsters.map(mon => mon.id));
@@ -106,7 +106,7 @@ async function prepareMonsters(): Promise<void> {
 			isSlayerMonster: mon.slayer_monster,
 			slayerLevelRequired: mon.slayer_level ?? 0,
 			slayerXP: mon.slayer_xp ?? 0,
-			assignableSlayerMasters: mon.slayer_masters ?? []
+			assignableSlayerMasters: mon.slayer_masters ?? [],
 		};
 
 		monsterMap[mon.id] = newMonster;
@@ -121,8 +121,8 @@ async function prepareMonsters(): Promise<void> {
 	monsterMap[12_205] = { ...monsterMap[12_204] };
 	monsterMap[12_224] = { ...monsterMap[12_223] };
 
-	writeFileSync('./src/data/monsters_data.json', JSON.stringify(monsterMap, null, 4));
-	console.log('Prepared Monsters. Check any new monsters quickly to see that the data looks okay.');
+	writeFileSync("./src/data/monsters_data.json", JSON.stringify(monsterMap, null, 4));
+	console.log("Prepared Monsters. Check any new monsters quickly to see that the data looks okay.");
 }
 
 prepareMonsters();

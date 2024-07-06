@@ -1,5 +1,5 @@
 import Collection from "../../structures/Collection";
-import Openable from "../../structures/Openable";
+import type Openable from "../../structures/Openable";
 import BrimstoneChest from "./BrimstoneChest";
 import Casket from "./Casket";
 import CrystalChest from "./CrystalChest";
@@ -70,7 +70,7 @@ const openablesObject = {
 	IntricatePouch,
 };
 
-const allMonsters: [number, Openable][] = Object.values(openablesObject).map((openable) => [openable.id, openable]);
+const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
 
 class OpenablesCollection extends Collection<number, Openable> {}
 

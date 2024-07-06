@@ -1,5 +1,5 @@
-import { MonsterKillOptions } from "../../../meta/types";
-import Bank from "../../../structures/Bank";
+import type { MonsterKillOptions } from "../../../meta/types";
+import type Bank from "../../../structures/Bank";
 import Monster from "../../../structures/Monster";
 import { TheWhisperer } from "./TheWhisperer";
 

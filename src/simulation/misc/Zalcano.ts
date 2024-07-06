@@ -1,6 +1,6 @@
 import { calcPercentOfNum } from "e";
 
-import { ItemBank, LootBank } from "../../meta/types";
+import type { ItemBank, LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
@@ -54,7 +54,7 @@ const nonUniqueItemRanges = resolveNameBank(data);
 
 const NonUniqueTable = new SimpleTable<number>();
 for (const [id, data] of Object.entries(nonUniqueItemRanges)) {
-	NonUniqueTable.add(parseInt(id), data[1]);
+	NonUniqueTable.add(Number.parseInt(id), data[1]);
 }
 
 const toolSeedTable = new LootTable().tertiary(40, "Uncut onyx").every("Crystal tool seed");
@@ -65,7 +65,7 @@ const tertiaryTable = new LootTable()
 	.tertiary(1125, "Zalcano shard");
 
 class ZalcanoClass {
-	allItems: number[] = [...tertiaryTable.allItems, ...NonUniqueTable.table.map((i) => i.item)];
+	allItems: number[] = [...tertiaryTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
 
 	public rollNonUniqueLoot(perfPercent: number, isMVP: boolean): [number, number] {
 		const item = NonUniqueTable.roll();

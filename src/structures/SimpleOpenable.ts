@@ -1,6 +1,6 @@
-import { OpenableOptions } from "../meta/types";
+import type { OpenableOptions } from "../meta/types";
 import Bank from "./Bank";
-import LootTable from "./LootTable";
+import type LootTable from "./LootTable";
 import Openable from "./Openable";
 
 interface SimpleOpenableOptions extends OpenableOptions {

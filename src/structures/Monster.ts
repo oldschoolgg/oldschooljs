@@ -1,7 +1,7 @@
 import rawMonsterData from "../data/monsters_data.json";
-import { MonsterData } from "../meta/monsterData";
-import { MonsterKillOptions, MonsterOptions } from "../meta/types";
-import Bank from "./Bank";
+import type { MonsterData } from "../meta/monsterData";
+import type { MonsterKillOptions, MonsterOptions } from "../meta/types";
+import type Bank from "./Bank";
 
 const monsterData = rawMonsterData as { [key: string]: MonsterData };
 

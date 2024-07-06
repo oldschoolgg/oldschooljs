@@ -1,6 +1,6 @@
 import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from "e";
 
-import { ItemBank, LootBank } from "../../meta/types";
+import type { ItemBank, LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
@@ -60,7 +60,7 @@ const nonUniqueItemRanges = resolveNameBank(data);
 
 const NonUniqueTable = new SimpleTable<number>();
 for (const [id, data] of Object.entries(nonUniqueItemRanges)) {
-	NonUniqueTable.add(parseInt(id), data[1]);
+	NonUniqueTable.add(Number.parseInt(id), data[1]);
 }
 
 // Phosani
@@ -103,7 +103,7 @@ const phosaniNonUniqueItemRanges = resolveNameBank(phosaniData);
 
 const PhosaniNonUniqueTable = new SimpleTable<number>();
 for (const [id, data] of Object.entries(phosaniNonUniqueItemRanges)) {
-	PhosaniNonUniqueTable.add(parseInt(id), data[1]);
+	PhosaniNonUniqueTable.add(Number.parseInt(id), data[1]);
 }
 
 const GearTable = new SimpleTable<string>()
@@ -136,9 +136,9 @@ class NightmareClass {
 	hp = 2400;
 
 	allItems: number[] = [
-		...NonUniqueTable.table.map((i) => i.item),
-		...GearTable.table.map((i) => Number(i.item)),
-		...OrbTable.table.map((i) => Number(i.item)),
+		...NonUniqueTable.table.map(i => i.item),
+		...GearTable.table.map(i => Number(i.item)),
+		...OrbTable.table.map(i => Number(i.item)),
 		...mvpTertiary.allItems,
 		...nonMvpTertiary.allItems,
 	];
@@ -172,7 +172,7 @@ class NightmareClass {
 	} {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];
 
-		const parsedTeam = options.team.map((teamMember) => ({
+		const parsedTeam = options.team.map(teamMember => ({
 			...teamMember,
 			percentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp)),
 			scaledPercentDamage: Math.floor(calcWhatPercent(teamMember.damageDone, this.hp / options.team.length)),
@@ -239,8 +239,8 @@ class NightmareClass {
 				options.isPhosani
 					? phosaniTertiary.roll()
 					: teamMember.mvp
-					  ? mvpTertiary.roll()
-					  : nonMvpTertiary.roll(),
+						? mvpTertiary.roll()
+						: nonMvpTertiary.roll(),
 			);
 		}
 

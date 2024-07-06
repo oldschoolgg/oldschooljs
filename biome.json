@@ -1,10 +1,12 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.5.3/schema.json",
+	"$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
 	"organizeImports": {
 		"enabled": true
 	},
 	"files": {
-		"maxSize": 10000000
+		"maxSize": 10000000,
+		"ignore": ["node_modules", "dist", "coverage", "profiling", "logs", "icon_cache"],
+		"include": ["**/*.ts", "**/*.mts", "**/*.json", "**/*.test.ts"]
 	},
 	"linter": {
 		"enabled": true,
@@ -15,30 +17,43 @@
 				"useKeyWithClickEvents": "off"
 			},
 			"suspicious": {
-				"noExplicitAny": "warn"
+				"noExplicitAny": "warn",
+				"noAssignInExpressions": "warn",
+				"noAsyncPromiseExecutor": "off"
 			},
 			"style": {
-				"noNonNullAssertion": "warn",
+				"noNonNullAssertion": "off",
 				"noParameterAssign": "off",
 				"useExponentiationOperator": "off",
 				"noUselessElse": "off"
 			},
 			"correctness": {
 				"useExhaustiveDependencies": "warn",
-				"noUnnecessaryContinue": "warn"
+				"noUnnecessaryContinue": "warn",
+				"noConstructorReturn": "off"
 			},
 			"complexity": {
-				"noExtraBooleanCast": "warn"
+				"noExtraBooleanCast": "warn",
+				"noBannedTypes": "warn",
+				"noForEach": "warn"
+			},
+			"performance": {
+				"noDelete": "off"
 			}
 		}
 	},
 	"formatter": {
-    	"enabled": true,
-    	"formatWithErrors": true,
-    	"indentStyle": "tab",
-    	"indentWidth": 4,
-    	"lineWidth": 120,
-    	"lineEnding": "lf",
-    	"ignore": []
-  }
+		"enabled": true,
+		"formatWithErrors": true,
+		"indentStyle": "tab",
+		"indentWidth": 4,
+		"lineWidth": 120,
+		"lineEnding": "lf"
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double",
+			"arrowParentheses": "asNeeded"
+		}
+	}
 }

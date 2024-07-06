@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-import { WikiPage } from "../meta/types";
+import type { WikiPage } from "../meta/types";
 
 class Wiki {
 	private URL = "https://oldschool.runescape.wiki/api.php";

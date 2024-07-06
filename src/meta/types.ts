@@ -1,8 +1,9 @@
-import { MINIGAMES, hiscoreURLs } from "../constants";
-import Bank from "../structures/Bank";
-import LootTable, { LootTableRollOptions } from "../structures/LootTable";
-import SimpleMonster from "../structures/SimpleMonster";
-import { MonsterSlayerMaster } from "./monsterData";
+import type { MINIGAMES, hiscoreURLs } from "../constants";
+import type Bank from "../structures/Bank";
+import type LootTable from "../structures/LootTable";
+import type { LootTableRollOptions } from "../structures/LootTable";
+import type SimpleMonster from "../structures/SimpleMonster";
+import type { MonsterSlayerMaster } from "./monsterData";
 
 type ChestSize = "big" | "small";
 type SeedTier = "1" | "2" | "3" | "4" | "5";

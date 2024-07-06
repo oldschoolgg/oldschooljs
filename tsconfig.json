@@ -1,6 +1,21 @@
 {
-	"extends": "@oldschoolgg/ts-config",
+	"compileOnSave": true,
 	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"alwaysStrict": true,
+		"incremental": true,
+		"module": "CommonJS",
+		"moduleResolution": "Node",
+		"newLine": "lf",
+		"noFallthroughCasesInSwitch": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"pretty": true,
+		"resolveJsonModule": true,
+		"strict": true,
+		"useDefineForClassFields": true,
+		"types": ["node", "node-fetch"],
+		"skipDefaultLibCheck": true,
 		"strictNullChecks": true,
 		"sourceMap": true,
 		"declaration": true,
@@ -11,6 +26,5 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"lib": ["DOM", "ESNext"]
-	},
-	"include": ["./src/**/*"]
+	}
 }

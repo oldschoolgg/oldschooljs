@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 
 import { ACCOUNT_TYPES, Errors, hiscoreURLs } from "../constants";
-import { SkillsScore } from "../meta/types";
+import type { SkillsScore } from "../meta/types";
 import { convertXPtoLVL, isValidUsername, resolvePlayerFromHiscores } from "../util/util";
 import OSError from "./OldSchoolJSError";
 import Player from "./Player";
@@ -37,7 +37,7 @@ class Hiscores {
 				if (text.trim().startsWith("<")) throw new OSError(Errors.FAILED_REQUEST);
 				return text;
 			})
-			.then((p) => resolvePlayerFromHiscores(p, accountType))
+			.then(p => resolvePlayerFromHiscores(p, accountType))
 			.catch((err): never => {
 				throw err;
 			});

@@ -1,6 +1,6 @@
 import { roll } from "e";
 
-import { MonsterKillOptions } from "../../../meta/types";
+import type { MonsterKillOptions } from "../../../meta/types";
 import Bank from "../../../structures/Bank";
 import LootTable from "../../../structures/LootTable";
 import Monster from "../../../structures/Monster";
@@ -37,7 +37,7 @@ const BarrowsTable = new LootTable();
 	"Verac's brassard",
 	"Verac's plateskirt",
 	"Verac's flail",
-].map((item) => BarrowsTable.add(item));
+].map(item => BarrowsTable.add(item));
 
 const OtherTable = new LootTable()
 	.add("Coins", [2, 760], 380)

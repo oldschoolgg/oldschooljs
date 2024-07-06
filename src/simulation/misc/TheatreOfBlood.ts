@@ -1,6 +1,6 @@
 import { percentChance, roll, sumArr } from "e";
 
-import { LootBank } from "../../meta/types";
+import type { LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
@@ -136,7 +136,7 @@ export class TheatreOfBloodClass {
 		if (isHardMode) {
 			// Add 15% extra regular loot for hard mode:
 			for (const [itemID] of Object.entries(loot.bank)) {
-				loot.bank[parseInt(itemID)] = Math.ceil(loot.bank[parseInt(itemID)] * 1.15);
+				loot.bank[Number.parseInt(itemID)] = Math.ceil(loot.bank[Number.parseInt(itemID)] * 1.15);
 			}
 			// Add HM Tertiary drops: dust / kits
 			loot.add(HardModeExtraTable.roll());
@@ -171,16 +171,16 @@ export class TheatreOfBloodClass {
 		const penaltyForDeath = 4;
 		const maxPointsTeamCanGet = options.team.length * maxPointsPerPerson;
 
-		const parsedTeam: ParsedMember[] = _options.team.map((t) => ({
+		const parsedTeam: ParsedMember[] = _options.team.map(t => ({
 			id: t.id,
 			deaths: t.deaths,
 			numDeaths: t.deaths.length,
 			points: maxPointsPerPerson - t.deaths.length * penaltyForDeath,
 		}));
 
-		const teamPoints = sumArr(parsedTeam.map((val) => val.points));
+		const teamPoints = sumArr(parsedTeam.map(val => val.points));
 
-		const totalDeaths = sumArr(parsedTeam.map((i) => i.numDeaths));
+		const totalDeaths = sumArr(parsedTeam.map(i => i.numDeaths));
 
 		const percentBaseChanceOfUnique = (options.hardMode ? 13 : 11) * (teamPoints / maxPointsTeamCanGet);
 

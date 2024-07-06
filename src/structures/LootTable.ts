@@ -1,6 +1,6 @@
 import { randFloat, randInt, reduceNumByPercent, roll } from "e";
 
-import { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from "../meta/types";
+import type { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from "../meta/types";
 import itemID from "../util/itemID";
 import Bank from "./Bank";
 import Items from "./Items";
@@ -182,7 +182,7 @@ export default class LootTable {
 		const loot = new Bank();
 
 		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
-			? this.tertiaryItems.map((i) => {
+			? this.tertiaryItems.map(i => {
 					if (typeof i.item !== "number") return i;
 					const change = options.tertiaryItemPercentageChanges?.get(Items.get(i.item)!.name);
 					if (!change) return i;
@@ -190,7 +190,7 @@ export default class LootTable {
 						...i,
 						chance: Math.ceil(reduceNumByPercent(i.chance, change)),
 					};
-			  })
+				})
 			: this.tertiaryItems;
 
 		outerLoop: for (let i = 0; i < quantity; i++) {
