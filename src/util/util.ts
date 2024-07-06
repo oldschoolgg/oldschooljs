@@ -291,7 +291,7 @@ export function getItemOrThrow(itemName: string | number | undefined): Item {
 	return item;
 }
 
-export default function resolveItems(_itemArray: string | number | (string | number)[]): number[] {
+export function resolveItems(_itemArray: string | number | (string | number)[]): number[] {
 	const itemArray = Array.isArray(_itemArray) ? _itemArray : [_itemArray];
 	const newArray: number[] = [];
 

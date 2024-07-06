@@ -1,5 +1,5 @@
 import type { Item } from "../meta/types";
-import resolveItems, { getItemOrThrow } from "../util/util";
+import { getItemOrThrow, resolveItems } from "../util/util";
 
 export const allTeamCapes: Item[] = [];
 
