@@ -184,6 +184,7 @@ export default class LootTable {
 		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
 			? this.tertiaryItems.map(i => {
 					if (typeof i.item !== "number") return i;
+					if (i.options?.freeze === true) return i;
 					const change = options.tertiaryItemPercentageChanges?.get(Items.get(i.item)!.name);
 					if (!change) return i;
 					return {

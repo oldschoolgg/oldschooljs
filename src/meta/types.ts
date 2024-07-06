@@ -362,6 +362,7 @@ export interface BankItem {
 
 export interface LootTableMoreOptions {
 	multiply?: boolean;
+	freeze?: boolean;
 }
 
 export interface LootTableItem {
