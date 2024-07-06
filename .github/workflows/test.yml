@@ -34,7 +34,7 @@ jobs:
               run: yarn --immutable
 
             - name: Fix package.json
-              run: biome check --write package.json
+              run: npx biome check --write package.json
 
             - name: Test
               run: |
