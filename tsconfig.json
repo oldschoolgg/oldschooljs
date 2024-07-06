@@ -22,9 +22,9 @@
 		"declarationMap": true,
 		"removeComments": false,
 		"outDir": "./dist",
-		"target": "ES6",
+		"target": "ES2022",
 		"esModuleInterop": true,
 		"skipLibCheck": true,
-		"lib": ["DOM", "ESNext"]
+		"lib": ["ES2023"]
 	}
 }

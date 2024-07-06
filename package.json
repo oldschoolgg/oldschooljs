@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "2.5.8",
+	"version": "2.5.9",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -13,7 +13,7 @@
 		"prepublishOnly": "yarn build",
 		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\"",
 		"test:unit": "vitest run --coverage",
-		"build": "tsc -p src",
+		"build": "tsc -p src && tsx scripts/minifyDist.ts",
 		"dev": "tsc --watch -p .",
 		"prepare": "tsx scripts/prepare",
 		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
@@ -38,13 +38,5 @@
 	},
 	"keywords": ["runescape"],
 	"files": ["dist", "package.json"],
-	"packageManager": "yarn@4.3.1",
-	"exports": {
-		"./*": "./dist/*"
-	},
-	"typesVersions": {
-		"*": {
-			"*": ["dist/*"]
-		}
-	}
+	"packageManager": "yarn@4.3.1"
 }
