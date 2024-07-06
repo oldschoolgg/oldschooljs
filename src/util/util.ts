@@ -279,8 +279,8 @@ export function getItem(itemName: string | number | undefined): Item | null {
 		const parsed = Number(itemName);
 		identifier = Number.isNaN(parsed) ? itemName : parsed;
 	}
-	if (typeof itemName === "string") {
-		itemName = itemName.replace(/’/g, "'");
+	if (typeof identifier === "string") {
+		identifier = identifier.replace(/’/g, "'");
 	}
 	return Items.get(identifier) ?? null;
 }
