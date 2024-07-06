@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "2.5.5",
+	"version": "2.5.6",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -18,8 +18,7 @@
 		"prepare": "tsx scripts/prepare",
 		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
 		"lint": "biome check --write --diagnostic-level=error",
-		"test:lint": "biome check --diagnostic-level=error",
-		"postinstall": "biome check --write package.json"
+		"test:lint": "biome check --diagnostic-level=error"
 	},
 	"dependencies": {
 		"deepmerge": "4.3.1",
