@@ -13,7 +13,7 @@
 		"prepublishOnly": "yarn build",
 		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\"",
 		"test:unit": "vitest run --coverage",
-		"build": "tsc -p .",
+		"build": "tsc -p src",
 		"dev": "tsc --watch -p .",
 		"prepare": "tsx scripts/prepare",
 		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
@@ -38,6 +38,6 @@
 		"vitest": "^1.6.0"
 	},
 	"keywords": ["runescape"],
-	"files": ["dist/src"],
+	"files": ["dist/*"],
 	"packageManager": "yarn@4.3.1"
 }
