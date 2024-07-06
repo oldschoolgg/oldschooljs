@@ -1,23 +1,25 @@
-import deepMerge from 'deepmerge';
-import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from 'e';
-import { readFileSync, writeFileSync } from 'fs';
-import fetch from 'node-fetch';
+import { readFileSync, writeFileSync } from "node:fs";
+import deepMerge from "deepmerge";
+import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from "e";
+import fetch from "node-fetch";
 
-import { EquipmentSlot, Item } from '../dist/meta/types';
-import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from '../dist/structures/Items';
-import { itemID } from '../dist/util';
-import { itemChanges } from './manualItemChanges';
+import { EquipmentSlot, type Item } from "../dist/meta/types";
+import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from "../dist/structures/Items";
+import itemID from "../dist/util/itemID";
+import { getItemOrThrow } from '../src/util/util';
+import { itemChanges } from "./manualItemChanges";
 
 const equipmentModifications = new Map();
 const equipmentModSrc = [
-	['Pink stained full helm', 'Bronze full helm'].map(itemID),
-	['Pink stained platebody', 'Bronze platebody'].map(itemID),
-	['Pink stained platelegs', 'Bronze platelegs'].map(itemID),
-	['Bulging sack', 'Red cape'].map(itemID)
+	["Pink stained full helm", "Bronze full helm"].map(itemID),
+	["Pink stained platebody", "Bronze platebody"].map(itemID),
+	["Pink stained platelegs", "Bronze platelegs"].map(itemID),
+	["Bulging sack", "Red cape"].map(itemID),
 ] as const;
 for (const [toChange, toCopy] of equipmentModSrc) {
 	equipmentModifications.set(toChange, toCopy);
 }
+const itemsBeingModified = new Set(equipmentModSrc.map(i => i[0]));
 
 const itemNameMap: { [key: string]: Item } = {};
 
@@ -37,32 +39,48 @@ function itemShouldntBeAdded(item: any) {
 	if (CLUE_SCROLLS.includes(item.id)) return false;
 
 	return (
-		CLUE_SCROLL_NAMES.includes(item.name) && !CLUE_SCROLLS.includes(item.id) ||
+		(CLUE_SCROLL_NAMES.includes(item.name) && !CLUE_SCROLLS.includes(item.id)) ||
 		USELESS_ITEMS.includes(item.id) ||
 		item.duplicate === true ||
 		item.noted ||
 		item.linked_id_item ||
 		item.placeholder ||
-		item.name === 'Null' ||
-		item.wiki_name?.includes(' (Worn)') ||
+		item.name === "Null" ||
+		item.wiki_name?.includes(" (Worn)") ||
 		(item.wiki_name && clueStepRegex.exec(item.wiki_name))
 	);
 }
 
 export function moidLink(items: any[]) {
-	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map(i => i.id).join(',')}`;
+	if (items.length === 0) return "No items.";
+	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map(i => i.id).join(",")}`;
 }
 
-function getItem(name: string) {
-	const item = Items.get(name);
-	if (!item) throw new Error(`${name} doesnt exist`);
-	return item;
-}
+const formatDateForTimezones = (date: Date): { cali: string; sydney: string } => {
+  const options: Intl.DateTimeFormatOptions = {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    timeZoneName: 'short'
+  };
+
+  const caliDate = new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'America/Los_Angeles' }).format(date);
+  const sydneyDate = new Intl.DateTimeFormat('en-AU', { ...options, timeZone: 'Australia/Sydney' }).format(date);
+
+  return {
+    cali: caliDate,
+    sydney: sydneyDate
+  };
+};
+
 
 const manualItems: Item[] = [
 	{
 		id: 28_329,
-		name: 'Ring of shadows',
+		name: "Ring of shadows",
 		members: true,
 		equipable: true,
 		equipable_by_player: true,
@@ -70,10 +88,10 @@ const manualItems: Item[] = [
 		lowalch: 30_000,
 		highalch: 45_000,
 		weight: 0.004,
-		release_date: '2023-07-26',
-		examine: 'A powerful ring used to see into other realms...',
-		wiki_name: 'Ring of shadows (uncharged)',
-		wiki_url: 'https://oldschool.runescape.wiki/w/Ring_of_shadows#Uncharged',
+		release_date: "2023-07-26",
+		examine: "A powerful ring used to see into other realms...",
+		wiki_name: "Ring of shadows (uncharged)",
+		wiki_url: "https://oldschool.runescape.wiki/w/Ring_of_shadows#Uncharged",
 		equipment: {
 			attack_stab: 4,
 			attack_slash: 4,
@@ -90,24 +108,24 @@ const manualItems: Item[] = [
 			magic_damage: 0,
 			prayer: 2,
 			slot: EquipmentSlot.Ring,
-			requirements: null
+			requirements: null,
 		},
-		price: 0
+		price: 0,
 	},
 	{
 		id: 28_409,
-		name: 'Ancient lamp',
+		name: "Ancient lamp",
 		cost: 1,
 		weight: 0.1,
-		release_date: '2023-07-26',
-		examine: 'Good for rubbing.',
-		wiki_name: 'Ancient lamp',
-		wiki_url: 'https://oldschool.runescape.wiki/w/Ancient_lamp',
-		price: 0
+		release_date: "2023-07-26",
+		examine: "Good for rubbing.",
+		wiki_name: "Ancient lamp",
+		wiki_url: "https://oldschool.runescape.wiki/w/Ancient_lamp",
+		price: 0,
 	},
 	{
 		id: 27_897,
-		name: 'Scaly blue dragonhide',
+		name: "Scaly blue dragonhide",
 		members: true,
 		tradeable: true,
 		tradeable_on_ge: true,
@@ -116,147 +134,147 @@ const manualItems: Item[] = [
 		lowalch: 40,
 		highalch: 60,
 		weight: 3.175,
-		release_date: '2023-05-17',
-		examine: 'A scaled blue dragonhide.',
-		wiki_name: 'Scaly blue dragonhide',
-		wiki_url: 'https://oldschool.runescape.wiki/w/Scaly_blue_dragonhide',
-		price: 2011
-	}
+		release_date: "2023-05-17",
+		examine: "A scaled blue dragonhide.",
+		wiki_name: "Scaly blue dragonhide",
+		wiki_url: "https://oldschool.runescape.wiki/w/Scaly_blue_dragonhide",
+		price: 2011,
+	},
 ];
 
 // Make these all worth 0gp. They're manipulated and fluctuate hugely constantly.
 const itemsToIgnorePrices = [
-	'Raw bird meat',
-	'Red feather',
-	'Yellow feather',
-	'Orange feather',
-	'Blue feather',
-	'Stripy feather',
-	'Ferret',
-	'Ruby harvest',
-	'Sapphire glacialis',
-	'Snowy knight',
-	'Black warlock',
-	'Kebbit claws',
-	'Barb-tail harpoon',
-	'Kebbit spike',
-	'Kebbit teeth',
-	'Damaged monkey tail',
-	'Monkey tail',
-	'Spotted kebbit fur',
-	'Dark kebbit fur',
-	'Dashing kebbit fur',
-	'Imp-in-a-box(2)',
-	'Swamp lizard',
-	'Orange salamander',
-	'Red salamander',
-	'Black salamander',
-	'Larupia fur',
-	'Tatty larupia fur',
-	'Graahk fur',
-	'Tatty graahk fur',
-	'Kyatt fur',
-	'Tatty kyatt fur',
-	'Raw rabbit',
-	'Rabbit foot',
-	'Polar kebbit fur',
-	'Raw beast meat',
-	'Common kebbit fur',
-	'Feldip weasel fur',
-	'Desert devil fur',
-	'Long kebbit spike',
-	'Fish food',
-	'Iron bolts (p+)',
-	'Cream boots',
-	'Brandy',
-	'Premade sgg',
-	'Spicy crunchies',
-	'Premade veg batta',
-	'Assorted flowers',
-	'Purple hat',
+	"Raw bird meat",
+	"Red feather",
+	"Yellow feather",
+	"Orange feather",
+	"Blue feather",
+	"Stripy feather",
+	"Ferret",
+	"Ruby harvest",
+	"Sapphire glacialis",
+	"Snowy knight",
+	"Black warlock",
+	"Kebbit claws",
+	"Barb-tail harpoon",
+	"Kebbit spike",
+	"Kebbit teeth",
+	"Damaged monkey tail",
+	"Monkey tail",
+	"Spotted kebbit fur",
+	"Dark kebbit fur",
+	"Dashing kebbit fur",
+	"Imp-in-a-box(2)",
+	"Swamp lizard",
+	"Orange salamander",
+	"Red salamander",
+	"Black salamander",
+	"Larupia fur",
+	"Tatty larupia fur",
+	"Graahk fur",
+	"Tatty graahk fur",
+	"Kyatt fur",
+	"Tatty kyatt fur",
+	"Raw rabbit",
+	"Rabbit foot",
+	"Polar kebbit fur",
+	"Raw beast meat",
+	"Common kebbit fur",
+	"Feldip weasel fur",
+	"Desert devil fur",
+	"Long kebbit spike",
+	"Fish food",
+	"Iron bolts (p+)",
+	"Cream boots",
+	"Brandy",
+	"Premade sgg",
+	"Spicy crunchies",
+	"Premade veg batta",
+	"Assorted flowers",
+	"Purple hat",
 	"Blood'n'tar snelm",
 	"Blood'n'tar snelm",
-	'Fremennik brown cloak',
-	'Fremennik brown shirt',
-	'Shirt',
-	'Steel arrow(p++)',
-	'Spider on shaft',
-	'Tribal mask',
-	'White dagger',
-	'Sandstone (5kg)',
-	'Minced meat',
-	'Bagged dead tree',
-	'Kitchen table',
-	'Teak bed ',
-	'Bandana eyepatch',
-	'Iron bolts (p+)',
-	'Elemental helmet',
-	'Butterfly net',
-	'Light orb',
-	'Steel hasta',
-	'Defence mix(2)',
-	'Arceuus banner',
-	'Yellow cape',
-	'Iron spear(p+)',
-	'Egg and tomato',
+	"Fremennik brown cloak",
+	"Fremennik brown shirt",
+	"Shirt",
+	"Steel arrow(p++)",
+	"Spider on shaft",
+	"Tribal mask",
+	"White dagger",
+	"Sandstone (5kg)",
+	"Minced meat",
+	"Bagged dead tree",
+	"Kitchen table",
+	"Teak bed ",
+	"Bandana eyepatch",
+	"Iron bolts (p+)",
+	"Elemental helmet",
+	"Butterfly net",
+	"Light orb",
+	"Steel hasta",
+	"Defence mix(2)",
+	"Arceuus banner",
+	"Yellow cape",
+	"Iron spear(p+)",
+	"Egg and tomato",
 	"Druid's robe top",
-	'Bronze thrownaxe',
-	'Steel thrownaxe',
-	'Iron javelin(p)',
-	'Black longsword',
+	"Bronze thrownaxe",
+	"Steel thrownaxe",
+	"Iron javelin(p)",
+	"Black longsword",
 	"Premade s'y crunch",
-	'Redberry pie',
-	'Serum 207 (2)',
-	'Fremennik red shirt',
-	'Dwellberry seed',
-	'Iron javelin(p++)',
-	'Steel knife(p+)',
-	'Mithril dagger(p++)',
-	'Thatch spar dense',
-	'Villager armband',
-	'Sliced mushrooms',
-	'Raw fish pie',
+	"Redberry pie",
+	"Serum 207 (2)",
+	"Fremennik red shirt",
+	"Dwellberry seed",
+	"Iron javelin(p++)",
+	"Steel knife(p+)",
+	"Mithril dagger(p++)",
+	"Thatch spar dense",
+	"Villager armband",
+	"Sliced mushrooms",
+	"Raw fish pie",
 	"Blue d'hide chaps (g)",
-	'Oak armchair',
-	'Teak armchair',
-	'Beer barrel',
-	'Carved oak bench',
-	'Carved teak bench',
-	'Oak stock',
-	'Oak toy box',
-	'Teak magic wardrobe',
-	'Oak armour case',
-	'Roast beast meat',
+	"Oak armchair",
+	"Teak armchair",
+	"Beer barrel",
+	"Carved oak bench",
+	"Carved teak bench",
+	"Oak stock",
+	"Oak toy box",
+	"Teak magic wardrobe",
+	"Oak armour case",
+	"Roast beast meat",
 	"Relicym's mix(2)",
-	'Antidote+ mix(1)'
+	"Antidote+ mix(1)",
 ]
-	.map(getItem)
+	.map(getItemOrThrow)
 	.map(i => i.id);
 
-const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ['equipable', 'equipment', 'weapon'];
+const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ["equipable", "equipment", "weapon"];
 
 export default async function prepareItems(): Promise<void> {
 	const messages: string[] = [];
 	const allItemsRaw: RawItemCollection = await fetch(
-		'https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json'
+		"https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json",
 	).then((res): Promise<any> => res.json());
 	const allItems = deepClone(allItemsRaw);
 
-	const allPrices = await fetch('https://prices.runescape.wiki/api/v1/osrs/latest', {
+	const allPrices = await fetch("https://prices.runescape.wiki/api/v1/osrs/latest", {
 		headers: {
-			'User-Agent': 'oldschooljs - @magnaboy'
-		}
+			"User-Agent": "oldschooljs - @magnaboy",
+		},
 	})
 		.then((res): Promise<any> => res.json())
 		.then(res => res.data);
 
 	if (!allPrices[20_997]) {
-		throw new Error('Failed to fetch prices');
+		throw new Error("Failed to fetch prices");
 	}
 
 	const newItems = [];
-	const majorPriceChanges = [];
-	const previousItems = JSON.parse(readFileSync('./src/data/items/item_data.json', 'utf-8'));
+	const previousItems = JSON.parse(readFileSync("./src/data/items/item_data.json", "utf-8"));
+	const nameChanges = [];
 
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
@@ -264,45 +282,45 @@ export default async function prepareItems(): Promise<void> {
 		if (item.name === "Pharaoh's sceptre") {
 			item = {
 				...allItems[26_950],
-				id: item.id
+				id: item.id,
 			};
 		}
 
 		for (const delKey of [
-			'quest_item',
-			'placeholder',
-			'duplicate',
-			'last_updated',
-			'icon',
-			'noted',
-			'linked_id_item',
-			'linked_id_noted',
-			'linked_id_placeholder',
-			'stacked',
-			'quest_item'
+			"quest_item",
+			"placeholder",
+			"duplicate",
+			"last_updated",
+			"icon",
+			"noted",
+			"linked_id_item",
+			"linked_id_noted",
+			"linked_id_placeholder",
+			"stacked",
+			"quest_item",
 		]) {
 			// @ts-ignore
 			delete item[delKey];
 		}
 
 		for (const boolKey of [
-			'incomplete',
-			'members',
-			'tradeable',
-			'tradeable_on_ge',
-			'stackable',
-			'noteable',
-			'equipable',
-			'equipable_by_player',
-			'equipable_weapon',
-			'weight',
-			'buy_limit',
-			'release_date',
-			'examine',
-			'wiki_name',
-			'wiki_url',
-			'equipment',
-			'weapon'
+			"incomplete",
+			"members",
+			"tradeable",
+			"tradeable_on_ge",
+			"stackable",
+			"noteable",
+			"equipable",
+			"equipable_by_player",
+			"equipable_weapon",
+			"weight",
+			"buy_limit",
+			"release_date",
+			"examine",
+			"wiki_name",
+			"wiki_url",
+			"equipment",
+			"weapon",
 		] as const) {
 			if (!item[boolKey]) {
 				delete item[boolKey];
@@ -343,8 +361,7 @@ export default async function prepareItems(): Promise<void> {
 		}
 
 		if (dontChange) {
-			majorPriceChanges.push([previousItem, {...item}]);
-			item.price = previousItem.price;
+			item.price = previousItem!.price;
 		}
 
 		// Dont change price if its only a <10% difference and price is less than 100k
@@ -364,20 +381,20 @@ export default async function prepareItems(): Promise<void> {
 			item.price = previousItem.price;
 		}
 
-		if (previousItem) {
+		if (previousItem && !itemsBeingModified.has(item.id)) {
 			for (const key of keysToWarnIfRemovedOrAdded) {
 				if (!item[key] && Boolean(previousItem?.[key])) {
-					messages.push(`WARNING: ${item.name} (${item.id}) had ${key} removed`);
+					messages.push(`[ShapeChange]: ${item.name} (${item.id}) had ${key} removed`);
 				}
 				if (!previousItem[key] && Boolean(item?.[key])) {
-					messages.push(`WARNING: ${item.name} (${item.id}) had ${key} added`);
+					messages.push(`[ShapeChange]: ${item.name} (${item.id}) had ${key} added`);
 				}
 			}
 			if (item.name !== previousItem.name) {
-				messages.push(`WARNING: name changed from ${previousItem.name} to ${item.name}`);
+				nameChanges.push(`${previousItem.name} to ${item.name}`);
 			}
 			if (item.equipment?.slot !== previousItem.equipment?.slot) {
-				messages.push(`WARNING: ${previousItem.name} slot changed`);
+				messages.push(`[Gear Slot Change]: The gear slot of ${previousItem.name} slot changed.`);
 			}
 		}
 
@@ -399,7 +416,7 @@ export default async function prepareItems(): Promise<void> {
 				// @ts-ignore ignore
 				item.equipment = {
 					...item.equipment,
-					requirements: previousItem.equipment.requirements
+					requirements: previousItem.equipment.requirements,
 				};
 			}
 		}
@@ -407,16 +424,16 @@ export default async function prepareItems(): Promise<void> {
 			if (item.equipment?.requirements === null && previousItem.equipment?.requirements !== null) {
 				messages.push(
 					`WARNING: ${item.name} (${item.id}) had requirements removed: BEFORE[${JSON.stringify(
-						previousItem.equipment?.requirements
-					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`
+						previousItem.equipment?.requirements,
+					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`,
 				);
 			} else if (
 				JSON.stringify(item.equipment?.requirements) !== JSON.stringify(previousItem.equipment?.requirements)
 			) {
 				messages.push(
 					`WARNING: ${item.name} (${item.id}) had requirements changed: BEFORE[${JSON.stringify(
-						previousItem.equipment?.requirements
-					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`
+						previousItem.equipment?.requirements,
+					)}] AFTER[${JSON.stringify(item.equipment?.requirements)}]`,
 				);
 			}
 		}
@@ -425,7 +442,7 @@ export default async function prepareItems(): Promise<void> {
 			// @ts-ignore ignore
 			item.equipment = {
 				...item.equipment,
-				requirements: previousItem.equipment.requirements
+				requirements: previousItem.equipment.requirements,
 			};
 		}
 
@@ -439,39 +456,44 @@ export default async function prepareItems(): Promise<void> {
 			itemNameMap[item.id] = item;
 		}
 	}
+
+	if (nameChanges.length > 0) {
+		messages.push(`Name Changes:\n	${nameChanges.join("\n	")}`);
+	}
+
 	const deletedItems: any[] = Object.values(previousItems)
 		.filter((i: any) => !(itemNameMap as any)[i.id])
 		.filter(notEmpty);
 
-	messages.push(`New Items: ${moidLink(newItems)}.`);
-	messages.push(`Deleted Items: ${moidLink(deletedItems)}.`);
+	messages.push(`
+New Items: ${moidLink(newItems)}
+Deleted Items: ${moidLink(deletedItems)}
+`);
 
-	const totalQtySql = `SELECT id, SUM(kv.value::int) AS total_quantity
-	FROM users, jsonb_each_text(bank::jsonb) AS kv(itemID, value)
-	WHERE itemID::int = ANY(ARRAY[${deletedItems.map(i => i.id).join(',')}]::int[])
-	GROUP BY id`;
-	messages.push(`------------------- Get Total Qty of Deleted Items----------------\n${totalQtySql}\n`);
+	if (deletedItems.length > 0) {
+		messages.push(`
+Use these to find out how many people have the deleted items in their banks, and how many of each item they have.
 
-	const sql = `SELECT
+SELECT
   ${deletedItems
 		.map(
 			item => `COUNT(*) FILTER (WHERE bank->>'${item.id}' IS NOT NULL) AS people_with_item_${item.id},
-  SUM((bank->>'${item.id}')::int) AS sum_item_${item.id},`
+  SUM((bank->>'${item.id}')::int) AS sum_item_${item.id},`,
 		)
-		.join('\n')}
+		.join("\n")}
 
 FROM users;
-`;
-	messages.push(`${sql}`);
 
-	messages.push(
-		`Major price changes NOT changed: ${majorPriceChanges
-			.map(ent => `${ent[0].name} (${ent[0].price} to ${ent[1].price})`)
-			.join(', ')}.`
-	);
+SELECT id, SUM(kv.value::int) AS total_quantity
+FROM users, jsonb_each_text(bank::jsonb) AS kv(itemID, value)
+WHERE itemID::int = ANY(ARRAY[${deletedItems.map(i => i.id).join(",")}]::int[])
+GROUP BY id
+`);
+	}
 
-	writeFileSync('./src/data/items/item_data.json', JSON.stringify(itemNameMap, null, 4));
-	writeFileSync('./updates.txt', messages.join('\n'));
+	const formattedDate = formatDateForTimezones(new Date());
+	writeFileSync("./src/data/items/item_data.json", JSON.stringify(itemNameMap, null, 4));
+	writeFileSync(`./update-history/${Date.now().toString().slice(5)}.updates.txt`, `Updated on ${formattedDate.sydney} Sydney / ${formattedDate.cali} California
 
-	messages.push('Prepared items.');
+${messages.join("\n")}`);
 }
