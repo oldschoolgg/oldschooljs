@@ -4,9 +4,9 @@ import deepMerge from "deepmerge";
 import { deepClone, increaseNumByPercent, notEmpty, objectEntries, reduceNumByPercent } from "e";
 import fetch from "node-fetch";
 
-import { EquipmentSlot, type Item } from "../dist/meta/types";
-import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from "../dist/structures/Items";
-import itemID from "../dist/util/itemID";
+import { EquipmentSlot, type Item } from "../src/meta/types";
+import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from "../src/structures/Items";
+import itemID from "../src/util/itemID";
 import { getItemOrThrow } from "../src/util/util";
 import { itemChanges } from "./manualItemChanges";
 

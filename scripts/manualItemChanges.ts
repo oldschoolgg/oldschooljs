@@ -1,4 +1,4 @@
-import type { Item } from "../dist/meta/types";
+import type { Item } from "../src/meta/types";
 
 type DeepPartial<T> = T extends object
 	? {

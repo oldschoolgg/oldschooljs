@@ -1,8 +1,8 @@
 import { writeFileSync } from "node:fs";
 import fetch from "node-fetch";
 
-import { Monsters } from "../dist";
-import type { MonsterAttackType, MonsterAttribute, MonsterData, MonsterSlayerMaster } from "../dist/meta/monsterData";
+import { Monsters } from "../src";
+import type { MonsterAttackType, MonsterAttribute, MonsterData, MonsterSlayerMaster } from "../src/meta/monsterData";
 
 const monsterMap: { [key: string]: MonsterData } = {};
 

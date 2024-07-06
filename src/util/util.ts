@@ -290,3 +290,46 @@ export function getItemOrThrow(itemName: string | number | undefined): Item {
 	if (!item) throw new Error(`Item ${itemName} not found.`);
 	return item;
 }
+
+export default function resolveItems(_itemArray: string | number | (string | number)[]): number[] {
+	const itemArray = Array.isArray(_itemArray) ? _itemArray : [_itemArray];
+	const newArray: number[] = [];
+
+	for (const item of itemArray) {
+		if (typeof item === "number") {
+			newArray.push(item);
+		} else {
+			const osItem = Items.get(item);
+			if (!osItem) {
+				throw new Error(`No item found for: ${item}.`);
+			}
+			newArray.push(osItem.id);
+		}
+	}
+
+	return newArray;
+}
+
+type ResolvableItem = number | string;
+export type ArrayItemsResolvable = (ResolvableItem | ResolvableItem[])[];
+export type ArrayItemsResolved = (number | number[])[];
+export function deepResolveItems(itemArray: ArrayItemsResolvable): ArrayItemsResolved {
+	const newArray: ArrayItemsResolved = [];
+
+	for (const item of itemArray) {
+		if (typeof item === "number") {
+			newArray.push(item);
+		} else if (Array.isArray(item)) {
+			const test = resolveItems(item);
+			newArray.push(test);
+		} else {
+			const osItem = Items.get(item);
+			if (!osItem) {
+				throw new Error(`No item found for: ${item}.`);
+			}
+			newArray.push(osItem.id);
+		}
+	}
+
+	return newArray;
+}
