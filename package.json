@@ -18,7 +18,8 @@
 		"prepare": "tsx scripts/prepare",
 		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
 		"lint": "biome check --write --diagnostic-level=error",
-		"test:lint": "biome check --diagnostic-level=error"
+		"test:lint": "biome check --diagnostic-level=error",
+		"postinstall": "biome check --write package.json"
 	},
 	"dependencies": {
 		"deepmerge": "4.3.1",
@@ -36,7 +37,7 @@
 		"typescript": "^5.5.3",
 		"vitest": "^1.6.0"
 	},
-	"keywords": ["osrs", "runescape", "oldschool", "oldschoolrs"],
+	"keywords": ["runescape"],
 	"files": ["dist/src"],
 	"packageManager": "yarn@4.3.1"
 }
