@@ -1,5 +1,5 @@
-import { ClueOptions } from "../meta/types";
-import LootTable from "./LootTable";
+import type { ClueOptions } from "../meta/types";
+import type LootTable from "./LootTable";
 
 export default class Clue {
 	public table: LootTable;

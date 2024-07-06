@@ -1,6 +1,6 @@
 import { randArrItem } from "e";
 
-import { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
+import type { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
 import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from "../util/bank";
 import itemID from "../util/itemID";
 import Items from "./Items";
@@ -90,7 +90,7 @@ export default class Bank {
 			this.add(resolveNameBank(item));
 		} else {
 			for (const [itemID, quantity] of Object.entries(item)) {
-				this.addItem(parseInt(itemID), quantity);
+				this.addItem(Number.parseInt(itemID), quantity);
 			}
 		}
 
@@ -156,7 +156,7 @@ export default class Bank {
 
 	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (Array.isArray(items)) {
-			return items.every((item) => this.amount(item) > 0);
+			return items.every(item => this.amount(item) > 0);
 		}
 
 		if (typeof items === "string" || typeof items === "number") {
@@ -173,7 +173,7 @@ export default class Bank {
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
 		for (const [key, val] of Object.entries(this.bank)) {
-			arr.push([Items.get(parseInt(key))!, val]);
+			arr.push([Items.get(Number.parseInt(key))!, val]);
 		}
 		return arr;
 	}

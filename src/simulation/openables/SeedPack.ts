@@ -1,6 +1,6 @@
 import { randInt, roll } from "e";
 
-import { OpenableOpenOptions } from "../../meta/types";
+import type { OpenableOpenOptions } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleOpenable from "../../structures/SimpleOpenable";

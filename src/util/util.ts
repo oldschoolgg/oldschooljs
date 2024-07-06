@@ -1,10 +1,11 @@
 import { randFloat, randInt, roll } from "e";
 
-import { CLUES, MINIGAMES, SKILLS, hiscoreURLs, mappedBossNames } from "../constants";
-import { CustomKillLogic, DateYearMonth, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
+import { CLUES, MINIGAMES, SKILLS, type hiscoreURLs, mappedBossNames } from "../constants";
+import type { CustomKillLogic, DateYearMonth, Item, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
 import type Bank from "../structures/Bank";
+import Items from "../structures/Items";
 import LootTable from "../structures/LootTable";
-import Player from "../structures/Player";
+import type Player from "../structures/Player";
 
 export function resolvePlayerFromHiscores(csvData: string, accountType: keyof typeof hiscoreURLs): Player {
 	const data: string[][] = csvData
@@ -150,7 +151,7 @@ export function fromKMB(number: string): number {
 		newNum += numberAfter + "0".repeat(3).slice(numberAfter.length);
 	}
 
-	return parseInt(newNum);
+	return Number.parseInt(newNum);
 }
 
 export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
@@ -267,4 +268,68 @@ export function randomVariation(value: number, percentage: number) {
 	const lowerLimit = value * (1 - percentage / 100);
 	const upperLimit = value * (1 + percentage / 100);
 	return randFloat(lowerLimit, upperLimit);
+}
+
+export function getItem(itemName: string | number | undefined): Item | null {
+	if (!itemName) return null;
+	let identifier: string | number | undefined = "";
+	if (typeof itemName === "number") {
+		identifier = itemName;
+	} else {
+		const parsed = Number(itemName);
+		identifier = Number.isNaN(parsed) ? itemName : parsed;
+	}
+	if (typeof identifier === "string") {
+		identifier = identifier.replace(/’/g, "'");
+	}
+	return Items.get(identifier) ?? null;
+}
+
+export function getItemOrThrow(itemName: string | number | undefined): Item {
+	const item = getItem(itemName);
+	if (!item) throw new Error(`Item ${itemName} not found.`);
+	return item;
+}
+
+export default function resolveItems(_itemArray: string | number | (string | number)[]): number[] {
+	const itemArray = Array.isArray(_itemArray) ? _itemArray : [_itemArray];
+	const newArray: number[] = [];
+
+	for (const item of itemArray) {
+		if (typeof item === "number") {
+			newArray.push(item);
+		} else {
+			const osItem = Items.get(item);
+			if (!osItem) {
+				throw new Error(`No item found for: ${item}.`);
+			}
+			newArray.push(osItem.id);
+		}
+	}
+
+	return newArray;
+}
+
+type ResolvableItem = number | string;
+export type ArrayItemsResolvable = (ResolvableItem | ResolvableItem[])[];
+export type ArrayItemsResolved = (number | number[])[];
+export function deepResolveItems(itemArray: ArrayItemsResolvable): ArrayItemsResolved {
+	const newArray: ArrayItemsResolved = [];
+
+	for (const item of itemArray) {
+		if (typeof item === "number") {
+			newArray.push(item);
+		} else if (Array.isArray(item)) {
+			const test = resolveItems(item);
+			newArray.push(test);
+		} else {
+			const osItem = Items.get(item);
+			if (!osItem) {
+				throw new Error(`No item found for: ${item}.`);
+			}
+			newArray.push(osItem.id);
+		}
+	}
+
+	return newArray;
 }

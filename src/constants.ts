@@ -1,4 +1,4 @@
-import { BossRecords } from "./meta/types";
+import type { BossRecords } from "./meta/types";
 
 export const BASE_API_URL = "https://services.runescape.com";
 

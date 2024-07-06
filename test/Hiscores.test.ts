@@ -1,9 +1,9 @@
-import { expect, test } from 'vitest';
+import { expect, test } from "vitest";
 
-import { Hiscores } from '../src';
+import { Hiscores } from "../src";
 
-test('Hiscores', async () => {
-	const koru = await Hiscores.fetch('Koru');
+test("Hiscores", async () => {
+	const koru = await Hiscores.fetch("Koru");
 
 	expect(koru.minigames.pvpArena.rank).toBeGreaterThanOrEqual(1);
 	expect(koru.minigames.pvpArena.score).toBeGreaterThanOrEqual(1);
@@ -12,21 +12,21 @@ test('Hiscores', async () => {
 	expect(koru.bossRecords.dagannothRex.score).toBeGreaterThanOrEqual(1);
 
 	const [lynxTitan, zulu, b0aty, magnaboy, virtualMagnaboy, dmmTournyFaux] = await Promise.all([
-		Hiscores.fetch('Lynx Titan'),
-		Hiscores.fetch('Zulu'),
-		Hiscores.fetch('B0aty'),
-		Hiscores.fetch('Magnaboy'),
-		Hiscores.fetch('Magnaboy', { virtualLevels: true }),
-		Hiscores.fetch('Faux', { virtualLevels: true })
+		Hiscores.fetch("Lynx Titan"),
+		Hiscores.fetch("Zulu"),
+		Hiscores.fetch("B0aty"),
+		Hiscores.fetch("Magnaboy"),
+		Hiscores.fetch("Magnaboy", { virtualLevels: true }),
+		Hiscores.fetch("Faux", { virtualLevels: true }),
 	]);
 
-	expect(lynxTitan.username).toBe('Lynx Titan');
+	expect(lynxTitan.username).toBe("Lynx Titan");
 	expect(lynxTitan.combatLevel).toBe(126);
 	expect(lynxTitan.skills.overall.level).toBe(2277);
 	expect(lynxTitan.skills.overall.xp).toBe(4_600_000_000);
 
 	expect(lynxTitan.clues.hard.score >= 22).toBe(true);
-	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe('number');
+	expect(typeof lynxTitan.minigames.bountyHunter.rank).toBe("number");
 
 	expect(zulu.bossRecords.giantMole.rank > 1).toBe(true);
 
@@ -45,8 +45,8 @@ test('Hiscores', async () => {
 	expect(zulu.bossRecords.nex.rank > 1).toBe(true);
 	expect(zulu.bossRecords.nex.score > 150 && zulu.bossRecords.nex.score < 3000).toBe(true);
 
-	expect(b0aty.minigames.bountyHunterLegacy.score).toEqual(8)
-	expect(b0aty.minigames.bountyHunterLegacyRogue.score).toEqual(7)
+	expect(b0aty.minigames.bountyHunterLegacy.score).toEqual(8);
+	expect(b0aty.minigames.bountyHunterLegacyRogue.score).toEqual(7);
 	expect(b0aty.minigames.colosseumGlory.score).toBeGreaterThan(30_000);
 
 	expect(magnaboy.clues.all.score).toBe(157);
@@ -70,25 +70,25 @@ test('Hiscores', async () => {
 	expect(virtualMagnaboy.leaguePoints).toEqual(undefined);
 
 	// DMM Tourny
-	expect(dmmTournyFaux.username).toEqual('Faux');
+	expect(dmmTournyFaux.username).toEqual("Faux");
 	// Dont die Faux
 	expect(dmmTournyFaux.combatLevel).toBeGreaterThan(30);
 	expect(dmmTournyFaux.skills.agility.level).toBeGreaterThan(49);
 
-	const leagues = await Hiscores.fetch('Magnaboy', { type: 'seasonal' });
+	const leagues = await Hiscores.fetch("Magnaboy", { type: "seasonal" });
 	expect(leagues.leaguePoints?.points).toBeGreaterThan(1);
 
-	const leagues2 = await Hiscores.fetch('fk ezscape', { type: 'seasonal' });
+	const leagues2 = await Hiscores.fetch("fk ezscape", { type: "seasonal" });
 	expect(leagues2.leaguePoints?.points).toBeGreaterThan(1);
 
 	// Skillers
-	const skiller = await Hiscores.fetch('Jcw', { type: 'skiller' });
+	const skiller = await Hiscores.fetch("Jcw", { type: "skiller" });
 	expect(skiller.skills.overall.rank).toBeLessThan(10);
 	expect(skiller.skills.overall.level).toBeGreaterThan(1500);
 	expect(skiller.skills.overall.level).toBeLessThan(1601);
 
 	// Pures
-	const pure = await Hiscores.fetch('Headline', { type: 'skiller_defence' });
+	const pure = await Hiscores.fetch("Headline", { type: "skiller_defence" });
 	expect(pure.skills.overall.rank).toBe(1);
 	expect(pure.skills.overall.level).toBe(2179);
 }, 30_000);

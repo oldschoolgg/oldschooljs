@@ -1,4 +1,4 @@
-import { ItemBank, ReturnedLootItem } from "../meta/types";
+import type { ItemBank, ReturnedLootItem } from "../meta/types";
 import itemID from "./itemID";
 
 /**
@@ -65,7 +65,7 @@ export function bankHasAllItemsFromBank(bankToCheck: ItemBank, bankToHave: ItemB
 	const itemsToHave: [string, number][] = Object.entries(bankToHave);
 
 	for (const [itemID, qty] of itemsToHave) {
-		if (!bankHasItem(bankToCheck, parseInt(itemID), qty)) {
+		if (!bankHasItem(bankToCheck, Number.parseInt(itemID), qty)) {
 			return false;
 		}
 	}
@@ -103,7 +103,7 @@ export function removeBankFromBank(targetBank: ItemBank, bankToRemove: ItemBank)
 	let newBank = { ...targetBank };
 
 	for (const [itemID, qty] of Object.entries(bankToRemove)) {
-		newBank = removeItemFromBank(newBank, parseInt(itemID), qty);
+		newBank = removeItemFromBank(newBank, Number.parseInt(itemID), qty);
 	}
 
 	return newBank;
@@ -147,14 +147,14 @@ export function addArrayToBank(bank: ItemBank, items: number[]): ItemBank {
 export function multiplyBank(bank: ItemBank, times: number): ItemBank {
 	const newBank = { ...bank };
 	for (const [itemID] of Object.entries(newBank)) {
-		newBank[parseInt(itemID)] *= times;
+		newBank[Number.parseInt(itemID)] *= times;
 	}
 	return newBank;
 }
 
 export function numItemsBankHasInBank(bank: ItemBank, bankItemsToHave: ItemBank): number {
 	let has = 0;
-	for (const itemID of Object.keys(bankItemsToHave).map((i) => parseInt(i))) {
+	for (const itemID of Object.keys(bankItemsToHave).map(i => Number.parseInt(i))) {
 		if (bankHasItem(bank, itemID)) {
 			has++;
 		}

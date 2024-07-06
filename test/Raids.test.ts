@@ -1,8 +1,8 @@
-import { expect, test } from 'vitest';
+import { expect, test } from "vitest";
 
-import { ChambersOfXeric } from '../src/simulation/misc';
+import { ChambersOfXeric } from "../src/simulation/misc";
 
-test('Chambers Of Xeric', async () => {
+test("Chambers Of Xeric", async () => {
 	expect.assertions(3);
 
 	const maxRoll = 570_000 * (1 / 8675);
@@ -11,7 +11,7 @@ test('Chambers Of Xeric', async () => {
 
 	expect(ChambersOfXeric.determineUniqueChancesFromTeamPoints(855_000)).toEqual([
 		maxRoll,
-		855_000 * (1 / 8675) - maxRoll
+		855_000 * (1 / 8675) - maxRoll,
 	]);
 
 	expect(ChambersOfXeric.determineUniqueChancesFromTeamPoints(73_000_000)).toEqual([maxRoll, maxRoll, maxRoll]);

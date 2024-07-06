@@ -1,5 +1,5 @@
-import { promises as fs } from 'fs';
-import * as path from 'path';
+import { promises as fs } from "node:fs";
+import * as path from "node:path";
 
 async function walk(dir: string, fileList: string[] = []): Promise<string[]> {
 	const files = await fs.readdir(dir);
@@ -12,9 +12,9 @@ async function walk(dir: string, fileList: string[] = []): Promise<string[]> {
 }
 
 export default async function minifyDist(): Promise<void> {
-	const arrayOfPaths = await walk('./dist');
+	const arrayOfPaths = await walk("./dist");
 	for (const path of arrayOfPaths) {
-		if (path.endsWith('.json')) {
+		if (path.endsWith(".json")) {
 			const jsonString = await fs.readFile(path).then((file): string => file.toString());
 			const minifiedJson = JSON.stringify(JSON.parse(jsonString));
 			await fs.writeFile(path, minifiedJson);

@@ -1,4 +1,4 @@
-import { Bank, Items } from '../src';
+import { type Bank, Items } from "../src";
 
 export function withinThreshold(source: number, target: number, epsilon = 5): boolean {
 	if (source === target) return true;
@@ -17,7 +17,7 @@ export function checkThreshold(expectedRates: Record<string, number>, _result: B
 	}
 
 	for (const [itemID, qty] of Object.entries(result)) {
-		const item = Items.get(parseInt(itemID));
+		const item = Items.get(Number.parseInt(itemID));
 		if (!item) throw new Error(`Missing item with ID: ${itemID}`);
 
 		const { id } = item;

@@ -1,5 +1,5 @@
 import _items from "../data/items/item_data.json";
-import { Item, ItemID } from "../meta/types";
+import type { Item, ItemID } from "../meta/types";
 import { cleanString } from "../util/cleanString";
 import Collection from "./Collection";
 
@@ -72,7 +72,7 @@ class Items extends Collection<number, Item> {
 const itemsExport = new Items();
 
 for (const [id, item] of Object.entries(items)) {
-	const numID = parseInt(id);
+	const numID = Number.parseInt(id);
 
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, item);

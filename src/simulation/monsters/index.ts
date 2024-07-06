@@ -1,5 +1,5 @@
 import Collection from "../../structures/Collection";
-import Monster from "../../structures/Monster";
+import type Monster from "../../structures/Monster";
 import { CreatureCreation } from "./CreatureCreation";
 import { allBosses } from "./bosses";
 import { allLowMonsters } from "./low";

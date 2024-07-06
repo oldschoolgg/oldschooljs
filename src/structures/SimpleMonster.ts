@@ -1,7 +1,7 @@
 import { roll } from "e";
 
 import { MonsterSlayerMaster } from "../meta/monsterData";
-import { CustomKillLogic, MonsterKillOptions, MonsterOptions } from "../meta/types";
+import type { CustomKillLogic, MonsterKillOptions, MonsterOptions } from "../meta/types";
 import {
 	getAncientShardChanceFromHP,
 	getBrimKeyChanceFromCBLevel,
@@ -10,7 +10,7 @@ import {
 	getTotemChanceFromHP,
 } from "../util/util";
 import Bank from "./Bank";
-import LootTable from "./LootTable";
+import type LootTable from "./LootTable";
 import Monster from "./Monster";
 
 interface SimpleMonsterOptions extends MonsterOptions {

@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "2.5.4",
+	"version": "2.5.5",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -11,40 +11,33 @@
 	},
 	"scripts": {
 		"prepublishOnly": "yarn build",
-		"test": "yarn test:run",
+		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\"",
 		"test:unit": "vitest run --coverage",
-		"test:run": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\"",
 		"build": "tsc -p .",
 		"dev": "tsc --watch -p .",
-		"prepareData": "yarn build && yarn prepareData:run",
-		"prepareData:run": "tsx scripts/prepare",
-		"prepmon": "yarn build && tsx scripts/prepareMonsters.ts",
-		"lint": "biome check --apply ./src --diagnostic-level=error",
-		"test:lint": "biome check ./src --diagnostic-level=error"
+		"prepare": "tsx scripts/prepare",
+		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
+		"lint": "biome check --write --diagnostic-level=error",
+		"test:lint": "biome check --diagnostic-level=error",
+		"postinstall": "biome check --write package.json"
 	},
 	"dependencies": {
-		"deepmerge": "^4.3.1",
-		"e": "^0.2.32",
-		"node-fetch": "^2.6.7"
+		"deepmerge": "4.3.1",
+		"e": "^0.2.33",
+		"node-fetch": "2.6.7"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "^1.5.3",
-		"@oldschoolgg/ts-config": "^0.0.1",
-		"@types/node": "^14.18.12",
+		"@biomejs/biome": "^1.8.3",
+		"@types/node": "^20.14.9",
 		"@types/node-fetch": "^2.6.1",
-		"@vitest/coverage-v8": "^1.3.1",
+		"@vitest/coverage-v8": "^1.6.0",
 		"concurrently": "^8.2.2",
-		"tsx": "^4.7.1",
-		"typescript": "^5.3.3",
-		"vitest": "^1.3.1"
+		"deep-object-diff": "^1.1.9",
+		"tsx": "^4.16.2",
+		"typescript": "^5.5.3",
+		"vitest": "^1.6.0"
 	},
-	"keywords": [
-		"osrs",
-		"runescape",
-		"oldschool",
-		"oldschoolrs"
-	],
-	"files": [
-		"dist/*"
-	]
+	"keywords": ["runescape"],
+	"files": ["dist/src"],
+	"packageManager": "yarn@4.3.1"
 }

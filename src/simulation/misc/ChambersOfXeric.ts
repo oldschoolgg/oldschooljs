@@ -1,6 +1,6 @@
 import { Time, randFloat, roll, shuffleArr, sumArr } from "e";
 
-import { ItemBank, LootBank } from "../../meta/types";
+import type { ItemBank, LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import Minigame from "../../structures/Minigame";
@@ -79,7 +79,7 @@ const itemScales = resolveNameBank({
 });
 
 const NonUniqueTable = new SimpleTable<number>();
-for (const itemID of Object.keys(itemScales)) NonUniqueTable.add(parseInt(itemID));
+for (const itemID of Object.keys(itemScales)) NonUniqueTable.add(Number.parseInt(itemID));
 
 export const CoXUniqueTable = new LootTable()
 	.add("Dexterous prayer scroll", 1, 20)
@@ -112,7 +112,7 @@ export class ChambersOfXericClass extends Minigame {
 	id = 1;
 	aliases = ["raids", "cox"];
 	name = "Chambers of Xeric";
-	allItems: number[] = [...CoXUniqueTable.allItems, ...NonUniqueTable.table.map((i) => i.item)];
+	allItems: number[] = [...CoXUniqueTable.allItems, ...NonUniqueTable.table.map(i => i.item)];
 	maxRoll = 570_000 * (1 / 8675);
 
 	/**
@@ -216,7 +216,7 @@ export class ChambersOfXericClass extends Minigame {
 		}
 
 		// The sum of all members personal points is the team points.
-		const teamPoints = sumArr(options.team.map((val) => val.personalPoints));
+		const teamPoints = sumArr(options.team.map(val => val.personalPoints));
 
 		const dropChances = this.determineUniqueChancesFromTeamPoints(teamPoints);
 		const uniqueLoot = this.rollLootFromChances(dropChances);
@@ -266,12 +266,12 @@ export class ChambersOfXericClass extends Minigame {
 		for (const leftOverRecipient of uniqueDeciderTable.table) {
 			// Find this member in the team, and get their points.
 			const pointsOfThisMember = options.team.find(
-				(member) => member.id === leftOverRecipient.item,
+				member => member.id === leftOverRecipient.item,
 			)!.personalPoints;
 
 			const entries = Object.entries(this.rollNonUniqueLoot(pointsOfThisMember));
 			for (const [itemID, quantity] of entries) {
-				lootResult[leftOverRecipient.item].add(parseInt(itemID), quantity);
+				lootResult[leftOverRecipient.item].add(Number.parseInt(itemID), quantity);
 			}
 		}
 
