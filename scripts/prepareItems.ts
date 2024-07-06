@@ -505,7 +505,7 @@ GROUP BY id
 			delete diffOutput[key];
 		}
 	}
-	const baseFilename = `item-update-${date.getUTCFullYear()}-${date.getUTCMonth()}-${date.getUTCDay()}`;
+	const baseFilename = `item-update-${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDay() + 1}`;
 	writeFileSync(
 		`./update-history/${baseFilename}.txt`,
 		`Updated on ${formattedDate.sydney} Sydney / ${formattedDate.cali} California
