@@ -1,13 +1,20 @@
 import { readFileSync, writeFileSync } from "node:fs";
+import { diff } from "deep-object-diff";
 import deepMerge from "deepmerge";
-import { deepClone, increaseNumByPercent, notEmpty, reduceNumByPercent } from "e";
+import { deepClone, increaseNumByPercent, notEmpty, objectEntries, reduceNumByPercent } from "e";
 import fetch from "node-fetch";
 
 import { EquipmentSlot, type Item } from "../dist/meta/types";
 import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from "../dist/structures/Items";
 import itemID from "../dist/util/itemID";
-import { getItemOrThrow } from '../src/util/util';
+import { getItemOrThrow } from "../src/util/util";
 import { itemChanges } from "./manualItemChanges";
+
+const ITEM_UPDATE_CONFIG = {
+	SHOULD_UPDATE_PRICES: false,
+};
+
+const previousItems = JSON.parse(readFileSync("./src/data/items/item_data.json", "utf-8"));
 
 const equipmentModifications = new Map();
 const equipmentModSrc = [
@@ -21,7 +28,7 @@ for (const [toChange, toCopy] of equipmentModSrc) {
 }
 const itemsBeingModified = new Set(equipmentModSrc.map(i => i[0]));
 
-const itemNameMap: { [key: string]: Item } = {};
+const newItemJSON: { [key: string]: Item } = {};
 
 interface RawItemCollection {
 	[index: string]: Item & {
@@ -57,25 +64,24 @@ export function moidLink(items: any[]) {
 }
 
 const formatDateForTimezones = (date: Date): { cali: string; sydney: string } => {
-  const options: Intl.DateTimeFormatOptions = {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    timeZoneName: 'short'
-  };
+	const options: Intl.DateTimeFormatOptions = {
+		year: "numeric",
+		month: "2-digit",
+		day: "2-digit",
+		hour: "2-digit",
+		minute: "2-digit",
+		second: "2-digit",
+		timeZoneName: "short",
+	};
 
-  const caliDate = new Intl.DateTimeFormat('en-US', { ...options, timeZone: 'America/Los_Angeles' }).format(date);
-  const sydneyDate = new Intl.DateTimeFormat('en-AU', { ...options, timeZone: 'Australia/Sydney' }).format(date);
+	const caliDate = new Intl.DateTimeFormat("en-US", { ...options, timeZone: "America/Los_Angeles" }).format(date);
+	const sydneyDate = new Intl.DateTimeFormat("en-AU", { ...options, timeZone: "Australia/Sydney" }).format(date);
 
-  return {
-    cali: caliDate,
-    sydney: sydneyDate
-  };
+	return {
+		cali: caliDate,
+		sydney: sydneyDate,
+	};
 };
-
 
 const manualItems: Item[] = [
 	{
@@ -273,7 +279,6 @@ export default async function prepareItems(): Promise<void> {
 	}
 
 	const newItems = [];
-	const previousItems = JSON.parse(readFileSync("./src/data/items/item_data.json", "utf-8"));
 	const nameChanges = [];
 
 	for (let item of Object.values(allItems)) {
@@ -360,8 +365,8 @@ export default async function prepareItems(): Promise<void> {
 			if (price && price.high / 10000 > price.low) dontChange = true;
 		}
 
-		if (dontChange) {
-			item.price = previousItem!.price;
+		if (dontChange || !ITEM_UPDATE_CONFIG.SHOULD_UPDATE_PRICES) {
+			item.price = previousItem?.price ?? item.price;
 		}
 
 		// Dont change price if its only a <10% difference and price is less than 100k
@@ -450,10 +455,10 @@ export default async function prepareItems(): Promise<void> {
 			item = deepMerge(item, itemChanges[item.id]) as any;
 		}
 
-		itemNameMap[item.id] = item;
+		newItemJSON[item.id] = item;
 
 		for (const item of manualItems) {
-			itemNameMap[item.id] = item;
+			newItemJSON[item.id] = item;
 		}
 	}
 
@@ -462,7 +467,7 @@ export default async function prepareItems(): Promise<void> {
 	}
 
 	const deletedItems: any[] = Object.values(previousItems)
-		.filter((i: any) => !(itemNameMap as any)[i.id])
+		.filter((i: any) => !(newItemJSON as any)[i.id])
 		.filter(notEmpty);
 
 	messages.push(`
@@ -491,9 +496,22 @@ GROUP BY id
 `);
 	}
 
-	const formattedDate = formatDateForTimezones(new Date());
-	writeFileSync("./src/data/items/item_data.json", JSON.stringify(itemNameMap, null, 4));
-	writeFileSync(`./update-history/${Date.now().toString().slice(5)}.updates.txt`, `Updated on ${formattedDate.sydney} Sydney / ${formattedDate.cali} California
+	const date = new Date();
+	const formattedDate = formatDateForTimezones(date);
 
-${messages.join("\n")}`);
+	const diffOutput: any = diff(previousItems, newItemJSON);
+	for (const [key, val] of objectEntries(diffOutput as any)) {
+		if (!Boolean(val) || Object.values(val).every(t => !t)) {
+			delete diffOutput[key];
+		}
+	}
+	const baseFilename = `item-update-${date.getUTCFullYear()}-${date.getUTCMonth()}-${date.getUTCDay()}`;
+	writeFileSync(
+		`./update-history/${baseFilename}.txt`,
+		`Updated on ${formattedDate.sydney} Sydney / ${formattedDate.cali} California
+
+${messages.join("\n")}`,
+	);
+	writeFileSync(`./update-history/${baseFilename}.json`, `${JSON.stringify(diffOutput, null, "	")}`);
+	writeFileSync("./src/data/items/item_data.json", `${JSON.stringify(newItemJSON, null, "	")}\n`);
 }
