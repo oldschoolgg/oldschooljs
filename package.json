@@ -10,12 +10,11 @@
 		"url": "git+https://github.com/oldschoolgg/oldschooljs.git"
 	},
 	"scripts": {
-		"prepublishOnly": "yarn build",
 		"test": "tsc -p src && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc -p test\"",
 		"test:unit": "vitest run --coverage",
 		"build": "tsc -p src && tsx scripts/minifyDist.ts",
 		"dev": "tsc --watch -p .",
-		"prepare": "tsx scripts/prepare",
+		"updateitems": "tsx scripts/prepare",
 		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
 		"lint": "biome check --write --diagnostic-level=error",
 		"test:lint": "biome check --diagnostic-level=error"
