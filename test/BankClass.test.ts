@@ -289,7 +289,7 @@ describe("Bank Class", () => {
 
 	test("has item obj", () => {
 		const bank = new Bank();
-		bank.add("Coal")
+		bank.add("Coal");
 		expect(bank.has(getItemOrThrow("Coal"))).toBeTruthy();
 		expect(bank.has(getItemOrThrow("Egg"))).toBeFalsy();
 	});
