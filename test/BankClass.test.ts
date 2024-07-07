@@ -2,7 +2,7 @@ import { describe, expect, test, vi } from "vitest";
 
 import { Bank, Items, LootTable } from "../src";
 import type { Item, ReturnedLootItem } from "../src/meta/types";
-import { itemID, resolveNameBank } from "../src/util";
+import { getItemOrThrow, itemID, resolveNameBank } from "../src/util";
 
 const TestLootTable = new LootTable().add("Toolkit");
 
@@ -285,5 +285,12 @@ describe("Bank Class", () => {
 		expect(() => delete bank.bank[itemID("Twisted bow")]).toThrow();
 
 		expect(bank.bank).toEqual({ [itemID("Twisted bow")]: 1 });
+	});
+
+	test("has item obj", () => {
+		const bank = new Bank();
+		bank.add("Coal")
+		expect(bank.has(getItemOrThrow("Coal"))).toBeTruthy();
+		expect(bank.has(getItemOrThrow("Egg"))).toBeFalsy();
 	});
 });
