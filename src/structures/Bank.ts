@@ -1,7 +1,7 @@
 import { randArrItem } from "e";
 
 import type { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
-import { bankHasAllItemsFromBank, fasterResolveBank, resolveNameBank } from "../util/bank";
+import { fasterResolveBank, resolveNameBank } from "../util/bank";
 import itemID from "../util/itemID";
 import Items from "./Items";
 
@@ -154,20 +154,24 @@ export default class Bank {
 		return this;
 	}
 
-	public has(items: string | number | (string | number)[] | ItemBank | Bank): boolean {
-		if (Array.isArray(items)) {
-			return items.every(item => this.amount(item) > 0);
-		}
-
+	public has(items: Item | string | number | (string | number)[] | ItemBank | Bank): boolean {
 		if (typeof items === "string" || typeof items === "number") {
 			return this.amount(items) > 0;
 		}
 
-		if (items instanceof Bank) {
-			return this.has(items.bank);
+		if (Array.isArray(items)) {
+			return items.every(item => this.amount(item) > 0);
 		}
 
-		return bankHasAllItemsFromBank(this.bank, items);
+		if (items instanceof Bank) {
+			return items.items().every(itemEntry => this.amount(itemEntry[0].id) >= itemEntry[1]);
+		}
+
+		if ("id" in items) {
+			return this.has(items.id);
+		}
+
+		return this.has(new Bank(items));
 	}
 
 	public items(): [Item, number][] {

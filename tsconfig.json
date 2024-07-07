@@ -20,7 +20,7 @@
 		"sourceMap": true,
 		"declaration": true,
 		"declarationMap": true,
-		"removeComments": false,
+		"removeComments": true,
 		"outDir": "./dist",
 		"target": "ES2022",
 		"esModuleInterop": true,
