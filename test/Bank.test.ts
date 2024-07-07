@@ -2,19 +2,7 @@ import { describe, expect, test } from "vitest";
 
 import Bank from "../src/structures/Bank";
 import Items from "../src/structures/Items";
-import {
-	addArrayToBank,
-	addItemToBank,
-	bankFromLootTableOutput,
-	bankHasAllItemsFromBank,
-	bankHasItem,
-	itemID,
-	multiplyBank,
-	numItemsBankHasInBank,
-	removeBankFromBank,
-	removeItemFromBank,
-	resolveNameBank,
-} from "../src/util";
+import { addItemToBank, itemID, resolveNameBank } from "../src/util";
 
 describe("Bank", () => {
 	test("convert string bank to number bank", () => {
@@ -32,85 +20,48 @@ describe("Bank", () => {
 		expect(resolveNameBank(strBank)).toEqual(numBank);
 	});
 
-	test("convert loot item array to number bank", () => {
-		expect.assertions(1);
-		const lootItems = [
-			{
-				item: 6,
-				quantity: 2,
-			},
-			{
-				item: 67,
-				quantity: 2,
-			},
-			{
-				item: 6,
-				quantity: 8,
-			},
-			{
-				item: 32,
-				quantity: 1,
-			},
-		];
-		const expected = {
-			6: 10,
-			32: 1,
-			67: 2,
-		};
-		expect(bankFromLootTableOutput(lootItems)).toEqual(expected);
-	});
-
-	test("bank contains item", () => {
-		expect.assertions(4);
-		const bank = { 1: 2, 3: 4 };
-
-		expect(bankHasItem(bank, 1)).toBeTruthy();
-		expect(bankHasItem(bank, 2)).toBeFalsy();
-		expect(bankHasItem(bank, 3, 3)).toBeTruthy();
-		expect(bankHasItem(bank, 1, 4)).toBeFalsy();
-	});
 	test("bank has all items", () => {
 		expect.assertions(2);
-		const bankToHave = resolveNameBank({
+		const bankToHave = new Bank({
 			"Fire rune": 1000,
 			"Air rune": 1,
 			"Chaos rune": 101_010,
 		});
 
-		const bankThatShouldntHave = resolveNameBank({
+		const bankThatShouldntHave = new Bank({
 			"Fire rune": 1000,
 			"Air rune": 1,
 			"Chaos rune": 1,
 		});
 
-		const bankThatShouldHave = resolveNameBank({
+		const bankThatShouldHave = new Bank({
 			"Fire rune": 104_200,
 			"Air rune": 43_432,
 			"Chaos rune": 121_010,
 			"Death rune": 121_010,
 		});
 
-		expect(bankHasAllItemsFromBank(bankThatShouldHave, bankToHave)).toBeTruthy();
-		expect(bankHasAllItemsFromBank(bankThatShouldntHave, bankToHave)).toBeFalsy();
+		expect(bankThatShouldHave.has(bankToHave)).toBeTruthy();
+		expect(bankThatShouldntHave.has(bankToHave)).toBeFalsy();
 	});
 
 	test("remove item from bank", () => {
 		expect.assertions(3);
-		const bank = {
-			45: 9,
-			87: 1,
-		};
-
-		expect(removeItemFromBank(bank, 87)).toEqual({
-			45: 9,
-		});
-
-		expect(removeItemFromBank(bank, 98, 1)).toEqual({
+		const bank = new Bank({
 			45: 9,
 			87: 1,
 		});
 
-		expect(removeItemFromBank(bank, 45, 2)).toEqual({
+		expect(bank.clone().remove(87).bank).toEqual({
+			45: 9,
+		});
+
+		expect(bank.clone().remove(98).bank).toEqual({
+			45: 9,
+			87: 1,
+		});
+
+		expect(bank.clone().remove(45, 2).bank).toEqual({
 			45: 7,
 			87: 1,
 		});
@@ -118,21 +69,22 @@ describe("Bank", () => {
 
 	test("remove bank from bank", () => {
 		expect.assertions(1);
-		const sourceBank = resolveNameBank({
+		const sourceBank = new Bank({
 			"Fire rune": 100,
 			"Air rune": 50,
 		});
 
-		const bankToRemove = resolveNameBank({
+		const bankToRemove = new Bank({
 			"Fire rune": 50,
 			"Air rune": 50,
 		});
 
-		const expectedBank = resolveNameBank({
+		const expectedBank = new Bank({
 			"Fire rune": 50,
 		});
 
-		expect(removeBankFromBank(sourceBank, bankToRemove)).toEqual(expectedBank);
+		sourceBank.remove(bankToRemove);
+		expect(sourceBank.equals(expectedBank)).toBeTruthy();
 	});
 
 	test("add item to bank", () => {
@@ -169,18 +121,6 @@ describe("Bank", () => {
 		expect(new Bank(bank).add(bank2).bank).toEqual(expected);
 	});
 
-	test("add array of items to bank", () => {
-		expect.assertions(1);
-
-		const bank = { 1: 2 };
-
-		const items = [3, 4, 5];
-
-		const expected = { 1: 2, 3: 1, 4: 1, 5: 1 };
-
-		expect(addArrayToBank(bank, items)).toEqual(expected);
-	});
-
 	test("add item to bank", () => {
 		const bank = new Bank();
 
@@ -194,9 +134,8 @@ describe("Bank", () => {
 	});
 
 	test("multiply bank items", () => {
-		const bank = { 1: 2, 3: 4 };
-		const expected = { 1: 4, 3: 8 };
-		expect(multiplyBank(bank, 2)).toEqual(expected);
+		const bank = new Bank({ 1: 2, 3: 4 });
+		expect(bank.multiply(2).equals(new Bank({ 1: 4, 3: 8 }))).toBeTruthy();
 	});
 
 	test("multiply bank items, excluded", () => {
@@ -206,19 +145,6 @@ describe("Bank", () => {
 		expect(bank.multiply(2, ["Trout", "Egg"].map(itemID))).toEqual(expected);
 		expect(bank.amount("Coal")).toEqual(200);
 		expect(bank.amount("Egg")).toEqual(100);
-	});
-
-	test("numItemsBankHasInBank", () => {
-		expect.assertions(2);
-		const sourceBank1 = { 1: 2, 3: 4 };
-		const bankToHave1 = { 1: 4, 3: 8 };
-
-		expect(numItemsBankHasInBank(sourceBank1, bankToHave1)).toEqual(2);
-
-		const sourceBank2 = { 1: 0, 3: 4 };
-		const bankToHave2 = { 1: 4, 3: 8 };
-
-		expect(numItemsBankHasInBank(sourceBank2, bankToHave2)).toEqual(1);
 	});
 
 	test("mutate filter", () => {

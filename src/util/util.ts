@@ -1,7 +1,7 @@
-import { randFloat, randInt, roll } from "e";
+import { randFloat, randInt, roll, round } from "e";
 
 import { CLUES, MINIGAMES, SKILLS, type hiscoreURLs, mappedBossNames } from "../constants";
-import type { CustomKillLogic, DateYearMonth, Item, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
+import type { CustomKillLogic, Item, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
 import type Bank from "../structures/Bank";
 import Items from "../structures/Items";
 import LootTable from "../structures/LootTable";
@@ -88,17 +88,6 @@ export function isValidUsername(username: string): boolean {
 	return Boolean(username.match("^[A-Za-z0-9]{1}[A-Za-z0-9 -_\u00A0]{0,11}$"));
 }
 
-/**
- * Returns the current month and year.
- */
-export function getDate(): DateYearMonth {
-	const currentTime = new Date();
-	return {
-		month: currentTime.getMonth() + 1,
-		year: currentTime.getFullYear(),
-	};
-}
-
 export function convertLVLtoXP(lvl: number): number {
 	let points = 0;
 
@@ -123,10 +112,6 @@ export function convertXPtoLVL(xp: number, cap = 99): number {
 	return cap;
 }
 
-function round(number: number): string {
-	return (Math.round(number * 100) / 100).toString();
-}
-
 export function toKMB(number: number): string {
 	if (number > 999_999_999 || number < -999_999_999) {
 		return `${round(number / 1_000_000_000)}b`;
@@ -135,7 +120,7 @@ export function toKMB(number: number): string {
 	} else if (number > 999 || number < -999) {
 		return `${round(number / 1000)}k`;
 	}
-	return round(number);
+	return round(number).toString();
 }
 
 export function fromKMB(number: string): number {

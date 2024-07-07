@@ -1,3 +1,4 @@
+import { EItem } from "./EItem";
 import * as constants from "./constants";
 import { MonsterSlayerMaster } from "./meta/monsterData";
 import { MonsterKillOptions } from "./meta/types";
@@ -28,4 +29,5 @@ export {
 	Player,
 	Util,
 	Wiki,
+	EItem,
 };
