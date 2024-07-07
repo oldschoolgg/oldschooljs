@@ -11,7 +11,7 @@
 	},
 	"scripts": {
 		"prepublishOnly": "yarn build",
-		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\"",
+		"test": "tsc -p src && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc -p test\"",
 		"test:unit": "vitest run --coverage",
 		"build": "tsc -p src && tsx scripts/minifyDist.ts",
 		"dev": "tsc --watch -p .",

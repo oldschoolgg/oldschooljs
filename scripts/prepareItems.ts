@@ -58,9 +58,9 @@ function itemShouldntBeAdded(item: any) {
 	);
 }
 
-export function moidLink(items: any[]) {
+export function moidLink(items: number[]) {
 	if (items.length === 0) return "No items.";
-	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.map(i => i.id).join(",")}`;
+	return `https://chisel.weirdgloop.org/moid/item_id.html#${items.join(",")}`;
 }
 
 const formatDateForTimezones = (date: Date): { cali: string; sydney: string } => {
@@ -471,7 +471,7 @@ export default async function prepareItems(): Promise<void> {
 		.filter(notEmpty);
 
 	messages.push(`
-New Items: ${moidLink(newItems)}
+New Items: ${moidLink(newItems.map(i => i.id))}
 Deleted Items: ${moidLink(deletedItems)}
 `);
 
