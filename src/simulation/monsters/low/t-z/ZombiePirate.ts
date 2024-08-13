@@ -30,7 +30,7 @@ export const ZombiePirateTable = new LootTable()
 	.add("Blighted karambwan", [5, 15], 12)
 	.add("Blighted super restore(4)", [1, 3], 12)
 
-	/* Other */	
+	/* Other */
 	.add(new LootTable(), 1, 181) // 'Nothing' drop
 	.add("Zombie pirate key", 1, 15)
 	.add("Coins", [1_000, 8_000], 12)

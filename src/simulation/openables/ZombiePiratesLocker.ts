@@ -28,7 +28,7 @@ const ZombiePirateLocker = new LootTable()
 	.add("Blighted karambwan", [10, 30], 12)
 	.add("Blighted super restore(4)", [2, 6], 12)
 
-	/* Other */	
+	/* Other */
 	.add("Coins", [2_000, 16_000], 12)
 	.add("Cannonball", [40, 200], 12)
 	.add("Gold ore", [10, 30], 12)
