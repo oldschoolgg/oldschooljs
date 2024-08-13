@@ -43,7 +43,7 @@ export const ZombiePirateTable = new LootTable()
 	.tertiary(5000, "Zombie champion scroll");
 
 export default new SimpleMonster({
-	id: 13489,
+	id: 13_489,
 	name: "Zombie pirate",
 	table: ZombiePirateTable,
 	aliases: ["zombie pirate"],

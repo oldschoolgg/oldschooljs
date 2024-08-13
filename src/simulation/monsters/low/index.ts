@@ -261,6 +261,7 @@ import Wyrm from "./t-z/Wyrm";
 import YanilleWatchman from "./t-z/YanilleWatchman";
 import Zogre from "./t-z/Zogre";
 import Zombie from "./t-z/Zombie";
+import ZombiePirate from "./t-z/ZombiePirate";
 import ZombieRat from "./t-z/ZombieRat";
 import Zygomite from "./t-z/Zygomite";
 
@@ -530,4 +531,5 @@ export const allLowMonsters = {
 	GiantFrog,
 	JubblyBird,
 	ManiacalMonkey,
+	ZombiePirate,
 };
