@@ -32,7 +32,6 @@ const HellhoundTable = new LootTable()
 	.tertiary(40, "Ensouled hellhound head")
 	.tertiary(64, "Clue scroll (hard)");
 
-
 const HellhoundWildyCaveTable = new LootTable()
 	.every(HellhoundTable)
 	.add(WildySlayerCaveTable, 1, 85)
