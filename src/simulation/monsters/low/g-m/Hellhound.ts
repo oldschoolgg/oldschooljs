@@ -29,6 +29,7 @@ const WildySlayerCaveTable = new LootTable()
 const HellhoundTable = new LootTable()
 	.every("Vile ashes")
 	.oneIn(32_768, "Smouldering stone")
+	.tertiary(40, "Ensouled hellhound head")
 	.tertiary(64, "Clue scroll (hard)");
 
 const HellhoundWildyCaveTable = new LootTable()
