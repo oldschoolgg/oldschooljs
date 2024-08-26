@@ -47,7 +47,7 @@ const TormentedDemonTable = new LootTable()
 	.add(TreeHerbSeedTable, 1, 1)
 
 	.tertiary(12, "Guthixian temple teleport", 2)
-	.tertiary(250, "Clue scroll (elite)"); //Wiki has rate listed as "Unknown", will update when wiki does
+	.tertiary(128, "Clue scroll (elite)");
 
 export default new SimpleMonster({
 	id: 13600,
