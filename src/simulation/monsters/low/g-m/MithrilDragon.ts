@@ -2,6 +2,34 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import RareDropTable, { GemTable } from "../../../subtables/RareDropTable";
 
+const ancientPageTable = new LootTable()
+	.add(11_341, 1, 1)
+	.add(11_342, 1, 1)
+	.add(11_343, 1, 1)
+	.add(11_344, 1, 1)
+	.add(11_345, 1, 1)
+	.add(11_346, 1, 1)
+	.add(11_347, 1, 1)
+	.add(11_348, 1, 1)
+	.add(11_349, 1, 1)
+	.add(11_350, 1, 1)
+	.add(11_351, 1, 1)
+	.add(11_352, 1, 1)
+	.add(11_353, 1, 1)
+	.add(11_354, 1, 1)
+	.add(11_355, 1, 1)
+	.add(11_356, 1, 1)
+	.add(11_357, 1, 1)
+	.add(11_358, 1, 1)
+	.add(11_359, 1, 1)
+	.add(11_360, 1, 1)
+	.add(11_361, 1, 1)
+	.add(11_362, 1, 1)
+	.add(11_363, 1, 1)
+	.add(11_364, 1, 1)
+	.add(11_365, 1, 1)
+	.add(11_366, 1, 1);
+
 const MithrilDragonTable = new LootTable()
 	.every("Dragon bones")
 	.every("Mithril bar", 3)
@@ -32,10 +60,10 @@ const MithrilDragonTable = new LootTable()
 
 	/* Other */
 	.add("Coins", 600, 17)
-	.add("Coins", 876, 7)
 	.add("Dragon javelin heads", 15, 7)
 	.add("Chewed bones", 1, 3)
 	.add("Runite bar", 2, 3)
+	.add(ancientPageTable, 2, 1)
 
 	/* RDT */
 	.add(RareDropTable, 1, 1)
