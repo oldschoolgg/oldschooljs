@@ -1527,7 +1527,7 @@
 		"examine": "An intact, lightly smouldering claw.",
 		"wiki_name": "Burning claw",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Burning_claw",
-		"price": 7101602
+		"price": 7273405
 	},
 	"29577": {
 		"id": 29577,
@@ -1599,7 +1599,7 @@
 				}
 			]
 		},
-		"price": 14397259
+		"price": 14942000
 	},
 	"29580": {
 		"id": 29580,
@@ -1617,7 +1617,7 @@
 		"examine": "Glowing hot and writhing in pain.",
 		"wiki_name": "Tormented synapse",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Tormented_synapse",
-		"price": 67550000
+		"price": 60336639
 	},
 	"29583": {
 		"id": 29583,
@@ -2426,7 +2426,7 @@
 		"examine": "A fearsome yet stylish souvenir from Deadman: Armageddon.",
 		"wiki_name": "Armageddon rug",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Armageddon_rug",
-		"price": 11250500
+		"price": 13528499
 	},
 	"29622": {
 		"id": 29622,
@@ -2443,7 +2443,7 @@
 		"examine": "A scroll which unlocks the Deadman: Armageddon home teleport animation.",
 		"wiki_name": "Armageddon teleport scroll",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Armageddon_teleport_scroll",
-		"price": 33997497
+		"price": 42850000
 	},
 	"29625": {
 		"id": 29625,
@@ -2460,7 +2460,7 @@
 		"examine": "Take this to Nigel to give the Armadyl Godsword, Volatile Nightmare Staff, Dark Bow or Voidwaker a cosmetic theme from Deadman: Armageddon.",
 		"wiki_name": "Armageddon weapon scroll",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Armageddon_weapon_scroll",
-		"price": 44556000
+		"price": 55597110
 	},
 	"29628": {
 		"id": 29628,
@@ -2477,7 +2477,7 @@
 		"examine": "Take this to Nigel to give the imbued Saradomin, Guthix or Zamorak Cape a cosmetic theme from Deadman: Armageddon.",
 		"wiki_name": "Armageddon cape fabric",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Armageddon_cape_fabric",
-		"price": 23000000
+		"price": 28008500
 	},
 	"29631": {
 		"id": 29631,
@@ -2920,6 +2920,6 @@
 		"examine": "Teleports you to the Ancient Guthixian Temple.",
 		"wiki_name": "Guthixian temple teleport",
 		"wiki_url": "https://oldschool.runescape.wiki/w/Guthixian_temple_teleport",
-		"price": 14278
+		"price": 10784
 	}
 }
