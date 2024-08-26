@@ -229,6 +229,7 @@ import Suqah from "./n-s/Suqah";
 import TempleSpider from "./t-z/TempleSpider";
 import TerrorBird from "./t-z/TerrorBird";
 import TerrorDog from "./t-z/TerrorDog";
+import TormentedDemon from "./t-z/TormentedDemon";
 import TorturedGorilla from "./t-z/TorturedGorilla";
 import TorturedSoul from "./t-z/TorturedSoul";
 import TrollGeneral from "./t-z/TrollGeneral";
@@ -530,4 +531,5 @@ export const allLowMonsters = {
 	GiantFrog,
 	JubblyBird,
 	ManiacalMonkey,
+	TormentedDemon,
 };
