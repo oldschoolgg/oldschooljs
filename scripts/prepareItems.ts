@@ -1,4 +1,5 @@
 import { readFileSync, writeFileSync } from "node:fs";
+import { Stopwatch } from "@oldschoolgg/toolkit/dist/lib/Stopwatch";
 import { diff } from "deep-object-diff";
 import deepMerge from "deepmerge";
 import { deepClone, increaseNumByPercent, notEmpty, objectEntries, reduceNumByPercent } from "e";
@@ -8,11 +9,92 @@ import { EquipmentSlot, type Item } from "../src/meta/types";
 import Items, { CLUE_SCROLLS, CLUE_SCROLL_NAMES, USELESS_ITEMS } from "../src/structures/Items";
 import itemID from "../src/util/itemID";
 import { getItemOrThrow } from "../src/util/util";
+import { makeEnum } from "./enum";
 import { itemChanges } from "./manualItemChanges";
+import type { DeepPartial } from "./scriptUtil";
 
 const ITEM_UPDATE_CONFIG = {
 	SHOULD_UPDATE_PRICES: false,
 };
+
+export interface RLItem {
+	name: string;
+	weight?: number;
+	ge_limit?: number;
+	equipable?: boolean;
+	equipment?: {
+		slot?: number;
+		amagic?: number;
+		mdmg?: number;
+		arange?: number;
+		str?: number;
+		prayer?: number;
+		aspeed?: number;
+		dstab?: number;
+		dslash?: number;
+		dcrush?: number;
+		dmagic?: number;
+		drange?: number;
+		astab?: number;
+		aslash?: number;
+		acrush?: number;
+		is2h?: boolean;
+		rstr?: number;
+	};
+}
+
+type StatsJson = Record<string, RLItem>;
+const rlItemSlotMap = {
+	3: "weapon",
+	4: "body",
+	0: "head",
+	13: "ammo",
+	7: "legs",
+	10: "feet",
+	9: "hands",
+	1: "cape",
+	2: "neck",
+	12: "ring",
+	5: "shield",
+};
+
+function convertRoot2ToItem(rlItem: RLItem, currentItem: Item): DeepPartial<Item> {
+	let slot: any = null;
+	if (rlItem.equipment) {
+		if (rlItem.equipment.is2h) {
+			slot = EquipmentSlot.TwoHanded;
+		} else {
+			// @ts-ignore
+			slot = rlItemSlotMap[rlItem.equipment.slot];
+		}
+	}
+
+	return {
+		name: rlItem.name,
+		weight: rlItem.weight,
+		buy_limit: rlItem.ge_limit,
+		equipment:
+			rlItem.equipment && rlItem.equipable && currentItem.equipable_by_player
+				? {
+						attack_stab: rlItem.equipment.astab || 0,
+						attack_slash: rlItem.equipment.aslash || 0,
+						attack_crush: rlItem.equipment.acrush || 0,
+						attack_magic: rlItem.equipment.amagic || 0,
+						attack_ranged: rlItem.equipment.arange || 0,
+						defence_stab: rlItem.equipment.dstab || 0,
+						defence_slash: rlItem.equipment.dslash || 0,
+						defence_crush: rlItem.equipment.dcrush || 0,
+						defence_magic: rlItem.equipment.dmagic || 0,
+						defence_ranged: rlItem.equipment.drange || 0,
+						melee_strength: rlItem.equipment.str || 0,
+						ranged_strength: rlItem.equipment.rstr || 0,
+						magic_damage: rlItem.equipment.mdmg || 0,
+						prayer: rlItem.equipment.prayer || 0,
+						slot,
+					}
+				: undefined,
+	};
+}
 
 const previousItems = JSON.parse(readFileSync("./src/data/items/item_data.json", "utf-8"));
 
@@ -260,19 +342,27 @@ const itemsToIgnorePrices = [
 const keysToWarnIfRemovedOrAdded: (keyof Item)[] = ["equipable", "equipment", "weapon"];
 
 export default async function prepareItems(): Promise<void> {
+	const stopwatch = new Stopwatch();
 	const messages: string[] = [];
-	const allItemsRaw: RawItemCollection = await fetch(
-		"https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json",
-	).then((res): Promise<any> => res.json());
-	const allItems = deepClone(allItemsRaw);
 
-	const allPrices = await fetch("https://prices.runescape.wiki/api/v1/osrs/latest", {
-		headers: {
-			"User-Agent": "oldschooljs - @magnaboy",
-		},
-	})
-		.then((res): Promise<any> => res.json())
-		.then(res => res.data);
+	const [allItemsRaw, rlItems, allPrices]: [RawItemCollection, StatsJson, any] = await Promise.all([
+		fetch("https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/items-complete.json").then(
+			(res): Promise<any> => res.json(),
+		),
+		fetch("https://raw.githubusercontent.com/runelite/static.runelite.net/gh-pages/item/stats.json").then(
+			(res): Promise<any> => res.json(),
+		),
+		fetch("https://prices.runescape.wiki/api/v1/osrs/latest", {
+			headers: {
+				"User-Agent": "oldschooljs - @magnaboy",
+			},
+		})
+			.then((res): Promise<any> => res.json())
+			.then(res => res.data),
+	]);
+	stopwatch.check("Fetched data");
+
+	const allItems = deepClone(allItemsRaw);
 
 	if (!allPrices[20_997]) {
 		throw new Error("Failed to fetch prices");
@@ -289,6 +379,14 @@ export default async function prepareItems(): Promise<void> {
 				...allItems[26_950],
 				id: item.id,
 			};
+		}
+
+		const rlItem = rlItems[item.id];
+		if (rlItem) {
+			if (rlItem.name !== item.name) {
+				console.log(`Name mismatch for ${item.id} - ${item.name} - ${rlItem.name}`);
+			}
+			item = deepMerge(item, convertRoot2ToItem(rlItem, item)) as any;
 		}
 
 		for (const delKey of [
@@ -461,6 +559,7 @@ export default async function prepareItems(): Promise<void> {
 			newItemJSON[item.id] = item;
 		}
 	}
+	stopwatch.check("Processed all items.");
 
 	if (nameChanges.length > 0) {
 		messages.push(`Name Changes:\n	${nameChanges.join("\n	")}`);
@@ -514,4 +613,7 @@ ${messages.join("\n")}`,
 	);
 	writeFileSync(`./update-history/${baseFilename}.json`, `${JSON.stringify(diffOutput, null, "	")}`);
 	writeFileSync("./src/data/items/item_data.json", `${JSON.stringify(newItemJSON, null, "	")}\n`);
+	stopwatch.check("Wrote files.");
+	makeEnum();
+	stopwatch.check("Made enum.");
 }
