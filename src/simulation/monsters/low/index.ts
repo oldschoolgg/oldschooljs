@@ -221,8 +221,11 @@ import SmallLizard from "./n-s/SmallLizard";
 import SmokeDevil from "./n-s/SmokeDevil";
 import Spider from "./n-s/Spider";
 import SpiritualMage from "./n-s/SpiritualMage";
+import SpiritualMageZaros from "./n-s/SpiritualMageZaros";
 import SpiritualRanger from "./n-s/SpiritualRanger";
+import SpiritualRangerZaros from "./n-s/SpiritualRangerZaros";
 import SpiritualWarrior from "./n-s/SpiritualWarrior";
+import SpiritualWarriorZaros from "./n-s/SpiritualWarriorZaros";
 import SteelDragon from "./n-s/SteelDragon";
 import SulphurLizard from "./n-s/SulphurLizard";
 import Suqah from "./n-s/Suqah";
@@ -441,14 +444,17 @@ export const allLowMonsters = {
 	ElfWarrior,
 	Kurask,
 	SpiritualMage,
+	SpiritualMageZaros,
 	Basilisk,
 	FireGiant,
 	LizardmanShaman,
 	SpiritualRanger,
+	SpiritualRangerZaros,
 	BlackDemon,
 	FossilIslandWyvernAncient,
 	Lizardman,
 	SpiritualWarrior,
+	SpiritualWarriorZaros,
 	BlackDragon,
 	FossilIslandWyvernLongTailed,
 	LocustRider,
