@@ -26,6 +26,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.8.3",
+		"@oldschoolgg/toolkit": "git+https://github.com/oldschoolgg/toolkit.git#62f9f71274c6d36db6c56a2228ae3df9ab090dbd",
 		"@types/node": "^20.14.9",
 		"@types/node-fetch": "^2.6.1",
 		"@vitest/coverage-v8": "^1.6.0",

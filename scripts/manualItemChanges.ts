@@ -1,10 +1,5 @@
 import type { Item } from "../src/meta/types";
-
-type DeepPartial<T> = T extends object
-	? {
-			[P in keyof T]?: DeepPartial<T[P]>;
-		}
-	: T;
+import type { DeepPartial } from "./scriptUtil";
 
 export const itemChanges: Record<number, DeepPartial<Item>> = {
 	27665: {
