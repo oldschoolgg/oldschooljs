@@ -46,6 +46,7 @@ export const CLUES = ["all", "beginner", "easy", "medium", "hard", "elite", "mas
 export const mappedBossNames: [keyof BossRecords, string][] = [
 	["abyssalSire", "Abyssal Sire"],
 	["alchemicalHydra", "Alchemical Hydra"],
+	["araxxor", "Araxxor"],
 	["artio", "Artio"],
 	["barrowsChests", "Barrows Chests"],
 	["bryophyta", "Bryophyta"],

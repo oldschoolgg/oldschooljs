@@ -62,6 +62,7 @@ export interface SkillsScore {
 export interface BossRecords {
 	abyssalSire: MinigameScore;
 	alchemicalHydra: MinigameScore;
+	araxxor: MinigamesScore;
 	artio: MinigameScore;
 	barrowsChests: MinigameScore;
 	bryophyta: MinigameScore;
