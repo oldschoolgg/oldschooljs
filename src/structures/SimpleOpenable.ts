@@ -3,7 +3,7 @@ import Bank from "./Bank";
 import type LootTable from "./LootTable";
 import Openable from "./Openable";
 
-export interface SimpleOpenableOptions extends OpenableOptions {
+interface SimpleOpenableOptions extends OpenableOptions {
 	table: LootTable;
 }
 
