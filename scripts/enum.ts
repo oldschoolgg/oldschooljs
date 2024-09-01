@@ -1,6 +1,6 @@
 import { writeFileSync } from "node:fs";
 
-import { Items } from "../src";
+import { Items, Monsters } from "../src";
 import { USELESS_ITEMS } from "../src/structures/Items";
 import { moidLink } from "./prepareItems";
 
@@ -48,3 +48,14 @@ str += "\n}";
 str += "\n";
 writeFileSync("./src/EItem.ts", str);
 console.log(`Duplicates: ${moidLink(Array.from(duplicates))}`);
+
+// EMonster
+let monsterEnumStr = "export enum EMonster {";
+for (const monster of Monsters.values()) {
+	let key = monster.name;
+	key = key.replaceAll(" ", "_");
+	key = key.replace(/[^a-zA-Z0-9_]/g, "").toUpperCase();
+	monsterEnumStr += `\n\t${key} = ${monster.id},`;
+}
+monsterEnumStr += "\n}";
+writeFileSync("./src/EMonster.ts", monsterEnumStr);

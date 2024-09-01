@@ -1,6 +1,6 @@
 {
 	"name": "oldschooljs",
-	"version": "2.5.11",
+	"version": "2.5.12",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -13,14 +13,12 @@
 		"test": "tsc -p src && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc -p test\"",
 		"test:unit": "vitest run --coverage",
 		"build": "tsc -p src && tsx scripts/minifyDist.ts",
-		"dev": "tsc --watch -p .",
-		"updateitems": "tsx scripts/prepare",
-		"prepare:monsters": "yarn build && tsx scripts/prepareMonsters.ts",
+		"prepare": "tsx scripts/prepare",
+		"dev": "yarn prepare && yarn lint && yarn build && yarn test",
 		"lint": "biome check --write --diagnostic-level=error",
 		"test:lint": "biome check --diagnostic-level=error"
 	},
 	"dependencies": {
-		"deepmerge": "4.3.1",
 		"e": "^0.2.33",
 		"node-fetch": "2.6.7"
 	},
@@ -31,6 +29,7 @@
 		"@vitest/coverage-v8": "^1.6.0",
 		"concurrently": "^8.2.2",
 		"deep-object-diff": "^1.1.9",
+		"deepmerge": "4.3.1",
 		"tsx": "^4.16.2",
 		"typescript": "^5.5.3",
 		"vitest": "^1.6.0"
