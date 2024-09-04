@@ -33,7 +33,6 @@ export const ArmouredZombieTable = new LootTable({ limit: 128 })
 	.add(GemTable, 1, 1)
 
 	/* Tertiary */
-	.tertiary(4, "Zombie bone")
 	.tertiary(128, "Clue scroll (hard)")
 	.tertiary(800, "Broken zombie axe")
 	.tertiary(5000, "Zombie champion scroll");
