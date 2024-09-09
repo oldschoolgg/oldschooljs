@@ -22,24 +22,30 @@ describe("Bank", () => {
 
 	test("bank has all items", () => {
 		expect.assertions(2);
-		const bankToHave = new Bank({
-			"Fire rune": 1000,
-			"Air rune": 1,
-			"Chaos rune": 101_010,
-		});
+		const bankToHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 1000,
+				"Air rune": 1,
+				"Chaos rune": 101_010,
+			}),
+		);
 
-		const bankThatShouldntHave = new Bank({
-			"Fire rune": 1000,
-			"Air rune": 1,
-			"Chaos rune": 1,
-		});
+		const bankThatShouldntHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 1000,
+				"Air rune": 1,
+				"Chaos rune": 1,
+			}),
+		);
 
-		const bankThatShouldHave = new Bank({
-			"Fire rune": 104_200,
-			"Air rune": 43_432,
-			"Chaos rune": 121_010,
-			"Death rune": 121_010,
-		});
+		const bankThatShouldHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 104_200,
+				"Air rune": 43_432,
+				"Chaos rune": 121_010,
+				"Death rune": 121_010,
+			}),
+		);
 
 		expect(bankThatShouldHave.has(bankToHave)).toBeTruthy();
 		expect(bankThatShouldntHave.has(bankToHave)).toBeFalsy();
@@ -69,19 +75,25 @@ describe("Bank", () => {
 
 	test("remove bank from bank", () => {
 		expect.assertions(1);
-		const sourceBank = new Bank({
-			"Fire rune": 100,
-			"Air rune": 50,
-		});
+		const sourceBank = new Bank(
+			resolveNameBank({
+				"Fire rune": 100,
+				"Air rune": 50,
+			}),
+		);
 
-		const bankToRemove = new Bank({
-			"Fire rune": 50,
-			"Air rune": 50,
-		});
+		const bankToRemove = new Bank(
+			resolveNameBank({
+				"Fire rune": 50,
+				"Air rune": 50,
+			}),
+		);
 
-		const expectedBank = new Bank({
-			"Fire rune": 50,
-		});
+		const expectedBank = new Bank(
+			resolveNameBank({
+				"Fire rune": 50,
+			}),
+		);
 
 		sourceBank.remove(bankToRemove);
 		expect(sourceBank.equals(expectedBank)).toBeTruthy();
@@ -147,38 +159,30 @@ describe("Bank", () => {
 		expect(bank.amount("Egg")).toEqual(100);
 	});
 
-	test("mutate filter", () => {
-		const bank = new Bank({
-			Toolkit: 2,
-			"Ammo Mould": 4,
-			Candle: 1,
-		});
-		expect(bank.length).toEqual(3);
-		const empty = bank.filter(() => false);
-		expect(bank.length).toEqual(3);
-		expect(empty.length).toEqual(0);
-		bank.filter(item => item.name === "Candle", true);
-		expect(bank.length).toEqual(1);
-	});
-
 	test("value", () => {
-		const bank = new Bank({
-			Toolkit: 2,
-		});
+		const bank = new Bank(
+			resolveNameBank({
+				Toolkit: 2,
+			}),
+		);
 		expect(bank.value()).toEqual(0);
 		const runePlatebody = Items.get("Rune platebody")!;
-		const bank2 = new Bank({
-			"Rune platebody": 10,
-		});
+		const bank2 = new Bank(
+			resolveNameBank({
+				"Rune platebody": 10,
+			}),
+		);
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank2.value()).toEqual(runePlatebody.price * 10);
-		const bank3 = new Bank({
-			"Rune platebody": 10,
-			"Rune platelegs": 10,
-			"Rune boots": 10,
-			Toolkit: 1,
-			"Abyssal book": 10_000,
-		});
+		const bank3 = new Bank(
+			resolveNameBank({
+				"Rune platebody": 10,
+				"Rune platelegs": 10,
+				"Rune boots": 10,
+				Toolkit: 1,
+				"Abyssal book": 10_000,
+			}),
+		);
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(
 			runePlatebody.price * 10 + Items.get("Rune platelegs")!.price * 10 + Items.get("Rune boots")!.price * 10,
@@ -194,7 +198,7 @@ describe("Bank", () => {
 		start[2] = 1;
 		bank.bank[2] = 1;
 		bank = bank.multiply(100);
-		bank.bank = {};
+		bank.map.clear();
 		expect(bankToTest.amount(1)).toEqual(1);
 		expect(bankToTest.length).toEqual(1);
 	});
@@ -218,9 +222,6 @@ describe("Bank", () => {
 		} catch {}
 		try {
 			bank.multiply(5);
-		} catch {}
-		try {
-			bank.filter(() => true, true);
 		} catch {}
 		expect(bank.amount("Twisted bow")).toEqual(73);
 	});

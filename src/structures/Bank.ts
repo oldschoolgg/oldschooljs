@@ -1,55 +1,74 @@
 import { randArrItem } from "e";
 
-import type { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
-import { fasterResolveBank, resolveNameBank } from "../util/bank";
+import type { BankItem, IntKeyBank, Item, ItemBank, ReturnedLootItem } from "../meta/types";
 import itemID from "../util/itemID";
 import Items from "./Items";
 
 const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
+const isValidInteger = (str: string): boolean => /^-?\d+$/.test(str);
+
+function makeFromInitialBankX(initialBank?: IntKeyBank | ItemBank | Bank) {
+	if (!initialBank) return new Map();
+	if (initialBank instanceof Bank) {
+		return new Map(initialBank.map.entries());
+	}
+	const entries = Object.entries(initialBank);
+	if (entries.length === 0) return new Map();
+	if (isValidInteger(entries[0][0])) {
+		return new Map(entries.map(([k, v]) => [Number(k), v]));
+	} else {
+		return new Map(entries.map(([k, v]) => [Items.get(k)!.id, v]));
+	}
+}
+
 export default class Bank {
-	public bank: ItemBank = {};
+	public map: Map<number, number>;
 	public frozen = false;
 
-	constructor(initialBank?: ItemBank | Bank) {
-		if (initialBank) {
-			this.bank = JSON.parse(
-				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank)),
-			);
-		}
+	constructor(initialBank?: IntKeyBank | ItemBank | Bank) {
+		this.map = makeFromInitialBankX(initialBank);
+	}
+
+	get bank() {
+		return Object.fromEntries(this.map);
 	}
 
 	public freeze(): this {
 		this.frozen = true;
-		Object.freeze(this.bank);
+		Object.freeze(this.map);
 		return this;
 	}
 
 	public amount(item: string | number): number {
-		return this.bank[typeof item === "string" ? itemID(item) : item] ?? 0;
+		const itemIDNum = typeof item === "string" ? itemID(item) : item;
+		return this.map.get(itemIDNum) ?? 0;
 	}
 
 	public addItem(item: number, quantity = 1): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
 		if (quantity < 1) return this;
-		if (this.bank[item]) this.bank[item] += quantity;
-		else this.bank[item] = quantity;
+		const current = this.map.get(item) ?? 0;
+		this.map.set(item, current + quantity);
 		return this;
 	}
 
 	public removeItem(item: number | string, quantity = 1): this {
-		const currentValue = this.bank[item];
+		if (this.frozen) throw new Error(frozenErrorStr);
+		const itemIDNum = typeof item === "string" ? itemID(item) : item;
+		const currentValue = this.map.get(itemIDNum);
 
-		if (typeof currentValue === "undefined") return this;
+		if (currentValue === undefined) return this;
 		if (currentValue - quantity <= 0) {
-			delete this.bank[item];
+			this.map.delete(itemIDNum);
 		} else {
-			this.bank[item] = currentValue - quantity;
+			this.map.set(itemIDNum, currentValue - quantity);
 		}
 
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
+	public add(item: string | number | ReturnedLootItem[] | IntKeyBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.add(123);
@@ -64,7 +83,10 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			return this.add(item.bank);
+			for (const [itemID, qty] of item.map.entries()) {
+				this.addItem(itemID, qty);
+			}
+			return this;
 		}
 
 		if (!item) {
@@ -81,17 +103,15 @@ export default class Bank {
 			return this.addItem(_item.id, quantity);
 		}
 
-		const firstKey: string | undefined = Object.keys(item)[0];
-		if (firstKey === undefined) {
-			return this;
-		}
-
-		if (Number.isNaN(Number(firstKey))) {
-			this.add(resolveNameBank(item));
-		} else {
-			for (const [itemID, quantity] of Object.entries(item)) {
-				this.addItem(Number.parseInt(itemID), quantity);
+		for (const [itemID, qty] of Object.entries(item)) {
+			let int: number | undefined = Number.parseInt(itemID);
+			if (Number.isNaN(int)) {
+				int = Items.get(itemID)?.id;
 			}
+			if (!int) {
+				throw new Error(`${itemID} is not a valid name or id`);
+			}
+			this.addItem(int, qty);
 		}
 
 		return this;
@@ -112,15 +132,10 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			for (const [key, value] of Object.entries(item.bank)) {
-				this.removeItem(key, value);
+			for (const [itemID, qty] of item.map.entries()) {
+				this.removeItem(itemID, qty);
 				if (this.length === 0) break;
 			}
-			return this;
-		}
-
-		const firstKey = Object.keys(item)[0];
-		if (firstKey === undefined) {
 			return this;
 		}
 
@@ -129,27 +144,22 @@ export default class Bank {
 			return this;
 		}
 
-		if (Number.isNaN(Number(firstKey))) {
-			this.remove(resolveNameBank(item));
-		} else {
-			return this.remove(new Bank(item));
-		}
-
+		this.remove(new Bank(item));
 		return this;
 	}
 
 	public random(): BankItem | null {
-		const entries = Object.entries(this.bank);
+		const entries = Array.from(this.map.entries());
 		if (entries.length === 0) return null;
 		const randomEntry = randArrItem(entries);
-		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
+		return { id: randomEntry[0], qty: randomEntry[1] };
 	}
 
 	public multiply(multiplier: number, itemsToNotMultiply?: number[]): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
-		for (const itemID of Object.keys(this.bank).map(Number)) {
+		for (const [itemID, quantity] of this.map.entries()) {
 			if (itemsToNotMultiply?.includes(itemID)) continue;
-			this.bank[itemID] *= multiplier;
+			this.map.set(itemID, quantity * multiplier);
 		}
 		return this;
 	}
@@ -176,8 +186,8 @@ export default class Bank {
 
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
-		for (const [key, val] of Object.entries(this.bank)) {
-			arr.push([Items.get(Number.parseInt(key))!, val]);
+		for (const [key, val] of this.map.entries()) {
+			arr.push([Items.get(key)!, val]);
 		}
 		return arr;
 	}
@@ -189,7 +199,7 @@ export default class Bank {
 	}
 
 	public clone(): Bank {
-		return new Bank({ ...this.bank });
+		return new Bank(this);
 	}
 
 	public fits(bank: Bank): number {
@@ -198,36 +208,31 @@ export default class Bank {
 		return divisions[0] ?? 0;
 	}
 
-	public filter(fn: (item: Item, quantity: number) => boolean, mutate = false): Bank {
+	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
 			if (fn(...item)) {
 				result.add(item[0].id, item[1]);
 			}
 		}
-		if (mutate) {
-			if (this.frozen) throw new Error(frozenErrorStr);
-			this.bank = result.bank;
-			return this;
-		}
 		return result;
 	}
 
 	public toString(): string {
-		const entries = Object.entries(this.bank);
+		const entries = Array.from(this.map.entries());
 		if (entries.length === 0) {
 			return "No items";
 		}
 		const res = [];
 		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {
-			res.push(`${qty.toLocaleString()}x ${Items.get(Number(id))?.name ?? "Unknown item"}`);
+			res.push(`${qty.toLocaleString()}x ${Items.get(id)?.name ?? "Unknown item"}`);
 		}
 
 		return res.join(", ");
 	}
 
 	public get length(): number {
-		return Object.keys(this.bank).length;
+		return this.map.size;
 	}
 
 	public value(): number {
@@ -243,7 +248,7 @@ export default class Bank {
 		for (const [item, quantity] of this.items()) {
 			if (otherBank.amount(item.id) !== quantity) return false;
 		}
-		return JSON.stringify(this.bank) === JSON.stringify(otherBank.bank);
+		return JSON.stringify([...this.map]) === JSON.stringify([...otherBank.map]);
 	}
 
 	public difference(otherBank: Bank): Bank {

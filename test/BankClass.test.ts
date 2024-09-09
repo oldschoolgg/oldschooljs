@@ -75,10 +75,10 @@ describe("Bank Class", () => {
 		bank.remove({ 1: 4 });
 		expect(bank.amount(1)).toBe(0);
 
-		bank.add({ Toolkit: 4 });
+		bank.add(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(4);
 
-		bank.remove({ Toolkit: 4 });
+		bank.remove(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(0);
 
 		bank.add(TestLootTable.roll());
@@ -281,8 +281,7 @@ describe("Bank Class", () => {
 		const bank = new Bank().add("Twisted bow").freeze();
 
 		expect(() => bank.add("Coal")).toThrow();
-		expect(() => (bank.bank[itemID("Coal")] = 1)).toThrow();
-		expect(() => delete bank.bank[itemID("Twisted bow")]).toThrow();
+		expect(() => bank.remove("Twisted bow")).toThrow();
 
 		expect(bank.bank).toEqual({ [itemID("Twisted bow")]: 1 });
 	});

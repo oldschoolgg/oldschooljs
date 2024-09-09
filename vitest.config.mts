@@ -3,6 +3,9 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
 	test: {
 		name: "OldschoolJS",
+		benchmark: {
+			include: ["bench/**/*.bench.ts"],
+		},
 		include: ["test/**/*.test.ts"],
 		coverage: {
 			provider: "v8",
