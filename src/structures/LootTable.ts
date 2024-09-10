@@ -1,12 +1,45 @@
-import { randFloat, randInt, reduceNumByPercent, roll } from "e";
-
-import type { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from "../meta/types";
 import itemID from "../util/itemID";
 import Bank from "./Bank";
 import Items from "./Items";
 
+export interface LootTableOptions {
+	limit?: number;
+}
+
+export interface LootTableMoreOptions {
+	multiply?: boolean;
+	freeze?: boolean;
+}
+
+export interface LootTableItem {
+	item: number | LootTable | LootTableItem[];
+	weight?: number;
+	quantity: number | number[];
+	options?: LootTableMoreOptions;
+}
+
+export interface OneInItems extends LootTableItem {
+	chance: number;
+}
+
+export function randInt(min: number, max: number): number {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+export function randFloat(min: number, max: number): number {
+	return Math.random() * (max - min) + min;
+}
+
+export function roll(upperLimit: number): boolean {
+	return randInt(1, upperLimit) === 1;
+}
+
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
+}
+export function reduceNumByPercent(value: number, percent: number): number {
+	if (percent <= 0) return value;
+	return value - value * (percent / 100);
 }
 
 export interface LootTableRollOptions {
