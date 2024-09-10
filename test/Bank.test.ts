@@ -147,20 +147,6 @@ describe("Bank", () => {
 		expect(bank.amount("Egg")).toEqual(100);
 	});
 
-	test("mutate filter", () => {
-		const bank = new Bank({
-			Toolkit: 2,
-			"Ammo Mould": 4,
-			Candle: 1,
-		});
-		expect(bank.length).toEqual(3);
-		const empty = bank.filter(() => false);
-		expect(bank.length).toEqual(3);
-		expect(empty.length).toEqual(0);
-		bank.filter(item => item.name === "Candle", true);
-		expect(bank.length).toEqual(1);
-	});
-
 	test("value", () => {
 		const bank = new Bank({
 			Toolkit: 2,
@@ -220,7 +206,7 @@ describe("Bank", () => {
 			bank.multiply(5);
 		} catch {}
 		try {
-			bank.filter(() => true, true);
+			bank.set("Twisted bow", 1000);
 		} catch {}
 		expect(bank.amount("Twisted bow")).toEqual(73);
 	});

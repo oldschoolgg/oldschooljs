@@ -22,7 +22,7 @@ export default class Bank {
 	public set(item: string | number, quantity: number): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
 		const id = typeof item === "string" ? itemID(item) : item;
-		if (this.bank[id] === 0) {
+		if (quantity <= 0) {
 			delete this.bank[id];
 			return this;
 		}
