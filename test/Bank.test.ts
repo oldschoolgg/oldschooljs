@@ -263,4 +263,14 @@ describe("Bank", () => {
 		expect(bank.random()).toBeTruthy();
 		expect(new Bank().random()).toBeFalsy();
 	});
+
+	test("set", () => {
+		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
+		bank.set("Twisted bow", 0);
+		expect(bank.amount("Twisted bow")).toEqual(0);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
+	});
 });
