@@ -271,6 +271,7 @@ export default class LootTable {
 			this.addResultToLoot(chosenItem, loot);
 		}
 
+		if (options.targetBank) return null;
 		return loot;
 	}
 
