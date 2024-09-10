@@ -218,7 +218,7 @@ export default class LootTable {
 	public roll(quantity = 1, options: LootTableRollOptions = {}): Bank | null {
 		const loot = options.targetBank ?? new Bank();
 
-		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
+		const effectiveTertiaryItems = options.tertiaryItemPercentageChanges
 			? this.tertiaryItems.map(i => {
 					if (typeof i.item !== "number") return i;
 					if (i.options?.freeze === true) return i;
