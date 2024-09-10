@@ -17,6 +17,22 @@ export default class Bank {
 		this.map = this.makeFromInitialBank(initialBank);
 	}
 
+	private resolveItemID(item: Item | string | number): number {
+		if (typeof item === "number") return item;
+		if (typeof item === "string") return itemID(item);
+		return item.id;
+	}
+
+	public clear(item?: Item | string | number): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
+		if (item) {
+			this.set(this.resolveItemID(item), 0);
+			return this;
+		}
+		this.map.clear();
+		return this;
+	}
+
 	private makeFromInitialBank(initialBank?: IntKeyBank | ItemBank | Bank) {
 		if (!initialBank) return new Map();
 		if (initialBank instanceof Bank) {
@@ -190,6 +206,7 @@ export default class Bank {
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
 		for (const [key, val] of this.map.entries()) {
+			if (val < 1) continue;
 			arr.push([Items.get(key)!, val]);
 		}
 		return arr;
