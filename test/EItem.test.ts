@@ -1,6 +1,6 @@
 import { expect, test } from "vitest";
 
-import { EItem } from "../dist/EItem.js";
+import { EItem } from "../src/EItem.js";
 
 test("EItem", async () => {
 	expect(EItem.TWISTED_BOW).toEqual(20997);

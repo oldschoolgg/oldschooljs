@@ -1,6 +1,6 @@
 import { randArrItem } from "e";
 
-import type { BankItem, IntKeyBank, Item, ItemBank, ReturnedLootItem } from "../meta/types";
+import type { BankItem, IntKeyBank, Item, ItemBank } from "../meta/types";
 import itemID from "../util/itemID";
 import Items from "./Items";
 
@@ -8,30 +8,37 @@ const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
 const isValidInteger = (str: string): boolean => /^-?\d+$/.test(str);
 
-function makeFromInitialBankX(initialBank?: IntKeyBank | ItemBank | Bank) {
-	if (!initialBank) return new Map();
-	if (initialBank instanceof Bank) {
-		return new Map(initialBank.map.entries());
-	}
-	const entries = Object.entries(initialBank);
-	if (entries.length === 0) return new Map();
-	if (isValidInteger(entries[0][0])) {
-		return new Map(entries.map(([k, v]) => [Number(k), v]));
-	} else {
-		return new Map(entries.map(([k, v]) => [Items.get(k)!.id, v]));
-	}
-}
-
 export default class Bank {
-	public map: Map<number, number>;
+	private map: Map<number, number>;
 	public frozen = false;
 
 	constructor(initialBank?: IntKeyBank | ItemBank | Bank) {
-		this.map = makeFromInitialBankX(initialBank);
+		this.map = this.makeFromInitialBank(initialBank);
+	}
+
+	private makeFromInitialBank(initialBank?: IntKeyBank | ItemBank | Bank) {
+		if (!initialBank) return new Map();
+		if (initialBank instanceof Bank) {
+			return new Map(initialBank.map.entries());
+		}
+		const entries = Object.entries(initialBank);
+		if (entries.length === 0) return new Map();
+		if (isValidInteger(entries[0][0])) {
+			return new Map(entries.map(([k, v]) => [Number(k), v]));
+		} else {
+			return new Map(entries.map(([k, v]) => [Items.get(k)!.id, v]));
+		}
 	}
 
 	get bank() {
 		return Object.fromEntries(this.map);
+	}
+
+	public set(item: string | number, quantity: number): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
+		const id = typeof item === "string" ? itemID(item) : item;
+		this.map.set(id, quantity);
+		return this;
 	}
 
 	public freeze(): this {
@@ -68,7 +75,7 @@ export default class Bank {
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | IntKeyBank | Bank | Item | undefined, quantity = 1): Bank {
+	public add(item: string | number | IntKeyBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.add(123);
@@ -93,11 +100,6 @@ export default class Bank {
 			return this;
 		}
 
-		if (Array.isArray(item)) {
-			for (const _item of item) this.addItem(_item.item, _item.quantity);
-			return this;
-		}
-
 		if ("id" in item) {
 			const _item = item as Item;
 			return this.addItem(_item.id, quantity);
@@ -117,7 +119,7 @@ export default class Bank {
 		return this;
 	}
 
-	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+	public remove(item: string | number | ItemBank | Bank, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.remove('Twisted bow');

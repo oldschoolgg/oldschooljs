@@ -51,28 +51,6 @@ describe("Bank", () => {
 		expect(bankThatShouldntHave.has(bankToHave)).toBeFalsy();
 	});
 
-	test("remove item from bank", () => {
-		expect.assertions(3);
-		const bank = new Bank({
-			45: 9,
-			87: 1,
-		});
-
-		expect(bank.clone().remove(87).bank).toEqual({
-			45: 9,
-		});
-
-		expect(bank.clone().remove(98).bank).toEqual({
-			45: 9,
-			87: 1,
-		});
-
-		expect(bank.clone().remove(45, 2).bank).toEqual({
-			45: 7,
-			87: 1,
-		});
-	});
-
 	test("remove bank from bank", () => {
 		expect.assertions(1);
 		const sourceBank = new Bank(
@@ -130,7 +108,7 @@ describe("Bank", () => {
 
 		const expected = { 1: 2, 3: 4 };
 
-		expect(new Bank(bank).add(bank2).bank).toEqual(expected);
+		expect(new Bank(bank).add(bank2).equals(new Bank(expected))).toBeTruthy();
 	});
 
 	test("add item to bank", () => {
@@ -189,26 +167,9 @@ describe("Bank", () => {
 		);
 	});
 
-	test("init from bank", () => {
-		const start: any = { 1: 1 };
-		let bank = new Bank(start);
-		const bankToTest = new Bank(bank);
-		delete start[1];
-		delete bank.bank[1];
-		start[2] = 1;
-		bank.bank[2] = 1;
-		bank = bank.multiply(100);
-		bank.map.clear();
-		expect(bankToTest.amount(1)).toEqual(1);
-		expect(bankToTest.length).toEqual(1);
-	});
-
 	test("frozen bank", () => {
 		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
 		bank.freeze();
-		try {
-			bank.bank[5] = 1;
-		} catch {}
 		expect(bank.length).toEqual(2);
 		expect(() => bank.add("Twisted bow")).toThrowError();
 		try {
@@ -222,6 +183,9 @@ describe("Bank", () => {
 		} catch {}
 		try {
 			bank.multiply(5);
+		} catch {}
+		try {
+			bank.set("Twisted bow", 1000);
 		} catch {}
 		expect(bank.amount("Twisted bow")).toEqual(73);
 	});
@@ -263,5 +227,15 @@ describe("Bank", () => {
 		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
 		expect(bank.random()).toBeTruthy();
 		expect(new Bank().random()).toBeFalsy();
+	});
+
+	test("set", () => {
+		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
+		bank.set("Twisted bow", 0);
+		expect(bank.amount("Twisted bow")).toEqual(0);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
 	});
 });

@@ -291,30 +291,9 @@ export interface SimpleTableItem<T> {
 	weight: number;
 }
 
-export interface ReturnedLootItem {
-	item: number;
-	quantity: number;
-}
-
 export interface BankItem {
 	id: number;
 	qty: number;
-}
-
-export interface LootTableMoreOptions {
-	multiply?: boolean;
-	freeze?: boolean;
-}
-
-export interface LootTableItem {
-	item: number | LootTable | LootTableItem[];
-	weight?: number;
-	quantity: number | number[];
-	options?: LootTableMoreOptions;
-}
-
-export interface OneInItems extends LootTableItem {
-	chance: number;
 }
 
 export type TupleLootItem = [number, number];
@@ -356,10 +335,6 @@ export interface OpenableOpenOptions {
 	fishLvl?: number;
 	seedTier?: SeedTier;
 	chestSize?: ChestSize;
-}
-
-export interface LootTableOptions {
-	limit?: number;
 }
 
 export interface ClueOptions {
