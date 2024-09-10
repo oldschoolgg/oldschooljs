@@ -49,6 +49,7 @@ export interface LootTableRollOptions {
 	 * item_id droprate will be decreased by percentage%.
 	 */
 	tertiaryItemPercentageChanges?: Map<string, number>;
+	targetBank?: Bank;
 }
 
 export default class LootTable {
@@ -211,8 +212,11 @@ export default class LootTable {
 		return this;
 	}
 
-	public roll(quantity = 1, options?: LootTableRollOptions): Bank {
-		const loot = new Bank();
+	roll(quantity?: number): Bank;
+	roll(quantity: number, options: { targetBank: undefined } & LootTableRollOptions): Bank;
+	roll(quantity: number, options: { targetBank: Bank } & LootTableRollOptions): null;
+	public roll(quantity = 1, options: LootTableRollOptions = {}): Bank | null {
+		const loot = options.targetBank ?? new Bank();
 
 		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
 			? this.tertiaryItems.map(i => {
@@ -273,7 +277,18 @@ export default class LootTable {
 	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
 		if (!result) return;
 		const { item, quantity, options } = result;
-		const multiply = options?.multiply;
+
+		if (typeof item === "number") {
+			loot.add(item, this.determineQuantity(quantity));
+			return;
+		}
+
+		if (item instanceof LootTable) {
+			const qty = this.determineQuantity(quantity);
+			if (options?.multiply) loot.add(item.roll(1).multiply(qty));
+			else item.roll(qty, { targetBank: loot });
+			return;
+		}
 
 		if (Array.isArray(item)) {
 			for (const singleItem of item) {
@@ -281,16 +296,6 @@ export default class LootTable {
 			}
 			return;
 		}
-
-		const qty = this.determineQuantity(quantity);
-
-		if (item instanceof LootTable) {
-			if (multiply) loot.add(item.roll(1).multiply(qty));
-			else loot.add(item.roll(qty));
-			return;
-		}
-
-		loot.add(item, qty);
 	}
 
 	protected determineQuantity(quantity: number | number[]): number {
