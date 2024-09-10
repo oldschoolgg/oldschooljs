@@ -167,12 +167,7 @@ export class MasterCasket extends Clue {
 
 		for (let i = 0; i < quantity; i++) {
 			if (roll(1000)) loot.add("Bloodhound");
-
-			const numberOfRolls = randInt(5, 7);
-
-			for (let i = 0; i < numberOfRolls; i++) {
-				loot.add(MasterClueTable.roll());
-			}
+			MasterClueTable.roll(randInt(5, 7), { targetBank: loot });
 		}
 
 		return loot;
