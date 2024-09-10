@@ -2,6 +2,7 @@ import { randArrItem } from "e";
 
 import type { BankItem, IntKeyBank, Item, ItemBank } from "../meta/types";
 import itemID from "../util/itemID";
+import { toKMB } from "../util/smallUtils";
 import Items from "./Items";
 
 const frozenErrorStr = "Tried to mutate a frozen Bank.";
@@ -221,16 +222,14 @@ export default class Bank {
 	}
 
 	public toString(): string {
-		const entries = Array.from(this.map.entries());
-		if (entries.length === 0) {
+		const items = this.items();
+		if (items.length === 0) {
 			return "No items";
 		}
-		const res = [];
-		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {
-			res.push(`${qty.toLocaleString()}x ${Items.get(id)?.name ?? "Unknown item"}`);
-		}
-
-		return res.join(", ");
+		return items
+			.sort((a, b) => a[0].name.localeCompare(b[0].name))
+			.map(([item, qty]) => `${qty < 1000 ? `${qty}x` : toKMB(qty)} ${item?.name ?? "Unknown item"}`)
+			.join(", ");
 	}
 
 	public get length(): number {
@@ -250,7 +249,7 @@ export default class Bank {
 		for (const [item, quantity] of this.items()) {
 			if (otherBank.amount(item.id) !== quantity) return false;
 		}
-		return JSON.stringify([...this.map]) === JSON.stringify([...otherBank.map]);
+		return true;
 	}
 
 	public difference(otherBank: Bank): Bank {

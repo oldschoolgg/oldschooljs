@@ -1,5 +1,6 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../util";
 import HerbDropTable from "../../subtables/HerbDropTable";
 import UncommonSeedDropTable from "../../subtables/UncommonSeedDropTable";
 
@@ -39,10 +40,10 @@ const BryophytaTable = new LootTable()
 	/* Materials */
 	.add("Runite bar", 2, 6)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut ruby", 5],
 			["Uncut diamond", 5],
-		],
+		]),
 		1,
 		4,
 	)

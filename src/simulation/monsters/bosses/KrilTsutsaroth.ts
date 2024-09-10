@@ -1,5 +1,6 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../util";
 import GWRareDropTable, { GWGemTable, ShardTable } from "../../subtables/GWRareDropTable";
 
 const MinionUniqueTable = new LootTable().add("Coins", [1300, 1400], 124).add("Zamorakian spear", 1, 3);
@@ -50,18 +51,18 @@ const KrilTsutsarothTable = new LootTable()
 
 	/* Potions */
 	.add(
-		[
+		itemTupleToTable([
 			["Super attack(3)", 3],
 			["Super strength(3)", 3],
-		],
+		]),
 		1,
 		8,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Super restore(3)", 3],
 			["Zamorak brew(3)", 3],
-		],
+		]),
 		1,
 		8,
 	)

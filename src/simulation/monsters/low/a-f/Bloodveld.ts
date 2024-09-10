@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 
@@ -31,18 +32,18 @@ export const BloodveldPreTable = new LootTable()
 
 	/* Other */
 	.add(
-		[
+		itemTupleToTable([
 			["Big bones", 1],
 			["Bones", 1],
-		],
+		]),
 		1,
 		7,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Big bones", 3],
 			["Bones", 1],
-		],
+		]),
 		1,
 		3,
 	)
