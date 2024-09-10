@@ -1,6 +1,6 @@
 import { randArrItem } from "e";
 
-import type { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
+import type { BankItem, Item, ItemBank } from "../meta/types";
 import { fasterResolveBank, resolveNameBank } from "../util/bank";
 import itemID from "../util/itemID";
 import Items from "./Items";
@@ -8,7 +8,7 @@ import Items from "./Items";
 const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
 export default class Bank {
-	public bank: ItemBank = {};
+	private bank: ItemBank = {};
 	public frozen = false;
 
 	constructor(initialBank?: ItemBank | Bank) {
@@ -17,6 +17,17 @@ export default class Bank {
 				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank)),
 			);
 		}
+	}
+
+	public set(item: string | number, quantity: number): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
+		const id = typeof item === "string" ? itemID(item) : item;
+		if (quantity <= 0) {
+			delete this.bank[id];
+			return this;
+		}
+		this.bank[id] = quantity;
+		return this;
 	}
 
 	public freeze(): this {
@@ -49,7 +60,7 @@ export default class Bank {
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
+	public add(item: string | number | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.add(123);
@@ -68,11 +79,6 @@ export default class Bank {
 		}
 
 		if (!item) {
-			return this;
-		}
-
-		if (Array.isArray(item)) {
-			for (const _item of item) this.addItem(_item.item, _item.quantity);
 			return this;
 		}
 
@@ -97,7 +103,7 @@ export default class Bank {
 		return this;
 	}
 
-	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+	public remove(item: string | number | ItemBank | Bank, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.remove('Twisted bow');
@@ -121,11 +127,6 @@ export default class Bank {
 
 		const firstKey = Object.keys(item)[0];
 		if (firstKey === undefined) {
-			return this;
-		}
-
-		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, _item.quantity);
 			return this;
 		}
 
@@ -198,18 +199,14 @@ export default class Bank {
 		return divisions[0] ?? 0;
 	}
 
-	public filter(fn: (item: Item, quantity: number) => boolean, mutate = false): Bank {
+	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
 			if (fn(...item)) {
 				result.add(item[0].id, item[1]);
 			}
 		}
-		if (mutate) {
-			if (this.frozen) throw new Error(frozenErrorStr);
-			this.bank = result.bank;
-			return this;
-		}
+
 		return result;
 	}
 
