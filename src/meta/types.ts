@@ -275,6 +275,9 @@ export interface WikiPage {
 	}[];
 }
 
+export interface IntKeyBank {
+	[key: number]: number;
+}
 export interface ItemBank {
 	[key: string]: number;
 }

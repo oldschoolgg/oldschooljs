@@ -27,7 +27,7 @@ describe("Bank Class", () => {
 
 		expect(bank.length).toEqual(0);
 
-		bank.add({ Coal: 1, Emerald: 1, Ruby: 1 });
+		bank.add(resolveNameBank({ Coal: 1, Emerald: 1, Ruby: 1 }));
 		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10_000 });
 		expect(bank.amount(1603)).toEqual(1);
 		expect(bank.length).toEqual(1);
@@ -62,10 +62,10 @@ describe("Bank Class", () => {
 		bank.remove({ 1: 4 });
 		expect(bank.amount(1)).toBe(0);
 
-		bank.add({ Toolkit: 4 });
+		bank.add(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(4);
 
-		bank.remove({ Toolkit: 4 });
+		bank.remove(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(0);
 
 		bank.add(TestLootTable.roll());
@@ -113,10 +113,10 @@ describe("Bank Class", () => {
 	test("toString", () => {
 		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
 		bank.add("Twisted bow", 0);
-		expect(bank.toString()).toEqual("20,000x Ruby, 5,000x Egg, 20x Coal, 1x Emerald");
+		expect(bank.toString()).toEqual("20x Coal, 5k Egg, 1x Emerald, 20k Ruby");
 		expect(bank.length).toEqual(4);
 		bank.add("3rd age platebody", 2);
-		expect(bank.toString()).toEqual("20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald");
+		expect(bank.toString()).toEqual("2x 3rd age platebody, 20x Coal, 5k Egg, 1x Emerald, 20k Ruby");
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual("No items");
 		expect(new Bank({ 111231231: 1 }).toString()).toEqual("1x Unknown item");
@@ -238,7 +238,7 @@ describe("Bank Class", () => {
 		const idVersion = resolveNameBank(baseBank);
 		const bank = new Bank(baseBank);
 		expect(bank.amount("Coal")).toEqual(20);
-		expect(new Bank(idVersion).equals(new Bank(bank))).toBeTruthy();
+		expect(new Bank(idVersion).toString()).toEqual(new Bank(bank).toString());
 		expect(bank.has(idVersion)).toBeTruthy();
 
 		const otherBank = new Bank(idVersion);

@@ -1,33 +1,34 @@
 import LootTable from "../../structures/LootTable";
 import SimpleOpenable from "../../structures/SimpleOpenable";
+import { itemTupleToTable } from "../../util";
 
 const FoodTable = new LootTable()
 	.add("Egg potato", 4, 12)
 	.add("Shark", 4, 7)
 	.add(
-		[
+		itemTupleToTable([
 			["Saradomin brew(2)", 3],
 			["Super restore(2)", 1],
-		],
+		]),
 		1,
 		1,
 	);
 
 const PotionTable = new LootTable()
 	.add(
-		[
+		itemTupleToTable([
 			["Super attack(2)", 1],
 			["Super strength(2)", 1],
 			["Super defence(2)", 1],
-		],
+		]),
 		1,
 		8,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Super defence(2)", 1],
 			["Ranging potion(2)", 1],
-		],
+		]),
 		1,
 		8,
 	)

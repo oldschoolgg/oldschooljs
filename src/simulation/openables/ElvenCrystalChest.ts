@@ -1,5 +1,6 @@
 import LootTable from "../../structures/LootTable";
 import SimpleOpenable from "../../structures/SimpleOpenable";
+import { itemTupleToTable } from "../../util";
 
 /* Dragonstone armour roll */
 const DragonStoneArmorTable = new LootTable()
@@ -35,89 +36,89 @@ const ElvenCrystalChestTable = new LootTable()
 	.oneIn(500, DragonStoneArmorTable)
 	.add(coinsKeyHalfTable, 1, 64)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Uncut ruby", [10, 13]],
 			["Uncut diamond", [5, 8]],
-		],
+		]),
 		1,
 		32,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Crystal key", 1],
-		],
+		]),
 		1,
 		24,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Coins", [30_000, 50_000]],
 			["Crystal shard", [8, 13]],
-		],
+		]),
 		1,
 		20,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Crystal shard", [20, 30]],
-		],
+		]),
 		1,
 		17,
 	)
 	.add(runeArmorTable, 1, 17)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Cosmic rune", [50, 100]],
 			["Chaos rune", [50, 100]],
 			["Nature rune", [50, 100]],
 			["Law rune", [50, 100]],
 			["Death rune", [50, 100]],
-		],
+		]),
 		1,
 		17,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Yew seed", 1],
-		],
+		]),
 		1,
 		17,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Raw shark", [50, 100]],
-		],
+		]),
 		1,
 		17,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Gold ore", [350, 500]],
-		],
+		]),
 		1,
 		12,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Runite ore", [7, 10]],
-		],
+		]),
 		1,
 		9,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut dragonstone", 1],
 			["Crystal acorn", [1, 2]],
-		],
+		]),
 		1,
 		7,
 	)

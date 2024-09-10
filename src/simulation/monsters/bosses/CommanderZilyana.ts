@@ -1,5 +1,6 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../util";
 import GWRareDropTable, { GWGemTable, ShardTable } from "../../subtables/GWRareDropTable";
 
 const MinionUniqueTable = new LootTable().add("Coins", [1400, 1500], 124).add("Saradomin sword", 1, 3);
@@ -45,18 +46,18 @@ const CommanderZilyanaTable = new LootTable()
 	/* Potions */
 	.add("Prayer potion(4)", 3, 8)
 	.add(
-		[
+		itemTupleToTable([
 			["Super defence(3)", 3],
 			["Magic potion(3)", 3],
-		],
+		]),
 		1,
 		8,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Saradomin brew(3)", 3],
 			["Super restore(4)", 3],
-		],
+		]),
 		1,
 		6,
 	)

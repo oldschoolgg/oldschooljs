@@ -1,5 +1,6 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../util";
 import GWRareDropTable, { GWGemTable, ShardTable } from "../../subtables/GWRareDropTable";
 
 const KreearraArmorTable = new LootTable().add("Armadyl helmet").add("Armadyl chestplate").add("Armadyl chainskirt");
@@ -52,10 +53,10 @@ const KreearraTable = new LootTable()
 	/* Other */
 	.add("Coins", [19_500, 20_000], 40)
 	.add(
-		[
+		itemTupleToTable([
 			["Ranging potion(3)", 3],
 			["Super defence(3)", 3],
-		],
+		]),
 		1,
 		8,
 	)
