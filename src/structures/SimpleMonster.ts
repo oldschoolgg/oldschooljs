@@ -49,6 +49,7 @@ export default class SimpleMonster extends Monster {
 		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 		const wildySlayer = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
 		const slayerMonster: boolean = Boolean(options.onSlayerTask && this.data.slayerLevelRequired > 1);
+		const lootTableOptions = { ...options.lootTableOptions, targetBank: loot };
 
 		for (let i = 0; i < quantity; i++) {
 			if (canGetBrimKey) {
@@ -76,17 +77,17 @@ export default class SimpleMonster extends Monster {
 			if (options.onSlayerTask) {
 				if (wildySlayer && this.wildyCaveTable) {
 					// Roll the monster's wildy slayer cave table
-					loot.add(this.wildyCaveTable.roll(1, options.lootTableOptions));
+					this.wildyCaveTable.roll(1, lootTableOptions);
 				} else if (this.onTaskTable) {
 					// Roll the monster's "on-task" table.
-					loot.add(this.onTaskTable.roll(1, options.lootTableOptions));
+					this.onTaskTable.roll(1, lootTableOptions);
 				} else {
 					// Monster doesn't have a unique on-slayer table
-					loot.add(this.table?.roll(1, options.lootTableOptions));
+					this.table?.roll(1, lootTableOptions);
 				}
 			} else {
 				// Not on slayer task
-				loot.add(this.table?.roll(1, options.lootTableOptions));
+				this.table?.roll(1, lootTableOptions);
 			}
 			if (this.customKillLogic) {
 				this.customKillLogic(options, loot);

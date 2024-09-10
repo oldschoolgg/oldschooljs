@@ -288,11 +288,6 @@ export interface SimpleTableItem<T> {
 	weight: number;
 }
 
-export interface ReturnedLootItem {
-	item: number;
-	quantity: number;
-}
-
 export interface BankItem {
 	id: number;
 	qty: number;

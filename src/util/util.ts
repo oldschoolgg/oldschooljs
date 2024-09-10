@@ -1,7 +1,7 @@
 import { randFloat, randInt, roll, round } from "e";
 
 import { CLUES, MINIGAMES, SKILLS, type hiscoreURLs, mappedBossNames } from "../constants";
-import type { CustomKillLogic, Item, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
+import type { CustomKillLogic, Item, MonsterKillOptions } from "../meta/types";
 import type Bank from "../structures/Bank";
 import Items from "../structures/Items";
 import LootTable from "../structures/LootTable";
@@ -166,15 +166,6 @@ export function getLarranKeyChanceFromCBLevel(combatLevel: number, slayerMonster
 
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));
-}
-
-export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
-	const result: { [key: string]: ItemBank } = {};
-	for (const [id, loot] of Object.entries(lootResult)) {
-		result[id] = { ...loot.bank };
-	}
-
-	return result;
 }
 
 export function getAncientShardChanceFromHP(hitpoints: number): number {
