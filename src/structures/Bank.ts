@@ -9,15 +9,48 @@ const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
 const isValidInteger = (str: string): boolean => /^-?\d+$/.test(str);
 
+type ItemResolvable = Item | string | number;
+
+function isValidBankQuantity(qty: number): boolean {
+	return typeof qty === "number" && qty >= 1 && Number.isInteger(qty);
+}
+
+function sanitizeItemBank(mutSource: ItemBank) {
+	for (const [key, qty] of Object.entries(mutSource)) {
+		if (!isValidBankQuantity(qty)) {
+			delete mutSource[key];
+		}
+		const item = Items.get(Number.parseInt(key));
+		if (!item) {
+			delete mutSource[key];
+		}
+	}
+}
+
 export default class Bank {
 	private map: Map<number, number>;
 	public frozen = false;
+
+	static withSanitizedValues(source: ItemBank | IntKeyBank): Bank {
+		const mutSource = { ...source };
+		sanitizeItemBank(mutSource);
+		return new Bank(mutSource);
+	}
 
 	constructor(initialBank?: IntKeyBank | ItemBank | Bank) {
 		this.map = this.makeFromInitialBank(initialBank);
 	}
 
-	private resolveItemID(item: Item | string | number): number {
+	public removeInvalidValues(): Bank {
+		for (const [key, qty] of this.map.entries()) {
+			if (!isValidBankQuantity(qty) || !Items.has(key)) {
+				this.map.delete(key);
+			}
+		}
+		return this;
+	}
+
+	private resolveItemID(item: ItemResolvable): number {
 		if (typeof item === "number") return item;
 		if (typeof item === "string") return itemID(item);
 		return item.id;
@@ -47,13 +80,13 @@ export default class Bank {
 		}
 	}
 
-	get bank() {
+	public toJSON(): ItemBank {
 		return Object.fromEntries(this.map);
 	}
 
-	public set(item: string | number, quantity: number): this {
+	public set(item: ItemResolvable, quantity: number): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
-		const id = typeof item === "string" ? itemID(item) : item;
+		const id = this.resolveItemID(item);
 		this.map.set(id, quantity);
 		return this;
 	}
@@ -64,9 +97,9 @@ export default class Bank {
 		return this;
 	}
 
-	public amount(item: string | number): number {
-		const itemIDNum = typeof item === "string" ? itemID(item) : item;
-		return this.map.get(itemIDNum) ?? 0;
+	public amount(item: ItemResolvable): number {
+		const id = this.resolveItemID(item);
+		return this.map.get(id) ?? 0;
 	}
 
 	public addItem(item: number, quantity = 1): this {
@@ -79,14 +112,14 @@ export default class Bank {
 
 	public removeItem(item: number | string, quantity = 1): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
-		const itemIDNum = typeof item === "string" ? itemID(item) : item;
-		const currentValue = this.map.get(itemIDNum);
+		const id = this.resolveItemID(item);
+		const currentValue = this.map.get(id);
 
 		if (currentValue === undefined) return this;
 		if (currentValue - quantity <= 0) {
-			this.map.delete(itemIDNum);
+			this.map.delete(id);
 		} else {
-			this.map.set(itemIDNum, currentValue - quantity);
+			this.map.set(id, currentValue - quantity);
 		}
 
 		return this;
@@ -153,13 +186,7 @@ export default class Bank {
 		if (item instanceof Bank) {
 			for (const [itemID, qty] of item.map.entries()) {
 				this.removeItem(itemID, qty);
-				if (this.length === 0) break;
 			}
-			return this;
-		}
-
-		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, _item.quantity);
 			return this;
 		}
 
@@ -271,5 +298,29 @@ export default class Bank {
 
 	public difference(otherBank: Bank): Bank {
 		return this.clone().remove(otherBank).add(otherBank.clone().remove(this));
+	}
+
+	public validate(): string[] {
+		const errors: string[] = [];
+		for (const [item, quantity] of this.map.entries()) {
+			if (typeof quantity !== "number" || quantity < 1 || !Number.isInteger(quantity)) {
+				errors.push(`Item ${item} has a quantity of ${quantity}`);
+			}
+			if (typeof item !== "number" || !item || !Items.get(item)?.id) {
+				errors.push(`Item ${item} does not exist.`);
+			}
+		}
+		return errors;
+	}
+
+	public validateOrThrow() {
+		const errors = this.validate();
+		if (errors.length > 0) {
+			throw new Error(`Bank validation failed: ${errors.join(", ")}`);
+		}
+	}
+
+	get itemIDs(): number[] {
+		return Array.from(this.map.keys());
 	}
 }
