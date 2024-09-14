@@ -1,11 +1,10 @@
 import { calcPercentOfNum, calcWhatPercent, percentChance, randInt, roll } from "e";
 
-import type { ItemBank, LootBank } from "../../meta/types";
+import type { LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
 import { resolveNameBank } from "../../util/bank";
-import { convertLootBanksToItemBanks } from "../../util/util";
 
 export interface TeamMember {
 	id: string;
@@ -167,9 +166,7 @@ class NightmareClass {
 		return [item, quantity];
 	}
 
-	public kill(options: Readonly<NightmareOptions>): {
-		[key: string]: ItemBank;
-	} {
+	public kill(options: Readonly<NightmareOptions>): LootBank {
 		const mvp = options.team.sort((a, b) => b.damageDone - a.damageDone)[0];
 
 		const parsedTeam = options.team.map(teamMember => ({
@@ -229,7 +226,7 @@ class NightmareClass {
 
 		// Hand out non-uniques
 		for (const teamMember of parsedTeam) {
-			if (Object.keys(lootResult[teamMember.id].bank).length === 0) {
+			if (lootResult[teamMember.id].length === 0) {
 				lootResult[teamMember.id].add(
 					...this.rollNonUniqueLoot(teamMember.scaledPercentDamage, teamMember.mvp, options.isPhosani),
 				);
@@ -244,7 +241,7 @@ class NightmareClass {
 			);
 		}
 
-		return convertLootBanksToItemBanks(lootResult);
+		return lootResult;
 	}
 }
 

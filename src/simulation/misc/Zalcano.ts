@@ -1,11 +1,10 @@
 import { calcPercentOfNum } from "e";
 
-import type { ItemBank, LootBank } from "../../meta/types";
+import type { LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
 import { resolveNameBank } from "../../util/bank";
-import { convertLootBanksToItemBanks } from "../../util/util";
 
 export interface TeamMember {
 	id: string;
@@ -83,9 +82,7 @@ class ZalcanoClass {
 		return [item, quantity];
 	}
 
-	public kill({ team }: Readonly<ZalcanoOptions>): {
-		[key: string]: ItemBank;
-	} {
+	public kill({ team }: Readonly<ZalcanoOptions>): LootBank {
 		const lootResult: LootBank = {};
 
 		for (const teamMember of team) {
@@ -101,7 +98,7 @@ class ZalcanoClass {
 			lootResult[teamMember.id] = loot;
 		}
 
-		return convertLootBanksToItemBanks(lootResult);
+		return lootResult;
 	}
 }
 

@@ -1,10 +1,41 @@
-import { randFloat, randInt, reduceNumByPercent, roll } from "e";
-
-import type { LootTableItem, LootTableMoreOptions, LootTableOptions, OneInItems } from "../meta/types";
 import itemID from "../util/itemID";
 import Bank from "./Bank";
 import Items from "./Items";
 
+export function reduceNumByPercent(value: number, percent: number): number {
+	if (percent <= 0) return value;
+	return value - value * (percent / 100);
+}
+export function randInt(min: number, max: number): number {
+	return Math.floor(Math.random() * (max - min + 1) + min);
+}
+export function randFloat(min: number, max: number): number {
+	return Math.random() * (max - min) + min;
+}
+
+export function roll(upperLimit: number): boolean {
+	return randInt(1, upperLimit) === 1;
+}
+
+export interface LootTableOptions {
+	limit?: number;
+}
+
+export interface LootTableMoreOptions {
+	multiply?: boolean;
+	freeze?: boolean;
+}
+
+export interface LootTableItem {
+	item: number | LootTable;
+	weight?: number;
+	quantity: number | number[];
+	options?: LootTableMoreOptions;
+}
+
+export interface OneInItems extends LootTableItem {
+	chance: number;
+}
 export function isArrayOfItemTuples(x: readonly unknown[]): x is [string, (number | number[])?][] {
 	return Array.isArray(x[0]);
 }
@@ -16,6 +47,7 @@ export interface LootTableRollOptions {
 	 * item_id droprate will be decreased by percentage%.
 	 */
 	tertiaryItemPercentageChanges?: Map<string, number>;
+	targetBank?: Bank;
 }
 
 export default class LootTable {
@@ -134,7 +166,7 @@ export default class LootTable {
 	}
 
 	public add(
-		item: LootTable | number | string | [string, (number | number[])?][] | LootTableItem[],
+		item: LootTable | number | string,
 		quantity: number[] | number = 1,
 		weight = 1,
 		options?: LootTableMoreOptions,
@@ -144,23 +176,6 @@ export default class LootTable {
 		}
 		if (typeof item === "string") {
 			return this.add(this.resolveName(item), quantity, weight, options);
-		}
-
-		// If its an array, but not a LootTableItem[] array.
-		// i.e, if its directly from the user, and not being internally added.
-		if (Array.isArray(item) && isArrayOfItemTuples(item)) {
-			const newItems = [];
-			const _item = item as [string, (number | number[])?][];
-			for (const itemToAdd of _item) {
-				const resolvedId = this.resolveName(itemToAdd[0]);
-				this.addToAllItems(resolvedId);
-				newItems.push({
-					item: resolvedId,
-					quantity: this.determineQuantity(itemToAdd[1]!) || 1,
-				});
-			}
-
-			return this.add(newItems, quantity, weight, options);
 		}
 
 		this.length += 1;
@@ -178,10 +193,13 @@ export default class LootTable {
 		return this;
 	}
 
-	public roll(quantity = 1, options?: LootTableRollOptions): Bank {
-		const loot = new Bank();
+	roll(quantity?: number): Bank;
+	roll(quantity: number, options: { targetBank?: undefined } & LootTableRollOptions): Bank;
+	roll(quantity: number, options: { targetBank: Bank } & LootTableRollOptions): null;
+	public roll(quantity = 1, options: LootTableRollOptions = {}): Bank | null {
+		const loot = options.targetBank ?? new Bank();
 
-		const effectiveTertiaryItems = options?.tertiaryItemPercentageChanges
+		const effectiveTertiaryItems = options.tertiaryItemPercentageChanges
 			? this.tertiaryItems.map(i => {
 					if (typeof i.item !== "number") return i;
 					if (i.options?.freeze === true) return i;
@@ -222,7 +240,6 @@ export default class LootTable {
 
 			for (let i = 0; i < this.table.length; i++) {
 				const item = this.table[i]!;
-
 				weight += item.weight!;
 				if (randomWeight <= weight) {
 					result = i;
@@ -231,33 +248,30 @@ export default class LootTable {
 			}
 
 			const chosenItem = this.table[result];
-			this.addResultToLoot(chosenItem, loot);
+			if (chosenItem) {
+				this.addResultToLoot(chosenItem, loot);
+			}
 		}
 
+		if (options.targetBank) return null;
 		return loot;
 	}
 
-	private addResultToLoot(result: LootTableItem | undefined, loot: Bank): void {
+	private addResultToLoot(result: LootTableItem, loot: Bank): void {
 		if (!result) return;
 		const { item, quantity, options } = result;
-		const multiply = options?.multiply;
 
-		if (Array.isArray(item)) {
-			for (const singleItem of item) {
-				this.addResultToLoot(singleItem, loot);
-			}
+		if (typeof item === "number") {
+			loot.add(item, this.determineQuantity(quantity));
 			return;
 		}
-
-		const qty = this.determineQuantity(quantity);
 
 		if (item instanceof LootTable) {
-			if (multiply) loot.add(item.roll(1).multiply(qty));
-			else loot.add(item.roll(qty));
+			const qty = this.determineQuantity(quantity);
+			if (options?.multiply) loot.add(item.roll(1).multiply(qty));
+			else item.roll(qty, { targetBank: loot });
 			return;
 		}
-
-		loot.add(item, qty);
 	}
 
 	protected determineQuantity(quantity: number | number[]): number {

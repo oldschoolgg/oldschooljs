@@ -43,9 +43,10 @@ export const MINIGAMES = [
 
 export const CLUES = ["all", "beginner", "easy", "medium", "hard", "elite", "master"] as const;
 
-export const mappedBossNames: [keyof BossRecords, string][] = [
+export const mappedBossNames = [
 	["abyssalSire", "Abyssal Sire"],
 	["alchemicalHydra", "Alchemical Hydra"],
+	["araxxor", "Araxxor"],
 	["artio", "Artio"],
 	["barrowsChests", "Barrows Chests"],
 	["bryophyta", "Bryophyta"],
@@ -105,7 +106,7 @@ export const mappedBossNames: [keyof BossRecords, string][] = [
 	["wintertodt", "Wintertodt"],
 	["zalcano", "Zalcano"],
 	["zulrah", "Zulrah"],
-];
+] as const;
 
 export const bossNameMap: Map<keyof BossRecords, string> = new Map(mappedBossNames);
 

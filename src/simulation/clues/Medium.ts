@@ -1,5 +1,3 @@
-import { randInt, roll } from "e";
-
 import Bank from "../../structures/Bank";
 import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
@@ -173,20 +171,14 @@ export const MediumStandardTable = new LootTable()
 
 export const MediumClueTable = new LootTable().add(MediumStandardTable, 1, 10).add(MediumRareTable, 1, 1);
 
+const MainTable = new LootTable().add(MediumClueTable, [3, 5]).tertiary(30, "Clue scroll (master)");
+
 export class MediumCasket extends Clue {
-	public open(quantity = 1): Bank {
-		const loot = new Bank();
-
-		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = randInt(3, 5);
-
-			if (roll(30)) loot.add("Clue scroll (master)");
-
-			for (let i = 0; i < numberOfRolls; i++) {
-				loot.add(MediumClueTable.roll());
-			}
-		}
-
+	open(quantity: number, targetBank?: undefined): Bank;
+	open(quantity: number, targetBank: Bank): null;
+	public open(quantity: number, targetBank?: Bank): Bank | null {
+		const loot = targetBank ?? new Bank();
+		MainTable.roll(quantity, { targetBank: loot });
 		return loot;
 	}
 }

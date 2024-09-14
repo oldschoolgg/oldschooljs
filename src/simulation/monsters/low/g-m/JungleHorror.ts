@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 import VariableAllotmentSeedTable from "../../../subtables/VariableAllotmentSeedTable";
@@ -32,18 +33,18 @@ const JungleHorrorTable = new LootTable({ limit: 129 })
 	/* Other */
 	.add("Pineapple", 1, 8)
 	.add(
-		[
+		itemTupleToTable([
 			["Big bones", 1],
 			["Bones", 1],
-		],
+		]),
 		1,
 		3,
 	)
 	.add(
-		[
+		itemTupleToTable([
 			["Big bones", 3],
 			["Bones", 1],
-		],
+		]),
 		1,
 		2,
 	)

@@ -1,5 +1,3 @@
-import { randInt } from "e";
-
 import Bank from "../../structures/Bank";
 import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
@@ -88,16 +86,14 @@ export const StandardTable = new LootTable()
 
 export const BeginnerClueTable = new LootTable().add(StandardTable, 1, 11).add(UniqueTable, 1, 1);
 
-export class BeginnerCasket extends Clue {
-	public open(quantity = 1): Bank {
-		const loot = new Bank();
-		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = randInt(1, 3);
+const MainTable = new LootTable().add(BeginnerClueTable, [1, 3]);
 
-			for (let i = 0; i < numberOfRolls; i++) {
-				loot.add(BeginnerClueTable.roll());
-			}
-		}
+export class BeginnerCasket extends Clue {
+	open(quantity: number, targetBank?: undefined): Bank;
+	open(quantity: number, targetBank: Bank): null;
+	public open(quantity: number, targetBank?: Bank): Bank | null {
+		const loot = targetBank ?? new Bank();
+		MainTable.roll(quantity, { targetBank: loot });
 		return loot;
 	}
 }

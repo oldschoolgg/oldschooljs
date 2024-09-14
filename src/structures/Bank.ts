@@ -1,55 +1,131 @@
 import { randArrItem } from "e";
 
-import type { BankItem, Item, ItemBank, ReturnedLootItem } from "../meta/types";
-import { fasterResolveBank, resolveNameBank } from "../util/bank";
+import type { BankItem, IntKeyBank, Item, ItemBank } from "../meta/types";
 import itemID from "../util/itemID";
+import { toKMB } from "../util/smallUtils";
 import Items from "./Items";
 
 const frozenErrorStr = "Tried to mutate a frozen Bank.";
 
+const isValidInteger = (str: string): boolean => /^-?\d+$/.test(str);
+
+type ItemResolvable = Item | string | number;
+
+function isValidBankQuantity(qty: number): boolean {
+	return typeof qty === "number" && qty >= 1 && Number.isInteger(qty);
+}
+
+function sanitizeItemBank(mutSource: ItemBank) {
+	for (const [key, qty] of Object.entries(mutSource)) {
+		if (!isValidBankQuantity(qty)) {
+			delete mutSource[key];
+		}
+		const item = Items.get(Number.parseInt(key));
+		if (!item) {
+			delete mutSource[key];
+		}
+	}
+}
+
 export default class Bank {
-	public bank: ItemBank = {};
+	private map: Map<number, number>;
 	public frozen = false;
 
-	constructor(initialBank?: ItemBank | Bank) {
-		if (initialBank) {
-			this.bank = JSON.parse(
-				JSON.stringify(initialBank instanceof Bank ? initialBank.bank : fasterResolveBank(initialBank)),
-			);
+	static withSanitizedValues(source: ItemBank | IntKeyBank): Bank {
+		const mutSource = { ...source };
+		sanitizeItemBank(mutSource);
+		return new Bank(mutSource);
+	}
+
+	constructor(initialBank?: IntKeyBank | ItemBank | Bank) {
+		this.map = this.makeFromInitialBank(initialBank);
+	}
+
+	public removeInvalidValues(): Bank {
+		for (const [key, qty] of this.map.entries()) {
+			if (!isValidBankQuantity(qty) || !Items.has(key)) {
+				this.map.delete(key);
+			}
 		}
+		return this;
+	}
+
+	private resolveItemID(item: ItemResolvable): number {
+		if (typeof item === "number") return item;
+		if (typeof item === "string") return itemID(item);
+		return item.id;
+	}
+
+	public clear(item?: Item | string | number): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
+		if (item) {
+			this.set(this.resolveItemID(item), 0);
+			return this;
+		}
+		this.map.clear();
+		return this;
+	}
+
+	private makeFromInitialBank(initialBank?: IntKeyBank | ItemBank | Bank) {
+		if (!initialBank) return new Map();
+		if (initialBank instanceof Bank) {
+			return new Map(initialBank.map.entries());
+		}
+		const entries = Object.entries(initialBank);
+		if (entries.length === 0) return new Map();
+		if (isValidInteger(entries[0][0])) {
+			return new Map(entries.map(([k, v]) => [Number(k), v]));
+		} else {
+			return new Map(entries.map(([k, v]) => [Items.get(k)!.id, v]));
+		}
+	}
+
+	public toJSON(): ItemBank {
+		return Object.fromEntries(this.map);
+	}
+
+	public set(item: ItemResolvable, quantity: number): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
+		const id = this.resolveItemID(item);
+		this.map.set(id, quantity);
+		return this;
 	}
 
 	public freeze(): this {
 		this.frozen = true;
-		Object.freeze(this.bank);
+		Object.freeze(this.map);
 		return this;
 	}
 
-	public amount(item: string | number): number {
-		return this.bank[typeof item === "string" ? itemID(item) : item] ?? 0;
+	public amount(item: ItemResolvable): number {
+		const id = this.resolveItemID(item);
+		return this.map.get(id) ?? 0;
 	}
 
 	public addItem(item: number, quantity = 1): this {
+		if (this.frozen) throw new Error(frozenErrorStr);
 		if (quantity < 1) return this;
-		if (this.bank[item]) this.bank[item] += quantity;
-		else this.bank[item] = quantity;
+		const current = this.map.get(item) ?? 0;
+		this.map.set(item, current + quantity);
 		return this;
 	}
 
 	public removeItem(item: number | string, quantity = 1): this {
-		const currentValue = this.bank[item];
+		if (this.frozen) throw new Error(frozenErrorStr);
+		const id = this.resolveItemID(item);
+		const currentValue = this.map.get(id);
 
-		if (typeof currentValue === "undefined") return this;
+		if (currentValue === undefined) return this;
 		if (currentValue - quantity <= 0) {
-			delete this.bank[item];
+			this.map.delete(id);
 		} else {
-			this.bank[item] = currentValue - quantity;
+			this.map.set(id, currentValue - quantity);
 		}
 
 		return this;
 	}
 
-	public add(item: string | number | ReturnedLootItem[] | ItemBank | Bank | Item | undefined, quantity = 1): Bank {
+	public add(item: string | number | IntKeyBank | Bank | Item | undefined, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.add(123);
@@ -64,15 +140,13 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			return this.add(item.bank);
-		}
-
-		if (!item) {
+			for (const [itemID, qty] of item.map.entries()) {
+				this.addItem(itemID, qty);
+			}
 			return this;
 		}
 
-		if (Array.isArray(item)) {
-			for (const _item of item) this.addItem(_item.item, _item.quantity);
+		if (!item) {
 			return this;
 		}
 
@@ -81,23 +155,21 @@ export default class Bank {
 			return this.addItem(_item.id, quantity);
 		}
 
-		const firstKey: string | undefined = Object.keys(item)[0];
-		if (firstKey === undefined) {
-			return this;
-		}
-
-		if (Number.isNaN(Number(firstKey))) {
-			this.add(resolveNameBank(item));
-		} else {
-			for (const [itemID, quantity] of Object.entries(item)) {
-				this.addItem(Number.parseInt(itemID), quantity);
+		for (const [itemID, qty] of Object.entries(item)) {
+			let int: number | undefined = Number.parseInt(itemID);
+			if (Number.isNaN(int)) {
+				int = Items.get(itemID)?.id;
 			}
+			if (!int) {
+				throw new Error(`${itemID} is not a valid name or id`);
+			}
+			this.addItem(int, qty);
 		}
 
 		return this;
 	}
 
-	public remove(item: string | number | ReturnedLootItem[] | ItemBank | Bank, quantity = 1): Bank {
+	public remove(item: string | number | ItemBank | Bank, quantity = 1): Bank {
 		if (this.frozen) throw new Error(frozenErrorStr);
 
 		// Bank.remove('Twisted bow');
@@ -112,44 +184,28 @@ export default class Bank {
 		}
 
 		if (item instanceof Bank) {
-			for (const [key, value] of Object.entries(item.bank)) {
-				this.removeItem(key, value);
-				if (this.length === 0) break;
+			for (const [itemID, qty] of item.map.entries()) {
+				this.removeItem(itemID, qty);
 			}
 			return this;
 		}
 
-		const firstKey = Object.keys(item)[0];
-		if (firstKey === undefined) {
-			return this;
-		}
-
-		if (Array.isArray(item)) {
-			for (const _item of item) this.remove(_item.item, _item.quantity);
-			return this;
-		}
-
-		if (Number.isNaN(Number(firstKey))) {
-			this.remove(resolveNameBank(item));
-		} else {
-			return this.remove(new Bank(item));
-		}
-
+		this.remove(new Bank(item));
 		return this;
 	}
 
 	public random(): BankItem | null {
-		const entries = Object.entries(this.bank);
+		const entries = Array.from(this.map.entries());
 		if (entries.length === 0) return null;
 		const randomEntry = randArrItem(entries);
-		return { id: Number(randomEntry[0]), qty: randomEntry[1] };
+		return { id: randomEntry[0], qty: randomEntry[1] };
 	}
 
 	public multiply(multiplier: number, itemsToNotMultiply?: number[]): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
-		for (const itemID of Object.keys(this.bank).map(Number)) {
+		for (const [itemID, quantity] of this.map.entries()) {
 			if (itemsToNotMultiply?.includes(itemID)) continue;
-			this.bank[itemID] *= multiplier;
+			this.map.set(itemID, quantity * multiplier);
 		}
 		return this;
 	}
@@ -176,8 +232,9 @@ export default class Bank {
 
 	public items(): [Item, number][] {
 		const arr: [Item, number][] = [];
-		for (const [key, val] of Object.entries(this.bank)) {
-			arr.push([Items.get(Number.parseInt(key))!, val]);
+		for (const [key, val] of this.map.entries()) {
+			if (val < 1) continue;
+			arr.push([Items.get(key)!, val]);
 		}
 		return arr;
 	}
@@ -189,7 +246,7 @@ export default class Bank {
 	}
 
 	public clone(): Bank {
-		return new Bank({ ...this.bank });
+		return new Bank(this);
 	}
 
 	public fits(bank: Bank): number {
@@ -198,36 +255,29 @@ export default class Bank {
 		return divisions[0] ?? 0;
 	}
 
-	public filter(fn: (item: Item, quantity: number) => boolean, mutate = false): Bank {
+	public filter(fn: (item: Item, quantity: number) => boolean): Bank {
 		const result = new Bank();
 		for (const item of this.items()) {
 			if (fn(...item)) {
 				result.add(item[0].id, item[1]);
 			}
 		}
-		if (mutate) {
-			if (this.frozen) throw new Error(frozenErrorStr);
-			this.bank = result.bank;
-			return this;
-		}
 		return result;
 	}
 
 	public toString(): string {
-		const entries = Object.entries(this.bank);
-		if (entries.length === 0) {
+		const items = this.items();
+		if (items.length === 0) {
 			return "No items";
 		}
-		const res = [];
-		for (const [id, qty] of entries.sort((a, b) => b[1] - a[1])) {
-			res.push(`${qty.toLocaleString()}x ${Items.get(Number(id))?.name ?? "Unknown item"}`);
-		}
-
-		return res.join(", ");
+		return items
+			.sort((a, b) => a[0].name.localeCompare(b[0].name))
+			.map(([item, qty]) => `${qty < 1000 ? `${qty}x` : toKMB(qty)} ${item?.name ?? "Unknown item"}`)
+			.join(", ");
 	}
 
 	public get length(): number {
-		return Object.keys(this.bank).length;
+		return this.map.size;
 	}
 
 	public value(): number {
@@ -243,10 +293,34 @@ export default class Bank {
 		for (const [item, quantity] of this.items()) {
 			if (otherBank.amount(item.id) !== quantity) return false;
 		}
-		return JSON.stringify(this.bank) === JSON.stringify(otherBank.bank);
+		return true;
 	}
 
 	public difference(otherBank: Bank): Bank {
 		return this.clone().remove(otherBank).add(otherBank.clone().remove(this));
+	}
+
+	public validate(): string[] {
+		const errors: string[] = [];
+		for (const [item, quantity] of this.map.entries()) {
+			if (typeof quantity !== "number" || quantity < 1 || !Number.isInteger(quantity)) {
+				errors.push(`Item ${item} has a quantity of ${quantity}`);
+			}
+			if (typeof item !== "number" || !item || !Items.get(item)?.id) {
+				errors.push(`Item ${item} does not exist.`);
+			}
+		}
+		return errors;
+	}
+
+	public validateOrThrow() {
+		const errors = this.validate();
+		if (errors.length > 0) {
+			throw new Error(`Bank validation failed: ${errors.join(", ")}`);
+		}
+	}
+
+	get itemIDs(): number[] {
+		return Array.from(this.map.keys());
 	}
 }

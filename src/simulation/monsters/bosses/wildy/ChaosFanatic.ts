@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 import RareDropTable, { GemTable } from "../../../subtables/RareDropTable";
 
 const ChaosFanaticUniqueTable = new LootTable().add("Odium shard 1").add("Malediction shard 1");
@@ -15,10 +16,10 @@ const ChaosFanaticTable = new LootTable()
 	.add("Splitbark body", 1, 5)
 	.add("Splitbark legs", 1, 5)
 	.add(
-		[
+		itemTupleToTable([
 			["Zamorak monk top", 1],
 			["Zamorak monk bottom", 1],
-		],
+		]),
 		1,
 		4,
 	)
@@ -43,10 +44,10 @@ const ChaosFanaticTable = new LootTable()
 	.add("Chaos talisman", 1, 6)
 	.add("Wine of zamorak", 10, 6)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut emerald", 6],
 			["Uncut sapphire", 4],
-		],
+		]),
 		1,
 		5,
 	)
