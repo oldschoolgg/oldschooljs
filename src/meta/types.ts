@@ -1,4 +1,4 @@
-import type { MINIGAMES, hiscoreURLs } from "../constants";
+import type { MINIGAMES, hiscoreURLs, mappedBossNames } from "../constants";
 import type Bank from "../structures/Bank";
 import type LootTable from "../structures/LootTable";
 import type { LootTableRollOptions } from "../structures/LootTable";
@@ -59,69 +59,7 @@ export interface SkillsScore {
 	construction: SkillScore;
 }
 
-export interface BossRecords {
-	abyssalSire: MinigameScore;
-	alchemicalHydra: MinigameScore;
-	artio: MinigameScore;
-	barrowsChests: MinigameScore;
-	bryophyta: MinigameScore;
-	callisto: MinigameScore;
-	calvarion: MinigameScore;
-	cerberus: MinigameScore;
-	chambersofXeric: MinigameScore;
-	chambersofXericChallengeMode: MinigameScore;
-	chaosElemental: MinigameScore;
-	chaosFanatic: MinigameScore;
-	commanderZilyana: MinigameScore;
-	corporealBeast: MinigameScore;
-	crazyArchaeologist: MinigameScore;
-	dagannothPrime: MinigameScore;
-	dagannothRex: MinigameScore;
-	dagannothSupreme: MinigameScore;
-	derangedArchaeologist: MinigameScore;
-	dukeSucellus: MinigameScore;
-	generalGraardor: MinigameScore;
-	giantMole: MinigameScore;
-	grotesqueGuardians: MinigameScore;
-	hespori: MinigameScore;
-	kalphiteQueen: MinigameScore;
-	kingBlackDragon: MinigameScore;
-	kraken: MinigameScore;
-	kreeArra: MinigameScore;
-	krilTsutsaroth: MinigameScore;
-	lunarChests: MinigameScore;
-	mimic: MinigameScore;
-	nex: MinigameScore;
-	nightmare: MinigameScore;
-	phosanisNightmare: MinigameScore;
-	obor: MinigameScore;
-	phantomMuspah: MinigameScore;
-	sarachnis: MinigameScore;
-	scorpia: MinigameScore;
-	scurrius: MinigameScore;
-	skotizo: MinigameScore;
-	solHeredit: MinigameScore;
-	spindel: MinigameScore;
-	tempoross: MinigameScore;
-	theGauntlet: MinigameScore;
-	theCorruptedGauntlet: MinigameScore;
-	theLeviathan: MinigameScore;
-	theWhisperer: MinigameScore;
-	theatreofBlood: MinigameScore;
-	theatreofBloodHard: MinigameScore;
-	thermonuclearSmokeDevil: MinigameScore;
-	tombsofAmascut: MinigameScore;
-	tombsofAmascutExpert: MinigameScore;
-	tzKalZuk: MinigameScore;
-	tzTokJad: MinigameScore;
-	vardorvis: MinigameScore;
-	venenatis: MinigameScore;
-	vetion: MinigameScore;
-	vorkath: MinigameScore;
-	wintertodt: MinigameScore;
-	zalcano: MinigameScore;
-	zulrah: MinigameScore;
-}
+export type BossRecords = Record<(typeof mappedBossNames)[number]["0"], MinigameScore>;
 
 export type MinigamesScore = Record<(typeof MINIGAMES)[number], MinigameScore>;
 
@@ -337,6 +275,9 @@ export interface WikiPage {
 	}[];
 }
 
+export interface IntKeyBank {
+	[key: number]: number;
+}
 export interface ItemBank {
 	[key: string]: number;
 }
@@ -350,30 +291,9 @@ export interface SimpleTableItem<T> {
 	weight: number;
 }
 
-export interface ReturnedLootItem {
-	item: number;
-	quantity: number;
-}
-
 export interface BankItem {
 	id: number;
 	qty: number;
-}
-
-export interface LootTableMoreOptions {
-	multiply?: boolean;
-	freeze?: boolean;
-}
-
-export interface LootTableItem {
-	item: number | LootTable | LootTableItem[];
-	weight?: number;
-	quantity: number | number[];
-	options?: LootTableMoreOptions;
-}
-
-export interface OneInItems extends LootTableItem {
-	chance: number;
 }
 
 export type TupleLootItem = [number, number];
@@ -415,10 +335,6 @@ export interface OpenableOpenOptions {
 	fishLvl?: number;
 	seedTier?: SeedTier;
 	chestSize?: ChestSize;
-}
-
-export interface LootTableOptions {
-	limit?: number;
 }
 
 export interface ClueOptions {

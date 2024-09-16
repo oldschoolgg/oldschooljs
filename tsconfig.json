@@ -26,5 +26,6 @@
 		"esModuleInterop": true,
 		"skipLibCheck": true,
 		"lib": ["ES2023"]
-	}
+	},
+	"include": ["src/**/*"]
 }

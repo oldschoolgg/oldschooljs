@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 import RareDropTable, { GemTable } from "../../../subtables/RareDropTable";
 
 const CrazyArchaeologistUniqueTable = new LootTable().add("Odium shard 2").add("Malediction shard 2");
@@ -33,10 +34,10 @@ const CrazyArchaeologistTable = new LootTable()
 	.add("White berries", 10, 6)
 	.add("Silver ore", 40, 6)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut emerald", 6],
 			["Uncut sapphire", 4],
-		],
+		]),
 		1,
 		5,
 	)

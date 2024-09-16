@@ -1,5 +1,6 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../util";
 
 const OborTable = new LootTable({ limit: 118 })
 	.every("Big Bones")
@@ -34,10 +35,10 @@ const OborTable = new LootTable({ limit: 118 })
 	.add("Limpwurt root", 20, 8)
 	.add("Big bones", 50, 8)
 	.add(
-		[
+		itemTupleToTable([
 			["Uncut diamond", 5],
 			["Uncut ruby", 5],
-		],
+		]),
 		1,
 		5,
 	);

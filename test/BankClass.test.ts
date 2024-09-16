@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from "vitest";
 
 import { Bank, Items, LootTable } from "../src";
-import type { Item, ReturnedLootItem } from "../src/meta/types";
+import type { Item } from "../src/meta/types";
 import { getItemOrThrow, itemID, resolveNameBank } from "../src/util";
 
 const TestLootTable = new LootTable().add("Toolkit");
@@ -14,7 +14,8 @@ describe("Bank Class", () => {
 		expect(bank.amount(1)).toBe(2);
 		expect(bank.amount("Toolkit")).toBe(2);
 		expect(bank.amount("Twisted bow")).toBe(0);
-		expect(bank.bank).toEqual({ 1: 2 });
+		expect(bank.amount(1)).toEqual(2);
+		expect(bank.length).toEqual(1);
 	});
 
 	test("removing", () => {
@@ -24,11 +25,12 @@ describe("Bank Class", () => {
 		expect(bank.amount(1)).toBe(0);
 		expect(bank.amount("Toolkit")).toBe(0);
 
-		expect(bank.bank).toEqual({});
+		expect(bank.length).toEqual(0);
 
-		bank.add({ Coal: 1, Emerald: 1, Ruby: 1 });
+		bank.add(resolveNameBank({ Coal: 1, Emerald: 1, Ruby: 1 }));
 		bank.remove({ Coal: 9999, Emerald: 9999, Toolkit: 10_000 });
-		expect(bank.bank).toEqual({ 1603: 1 });
+		expect(bank.amount(1603)).toEqual(1);
+		expect(bank.length).toEqual(1);
 	});
 
 	test("chaining", () => {
@@ -52,21 +54,6 @@ describe("Bank Class", () => {
 		expect(random).toEqual({ id: 69, qty: 420 });
 	});
 
-	test("ReturnedLootItem", () => {
-		const items: ReturnedLootItem[] = [
-			{ item: 1, quantity: 5 },
-			{ item: 1, quantity: 5 },
-			{ item: 1, quantity: 0 },
-			{ item: 2, quantity: 10 },
-		];
-		const bank = new Bank().add(items);
-		expect(bank.bank).toEqual({ 1: 10, 2: 10 });
-		bank.remove(items);
-		expect(bank.bank).toEqual({});
-		expect(bank.amount(1)).toBe(0);
-		expect(bank.amount(2)).toBe(0);
-	});
-
 	test("other", () => {
 		const bank = new Bank().add(1).add(1).add(1).add(1);
 
@@ -75,10 +62,10 @@ describe("Bank Class", () => {
 		bank.remove({ 1: 4 });
 		expect(bank.amount(1)).toBe(0);
 
-		bank.add({ Toolkit: 4 });
+		bank.add(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(4);
 
-		bank.remove({ Toolkit: 4 });
+		bank.remove(resolveNameBank({ Toolkit: 4 }));
 		expect(bank.amount(1)).toBe(0);
 
 		bank.add(TestLootTable.roll());
@@ -126,10 +113,10 @@ describe("Bank Class", () => {
 	test("toString", () => {
 		const bank = new Bank(resolveNameBank({ Coal: 20, Egg: 5000, Emerald: 1, Ruby: 20_000 }));
 		bank.add("Twisted bow", 0);
-		expect(bank.toString()).toEqual("20,000x Ruby, 5,000x Egg, 20x Coal, 1x Emerald");
+		expect(bank.toString()).toEqual("20x Coal, 5k Egg, 1x Emerald, 20k Ruby");
 		expect(bank.length).toEqual(4);
 		bank.add("3rd age platebody", 2);
-		expect(bank.toString()).toEqual("20,000x Ruby, 5,000x Egg, 20x Coal, 2x 3rd age platebody, 1x Emerald");
+		expect(bank.toString()).toEqual("2x 3rd age platebody, 20x Coal, 5k Egg, 1x Emerald, 20k Ruby");
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual("No items");
 		expect(new Bank({ 111231231: 1 }).toString()).toEqual("1x Unknown item");
@@ -211,7 +198,7 @@ describe("Bank Class", () => {
 		const bank = new Bank(baseBank);
 		expect(bank.fits(bank)).toEqual(1);
 
-		const b1 = new Bank(bank.clone().multiply(2).bank);
+		const b1 = new Bank(bank.clone().multiply(2));
 		expect(b1.fits(bank)).toEqual(2);
 
 		const b2 = new Bank(resolveNameBank({ Coal: 1 }));
@@ -251,12 +238,12 @@ describe("Bank Class", () => {
 		const idVersion = resolveNameBank(baseBank);
 		const bank = new Bank(baseBank);
 		expect(bank.amount("Coal")).toEqual(20);
-		expect(bank.bank).toEqual(idVersion);
+		expect(new Bank(idVersion).toString()).toEqual(new Bank(bank).toString());
 		expect(bank.has(idVersion)).toBeTruthy();
 
 		const otherBank = new Bank(idVersion);
 		expect(otherBank.amount("Coal")).toEqual(20);
-		expect(otherBank.bank).toEqual(bank.bank);
+		expect(new Bank(otherBank).equals(new Bank(bank))).toBeTruthy();
 		expect(otherBank.has(idVersion)).toBeTruthy();
 
 		const base = {
@@ -274,17 +261,7 @@ describe("Bank Class", () => {
 			"Blade of saeldor": 0,
 		};
 
-		expect(new Bank(base).bank).toEqual(resolveNameBank(base));
-	});
-
-	test("freeze bank", () => {
-		const bank = new Bank().add("Twisted bow").freeze();
-
-		expect(() => bank.add("Coal")).toThrow();
-		expect(() => (bank.bank[itemID("Coal")] = 1)).toThrow();
-		expect(() => delete bank.bank[itemID("Twisted bow")]).toThrow();
-
-		expect(bank.bank).toEqual({ [itemID("Twisted bow")]: 1 });
+		expect(new Bank(base).equals(new Bank(resolveNameBank(base)))).toBeTruthy();
 	});
 
 	test("has item obj", () => {

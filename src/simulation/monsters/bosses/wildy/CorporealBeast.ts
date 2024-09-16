@@ -4,7 +4,7 @@ import { GemTable } from "../../../subtables/RareDropTable";
 
 const SigilTable = new LootTable().add("Spectral sigil", 1, 3).add("Arcane sigil", 1, 3).add("Elysian sigil", 1, 1);
 
-const CorporealBeastTable = new LootTable()
+export const CorporealBeastTable = new LootTable()
 
 	.add("Spirit shield", 1, 8)
 	.add("Holy elixir", 1, 3)

@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 
 const NormalUniqueTable = new LootTable()
 	/* Unique */
@@ -23,11 +24,11 @@ const NormalUniqueTable = new LootTable()
 	.add("Mushroom potato", [4, 6], 10)
 	.add("Saradomin brew(4)", 2, 8)
 	.add(
-		[
+		itemTupleToTable([
 			["Magic potion(2)", 1],
 			["Ranging potion(2)", 1],
 			["Super combat potion(2)", 1],
-		],
+		]),
 		1,
 		6,
 	)
