@@ -1,7 +1,7 @@
-import { randFloat, randInt, roll, round } from "e";
+import { randFloat, randInt, roll } from "e";
 
 import { CLUES, MINIGAMES, SKILLS, type hiscoreURLs, mappedBossNames } from "../constants";
-import type { CustomKillLogic, Item, ItemBank, LootBank, MonsterKillOptions } from "../meta/types";
+import type { CustomKillLogic, Item, MonsterKillOptions } from "../meta/types";
 import type Bank from "../structures/Bank";
 import Items from "../structures/Items";
 import LootTable from "../structures/LootTable";
@@ -112,33 +112,6 @@ export function convertXPtoLVL(xp: number, cap = 99): number {
 	return cap;
 }
 
-export function toKMB(number: number): string {
-	if (number > 999_999_999 || number < -999_999_999) {
-		return `${round(number / 1_000_000_000)}b`;
-	} else if (number > 999_999 || number < -999_999) {
-		return `${round(number / 1_000_000)}m`;
-	} else if (number > 999 || number < -999) {
-		return `${round(number / 1000)}k`;
-	}
-	return round(number).toString();
-}
-
-export function fromKMB(number: string): number {
-	number = number.toLowerCase().replace(/,/g, "");
-	const [numberBefore, numberAfter] = number.split(/[.kmb]/g);
-
-	let newNum = numberBefore;
-	if (number.includes("b")) {
-		newNum += numberAfter + "0".repeat(9).slice(numberAfter.length);
-	} else if (number.includes("m")) {
-		newNum += numberAfter + "0".repeat(6).slice(numberAfter.length);
-	} else if (number.includes("k")) {
-		newNum += numberAfter + "0".repeat(3).slice(numberAfter.length);
-	}
-
-	return Number.parseInt(newNum);
-}
-
 export function getBrimKeyChanceFromCBLevel(combatLevel: number): number {
 	// https://twitter.com/JagexKieren/status/1083781544135847936
 	if (combatLevel < 100) {
@@ -166,15 +139,6 @@ export function getLarranKeyChanceFromCBLevel(combatLevel: number, slayerMonster
 
 export function JSONClone<O>(object: O): O {
 	return JSON.parse(JSON.stringify(object));
-}
-
-export function convertLootBanksToItemBanks(lootResult: LootBank): Record<string, ItemBank> {
-	const result: { [key: string]: ItemBank } = {};
-	for (const [id, loot] of Object.entries(lootResult)) {
-		result[id] = { ...loot.bank };
-	}
-
-	return result;
 }
 
 export function getAncientShardChanceFromHP(hitpoints: number): number {
@@ -318,3 +282,13 @@ export function deepResolveItems(itemArray: ArrayItemsResolvable): ArrayItemsRes
 
 	return newArray;
 }
+
+export function itemTupleToTable(items: [string, number | [number, number]][]): LootTable {
+	const table = new LootTable();
+	for (const [item, quantity] of items) {
+		table.every(item, quantity ?? 1);
+	}
+	return table;
+}
+
+export * from "./smallUtils";

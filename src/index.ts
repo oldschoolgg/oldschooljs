@@ -33,3 +33,8 @@ export {
 	EItem,
 	EMonster,
 };
+
+export * from "./data/itemConstants";
+export * from "./structures/Items";
+export * from "./meta/types";
+export type { default as Monster } from "./structures/Monster";

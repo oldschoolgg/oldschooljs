@@ -4,6 +4,7 @@ import { Monsters } from "../src";
 import Bank from "../src/structures/Bank";
 import LootTable from "../src/structures/LootTable";
 import Monster from "../src/structures/Monster";
+import { itemTupleToTable } from "../src/util";
 import { checkThreshold } from "./testUtil";
 
 describe("Monsters", () => {
@@ -18,7 +19,12 @@ describe("Monsters", () => {
 		.add("Needle")
 		.add("Amethyst")
 		.add("Knife")
-		.add([["Iron bar"], ["Steel bar"]])
+		.add(
+			itemTupleToTable([
+				["Iron bar", 1],
+				["Steel bar", 1],
+			]),
+		)
 		.add(subSubTable);
 
 	beforeAll(async () => {

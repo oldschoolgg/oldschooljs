@@ -1,5 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
+import { itemTupleToTable } from "../../../../util";
 import RareDropTable from "../../../subtables/RareDropTable";
 import TreeHerbSeedTable from "../../../subtables/TreeHerbSeedTable";
 
@@ -22,10 +23,10 @@ const NormalTable = new LootTable()
 
 	/* Weapons and armour */
 	.add(
-		[
+		itemTupleToTable([
 			["Mystic fire staff", 1],
 			["Mystic water staff", 1],
-		],
+		]),
 		1,
 		8,
 	)
@@ -36,10 +37,10 @@ const NormalTable = new LootTable()
 	.add("Dragon med helm", 1, 3)
 	.add("Dragon battleaxe", 1, 2)
 	.add(
-		[
+		itemTupleToTable([
 			["Mystic robe top (light)", 1],
 			["Mystic robe bottom (light)", 1],
-		],
+		]),
 		1,
 		1,
 	)
@@ -62,10 +63,10 @@ const NormalTable = new LootTable()
 	.add("Coins", [40_000, 60_000], 10)
 	.add("Shark", [2, 4], 7)
 	.add(
-		[
+		itemTupleToTable([
 			["Ranging potion(3)", 1],
 			["Super restore(3)", 2],
-		],
+		]),
 		1,
 		7,
 	)

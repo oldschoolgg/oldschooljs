@@ -4,7 +4,7 @@ import type { LootBank } from "../../meta/types";
 import Bank from "../../structures/Bank";
 import LootTable from "../../structures/LootTable";
 import SimpleTable from "../../structures/SimpleTable";
-import { JSONClone, convertLootBanksToItemBanks } from "../../util";
+import { JSONClone } from "../../util";
 
 export interface TeamMember {
 	id: string;
@@ -135,8 +135,8 @@ export class TheatreOfBloodClass {
 
 		if (isHardMode) {
 			// Add 15% extra regular loot for hard mode:
-			for (const [itemID] of Object.entries(loot.bank)) {
-				loot.bank[Number.parseInt(itemID)] = Math.ceil(loot.bank[Number.parseInt(itemID)] * 1.15);
+			for (const [item] of loot.items()) {
+				loot.set(item.id, Math.ceil(loot.amount(item.id) * 1.15));
 			}
 			// Add HM Tertiary drops: dust / kits
 			loot.add(HardModeExtraTable.roll());
@@ -200,7 +200,7 @@ export class TheatreOfBloodClass {
 		}
 
 		return {
-			loot: convertLootBanksToItemBanks(lootResult),
+			loot: lootResult,
 			percentChanceOfUnique: percentBaseChanceOfUnique,
 			totalDeaths,
 			teamPoints,

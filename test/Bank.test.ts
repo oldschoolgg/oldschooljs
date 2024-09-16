@@ -1,8 +1,10 @@
-import { describe, expect, test } from "vitest";
+import { describe, expect, it, test } from "vitest";
 
+import { EItem } from "../src";
+import type { ItemBank } from "../src/meta/types";
 import Bank from "../src/structures/Bank";
 import Items from "../src/structures/Items";
-import { addItemToBank, itemID, resolveNameBank } from "../src/util";
+import { addItemToBank, getItemOrThrow, itemID, resolveNameBank } from "../src/util";
 
 describe("Bank", () => {
 	test("convert string bank to number bank", () => {
@@ -22,66 +24,56 @@ describe("Bank", () => {
 
 	test("bank has all items", () => {
 		expect.assertions(2);
-		const bankToHave = new Bank({
-			"Fire rune": 1000,
-			"Air rune": 1,
-			"Chaos rune": 101_010,
-		});
+		const bankToHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 1000,
+				"Air rune": 1,
+				"Chaos rune": 101_010,
+			}),
+		);
 
-		const bankThatShouldntHave = new Bank({
-			"Fire rune": 1000,
-			"Air rune": 1,
-			"Chaos rune": 1,
-		});
+		const bankThatShouldntHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 1000,
+				"Air rune": 1,
+				"Chaos rune": 1,
+			}),
+		);
 
-		const bankThatShouldHave = new Bank({
-			"Fire rune": 104_200,
-			"Air rune": 43_432,
-			"Chaos rune": 121_010,
-			"Death rune": 121_010,
-		});
+		const bankThatShouldHave = new Bank(
+			resolveNameBank({
+				"Fire rune": 104_200,
+				"Air rune": 43_432,
+				"Chaos rune": 121_010,
+				"Death rune": 121_010,
+			}),
+		);
 
 		expect(bankThatShouldHave.has(bankToHave)).toBeTruthy();
 		expect(bankThatShouldntHave.has(bankToHave)).toBeFalsy();
 	});
 
-	test("remove item from bank", () => {
-		expect.assertions(3);
-		const bank = new Bank({
-			45: 9,
-			87: 1,
-		});
-
-		expect(bank.clone().remove(87).bank).toEqual({
-			45: 9,
-		});
-
-		expect(bank.clone().remove(98).bank).toEqual({
-			45: 9,
-			87: 1,
-		});
-
-		expect(bank.clone().remove(45, 2).bank).toEqual({
-			45: 7,
-			87: 1,
-		});
-	});
-
 	test("remove bank from bank", () => {
 		expect.assertions(1);
-		const sourceBank = new Bank({
-			"Fire rune": 100,
-			"Air rune": 50,
-		});
+		const sourceBank = new Bank(
+			resolveNameBank({
+				"Fire rune": 100,
+				"Air rune": 50,
+			}),
+		);
 
-		const bankToRemove = new Bank({
-			"Fire rune": 50,
-			"Air rune": 50,
-		});
+		const bankToRemove = new Bank(
+			resolveNameBank({
+				"Fire rune": 50,
+				"Air rune": 50,
+			}),
+		);
 
-		const expectedBank = new Bank({
-			"Fire rune": 50,
-		});
+		const expectedBank = new Bank(
+			resolveNameBank({
+				"Fire rune": 50,
+			}),
+		);
 
 		sourceBank.remove(bankToRemove);
 		expect(sourceBank.equals(expectedBank)).toBeTruthy();
@@ -118,7 +110,7 @@ describe("Bank", () => {
 
 		const expected = { 1: 2, 3: 4 };
 
-		expect(new Bank(bank).add(bank2).bank).toEqual(expected);
+		expect(new Bank(bank).add(bank2).equals(new Bank(expected))).toBeTruthy();
 	});
 
 	test("add item to bank", () => {
@@ -147,64 +139,39 @@ describe("Bank", () => {
 		expect(bank.amount("Egg")).toEqual(100);
 	});
 
-	test("mutate filter", () => {
-		const bank = new Bank({
-			Toolkit: 2,
-			"Ammo Mould": 4,
-			Candle: 1,
-		});
-		expect(bank.length).toEqual(3);
-		const empty = bank.filter(() => false);
-		expect(bank.length).toEqual(3);
-		expect(empty.length).toEqual(0);
-		bank.filter(item => item.name === "Candle", true);
-		expect(bank.length).toEqual(1);
-	});
-
 	test("value", () => {
-		const bank = new Bank({
-			Toolkit: 2,
-		});
+		const bank = new Bank(
+			resolveNameBank({
+				Toolkit: 2,
+			}),
+		);
 		expect(bank.value()).toEqual(0);
 		const runePlatebody = Items.get("Rune platebody")!;
-		const bank2 = new Bank({
-			"Rune platebody": 10,
-		});
+		const bank2 = new Bank(
+			resolveNameBank({
+				"Rune platebody": 10,
+			}),
+		);
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank2.value()).toEqual(runePlatebody.price * 10);
-		const bank3 = new Bank({
-			"Rune platebody": 10,
-			"Rune platelegs": 10,
-			"Rune boots": 10,
-			Toolkit: 1,
-			"Abyssal book": 10_000,
-		});
+		const bank3 = new Bank(
+			resolveNameBank({
+				"Rune platebody": 10,
+				"Rune platelegs": 10,
+				"Rune boots": 10,
+				Toolkit: 1,
+				"Abyssal book": 10_000,
+			}),
+		);
 		expect(runePlatebody.price).toBeGreaterThan(25_000);
 		expect(bank3.value()).toEqual(
 			runePlatebody.price * 10 + Items.get("Rune platelegs")!.price * 10 + Items.get("Rune boots")!.price * 10,
 		);
 	});
 
-	test("init from bank", () => {
-		const start: any = { 1: 1 };
-		let bank = new Bank(start);
-		const bankToTest = new Bank(bank);
-		delete start[1];
-		delete bank.bank[1];
-		start[2] = 1;
-		bank.bank[2] = 1;
-		bank = bank.multiply(100);
-		bank.bank = {};
-		expect(bankToTest.amount(1)).toEqual(1);
-		expect(bankToTest.length).toEqual(1);
-	});
-
 	test("frozen bank", () => {
 		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
 		bank.freeze();
-		try {
-			bank.bank[5] = 1;
-		} catch {}
 		expect(bank.length).toEqual(2);
 		expect(() => bank.add("Twisted bow")).toThrowError();
 		try {
@@ -213,14 +180,16 @@ describe("Bank", () => {
 		try {
 			bank.addItem(itemID("Twisted bow"));
 		} catch {}
+		expect(() => bank.removeItem("Twisted bow")).toThrowError();
 		try {
 			bank.remove(itemID("Twisted bow"));
 		} catch {}
 		try {
 			bank.multiply(5);
 		} catch {}
+
 		try {
-			bank.filter(() => true, true);
+			bank.set("Twisted bow", 1000);
 		} catch {}
 		expect(bank.amount("Twisted bow")).toEqual(73);
 	});
@@ -262,5 +231,167 @@ describe("Bank", () => {
 		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
 		expect(bank.random()).toBeTruthy();
 		expect(new Bank().random()).toBeFalsy();
+	});
+
+	test("set", () => {
+		const bank = new Bank().add("Twisted bow", 73).add("Egg", 5);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
+		bank.set("Twisted bow", 0);
+		expect(bank.amount("Twisted bow")).toEqual(0);
+		bank.set("Twisted bow", 1);
+		expect(bank.amount("Twisted bow")).toEqual(1);
+	});
+
+	test("withSanitizedValues", () => {
+		const badBank: ItemBank = {
+			[-1]: 1,
+			1: Number.NaN,
+			2: Number.POSITIVE_INFINITY,
+			3: Number.NEGATIVE_INFINITY,
+			9: "",
+			5: 1,
+		} as any as ItemBank;
+		const bank = Bank.withSanitizedValues(badBank);
+		expect(bank.length).toEqual(1);
+		expect(bank.amount(5)).toEqual(1);
+	});
+
+	function badBank() {
+		return {
+			[-1]: 1,
+			1: Number.NaN,
+			2: Number.POSITIVE_INFINITY,
+			3: Number.NEGATIVE_INFINITY,
+			9: "",
+			5: 1,
+		} as any as ItemBank;
+	}
+
+	test("removeInvalidValues", () => {
+		const bank = new Bank(badBank());
+		bank.removeInvalidValues();
+		expect(bank.length).toEqual(1);
+		expect(bank.amount(5)).toEqual(1);
+	});
+
+	it("should validate bad bank", () => {
+		const bank = new Bank(badBank());
+		const result = bank.validate();
+		expect(result.length).toBeGreaterThan(0);
+	});
+
+	it("should validate good bank", () => {
+		for (const bank of [new Bank(), new Bank().add("Coal", 1)]) {
+			const result = bank.validate();
+			expect(result.length).toEqual(0);
+		}
+	});
+
+	it("should validateOrThrow bad bank", () => {
+		const bank = new Bank(badBank());
+		expect(() => bank.validateOrThrow()).toThrow();
+	});
+
+	it("should validateOrThrow good bank", () => {
+		for (const bank of [new Bank(), new Bank().add("Coal", 1)]) {
+			expect(() => bank.validateOrThrow()).not.toThrow();
+		}
+	});
+
+	test("itemIDs", () => {
+		expect(new Bank().itemIDs).toEqual([]);
+		expect(new Bank().add("Coal", 1).itemIDs.sort()).toEqual([itemID("Coal")].sort());
+		expect(new Bank().add("Coal", 1).add("Coal", 1).itemIDs.sort()).toEqual([itemID("Coal")].sort());
+		expect(new Bank().add("Coal", 1).add("Trout", 1).itemIDs.sort()).toEqual(
+			[itemID("Coal"), itemID("Trout")].sort(),
+		);
+	});
+
+	it("clears banks", () => {
+		expect(new Bank().clear().length).toEqual(0);
+		for (const bank of [new Bank().add("Coal", 1).add("Trout", 100000), new Bank().add("Coal", 1)]) {
+			expect(bank.length).toBeGreaterThan(0);
+			bank.clear();
+			expect(bank.length).toEqual(0);
+		}
+	});
+
+	it("doesnt clear bank if frozen", () => {
+		const bank = new Bank().add("Coal", 1).add("Trout", 100000);
+		bank.freeze();
+		expect(bank.length).toBeGreaterThan(0);
+		expect(() => bank.clear()).toThrow();
+		expect(bank.length).toBeGreaterThan(0);
+	});
+
+	it("checks amount", () => {
+		const bank = new Bank().add(itemID("Coal"));
+		expect(bank.amount("Coal")).toEqual(1);
+		expect(bank.amount(itemID("Coal"))).toEqual(1);
+		expect(bank.amount(EItem.COAL)).toEqual(1);
+		expect(bank.amount(getItemOrThrow("Coal"))).toEqual(1);
+	});
+
+	it("sets and clears items", () => {
+		const methods = ["Coal", itemID("Coal"), EItem.COAL, getItemOrThrow("Coal")];
+		for (const setMethod of methods) {
+			for (const amountMethod of methods) {
+				const bank = new Bank().set(setMethod, 5).add("Trout", 100000);
+				expect(bank.amount(amountMethod)).toEqual(5);
+				bank.clear(setMethod);
+				expect(bank.amount(amountMethod)).toEqual(0);
+				expect(bank.amount("Trout")).toEqual(100000);
+			}
+		}
+	});
+
+	it("adds itembank", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		const bankToAdd = resolveNameBank({
+			Coal: 50,
+			Trout: 50,
+		});
+		bank.add(bankToAdd);
+		expect(bank.amount("Coal")).toEqual(150);
+		expect(bank.amount("Trout")).toEqual(150);
+		expect(bank.length).toEqual(2);
+	});
+
+	it("adds namebank", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		const bankToAdd = {
+			Coal: 50,
+			Trout: 50,
+		};
+		bank.add(bankToAdd);
+		expect(bank.amount("Coal")).toEqual(150);
+		expect(bank.amount("Trout")).toEqual(150);
+		expect(bank.length).toEqual(2);
+	});
+
+	it("throws if adding invalid name", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		const bankToAdd = {
+			Casdfoal: 50,
+		};
+		expect(() => bank.add(bankToAdd)).toThrow();
+	});
+
+	it("removes itembank", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		const bankToRemove = resolveNameBank({
+			Coal: 50,
+			Trout: 50,
+		});
+		bank.remove(bankToRemove);
+		expect(bank.amount("Coal")).toEqual(50);
+		expect(bank.amount("Trout")).toEqual(50);
+		expect(bank.length).toEqual(2);
+	});
+
+	it("converts to json", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		expect(bank.toJSON()).toEqual(resolveNameBank({ Coal: 100, Trout: 100 }));
 	});
 });

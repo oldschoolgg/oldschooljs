@@ -1,9 +1,7 @@
-import { randInt, roll } from "e";
-
 import Bank from "../../structures/Bank";
 import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
-import { itemID } from "../../util";
+import { itemID, itemTupleToTable } from "../../util";
 import { BlessingTable, FirelighterTable, GildedTable, PrayerPageTable, TeleportScrollTable } from "./General";
 
 export const Hard3rdageTable = new LootTable()
@@ -25,11 +23,13 @@ export const HardMegaRareTable = new LootTable()
 	.add("Super energy(4)", 15)
 	.add("Super restore(4)", 15)
 	.add("Antifire potion(4)", 15)
-	.add([
-		["Super attack(4)", 5],
-		["Super strength(4)", 5],
-		["Super defence(4)", 5],
-	])
+	.add(
+		itemTupleToTable([
+			["Super attack(4)", 5],
+			["Super strength(4)", 5],
+			["Super defence(4)", 5],
+		]),
+	)
 	.add(Hard3rdageTable)
 	.add(GildedTable, 1, 5);
 
@@ -206,21 +206,14 @@ export const HardStandardTable = new LootTable()
 	.add(HardBowTable);
 
 export const HardClueTable = new LootTable().add(HardStandardTable, 1, 12).add(HardRareTable, 1, 1);
+const MainTable = new LootTable().add(HardClueTable, [4, 6]).tertiary(15, "Clue scroll (master)");
 
 export class HardCasket extends Clue {
-	public open(quantity = 1): Bank {
-		const loot = new Bank();
-
-		for (let i = 0; i < quantity; i++) {
-			const numberOfRolls = randInt(4, 6);
-
-			if (roll(15)) loot.add("Clue scroll (master)");
-
-			for (let i = 0; i < numberOfRolls; i++) {
-				loot.add(HardClueTable.roll());
-			}
-		}
-
+	open(quantity: number, targetBank?: undefined): Bank;
+	open(quantity: number, targetBank: Bank): null;
+	public open(quantity: number, targetBank?: Bank): Bank | null {
+		const loot = targetBank ?? new Bank();
+		MainTable.roll(quantity, { targetBank: loot });
 		return loot;
 	}
 }
