@@ -72,7 +72,7 @@ const openablesObject = {
 	BasicSack,
 	AdeptSack,
 	ExpertSack,
-	MasterSack
+	MasterSack,
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
