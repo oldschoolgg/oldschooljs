@@ -1,42 +1,45 @@
 name: Unit Tests
 
 on:
-    push:
-        branches:
-            - master
-    pull_request:
+  push:
+    branches:
+      - master
+  pull_request:
 
 jobs:
-    test:
-        name: Tests
-        runs-on: ubuntu-latest
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
 
-            - run: corepack enable
-            - run: corepack install
+      - run: corepack enable
+      - run: corepack install
 
-            - name: Install NodeJS
-              uses: actions/setup-node@v4
-              with:
-                   cache: yarn
-                   node-version: 20
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          cache: yarn
+          node-version: 20
 
-            - name: Restore CI Cache
-              uses: actions/cache@v4
-              with:
-                  path: node_modules
-                  key: NODE-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+      - name: Restore CI Cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: NODE-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
 
-            - name: Install Dependencies
-              run: yarn --immutable
+      - name: Install Dependencies
+        run: yarn --immutable
 
-            - name: Fix package.json
-              run: npx biome check --write package.json
+      - name: Fix package.json
+        run: npx biome check --write package.json
 
-            - name: Test
-              run: |
-                yarn test
-                npm i -g dpdm && dpdm --exit-code circular:1 --progress=false --warning=false --tree=false ./dist/index.js
+      - name: Build
+        run: tsc -p src
+
+      - name: Test
+        run: |
+          yarn test
+          npm i -g dpdm && dpdm --exit-code circular:1 --progress=false --warning=false --tree=false ./dist/index.js

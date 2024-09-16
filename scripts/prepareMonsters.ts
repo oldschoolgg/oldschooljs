@@ -54,7 +54,7 @@ export default interface RawMonsterData {
 	magic_damage: number;
 }
 
-async function prepareMonsters(): Promise<void> {
+export async function prepareMonsters(): Promise<void> {
 	const allMonsters: { [key: string]: RawMonsterData } = await fetch(
 		"https://raw.githubusercontent.com/0xNeffarion/osrsreboxed-db/master/docs/monsters-complete.json",
 	).then((res): Promise<any> => res.json());
@@ -124,5 +124,3 @@ async function prepareMonsters(): Promise<void> {
 	writeFileSync("./src/data/monsters_data.json", JSON.stringify(monsterMap, null, 4));
 	console.log("Prepared Monsters. Check any new monsters quickly to see that the data looks okay.");
 }
-
-prepareMonsters();
