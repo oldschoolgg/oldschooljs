@@ -50,6 +50,7 @@ import ChompyBird from "./a-f/ChompyBird";
 import Cockatrice from "./a-f/Cockatrice";
 import Cow from "./a-f/Cow";
 import CowCalf from "./a-f/CowCalf";
+import Crab from "./a-f/Crab";
 import CrawlingHand from "./a-f/CrawlingHand";
 import Crocodile from "./a-f/Crocodile";
 import CryptRat from "./a-f/CryptRat";
@@ -534,4 +535,5 @@ export const allLowMonsters = {
 	ManiacalMonkey,
 	ZombiePirate,
 	TormentedDemon,
+	Crab,
 };
