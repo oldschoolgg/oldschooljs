@@ -4,6 +4,11 @@ import SimpleMonster from "../../../../structures/SimpleMonster";
 export const ZombiePirateTable = new LootTable()
 	.every("Bones")
 
+	/* Pre-roll */
+	.oneIn(2, new LootTable()) // 'Nothing' drop
+	.oneIn(24, "Zombie pirate key")
+	.oneIn(20_000, "Teleport anchoring scroll")
+
 	/* Runes */
 	.add("Blood rune", [30, 60], 4)
 	.add("Death rune", [30, 90], 4)
@@ -31,13 +36,10 @@ export const ZombiePirateTable = new LootTable()
 	.add("Blighted super restore(4)", [1, 3], 12)
 
 	/* Other */
-	.add(new LootTable(), 1, 181) // 'Nothing' drop
-	.add("Zombie pirate key", 1, 15)
 	.add("Coins", [1_000, 8_000], 12)
 	.add("Cannonball", [20, 100], 12)
 	.add("Gold ore", [5, 15], 12)
 	.add("Adamant seeds", [5, 10], 8)
-	.oneIn(20_000, "Teleport anchoring scroll")
 
 	/* Tertiary */
 	.tertiary(5000, "Zombie champion scroll");
