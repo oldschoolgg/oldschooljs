@@ -7,6 +7,7 @@ import ElvenCrystalChest from "./ElvenCrystalChest";
 import GiantEggSacFull from "./GiantEggSacFull";
 import GrubbyChest from "./GrubbyChest";
 import { BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest } from "./HAMStoreRoomChests";
+import { AdeptSack, BasicSack, ExpertSack, MasterSack } from "./HuntersLootSack";
 import {
 	BabyImpling,
 	CrystalImpling,
@@ -68,6 +69,10 @@ const openablesObject = {
 	VolcanicMineOrePack,
 	GiantsFoundryOrePack,
 	IntricatePouch,
+	BasicSack,
+	AdeptSack,
+	ExpertSack,
+	MasterSack,
 };
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
