@@ -2,6 +2,9 @@ import LootTable from "../../structures/LootTable";
 import SimpleOpenable from "../../structures/SimpleOpenable";
 
 const ZombiePirateLocker = new LootTable()
+	/* Pre-roll */
+	.oneIn(275, "Teleport anchoring scroll")
+
 	/* Runes */
 	.add("Blood rune", [60, 120], 4)
 	.add("Death rune", [60, 180], 4)
@@ -32,8 +35,7 @@ const ZombiePirateLocker = new LootTable()
 	.add("Coins", [2_000, 16_000], 12)
 	.add("Cannonball", [40, 200], 12)
 	.add("Gold ore", [10, 30], 12)
-	.add("Adamant seeds", [10, 20], 8)
-	.oneIn(275, "Teleport anchoring scroll");
+	.add("Adamant seeds", [10, 20], 8);
 
 export default new SimpleOpenable({
 	id: 29_449,
