@@ -6,6 +6,7 @@ import AlKharidWarrior from "./a-f/AlKharidWarrior";
 import AncientZygomite from "./a-f/AncientZygomite";
 import Ankou from "./a-f/Ankou";
 import ArmadylianGuard from "./a-f/ArmadylianGuard";
+import ArmouredZombie from "./a-f/ArmouredZombie";
 import AsynShade from "./a-f/AsynShade";
 import Aviansie from "./a-f/Aviansie";
 import BabyBlackDragon from "./a-f/BabyBlackDragon";
@@ -535,5 +536,6 @@ export const allLowMonsters = {
 	ManiacalMonkey,
 	ZombiePirate,
 	TormentedDemon,
+	ArmouredZombie,
 	Crab,
 };
