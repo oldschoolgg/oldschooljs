@@ -37,7 +37,7 @@
 		"vitest": "^2.1.1"
 	},
 	"keywords": ["runescape"],
-	"files": ["dist/", "dist/cjs", "dist/esm", "dist/types"],
+	"files": ["dist"],
 	"packageManager": "yarn@4.3.1",
 	"engines": {
 		"node": "20.15.0"

@@ -2,7 +2,6 @@ node_modules/
 package-lock.json
 .vs/
 .idea/
-dist/
 **/*.js.map
 **/*.tsbuildinfo
 .nyc_output
