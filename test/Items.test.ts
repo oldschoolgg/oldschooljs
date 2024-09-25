@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, test } from "vitest";
 
-import { Items, Openables } from "../src";
+import { Items, Openables, getItem } from "../src";
 import { EquipmentSlot, type Item } from "../src/meta/types";
 
 const expectedIDTuple = [
@@ -157,4 +157,18 @@ describe("Items", () => {
 		},
 		60_000,
 	);
+});
+
+test("modifyItem", () => {
+	const item = getItem("Coal");
+	if (!item) {
+		throw new Error("Item not found");
+	}
+	Items.modifyItem(item.id, {
+		price: 100,
+	});
+
+	for (const it of [getItem("Coal")!, Items.get("Coal")!]) {
+		expect(it.price).toEqual(100);
+	}
 });

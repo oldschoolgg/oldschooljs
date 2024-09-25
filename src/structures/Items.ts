@@ -1,3 +1,5 @@
+import deepMerge from "deepmerge";
+
 import _items from "../data/items/item_data.json";
 import type { Item, ItemID } from "../meta/types";
 import { cleanString } from "../util/cleanString";
@@ -53,6 +55,14 @@ class Items extends Collection<number, Item> {
 		const id = this.resolveID(item);
 		if (typeof id === "undefined") return undefined;
 		return super.get(id);
+	}
+
+	modifyItem(itemName: ItemResolvable, data: Partial<Item>) {
+		if (data.id) throw new Error("Cannot change item ID");
+		const id = this.resolveID(itemName)!;
+		const item = this.get(id);
+		if (!id || !item) throw new Error(`Item ${itemName} does not exist`);
+		this.set(item.id, deepMerge(item, data));
 	}
 
 	private resolveID(input: ItemResolvable): ItemID | undefined {

@@ -1,3 +1,4 @@
+import { Araxxor } from "./Araxxor";
 import { AwakenedDukeSucellus } from "./AwakenedDukeSucellus";
 import { AwakenedTheLeviathan } from "./AwakenedTheLeviathan";
 import { AwakenedTheWhisperer } from "./AwakenedTheWhisperer";
@@ -29,6 +30,7 @@ import { allWildyBosses } from "./wildy";
 import CorporealBeast from "./wildy/CorporealBeast";
 
 export const allBosses = {
+	Araxxor,
 	CorporealBeast,
 	DagannothPrime,
 	DagannothRex,

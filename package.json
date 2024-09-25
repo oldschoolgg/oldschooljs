@@ -10,16 +10,6 @@
 			"require": "./dist/cjs/index.js",
 			"import": "./dist/esm/index.js",
 			"types": "./dist/types/index.d.ts"
-		},
-		"./dist/*": {
-			"require": "./dist/cjs/*.js",
-			"import": "./dist/esm/*.js",
-			"types": "./dist/types/*.d.ts"
-		},
-		"./dist/util/": {
-			"require": "./dist/cjs/*.js",
-			"import": "./dist/esm/*.js",
-			"types": "./dist/types/util/util.d.ts"
 		}
 	},
 	"license": "MIT",
@@ -28,7 +18,7 @@
 		"url": "git+https://github.com/oldschoolgg/oldschooljs.git"
 	},
 	"scripts": {
-		"test": "tsc --noEmit -p src && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc --noEmit -p test\"",
+		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc --noEmit -p test\"",
 		"test:unit": "vitest run --coverage",
 		"build": "tsc -p src && node esbuild.js",
 		"prepare": "tsx scripts/prepare",
