@@ -3,7 +3,6 @@ package-lock.json
 .vs/
 .idea/
 dist/
-**/*.js
 **/*.js.map
 **/*.tsbuildinfo
 .nyc_output
