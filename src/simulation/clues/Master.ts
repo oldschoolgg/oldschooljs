@@ -1,5 +1,3 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
 import {
 	BlessingTable,
@@ -159,16 +157,4 @@ export const MasterStandardTable = new LootTable()
 
 export const MasterClueTable = new LootTable().add(MasterStandardTable, 1, 22).add(MasterRareTable, 1, 1);
 
-const MainTable = new LootTable().add(MasterClueTable, [5, 7]).tertiary(1000, "Bloodhound");
-
-export class MasterCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-export default new MasterCasket({ table: MasterClueTable });
+export const MasterCasket = new LootTable().add(MasterClueTable, [5, 7]).tertiary(1000, "Bloodhound");

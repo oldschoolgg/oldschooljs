@@ -4,7 +4,9 @@
 		"sourceMap": false,
 		"types": ["node"],
 		"esModuleInterop": true,
-		"outDir": "../dist"
+		"outDir": "../dist",
+		"emitDeclarationOnly": true,
+		"declarationDir": "../dist/types"
 	},
 	"include": ["./**/*.ts", "./**/*.json"]
 }
