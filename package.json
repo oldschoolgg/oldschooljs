@@ -35,13 +35,13 @@
 		"@biomejs/biome": "^1.9.2",
 		"@types/node": "^20.14.9",
 		"@types/node-fetch": "^2.6.1",
-		"@vitest/coverage-v8": "^1.6.0",
+		"@vitest/coverage-v8": "^2.1.1",
 		"concurrently": "^9.0.1",
 		"deep-object-diff": "^1.1.9",
 		"deepmerge": "^4.3.1",
 		"tsx": "^4.19.1",
 		"typescript": "^5.6.2",
-		"vitest": "^1.6.0"
+		"vitest": "^2.1.1"
 	},
 	"keywords": ["runescape"],
 	"files": ["dist/", "dist/cjs", "dist/esm", "dist/types"],
