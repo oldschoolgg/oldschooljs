@@ -90,30 +90,8 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @returns {*|Array<*>} A single value if no amount is provided or an array of values, starting from the end if
 	 * amount is negative
 	 */
-	public first(): V | undefined;
-	public first(amount: number): V[];
-	public first(amount?: number): V | V[] | undefined {
-		if (typeof amount === "undefined") return this.values().next().value;
-		if (amount < 0) return this.last(amount * -1);
-		amount = Math.min(this.size, amount);
-		const iter = this.values();
-		return Array.from({ length: amount }, (): V => iter.next().value);
-	}
-
-	/**
-	 * Obtains the first key(s) in this collection.
-	 * @param {number} [amount] Amount of keys to obtain from the beginning
-	 * @returns {*|Array<*>} A single key if no amount is provided or an array of keys, starting from the end if
-	 * amount is negative
-	 */
-	public firstKey(): K | undefined;
-	public firstKey(amount: number): K[];
-	public firstKey(amount?: number): K | K[] | undefined {
-		if (typeof amount === "undefined") return this.keys().next().value;
-		if (amount < 0) return this.lastKey(amount * -1);
-		amount = Math.min(this.size, amount);
-		const iter = this.keys();
-		return Array.from({ length: amount }, (): K => iter.next().value);
+	public first(): V | undefined {
+		return this.values().next().value;
 	}
 
 	/**
@@ -123,31 +101,9 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @returns {*|Array<*>} A single value if no amount is provided or an array of values, starting from the start if
 	 * amount is negative
 	 */
-	public last(): V | undefined;
-	public last(amount: number): V[];
-	public last(amount?: number): V | V[] | undefined {
+	public last(): V | undefined {
 		const arr = this.array();
-		if (typeof amount === "undefined") return arr[arr.length - 1];
-		if (amount < 0) return this.first(amount * -1);
-		if (!amount) return [];
-		return arr.slice(-amount);
-	}
-
-	/**
-	 * Obtains the last key(s) in this collection. This relies on {@link Collection#keyArray}, and thus the caching
-	 * mechanism applies here as well.
-	 * @param {number} [amount] Amount of keys to obtain from the end
-	 * @returns {*|Array<*>} A single key if no amount is provided or an array of keys, starting from the start if
-	 * amount is negative
-	 */
-	public lastKey(): K | undefined;
-	public lastKey(amount: number): K[];
-	public lastKey(amount?: number): K | K[] | undefined {
-		const arr = this.keyArray();
-		if (typeof amount === "undefined") return arr[arr.length - 1];
-		if (amount < 0) return this.firstKey(amount * -1);
-		if (!amount) return [];
-		return arr.slice(-amount);
+		return arr[arr.length - 1];
 	}
 
 	/**
@@ -262,9 +218,9 @@ export default class Collection<K, V> extends Map<K, V> {
 	public map<T>(fn: (value: V, key: K, collection: this) => T): T[] {
 		const iter = this.entries();
 		return Array.from({ length: this.size }, (): T => {
-			const [key, value] = iter.next().value;
+			const [key, value] = iter.next().value as [K, V];
 			return fn(value, key, this);
-		});
+		}) as T[];
 	}
 
 	/**
@@ -366,22 +322,6 @@ export default class Collection<K, V> extends Map<K, V> {
 	}
 
 	/**
-	 * Runs a function on the collection and returns the collection.
-	 * @param {Function} fn Function to execute
-	 * @param {*} [thisArg] Value to use as `this` when executing function
-	 * @returns {Collection}
-	 * @example
-	 * collection
-	 *  .tap(coll => console.log(coll.size))
-	 *  .filter(user => user.bot)
-	 *  .tap(coll => console.log(coll.size))
-	 */
-	public tap(fn: (collection: this) => any): this {
-		fn(this);
-		return this;
-	}
-
-	/**
 	 * Creates an identical shallow copy of this collection.
 	 * @returns {Collection}
 	 * @example const newColl = someColl.clone();
@@ -389,39 +329,6 @@ export default class Collection<K, V> extends Map<K, V> {
 	public clone(): Collection<K, V> {
 		// @ts-expect-error Element implicitly has an 'any' type because expression of type 'symbol' can't be used to index type 'Function'.ts(7053)
 		return new this.constructor[Symbol.species](this);
-	}
-
-	/**
-	 * Combines this collection with others into a new collection. None of the source collections are modified.
-	 * @param {...Collection} collections Collections to merge
-	 * @returns {Collection}
-	 * @example const newColl = someColl.concat(someOtherColl, anotherColl, ohBoyAColl);
-	 */
-	public concat(...collections: Collection<K, V>[]): Collection<K, V> {
-		const newColl = this.clone();
-		for (const coll of collections) {
-			for (const [key, val] of coll) newColl.set(key, val);
-		}
-		return newColl;
-	}
-
-	/**
-	 * Checks if this collection shares identical key-value pairings with another.
-	 * This is different to checking for equality using equal-signs, because
-	 * the collections may be different objects, but contain the same data.
-	 * @param {Collection} collection Collection to compare with
-	 * @returns {boolean} Whether the collections have identical contents
-	 */
-	public equals(collection: Collection<K, V>): boolean {
-		if (!collection) return false;
-		if (this === collection) return true;
-		if (this.size !== collection.size) return false;
-		for (const [key, value] of this) {
-			if (!collection.has(key) || value !== collection.get(key)) {
-				return false;
-			}
-		}
-		return true;
 	}
 
 	/**
