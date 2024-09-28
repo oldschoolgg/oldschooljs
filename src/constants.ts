@@ -46,6 +46,7 @@ export const CLUES = ["all", "beginner", "easy", "medium", "hard", "elite", "mas
 export const mappedBossNames = [
 	["abyssalSire", "Abyssal Sire"],
 	["alchemicalHydra", "Alchemical Hydra"],
+	["amoxliatl", "Amoxliatl"],
 	["araxxor", "Araxxor"],
 	["artio", "Artio"],
 	["barrowsChests", "Barrows Chests"],
@@ -90,6 +91,7 @@ export const mappedBossNames = [
 	["tempoross", "Tempoross"],
 	["theGauntlet", "The Gauntlet"],
 	["theCorruptedGauntlet", "The Corrupted Gauntlet"],
+	["theHueycoatl", "The Hueycoatl"],
 	["theLeviathan", "The Leviathan"],
 	["theWhisperer", "The Whisperer"],
 	["theatreofBlood", "Theatre of Blood"],
