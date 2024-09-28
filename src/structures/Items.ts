@@ -2,6 +2,7 @@ import deepMerge from "deepmerge";
 
 import _items from "../data/items/item_data.json" assert { type: "json" };
 import type { Item, ItemID } from "../meta/types";
+import { cleanString } from "../util/cleanString";
 import { Collection } from "./Collection";
 
 // @ts-ignore asdf
@@ -70,7 +71,7 @@ class Items extends Collection<ItemID, Item> {
 		}
 
 		if (typeof input === "string") {
-			return itemNameMap.get(input);
+			return itemNameMap.get(cleanString(input));
 		}
 
 		return undefined;
@@ -84,8 +85,9 @@ for (const [id, item] of Object.entries(items)) {
 
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, item);
-	if (!itemNameMap.has(item.name)) {
-		itemNameMap.set(item.name, numID);
+	const cleanName = cleanString(item.name);
+	if (!itemNameMap.has(cleanName)) {
+		itemNameMap.set(cleanName, numID);
 	}
 }
 
