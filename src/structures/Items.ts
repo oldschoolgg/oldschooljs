@@ -1,7 +1,9 @@
-import _items from "../data/items/item_data.json";
+import deepMerge from "deepmerge";
+
+import _items from "../data/items/item_data.json" assert { type: "json" };
 import type { Item, ItemID } from "../meta/types";
 import { cleanString } from "../util/cleanString";
-import Collection from "./Collection";
+import { Collection } from "./Collection";
 
 // @ts-ignore asdf
 const items = _items as Record<string, Item>;
@@ -48,11 +50,19 @@ export const USELESS_ITEMS = [
 	23_814, 23_815, 23_816, 23_817,
 ];
 
-class Items extends Collection<number, Item> {
+class Items extends Collection<ItemID, Item> {
 	public get(item: ItemResolvable): Item | undefined {
 		const id = this.resolveID(item);
 		if (typeof id === "undefined") return undefined;
 		return super.get(id);
+	}
+
+	modifyItem(itemName: ItemResolvable, data: Partial<Item>) {
+		if (data.id) throw new Error("Cannot change item ID");
+		const id = this.resolveID(itemName)!;
+		const item = this.get(id);
+		if (!id || !item) throw new Error(`Item ${itemName} does not exist`);
+		this.set(item.id, deepMerge(item, data));
 	}
 
 	private resolveID(input: ItemResolvable): ItemID | undefined {
@@ -61,8 +71,7 @@ class Items extends Collection<number, Item> {
 		}
 
 		if (typeof input === "string") {
-			const cleanName = cleanString(input);
-			return itemNameMap.get(cleanName);
+			return itemNameMap.get(cleanString(input));
 		}
 
 		return undefined;
@@ -77,7 +86,9 @@ for (const [id, item] of Object.entries(items)) {
 	if (USELESS_ITEMS.includes(numID)) continue;
 	itemsExport.set(numID, item);
 	const cleanName = cleanString(item.name);
-	if (!itemNameMap.has(cleanName)) itemNameMap.set(cleanName, numID);
+	if (!itemNameMap.has(cleanName)) {
+		itemNameMap.set(cleanName, numID);
+	}
 }
 
 export default itemsExport;

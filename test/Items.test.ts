@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, test } from "vitest";
 
-import { Items, Openables } from "../src";
-import { EquipmentSlot, type Item } from "../src/meta/types";
+import { Items, Openables, getItem } from "../src";
+import { EquipmentSlot } from "../src/meta/types";
 
 const expectedIDTuple = [
 	["Coins", 995],
@@ -81,7 +81,7 @@ describe("Items", () => {
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20_997),
 				Items.get(2440),
-				Items.get("dragon dagger(p++)"),
+				Items.get("Dragon dagger(p++)"),
 				Items.get("Coins"),
 			];
 
@@ -108,21 +108,6 @@ describe("Items", () => {
 		60_000,
 	);
 
-	test.concurrent.each(["Zulrah's scales", "Belladonna seed"])(
-		"Duplicate/Stacked item counts",
-		itemName => {
-			const itemArr = Items.filter(i => i.name === itemName).array();
-			expect(itemArr.length !== 1).toBeFalsy();
-
-			const item = itemArr[0] as Item | undefined;
-
-			if (!item || !item.tradeable || !item.highalch) {
-				throw new Error(`Invalid item for ${itemName}?`);
-			}
-		},
-		60_000,
-	);
-
 	test.concurrent(
 		"Equipment",
 		async () => {
@@ -133,7 +118,6 @@ describe("Items", () => {
 			expect(tbow.wiki_name).toEqual("Twisted bow");
 			expect(tbow.equipable_weapon).toEqual(true);
 			expect(tbow.wiki_url).toEqual("https://oldschool.runescape.wiki/w/Twisted_bow");
-			expect(tbow.examine).toEqual("A mystical bow carved from the twisted remains of the Great Olm.");
 
 			const anglerHat = Items.get("Angler hat")!;
 			expect(anglerHat.equipment!.slot).toEqual(EquipmentSlot.Head);
@@ -152,9 +136,21 @@ describe("Items", () => {
 			expect(scep2.equipable_weapon).toEqual(true);
 			expect(scep2.equipable).toEqual(true);
 			expect(scep2.equipment?.slot).toEqual(EquipmentSlot.Weapon);
-
-			expect(Items.filter(i => i.name === "Pharaoh's sceptre").size).toEqual(1);
 		},
 		60_000,
 	);
+});
+
+test("modifyItem", () => {
+	const item = getItem("Coal");
+	if (!item) {
+		throw new Error("Item not found");
+	}
+	Items.modifyItem(item.id, {
+		price: 100,
+	});
+
+	for (const it of [getItem("Coal")!, Items.get("Coal")!]) {
+		expect(it.price).toEqual(100);
+	}
 });

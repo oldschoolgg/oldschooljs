@@ -5,7 +5,7 @@ import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 
 const HillGiantTable = new LootTable({ limit: 128 })
-	.every("Big Bones")
+	.every("Big bones")
 	.tertiary(25, "Ensouled giant head")
 	.tertiary(50, "Clue scroll (beginner)")
 	.tertiary(400, "Long bone")

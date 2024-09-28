@@ -1,4 +1,4 @@
-import Collection from "../../structures/Collection";
+import { Collection } from "../../structures/Collection";
 import type Openable from "../../structures/Openable";
 import BrimstoneChest from "./BrimstoneChest";
 import Casket from "./Casket";
@@ -33,6 +33,47 @@ import OgreCoffin from "./OgreCoffin";
 import { GiantsFoundryOrePack, VolcanicMineOrePack } from "./OrePack";
 import SeedPack from "./SeedPack";
 import SinisterChest from "./SinisterChest";
+
+export {
+	MysteryBox,
+	NestBoxEmpty,
+	NestBoxRing,
+	NestBoxSeeds,
+	GiantEggSacFull,
+	BronzeHAMChest,
+	IronHAMChest,
+	SilverHAMChest,
+	SteelHAMChest,
+	Casket,
+	CrystalChest,
+	ElvenCrystalChest,
+	GrubbyChest,
+	MuddyChest,
+	OgreCoffin,
+	SinisterChest,
+	BrimstoneChest,
+	LarransChest,
+	SeedPack,
+	BabyImpling,
+	YoungImpling,
+	GourmetImpling,
+	EarthImpling,
+	EssenceImpling,
+	EclecticImpling,
+	NatureImpling,
+	MagpieImpling,
+	NinjaImpling,
+	CrystalImpling,
+	DragonImpling,
+	LuckyImpling,
+	VolcanicMineOrePack,
+	GiantsFoundryOrePack,
+	IntricatePouch,
+	BasicSack,
+	AdeptSack,
+	ExpertSack,
+	MasterSack,
+};
 
 const openablesObject = {
 	MysteryBox,
@@ -77,8 +118,8 @@ const openablesObject = {
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
 
-class OpenablesCollection extends Collection<number, Openable> {}
-
-const Openables = Object.assign(new OpenablesCollection(allMonsters), openablesObject);
+const Openables = Object.assign(new Collection(allMonsters), openablesObject);
 
 export default Openables;
+
+export * from "./HallowedSack";

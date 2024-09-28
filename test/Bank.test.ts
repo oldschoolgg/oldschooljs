@@ -11,7 +11,7 @@ describe("Bank", () => {
 		expect.assertions(1);
 		const strBank = {
 			Toolkit: 2,
-			"Ammo Mould": 4,
+			"Ammo mould": 4,
 			Candle: 1,
 		};
 		const numBank = {

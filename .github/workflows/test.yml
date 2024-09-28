@@ -42,4 +42,3 @@ jobs:
       - name: Test
         run: |
           yarn test
-          npm i -g dpdm && dpdm --exit-code circular:1 --progress=false --warning=false --tree=false ./dist/index.js

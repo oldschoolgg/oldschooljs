@@ -1,5 +1,3 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
 import { itemID } from "../../util";
 import { BlessingTable, FirelighterTable, PrayerPageTable, TeleportScrollTable } from "./General";
@@ -55,8 +53,8 @@ export const EasyRareTable = new LootTable()
 	.add("Black platebody (t)")
 	.add("Black platelegs (t)")
 	.add("Black plateskirt (t)")
-	.add("Black Full Helm (t)")
-	.add("Black Kiteshield (t)")
+	.add("Black full helm (t)")
+	.add("Black kiteshield (t)")
 	.add("Studded body (t)")
 	.add("Studded chaps (t)")
 	.add("Blue skirt (t)")
@@ -81,10 +79,10 @@ export const EasyRareTable = new LootTable()
 	.add("Steel plateskirt (t)")
 	.add("Steel kiteshield (t)")
 	.add("Amulet of power (t)")
-	.add("Black Platebody (g)")
+	.add("Black platebody (g)")
 	.add("Black platelegs (g)")
 	.add("Black plateskirt (g)")
-	.add("Black full Helm (g)")
+	.add("Black full helm (g)")
 	.add("Black kiteshield (g)")
 	.add("Studded body (g)")
 	.add("Studded chaps (g)")
@@ -164,18 +162,18 @@ export const EasyStandardTable = new LootTable()
 	.add("Chaos rune", [5, 10])
 	.add("Nature rune", [5, 10])
 	.add("Purple sweets", [2, 6])
-	.add("Black Platebody")
-	.add("Black Longsword")
-	.add("Black Full Helm")
-	.add("Black Platelegs")
-	.add("Black Battleaxe")
-	.add("Black Axe")
-	.add("Steel Pickaxe")
-	.add("Black Dagger")
-	.add("Staff Of Air")
+	.add("Black platebody")
+	.add("Black longsword")
+	.add("Black full helm")
+	.add("Black platelegs")
+	.add("Black battleaxe")
+	.add("Black axe")
+	.add("Steel pickaxe")
+	.add("Black dagger")
+	.add("Staff of air")
 	.add("Studded chaps")
-	.add("Studded Body")
-	.add("Willow Shortbow")
+	.add("Studded body")
+	.add("Willow shortbow")
 	.add("Coif")
 	.add("Black pickaxe")
 	.add(EasyAmuletTable)
@@ -186,18 +184,5 @@ export const EasyStandardTable = new LootTable()
 	.add(TeleportScrollTable);
 
 export const EasyClueTable = new LootTable().add(EasyStandardTable, 1, 11).add(EasyRareTable, 1, 1);
-
-const MainTable = new LootTable().add(EasyClueTable, [2, 4]).tertiary(50, "Clue scroll (master)");
-export class EasyCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-const easyCasket = new EasyCasket({ table: EasyClueTable });
-easyCasket.allItems.push(itemID("Clue scroll (master)"));
-export default easyCasket;
+export const EasyCasket = new LootTable().add(EasyClueTable, [2, 4]).tertiary(50, "Clue scroll (master)");
+EasyCasket.allItems.push(itemID("Clue scroll (master)"));

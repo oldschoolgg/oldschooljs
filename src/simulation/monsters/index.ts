@@ -1,4 +1,4 @@
-import Collection from "../../structures/Collection";
+import { Collection } from "../../structures/Collection";
 import type Monster from "../../structures/Monster";
 import { CreatureCreation } from "./CreatureCreation";
 import { allBosses } from "./bosses";
@@ -20,8 +20,6 @@ const monstersObject = {
 
 const allMonsters: [number, Monster][] = Object.values(monstersObject).map((monster: Monster) => [monster.id, monster]);
 
-class MonstersCollection extends Collection<number, Monster> {}
-
-const Monsters = Object.assign(new MonstersCollection(allMonsters), monstersObject);
+export const Monsters = Object.assign(new Collection(allMonsters), monstersObject);
 
 export default Monsters;

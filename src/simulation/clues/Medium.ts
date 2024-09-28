@@ -1,7 +1,4 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
-import { itemID } from "../../util";
 import { BlessingTable, PrayerPageTable, TeleportScrollTable } from "./General";
 
 export const MediumUnicornTable = new LootTable().add("White unicorn mask").add("Black unicorn mask");
@@ -27,7 +24,7 @@ export const MediumElegantTable = new LootTable()
 export const MediumRareTable = new LootTable()
 	.add("Ranger boots")
 	.add("Wizard boots")
-	.add("Leprechaun Hat")
+	.add("Leprechaun hat")
 	.add("Cat mask")
 	.add("Penguin mask")
 	.add("Crier hat")
@@ -171,18 +168,4 @@ export const MediumStandardTable = new LootTable()
 
 export const MediumClueTable = new LootTable().add(MediumStandardTable, 1, 10).add(MediumRareTable, 1, 1);
 
-const MainTable = new LootTable().add(MediumClueTable, [3, 5]).tertiary(30, "Clue scroll (master)");
-
-export class MediumCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-const mediumCasket = new MediumCasket({ table: MediumClueTable });
-mediumCasket.allItems.push(itemID("Clue scroll (master)"));
-export default mediumCasket;
+export const MediumCasket = new LootTable().add(MediumClueTable, [3, 5]).tertiary(30, "Clue scroll (master)");

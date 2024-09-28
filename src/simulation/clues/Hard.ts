@@ -1,5 +1,3 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
 import { itemID, itemTupleToTable } from "../../util";
 import { BlessingTable, FirelighterTable, GildedTable, PrayerPageTable, TeleportScrollTable } from "./General";
@@ -49,13 +47,13 @@ export const HardHeralicPlatebody = new LootTable()
 	.add("Rune platebody (h5)");
 
 export const HardRareTable = new LootTable()
-	.add("Robin Hood hat")
-	.add("Tan Cavalier")
-	.add("Dark Cavalier")
-	.add("Black Cavalier")
-	.add("White Cavalier")
-	.add("Red Cavalier")
-	.add("Navy Cavalier")
+	.add("Robin hood hat")
+	.add("Tan cavalier")
+	.add("Dark cavalier")
+	.add("Black cavalier")
+	.add("White cavalier")
+	.add("Red cavalier")
+	.add("Navy cavalier")
 	.add("Pirate's hat")
 	.add("Enchanted hat")
 	.add("Enchanted top")
@@ -206,18 +204,5 @@ export const HardStandardTable = new LootTable()
 	.add(HardBowTable);
 
 export const HardClueTable = new LootTable().add(HardStandardTable, 1, 12).add(HardRareTable, 1, 1);
-const MainTable = new LootTable().add(HardClueTable, [4, 6]).tertiary(15, "Clue scroll (master)");
-
-export class HardCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-const hardCasket = new HardCasket({ table: HardClueTable });
-hardCasket.allItems.push(itemID("Clue scroll (master)"));
-export default hardCasket;
+export const HardCasket = new LootTable().add(HardClueTable, [4, 6]).tertiary(15, "Clue scroll (master)");
+HardCasket.allItems.push(itemID("Clue scroll (master)"));

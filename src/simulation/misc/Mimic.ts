@@ -1,8 +1,4 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
-
-type MimicClueTier = "master" | "elite";
 
 export const Mimic3rdAgeTable = new LootTable()
 	.add("3rd age range coif")
@@ -52,15 +48,3 @@ export const MasterMimicTable = new LootTable()
 	.add("Grimy ranarr weed", 25, 2)
 	.add("Raw manta ray", 15, 2)
 	.add("Wine of zamorak", 25, 2);
-
-class MimicCasket extends Clue {
-	public open(tier: MimicClueTier = "master", quantity = 1) {
-		const loot = new Bank();
-		for (let i = 0; i < quantity; i++) {
-			loot.add(tier.toLowerCase() === "elite" ? EliteMimicTable.roll() : MasterMimicTable.roll());
-		}
-		return loot;
-	}
-}
-
-export default new MimicCasket({ table: MasterMimicTable });

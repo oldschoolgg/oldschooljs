@@ -1,5 +1,3 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
 import { itemID } from "../../util";
 import {
@@ -47,7 +45,7 @@ export const EliteMegaRareTable = new LootTable()
 	.add("Gilded d'hide chaps")
 	.add("Gilded pickaxe")
 	.add("Gilded axe")
-	.add("Gilded Spade")
+	.add("Gilded spade")
 	.add(GildedTable, 1, 5)
 	.add(Elite3rdageTable);
 
@@ -64,7 +62,7 @@ export const EliteTuxedoTable = new LootTable()
 	.add("Light bow tie");
 
 export const EliteRareTable = new LootTable()
-	.add("Dragon Cane")
+	.add("Dragon cane")
 	.add("Briefcase")
 	.add("Sagacious spectacles")
 	.add("Royal crown")
@@ -150,18 +148,5 @@ export const EliteStandardTable = new LootTable()
 	.add(BlessingTable);
 
 export const EliteClueTable = new LootTable().add(EliteStandardTable, 1, 24).add(EliteRareTable, 1, 1);
-const MainTable = new LootTable().add(EliteClueTable, [4, 6]).tertiary(5, "Clue scroll (master)");
-
-export class EliteCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-const eliteCasket = new EliteCasket({ table: EliteClueTable });
-eliteCasket.allItems.push(itemID("Clue scroll (master)"));
-export default eliteCasket;
+export const EliteCasket = new LootTable().add(EliteClueTable, [4, 6]).tertiary(5, "Clue scroll (master)");
+EliteCasket.allItems.push(itemID("Clue scroll (master)"));

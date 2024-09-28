@@ -94,8 +94,6 @@ const manualItems: Item[] = [
 		lowalch: 30_000,
 		highalch: 45_000,
 		weight: 0.004,
-		release_date: "2023-07-26",
-		examine: "A powerful ring used to see into other realms...",
 		wiki_name: "Ring of shadows (uncharged)",
 		wiki_url: "https://oldschool.runescape.wiki/w/Ring_of_shadows#Uncharged",
 		equipment: {
@@ -123,8 +121,6 @@ const manualItems: Item[] = [
 		name: "Ancient lamp",
 		cost: 1,
 		weight: 0.1,
-		release_date: "2023-07-26",
-		examine: "Good for rubbing.",
 		wiki_name: "Ancient lamp",
 		wiki_url: "https://oldschool.runescape.wiki/w/Ancient_lamp",
 		price: 0,
@@ -140,8 +136,6 @@ const manualItems: Item[] = [
 		lowalch: 40,
 		highalch: 60,
 		weight: 3.175,
-		release_date: "2023-05-17",
-		examine: "A scaled blue dragonhide.",
 		wiki_name: "Scaly blue dragonhide",
 		wiki_url: "https://oldschool.runescape.wiki/w/Scaly_blue_dragonhide",
 		price: 2011,
@@ -211,7 +205,7 @@ const itemsToIgnorePrices = [
 	"Minced meat",
 	"Bagged dead tree",
 	"Kitchen table",
-	"Teak bed ",
+	"Teak bed",
 	"Bandana eyepatch",
 	"Iron bolts (p+)",
 	"Elemental helmet",
@@ -302,7 +296,10 @@ export default async function prepareItems(): Promise<void> {
 			"linked_id_noted",
 			"linked_id_placeholder",
 			"stacked",
+			"release_date",
 			"quest_item",
+			"weight",
+			"examine",
 		]) {
 			// @ts-ignore
 			delete item[delKey];
@@ -320,8 +317,6 @@ export default async function prepareItems(): Promise<void> {
 			"equipable_weapon",
 			"weight",
 			"buy_limit",
-			"release_date",
-			"examine",
 			"wiki_name",
 			"wiki_url",
 			"equipment",
@@ -416,7 +411,6 @@ export default async function prepareItems(): Promise<void> {
 			item.highalch = previousItem.highalch;
 			item.wiki_url = previousItem.wiki_url;
 			item.wiki_name = previousItem.wiki_name;
-			item.release_date = previousItem.release_date;
 			if (previousItem.equipment?.requirements) {
 				// @ts-ignore ignore
 				item.equipment = {

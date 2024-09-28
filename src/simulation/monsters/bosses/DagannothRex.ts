@@ -9,7 +9,7 @@ const DagannothRexTable = new LootTable()
 	.tertiary(20, "Ensouled dagannoth head")
 	.tertiary(42, "Clue scroll (hard)")
 	.tertiary(750, "Clue scroll (elite)")
-	.tertiary(5000, "Pet dagannoth Rex")
+	.tertiary(5000, "Pet dagannoth rex")
 
 	/* Weapons and armour */
 	.add("Steel kiteshield", 1, 17)

@@ -4,7 +4,7 @@ import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 
 export const SkeletonMageTable = new LootTable()
-	.every("ashes")
+	.every("Ashes")
 
 	/* Weapons and armour */
 	.add("Pink skirt", 1, 2)

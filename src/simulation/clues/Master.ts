@@ -1,5 +1,3 @@
-import Bank from "../../structures/Bank";
-import Clue from "../../structures/Clue";
 import LootTable from "../../structures/LootTable";
 import {
 	BlessingTable,
@@ -77,8 +75,8 @@ export const MasterMegaRareTable = new LootTable()
 	.add("Gilded d'hide vambraces")
 	.add("Gilded d'hide body")
 	.add("Gilded d'hide chaps")
-	.add("Gilded Pickaxe")
-	.add("Gilded Axe")
+	.add("Gilded pickaxe")
+	.add("Gilded axe")
 	.add("Gilded spade")
 	.add(Master3rdageTable)
 	.add(GildedTable);
@@ -137,7 +135,7 @@ export const MasterStandardTable = new LootTable()
 	.add("Limpwurt root", [40, 60])
 	.add("Purple sweets", [14, 33])
 	.add("Runite ore", [5, 8])
-	.add("Wine of Zamorak", [35, 50])
+	.add("Wine of zamorak", [35, 50])
 	.add("Grimy toadflax", [25, 35])
 	.add("Grimy ranarr weed", [5, 10])
 	.add("Grimy snapdragon", [5, 10])
@@ -159,16 +157,4 @@ export const MasterStandardTable = new LootTable()
 
 export const MasterClueTable = new LootTable().add(MasterStandardTable, 1, 22).add(MasterRareTable, 1, 1);
 
-const MainTable = new LootTable().add(MasterClueTable, [5, 7]).tertiary(1000, "Bloodhound");
-
-export class MasterCasket extends Clue {
-	open(quantity: number, targetBank?: undefined): Bank;
-	open(quantity: number, targetBank: Bank): null;
-	public open(quantity: number, targetBank?: Bank): Bank | null {
-		const loot = targetBank ?? new Bank();
-		MainTable.roll(quantity, { targetBank: loot });
-		return loot;
-	}
-}
-
-export default new MasterCasket({ table: MasterClueTable });
+export const MasterCasket = new LootTable().add(MasterClueTable, [5, 7]).tertiary(1000, "Bloodhound");
