@@ -1,4 +1,4 @@
-import Collection from "../../structures/Collection";
+import { Collection } from "../../structures/Collection";
 import type Openable from "../../structures/Openable";
 import BrimstoneChest from "./BrimstoneChest";
 import Casket from "./Casket";
@@ -118,9 +118,7 @@ const openablesObject = {
 
 const allMonsters: [number, Openable][] = Object.values(openablesObject).map(openable => [openable.id, openable]);
 
-class OpenablesCollection extends Collection<number, Openable> {}
-
-const Openables = Object.assign(new OpenablesCollection(allMonsters), openablesObject);
+const Openables = Object.assign(new Collection(allMonsters), openablesObject);
 
 export default Openables;
 

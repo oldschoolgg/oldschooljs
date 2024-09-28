@@ -1,6 +1,7 @@
 {
 	"name": "oldschooljs",
 	"version": "2.6.0",
+	"type": "module",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "./dist/cjs/index.js",
 	"module": "./dist/esm/index.js",
@@ -14,7 +15,7 @@
 		"wipedist": "node -e \"try { require('fs').rmSync('dist', { recursive: true }) } catch(_){}\"",
 		"test": "yarn build && concurrently \"yarn test:lint\" \"yarn test:unit\" \"tsc --noEmit -p test\"",
 		"test:unit": "vitest run --coverage",
-		"build": "yarn wipedist && tsc -p src && node esbuild.js",
+		"build": "yarn wipedist && tsc -p src && node esbuild.cjs",
 		"prepare": "tsx scripts/prepare",
 		"dev": "yarn prepare && yarn lint && yarn build && yarn test",
 		"lint": "biome check --write --diagnostic-level=error",

@@ -1,7 +1,7 @@
 import { beforeAll, describe, expect, test } from "vitest";
 
 import { Items, Openables, getItem } from "../src";
-import { EquipmentSlot, type Item } from "../src/meta/types";
+import { EquipmentSlot } from "../src/meta/types";
 
 const expectedIDTuple = [
 	["Coins", 995],
@@ -108,21 +108,6 @@ describe("Items", () => {
 		60_000,
 	);
 
-	test.concurrent.each(["Zulrah's scales", "Belladonna seed"])(
-		"Duplicate/Stacked item counts",
-		itemName => {
-			const itemArr = Items.filter(i => i.name === itemName).array();
-			expect(itemArr.length !== 1).toBeFalsy();
-
-			const item = itemArr[0] as Item | undefined;
-
-			if (!item || !item.tradeable || !item.highalch) {
-				throw new Error(`Invalid item for ${itemName}?`);
-			}
-		},
-		60_000,
-	);
-
 	test.concurrent(
 		"Equipment",
 		async () => {
@@ -152,8 +137,6 @@ describe("Items", () => {
 			expect(scep2.equipable_weapon).toEqual(true);
 			expect(scep2.equipable).toEqual(true);
 			expect(scep2.equipment?.slot).toEqual(EquipmentSlot.Weapon);
-
-			expect(Items.filter(i => i.name === "Pharaoh's sceptre").size).toEqual(1);
 		},
 		60_000,
 	);

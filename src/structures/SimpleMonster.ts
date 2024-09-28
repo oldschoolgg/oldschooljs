@@ -49,7 +49,16 @@ export default class SimpleMonster extends Monster {
 		const canGetBrimKey = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Konar;
 		const wildySlayer = options.onSlayerTask && options.slayerMaster === MonsterSlayerMaster.Krystilia;
 		const slayerMonster: boolean = Boolean(options.onSlayerTask && this.data.slayerLevelRequired > 1);
-		const lootTableOptions = { ...options.lootTableOptions, targetBank: loot };
+		const lootTableOptions = {
+			...options.lootTableOptions,
+			targetBank: loot,
+			effectiveTertiaryItems: this.table?.calculateTertiary(options.lootTableOptions),
+		};
+
+		if (!canGetBrimKey && !wildySlayer && !options.inCatacombs && !options.onSlayerTask) {
+			this.table?.roll(quantity, lootTableOptions);
+			return loot;
+		}
 
 		for (let i = 0; i < quantity; i++) {
 			if (canGetBrimKey) {

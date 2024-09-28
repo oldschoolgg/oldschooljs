@@ -5,9 +5,7 @@ import { itemID } from "../src/util";
 
 describe("Openables", () => {
 	test("allItems", () => {
-		const allItems = Openables.array()
-			.map(i => i.allItems)
-			.flat(Number.POSITIVE_INFINITY);
+		const allItems = Openables.map(i => i.allItems).flat(Number.POSITIVE_INFINITY);
 		for (const item of ["Mystic hat (dusk)", "Broken dragon hasta", "Dragonstone full helm"].map(itemID)) {
 			expect(allItems.includes(item)).toEqual(true);
 		}
