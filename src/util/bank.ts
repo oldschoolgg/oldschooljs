@@ -97,11 +97,11 @@ export function calcDropRatesFromBank(bank: Bank, iterations: number, uniques: n
 }
 
 export function calcDropRatesFromBankWithoutUniques(bank: Bank, iterations: number) {
-	const results = [];
+	const results: string[] = [];
 	for (const [item, qty] of bank.items().sort((a, b) => a[1] - b[1])) {
 		const rate = Math.round(iterations / qty);
 		if (rate < 2) continue;
-		results.push(`${qty}x ${item.name} (1 in ${rate})`);
+		results.push(`${item.name} (1 in ${rate})`);
 	}
 	return results;
 }
