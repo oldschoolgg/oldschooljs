@@ -1,6 +1,5 @@
 {
 	"name": "oldschooljs",
-	"version": "2.6.0",
 	"type": "module",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
 	"main": "./dist/cjs/index.js",
