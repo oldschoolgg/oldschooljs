@@ -1,8 +1,9 @@
+import "./structures/Items";
 import { EItem } from "./EItem";
 import { EMonster } from "./EMonster";
 import * as constants from "./constants";
 import { MonsterSlayerMaster } from "./meta/monsterData";
-import { MonsterKillOptions } from "./meta/types";
+import type { MonsterKillOptions } from "./meta/types";
 import * as Misc from "./simulation/misc";
 import Monsters from "./simulation/monsters/index";
 import Openables from "./simulation/openables/index";
@@ -23,7 +24,7 @@ export {
 	Items,
 	LootTable,
 	Misc,
-	MonsterKillOptions,
+	type MonsterKillOptions,
 	Monsters,
 	MonsterSlayerMaster,
 	Openables,

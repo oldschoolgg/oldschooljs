@@ -105,8 +105,7 @@ export default class Bank {
 	public addItem(item: number, quantity = 1): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
 		if (quantity < 1) return this;
-		const current = this.map.get(item) ?? 0;
-		this.map.set(item, current + quantity);
+		this.map.set(item, (this.map.get(item) ?? 0) + quantity);
 		return this;
 	}
 
