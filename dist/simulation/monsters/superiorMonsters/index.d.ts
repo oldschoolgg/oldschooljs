@@ -1,0 +1,31 @@
+export declare const allSuperiorMonsters: {
+    AbhorrentSpectre: import("../../../structures/SimpleMonster").default;
+    BasiliskSentinel: import("../../../structures/SimpleMonster").default;
+    CaveAbomination: import("../../../structures/SimpleMonster").default;
+    ChasmCrawler: import("../../../structures/SimpleMonster").default;
+    ChokeDevil: import("../../../structures/SimpleMonster").default;
+    Cockathrice: import("../../../structures/SimpleMonster").default;
+    ColossalHydra: import("../../../structures/SimpleMonster").default;
+    CrushingHand: import("../../../structures/SimpleMonster").default;
+    FlamingPyrelord: import("../../../structures/SimpleMonster").default;
+    GiantRockslug: import("../../../structures/SimpleMonster").default;
+    GreaterAbyssalDemon: import("../../../structures/SimpleMonster").default;
+    GuardianDrake: import("../../../structures/SimpleMonster").default;
+    InsatiableBloodveld: import("../../../structures/SimpleMonster").default;
+    InsatiableMutatedBloodveld: import("../../../structures/SimpleMonster").default;
+    KingKurask: import("../../../structures/SimpleMonster").default;
+    MalevolentMage: import("../../../structures/SimpleMonster").default;
+    MarbleGargoyle: import("../../../structures/SimpleMonster").default;
+    MonstrousBasilisk: import("../../../structures/SimpleMonster").default;
+    Nechryarch: import("../../../structures/SimpleMonster").default;
+    NightBeast: import("../../../structures/SimpleMonster").default;
+    NuclearSmokeDevil: import("../../../structures/SimpleMonster").default;
+    RepugnantSpectre: import("../../../structures/SimpleMonster").default;
+    ScreamingBanshee: import("../../../structures/SimpleMonster").default;
+    ScreamingTwistedBanshee: import("../../../structures/SimpleMonster").default;
+    ShadowWyrm: import("../../../structures/SimpleMonster").default;
+    SpikedTuroth: import("../../../structures/SimpleMonster").default;
+    VitreousJelly: import("../../../structures/SimpleMonster").default;
+    VitreousWarpedJelly: import("../../../structures/SimpleMonster").default;
+};
+//# sourceMappingURL=index.d.ts.map

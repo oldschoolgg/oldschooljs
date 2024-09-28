@@ -1,0 +1,1 @@
+{"version":3,"file":"Tempoross.d.ts","sourceRoot":"","sources":["../../../src/simulation/misc/Tempoross.ts"],"names":[],"mappings":"AAAA,OAAO,IAAI,MAAM,uBAAuB,CAAC;AAiIzC,wBAAgB,SAAS,CAAC,EACzB,QAAQ,EACR,YAAY,EACZ,QAAQ,GACR,EAAE;IACF,QAAQ,EAAE,MAAM,CAAC;IACjB,YAAY,EAAE,MAAM,CAAC;IACrB,QAAQ,EAAE,IAAI,CAAC;CACf,QAoCA"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Hespori.d.ts","sourceRoot":"","sources":["../../../../src/simulation/monsters/special/Hespori.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,kBAAkB,EAAE,MAAM,qBAAqB,CAAC;AAC9D,OAAO,IAAI,MAAM,0BAA0B,CAAC;AAE5C,OAAO,aAAa,MAAM,6BAA6B,CAAC;AA6DxD,qBAAa,OAAQ,SAAQ,aAAa;IAClC,IAAI,CAAC,QAAQ,SAAI,EAAE,OAAO,GAAE,kBAAyC,GAAG,IAAI;CAUnF;;AAED,wBAAgF"}

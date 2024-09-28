@@ -1,0 +1,156 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EliteCasket = exports.EliteClueTable = exports.EliteStandardTable = exports.EliteSeedTable = exports.EliteRareTable = exports.EliteTuxedoTable = exports.EliteMegaRareTable = exports.Elite3rdageTable = void 0;
+const Bank_1 = __importDefault(require("../../structures/Bank"));
+const Clue_1 = __importDefault(require("../../structures/Clue"));
+const LootTable_1 = __importDefault(require("../../structures/LootTable"));
+const util_1 = require("../../util");
+const General_1 = require("./General");
+exports.Elite3rdageTable = new LootTable_1.default()
+    .add("3rd age range coif")
+    .add("3rd age range top")
+    .add("3rd age range legs")
+    .add("3rd age vambraces")
+    .add("3rd age robe top")
+    .add("3rd age robe")
+    .add("3rd age mage hat")
+    .add("3rd age amulet")
+    .add("3rd age platelegs")
+    .add("3rd age platebody")
+    .add("3rd age full helmet")
+    .add("3rd age plateskirt")
+    .add("3rd age kiteshield")
+    .add("3rd age longsword")
+    .add("3rd age cloak")
+    .add("3rd age wand")
+    .add("3rd age bow");
+exports.EliteMegaRareTable = new LootTable_1.default()
+    .add("Gilded scimitar")
+    .add("Gilded boots")
+    .add("Battlestaff", 100)
+    .add("Crystal key")
+    .add("Lava dragon mask")
+    .add("Ranging potion(4)", 30)
+    .add("Saradomin brew(4)", 30)
+    .add("Super restore(4)", 30)
+    .add("Ring of nature")
+    .add("Extended antifire(4)", 30)
+    .add("Gilded coif")
+    .add("Gilded d'hide vambraces")
+    .add("Gilded d'hide body")
+    .add("Gilded d'hide chaps")
+    .add("Gilded pickaxe")
+    .add("Gilded axe")
+    .add("Gilded Spade")
+    .add(General_1.GildedTable, 1, 5)
+    .add(exports.Elite3rdageTable);
+exports.EliteTuxedoTable = new LootTable_1.default()
+    .add("Dark tuxedo jacket")
+    .add("Dark tuxedo cuffs")
+    .add("Dark trousers")
+    .add("Dark tuxedo shoes")
+    .add("Dark bow tie")
+    .add("Light tuxedo jacket")
+    .add("Light tuxedo cuffs")
+    .add("Light trousers")
+    .add("Light tuxedo shoes")
+    .add("Light bow tie");
+exports.EliteRareTable = new LootTable_1.default()
+    .add("Dragon Cane")
+    .add("Briefcase")
+    .add("Sagacious spectacles")
+    .add("Royal crown")
+    .add("Royal sceptre")
+    .add("Royal gown top")
+    .add("Royal gown bottom")
+    .add("Fury ornament kit")
+    .add("Dragon chainbody ornament kit")
+    .add("Dragon legs/skirt ornament kit")
+    .add("Dragon sq shield ornament kit")
+    .add("Dragon full helm ornament kit")
+    .add("Bronze dragon mask")
+    .add("Iron dragon mask")
+    .add("Steel dragon mask")
+    .add("Mithril dragon mask")
+    .add("Afro")
+    .add("Katana")
+    .add("Big pirate hat")
+    .add("Top hat")
+    .add("Light infinity colour kit")
+    .add("Dark infinity colour kit")
+    .add("Black d'hide chaps (t)")
+    .add("Black d'hide chaps (g)")
+    .add("Black d'hide body (t)")
+    .add("Black d'hide body (g)")
+    .add("Musketeer hat")
+    .add("Musketeer tabard")
+    .add("Musketeer pants")
+    .add("Deerstalker")
+    .add("Blacksmith's helm")
+    .add("Arceuus scarf")
+    .add("Hosidius scarf")
+    .add("Lovakengj scarf")
+    .add("Piscarilius scarf")
+    .add("Shayzien scarf")
+    .add("Dragon scimitar ornament kit")
+    .add("Holy wraps")
+    .add("Ranger gloves")
+    .add("Bucket helm")
+    .add("Fremennik kilt")
+    .add("Adamant dragon mask")
+    .add("Rune dragon mask")
+    .add("Rangers' tights")
+    .add("Uri's hat")
+    .add("Giant boot")
+    .add("Rangers' tunic")
+    .add("Monocle")
+    .add(exports.EliteMegaRareTable, 1, 2)
+    .add(exports.EliteTuxedoTable);
+exports.EliteSeedTable = new LootTable_1.default().add("Magic seed").add("Yew seed").add("Palm tree seed");
+exports.EliteStandardTable = new LootTable_1.default()
+    .add("Coins", [20_000, 30_000])
+    .add("Tuna potato", [15, 20])
+    .add("Summer pie", [15, 20])
+    .add("Law rune", [50, 75])
+    .add("Death rune", [50, 75])
+    .add("Blood rune", [50, 75])
+    .add("Soul rune", [50, 75])
+    .add("Oak plank", [60, 80])
+    .add("Purple sweets", [9, 23])
+    .add("Teak plank", [40, 50])
+    .add("Mahogany plank", [20, 30])
+    .add("Dragonstone bracelet")
+    .add("Dragon necklace")
+    .add("Dragonstone ring")
+    .add("Runite bar", [1, 3])
+    .add("Onyx bolt tips", [8, 12])
+    .add("Dragon dagger")
+    .add("Dragon longsword")
+    .add("Rune platebody")
+    .add("Rune platelegs")
+    .add("Rune plateskirt")
+    .add("Rune kiteshield")
+    .add("Dragon mace")
+    .add("Rune crossbow")
+    .add(exports.EliteSeedTable)
+    .add(General_1.PrayerPageTable)
+    .add(General_1.FirelighterTable)
+    .add(General_1.GiveHalfKeyTable)
+    .add(General_1.TeleportScrollTable, 1, 2)
+    .add(General_1.BlessingTable);
+exports.EliteClueTable = new LootTable_1.default().add(exports.EliteStandardTable, 1, 24).add(exports.EliteRareTable, 1, 1);
+const MainTable = new LootTable_1.default().add(exports.EliteClueTable, [4, 6]).tertiary(5, "Clue scroll (master)");
+class EliteCasket extends Clue_1.default {
+    open(quantity, targetBank) {
+        const loot = targetBank ?? new Bank_1.default();
+        MainTable.roll(quantity, { targetBank: loot });
+        return loot;
+    }
+}
+exports.EliteCasket = EliteCasket;
+const eliteCasket = new EliteCasket({ table: exports.EliteClueTable });
+eliteCasket.allItems.push((0, util_1.itemID)("Clue scroll (master)"));
+exports.default = eliteCasket;

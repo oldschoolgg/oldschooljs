@@ -1,0 +1,1 @@
+{"version":3,"file":"Clue.d.ts","sourceRoot":"","sources":["../../src/structures/Clue.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,WAAW,EAAE,MAAM,eAAe,CAAC;AACjD,OAAO,KAAK,SAAS,MAAM,aAAa,CAAC;AAEzC,MAAM,CAAC,OAAO,OAAO,IAAI;IACjB,KAAK,EAAE,SAAS,CAAC;IACjB,QAAQ,EAAE,MAAM,EAAE,CAAC;gBAEd,OAAO,EAAE,WAAW;CAIhC"}
