@@ -1,0 +1,1 @@
+{"version":3,"file":"BrimstoneChest.d.ts","sourceRoot":"","sources":["../../../src/simulation/openables/BrimstoneChest.ts"],"names":[],"mappings":"AAEA,OAAO,KAAK,EAAE,mBAAmB,EAAE,MAAM,kBAAkB,CAAC;AAC5D,OAAO,IAAI,MAAM,uBAAuB,CAAC;AAEzC,OAAO,cAAc,MAAM,iCAAiC,CAAC;AAkC7D,qBAAa,sBAAuB,SAAQ,cAAc;IAClD,IAAI,CAAC,QAAQ,SAAI,EAAE,OAAO,GAAE,mBAAqC;CA0BxE;;AAED,wBAKG"}

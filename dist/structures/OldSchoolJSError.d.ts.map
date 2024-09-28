@@ -1,0 +1,1 @@
+{"version":3,"file":"OldSchoolJSError.d.ts","sourceRoot":"","sources":["../../src/structures/OldSchoolJSError.ts"],"names":[],"mappings":"AAAA,OAAO,EAAqB,KAAK,MAAM,EAAE,MAAM,cAAc,CAAC;AAE9D,MAAM,CAAC,OAAO,OAAO,gBAAiB,SAAQ,KAAK;IAC3C,IAAI,EAAE,MAAM,CAAC;IACb,WAAW,SAAM;gBAEL,IAAI,EAAE,MAAM;CAO/B"}
