@@ -17,10 +17,6 @@ export class Collection<K, V> extends Map<K, V> {
 		return result;
 	}
 
-	valuesArray(): V[] {
-		return Array.from(this.values());
-	}
-
 	random(): V {
 		const index = Math.floor(Math.random() * this.size);
 		let i = 0;
@@ -28,5 +24,17 @@ export class Collection<K, V> extends Map<K, V> {
 			if (i++ === index) return entry[1];
 		}
 		throw new Error("No item found");
+	}
+
+	array() {
+		return Array.from(this.values());
+	}
+
+	find(predicate: (value: V, key: K, map: this) => boolean): V | undefined {
+		for (const [key, value] of this) {
+			if (predicate(value, key, this)) {
+				return value;
+			}
+		}
 	}
 }

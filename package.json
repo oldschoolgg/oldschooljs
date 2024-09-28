@@ -1,10 +1,38 @@
 {
 	"name": "oldschooljs",
-	"type": "module",
 	"description": "Allows you to interact with the OSRS Hiscores, Wiki, Items, & more.",
-	"main": "./dist/cjs/index.cjs",
-	"module": "./dist/esm/index.mjs",
-	"types": "./dist/types/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		},
+		"./util": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		},
+		"./dist/util": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		},
+		"./dist/util/util": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		},
+		"./dist/meta/types": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		},
+		"./dist/*": {
+			"require": "./dist/cjs/index.cjs",
+			"import": "./dist/esm/index.mjs",
+			"types": "./dist/types/index.d.ts"
+		}
+	},
 	"license": "MIT",
 	"repository": {
 		"type": "git",
