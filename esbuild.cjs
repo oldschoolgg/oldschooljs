@@ -1,29 +1,29 @@
 const esbuild = require('esbuild');
 
+const minifyJsonPlugin = {
+  name: 'minify-json',
+  setup(build) {
+    build.onLoad({ filter: /\.json$/ }, async (args) => {
+      const fs = require('fs/promises');
+      const jsonContent = await fs.readFile(args.path, 'utf8');
+      const minifiedContent = JSON.stringify(JSON.parse(jsonContent));
+      return {
+        contents: minifiedContent,
+        loader: 'copy',
+      };
+    });
+  },
+};
+
 const baseConfig = {
 	keepNames: true,
 	minify: true,
+	plugins: [minifyJsonPlugin],
 	external: ['node-fetch'],
 	loader: {
 	  '.json': 'copy',
 	},
 }
-
-esbuild.build({
-  ...baseConfig,
-  entryPoints: ['src/index.ts'],
-  bundle: true,
-  outdir: 'dist/esm',
-  sourcemap: false,
-  platform: 'node',
-  format: 'esm',
-  target: 'node20', 
-  external: ['node-fetch'],
-  loader: {
-    '.json': 'copy',
-  },
-  logLevel: 'silent',
-}).catch(() => process.exit(1));
 
 esbuild.build({
   ...baseConfig,
@@ -44,9 +44,7 @@ esbuild.build({
   sourcemap: true,
   format: 'esm',
   target: 'esnext',
-  outdir: './dist/clean',
+  outdir: './dist/esm',
   platform: 'node',
-  external: ['node-fetch'],
-  plugins: [],
   outExtension: { '.js': '.mjs' }, 
 }).catch(() => process.exit(1));

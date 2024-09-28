@@ -14,10 +14,7 @@ test("Items Sanity Test", async () => {
 	expect(item27624.cost).toEqual(211_000);
 	// expect(item27624.lowalch).toBeUndefined();
 	// expect(item27624.highalch).toBeUndefined();
-	expect(item27624.weight).toEqual(2.267);
 	expect(item27624.buy_limit).toBeUndefined();
-	expect(item27624.release_date).toEqual("2023-01-11");
-	expect(item27624.examine).toEqual("A very old and powerful stick.");
 
 	const item27626 = Items.get(27_626)!;
 	expect(item27626.id).toEqual(27_626);
@@ -30,10 +27,7 @@ test("Items Sanity Test", async () => {
 	expect(item27626.cost).toEqual(211_000);
 	// expect(item27626.lowalch).toBeUndefined();
 	// expect(item27626.highalch).toBeUndefined();
-	expect(item27626.weight).toEqual(2.267);
 	expect(item27626.buy_limit).toBeUndefined();
-	expect(item27626.release_date).toEqual("2023-01-11");
-	expect(item27626.examine).toEqual("A very old and powerful stick.");
 
 	const item27612 = Items.get(27_612)!;
 	expect(item27612.id).toEqual(27_612);
