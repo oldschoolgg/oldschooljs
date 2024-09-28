@@ -15,7 +15,7 @@ export function calcDropRatesFromBankWithoutUniques(bank: Bank, iterations: numb
 
 function doSnapshot(its: number, bank: Bank, name: string) {
 	writeFileSync(
-		`./test/snapshots/${name}.json`,
+		`./test/snapshots/${name}.txt`,
 		calcDropRatesFromBankWithoutUniques(bank, its)
 			.sort((a, b) => b.localeCompare(a))
 			.join("\n"),
