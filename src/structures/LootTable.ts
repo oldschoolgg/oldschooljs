@@ -49,7 +49,6 @@ export interface LootTableRollOptions {
 	 */
 	tertiaryItemPercentageChanges?: Map<string, number>;
 	targetBank?: Bank;
-	effectiveTertiaryItems?: OneInItems[];
 }
 
 export default class LootTable {
@@ -195,7 +194,12 @@ export default class LootTable {
 		return this;
 	}
 
-	public calculateTertiary(options: LootTableRollOptions = {}) {
+	private cachedOptimizedTable: number[] | null = null;
+	roll(quantity?: number): Bank;
+	roll(quantity: number, options: { targetBank?: undefined } & LootTableRollOptions): Bank;
+	roll(quantity: number, options: { targetBank: Bank } & LootTableRollOptions): null;
+	public roll(quantity = 1, options: LootTableRollOptions = {}): Bank | null {
+		const loot = options.targetBank ?? new Bank();
 		const effectiveTertiaryItems = options.tertiaryItemPercentageChanges
 			? this.tertiaryItems.map(i => {
 					if (typeof i.item !== "number") return i;
@@ -208,20 +212,6 @@ export default class LootTable {
 					};
 				})
 			: this.tertiaryItems;
-
-		console.trace("effectiveTertiaryItems");
-		return effectiveTertiaryItems;
-	}
-
-	private cachedOptimizedTable: number[] | null = null;
-	roll(quantity?: number): Bank;
-	roll(quantity: number, options: { targetBank?: undefined } & LootTableRollOptions): Bank;
-	roll(quantity: number, options: { targetBank: Bank } & LootTableRollOptions): null;
-	public roll(quantity = 1, options: LootTableRollOptions = {}): Bank | null {
-		const loot = options.targetBank ?? new Bank();
-
-		const effectiveTertiaryItems = options.effectiveTertiaryItems ?? this.calculateTertiary(options);
-
 		const limit = this.limit || this.totalWeight;
 
 		if (this.table.every(i => Number.isInteger(i.weight)) && this.cachedOptimizedTable === null) {
@@ -231,35 +221,38 @@ export default class LootTable {
 					this.cachedOptimizedTable.push(this.table.indexOf(item));
 				}
 			}
+			while (this.cachedOptimizedTable.length < limit) {
+				this.cachedOptimizedTable.push(-1);
+			}
 		}
 
 		outerLoop: for (let i = 0; i < quantity; i++) {
 			for (let j = 0; j < this.everyItems.length; j++) {
-				this.addResultToLoot(this.everyItems[j], loot, effectiveTertiaryItems);
+				this.addResultToLoot(this.everyItems[j], loot);
 			}
 
 			for (let j = 0; j < effectiveTertiaryItems.length; j++) {
 				if (roll(effectiveTertiaryItems[j].chance)) {
-					this.addResultToLoot(effectiveTertiaryItems[j], loot, effectiveTertiaryItems);
+					this.addResultToLoot(effectiveTertiaryItems[j], loot);
 				}
 			}
 
 			for (let j = 0; j < this.oneInItems.length; j++) {
 				if (roll(this.oneInItems[j].chance)) {
-					this.addResultToLoot(this.oneInItems[j], loot, effectiveTertiaryItems);
+					this.addResultToLoot(this.oneInItems[j], loot);
 					continue outerLoop;
 				}
 			}
 
 			if (this.cachedOptimizedTable) {
-				this.addResultToLoot(this.table[randArrItem(this.cachedOptimizedTable)], loot, effectiveTertiaryItems);
+				this.addResultToLoot(this.table[randArrItem(this.cachedOptimizedTable)], loot);
 			} else {
 				const randomWeight = randFloat(0, limit);
 				let weight = 0;
 				for (let i = 0; i < this.table.length; i++) {
 					weight += this.table[i].weight!;
 					if (randomWeight <= weight) {
-						this.addResultToLoot(this.table[i], loot, effectiveTertiaryItems);
+						this.addResultToLoot(this.table[i], loot);
 						break;
 					}
 				}
@@ -272,7 +265,7 @@ export default class LootTable {
 		return null;
 	}
 
-	private addResultToLoot(result: LootTableItem, loot: Bank, effectiveTertiaryItems: OneInItems[]): void {
+	private addResultToLoot(result: LootTableItem, loot: Bank): void {
 		if (typeof result?.item === "number") {
 			loot.addItem(result.item, this.determineQuantity(result.quantity));
 			return;
@@ -280,8 +273,8 @@ export default class LootTable {
 
 		if (result?.item instanceof LootTable) {
 			const qty = this.determineQuantity(result.quantity);
-			if (result.options?.multiply) loot.add(result.item.roll(1, { effectiveTertiaryItems }).multiply(qty));
-			else result.item.roll(qty, { targetBank: loot, effectiveTertiaryItems });
+			if (result.options?.multiply) loot.add(result.item.roll(1).multiply(qty));
+			else result.item.roll(qty, { targetBank: loot });
 			return;
 		}
 	}

@@ -2,7 +2,7 @@ import { expect, test } from "vitest";
 
 import { Hiscores } from "../src";
 
-test("Hiscores", async () => {
+test.skip("Hiscores", async () => {
 	const koru = await Hiscores.fetch("Koru");
 
 	expect(koru.minigames.pvpArena.rank).toBeGreaterThanOrEqual(1);

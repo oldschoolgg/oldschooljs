@@ -52,7 +52,6 @@ export default class SimpleMonster extends Monster {
 		const lootTableOptions = {
 			...options.lootTableOptions,
 			targetBank: loot,
-			effectiveTertiaryItems: this.table?.calculateTertiary(options.lootTableOptions),
 		};
 
 		if (!canGetBrimKey && !wildySlayer && !options.inCatacombs && !options.onSlayerTask) {

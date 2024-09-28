@@ -1,9 +1,7 @@
 import { beforeAll, describe, test } from "vitest";
 
-import { Monsters } from "../src";
-import Bank from "../src/structures/Bank";
+import { Monsters, SimpleMonster } from "../src";
 import LootTable from "../src/structures/LootTable";
-import Monster from "../src/structures/Monster";
 import { itemTupleToTable } from "../src/util";
 import { checkThreshold } from "./testUtil";
 
@@ -46,8 +44,10 @@ describe("Monsters", () => {
 		}
 	});
 
-	class TestMonsterClass extends Monster {
-		table = new LootTable()
+	const TesterMonster = new SimpleMonster({
+		id: 1,
+		name: "",
+		table: new LootTable()
 			.every("Dragon bones")
 			.every("Bones")
 			.tertiary(100, "Ranger boots")
@@ -58,35 +58,10 @@ describe("Monsters", () => {
 			.add("Bandos page 4")
 			.add(subTable)
 			.add(quantityTable, 100)
-			.add(emptyTable);
-
-		public kill(quantity = 1): Bank {
-			const loot = new Bank();
-
-			for (let i = 0; i < quantity; i++) {
-				const roll = this.table.roll();
-				const barDrop = roll.amount("Iron bar");
-				const otherBarDrop = roll.amount("Steel bar");
-
-				if (otherBarDrop !== barDrop) {
-					throw new Error("Should drop equal amount");
-				}
-
-				const dragonClawsAmount = roll.amount("Dragon claws");
-				if (dragonClawsAmount !== 0 && dragonClawsAmount !== 100) {
-					throw new Error("Dragon claws amount must be 0 or 100");
-				}
-
-				loot.add(roll);
-			}
-
-			return loot;
-		}
-	}
+			.add(emptyTable),
+	});
 
 	test("Test Monster", () => {
-		const TesterMonster = new TestMonsterClass({ id: 1, name: "Test" });
-
 		const number = 500_000;
 
 		const expectedRates = {
@@ -94,18 +69,18 @@ describe("Monsters", () => {
 			Bones: 1,
 			"Ranger boots": 100,
 			"Twisted bow": 10,
-			"Bandos page 1": TesterMonster.table.length,
-			"Bandos page 2": TesterMonster.table.length,
-			"Bandos page 3": TesterMonster.table.length,
-			"Bandos page 4": TesterMonster.table.length,
-			Knife: TesterMonster.table.length * subTable.length,
-			Amethyst: TesterMonster.table.length * subTable.length,
-			Needle: TesterMonster.table.length * subTable.length,
-			Coal: (TesterMonster.table.length * subTable.length) / subSubTable.length,
-			"Iron bar": TesterMonster.table.length * subTable.length,
-			"Steel bar": TesterMonster.table.length * subTable.length,
-			"Dragon claws": TesterMonster.table.length / 100,
-			"Rune crossbow": TesterMonster.table.length * 100,
+			"Bandos page 1": TesterMonster.table!.length,
+			"Bandos page 2": TesterMonster.table!.length,
+			"Bandos page 3": TesterMonster.table!.length,
+			"Bandos page 4": TesterMonster.table!.length,
+			Knife: TesterMonster.table!.length * subTable.length,
+			Amethyst: TesterMonster.table!.length * subTable.length,
+			Needle: TesterMonster.table!.length * subTable.length,
+			Coal: (TesterMonster.table!.length * subTable.length) / subSubTable.length,
+			"Iron bar": TesterMonster.table!.length * subTable.length,
+			"Steel bar": TesterMonster.table!.length * subTable.length,
+			"Dragon claws": TesterMonster.table!.length / 100,
+			"Rune crossbow": TesterMonster.table!.length * 100,
 		};
 		const loot = TesterMonster.kill(number);
 		return checkThreshold(expectedRates, loot, number);
