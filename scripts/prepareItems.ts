@@ -211,7 +211,7 @@ const itemsToIgnorePrices = [
 	"Minced meat",
 	"Bagged dead tree",
 	"Kitchen table",
-	"Teak bed ",
+	"Teak bed",
 	"Bandana eyepatch",
 	"Iron bolts (p+)",
 	"Elemental helmet",

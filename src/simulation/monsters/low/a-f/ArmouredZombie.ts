@@ -4,7 +4,7 @@ import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 
 export const ArmouredZombieTable = new LootTable({ limit: 128 })
-	.every("bones")
+	.every("Bones")
 
 	/* Runes and ammunition */
 	.add("Pure essence", [20, 50], 12)

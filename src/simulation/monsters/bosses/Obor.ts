@@ -3,7 +3,7 @@ import SimpleMonster from "../../../structures/SimpleMonster";
 import { itemTupleToTable } from "../../../util";
 
 const OborTable = new LootTable({ limit: 118 })
-	.every("Big Bones")
+	.every("Big bones")
 	.every("Clue scroll (beginner)")
 	.every("Ensouled giant head")
 	.tertiary(16, "Giant key")

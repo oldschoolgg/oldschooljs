@@ -21,7 +21,7 @@ export const VampyreJuvinateTable = new LootTable()
 	/* Armour */
 	.add("Steel plateskirt", 1, 4)
 	.add("Steel platebody", 1, 4)
-	.add("Black fullhelm", 1, 2)
+	.add("Black full helm", 1, 2)
 	.add("Black kiteshield", 1, 2)
 	.add("Black sq shield", 1, 2)
 	.add("Mithril full helm", 1, 2)

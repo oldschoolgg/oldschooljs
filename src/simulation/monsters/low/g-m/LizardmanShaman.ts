@@ -6,7 +6,7 @@ import TreeHerbSeedTable from "../../../subtables/TreeHerbSeedTable";
 
 const LizardmanShamanTable = new LootTable({ limit: 500 })
 	.every("Big bones")
-	.oneIn(3000, "Dragon Warhammer")
+	.oneIn(3000, "Dragon warhammer")
 
 	/* Weapons and armor */
 	.add("Rune med helm", 1, 18)
@@ -38,7 +38,7 @@ const LizardmanShamanTable = new LootTable({ limit: 500 })
 	.add("Coins", [100, 6000], 70)
 	.add("Lizardman fang", [10, 14], 38)
 	.add("Chilli potato", 2, 30)
-	.add("Xeric's talisman(inert)", 1, 4)
+	.add("Xeric's talisman (inert)", 1, 4)
 
 	/* RDT */
 	.add(RareDropTable, 1, 20)

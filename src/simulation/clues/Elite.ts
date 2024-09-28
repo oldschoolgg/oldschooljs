@@ -45,7 +45,7 @@ export const EliteMegaRareTable = new LootTable()
 	.add("Gilded d'hide chaps")
 	.add("Gilded pickaxe")
 	.add("Gilded axe")
-	.add("Gilded Spade")
+	.add("Gilded spade")
 	.add(GildedTable, 1, 5)
 	.add(Elite3rdageTable);
 
@@ -62,7 +62,7 @@ export const EliteTuxedoTable = new LootTable()
 	.add("Light bow tie");
 
 export const EliteRareTable = new LootTable()
-	.add("Dragon Cane")
+	.add("Dragon cane")
 	.add("Briefcase")
 	.add("Sagacious spectacles")
 	.add("Royal crown")

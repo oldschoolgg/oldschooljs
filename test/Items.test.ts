@@ -81,7 +81,7 @@ describe("Items", () => {
 			const [tbow, superStr, dragonDagger, coins] = [
 				Items.get(20_997),
 				Items.get(2440),
-				Items.get("dragon dagger(p++)"),
+				Items.get("Dragon dagger(p++)"),
 				Items.get("Coins"),
 			];
 

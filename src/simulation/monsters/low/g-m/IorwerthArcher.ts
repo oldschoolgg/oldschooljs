@@ -38,7 +38,7 @@ const IorwerthArcherTable = new LootTable()
 	.add("Bass", 1, 3)
 	.add("Shark", 1, 3)
 	.add("Adamantite ore", 1, 2)
-	.add("teleport crystal (1)", 1, 1)
+	.add("Teleport crystal (1)", 1, 1)
 
 	/* Gem drop table */
 	.add(GemTable, 1, 5)

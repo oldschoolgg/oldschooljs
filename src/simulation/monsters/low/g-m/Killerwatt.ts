@@ -11,7 +11,7 @@ export const KillerwattTable = new LootTable()
 	.add("Staff of air", 1, 2)
 	.add("Fire battlestaff", 1, 1)
 	.add("Air battlestaff", 1, 1)
-	.oneIn(512, "Mystic firestaff")
+	.oneIn(512, "Mystic fire staff")
 
 	/* Runes and ammunition */
 	.add("Nature rune", 8, 11)
