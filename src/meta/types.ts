@@ -226,21 +226,9 @@ export interface Item {
 	 */
 	highalch?: number;
 	/**
-	 * The weight (in kilograms) of the item.
-	 */
-	weight?: number;
-	/**
 	 * The GE buy limit of the item.
 	 */
 	buy_limit?: number;
-	/**
-	 * Date the item was released (in ISO8601 format).
-	 */
-	release_date?: string;
-	/**
-	 * The examine text for the item.
-	 */
-	examine?: string;
 	/**
 	 * The OSRS Wiki name for the item.
 	 */

@@ -162,10 +162,7 @@ export interface Item {
     cost: number;
     lowalch?: number;
     highalch?: number;
-    weight?: number;
     buy_limit?: number;
-    release_date?: string;
-    examine?: string;
     wiki_name?: string;
     wiki_url?: string;
     equipment?: ItemEquipment;
