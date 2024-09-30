@@ -1,4 +1,5 @@
 export declare const allLowMonsters: {
+    Araxyte: import("../../..").SimpleMonster;
     BloodReaver: import("../../..").SimpleMonster;
     BrutalBlackDragon: import("../../..").SimpleMonster;
     BabyBlackDragon: import("../../..").SimpleMonster;

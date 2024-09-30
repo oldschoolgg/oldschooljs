@@ -66,6 +66,7 @@ export declare const Monsters: Collection<number, Monster> & {
     TzTokJad: import("./special/TzTokJad").TzTokJadClass;
     Hespori: import("./special/Hespori").Hespori;
     TzKalZuk: import("./special/TzKalZuk").TzKalZukClass;
+    Araxyte: import("../..").SimpleMonster;
     BloodReaver: import("../..").SimpleMonster;
     BrutalBlackDragon: import("../..").SimpleMonster;
     BabyBlackDragon: import("../..").SimpleMonster;

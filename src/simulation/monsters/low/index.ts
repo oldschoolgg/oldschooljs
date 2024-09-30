@@ -5,6 +5,7 @@ import AdamantDragon from "./a-f/AdamantDragon";
 import AlKharidWarrior from "./a-f/AlKharidWarrior";
 import AncientZygomite from "./a-f/AncientZygomite";
 import Ankou from "./a-f/Ankou";
+import { Araxyte } from "./a-f/Araxyte";
 import ArmadylianGuard from "./a-f/ArmadylianGuard";
 import ArmouredZombie from "./a-f/ArmouredZombie";
 import AsynShade from "./a-f/AsynShade";
@@ -269,6 +270,7 @@ import ZombieRat from "./t-z/ZombieRat";
 import Zygomite from "./t-z/Zygomite";
 
 export const allLowMonsters = {
+	Araxyte,
 	BloodReaver,
 	BrutalBlackDragon,
 	BabyBlackDragon,
