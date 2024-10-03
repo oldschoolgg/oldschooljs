@@ -1,3 +1,6 @@
+import LootTable from "../../../structures/LootTable";
+import SimpleMonster from "../../../structures/SimpleMonster";
+import { AraxyteTable } from "../low/a-f/Araxyte";
 import AbhorrentSpectre from "./AbhorrentSpectre";
 import BasiliskSentinel from "./BasiliskSentinel";
 import CaveAbomination from "./CaveAbomination";
@@ -27,6 +30,19 @@ import SpikedTuroth from "./SpikedTuroth";
 import VitreousJelly from "./VitreousJelly";
 import VitreousWarpedJelly from "./VitreousWarpedJelly";
 
+const DreadbornAraxyte = new SimpleMonster({
+	id: 13680,
+	name: "Dreadborn araxyte",
+	table: new LootTable()
+		.every("Araxyte venom sack")
+		.every(AraxyteTable, 3)
+		.tertiary(64, "Mist battlestaff")
+		.tertiary(64, "Dust battlestaff")
+		.tertiary(224, "Eternal gem")
+		.tertiary(224, "Imbued heart"),
+	aliases: ["dreadborn araxyte"],
+});
+
 export const allSuperiorMonsters = {
 	AbhorrentSpectre,
 	BasiliskSentinel,
@@ -36,6 +52,7 @@ export const allSuperiorMonsters = {
 	Cockathrice,
 	ColossalHydra,
 	CrushingHand,
+	DreadbornAraxyte,
 	FlamingPyrelord,
 	GiantRockslug,
 	GreaterAbyssalDemon,

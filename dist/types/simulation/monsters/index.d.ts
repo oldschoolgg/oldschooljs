@@ -42,6 +42,7 @@ export declare const Monsters: Collection<number, Monster> & {
     Cockathrice: import("../..").SimpleMonster;
     ColossalHydra: import("../..").SimpleMonster;
     CrushingHand: import("../..").SimpleMonster;
+    DreadbornAraxyte: import("../..").SimpleMonster;
     FlamingPyrelord: import("../..").SimpleMonster;
     GiantRockslug: import("../..").SimpleMonster;
     GreaterAbyssalDemon: import("../..").SimpleMonster;

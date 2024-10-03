@@ -29,7 +29,7 @@ export interface MonsterData {
     members: boolean;
     combatLevel: number;
     hitpoints: number | null;
-    maxHit: number | null;
+    maxHit?: number | null;
     attackType: MonsterAttackType[];
     attackSpeed: number | null;
     aggressive: boolean;
@@ -38,7 +38,7 @@ export interface MonsterData {
     immuneToVenom: boolean;
     attributes: MonsterAttribute[];
     category: string[];
-    examineText: string;
+    examineText?: string;
     wikiName: string;
     wikiURL: string;
     attackLevel: number;

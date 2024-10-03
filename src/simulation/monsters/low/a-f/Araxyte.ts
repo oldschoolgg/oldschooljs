@@ -3,7 +3,7 @@ import SimpleMonster from "../../../../structures/SimpleMonster";
 import { HerbDropTable } from "../../../subtables";
 import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
 
-const AraxyteTable = new LootTable()
+export const AraxyteTable = new LootTable()
 	.every("Araxyte venom sack")
 	.tertiary(4000, "Aranea boots")
 	.tertiary(128, "Clue scroll (hard)")
