@@ -16,7 +16,7 @@ export const GemTable = new LootTable({ limit: 128 })
 	.add("Tooth half of key")
 	.add(MegaRareTable);
 
-const RareDropTable = new LootTable()
+export const RareDropTable = new LootTable()
 	/* Runes and ammunition */
 	.add("Nature rune", 67, 3)
 	.add("Adamant javelin", 20, 2)
