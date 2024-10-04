@@ -13,6 +13,7 @@ import Items from "./structures/Items";
 import LootTable from "./structures/LootTable";
 import Player from "./structures/Player";
 import SimpleMonster from "./structures/SimpleMonster";
+import SimpleOpenable from "./structures/SimpleOpenable";
 import Wiki from "./structures/Wiki";
 import * as Util from "./util/";
 export * from "./simulation/clues";
@@ -34,6 +35,7 @@ export {
 	EItem,
 	EMonster,
 	SimpleMonster,
+	SimpleOpenable,
 };
 
 export * from "./simulation/monsters";
