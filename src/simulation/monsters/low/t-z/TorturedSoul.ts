@@ -1,6 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
-import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
+import { UncommonSeedDropTable } from "../../../subtables/index";
 
 export const TorturedSoulTable = new LootTable({ limit: 128 })
 

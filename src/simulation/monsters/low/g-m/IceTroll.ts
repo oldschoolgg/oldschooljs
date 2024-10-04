@@ -2,7 +2,7 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import HerbDropTable from "../../../subtables/HerbDropTable";
 import { GemTable } from "../../../subtables/RareDropTable";
-import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
+import { UncommonSeedDropTable } from "../../../subtables/index";
 
 const IceTrollTable = new LootTable()
 	.every("Big bones")

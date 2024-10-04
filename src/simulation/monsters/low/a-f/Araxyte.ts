@@ -1,7 +1,7 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import { HerbDropTable } from "../../../subtables";
-import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
+import { UncommonSeedDropTable } from "../../../subtables/index";
 
 export const AraxyteTable = new LootTable()
 	.every("Araxyte venom sack")

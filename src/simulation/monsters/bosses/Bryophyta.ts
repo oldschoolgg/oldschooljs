@@ -1,8 +1,8 @@
 import LootTable from "../../../structures/LootTable";
 import SimpleMonster from "../../../structures/SimpleMonster";
 import { itemTupleToTable } from "../../../util";
+import { UncommonSeedDropTable } from "../../subtables";
 import HerbDropTable from "../../subtables/HerbDropTable";
-import UncommonSeedDropTable from "../../subtables/UncommonSeedDropTable";
 
 const ChaosTable = new LootTable().add("Chaos rune", 100, 1).add("Chaos rune", 200, 1);
 

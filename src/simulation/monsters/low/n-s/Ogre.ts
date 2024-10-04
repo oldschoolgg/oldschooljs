@@ -1,6 +1,6 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
-import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
+import { UncommonSeedDropTable } from "../../../subtables/index";
 
 const OgreTable = new LootTable({ limit: 128 })
 	.every("Big bones")

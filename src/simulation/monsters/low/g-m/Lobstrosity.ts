@@ -4,7 +4,7 @@ import HerbDropTable from "../../../subtables/HerbDropTable";
 import { NotedHerbTable } from "../../../subtables/NotedHerbTable";
 import { GemTable } from "../../../subtables/RareDropTable";
 import RareSeedTable from "../../../subtables/RareSeedTable";
-import UncommonSeedDropTable from "../../../subtables/UncommonSeedDropTable";
+import { UncommonSeedDropTable } from "../../../subtables/index";
 
 export const LobstrosityTable = new LootTable()
 	.every("Raw lobster")
