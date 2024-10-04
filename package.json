@@ -49,6 +49,7 @@
 		"test:lint": "biome check --diagnostic-level=error"
 	},
 	"dependencies": {
+		"@gc/rust-walker": "^0.0.3",
 		"e": "^0.2.33",
 		"node-fetch": "2.6.7"
 	},

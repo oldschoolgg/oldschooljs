@@ -37,7 +37,7 @@ export default class Bank {
 		return new Bank(mutSource);
 	}
 
-	constructor(initialBank?: IntKeyBank | ItemBank | Bank) {
+	constructor(initialBank?: IntKeyBank | ItemBank | Bank | Map<number, number>) {
 		this.map = this.makeFromInitialBank(initialBank);
 	}
 
@@ -66,10 +66,13 @@ export default class Bank {
 		return this;
 	}
 
-	private makeFromInitialBank(initialBank?: IntKeyBank | ItemBank | Bank) {
+	private makeFromInitialBank(initialBank?: IntKeyBank | ItemBank | Bank | Map<number, number>): Map<number, number> {
 		if (!initialBank) return new Map();
 		if (initialBank instanceof Bank) {
 			return new Map(initialBank.map.entries());
+		}
+		if (initialBank instanceof Map) {
+			return initialBank;
 		}
 		const entries = Object.entries(initialBank);
 		if (entries.length === 0) return new Map();
