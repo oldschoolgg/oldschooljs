@@ -1,8 +1,9 @@
 import LootTable from "../../structures/LootTable";
 import CommonSeedDropTable from "./CommonSeedDropTable";
 import HerbDropTable from "./HerbDropTable";
+import RareSeedTable from "./RareSeedTable";
 
-export { HerbDropTable, CommonSeedDropTable };
+export { HerbDropTable, CommonSeedDropTable, RareSeedTable };
 export * from "./RareDropTable";
 
 export const UncommonSeedDropTable = new LootTable()
