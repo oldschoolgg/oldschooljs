@@ -500,6 +500,8 @@ export default async function prepareItems(): Promise<void> {
 		}
 	}
 
+	delete newItemJSON[0];
+
 	if (nameChanges.length > 0) {
 		messages.push(`Name Changes:\n	${nameChanges.join("\n	")}`);
 	}
