@@ -160,7 +160,7 @@ export default class Bank {
 				int = Items.get(itemID)?.id;
 			}
 			if (!int) {
-				console.warn(`Tried to add a invalid item to a bank with an id of '${itemID}'`);
+				console.trace(`Tried to add a invalid item to a bank with an id of '${itemID}'`);
 				return this;
 			}
 			this.addItem(int, qty);
