@@ -154,3 +154,10 @@ test("modifyItem", () => {
 		expect(it.price).toEqual(100);
 	}
 });
+
+test("Dwarf toolkit", () => {
+	expect(getItem("Dwarf toolkit")).toBeNull();
+	expect(getItem(0)).toBeNull();
+	expect(Items.get(0)).toBeUndefined();
+	expect(Items.get("Dwarf toolkit")).toBeUndefined();
+});
