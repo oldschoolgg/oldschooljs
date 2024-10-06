@@ -160,7 +160,8 @@ export default class Bank {
 				int = Items.get(itemID)?.id;
 			}
 			if (!int) {
-				throw new Error(`${itemID} is not a valid name or id`);
+				console.warn(`Tried to add a invalid item to a bank with an id of '${itemID}'`);
+				return this;
 			}
 			this.addItem(int, qty);
 		}

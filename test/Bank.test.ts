@@ -370,12 +370,13 @@ describe("Bank", () => {
 		expect(bank.length).toEqual(2);
 	});
 
-	it("throws if adding invalid name", () => {
+	it("adding invalid name", () => {
 		const bank = new Bank().add("Coal", 100).add("Trout", 100);
 		const bankToAdd = {
 			Casdfoal: 50,
 		};
-		expect(() => bank.add(bankToAdd)).toThrow();
+		expect(() => bank.add(bankToAdd)).not.toThrow();
+		expect(bank.length).toEqual(2);
 	});
 
 	it("removes itembank", () => {
