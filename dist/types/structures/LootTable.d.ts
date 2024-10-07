@@ -41,7 +41,6 @@ export default class LootTable {
     tertiary(chance: number, item: LootTable | number | string, quantity?: number | number[], options?: LootTableMoreOptions): this;
     every(item: LootTable | number | string, quantity?: number | number[], options?: LootTableMoreOptions): this;
     add(item: LootTable | number | string, quantity?: number[] | number, weight?: number, options?: LootTableMoreOptions): this;
-    private cachedOptimizedTable;
     roll(quantity?: number): Bank;
     roll(quantity: number, options: {
         targetBank?: undefined;

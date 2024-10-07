@@ -4,7 +4,7 @@ export default class Bank {
     private map;
     frozen: boolean;
     static withSanitizedValues(source: ItemBank | IntKeyBank): Bank;
-    constructor(initialBank?: IntKeyBank | ItemBank | Bank);
+    constructor(initialBank?: IntKeyBank | ItemBank | Bank | Map<number, number>);
     removeInvalidValues(): Bank;
     private resolveItemID;
     clear(item?: Item | string | number): this;
