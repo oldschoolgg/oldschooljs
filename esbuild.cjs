@@ -19,7 +19,7 @@ const baseConfig = {
 	keepNames: true,
 	minify: true,
 	plugins: [minifyJsonPlugin],
-	external: ['node-fetch'],
+	external: ['node-fetch', "@gc/rust-walker"],
 	loader: {
 	  '.json': 'copy',
 	},

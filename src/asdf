@@ -1,0 +1,87 @@
+
+const items: WeightedListItem<number>[] = uniqueArr(CorporealBeastTable.allItems).slice(0,50).map(i => ({ item: i, weight: randInt(1,100) }));
+
+// [
+// 	{ item: Util.itemID("Coal"), weight: 5 },
+// 	{ item: Util.itemID("Egg"), weight: 2 },
+// 	{ item: Util.itemID("Trout"), weight: 3 },
+// 	{ item: Util.itemID("Holy elixir"), weight: 3 },
+// 	{ item: Util.itemID("Fire rune"), weight: 3 },
+// 	{ item: Util.itemID("Teak plank"), weight: 5 },
+// 	{ item: Util.itemID("Runite ore"), weight: 1 },
+// 	{ item: Util.itemID("Adamantite ore"), weight: 2 },
+// 	{ item: Util.itemID("Coins"), weight: 5 },
+// 	{ item: Util.itemID("Onyx bolts (e)"), weight: 1 },
+// 	{ item: Util.itemID("Dragon bones"), weight: 1 },
+// 	{ item: Util.itemID("Magic logs"), weight: 2 },
+// ];
+import { rollWalkerTable } from "@gc/rust-walker";
+import { randomBytes } from "crypto";
+import { CorporealBeastTable } from "./simulation/monsters/bosses/wildy/CorporealBeast";
+import { randInt, uniqueArr } from "e";
+import { writeFileSync } from "fs";
+
+
+
+const lt = new LootTable();
+for (const item of items) {
+	lt.add(item.item, 1, item.weight);
+}
+
+const methods = [
+	{
+		name: "Alias #1",
+		run: (qty: number) => {
+			const list = new WeightedList(items);
+			list.initializeNumbers();
+			const count = list.count;
+			const results = new Map();
+
+			const RECIPROCAL_255 = 1 / 256;
+			const buffer = randomBytes(qty * 2);
+
+			for (let i = 0; i < qty; i++) {
+				const nextInt = ((buffer[i] * RECIPROCAL_255) * count) | 0 ;
+				const nextProbability = ((buffer[i + qty] * RECIPROCAL_255)) * list.numberTotalWeight;
+				const item =
+					nextProbability < list.numberProbabilities[nextInt]
+						? list.list[nextInt]
+						: list.list[list.alias[nextInt]];
+				results.set(item, (results.get(item) ?? 0) + 1);
+			}
+			return new Bank(results);
+		},
+	},
+	{
+		name: "LootTable",
+		run: (qty: number) => lt.roll(qty),
+	},
+	{
+		name: "rust",
+		run: (qty: number) => {
+			const itemBank = rollWalkerTable(qty, new Float32Array(items.map(i => i.weight)));
+			
+			return new Bank(new Map(Object.entries(JSON.parse(itemBank)).map(([k, v]: any) => [items[Number.parseInt(k)].item, v])));
+		},
+	}
+];
+
+
+const results = [];
+for (const samples of [1,100,1000,100_000,1_000_000,10_000_000,100_000_000]) {
+		for (const method of methods) {
+			method.run(100_000);
+			method.run(100_000);
+			method.run(100_000);
+			const start = performance.now();
+			const result = method.run(samples);
+			const end = performance.now();
+			console.log(`${method.name} took ${(end - start).toFixed(1)}ms
+
+	Loot: ${result}
+`);
+results.push({ method: method.name, samples, time: end - start });
+		}
+	}
+
+	writeFileSync("results.json", JSON.stringify(results, null, 2));

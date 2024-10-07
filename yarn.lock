@@ -317,6 +317,45 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gc/rust-walker-darwin-x64@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@gc/rust-walker-darwin-x64@npm:0.0.3"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@gc/rust-walker-linux-x64-gnu@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@gc/rust-walker-linux-x64-gnu@npm:0.0.3"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@gc/rust-walker-win32-x64-msvc@npm:0.0.3":
+  version: 0.0.3
+  resolution: "@gc/rust-walker-win32-x64-msvc@npm:0.0.3"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@gc/rust-walker@npm:^0.0.3":
+  version: 0.0.3
+  resolution: "@gc/rust-walker@npm:0.0.3"
+  dependencies:
+    "@gc/rust-walker-darwin-x64": "npm:0.0.3"
+    "@gc/rust-walker-linux-x64-gnu": "npm:0.0.3"
+    "@gc/rust-walker-win32-x64-msvc": "npm:0.0.3"
+  dependenciesMeta:
+    "@gc/rust-walker-darwin-x64":
+      optional: true
+    "@gc/rust-walker-linux-x64-gnu":
+      optional: true
+    "@gc/rust-walker-win32-x64-msvc":
+      optional: true
+  checksum: 10c0/0dcb64a0345c83474245a6f1516e743b9701bcca9f7e779aa0b1e8c5ef95f84e0bfc8df8449c78cf9638c64184ac9832059ea86df9a0a871a3c31f3e9dc45d39
+  languageName: node
+  linkType: hard
+
 "@isaacs/cliui@npm:^8.0.2":
   version: 8.0.2
   resolution: "@isaacs/cliui@npm:8.0.2"
@@ -1670,6 +1709,7 @@ __metadata:
   resolution: "oldschooljs@workspace:."
   dependencies:
     "@biomejs/biome": "npm:^1.9.2"
+    "@gc/rust-walker": "npm:^0.0.3"
     "@types/node": "npm:^20.14.9"
     "@types/node-fetch": "npm:^2.6.1"
     "@vitest/coverage-v8": "npm:^2.1.1"

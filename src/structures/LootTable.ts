@@ -1,4 +1,4 @@
-import { randArrItem } from "e";
+import { rollWalkerTable, simulateChances } from "@gc/rust-walker";
 import itemID from "../util/itemID";
 import Bank from "./Bank";
 import Items from "./Items";
@@ -194,7 +194,6 @@ export default class LootTable {
 		return this;
 	}
 
-	private cachedOptimizedTable: number[] | null = null;
 	roll(quantity?: number): Bank;
 	roll(quantity: number, options: { targetBank?: undefined } & LootTableRollOptions): Bank;
 	roll(quantity: number, options: { targetBank: Bank } & LootTableRollOptions): null;
@@ -212,51 +211,53 @@ export default class LootTable {
 					};
 				})
 			: this.tertiaryItems;
-		const limit = this.limit || this.totalWeight;
+		// const limit = this.limit || this.totalWeight;
 
-		if (this.table.every(i => Number.isInteger(i.weight)) && this.cachedOptimizedTable === null) {
-			this.cachedOptimizedTable = [];
-			for (const item of this.table) {
-				for (let j = 0; j < item.weight!; j++) {
-					this.cachedOptimizedTable.push(this.table.indexOf(item));
-				}
-			}
-			while (this.cachedOptimizedTable.length < limit) {
-				this.cachedOptimizedTable.push(-1);
+		for (const item of effectiveTertiaryItems) {
+			const rolls = simulateChances(quantity, item.chance);
+			if (typeof item.item === "number" && typeof item.quantity === "number") {
+				loot.addItem(item.item, rolls * item.quantity);
+			} else {
+				this.addResultToLoot(item, rolls, loot);
 			}
 		}
 
-		outerLoop: for (let i = 0; i < quantity; i++) {
-			for (let j = 0; j < this.everyItems.length; j++) {
-				this.addResultToLoot(this.everyItems[j], loot);
-			}
-
-			for (let j = 0; j < effectiveTertiaryItems.length; j++) {
-				if (roll(effectiveTertiaryItems[j].chance)) {
-					this.addResultToLoot(effectiveTertiaryItems[j], loot);
-				}
-			}
-
-			for (let j = 0; j < this.oneInItems.length; j++) {
-				if (roll(this.oneInItems[j].chance)) {
-					this.addResultToLoot(this.oneInItems[j], loot);
-					continue outerLoop;
-				}
-			}
-
-			if (this.cachedOptimizedTable) {
-				this.addResultToLoot(this.table[randArrItem(this.cachedOptimizedTable)], loot);
+		for (const everyItem of this.everyItems) {
+			if (typeof everyItem.item === "number" && typeof everyItem.quantity === "number") {
+				loot.addItem(everyItem.item, quantity * everyItem.quantity);
 			} else {
-				const randomWeight = randFloat(0, limit);
-				let weight = 0;
-				for (let i = 0; i < this.table.length; i++) {
-					weight += this.table[i].weight!;
-					if (randomWeight <= weight) {
-						this.addResultToLoot(this.table[i], loot);
-						break;
-					}
-				}
+				this.addResultToLoot(everyItem, quantity, loot);
 			}
+		}
+
+		let weightRolls = quantity;
+
+		for (const item of this.oneInItems) {
+			const rolls = simulateChances(quantity, item.chance);
+			if (typeof item.item === "number" && typeof item.quantity === "number") {
+				loot.addItem(item.item, rolls * item.quantity);
+			} else {
+				this.addResultToLoot(item, rolls, loot);
+			}
+			weightRolls -= rolls;
+		}
+
+		const rustResults = rollWalkerTable(
+			weightRolls,
+			new Float32Array(
+				this.table.map(t => {
+					if (!t.weight) throw new Error("No weight found");
+					return t.weight;
+				}),
+			),
+		);
+		for (const [index, qty] of Object.entries(JSON.parse(rustResults)) as any[]) {
+			const item = this.table[Number.parseInt(index)];
+			if (item.item instanceof LootTable) {
+				item.item.roll(qty, { targetBank: loot });
+				continue;
+			}
+			loot.addItem(item.item as number, qty);
 		}
 
 		if (!options.targetBank) {
@@ -265,16 +266,22 @@ export default class LootTable {
 		return null;
 	}
 
-	private addResultToLoot(result: LootTableItem, loot: Bank): void {
-		if (typeof result?.item === "number") {
-			loot.addItem(result.item, this.determineQuantity(result.quantity));
+	private addResultToLoot(item: LootTableItem, quantity: number, loot: Bank): void {
+		if (typeof item?.item === "number") {
+			if (typeof item?.quantity === "number") {
+				loot.addItem(item.item, item.quantity);
+			} else {
+				for (let i = 0; i < quantity; i++) {
+					loot.addItem(item.item, this.determineQuantity(item.quantity));
+				}
+			}
 			return;
 		}
 
-		if (result?.item instanceof LootTable) {
-			const qty = this.determineQuantity(result.quantity);
-			if (result.options?.multiply) loot.add(result.item.roll(1).multiply(qty));
-			else result.item.roll(qty, { targetBank: loot });
+		if (item?.item instanceof LootTable) {
+			const qty = this.determineQuantity(item.quantity);
+			if (item.options?.multiply) loot.add(item.item.roll(1).multiply(qty));
+			else item.item.roll(qty, { targetBank: loot });
 			return;
 		}
 	}
