@@ -15,6 +15,7 @@ const SupplyDrop = new LootTable()
 	.add(new LootTable().add("Wild pie", [2, 3]).add("Shark", [2, 3]));
 
 const AraxxorTable = new LootTable()
+	.tertiary(50, "Clue scroll (elite)")
 	.tertiary(200, "Coagulated venom")
 	.tertiary(150, AraxxorUniqueTable)
 	.tertiary(250, "Araxyte head")
