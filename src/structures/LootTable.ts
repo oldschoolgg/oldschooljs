@@ -242,22 +242,20 @@ export default class LootTable {
 			weightRolls -= rolls;
 		}
 
-		const rustResults = rollWalkerTable(
-			weightRolls,
-			new Float32Array(
-				this.table.map(t => {
-					if (!t.weight) throw new Error("No weight found");
-					return t.weight;
-				}),
-			),
-		);
-		for (const [index, qty] of Object.entries(JSON.parse(rustResults)) as any[]) {
-			const item = this.table[Number.parseInt(index)];
-			if (item.item instanceof LootTable) {
-				item.item.roll(qty, { targetBank: loot });
-				continue;
+		if (this.table.length > 0) {
+			const rustResults = rollWalkerTable(
+				weightRolls,
+				new Float32Array(
+					this.table.map(t => {
+						if (!t.weight) throw new Error("No weight found");
+						return t.weight;
+					}),
+				),
+			);
+			for (const [index, qty] of Object.entries(JSON.parse(rustResults)) as any[]) {
+				const item = this.table[Number.parseInt(index)];
+				this.addResultToLoot(item, qty, loot);
 			}
-			loot.addItem(item.item as number, qty);
 		}
 
 		if (!options.targetBank) {
@@ -267,23 +265,30 @@ export default class LootTable {
 	}
 
 	private addResultToLoot(item: LootTableItem, quantity: number, loot: Bank): void {
-		if (typeof item?.item === "number") {
-			if (typeof item?.quantity === "number") {
-				loot.addItem(item.item, item.quantity);
-			} else {
-				for (let i = 0; i < quantity; i++) {
-					loot.addItem(item.item, this.determineQuantity(item.quantity));
-				}
+		let realQty = 0;
+		if (typeof item.quantity === "number") {
+			realQty = quantity * item.quantity;
+		} else {
+			for (let i = 0; i < quantity; i++) {
+				realQty += this.determineQuantity(item.quantity);
 			}
+		}
+
+		if (typeof item?.item === "number") {
+			loot.addItem(item.item, realQty);
 			return;
 		}
 
 		if (item?.item instanceof LootTable) {
-			const qty = this.determineQuantity(item.quantity);
-			if (item.options?.multiply) loot.add(item.item.roll(1).multiply(qty));
-			else item.item.roll(qty, { targetBank: loot });
+			if (item.options?.multiply) {
+				loot.add(item.item.roll(1).multiply(this.determineQuantity(item.quantity)));
+			} else {
+				item.item.roll(realQty, { targetBank: loot });
+			}
 			return;
 		}
+
+		throw new Error("Invalid loot table item");
 	}
 
 	protected determineQuantity(quantity: number | number[]): number {

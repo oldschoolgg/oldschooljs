@@ -46,7 +46,8 @@
 		"prepare": "tsx scripts/prepare",
 		"dev": "yarn prepare && yarn lint && yarn build && yarn test",
 		"lint": "biome check --write --diagnostic-level=error",
-		"test:lint": "biome check --diagnostic-level=error"
+		"test:lint": "biome check --diagnostic-level=error",
+		"snapshots": "concurrently \"tsx scripts/cluesnapshots.ts\" \"tsx scripts/monstersnapshots.ts 0\" \"tsx scripts/monstersnapshots.ts 1\" \"tsx scripts/monstersnapshots.ts 2\" \"tsx scripts/monstersnapshots.ts 3\""
 	},
 	"dependencies": {
 		"@gc/rust-walker": "^0.0.3",
@@ -72,6 +73,7 @@
 		"node": "20.15.0"
 	},
 	"resolutions": {
-		"esbuild": "0.24.0"
+		"esbuild": "0.24.0",
+		"@gc/rust-walker": "portal:/C:/dev/rust-walker"
 	}
 }
