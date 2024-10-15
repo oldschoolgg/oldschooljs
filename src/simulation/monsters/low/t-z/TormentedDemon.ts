@@ -19,6 +19,7 @@ const TormentedDemonBowTable = new LootTable().add("Magic shortbow (u)", 1, 29).
 const TormentedDemonTable = new LootTable()
 	.every("Infernal ashes")
 	.every(TormentedDemonUniqueTable)
+	.every("Herbi")
 
 	/* Weapons and Armour */
 	.add("Rune platebody", 1, 4)
