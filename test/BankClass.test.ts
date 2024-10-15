@@ -119,7 +119,7 @@ describe("Bank Class", () => {
 		expect(bank.toString()).toEqual("2x 3rd age platebody, 20x Coal, 5k Egg, 1x Emerald, 20k Ruby");
 		expect(bank.length).toEqual(5);
 		expect(new Bank().toString()).toEqual("No items");
-		expect(new Bank({ 111231231: 1 }).toString()).toEqual("1x Unknown item");
+		expect(new Bank({ 111231231: 1 }).toString()).toEqual("No items");
 	});
 
 	test(".items()", () => {
