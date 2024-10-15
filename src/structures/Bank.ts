@@ -234,7 +234,12 @@ export default class Bank {
 		const arr: [Item, number][] = [];
 		for (const [key, val] of this.map.entries()) {
 			if (val < 1) continue;
-			arr.push([Items.get(key)!, val]);
+			const item = Items.get(key)!;
+			if (!item) {
+				console.warn(`Bank has an invalid item: ${item}, with quantity of ${val}`);
+				continue;
+			}
+			arr.push([item, val]);
 		}
 		return arr;
 	}
