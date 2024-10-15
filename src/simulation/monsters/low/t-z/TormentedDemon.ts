@@ -2,7 +2,7 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import TreeHerbSeedTable from "../../../subtables/TreeHerbSeedTable";
 
-const TormentedDemonUniqueTable = new LootTable().oneIn(500, "Tormented synapse").oneIn(500, "Burning claw")
+const TormentedDemonUniqueTable = new LootTable().oneIn(500, "Tormented synapse").oneIn(500, "Burning claw");
 
 const TormentedDemonHerbTable = new LootTable()
 	.add("Grimy kwuarm", 1, 10)
