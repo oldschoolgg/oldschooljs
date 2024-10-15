@@ -2,8 +2,6 @@ import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 import TreeHerbSeedTable from "../../../subtables/TreeHerbSeedTable";
 
-const TormentedDemonUniqueTable = new LootTable().add("Tormented synapse").add("Burning claw");
-
 const TormentedDemonHerbTable = new LootTable()
 	.add("Grimy kwuarm", 1, 10)
 	.add("Grimy dwarf weed", 1, 8)
@@ -18,7 +16,8 @@ const TormentedDemonBowTable = new LootTable().add("Magic shortbow (u)", 1, 29).
 
 const TormentedDemonTable = new LootTable()
 	.every("Infernal ashes")
-	.oneIn(500, TormentedDemonUniqueTable)
+	.oneIn(500, "Tormented synapse")
+	.oneIn(500, "Burning claw")
 
 	/* Weapons and Armour */
 	.add("Rune platebody", 1, 4)
