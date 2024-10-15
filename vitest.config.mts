@@ -4,7 +4,7 @@ export default defineConfig({
 	test: {
 		name: "OldschoolJS",
 		benchmark: {
-			include: ["test/**/*.bench.ts", "test/**/*.bench.js"],
+			include: ["test/**/*.bench.ts"],
 		},
 		include: ["test/**/*.test.ts"],
 		coverage: {
@@ -21,11 +21,12 @@ export default defineConfig({
 			],
 		},
 		isolate: false,
+		pool: "threads",
 		poolOptions: {
 			threads: {
-				minThreads: 10,
-				maxThreads: 20,
-				singleThread: false,
+				minThreads: 5,
+				maxThreads: 5,
+				execArgv: ["--disable-warning=ExperimentalWarning"],
 			},
 		},
 	},
