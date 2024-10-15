@@ -36,9 +36,6 @@ jobs:
       - name: Fix package.json
         run: npx biome check --write package.json
 
-      - name: Build
-        run: tsc -p src
-
       - name: Test
         run: |
           yarn test
