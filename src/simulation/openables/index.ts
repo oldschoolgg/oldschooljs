@@ -74,7 +74,7 @@ export {
 	AdeptSack,
 	ExpertSack,
 	MasterSack,
-	ZombiePiratesLocker
+	ZombiePiratesLocker,
 };
 
 const openablesObject = {
