@@ -1,7 +1,7 @@
 import LootTable from "../../structures/LootTable";
 import SimpleOpenable from "../../structures/SimpleOpenable";
 
-const ZombiePirateLocker = new LootTable()
+const ZombiePiratesLocker = new LootTable()
 	/* Pre-roll */
 	.oneIn(275, "Teleport anchoring scroll")
 
@@ -41,5 +41,5 @@ export default new SimpleOpenable({
 	id: 29_449,
 	name: "Zombie Pirate's Locker",
 	aliases: ["zombie pirate locker", "pirate locker"],
-	table: ZombiePirateLocker,
+	table: ZombiePiratesLocker,
 });
