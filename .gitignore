@@ -14,4 +14,3 @@ coverage
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
-wiki.xml

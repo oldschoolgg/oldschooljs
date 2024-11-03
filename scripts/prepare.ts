@@ -1,6 +1,6 @@
 import prepareItems from "./prepareItems";
 import "./enum";
-import { monstersWikiUpdate } from "./wiki";
+import { prepareMonsters } from "./prepareMonsters";
 
 prepareItems();
-monstersWikiUpdate();
+prepareMonsters();
