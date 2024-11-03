@@ -20,7 +20,8 @@ import OgreCoffin from "./OgreCoffin";
 import { GiantsFoundryOrePack, VolcanicMineOrePack } from "./OrePack";
 import SeedPack from "./SeedPack";
 import SinisterChest from "./SinisterChest";
-export { MysteryBox, NestBoxEmpty, NestBoxRing, NestBoxSeeds, GiantEggSacFull, BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest, Casket, CrystalChest, ElvenCrystalChest, GrubbyChest, MuddyChest, OgreCoffin, SinisterChest, BrimstoneChest, LarransChest, SeedPack, BabyImpling, YoungImpling, GourmetImpling, EarthImpling, EssenceImpling, EclecticImpling, NatureImpling, MagpieImpling, NinjaImpling, CrystalImpling, DragonImpling, LuckyImpling, VolcanicMineOrePack, GiantsFoundryOrePack, IntricatePouch, BasicSack, AdeptSack, ExpertSack, MasterSack, };
+import ZombiePiratesLocker from "./ZombiePiratesLocker";
+export { MysteryBox, NestBoxEmpty, NestBoxRing, NestBoxSeeds, GiantEggSacFull, BronzeHAMChest, IronHAMChest, SilverHAMChest, SteelHAMChest, Casket, CrystalChest, ElvenCrystalChest, GrubbyChest, MuddyChest, OgreCoffin, SinisterChest, BrimstoneChest, LarransChest, SeedPack, BabyImpling, YoungImpling, GourmetImpling, EarthImpling, EssenceImpling, EclecticImpling, NatureImpling, MagpieImpling, NinjaImpling, CrystalImpling, DragonImpling, LuckyImpling, VolcanicMineOrePack, GiantsFoundryOrePack, IntricatePouch, BasicSack, AdeptSack, ExpertSack, MasterSack, ZombiePiratesLocker, };
 declare const Openables: Collection<number, Openable> & {
     MysteryBox: import("../..").SimpleOpenable;
     NestBoxEmpty: import("../..").SimpleOpenable;
