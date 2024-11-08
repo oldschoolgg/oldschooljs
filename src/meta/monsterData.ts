@@ -31,12 +31,12 @@ export enum MonsterAttackType {
 export interface MonsterData {
 	members: boolean;
 	combatLevel: number;
-	hitpoints: number | null;
+	hitpoints?: number | null;
 	maxHit?: number | null;
 	attackType: MonsterAttackType[];
 	attackSpeed: number | null;
 	aggressive: boolean;
-	poisonous: boolean;
+	poisonous?: boolean;
 	immuneToPoison: boolean;
 	immuneToVenom: boolean;
 	attributes: MonsterAttribute[];
