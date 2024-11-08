@@ -33,6 +33,7 @@ import OgreCoffin from "./OgreCoffin";
 import { GiantsFoundryOrePack, VolcanicMineOrePack } from "./OrePack";
 import SeedPack from "./SeedPack";
 import SinisterChest from "./SinisterChest";
+import ZombiePiratesLocker from "./ZombiePiratesLocker";
 
 export {
 	MysteryBox,
@@ -73,6 +74,7 @@ export {
 	AdeptSack,
 	ExpertSack,
 	MasterSack,
+	ZombiePiratesLocker,
 };
 
 const openablesObject = {
