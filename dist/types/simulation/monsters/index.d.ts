@@ -337,7 +337,6 @@ export declare const Monsters: Collection<number, Monster> & {
     TormentedDemon: import("../..").SimpleMonster;
     ArmouredZombie: import("../..").SimpleMonster;
     Crab: import("../..").SimpleMonster;
-    WealthyCitizen: import("../..").SimpleMonster;
     AbyssalSire: import("../..").SimpleMonster;
     Cerberus: import("../..").SimpleMonster;
     AlchemicalHydra: import("../..").SimpleMonster;

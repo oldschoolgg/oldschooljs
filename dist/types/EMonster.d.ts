@@ -312,7 +312,6 @@ export declare enum EMonster {
     TORMENTED_DEMON = 13600,
     ARMOURED_ZOMBIE = 12720,
     CRAB = 4819,
-    WEALTHY_CITIZEN = 13302,
     BARROWS = 1673,
     TZTOKJAD = 3127,
     HESPORI = 8583,
