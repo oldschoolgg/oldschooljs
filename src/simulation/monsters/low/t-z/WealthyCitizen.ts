@@ -4,9 +4,9 @@ import SimpleMonster from "../../../../structures/SimpleMonster";
 export default new SimpleMonster({
 	id: 13302,
 	name: "Wealthy Citizen",
-	pickpocketTable: new LootTable({ limit: 1445 })
-		.add("Coins", 85, 1343)
-		.add("House keys", 1, 85)
-		.add("Clue Scroll (Easy)", 1, 17),
+	pickpocketTable: new LootTable({ limit: 85 })
+		.add("Coins", 85, 79)
+		.add("House keys", 1, 5)
+		.add("Clue Scroll (Easy)", 1, 1),
 	aliases: ["wealthy citizen", "wealthy", "citizen", "varlamore citizen"],
 });
