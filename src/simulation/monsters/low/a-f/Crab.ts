@@ -10,8 +10,6 @@ export const CrabTable = new LootTable()
 	.add(new LootTable(), 1, 9) // Nothing drop
 	.add("Oyster", 1, 1);
 
-
-
 export default new SimpleMonster({
 	id: 4819,
 	name: "Crab",
