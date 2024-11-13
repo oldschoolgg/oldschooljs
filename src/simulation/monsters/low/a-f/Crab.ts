@@ -1,14 +1,16 @@
 import LootTable from "../../../../structures/LootTable";
 import SimpleMonster from "../../../../structures/SimpleMonster";
 
-const freshCrabTable = new LootTable().add("Fresh crab claw", 1, 1).add("Fresh crab shell", 1, 1);
+const freshCrabTable = new LootTable().add("Fresh crab claw").add("Fresh crab shell");
 
 export const CrabTable = new LootTable()
 	.every("Crab meat")
+	.tertiary(4, freshCrabTable)
 
-	.add(new LootTable(), 5, 1) // Nothing drop
-	.add(freshCrabTable, 4, 1)
+	.add(new LootTable(), 1, 9) // Nothing drop
 	.add("Oyster", 1, 1);
+
+
 
 export default new SimpleMonster({
 	id: 4819,
