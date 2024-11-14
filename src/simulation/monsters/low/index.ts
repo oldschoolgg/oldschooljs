@@ -541,5 +541,5 @@ export const allLowMonsters = {
 	TormentedDemon,
 	ArmouredZombie,
 	Crab,
-	WealthyCitizen
+	WealthyCitizen,
 };
