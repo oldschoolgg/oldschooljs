@@ -257,6 +257,7 @@ import WallBeast from "./t-z/WallBeast";
 import WarpedJelly from "./t-z/WarpedJelly";
 import WarriorWoman from "./t-z/WarriorWoman";
 import Waterfiend from "./t-z/Waterfiend";
+import WealthyCitizen from "./t-z/WealthyCitizen";
 import Werewolf from "./t-z/Werewolf";
 import WhiteWolf from "./t-z/WhiteWolf";
 import WildDog from "./t-z/WildDog";
@@ -542,4 +543,5 @@ export const allLowMonsters = {
 	ArmouredZombie,
 	Crab,
 	ChilledJelly,
+	WealthyCitizen
 };
