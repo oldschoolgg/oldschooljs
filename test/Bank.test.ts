@@ -395,4 +395,13 @@ describe("Bank", () => {
 		const bank = new Bank().add("Coal", 100).add("Trout", 100);
 		expect(bank.toJSON()).toEqual(resolveNameBank({ Coal: 100, Trout: 100 }));
 	});
+
+	it("deletes if setting to 0", () => {
+		const bank = new Bank().add("Coal", 100).add("Trout", 100);
+		bank.set("Coal", 0);
+		bank.set("Trout", 0);
+		bank.set("Egg", 0);
+		expect(bank.length).toEqual(0);
+		expect(bank.toJSON()).toEqual({});
+	});
 });
