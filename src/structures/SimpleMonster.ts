@@ -62,9 +62,7 @@ export default class SimpleMonster extends Monster {
 			: undefined;
 
 		if (!canGetBrimKey && !wildySlayer && !options.inCatacombs && !options.onSlayerTask) {
-			if (this.table) {
-				rollTable?.roll(quantity, lootTableOptions);
-			}
+			rollTable?.roll(quantity, lootTableOptions);
 			if (this.customKillLogic) {
 				for (let i = 0; i < quantity; i++) {
 					this.customKillLogic(options, loot);
