@@ -329,6 +329,34 @@ export default async function prepareItems(): Promise<void> {
 			};
 		}
 
+		if (item.name === "Ultor ring") {
+			item = {
+				...allItems[28_307],
+				id: item.id,
+			};
+		}
+
+		if (item.name === "Bellator ring") {
+			item = {
+				...allItems[28_316],
+				id: item.id,
+			};
+		}
+
+		if (item.name === "Magus ring") {
+			item = {
+				...allItems[28_313],
+				id: item.id,
+			};
+		}
+
+		if (item.name === "Venator ring") {
+			item = {
+				...allItems[28_310],
+				id: item.id,
+			};
+		}
+
 		for (const delKey of [
 			"quest_item",
 			"placeholder",
