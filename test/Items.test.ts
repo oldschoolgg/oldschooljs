@@ -129,9 +129,9 @@ describe("Items", () => {
 			const scep = Items.get(26_950);
 			expect(scep).toEqual(undefined);
 
-			const scep2 = Items.get("Pharaoh's sceptre")!;
-			expect(scep2.name).toEqual("Pharaoh's sceptre");
-			expect(scep2.id).toEqual(9044);
+			const scep2 = Items.get("Pharaoh's sceptre (uncharged)")!;
+			expect(scep2.name).toEqual("Pharaoh's sceptre (uncharged)");
+			expect(scep2.id).toEqual(26_945);
 			expect(scep2.equipable_by_player).toEqual(true);
 			expect(scep2.equipable_weapon).toEqual(true);
 			expect(scep2.equipable).toEqual(true);
