@@ -48,6 +48,7 @@ import CaveSlime from "./a-f/CaveSlime";
 import ChaosDruid from "./a-f/ChaosDruid";
 import ChaosDwarf from "./a-f/ChaosDwarf";
 import Chicken from "./a-f/Chicken";
+import ChilledJelly from "./a-f/ChilledJelly";
 import ChompyBird from "./a-f/ChompyBird";
 import Cockatrice from "./a-f/Cockatrice";
 import Cow from "./a-f/Cow";
@@ -541,5 +542,6 @@ export const allLowMonsters = {
 	TormentedDemon,
 	ArmouredZombie,
 	Crab,
-	WealthyCitizen,
+	ChilledJelly,
+	WealthyCitizen
 };
