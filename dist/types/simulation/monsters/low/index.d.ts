@@ -269,6 +269,7 @@ export declare const allLowMonsters: {
     TormentedDemon: import("../../..").SimpleMonster;
     ArmouredZombie: import("../../..").SimpleMonster;
     Crab: import("../../..").SimpleMonster;
+    ChilledJelly: import("../../..").SimpleMonster;
     WealthyCitizen: import("../../..").SimpleMonster;
 };
 //# sourceMappingURL=index.d.ts.map
