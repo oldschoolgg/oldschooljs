@@ -322,14 +322,6 @@ export default async function prepareItems(): Promise<void> {
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
 
-		if (item.name === "Pharaoh's sceptre") {
-			item = {
-				...allItems[26_945],
-				name: "Pharaoh's sceptre",
-				id: item.id,
-			};
-		}
-
 		for (const delKey of [
 			"quest_item",
 			"placeholder",
@@ -492,6 +484,14 @@ export default async function prepareItems(): Promise<void> {
 
 		if (itemChanges[item.id]) {
 			item = deepMerge(item, itemChanges[item.id]) as any;
+		}
+
+		if (item.name === "Pharaoh's sceptre") {
+			item = {
+				...allItems[26_945],
+				name: "Pharaoh's sceptre",
+				id: item.id,
+			};
 		}
 
 		newItemJSON[item.id] = item;
