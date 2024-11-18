@@ -87,6 +87,10 @@ export default class Bank {
 	public set(item: ItemResolvable, quantity: number): this {
 		if (this.frozen) throw new Error(frozenErrorStr);
 		const id = this.resolveItemID(item);
+		if (quantity === 0) {
+			this.map.delete(id);
+			return this;
+		}
 		this.map.set(id, quantity);
 		return this;
 	}
