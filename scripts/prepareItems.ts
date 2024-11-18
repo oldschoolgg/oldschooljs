@@ -322,6 +322,14 @@ export default async function prepareItems(): Promise<void> {
 	for (let item of Object.values(allItems)) {
 		if (itemShouldntBeAdded(item)) continue;
 
+		if (item.name === "Pharaoh's sceptre") {
+			item = {
+				...allItems[26_945],
+				name: "Pharaoh's sceptre",
+				id: item.id,
+			};
+		}
+
 		for (const delKey of [
 			"quest_item",
 			"placeholder",
@@ -371,7 +379,7 @@ export default async function prepareItems(): Promise<void> {
 			newItems.push(item);
 		}
 
-		const price = allPrices[item.id];
+		const price = allPrices[item.name === "Pharaoh's sceptre" ? 26_945 : item.id];
 		if (price) {
 			// Fix weird bug with prices: (high can be 1 and low 2.14b for example... blame Jamflex)
 			if (price.high < price.low) price.high = price.low;
@@ -484,14 +492,6 @@ export default async function prepareItems(): Promise<void> {
 
 		if (itemChanges[item.id]) {
 			item = deepMerge(item, itemChanges[item.id]) as any;
-		}
-
-		if (item.name === "Pharaoh's sceptre") {
-			item = {
-				...allItems[26_945],
-				name: "Pharaoh's sceptre",
-				id: item.id,
-			};
 		}
 
 		newItemJSON[item.id] = item;
