@@ -325,6 +325,7 @@ export default async function prepareItems(): Promise<void> {
 		if (item.name === "Pharaoh's sceptre") {
 			item = {
 				...allItems[26_945],
+				name: "Pharaoh's sceptre",
 				id: item.id,
 			};
 		}
