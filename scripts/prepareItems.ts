@@ -324,7 +324,8 @@ export default async function prepareItems(): Promise<void> {
 
 		if (item.name === "Pharaoh's sceptre") {
 			item = {
-				...allItems[26_950],
+				...allItems[26_945],
+				name: "Pharaoh's sceptre",
 				id: item.id,
 			};
 		}
@@ -378,7 +379,7 @@ export default async function prepareItems(): Promise<void> {
 			newItems.push(item);
 		}
 
-		const price = allPrices[item.id];
+		const price = allPrices[item.name === "Pharaoh's sceptre" ? 26_945 : item.id];
 		if (price) {
 			// Fix weird bug with prices: (high can be 1 and low 2.14b for example... blame Jamflex)
 			if (price.high < price.low) price.high = price.low;
