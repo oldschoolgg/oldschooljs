@@ -17,6 +17,7 @@ interface SimpleMonsterOptions extends MonsterOptions {
 	table?: LootTable;
 	onTaskTable?: LootTable;
 	wildyCaveTable?: LootTable;
+	wildyTable?: LootTable;
 	pickpocketTable?: LootTable;
 	customKillLogic?: CustomKillLogic;
 }
@@ -25,6 +26,7 @@ export default class SimpleMonster extends Monster {
 	public table?: LootTable;
 	public onTaskTable?: LootTable;
 	public wildyCaveTable?: LootTable;
+	public wildyTable?: LootTable;
 	public pickpocketTable?: LootTable;
 	public customKillLogic?: CustomKillLogic;
 
@@ -41,6 +43,7 @@ export default class SimpleMonster extends Monster {
 		this.pickpocketTable = options.pickpocketTable;
 		this.onTaskTable = options.onTaskTable;
 		this.wildyCaveTable = options.wildyCaveTable;
+		this.wildyTable = options.wildyTable;
 		this.customKillLogic = options.customKillLogic;
 	}
 
@@ -55,7 +58,12 @@ export default class SimpleMonster extends Monster {
 		};
 
 		if (!canGetBrimKey && !wildySlayer && !options.inCatacombs && !options.onSlayerTask) {
-			this.table?.roll(quantity, lootTableOptions);
+			if (options.inWilderness && this.wildyTable) {
+				// Roll the monster's wilderness table instead of regular table
+				this.wildyTable.roll(quantity, lootTableOptions);
+			} else {
+				this.table?.roll(quantity, lootTableOptions);
+			}
 			if (this.customKillLogic) {
 				for (let i = 0; i < quantity; i++) {
 					this.customKillLogic(options, loot);
